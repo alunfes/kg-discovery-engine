@@ -65,22 +65,40 @@ class ScoredHypothesis:
         }
 
 
+# Relations considered functionally meaningful (raise plausibility when all
+# edges in the provenance path belong to this set).
+_STRONG_RELATIONS: frozenset[str] = frozenset({
+    "inhibits", "activates", "catalyzes", "produces", "encodes",
+    "accelerates", "yields", "facilitates",
+})
+
+
 def _score_plausibility(candidate: HypothesisCandidate, kg: KnowledgeGraph) -> float:
-    """Score based on provenance path length (shorter = more plausible)."""
-    # provenance format: [src, rel1, mid1, rel2, ..., tgt]
-    # node count = (len - 1) / 2 + 1  (edges interleaved)
+    """Score based on provenance path length and relation quality.
+
+    A bonus of +0.1 is applied when every edge in the path is a strong
+    (functionally meaningful) relation, rewarding mechanistic chains.
+    """
     path = candidate.provenance
-    # hops = number of edges in path
     hops = max(0, (len(path) - 1) // 2) if len(path) >= 3 else 0
     if hops == 0:
         return 0.3  # no provenance
+
     if hops == 1:
-        return 1.0
-    if hops == 2:
-        return 0.7
-    if hops == 3:
-        return 0.5
-    return 0.3
+        base = 1.0
+    elif hops == 2:
+        base = 0.7
+    elif hops == 3:
+        base = 0.5
+    else:
+        base = 0.3
+
+    # Bonus: all intermediate relations are strong/functional
+    relations = path[1::2]
+    if relations and all(r in _STRONG_RELATIONS for r in relations):
+        base = min(1.0, base + 0.1)
+
+    return base
 
 
 def _score_novelty(candidate: HypothesisCandidate, kg: KnowledgeGraph) -> float:

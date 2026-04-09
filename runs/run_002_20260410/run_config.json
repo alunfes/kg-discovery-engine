@@ -1,0 +1,31 @@
+{
+  "run_id": "run_002",
+  "date": "2026-04-10",
+  "based_on": "run_001_20260410",
+  "changes_from_run_001": {
+    "operators.py": [
+      "Added _split_camel(): CamelCase label splitting (EnzymeX → ['enzyme','x'])",
+      "Added _SYNONYM_DICT: cross-domain concept synonyms (enzyme↔catalyst, protein↔compound)",
+      "Replaced _jaccard(): synonym-bridge detection — returns 0.5 when any token has a direct synonym in the other label's token set",
+      "Updated _token_set(): now combines space-split tokens + camelCase-split tokens"
+    ],
+    "scorer.py": [
+      "Added _STRONG_RELATIONS: frozenset of functionally meaningful relation types",
+      "Updated _score_plausibility(): +0.1 bonus when all path relations are strong/functional",
+      "Note: _score_novelty cross-domain bonus was already present from run_001 — now actually triggers"
+    ]
+  },
+  "hypothesis_predictions": {
+    "H1": "C2 mean_total should increase vs run_001 due to cross-domain hypotheses scoring higher",
+    "H3": "cross-domain novelty should exceed same-domain novelty due to the +0.2 bonus now triggering"
+  },
+  "conditions": {
+    "C1": "compose-only on biology KG (unchanged)",
+    "C2": "align(bio,chem,threshold=0.4) → union → compose → difference → evaluate",
+    "C3": "placeholder (unchanged)"
+  },
+  "deterministic_seed": "no external randomness; BFS order is deterministic via list iteration",
+  "python_version": "3.13.3",
+  "test_count": 32,
+  "all_tests_pass": true
+}
