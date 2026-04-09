@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-import itertools
+import re
 from collections import deque
 from typing import Optional
 
@@ -11,19 +11,67 @@ from src.kg.models import HypothesisCandidate, KGEdge, KGNode, KnowledgeGraph
 # AlignmentMap: {node_id_in_kg1: node_id_in_kg2}
 AlignmentMap = dict[str, str]
 
+# Cross-domain synonym dictionary for analogical label matching.
+# Maps a concept token to semantically equivalent tokens in other domains.
+_SYNONYM_DICT: dict[str, frozenset[str]] = {
+    "enzyme": frozenset({"catalyst"}),
+    "catalyst": frozenset({"enzyme"}),
+    "protein": frozenset({"compound", "molecule"}),
+    "compound": frozenset({"protein", "molecule"}),
+    "molecule": frozenset({"protein", "compound"}),
+    "inhibit": frozenset({"block", "suppress"}),
+    "block": frozenset({"inhibit"}),
+    "suppress": frozenset({"inhibit"}),
+    "reaction": frozenset({"process"}),
+    "process": frozenset({"reaction"}),
+}
+
 
 # ---------------------------------------------------------------------------
 # String similarity helpers
 # ---------------------------------------------------------------------------
 
+def _split_camel(label: str) -> list[str]:
+    """Split a CamelCase label into lowercase tokens.
+
+    "EnzymeX" → ["enzyme", "x"]
+    "CatalystM" → ["catalyst", "m"]
+    """
+    parts = re.sub(r"([A-Z])", r" \1", label).strip().split()
+    return [p.lower() for p in parts if p.strip()]
+
+
 def _token_set(label: str) -> set[str]:
-    """Lowercase token set for Jaccard similarity."""
-    return set(label.lower().split())
+    """Produce a lowercase token set from a label.
+
+    Handles both space-separated and CamelCase labels.
+    """
+    space_tokens = {t.lower() for t in label.split() if t}
+    camel_tokens = set(_split_camel(label))
+    return space_tokens | camel_tokens
 
 
 def _jaccard(a: str, b: str) -> float:
-    """Jaccard similarity between two label strings."""
-    ta, tb = _token_set(a), _token_set(b)
+    """Jaccard similarity with cross-domain synonym bridge detection.
+
+    If any token in label_a is a direct synonym of any token in label_b
+    (or vice versa), a synonym-bridge score of 0.5 is returned.  This
+    ensures cross-domain analogues such as "enzyme"↔"catalyst" clear the
+    default threshold (0.4) regardless of identifier suffixes ("EnzymeX",
+    "CatalystM") that would otherwise dilute the Jaccard score.
+    """
+    ta = _token_set(a)
+    tb = _token_set(b)
+
+    # Synonym-bridge check: a token in ta has a direct synonym present in tb
+    for token in ta:
+        if _SYNONYM_DICT.get(token, frozenset()) & tb:
+            return 0.5
+    for token in tb:
+        if _SYNONYM_DICT.get(token, frozenset()) & ta:
+            return 0.5
+
+    # Standard token Jaccard (no synonym bridge)
     if not ta and not tb:
         return 1.0
     intersection = len(ta & tb)
@@ -32,7 +80,7 @@ def _jaccard(a: str, b: str) -> float:
 
 
 def _label_similarity(label_a: str, label_b: str) -> float:
-    """Combined similarity: exact match=1.0, Jaccard otherwise."""
+    """Combined similarity: exact match=1.0, synonym-aware Jaccard otherwise."""
     if label_a.lower() == label_b.lower():
         return 1.0
     return _jaccard(label_a, label_b)
