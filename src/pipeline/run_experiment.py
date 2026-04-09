@@ -25,9 +25,10 @@ from src.kg.toy_data import (
     build_bio_chem_bridge_kg,
     build_biology_kg,
     build_chemistry_kg,
+    build_mixed_hop_kg,
     build_noisy_kg,
 )
-from src.pipeline.operators import align, compose, difference, union
+from src.pipeline.operators import align, compose, compose_cross_domain, difference, union
 
 
 def run_condition_c1(seed_kg_name: str = "biology") -> list[ScoredHypothesis]:
@@ -305,6 +306,100 @@ def evaluate_h3(c2_results: list[ScoredHypothesis], merged_kg) -> dict:
     }
 
 
+# ---------------------------------------------------------------------------
+# Run 004 additions
+# ---------------------------------------------------------------------------
+
+def run_condition_c2_xdomain(
+    kg1_name: str = "biology",
+    kg2_name: str = "chemistry",
+) -> list[ScoredHypothesis]:
+    """C2-xdomain: multi-op pipeline keeping only cross-domain candidates (Run 004).
+
+    Same pipeline as C2 but compose_cross_domain() filters out same-domain
+    hypotheses, isolating the cross-domain contribution for H1 analysis.
+    """
+    from src.kg.toy_data import get_all_toy_kgs
+    kgs = get_all_toy_kgs()
+    kg1, kg2 = kgs[kg1_name], kgs[kg2_name]
+    alignment = align(kg1, kg2, threshold=0.4)
+    merged_kg = union(kg1, kg2, alignment, name=f"union_{kg1_name}_{kg2_name}")
+    counter: list[int] = [0]
+    candidates = compose_cross_domain(merged_kg, _counter=counter)
+    rubric = EvaluationRubric()
+    return evaluate(candidates, merged_kg, rubric)
+
+
+def run_h4_mixed_hop() -> dict:
+    """H4: provenance-aware evaluation on a KG with mixed 2-hop and 3-hop paths.
+
+    Uses build_mixed_hop_kg() which creates both short (2-hop same-domain)
+    and long (3-hop cross-domain) hypotheses.
+
+    Gold standard: shorter paths are preferable (hops ASC, then strong_count DESC).
+    This is distinct from the Run 003 gold standard which prioritised strong_count.
+
+    In naive mode, 3-hop cross-domain hypotheses outrank some 2-hop same-domain
+    hypotheses (evidence_support + novelty bonus > plausibility penalty).
+    In aware mode, the traceability penalty for 3-hop flips these to agree with gold.
+
+    H4 passes if spearman(aware_ranks, gold) > spearman(naive_ranks, gold).
+    """
+    from src.eval.scorer import _STRONG_RELATIONS  # noqa: PLC2701
+
+    kg = build_mixed_hop_kg()
+    candidates = compose(kg, max_depth=5)  # max_depth=5 needed for 3-hop paths
+
+    if not candidates:
+        return {"pass": False, "reason": "no candidates generated"}
+
+    naive_rubric = EvaluationRubric(provenance_aware=False)
+    aware_rubric = EvaluationRubric(provenance_aware=True)
+
+    naive_scored = evaluate(candidates, kg, naive_rubric)
+    aware_scored = evaluate(candidates, kg, aware_rubric)
+
+    def _gold_key(cand) -> tuple:
+        """Gold standard: prefer shorter paths, then more strong relations."""
+        path = cand.provenance
+        relations = path[1::2]
+        strong_count = sum(1 for r in relations if r in _STRONG_RELATIONS)
+        hops = _provenance_hop_count(cand)
+        return (hops, -strong_count)  # hops first: shorter = better
+
+    sorted_by_gold = sorted(candidates, key=_gold_key)
+    gold_rank = {c.id: i for i, c in enumerate(sorted_by_gold)}
+
+    cand_ids = [s.candidate.id for s in naive_scored]
+    naive_ranks = list(range(len(cand_ids)))
+    aware_id_to_rank = {s.candidate.id: i for i, s in enumerate(aware_scored)}
+    aware_ranks = [aware_id_to_rank[cid] for cid in cand_ids]
+    gold_ranks = [gold_rank[cid] for cid in cand_ids]
+
+    spearman_naive = round(_spearman_correlation(naive_ranks, gold_ranks), 4)
+    spearman_aware = round(_spearman_correlation(aware_ranks, gold_ranks), 4)
+
+    hop_dist = {}
+    for c in candidates:
+        h = _provenance_hop_count(c)
+        hop_dist[h] = hop_dist.get(h, 0) + 1
+
+    return {
+        "candidate_count": len(candidates),
+        "hop_distribution": hop_dist,
+        "naive_mean_traceability": round(
+            sum(s.traceability for s in naive_scored) / max(len(naive_scored), 1), 4
+        ),
+        "aware_mean_traceability": round(
+            sum(s.traceability for s in aware_scored) / max(len(aware_scored), 1), 4
+        ),
+        "spearman_naive": spearman_naive,
+        "spearman_aware": spearman_aware,
+        "gold_proxy": "hop_count_asc+strong_relation_count_desc",
+        "pass": spearman_aware > spearman_naive,
+    }
+
+
 def main() -> dict:
     """Run all conditions and return results dict."""
     from src.kg.toy_data import get_all_toy_kgs
@@ -314,6 +409,7 @@ def main() -> dict:
     c2 = run_condition_c2()
     c3 = run_condition_c3()
     c2_bridge = run_condition_c2_bridge()
+    c2_xdomain = run_condition_c2_xdomain()  # Run 004
 
     # Build merged KG for H3 domain lookup
     kgs = get_all_toy_kgs()
@@ -325,10 +421,12 @@ def main() -> dict:
     c1_summary = summarize(c1, "C1")
     c2_summary = summarize(c2, "C2")
     c2_bridge_summary = summarize(c2_bridge, "C2_bridge")
+    c2_xdomain_summary = summarize(c2_xdomain, "C2_xdomain")  # Run 004
 
     h3_result = evaluate_h3(c2, merged_kg)
     h2_result = run_h2_noise_robustness()
     h4_result = run_h4_provenance_aware()
+    h4_mixed_result = run_h4_mixed_hop()  # Run 004
 
     results = {
         "run_timestamp": datetime.now().isoformat(),
@@ -336,20 +434,23 @@ def main() -> dict:
             "C1_single_op_baseline": c1_summary,
             "C2_multi_op_pipeline": c2_summary,
             "C2_bridge_cross_domain": c2_bridge_summary,
+            "C2_xdomain_cross_only": c2_xdomain_summary,  # Run 004
             "C3_direct_baseline": summarize(c3, "C3"),
         },
         "h1_preliminary": {
             "c1_mean_total": c1_summary["mean_total"],
             "c2_mean_total": c2_summary["mean_total"],
             "c2_bridge_mean_total": c2_bridge_summary["mean_total"],
+            "c2_xdomain_mean_total": c2_xdomain_summary["mean_total"],  # Run 004
             "c2_better_than_c1": c2_summary["mean_total"] >= c1_summary["mean_total"] * 1.10,
-            "c2_bridge_better_than_c1": (
-                c2_bridge_summary["mean_total"] >= c1_summary["mean_total"] * 1.10
+            "c2_xdomain_better_than_c1": (  # Run 004 strict cross-domain test
+                c2_xdomain_summary["mean_total"] >= c1_summary["mean_total"] * 1.10
             ),
         },
         "h3_cross_domain_novelty": h3_result,
         "h2_noise_robustness": h2_result,
         "h4_provenance_aware": h4_result,
+        "h4_mixed_hop": h4_mixed_result,  # Run 004 — meaningful H4 test
     }
     return results
 

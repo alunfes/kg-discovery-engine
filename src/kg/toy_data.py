@@ -292,6 +292,53 @@ def build_noisy_kg(noise_rate: float = 0.30, seed: int = 42) -> KnowledgeGraph:
     return noisy
 
 
+def build_mixed_hop_kg() -> KnowledgeGraph:
+    """KG designed to produce both 2-hop and 3-hop hypotheses (Run 004).
+
+    Two-domain chain:
+      bio:A --inhibits--> bio:B --activates--> bio:C --catalyzes--> chem:X --accelerates--> chem:Y --yields--> chem:Z
+
+    compose(max_depth=5) generates:
+      - bio:A → bio:C  (2-hop same-domain,  all-strong)
+      - bio:B → chem:X (2-hop cross-domain, all-strong)
+      - bio:X → chem:Z (2-hop same-domain,  all-strong) [within chem]
+      - bio:A → chem:X (3-hop cross-domain, all-strong)
+      - bio:B → chem:Y (3-hop cross-domain, all-strong)
+
+    This lets naive scoring and provenance-aware scoring diverge:
+    - naive: traceability=0.7 for ALL provenance depths
+    - aware: traceability=0.7 for 2-hop, 0.5 for 3-hop
+    The 3-hop cross-domain hypotheses score HIGHER than some 2-hop in naive
+    mode (evidence_support+novelty bonus outweighs plausibility penalty),
+    but aware mode correctly demotes them by reducing traceability.
+    """
+    kg = KnowledgeGraph(name="mixed_hop")
+
+    nodes = [
+        KGNode("mhk:A", "NodeA", "bio"),
+        KGNode("mhk:B", "NodeB", "bio"),
+        KGNode("mhk:C", "NodeC", "bio"),
+        KGNode("mhk:X", "NodeX", "chem"),
+        KGNode("mhk:Y", "NodeY", "chem"),
+        KGNode("mhk:Z", "NodeZ", "chem"),
+    ]
+    for n in nodes:
+        kg.add_node(n)
+
+    # Strong-relation chain — all relations in _STRONG_RELATIONS
+    edges = [
+        KGEdge("mhk:A", "inhibits", "mhk:B"),
+        KGEdge("mhk:B", "activates", "mhk:C"),
+        KGEdge("mhk:C", "catalyzes", "mhk:X"),   # cross-domain bridge
+        KGEdge("mhk:X", "accelerates", "mhk:Y"),
+        KGEdge("mhk:Y", "yields", "mhk:Z"),
+    ]
+    for e in edges:
+        kg.add_edge(e)
+
+    return kg
+
+
 def get_all_toy_kgs() -> dict[str, KnowledgeGraph]:
     """Return all toy KGs keyed by domain name."""
     return {

@@ -296,6 +296,42 @@ def compose(
 
 
 # ---------------------------------------------------------------------------
+# Cross-domain compose variant (Run 004)
+# ---------------------------------------------------------------------------
+
+def compose_cross_domain(
+    kg: KnowledgeGraph,
+    max_depth: int = 3,
+    _counter: list[int] | None = None,
+) -> list[HypothesisCandidate]:
+    """Generate hypotheses restricted to cross-domain (subject.domain ≠ object.domain).
+
+    Wrapper around compose() that filters out same-domain candidates.
+    Useful for isolating the cross-domain contribution of the multi-op pipeline (H1 test).
+    """
+    all_candidates = compose(kg, max_depth=max_depth, _counter=_counter)
+    return [
+        c for c in all_candidates
+        if _is_cross_domain_candidate(c, kg)
+    ]
+
+
+def _is_cross_domain_candidate(
+    candidate: HypothesisCandidate,
+    kg: KnowledgeGraph,
+) -> bool:
+    """Return True if subject and object belong to different domains."""
+    src = kg.get_node(candidate.subject_id)
+    tgt = kg.get_node(candidate.object_id)
+    if src and tgt:
+        return src.domain != tgt.domain
+    # Fallback: parse domain from ID prefix
+    s_prefix = candidate.subject_id.split(":")[0] if ":" in candidate.subject_id else ""
+    t_prefix = candidate.object_id.split(":")[0] if ":" in candidate.object_id else ""
+    return bool(s_prefix) and bool(t_prefix) and s_prefix != t_prefix
+
+
+# ---------------------------------------------------------------------------
 # Placeholder operators
 # ---------------------------------------------------------------------------
 

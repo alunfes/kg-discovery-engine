@@ -1,0 +1,78 @@
+{
+  "generated": "2026-04-10",
+  "note": "Cross-run comparison. KG size changed between Run 002 and Run 003 — score comparisons across this boundary are not fully clean.",
+  "input_graphs": {
+    "run_001": {"biology_nodes": 8, "biology_edges": 8, "chemistry_nodes": 8, "chemistry_edges": 8, "bridge_kg": false, "noisy_kg": false},
+    "run_002": {"biology_nodes": 8, "biology_edges": 8, "chemistry_nodes": 8, "chemistry_edges": 8, "bridge_kg": false, "noisy_kg": false},
+    "run_003": {"biology_nodes": 12, "biology_edges": 14, "chemistry_nodes": 12, "chemistry_edges": 14, "bridge_kg": true, "noisy_kg": true}
+  },
+  "operators_used": {
+    "run_001": {"align": "plain_jaccard", "union": true, "difference": true, "compose": true},
+    "run_002": {"align": "synonym_aware_jaccard", "union": true, "difference": true, "compose": true, "improvements": ["camelcase_split", "synonym_dict", "strong_relation_bonus"]},
+    "run_003": {"align": "synonym_aware_jaccard", "union": true, "difference": true, "compose": true, "new_conditions": ["c2_bridge", "h2_noise", "h4_provenance_aware"]}
+  },
+  "conditions": {
+    "C1_single_op": {
+      "run_001": {"count": 8, "mean_total": 0.705, "mean_plausibility": 0.7, "mean_novelty": 0.8, "mean_traceability": 0.7},
+      "run_002": {"count": 8, "mean_total": 0.7237, "mean_plausibility": 0.7625, "mean_novelty": 0.8, "mean_traceability": 0.7},
+      "run_003": {"count": 15, "mean_total": 0.729, "mean_plausibility": 0.78, "mean_novelty": 0.8, "mean_traceability": 0.7}
+    },
+    "C2_multi_op": {
+      "run_001": {"count": 23, "mean_total": 0.705, "mean_plausibility": 0.7, "mean_novelty": 0.8, "mean_traceability": 0.7, "cross_domain_count": 0},
+      "run_002": {"count": 16, "mean_total": 0.7475, "mean_plausibility": 0.7687, "mean_novelty": 0.8875, "mean_traceability": 0.7, "cross_domain_count": 7},
+      "run_003": {"count": 33, "mean_total": 0.7508, "mean_plausibility": 0.7818, "mean_novelty": 0.8848, "mean_traceability": 0.7, "cross_domain_count": 14}
+    },
+    "C2_bridge": {
+      "run_001": null,
+      "run_002": null,
+      "run_003": {"count": 39, "mean_total": 0.745, "mean_novelty": 0.8923, "mean_traceability": 0.7}
+    },
+    "C3_placeholder": {
+      "run_001": {"count": 0},
+      "run_002": {"count": 0},
+      "run_003": {"count": 0}
+    }
+  },
+  "h1_gap": {
+    "run_001": {"c2_vs_c1_pct": 0.0, "pass": false},
+    "run_002": {"c2_vs_c1_pct": 3.3, "pass": false},
+    "run_003": {"c2_vs_c1_pct": 3.0, "pass": false, "c2_bridge_vs_c1_pct": 2.2}
+  },
+  "h2_noise_robustness": {
+    "run_001": null,
+    "run_002": null,
+    "run_003": {
+      "clean_mean": 0.729, "noise_30pct_mean": 0.73, "noise_50pct_mean": 0.7275,
+      "max_degradation_pct": 0.21, "threshold_pct": 20.0, "pass": true,
+      "caveat": "Candidate count dropped 15->4 at 50% noise; survivor selection may explain stability"
+    }
+  },
+  "h3_cross_domain_novelty": {
+    "run_001": {"method": "condition_level", "ratio": 1.0, "pass": false},
+    "run_002": {"method": "condition_level", "ratio": 1.109, "pass": false},
+    "run_003": {
+      "method": "hypothesis_level",
+      "cross_novelty": 1.0, "same_novelty": 0.8, "ratio": 1.25,
+      "threshold": 1.2, "pass": true,
+      "caveat": "H3 PASS is partially tautological — cross-domain +0.2 bonus is hardcoded in scorer"
+    }
+  },
+  "h4_provenance_aware": {
+    "run_001": null,
+    "run_002": null,
+    "run_003": {
+      "spearman_naive": 0.9893, "spearman_aware": 0.9893, "pass": false,
+      "reason": "All hypotheses are 2-hop; naive and aware assign identical traceability=0.7"
+    }
+  },
+  "alignment_quality": {
+    "run_001": {"bio_chem_matches": 0},
+    "run_002": {"bio_chem_matches": 4, "pairs": ["enzyme_X<->catalyst_M", "enzyme_Y<->catalyst_N", "protein_A<->compound_P", "protein_B<->compound_Q"]},
+    "run_003": {"bio_chem_matches": 4, "pairs": ["enzyme_X<->catalyst_M", "enzyme_Y<->catalyst_N", "protein_A<->compound_P", "protein_B<->compound_Q"]}
+  },
+  "test_suite": {
+    "run_001": {"count": 28, "pass": 28},
+    "run_002": {"count": 32, "pass": 32},
+    "run_003": {"count": 52, "pass": 52}
+  }
+}

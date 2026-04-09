@@ -1,0 +1,36 @@
+{
+  "run_id": "run_004",
+  "date": "2026-04-10",
+  "based_on": "Run 003 (claude/frosty-booth) + stoic-diffie audit",
+  "experiment_focus": "H4 verification with mixed-hop KG + H1 cross-domain isolation",
+  "seed": 42,
+  "new_code": [
+    "src/kg/toy_data.py: build_mixed_hop_kg() — 6-node 2-domain chain (bio:A→B→C→chem:X→Y→Z)",
+    "src/pipeline/operators.py: compose_cross_domain() — compose filtered to cross-domain hypotheses",
+    "src/pipeline/run_experiment.py: run_condition_c2_xdomain() — multi-op, cross-domain candidates only",
+    "src/pipeline/run_experiment.py: run_h4_mixed_hop() — H4 test on mixed-hop KG (max_depth=5)"
+  ],
+  "conditions": {
+    "C1": "compose-only on biology KG (unchanged)",
+    "C2": "align→union→compose→difference bio+chem (unchanged)",
+    "C2_bridge": "compose on bio_chem_bridge_kg (unchanged)",
+    "C2_xdomain": "align→union→compose_cross_domain bio+chem (new in Run 004)",
+    "C3": "placeholder (empty)"
+  },
+  "hypothesis_tests": {
+    "H1": "C2 vs C1 mean_total (≥10% threshold) + C2_xdomain vs C1 (strict cross-domain test)",
+    "H2": "Noisy KG robustness (<20% degradation) — repeated from Run 003",
+    "H3": "Hypothesis-level cross vs same novelty (ratio ≥1.20) — repeated from Run 003",
+    "H4_original": "Provenance-aware on biology KG (all-2hop, expected FAIL — used as control)",
+    "H4_mixed_hop": "Provenance-aware on mixed_hop_kg (2-hop+3-hop, gold: hop_count_asc+strong_count_desc)"
+  },
+  "gold_standard_change": {
+    "h4_original": "(-strong_count, hops) — unchanged from Run 003",
+    "h4_mixed_hop": "(hops, -strong_count) — NEW: shorter paths preferred first"
+  },
+  "key_design_decisions": {
+    "max_depth_h4_mixed": 5,
+    "reason": "Default max_depth=3 generates only 2-hop hypotheses. max_depth=5 is needed to reach 3-hop paths in the 6-node chain.",
+    "mixed_hop_kg_chain": "mhk:A(bio)→inhibits→mhk:B(bio)→activates→mhk:C(bio)→catalyzes→mhk:X(chem)→accelerates→mhk:Y(chem)→yields→mhk:Z(chem)"
+  }
+}
