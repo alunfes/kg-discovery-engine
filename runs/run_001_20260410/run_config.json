@@ -1,0 +1,35 @@
+{
+  "run_id": "run_001",
+  "date": "2026-04-10",
+  "description": "初回実験：biology + chemistry トイデータで全条件比較",
+  "conditions": {
+    "C1": {
+      "type": "single_op_baseline",
+      "operator": "compose",
+      "input_kg": "biology"
+    },
+    "C2": {
+      "type": "multi_op_pipeline",
+      "operators": ["align", "union", "compose", "difference", "evaluate"],
+      "input_kgs": ["biology", "chemistry"],
+      "align_threshold": 0.4
+    },
+    "C3": {
+      "type": "direct_baseline_placeholder",
+      "status": "not_implemented"
+    }
+  },
+  "rubric": {
+    "weights": {
+      "plausibility": 0.30,
+      "novelty": 0.25,
+      "testability": 0.20,
+      "traceability": 0.15,
+      "evidence_support": 0.10
+    },
+    "provenance_aware": false
+  },
+  "seed": "deterministic (no randomness)",
+  "python_version": "3.13.3",
+  "hypotheses_tested": ["H1_preliminary", "H3_preview"]
+}

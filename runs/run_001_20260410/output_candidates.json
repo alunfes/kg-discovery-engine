@@ -1,0 +1,279 @@
+{
+  "run_timestamp": "2026-04-10T07:28:47.866935",
+  "conditions": {
+    "C1_single_op_baseline": {
+      "condition": "C1",
+      "count": 8,
+      "mean_total": 0.705,
+      "mean_plausibility": 0.7,
+      "mean_novelty": 0.8,
+      "mean_testability": 0.6,
+      "mean_traceability": 0.7,
+      "top5": [
+        {
+          "id": "H0001",
+          "subject_id": "bio:protein_A",
+          "relation": "transitively_related_to",
+          "object_id": "bio:reaction_1",
+          "description": "ProteinA may transitively_related_to Reaction1 via path: bio:protein_A -> inhibits -> bio:enzyme_X -> catalyzes -> bio:reaction_1",
+          "operator": "compose",
+          "source_kg_name": "biology",
+          "provenance": [
+            "bio:protein_A",
+            "inhibits",
+            "bio:enzyme_X",
+            "catalyzes",
+            "bio:reaction_1"
+          ],
+          "scores": {
+            "plausibility": 0.7,
+            "novelty": 0.8,
+            "testability": 0.6,
+            "traceability": 0.7,
+            "evidence_support": 0.7,
+            "total": 0.705
+          }
+        },
+        {
+          "id": "H0002",
+          "subject_id": "bio:protein_A",
+          "relation": "transitively_related_to",
+          "object_id": "bio:enzyme_Y",
+          "description": "ProteinA may transitively_related_to EnzymeY via path: bio:protein_A -> binds_to -> bio:cell_membrane -> contains -> bio:enzyme_Y",
+          "operator": "compose",
+          "source_kg_name": "biology",
+          "provenance": [
+            "bio:protein_A",
+            "binds_to",
+            "bio:cell_membrane",
+            "contains",
+            "bio:enzyme_Y"
+          ],
+          "scores": {
+            "plausibility": 0.7,
+            "novelty": 0.8,
+            "testability": 0.6,
+            "traceability": 0.7,
+            "evidence_support": 0.7,
+            "total": 0.705
+          }
+        },
+        {
+          "id": "H0003",
+          "subject_id": "bio:protein_B",
+          "relation": "transitively_related_to",
+          "object_id": "bio:reaction_1",
+          "description": "ProteinB may transitively_related_to Reaction1 via path: bio:protein_B -> activates -> bio:enzyme_X -> catalyzes -> bio:reaction_1",
+          "operator": "compose",
+          "source_kg_name": "biology",
+          "provenance": [
+            "bio:protein_B",
+            "activates",
+            "bio:enzyme_X",
+            "catalyzes",
+            "bio:reaction_1"
+          ],
+          "scores": {
+            "plausibility": 0.7,
+            "novelty": 0.8,
+            "testability": 0.6,
+            "traceability": 0.7,
+            "evidence_support": 0.7,
+            "total": 0.705
+          }
+        },
+        {
+          "id": "H0004",
+          "subject_id": "bio:enzyme_X",
+          "relation": "transitively_related_to",
+          "object_id": "bio:protein_B",
+          "description": "EnzymeX may transitively_related_to ProteinB via path: bio:enzyme_X -> catalyzes -> bio:reaction_1 -> produces -> bio:protein_B",
+          "operator": "compose",
+          "source_kg_name": "biology",
+          "provenance": [
+            "bio:enzyme_X",
+            "catalyzes",
+            "bio:reaction_1",
+            "produces",
+            "bio:protein_B"
+          ],
+          "scores": {
+            "plausibility": 0.7,
+            "novelty": 0.8,
+            "testability": 0.6,
+            "traceability": 0.7,
+            "evidence_support": 0.7,
+            "total": 0.705
+          }
+        },
+        {
+          "id": "H0005",
+          "subject_id": "bio:reaction_1",
+          "relation": "transitively_related_to",
+          "object_id": "bio:enzyme_X",
+          "description": "Reaction1 may transitively_related_to EnzymeX via path: bio:reaction_1 -> produces -> bio:protein_B -> activates -> bio:enzyme_X",
+          "operator": "compose",
+          "source_kg_name": "biology",
+          "provenance": [
+            "bio:reaction_1",
+            "produces",
+            "bio:protein_B",
+            "activates",
+            "bio:enzyme_X"
+          ],
+          "scores": {
+            "plausibility": 0.7,
+            "novelty": 0.8,
+            "testability": 0.6,
+            "traceability": 0.7,
+            "evidence_support": 0.7,
+            "total": 0.705
+          }
+        }
+      ]
+    },
+    "C2_multi_op_pipeline": {
+      "condition": "C2",
+      "count": 23,
+      "mean_total": 0.705,
+      "mean_plausibility": 0.7,
+      "mean_novelty": 0.8,
+      "mean_testability": 0.6,
+      "mean_traceability": 0.7,
+      "top5": [
+        {
+          "id": "H0001",
+          "subject_id": "bio:protein_A",
+          "relation": "transitively_related_to",
+          "object_id": "bio:reaction_1",
+          "description": "ProteinA may transitively_related_to Reaction1 via path: bio:protein_A -> inhibits -> bio:enzyme_X -> catalyzes -> bio:reaction_1",
+          "operator": "compose",
+          "source_kg_name": "union_biology_chemistry",
+          "provenance": [
+            "bio:protein_A",
+            "inhibits",
+            "bio:enzyme_X",
+            "catalyzes",
+            "bio:reaction_1"
+          ],
+          "scores": {
+            "plausibility": 0.7,
+            "novelty": 0.8,
+            "testability": 0.6,
+            "traceability": 0.7,
+            "evidence_support": 0.7,
+            "total": 0.705
+          }
+        },
+        {
+          "id": "H0002",
+          "subject_id": "bio:protein_A",
+          "relation": "transitively_related_to",
+          "object_id": "bio:enzyme_Y",
+          "description": "ProteinA may transitively_related_to EnzymeY via path: bio:protein_A -> binds_to -> bio:cell_membrane -> contains -> bio:enzyme_Y",
+          "operator": "compose",
+          "source_kg_name": "union_biology_chemistry",
+          "provenance": [
+            "bio:protein_A",
+            "binds_to",
+            "bio:cell_membrane",
+            "contains",
+            "bio:enzyme_Y"
+          ],
+          "scores": {
+            "plausibility": 0.7,
+            "novelty": 0.8,
+            "testability": 0.6,
+            "traceability": 0.7,
+            "evidence_support": 0.7,
+            "total": 0.705
+          }
+        },
+        {
+          "id": "H0003",
+          "subject_id": "bio:protein_B",
+          "relation": "transitively_related_to",
+          "object_id": "bio:reaction_1",
+          "description": "ProteinB may transitively_related_to Reaction1 via path: bio:protein_B -> activates -> bio:enzyme_X -> catalyzes -> bio:reaction_1",
+          "operator": "compose",
+          "source_kg_name": "union_biology_chemistry",
+          "provenance": [
+            "bio:protein_B",
+            "activates",
+            "bio:enzyme_X",
+            "catalyzes",
+            "bio:reaction_1"
+          ],
+          "scores": {
+            "plausibility": 0.7,
+            "novelty": 0.8,
+            "testability": 0.6,
+            "traceability": 0.7,
+            "evidence_support": 0.7,
+            "total": 0.705
+          }
+        },
+        {
+          "id": "H0004",
+          "subject_id": "bio:enzyme_X",
+          "relation": "transitively_related_to",
+          "object_id": "bio:protein_B",
+          "description": "EnzymeX may transitively_related_to ProteinB via path: bio:enzyme_X -> catalyzes -> bio:reaction_1 -> produces -> bio:protein_B",
+          "operator": "compose",
+          "source_kg_name": "union_biology_chemistry",
+          "provenance": [
+            "bio:enzyme_X",
+            "catalyzes",
+            "bio:reaction_1",
+            "produces",
+            "bio:protein_B"
+          ],
+          "scores": {
+            "plausibility": 0.7,
+            "novelty": 0.8,
+            "testability": 0.6,
+            "traceability": 0.7,
+            "evidence_support": 0.7,
+            "total": 0.705
+          }
+        },
+        {
+          "id": "H0005",
+          "subject_id": "bio:reaction_1",
+          "relation": "transitively_related_to",
+          "object_id": "bio:enzyme_X",
+          "description": "Reaction1 may transitively_related_to EnzymeX via path: bio:reaction_1 -> produces -> bio:protein_B -> activates -> bio:enzyme_X",
+          "operator": "compose",
+          "source_kg_name": "union_biology_chemistry",
+          "provenance": [
+            "bio:reaction_1",
+            "produces",
+            "bio:protein_B",
+            "activates",
+            "bio:enzyme_X"
+          ],
+          "scores": {
+            "plausibility": 0.7,
+            "novelty": 0.8,
+            "testability": 0.6,
+            "traceability": 0.7,
+            "evidence_support": 0.7,
+            "total": 0.705
+          }
+        }
+      ]
+    },
+    "C3_direct_baseline": {
+      "condition": "C3",
+      "count": 0,
+      "mean_total": 0.0,
+      "mean_plausibility": 0.0,
+      "mean_novelty": 0.0
+    }
+  },
+  "h1_preliminary": {
+    "c1_mean_total": 0.705,
+    "c2_mean_total": 0.705,
+    "c2_better_than_c1": false
+  }
+}
