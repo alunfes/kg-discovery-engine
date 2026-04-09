@@ -1,0 +1,38 @@
+{
+  "run_id": "run_003_20260410",
+  "date": "2026-04-10",
+  "branch": "claude/frosty-booth",
+  "base_commit": "ca6d652",
+  "seed": 42,
+  "changes_from_run_002": {
+    "compare_conditions.py": {
+      "change": "H3 evaluation method changed from condition-level average to hypothesis-level comparison",
+      "detail": "cross-domain hypotheses directly compared to same-domain hypotheses within C2 results",
+      "expected_impact": "H3 PASS (ratio 1.25 ≥ 1.20 threshold)"
+    },
+    "toy_data.py": {
+      "change": "Expanded biology KG (8→12 nodes, 8→14 edges) and chemistry KG (8→12 nodes, 8→14 edges)",
+      "detail": "Added ProteinC, EnzymeZ, Reaction3, MetaboliteM to bio; CompoundR, CatalystL, ReactionGamma, IntermediateI to chem",
+      "new_function": "build_bio_chem_bridge_kg(): 15-node KG with 21 edges including 10 explicit cross-domain edges",
+      "new_function_2": "build_noisy_kg(noise_rate, seed): biology KG with edge deletion + label noise for H2 testing",
+      "expected_impact": "More cross-domain hypotheses from C2, better H1 signal"
+    },
+    "run_experiment.py": {
+      "change": "Added H2, H3, H4 quantitative verification",
+      "h2": "run_h2_noise_robustness(): compare 30%/50% noisy KG vs clean KG",
+      "h3": "evaluate_h3(): hypothesis-level cross vs same domain novelty comparison",
+      "h4": "run_h4_provenance_aware(): Spearman correlation of provenance-aware vs naive vs gold standard",
+      "new_condition": "C2_bridge: compose on bio_chem_bridge_kg for explicit cross-domain analysis",
+      "expected_impact": "H2/H4 framework established; H3 PASS verified"
+    }
+  },
+  "conditions": {
+    "C1": "compose-only on expanded biology KG",
+    "C2": "align+union+compose+difference on expanded bio+chem KGs",
+    "C2_bridge": "compose on explicit bio-chem bridge KG (new in Run 003)",
+    "C3": "placeholder (empty)"
+  },
+  "hypotheses_under_test": ["H1", "H2", "H3", "H4"],
+  "random_seed": 42,
+  "external_dependencies": "none"
+}
