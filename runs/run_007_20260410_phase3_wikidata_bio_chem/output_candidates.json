@@ -1,0 +1,626 @@
+[
+  {
+    "id": "H0001",
+    "subject_id": "bio:TP53",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CDK2",
+    "description": "tumor protein p53 may transitively_related_to cyclin-dependent kinase 2 via path: bio:TP53 -> activates -> bio:CDKN1A -> inhibits -> bio:CDK2",
+    "operator": "compose",
+    "source_kg_name": "cond_A_bio_only",
+    "provenance": [
+      "bio:TP53",
+      "activates",
+      "bio:CDKN1A",
+      "inhibits",
+      "bio:CDK2"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "condition": "A_bio_only",
+    "pipeline": "single_op"
+  },
+  {
+    "id": "H0002",
+    "subject_id": "bio:TP53",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CASP3",
+    "description": "tumor protein p53 may transitively_related_to caspase 3 via path: bio:TP53 -> activates -> bio:BAX -> activates -> bio:CASP3",
+    "operator": "compose",
+    "source_kg_name": "cond_A_bio_only",
+    "provenance": [
+      "bio:TP53",
+      "activates",
+      "bio:BAX",
+      "activates",
+      "bio:CASP3"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "condition": "A_bio_only",
+    "pipeline": "single_op"
+  },
+  {
+    "id": "H0003",
+    "subject_id": "bio:TP53",
+    "relation": "transitively_related_to",
+    "object_id": "bio:lactate",
+    "description": "tumor protein p53 may transitively_related_to lactic acid via path: bio:TP53 -> activates -> bio:LDHA -> produces -> bio:lactate",
+    "operator": "compose",
+    "source_kg_name": "cond_A_bio_only",
+    "provenance": [
+      "bio:TP53",
+      "activates",
+      "bio:LDHA",
+      "produces",
+      "bio:lactate"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "condition": "A_bio_only",
+    "pipeline": "single_op"
+  },
+  {
+    "id": "H0001",
+    "subject_id": "bio:TP53",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CDK2",
+    "description": "tumor protein p53 may transitively_related_to cyclin-dependent kinase 2 via path: bio:TP53 -> activates -> bio:CDKN1A -> inhibits -> bio:CDK2",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_A_chem_sub_A",
+    "provenance": [
+      "bio:TP53",
+      "activates",
+      "bio:CDKN1A",
+      "inhibits",
+      "bio:CDK2"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "condition": "A_bio_only",
+    "pipeline": "multi_op"
+  },
+  {
+    "id": "H0002",
+    "subject_id": "bio:TP53",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CASP3",
+    "description": "tumor protein p53 may transitively_related_to caspase 3 via path: bio:TP53 -> activates -> bio:BAX -> activates -> bio:CASP3",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_A_chem_sub_A",
+    "provenance": [
+      "bio:TP53",
+      "activates",
+      "bio:BAX",
+      "activates",
+      "bio:CASP3"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "condition": "A_bio_only",
+    "pipeline": "multi_op"
+  },
+  {
+    "id": "H0003",
+    "subject_id": "bio:TP53",
+    "relation": "transitively_related_to",
+    "object_id": "bio:lactate",
+    "description": "tumor protein p53 may transitively_related_to lactic acid via path: bio:TP53 -> activates -> bio:LDHA -> produces -> bio:lactate",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_A_chem_sub_A",
+    "provenance": [
+      "bio:TP53",
+      "activates",
+      "bio:LDHA",
+      "produces",
+      "bio:lactate"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "condition": "A_bio_only",
+    "pipeline": "multi_op"
+  },
+  {
+    "id": "H0001",
+    "subject_id": "chem:complex_I",
+    "relation": "transitively_related_to",
+    "object_id": "chem:ATP",
+    "description": "NADH ubiquinone oxidoreductase may transitively_related_to adenosine triphosphate via path: chem:complex_I -> activates -> chem:ATP_synthase -> produces -> chem:ATP",
+    "operator": "compose",
+    "source_kg_name": "cond_B_chem_only",
+    "provenance": [
+      "chem:complex_I",
+      "activates",
+      "chem:ATP_synthase",
+      "produces",
+      "chem:ATP"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "condition": "B_chem_only",
+    "pipeline": "single_op"
+  },
+  {
+    "id": "H0003",
+    "subject_id": "chem:complex_II",
+    "relation": "transitively_related_to",
+    "object_id": "chem:ATP",
+    "description": "succinate ubiquinone oxidoreductase may transitively_related_to adenosine triphosphate via path: chem:complex_II -> activates -> chem:ATP_synthase -> produces -> chem:ATP",
+    "operator": "compose",
+    "source_kg_name": "cond_B_chem_only",
+    "provenance": [
+      "chem:complex_II",
+      "activates",
+      "chem:ATP_synthase",
+      "produces",
+      "chem:ATP"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "condition": "B_chem_only",
+    "pipeline": "single_op"
+  },
+  {
+    "id": "H0002",
+    "subject_id": "chem:complex_I",
+    "relation": "transitively_related_to",
+    "object_id": "chem:ADP",
+    "description": "NADH ubiquinone oxidoreductase may transitively_related_to adenosine diphosphate via path: chem:complex_I -> activates -> chem:ATP_synthase -> uses -> chem:ADP",
+    "operator": "compose",
+    "source_kg_name": "cond_B_chem_only",
+    "provenance": [
+      "chem:complex_I",
+      "activates",
+      "chem:ATP_synthase",
+      "uses",
+      "chem:ADP"
+    ],
+    "scores": {
+      "plausibility": 0.7,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.705
+    },
+    "condition": "B_chem_only",
+    "pipeline": "single_op"
+  },
+  {
+    "id": "H0001",
+    "subject_id": "chem_sub_B::chem:complex_I",
+    "relation": "transitively_related_to",
+    "object_id": "chem_sub_B::chem:ATP",
+    "description": "NADH ubiquinone oxidoreductase may transitively_related_to adenosine triphosphate via path: chem_sub_B::chem:complex_I -> activates -> chem_sub_B::chem:ATP_synthase -> produces -> chem_sub_B::chem:ATP",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_B_chem_sub_B",
+    "provenance": [
+      "chem_sub_B::chem:complex_I",
+      "activates",
+      "chem_sub_B::chem:ATP_synthase",
+      "produces",
+      "chem_sub_B::chem:ATP"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "condition": "B_chem_only",
+    "pipeline": "multi_op"
+  },
+  {
+    "id": "H0003",
+    "subject_id": "chem_sub_B::chem:complex_II",
+    "relation": "transitively_related_to",
+    "object_id": "chem_sub_B::chem:ATP",
+    "description": "succinate ubiquinone oxidoreductase may transitively_related_to adenosine triphosphate via path: chem_sub_B::chem:complex_II -> activates -> chem_sub_B::chem:ATP_synthase -> produces -> chem_sub_B::chem:ATP",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_B_chem_sub_B",
+    "provenance": [
+      "chem_sub_B::chem:complex_II",
+      "activates",
+      "chem_sub_B::chem:ATP_synthase",
+      "produces",
+      "chem_sub_B::chem:ATP"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "condition": "B_chem_only",
+    "pipeline": "multi_op"
+  },
+  {
+    "id": "H0002",
+    "subject_id": "chem_sub_B::chem:complex_I",
+    "relation": "transitively_related_to",
+    "object_id": "chem_sub_B::chem:ADP",
+    "description": "NADH ubiquinone oxidoreductase may transitively_related_to adenosine diphosphate via path: chem_sub_B::chem:complex_I -> activates -> chem_sub_B::chem:ATP_synthase -> uses -> chem_sub_B::chem:ADP",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_B_chem_sub_B",
+    "provenance": [
+      "chem_sub_B::chem:complex_I",
+      "activates",
+      "chem_sub_B::chem:ATP_synthase",
+      "uses",
+      "chem_sub_B::chem:ADP"
+    ],
+    "scores": {
+      "plausibility": 0.7,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.705
+    },
+    "condition": "B_chem_only",
+    "pipeline": "multi_op"
+  },
+  {
+    "id": "H0001",
+    "subject_id": "bio:TP53",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CDK2",
+    "description": "tumor protein p53 may transitively_related_to cyclin-dependent kinase 2 via path: bio:TP53 -> activates -> bio:CDKN1A -> inhibits -> bio:CDK2",
+    "operator": "compose",
+    "source_kg_name": "cond_C_sparse_bridge",
+    "provenance": [
+      "bio:TP53",
+      "activates",
+      "bio:CDKN1A",
+      "inhibits",
+      "bio:CDK2"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "condition": "C_sparse_bridge",
+    "pipeline": "single_op"
+  },
+  {
+    "id": "H0002",
+    "subject_id": "bio:TP53",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CASP3",
+    "description": "tumor protein p53 may transitively_related_to caspase 3 via path: bio:TP53 -> activates -> bio:BAX -> activates -> bio:CASP3",
+    "operator": "compose",
+    "source_kg_name": "cond_C_sparse_bridge",
+    "provenance": [
+      "bio:TP53",
+      "activates",
+      "bio:BAX",
+      "activates",
+      "bio:CASP3"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "condition": "C_sparse_bridge",
+    "pipeline": "single_op"
+  },
+  {
+    "id": "H0003",
+    "subject_id": "bio:TP53",
+    "relation": "transitively_related_to",
+    "object_id": "bio:lactate",
+    "description": "tumor protein p53 may transitively_related_to lactic acid via path: bio:TP53 -> activates -> bio:LDHA -> produces -> bio:lactate",
+    "operator": "compose",
+    "source_kg_name": "cond_C_sparse_bridge",
+    "provenance": [
+      "bio:TP53",
+      "activates",
+      "bio:LDHA",
+      "produces",
+      "bio:lactate"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "condition": "C_sparse_bridge",
+    "pipeline": "single_op"
+  },
+  {
+    "id": "H0001",
+    "subject_id": "bio:TP53",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CDK2",
+    "description": "tumor protein p53 may transitively_related_to cyclin-dependent kinase 2 via path: bio:TP53 -> activates -> bio:CDKN1A -> inhibits -> bio:CDK2",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_C_chem_sub_C",
+    "provenance": [
+      "bio:TP53",
+      "activates",
+      "bio:CDKN1A",
+      "inhibits",
+      "bio:CDK2"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "condition": "C_sparse_bridge",
+    "pipeline": "multi_op"
+  },
+  {
+    "id": "H0002",
+    "subject_id": "bio:TP53",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CASP3",
+    "description": "tumor protein p53 may transitively_related_to caspase 3 via path: bio:TP53 -> activates -> bio:BAX -> activates -> bio:CASP3",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_C_chem_sub_C",
+    "provenance": [
+      "bio:TP53",
+      "activates",
+      "bio:BAX",
+      "activates",
+      "bio:CASP3"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "condition": "C_sparse_bridge",
+    "pipeline": "multi_op"
+  },
+  {
+    "id": "H0003",
+    "subject_id": "bio:TP53",
+    "relation": "transitively_related_to",
+    "object_id": "bio:lactate",
+    "description": "tumor protein p53 may transitively_related_to lactic acid via path: bio:TP53 -> activates -> bio:LDHA -> produces -> bio:lactate",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_C_chem_sub_C",
+    "provenance": [
+      "bio:TP53",
+      "activates",
+      "bio:LDHA",
+      "produces",
+      "bio:lactate"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "condition": "C_sparse_bridge",
+    "pipeline": "multi_op"
+  },
+  {
+    "id": "H0001",
+    "subject_id": "bio:TP53",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CDK2",
+    "description": "tumor protein p53 may transitively_related_to cyclin-dependent kinase 2 via path: bio:TP53 -> activates -> bio:CDKN1A -> inhibits -> bio:CDK2",
+    "operator": "compose",
+    "source_kg_name": "cond_D_dense_bridge",
+    "provenance": [
+      "bio:TP53",
+      "activates",
+      "bio:CDKN1A",
+      "inhibits",
+      "bio:CDK2"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "condition": "D_dense_bridge",
+    "pipeline": "single_op"
+  },
+  {
+    "id": "H0002",
+    "subject_id": "bio:TP53",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CASP3",
+    "description": "tumor protein p53 may transitively_related_to caspase 3 via path: bio:TP53 -> activates -> bio:BAX -> activates -> bio:CASP3",
+    "operator": "compose",
+    "source_kg_name": "cond_D_dense_bridge",
+    "provenance": [
+      "bio:TP53",
+      "activates",
+      "bio:BAX",
+      "activates",
+      "bio:CASP3"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "condition": "D_dense_bridge",
+    "pipeline": "single_op"
+  },
+  {
+    "id": "H0004",
+    "subject_id": "bio:TP53",
+    "relation": "transitively_related_to",
+    "object_id": "bio:lactate",
+    "description": "tumor protein p53 may transitively_related_to lactic acid via path: bio:TP53 -> activates -> bio:LDHA -> produces -> bio:lactate",
+    "operator": "compose",
+    "source_kg_name": "cond_D_dense_bridge",
+    "provenance": [
+      "bio:TP53",
+      "activates",
+      "bio:LDHA",
+      "produces",
+      "bio:lactate"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "condition": "D_dense_bridge",
+    "pipeline": "single_op"
+  },
+  {
+    "id": "H0001",
+    "subject_id": "bio:TP53",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CDK2",
+    "description": "tumor protein p53 may transitively_related_to cyclin-dependent kinase 2 via path: bio:TP53 -> activates -> bio:CDKN1A -> inhibits -> bio:CDK2",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_D_chem_sub_D",
+    "provenance": [
+      "bio:TP53",
+      "activates",
+      "bio:CDKN1A",
+      "inhibits",
+      "bio:CDK2"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "condition": "D_dense_bridge",
+    "pipeline": "multi_op"
+  },
+  {
+    "id": "H0002",
+    "subject_id": "bio:TP53",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CASP3",
+    "description": "tumor protein p53 may transitively_related_to caspase 3 via path: bio:TP53 -> activates -> bio:BAX -> activates -> bio:CASP3",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_D_chem_sub_D",
+    "provenance": [
+      "bio:TP53",
+      "activates",
+      "bio:BAX",
+      "activates",
+      "bio:CASP3"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "condition": "D_dense_bridge",
+    "pipeline": "multi_op"
+  },
+  {
+    "id": "H0003",
+    "subject_id": "bio:TP53",
+    "relation": "transitively_related_to",
+    "object_id": "bio:lactate",
+    "description": "tumor protein p53 may transitively_related_to lactic acid via path: bio:TP53 -> activates -> bio:LDHA -> produces -> bio:lactate",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_D_chem_sub_D",
+    "provenance": [
+      "bio:TP53",
+      "activates",
+      "bio:LDHA",
+      "produces",
+      "bio:lactate"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "condition": "D_dense_bridge",
+    "pipeline": "multi_op"
+  }
+]
