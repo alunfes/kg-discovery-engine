@@ -1,0 +1,126 @@
+% ============================================================
+% KG Discovery Engine — Paper Manuscript
+% Alignment-Driven Cross-Domain Hypothesis Generation in Knowledge Graphs
+%
+% Compile: pdflatex main.tex
+% Required packages: graphicx, booktabs, hyperref, amsmath, microtype,
+%                    geometry, enumitem, xcolor, tabularx
+% ============================================================
+\documentclass[11pt,a4paper]{article}
+
+% Core packages
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{url}
+\usepackage{natbib}
+
+% Hyperref setup
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!70!black,
+  citecolor=green!50!black,
+  urlcolor=blue!70!black,
+}
+
+% Figure path
+\graphicspath{{figures/}}
+
+% ============================================================
+% Title and authors
+% ============================================================
+\title{Alignment-Driven Cross-Domain Hypothesis Generation\\
+       in Knowledge Graphs}
+
+\author{[Author Placeholder]\\
+        [Institution Placeholder]\\
+        \texttt{[email@placeholder.example]}}
+
+\date{\today}
+
+% ============================================================
+\begin{document}
+
+\maketitle
+
+% ------ Abstract ------
+\input{sections/00_abstract}
+
+% ------ 1. Introduction ------
+\input{sections/01_introduction}
+
+% ------ 2. Related Work ------
+\input{sections/02_related_work}
+
+% ------ 3. Method ------
+\input{sections/03_method}
+
+% ------ 4. Experimental Setup ------
+\input{sections/04_experimental_setup}
+
+% ------ 5. Results ------
+\input{sections/05_results}
+
+% ------ 6. Case Studies ------
+\input{sections/06_case_studies}
+
+% ------ 7. Discussion ------
+\input{sections/07_discussion}
+
+% ------ 8. Threats to Validity ------
+\input{sections/08_threats_to_validity}
+
+% ------ 9. Limitations ------
+\input{sections/09_limitations}
+
+% ------ 10. Conclusion ------
+\input{sections/10_conclusion}
+
+% ------ References ------
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+% ------ Appendices ------
+\appendix
+
+\section{Filter Specification}
+\label{app:filter}
+
+\begin{verbatim}
+_FILTER_RELATIONS = frozenset({
+    "contains",        # molecular composition: structural fact, not mechanism
+    "is_product_of",   # metabolic product relation: directionally ambiguous
+    "is_reverse_of",   # reaction reversal: chemical fact, not hypothesis
+    "is_isomer_of",    # structural isomerism: same compound class, no mechanism
+})
+_MIN_STRONG_RATIO    = 0.40
+_GUARD_CONSECUTIVE   = True
+_FILTER_GENERIC_INTERMEDIATES = True
+\end{verbatim}
+
+\noindent\textbf{Strong relations} (must constitute $\geq$40\% of path edges):
+\textit{inhibits, activates, catalyzes, produces, encodes, accelerates, yields, facilitates}.
+
+\section{Run Progression Summary}
+\label{app:runs}
+
+See Table~\ref{tab:run_summary} in Section~\ref{sec:setup} for a condensed run log.
+Full run artefacts are available in the \texttt{runs/} directory of the repository.
+
+\section{Relation Semantics Classification Schema}
+\label{app:semantics}
+
+The full 22-row machine-readable classification is provided in
+\texttt{paper\_assets/relation\_semantics\_table.csv}.
+The five categories and their inferential properties are summarised in
+Table~\ref{tab:relation_semantics} (Section~\ref{sec:discussion}).
+
+\end{document}

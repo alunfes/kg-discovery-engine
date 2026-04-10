@@ -1,0 +1,132 @@
+\section{Method}
+\label{sec:method}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.92\linewidth]{figures/figure1_pipeline.png}
+  \caption{%
+    \textbf{Pipeline overview.}
+    Two domain-specific KGs ($G_{\text{bio}}$, $G_{\text{chem}}$) with disjoint
+    node sets are combined through five operators.
+    The \textit{align} step identifies bridge entities shared between domains and
+    creates an alignment map; \textit{union} collapses aligned pairs into single
+    bridge nodes in the merged graph $G_{\text{merged}}$.
+    The \textit{compose} step performs BFS up to depth~5 with an optional drift
+    filter, producing raw hypothesis candidates $H_{\text{raw}}$.
+    The \textit{difference} step isolates domain-unique candidates;
+    \textit{evaluate} scores each candidate on five dimensions.
+    Without \textit{align}, compose produces zero cross-domain paths.
+  }
+  \label{fig:pipeline}
+\end{figure}
+
+\subsection{Knowledge Graph Representation}
+
+A knowledge graph $G = (V, E, D)$ consists of:
+\begin{itemize}[noitemsep]
+  \item $V$: nodes with attributes (\textit{id}, \textit{label}, \textit{domain}
+    $\in \{\text{bio}, \text{chem}\}$)
+  \item $E$: directed edges with triples (\textit{source}, \textit{relation},
+    \textit{target})
+  \item $D$: domain attribute partitioning nodes into their origin KG
+\end{itemize}
+
+A \textit{HypothesisCandidate} is a path through the merged graph encoded as
+an alternating sequence of node identifiers and relation labels, with full provenance.
+
+\subsection{Pipeline Operators}
+
+\paragraph{align($G_{\text{bio}}$, $G_{\text{chem}}$, $\theta$) $\to$ AlignmentMap.}
+Returns a bijective mapping from $G_{\text{bio}}$ node IDs to $G_{\text{chem}}$ node
+IDs where label similarity $\geq \theta$ (default 0.5).
+Label similarity uses synonym-aware Jaccard tokenisation with a fixed synonym dictionary:
+\{\textit{enzyme}$\leftrightarrow$\textit{catalyst},
+  \textit{protein}$\leftrightarrow$\textit{compound},
+  \textit{inhibit}$\leftrightarrow$\textit{block},
+  \textit{reaction}$\leftrightarrow$\textit{process}\}.
+In Phase~4 (Runs~007--013), known bridge metabolites (NADH, arachidonic acid,
+neurotransmitters) are injected as pre-labelled hard alignment pairs, bypassing the
+similarity step.
+
+\paragraph{union($G_{\text{bio}}$, $G_{\text{chem}}$, alignment) $\to G_{\text{merged}}$.}
+Merges both graphs, collapsing aligned pairs into single bridge nodes.
+Unaligned nodes are namespace-prefixed to prevent ID collision.
+After union, BFS can traverse from a bio node through an aligned bridge node
+into the chem subgraph---the structural mechanism underlying all cross-domain
+paths in this work.
+
+\paragraph{compose($G_{\text{merged}}$, max\_depth, filter\_spec) $\to H_{\text{raw}}$.}
+BFS from all source nodes to depth \texttt{max\_depth}$=5$.
+Each reachable path becomes a \textit{HypothesisCandidate} with full provenance.
+The drift filter (Section~\ref{sec:filter}) is applied within BFS.
+
+\paragraph{difference($G_1$, $G_2$, alignment) $\to G_{\text{unique}}$.}
+Returns $G_1$ nodes not covered by the alignment, used to enumerate domain-unique
+candidate pairs (the \textit{unique\_to\_alignment} metric).
+
+\paragraph{evaluate($H$, $G$, rubric) $\to H_{\text{scored}}$.}
+Scores each candidate on five dimensions (Section~\ref{sec:rubric}).
+
+\subsection{Drift Filter}
+\label{sec:filter}
+
+Derived from qualitative review of Subset~A candidates (Run~011),
+the filter excludes four structural relation types and applies two path-level guards:
+
+\begin{verbatim}
+blocked:  {contains, is_product_of, is_reverse_of, is_isomer_of}
+min_strong_ratio: 0.40
+consecutive_repeat_guard: True
+generic_intermediate_guard: True
+\end{verbatim}
+
+\noindent A path is rejected if:
+(1)~any relation $\in$ \texttt{blocked} (structural-chemical expansions);
+(2)~$\frac{|\text{strong relations}|}{|\text{all relations}|} < 0.40$, where
+strong relations are \{inhibits, activates, catalyzes, produces, encodes,
+accelerates, yields, facilitates\};
+(3)~any relation type repeats consecutively;
+(4)~any intermediate node label is in \{process, system, entity, substance, compound\}.
+
+\subsection{Scoring Rubric}
+\label{sec:rubric}
+
+Each candidate is scored as:
+\begin{equation}
+  s = 0.30\,p + 0.25\,n + 0.20\,t + 0.15\,r + 0.10\,e
+  \label{eq:score}
+\end{equation}
+where $p$=plausibility, $n$=novelty, $t$=testability, $r$=traceability, $e$=evidence support.
+
+The traceability dimension was revised in Run~010: the original scorer penalised
+long paths with $1/(d+1)$, making provenance-aware ranking equivalent to naive
+depth ranking.
+The revised scorer penalises low-specificity relations and generic intermediate
+nodes regardless of path length (Table~\ref{tab:hypothesis_status}, H4 row).
+
+\subsection{Path Interpretation Framework}
+\label{sec:interpretation}
+
+Run~014 introduced a post-hoc classification of all KG relation types by
+inferential trustworthiness (Table~\ref{tab:relation_semantics}).
+Five categories determine the maximum claim type that a composed path supports:
+
+\begin{itemize}[noitemsep]
+  \item \textbf{DM} (directional-mechanistic): safe for causal chaining
+    (\textit{inhibits}, \textit{activates}, \textit{catalyzes}, \textit{encodes},
+    \textit{produces}$_{\text{bio}}$)
+  \item \textbf{DN} (directional-but-non-causal): ordering only, not mechanistic
+    (\textit{undergoes}, \textit{is\_substrate\_of}, \textit{is\_precursor\_of})
+  \item \textbf{SS} (symmetric-structural): structural fact, no causal direction
+    (\textit{contains}, \textit{is\_isomer\_of}, \textit{is\_reverse\_of})
+  \item \textbf{CD} (context-dependent): requires context annotation
+    (\textit{reacts\_with})
+  \item \textbf{CR} (chemically-risky): class-level generalisation requiring
+    substrate-specificity pre-check
+    (\textit{produces}$_{\text{rxn} \to \text{fg}}$)
+\end{itemize}
+
+The inferential power of a composed path is bounded by its weakest relation
+category.
+A path containing a CR relation cannot be treated as a mechanistic hypothesis
+until the class-level generalisation is verified for the specific substrate.

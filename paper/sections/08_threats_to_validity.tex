@@ -1,0 +1,121 @@
+\section{Threats to Validity}
+\label{sec:threats}
+
+\subsection{Construct Validity}
+
+\paragraph{T1.1 --- ``Promising'' Is Subjective and Unvalidated.}
+The qualitative labels (\textit{promising} / \textit{weak\_speculative} /
+\textit{drift\_heavy}) in Run~011 were assigned by a single reviewer without
+inter-rater reliability testing.
+The 15\%$\to$100\% promising rate improvement (Claim~2) is contingent on these labels.
+For Subsets~B and~C (Run~013), the promising rate is inferred from filter passage,
+not from independent labeling.
+
+\textit{Mitigation}: The filter's generalisation to B and C (0\% drift, 100\% passing)
+is independent of the original labels. However, asserting that 39 Subset~B candidates
+are all ``promising'' requires independent labeling by domain experts.
+
+\paragraph{T1.2 --- Cross-Domain Status Is Namespace-Based.}
+Cross-domain status is determined by the node's \texttt{domain} attribute, not by
+semantic domain content.
+A node labeled \texttt{chem} representing a metabolite primarily studied in biology
+would be miscategorised.
+
+\paragraph{T1.3 --- Rubric Design Dependence.}
+The 5-dimension scoring rubric (weights 0.30/0.25/0.20/0.15/0.10) was designed by
+the experimenter.
+The H4 claim (revised traceability improves deep-candidate ranking) is relative to
+the same rubric's naive mode, not to an external ground truth.
+
+\subsection{Internal Validity}
+
+\paragraph{T2.1 --- Semi-Manual Bridge Alignment.}
+Bridge entities were domain-expert-selected (NADH, eicosanoids, neurotransmitters),
+not discovered algorithmically.
+This introduces researcher degrees of freedom: a different experimenter might
+select different bridges and obtain different candidate counts.
+
+\textit{Mitigation}: The mechanism (alignment-dependent reachability) is invariant
+to bridge choice; the magnitude depends on bridge selection.
+
+\paragraph{T2.2 --- Narrow Scale Range.}
+The work tests KGs at 57 nodes (too small for deep cross-domain; Run~008) and
+288--536 nodes (Runs~009--013).
+Behaviour on production-scale KGs (thousands to millions of nodes) is unknown.
+
+\paragraph{T2.3 --- Curated KGs, Not Production-Quality.}
+The Wikidata-derived KGs are manually curated subsets designed to illustrate
+known biological pathways.
+They differ from production biomedical KGs (e.g., Hetionet, PrimeKG) in scale,
+completeness, noise level, and schema diversity.
+
+\subsection{External Validity}
+
+\paragraph{T3.1 --- Three Domain Pairs.}
+Reproducibility is tested on 3 independent domain pairs (all bio-chem).
+Claim~3 (bridge dispersion predicts yield) is based on 3 data points---insufficient
+for statistical characterisation.
+
+\paragraph{T3.2 --- Bio-Chem Domain Pairs Only.}
+No non-biological domain pair (e.g., materials science / chemistry) was tested.
+Claims 1 and 3 are implicitly scoped to bio-chem domain pairs.
+
+\paragraph{T3.3 --- No Baseline Comparison.}
+No existing cross-domain discovery system (SemMedDB, PREDICT, embedding-based)
+was evaluated as a baseline.
+The paper establishes that the mechanism works, not that it outperforms alternatives.
+
+\subsection{Conclusion Validity}
+
+\paragraph{T4.1 --- No Statistical Testing.}
+All comparisons are reported as raw numbers without confidence intervals.
+The 15\%$\to$100\% promising rate change is based on 20 labeled candidates.
+
+\paragraph{T4.2 --- Post-Hoc Filter Design.}
+The drift filter (Run~012) was designed after inspecting the Run~011 output.
+The claimed generalisation is tested in Run~013 but the initial design remains
+data-dependent.
+
+\textit{Mitigation}: The filter criteria have a principled justification
+independent of the specific candidates: structural/chemical relations describe
+molecular facts, not mechanistic hypotheses. This justification was stated
+before Run~011 (Run~009 decision memo).
+
+\paragraph{T4.3 --- Top-20 2-Hop Dominance.}
+In all subsets and scoring configurations, top-20 candidates are exclusively 2-hop.
+Practical users relying on top-20 would not encounter deep cross-domain candidates.
+Claim~2's ``useful'' qualifier applies to the filtered set's scientific quality,
+not its current top-k visibility.
+
+\subsection{Relation Semantic Insufficiency (Run~014)}
+
+\paragraph{T5.1 --- Class-Level Relations Cannot Validate Substrate-Specific Claims.}
+The \texttt{produces} relation between a reaction class and a functional group class
+encodes a chemical generalisation that may not hold for the specific substrate in
+the path.
+Affected candidates: C-1 ($r$\_Methylation $\to$ $fg$\_Piperidine: does not apply
+to dopamine methylation in vivo) and B-1/B-2
+($r$\_OxidationNat $\to$ $fg$\_Catechol: does not apply to AA as the specific
+substrate).
+The Run~012 filter cannot detect this failure because \texttt{produces} is
+correctly classified as a strong relation in general; the substrate-specific
+failure is invisible to a relation-type filter.
+
+\paragraph{T5.2 --- \texttt{is\_substrate\_of} Does Not Encode Causal Transmission.}
+The path $A \xrightarrow{\text{is\_substrate\_of}} \mathrm{enzyme}
+\xrightarrow{\text{catalyzes}} B$ establishes shared-enzyme membership, not
+$A \to B$ causation.
+Affected candidate: C-2.
+
+\paragraph{T5.3 --- KG Merges Cell-Type-Specific Knowledge Without Annotation.}
+Merging dopaminergic and serotonergic neuron data into a single graph without
+cell-type annotation allows compose to generate paths crossing cell-type boundaries.
+Such paths may be structurally valid but physiologically inaccessible.
+Affected candidate: C-2.
+
+\paragraph{T5.4 --- Path Direction Can Invert Known Pharmacological Relationships.}
+The pipeline generates paths in the structural direction allowed by edge orientations.
+When the known pharmacological relationship is the reverse of the path direction,
+the output is causally misleading.
+Affected candidates: B-1 and B-2 (COX $\to$ catechol direction vs.\ the established
+catechol $\to$ COX inhibition direction).

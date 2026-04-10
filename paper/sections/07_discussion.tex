@@ -1,0 +1,99 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Relation Semantic Insufficiency as a Unified Root Cause}
+
+Run~014's relation semantics audit revealed that all five reviewed candidates carry
+at least one relation edge where the KG's class-level encoding is insufficient to
+validate a substrate-specific chemical or biological claim.
+This finding unifies previously separate observations---B-1/B-2's directionality
+problem, C-1's chemistry validity failure, and C-2's compartmentalisation risk---under
+a single root cause:
+
+\medskip
+\noindent\textbf{Root cause}: The KG encodes relation types at the \textit{class level}
+rather than the \textit{instance level}.
+A relation of type \texttt{produces} between a reaction class and a functional group
+class (e.g., $r$\_Methylation $\to$ $fg$\_Piperidine) asserts that the reaction
+\textit{type} can produce compounds bearing the functional group in general, but does
+not validate whether the specific substrate in the path actually undergoes this
+transformation.
+Similarly, a relation \texttt{is\_substrate\_of} between a metabolite and an enzyme
+encodes shared-enzyme membership, not substrate-specific causal transmission.
+
+\medskip
+This is not a failure of the drift filter---the filter correctly identifies structural
+relation categories.
+It is a limitation of the KG's underlying schema: without substrate-specificity
+metadata on \texttt{produces} edges, and without compartment annotations on nodes,
+the pipeline cannot distinguish mechanistically valid paths from structurally valid
+but biologically incorrect ones.
+Table~\ref{tab:relation_semantics} summarises the five semantic categories
+and their inferential properties.
+
+\input{tables/table3_relation_semantics}
+
+\subsection{The Alignment Operator as the Necessary Structural Primitive}
+
+The align operator's mechanism---collapsing bridge entities to create a shared node
+that BFS can traverse---is the necessary structural primitive for cross-domain discovery.
+Without it, the composed graph has no edges crossing the domain boundary,
+and compose cannot generate cross-domain candidates regardless of graph size.
+
+This is a structural necessity (Claim~1), not a tuning choice.
+The operator is analogous to Swanson's ABC model but formalised as a graph-algebraic
+step: the bridge entity $B$ is the aligned node that connects $A$ (a bio entity)
+to $C$ (a chem entity) via a path that could not exist in either domain alone.
+
+\subsection{Quality Filtering: Generalisation Evidence and Residual Precision Gap}
+
+The filter's generalisation across three independent domain pairs (Run~013) is
+the strongest evidence against post-hoc overfitting.
+A filter derived from 20 labeled candidates in one domain pair
+(cancer signaling / metabolic chemistry) achieves identical qualitative outcomes
+in two entirely different chemical systems (eicosanoid / natural products;
+neurotransmitter / neuro-pharmacology) without parameter adjustment.
+
+This suggests the four excluded relation types
+(\texttt{contains}, \texttt{is\_product\_of}, \texttt{is\_reverse\_of},
+\texttt{is\_isomer\_of}) represent a principled domain-general category:
+structural-chemical description relations that are true but non-mechanistic.
+The category appears stable across bio-chem domain pairs.
+
+However, C-1 exposes a residual precision gap: the filter cannot distinguish
+substrate-specific \texttt{produces} (bio enzyme $\to$ specific metabolite; safe)
+from class-level \texttt{produces} (reaction class $\to$ functional group class; risky).
+Both receive the same strong-relation credit.
+Future filter versions should add a \texttt{produces\_class} flag to distinguish
+these patterns, and should flag paths containing \texttt{is\_precursor\_of}
+or \texttt{is\_substrate\_of} as carrying DN-category semantics.
+
+\subsection{Bridge Dispersion: Design Implication for KG Construction}
+
+The bridge dispersion finding (Claim~3) has a direct actionable implication for
+knowledge graph curation targeting cross-domain discovery:
+\textit{prefer bridge entities that are metabolic hubs or signaling intermediates
+with many known interactors in both domains} over simply increasing the number
+of bridge pairs.
+
+Subset~B's five eicosanoids yield 8$\times$ more candidates per bridge than
+Subset~A's NADH because each eicosanoid connects to multiple downstream synthesis
+enzymes (bio) and natural product structural families (chem).
+This amplification effect is non-linear: a metabolically diverse bridge class
+generates combinations that a hub-low bridge cannot, regardless of how many
+low-diversity bridge pairs are added.
+
+\subsection{Top-20 Dominance by 2-Hop Candidates}
+
+In all subsets and all scoring configurations, the top-20 candidates are exclusively
+2-hop paths (mean score 0.78 across subsets).
+The H4 result (Run~010) shows that the revised scorer improves the relative ranking
+of deep candidates (309 promoted vs.\ 209 demoted), but does not change top-20
+composition.
+This is a systematic limitation: the absolute scoring advantage of well-supported
+2-hop chains exceeds the relative gain from the quality-aware traceability revision.
+
+Deep cross-domain candidates---the scientifically more interesting outputs---require
+either a depth-promotion bonus, a minimum-depth tier, or a separate ranked list to
+surface in practical use.
+This is an unsolved problem in the current pipeline.

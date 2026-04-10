@@ -1,0 +1,46 @@
+% Table 4: Candidate Validation Summary
+% Source: paper_assets/candidate_validation_table.csv
+\begin{table}[h]
+\caption{%
+  \textbf{Representative candidate validation summary (5 candidates, Runs~011--013).}
+  Candidates are identified by subset, hop count, and alignment bridge used.
+  Classification follows the Run~014 relation semantics audit.
+  Interpretation confidence is determined by the weakest relation category
+  in the path: DM-only paths $\to$ high; paths with CR or DN(key step) $\to$ low.
+  Score = weighted rubric total (Eq.~\ref{eq:score}); all candidates scored
+  $\geq$0.50 and passed the drift filter.
+}
+\label{tab:candidate_summary}
+\small
+\begin{tabularx}{\linewidth}{llcllX}
+\toprule
+ID & Path summary & Hops & Classification & Confidence & Key limitation \\
+\midrule
+A-1 & VHL$\to$HIF1A$\to$LDHA$\to$NADH$\to$r\_Ox. &
+  5 & positive control & high &
+  Known pathway (Warburg effect); not novel \\
+\addlinespace
+B-1 & PTGS1$\to$m\_AA$\to$r\_OxNat$\to$fg\_Catechol &
+  3 & weakly novel & low &
+  Direction inversion; AA$\to$catechol not established (CR edge) \\
+\addlinespace
+B-2 & PTGS2$\to$m\_AA$\to$r\_OxNat$\to$fg\_Catechol &
+  3 & weakly novel & low &
+  Same as B-1; COX-2 selectivity adds interest if direction resolved \\
+\addlinespace
+C-1 & TH$\to$m\_Dop$\to$r\_Methyl$\to$fg\_Piperidine &
+  3 & artifact risk & low &
+  Methylation of dopamine does not produce piperidine (CR edge) \\
+\addlinespace
+C-2 & TH$\to$m\_Dop$\to$MAOA$\to$m\_Ser$\to$r\_Deam. &
+  4 & weakly novel & medium &
+  Compartmentalisation: dopamine and serotonin in distinct neuron types \\
+\bottomrule
+\end{tabularx}
+
+\smallskip
+\noindent Sub.\ A: Cancer sig.\ / Metab.\ chem.\ (bridge: NADH).
+Sub.\ B: Immunology / Nat.\ products (bridge: Arachidonic Acid).
+Sub.\ C: Neurosci.\ / Neuro-pharma.\ (bridge: Dopamine).
+Case studies for each candidate: Section~\ref{sec:casestudies}.
+\end{table}

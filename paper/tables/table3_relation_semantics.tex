@@ -1,0 +1,53 @@
+% Table 3: Relation Semantics Categories
+% Source: paper_assets/relation_semantics_table.csv (representative rows)
+% Full table: 22 rows; only representative rows shown here
+\begin{table}[h]
+\caption{%
+  \textbf{Relation type classification by semantic category (Run~014, representative rows).}
+  Five categories determine the maximum inferential claim a composed path
+  can support.
+  A path's inferential power is bounded by its weakest relation category.
+  CR relations require substrate-specificity pre-check before any mechanistic
+  interpretation is warranted.
+  Full 22-row table: \texttt{paper\_assets/relation\_semantics\_table.csv}.
+}
+\label{tab:relation_semantics}
+\small
+\begin{tabular}{llllc}
+\toprule
+Relation & Category & Domain & Direction semantics & Safe for mech.\ inference \\
+\midrule
+\texttt{encodes}              & DM & bio  & causal (gene$\to$protein)     & \checkmark \\
+\texttt{activates}            & DM & bio  & causal (regulator$\to$target)  & \checkmark \\
+\texttt{inhibits}             & DM & bio, chem & causal (suppressor$\to$target) & \checkmark (track polarity) \\
+\texttt{catalyzes}            & DM & bio  & causal (enzyme$\to$substrate) & conditional \\
+\texttt{produces} (bio)       & DM & bio  & causal (enzyme$\to$product)   & \checkmark \\
+\addlinespace
+\texttt{produces} (rxn$\to$fg) & CR & chem & class-level generalisation   & \textbf{$\times$} (substrate check) \\
+\addlinespace
+\texttt{is\_substrate\_of}    & DN & bio  & ordering (metabolite$\to$enzyme; inverted) & $\times$ \\
+\texttt{undergoes}            & DN & bio,chem & ordering (molecule$\to$rxn class) & $\times$ \\
+\texttt{is\_precursor\_of}    & DN & chem & ordering (precursor$\to$product)  & $\times$ \\
+\texttt{is\_product\_of}      & DN & chem & ordering (reversed; product$\leftarrow$precursor) & $\times$ \\
+\addlinespace
+\texttt{contains}             & SS & chem & structural composition & $\times$ \\
+\texttt{is\_isomer\_of}       & SS & chem & symmetric              & $\times$ \\
+\texttt{is\_reverse\_of}      & SS & chem & symmetric              & $\times$ \\
+\texttt{interacts\_with}      & SS & bio  & undirected             & $\times$ \\
+\addlinespace
+\texttt{reacts\_with}         & CD & chem & context-dependent      & $\times$ \\
+\bottomrule
+\end{tabular}
+
+\smallskip
+\noindent\textbf{Legend:}
+DM = directional-mechanistic;
+DN = directional-but-non-causal;
+SS = symmetric-structural;
+CD = context-dependent;
+CR = chemically-risky.
+Blocked by Run~012 filter: \texttt{contains}, \texttt{is\_product\_of},
+\texttt{is\_reverse\_of}, \texttt{is\_isomer\_of}.
+CR relation (\texttt{produces} rxn$\to$fg) passes the filter but requires
+pre-validation.
+\end{table}

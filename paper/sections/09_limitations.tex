@@ -1,0 +1,63 @@
+\section{Limitations}
+\label{sec:limitations}
+
+\begin{enumerate}[leftmargin=*, label=\textbf{L\arabic*.}]
+
+\item \textbf{Scale.}
+The tested KGs contain 237--536 nodes.
+Production biomedical KGs (e.g., PrimeKG~\cite{TODO-PrimeKG},
+Hetionet~\cite{TODO-Hetionet}) contain millions of nodes and edges.
+Behaviour of the pipeline at production scale is unknown; in particular,
+the filter's performance and the top-20 composition may change significantly
+with increased graph density.
+
+\item \textbf{Semi-manual bridge alignment.}
+Bridge entities were selected by domain knowledge, not discovered algorithmically.
+Automated bridge discovery (e.g., via entity linking to a shared ontology) would
+remove researcher degrees of freedom from bridge selection and would be required
+for a production deployment.
+
+\item \textbf{Single-reviewer qualitative labels.}
+Run~011 labels (the sole source of ground truth for Claim~2's before-filter rates)
+were assigned by one reviewer without inter-rater reliability measurement.
+Future work should obtain independent labels from domain experts in each domain pair.
+
+\item \textbf{Post-hoc filter derivation.}
+The drift filter was derived from Run~011 output.
+Run~013 provides generalisation evidence, but a prospective filter design
+(derived from a held-out dataset) would provide stronger overfitting protection.
+
+\item \textbf{No baseline comparison.}
+No competing cross-domain discovery system was evaluated.
+The paper cannot claim superiority to existing approaches; it characterises
+the behaviour of the proposed mechanism.
+
+\item \textbf{Three domain pairs only.}
+The evidence for Claim~3 (bridge dispersion predicts yield) rests on 3 data points.
+Statistical characterisation of the bridge dispersion effect requires testing
+across a larger diversity of domain pairs.
+
+\item \textbf{Top-20 depth problem (unsolved).}
+In all configurations, top-20 scored candidates are exclusively 2-hop paths.
+Deep cross-domain candidates---the primary scientifically interesting output---do not
+surface in practical rankings.
+Depth-promotion methods, minimum-depth tiers, or separate ranking tracks would be
+required for deep candidates to be actionable.
+
+\item \textbf{H2 (noise robustness) not retested on real data.}
+Noise robustness (tolerance to random edge deletion) was validated on synthetic
+KGs only (Runs~001--006) and was not retested under real-data conditions.
+Its applicability to noisy production KGs is unknown.
+
+\item \textbf{Relation semantic insufficiency (central open problem).}
+The class-level encoding of \texttt{produces} and \texttt{is\_substrate\_of}
+relations means that filter-passing candidates can carry chemically or
+biologically invalid edges that the filter cannot detect.
+Resolving this requires adding substrate-specificity metadata (a
+\texttt{produces\_class} distinction) and biological compartment annotations
+to the KG schema.
+Until such metadata is available, all candidate paths should be treated as
+\textit{structurally generated cross-domain connections} requiring expert
+validation before experimental follow-up.
+
+\end{enumerate}

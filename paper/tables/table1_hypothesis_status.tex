@@ -1,0 +1,38 @@
+% Table 1: Hypothesis Status
+% Source: paper_assets/final_metrics.json + docs/paper_claims.md
+\begin{table}[h]
+\caption{%
+  \textbf{Final hypothesis verdicts (Runs~001--013).}
+  H1'' and H3'' are the refined real-data hypotheses replacing the original
+  synthetic-KG formulations.
+  H2 was validated on synthetic KGs only and not retested on real data.
+  H4 required rubric revision (Run~010) before passing.
+  Confidence reflects replication count and evidence strength.
+}
+\label{tab:hypothesis_status}
+\small
+\begin{tabularx}{\linewidth}{llllX}
+\toprule
+Hypothesis & Verdict & Confidence & Evidence Runs & Notes \\
+\midrule
+H1'' & PASS & Very High &
+  007, 009, 013A, 013B, 013C &
+  Replicated 3/3 domain pairs; unique\_to\_alignment $>$0 in all cases \\
+\addlinespace
+H2  & Partial & Low &
+  001--006 &
+  Validated on synthetic KG only (50\% edge deletion);
+  not retested on real data \\
+\addlinespace
+H3'' & PASS & High &
+  009, 011, 012, 013A, 013B, 013C &
+  Replicated 3/3 domain pairs;
+  100\% promising rate after filter in all subsets \\
+\addlinespace
+H4  & PASS & High &
+  009, 010 &
+  Revised traceability scorer only;
+  top-20 still 2-hop dominated in all configurations \\
+\bottomrule
+\end{tabularx}
+\end{table}

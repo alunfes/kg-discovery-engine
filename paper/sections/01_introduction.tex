@@ -1,0 +1,80 @@
+\section{Introduction}
+\label{sec:intro}
+
+Scientific discovery increasingly occurs at disciplinary boundaries.
+The mechanisms by which a gene mutation in cancer signaling alters metabolic chemistry,
+or how a neurotransmitter synthesis enzyme predicts pharmacological drug sensitivity,
+are precisely the cross-domain questions that no single-domain knowledge graph (KG)
+can answer in isolation.
+
+Existing approaches to KG-based discovery---link prediction~\cite{TODO-TransE,TODO-RotatE},
+KG completion~\cite{TODO-ComplEx}, and semantic similarity methods---operate within
+a single KG schema.
+They can predict missing edges within a domain but cannot generate hypotheses that
+cross the boundary between two independently curated domain graphs with disjoint
+node vocabularies.
+
+We address this gap with a multi-operator pipeline that treats cross-domain discovery
+as a graph composition problem.
+The key operator is \textbf{align}: it identifies bridge entities shared between two
+domain KGs (e.g., a metabolite that appears in both a biological signaling graph and
+a chemical reaction graph under different identifiers), collapses them into shared
+nodes, and enables the \textbf{compose} operator to enumerate multi-hop paths that
+cross the domain boundary.
+Without alignment, compose produces zero cross-domain candidates; with alignment,
+it produces structurally unique paths connecting biological genes and proteins
+to chemical reaction classes and functional groups.
+
+The pipeline builds on Swanson's ABC discovery model~\cite{swanson1986fish}, which
+finds implicit connections $A \to C$ via a shared concept $B$ in two literatures.
+Our contribution is to formalise this as a graph-algebraic operator pipeline,
+to study its empirical behaviour on real Wikidata-derived knowledge graphs, and to
+characterise the conditions under which its output is scientifically meaningful.
+
+\subsection*{Contributions}
+
+This paper makes three empirical contributions:
+
+\begin{enumerate}[leftmargin=*, label=\textbf{\arabic*.}]
+
+\item \textbf{Alignment is necessary for cross-domain reachability.}
+Without bridge alignment, the compose operator produces zero cross-domain
+candidate pairs.
+With alignment, it produces 5--55 alignment-dependent unique cross-domain paths
+per domain pair, scaling non-linearly with KG size.
+Replicated across 3 independent bio-chem domain pairs.
+
+\item \textbf{Quality filtering makes raw deep output useful.}
+Raw 3-hop+ cross-domain candidates from real KGs contain
+25\% semantically drifted content (structural-chemical expansions
+rather than mechanistic hypotheses).
+A relation-type filter derived from qualitative review of one domain pair
+eliminates all drift while preserving all promising candidates, and
+transfers across two independent domain pairs without parameter adjustment.
+
+\item \textbf{Bridge structural diversity, not bridge count, drives candidate yield.}
+Across three domain pairs with 5--9 aligned bridge pairs,
+unique-to-alignment candidate counts vary from 5 to 55.
+This variation is explained by bridge entity dispersion (the number of
+distinct downstream nodes each bridge class connects to), not by bridge count.
+
+\end{enumerate}
+
+We also contribute a negative finding: a post-hoc relation semantics audit
+reveals that all five qualitatively reviewed candidates carry at least one
+relation edge where the class-level KG encoding cannot validate
+substrate-specific chemical or biological claims.
+This finding unifies previously separate candidate weaknesses under a single
+root cause and is the primary open problem for future work.
+
+The remainder of this paper is structured as follows.
+Section~\ref{sec:related} reviews related work.
+Section~\ref{sec:method} describes the pipeline operators and scoring rubric.
+Section~\ref{sec:setup} presents the experimental setup and data.
+Section~\ref{sec:results} reports the main results for Claims 1--3.
+Section~\ref{sec:casestudies} presents five representative candidate case studies.
+Section~\ref{sec:discussion} interprets the findings, with relation semantic
+insufficiency as the central theme.
+Sections~\ref{sec:threats}--\ref{sec:limitations} address threats to validity
+and limitations.
+Section~\ref{sec:conclusion} concludes with future work priorities.

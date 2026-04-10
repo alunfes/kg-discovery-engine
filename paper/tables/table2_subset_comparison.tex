@@ -1,0 +1,48 @@
+% Table 2: Subset Comparison
+% Source: paper_assets/subset_summary_table.csv
+\begin{table}[h]
+\caption{%
+  \textbf{Subset comparison across three independent domain pairs (Run~013).}
+  All three subsets achieve 0\% drift-heavy and 100\% promising rate after
+  applying the filter derived from Subset~A without parameter retuning.
+  Bridge class diversity, not bridge count, predicts unique candidate yield
+  (unique/bridge ratios: 0.7, 8.0, 6.1 for A, B, C respectively).
+  Drift-by-depth columns show fraction of candidates at each depth containing
+  at least one blocked relation.
+}
+\label{tab:subset_comparison}
+\small
+\begin{tabular}{llrrrrrrrrr}
+\toprule
+ & & \multicolumn{3}{c}{Scale} & \multicolumn{2}{c}{Alignment} & \multicolumn{2}{c}{Filter effect} & \multicolumn{2}{c}{Drift by depth} \\
+\cmidrule(lr){3-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}\cmidrule(lr){10-11}
+Sub & Domain pair &
+  $|V_{\text{bio}}|$ & $|V_{\text{chem}}|$ & $|V|$ &
+  Bridges & Uniq/brdg &
+  Raw deep & Filt.\ deep &
+  2-hop & 4--5-hop \\
+\midrule
+A & Cancer sig.\ / Metab.\ chem. &
+  293 & 243 & 536 &
+  7 & 0.7 &
+  20 & 3 &
+  8.8\% & 23.7\% \\
+B & Immunology / Nat.\ products &
+  178 & 110 & 288 &
+  5 & 8.0 &
+  45 & 39 &
+  12.8\% & 29.3\% \\
+C & Neurosci.\ / Neuro-pharma. &
+  151 & 86  & 237 &
+  9 & 6.1 &
+  86 & 33 &
+  5.6\% & 29.5\% \\
+\bottomrule
+\end{tabular}
+
+\smallskip
+\noindent Uniq/brdg = unique\_to\_alignment candidates per aligned bridge pair.
+Raw deep = deep ($\geq$3-hop) cross-domain candidates before filter.
+Filt.\ deep = after filter.
+Drift-by-depth values for 3-hop not shown; full data in \texttt{paper\_assets/subset\_summary\_table.csv}.
+\end{table}

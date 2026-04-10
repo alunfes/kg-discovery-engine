@@ -1,0 +1,55 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+We have presented a multi-operator knowledge graph pipeline that generates
+cross-domain hypothesis candidates by composing domain-specific knowledge graphs
+via bridge alignment.
+Across three independent bio-chem domain pairs on real Wikidata-derived KGs,
+we establish three findings:
+
+\begin{enumerate}[noitemsep]
+\item Bridge alignment is \textit{necessary and sufficient} for cross-domain path
+  reachability; the effect amplifies non-linearly with KG size (42$\times$ more
+  unique paths for a 9$\times$ node increase).
+
+\item A relation-type drift filter eliminates semantic drift (25\%$\to$0\% drift rate)
+  while preserving all qualitatively promising candidates, and generalises across
+  independent domain pairs without parameter retuning.
+
+\item Bridge entity structural diversity---not bridge count---is the primary driver
+  of candidate yield variation (0.7$\times$ to 8.0$\times$ per bridge pair across subsets).
+\end{enumerate}
+
+The post-hoc relation semantics audit (Run~014) identifies a unified root cause
+for all observed candidate weaknesses: the KG encodes relation types at the
+class level, which the current drift filter cannot resolve without substrate-specificity
+metadata.
+This finding is the primary constraint on interpreting any candidate from the current
+pipeline as a mechanistic hypothesis.
+
+\paragraph{Future work priorities.}
+
+\begin{enumerate}[noitemsep]
+\item \textbf{Scale to production KGs}: test the pipeline on PrimeKG, Hetionet,
+  or ROBOKOP to establish whether the alignment-dependent reachability
+  mechanism holds at millions-of-node scale.
+
+\item \textbf{Substrate-specificity metadata}: add a \texttt{produces\_class}
+  distinction to \texttt{produces} edges (substrate-specific vs.\ class-level)
+  and compartment annotations to nodes, enabling a next-generation filter that
+  can detect class-level chemistry failures.
+
+\item \textbf{Expert validation of Subsets B and C candidates}: the 39 (Subset~B)
+  and 33 (Subset~C) filter-passing deep candidates are currently labelled
+  ``promising'' by filter inference only.
+  Independent domain-expert labeling would convert these from inferred to
+  verified promising candidates.
+
+\item \textbf{Depth-promotion}: develop a ranking mechanism that allows deep
+  cross-domain candidates to surface in top-$k$ without sacrificing the scoring
+  quality of well-supported 2-hop chains.
+
+\item \textbf{Formal bridge dispersion metric}: quantify bridge dispersion as
+  a measurable KG property (e.g., harmonic mean of bridge-entity degree in
+  both domain subgraphs) to enable predictive KG construction guidelines.
+\end{enumerate}

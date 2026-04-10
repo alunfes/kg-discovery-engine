@@ -1,0 +1,62 @@
+\section{Related Work}
+\label{sec:related}
+
+\subsection{KG Completion and Link Prediction}
+
+Methods such as TransE~\cite{TODO-TransE}, RotatE~\cite{TODO-RotatE}, and
+ComplEx~\cite{TODO-ComplEx} learn entity and relation embeddings to predict missing
+edges within a single KG.
+These approaches assume a shared schema and are designed to densify an existing graph,
+not to generate hypotheses that cross between two graphs with disjoint schemas.
+Multi-relational embedding approaches similarly operate within a unified ontological
+space and cannot represent the structural boundary between two independently curated
+domain knowledge graphs.
+
+\subsection{Multi-KG Alignment}
+
+Entity alignment~\cite{TODO-entity-alignment-survey},
+schema alignment~\cite{TODO-schema-alignment}, and ontology
+matching~\cite{TODO-ontology-matching} address the problem of mapping entities
+between knowledge graphs.
+These methods focus on constructing the mapping itself, not on exploiting it to
+generate cross-domain hypothesis candidates.
+Our \textit{align} operator draws on this literature but is operationalised
+specifically to enable path-based cross-domain traversal via the subsequent
+\textit{union} and \textit{compose} steps.
+
+\subsection{Biomedical KG Discovery}
+
+SemMedDB~\cite{TODO-SemMedDB} and drug repurposing systems such as
+PREDICT~\cite{TODO-PREDICT} use predicate-level associations mined from the
+biomedical literature for mechanism discovery and drug repurposing.
+These systems operate within a unified biomedical ontology (a single-schema KG)
+rather than across two independently curated domain graphs.
+Production-scale biomedical KGs such as Hetionet~\cite{TODO-Hetionet} and
+PrimeKG~\cite{TODO-PrimeKG} represent a single integrated schema and therefore
+do not exhibit the structural cross-domain boundary we study.
+Our work is complementary: it studies the behaviour of a multi-operator pipeline
+on small-to-medium Wikidata-derived KGs, with the goal of characterising the
+structural conditions for cross-domain discovery.
+
+\subsection{Operator-Based KG Reasoning}
+
+Description logics~\cite{TODO-description-logics} and rule-based
+reasoners~\cite{TODO-rule-reasoning} derive implicit facts within a schema but
+do not define operators for cross-KG path composition.
+Our work introduces a graph-algebraic operator vocabulary (align, union, compose,
+difference, evaluate) as the compositional primitive for cross-domain discovery.
+
+\subsection{Swanson's ABC Model and Literature-Based Discovery}
+
+The classic ABC discovery model~\cite{swanson1986fish} finds implicit connections
+$A \to C$ in two separate literatures via a shared intermediate concept $B$.
+The seminal example is the fish-oil / migraine / Raynaud's syndrome connection:
+literature~1 linked $A$ (fish oil) to $B$ (blood rheology), while literature~2
+linked $B$ (blood rheology) to $C$ (Raynaud's syndrome), yet the connection
+$A \to C$ was not explicitly stated in either.
+Our \textit{align} operator implements a structural analogue: bridge entities $B$
+shared between $G_{\text{bio}}$ and $G_{\text{chem}}$ enable $A \to B \to C$
+paths that cross the domain boundary.
+Our contribution is to formalise this as a KG operator pipeline, to characterise
+the conditions under which the mechanism produces useful output, and to identify
+the principal source of semantic failures in the generated candidates.

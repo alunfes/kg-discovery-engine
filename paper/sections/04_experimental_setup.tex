@@ -1,0 +1,112 @@
+\section{Experimental Setup}
+\label{sec:setup}
+
+\subsection{Data: Wikidata-Derived Knowledge Graphs}
+
+Three independent domain pairs were constructed from Wikidata SPARQL queries
+with semi-manual bridge entity selection (Threat~T2.1; Section~\ref{sec:threats}).
+
+\begin{description}[leftmargin=0pt]
+\item[Subset~A --- Cancer Signaling / Metabolic Chemistry]
+Bio KG: 293 nodes, 233 edges (cancer signaling genes, proteins, metabolites;
+key entities: VHL, HIF1A, LDHA, NADH, mTOR, EGFR, KRAS).
+Chem KG: 243 nodes, 191 edges (metabolic reactions and cofactors).
+Aligned bridge pairs: 7 (NADH, NAD$^+$, ATP, ADP, Glucose, Pyruvate, Lactate).
+
+\item[Subset~B --- Immunology / Natural Products]
+Bio KG: 178 nodes, 122 edges (immune signaling, cytokines, receptors).
+Chem KG: 110 nodes, 90 edges (natural products chemistry).
+Aligned bridge pairs: 5 (eicosanoid metabolites: AA, PGE$_2$, LTB$_4$, PGI$_2$, TXA$_2$).
+
+\item[Subset~C --- Neuroscience / Neuro-pharmacology]
+Bio KG: 151 nodes, 128 edges (neurotransmitter synthesis, signaling).
+Chem KG: 86 nodes, 78 edges (neuro-pharmacology, drug-receptor interactions).
+Aligned bridge pairs: 9 (Dopamine, Serotonin, GABA, Norepinephrine + additional).
+\end{description}
+
+All experiments are fully deterministic (\texttt{random.seed=42}; no external API calls).
+
+\subsection{Pipeline Conditions}
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Condition & Operators & Description \\
+\midrule
+P1 (single-op baseline) & compose only        & C1 condition; no alignment \\
+P4 (multi-op)           & align+union+compose+difference+evaluate & C2; full pipeline \\
+P4+filter               & P4 with drift filter & Run~012+ (Section~\ref{sec:filter}) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Evaluation Metrics}
+
+\begin{itemize}[noitemsep]
+  \item \textbf{unique\_to\_alignment}: cross-domain candidate pairs reachable
+    only via aligned bridge nodes (zero in P1)
+  \item \textbf{deep CD count}: candidates with path length $\geq 3$ and
+    cross-domain subject/object
+  \item \textbf{drift rate by depth}: fraction of candidates at each depth
+    containing at least one blocked relation
+  \item \textbf{promising rate}: fraction of deep CD candidates labelled
+    \textit{promising} in qualitative review (Run~011; Subset~A only)
+  \item \textbf{top-20 depth composition}: depth distribution of top-20 scored candidates
+\end{itemize}
+
+\subsection{Run Progression}
+\label{sec:runs}
+
+Thirteen runs span four phases: synthetic KG validation (Runs~001--006),
+first real-data test (Run~007), scale-up and operator development
+(Runs~008--012), and reproducibility testing (Run~013).
+Table~\ref{tab:run_summary} summarises the key results at each phase.
+
+\begin{table}[h]
+\caption{%
+  \textbf{Run progression summary (Runs 001--013).}
+  Phase 1--2: synthetic KG; Phase 3--4: Wikidata-derived KGs.
+  H1''/H3''/H4 verdicts reflect final hypothesis formulations (see text).
+}
+\label{tab:run_summary}
+\small
+\begin{tabularx}{\linewidth}{lcllX}
+\toprule
+Run & Phase & Scale & Key finding & Verdict \\
+\midrule
+001--006 & 1--2 & 57n (synth) & Operator validation, rubric calibration & H1/H3/H4 PASS (synthetic) \\
+007      & 3    & 57n (real)   & H1'' cond.\ PASS; 4 unique pairs via alignment & H1'' PASS (cond.) \\
+008      & 3    & 57n (real)   & H3'' FAIL: 57 nodes structurally incapable of 3-hop CD & H3'' FAIL (scale) \\
+009      & 4    & 536n (real)  & H3'' PASS (20 deep CD); H4 FAIL (old rubric) & H1'',H3'' PASS; H4 FAIL \\
+010      & 4    & 536n         & H4 PASS: revised traceability; 309 deep promoted & H4 PASS \\
+011      & 4    & 536n         & Qualitative review: 25\% drift, 15\% promising & Manual labels \\
+012      & 4    & 536n         & Drift filter: 0\% drift, 100\% promising; 3 survivors & Filter derived \\
+013      & 4    & 288--536n    & Reproducibility 3/3 subsets SUCCESS & H1'',H3'' confirmed \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Hypothesis Definitions}
+
+\begin{description}[leftmargin=0pt]
+\item[H1'']
+The multi-operator pipeline produces a non-zero number of
+\textit{unique\_to\_alignment} cross-domain candidate pairs, demonstrating that
+alignment-dependent paths exist that compose cannot reach without bridge alignment.
+
+\item[H2]
+The pipeline output is noise-robust under random edge deletion.
+\textit{(Validated on synthetic KG only; not retested on real data.)}
+
+\item[H3'']
+On a real KG of sufficient scale ($\geq$288 nodes), the pipeline generates
+$\geq$1 deep ($\geq$3-hop) cross-domain candidate that passes the drift filter
+and is labelled promising (or inferred promising via filter passage).
+
+\item[H4]
+The revised quality-aware traceability scorer ranks deep cross-domain candidates
+higher relative to the naive depth-penalty scorer.
+
+\end{description}
+
+Final hypothesis verdicts are reported in Table~\ref{tab:hypothesis_status}.

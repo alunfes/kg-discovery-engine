@@ -1,0 +1,185 @@
+\section{Case Studies: Representative Candidates}
+\label{sec:casestudies}
+
+We present five representative candidates drawn from the three domain pairs
+(Table~\ref{tab:candidate_summary}).
+Candidates are described as \textit{structurally generated cross-domain connections
+with variable mechanistic interpretability}, not as validated mechanistic hypotheses.
+Each is classified as \textbf{positive control}, \textbf{weakly novel}, or
+\textbf{artifact risk} based on the relation semantics audit (Run~014);
+interpretation confidence is rated high / medium / low.
+
+\input{tables/table4_candidate_summary}
+
+\subsection{Candidate A-1 --- VHL / HIF1A / LDHA / NADH Cascade (Positive Control)}
+\label{cs:a1}
+
+\textit{Classification: positive control.
+Interpretation confidence: high.
+Directionality risk: none. Chemistry validity risk: none.}
+
+\smallskip
+The pipeline's highest-quality Subset~A candidate connects the VHL tumour suppressor
+to NADH oxidation chemistry via a 5-hop cross-domain path:
+\[
+  g\textunderscore\mathrm{VHL} \xrightarrow{\textit{encodes}}
+  \mathrm{VHL} \xrightarrow{\textit{inhibits}}
+  \mathrm{HIF1A} \xrightarrow{\textit{activates}}
+  \mathrm{LDHA} \xrightarrow{\textit{req\_cofactor}}
+  \mathrm{NADH} \xrightarrow{\textit{undergoes}}
+  r\textunderscore\mathrm{Oxidation}
+\]
+The path traverses from the cancer-signaling domain (VHL, HIF1A, LDHA) to the
+metabolic chemistry domain ($r$\_Oxidation) via NADH, the sole aligned bridge
+in Subset~A.
+Strong relations account for 60\% of the path; all filter guards pass with zero
+drift flags.
+
+This candidate reconstructs the VHL$\to$HIF-1$\alpha$$\to$Warburg axis in renal
+cell carcinoma: VHL loss stabilises HIF-1$\alpha$, which upregulates LDHA,
+leading to increased aerobic glycolysis and NADH oxidation demand.
+The complete mechanism is well-characterised in the oncology literature.
+The candidate's value is as a \textit{positive control}: the pipeline independently
+recovers a known pathway from graph structure without explicitly encoding the Warburg
+effect as a search target.
+It is \textit{not} novel; classifying it as a novel hypothesis would be incorrect.
+
+The structural redundancy of Subset~A's three filter-passing candidates
+(all variations of the same VHL/HIF1A/LDHA cascade via different entry nodes)
+reflects the low fan-out of the NADH bridge, and directly motivates Claim~3.
+
+\subsection{Candidate B-1 --- PTGS1 / Arachidonic Acid / Catechol (Weakly Novel)}
+\label{cs:b1}
+
+\textit{Classification: weakly novel.
+Interpretation confidence: low.
+Directionality risk: high. Chemistry validity risk: high.}
+
+\smallskip
+Candidate B-1 connects COX-1 (PTGS1) to catechol functional-group chemistry
+via a 3-hop cross-domain path through the aligned eicosanoid bridge:
+\[
+  \mathrm{PTGS1} \xrightarrow{\textit{catalyzes}}
+  m\textunderscore\mathrm{AA} \xrightarrow{\textit{undergoes}}
+  r\textunderscore\mathrm{OxidNat} \xrightarrow{\textit{produces}}
+  fg\textunderscore\mathrm{Catechol}
+\]
+Strong-relation ratio: 0.667 (catalyzes + undergoes); the filter passes all four guards.
+
+The cross-domain connection has partial biological support: catechol-containing plant
+compounds (caffeic acid derivatives, catechins) are documented COX inhibitors.
+However, two concurrent problems limit the interpretation.
+First, \textit{directionality inversion}: the path implies COX-1 produces catechol
+(forward direction), whereas the established pharmacological relationship is that
+catechol compounds \textit{inhibit} COX-1.
+Second, \textit{class-level chemistry}: the \texttt{produces} edge
+($r$\_OxidationNat $\to$ $fg$\_Catechol) is a natural-products generalisation that
+does not hold for arachidonic acid as the specific substrate;
+the primary COX-1 product (prostaglandin G$_2$) is not a catechol compound.
+
+Next validation steps: (1)~confirm whether any documented AA oxidation products
+contain catechol structural motifs (ChEBI, LIPID MAPS); (2)~assess whether the
+catechol-COX connection should be modelled as inhibition rather than production.
+
+\subsection{Candidate B-2 --- PTGS2 / Arachidonic Acid / Catechol (Weakly Novel)}
+\label{cs:b2}
+
+\textit{Classification: weakly novel.
+Interpretation confidence: low.
+Directionality risk: high. Chemistry validity risk: high.}
+
+\smallskip
+Candidate B-2 is structurally identical to B-1 but substitutes the inducible
+isoform COX-2 (PTGS2):
+\[
+  \mathrm{PTGS2} \xrightarrow{\textit{catalyzes}}
+  m\textunderscore\mathrm{AA} \xrightarrow{\textit{undergoes}}
+  r\textunderscore\mathrm{OxidNat} \xrightarrow{\textit{produces}}
+  fg\textunderscore\mathrm{Catechol}
+\]
+The same directionality and chemistry validity limitations apply.
+The pharmacological significance of COX-2 is higher: it is the primary target
+for NSAIDs and the coxib class.
+Several catechol-containing natural compounds (EGCG, quercetin, hydroxytyrosol)
+show preferential COX-2 inhibition in published assay data.
+
+The B-1/B-2 pair together constitute a testable selectivity hypothesis if the
+catechol-AA connection is confirmed: whether catechol natural products show
+differential activity at COX-1 vs.\ COX-2 as a function of structural reactivity
+with AA-derived oxidation products.
+Resolving the directionality inversion is prerequisite to treating either
+candidate as actionable.
+
+\subsection{Candidate C-1 --- TH / Dopamine / Methylation / Piperidine (Artifact Risk)}
+\label{cs:c1}
+
+\textit{Classification: artifact risk.
+Interpretation confidence: low.
+Directionality risk: none. Chemistry validity risk: high.}
+
+\smallskip
+Candidate C-1 connects tyrosine hydroxylase (TH) to piperidine-scaffold drug
+chemistry via a 3-hop path:
+\[
+  \mathrm{TH} \xrightarrow{\textit{catalyzes}}
+  m\textunderscore\mathrm{Dopamine} \xrightarrow{\textit{undergoes}}
+  r\textunderscore\mathrm{Methylation} \xrightarrow{\textit{produces}}
+  fg\textunderscore\mathrm{Piperidine}
+\]
+Strong-relation ratio: 0.667; all filter guards pass.
+The pharmacological framing is plausible: piperidine-scaffold antipsychotics
+(haloperidol, risperidone, pimozide) target dopamine receptors, and TH is the
+rate-limiting enzyme in dopamine biosynthesis.
+
+However, the \texttt{produces} edge
+($r$\_Methylation $\to$ $fg$\_Piperidine) is the source of failure.
+O-methylation of dopamine by COMT produces methoxydopamine, which is structurally
+unrelated to piperidine.
+The KG edge encodes a \textit{synthetic chemistry generalisation}
+(methylation reactions are used in piperidine synthesis) rather than an in vivo
+metabolic relationship.
+This is an instance of the CR (chemically-risky) pattern in the relation
+semantics audit: a reaction class $\to$ functional group class edge that does
+not hold for the specific substrate in the path.
+
+C-1 illustrates a critical filter precision gap: the filter correctly passes
+\texttt{catalyzes}, \texttt{undergoes}, and \texttt{produces} as strong relations,
+but cannot validate the chemical plausibility of the substrate--product pair.
+C-1 is a KG artefact that passed the filter via a class-level generalisation.
+
+\subsection{Candidate C-2 --- TH / Dopamine / MAOA / Serotonin / Deamination (Weakly Novel)}
+\label{cs:c2}
+
+\textit{Classification: weakly novel.
+Interpretation confidence: medium.
+Directionality risk: moderate. Chemistry validity risk: none. Context dependence risk: high.}
+
+\smallskip
+Candidate C-2 connects TH to serotonin deamination via MAO-A in a 4-hop path:
+\[
+  \mathrm{TH} \xrightarrow{\textit{catalyzes}}
+  m\textunderscore\mathrm{Dop} \xrightarrow{\textit{is\_substrate\_of}}
+  \mathrm{MAOA} \xrightarrow{\textit{catalyzes}}
+  m\textunderscore\mathrm{Ser} \xrightarrow{\textit{undergoes}}
+  r\textunderscore\mathrm{Deamination}
+\]
+Strong-relation ratio: 0.50; all filter guards pass.
+Each individual edge represents established biochemistry: TH produces dopamine,
+dopamine is an MAO-A substrate, MAO-A processes serotonin, serotonin is deaminated
+to 5-HIAA.
+
+The cross-pathway coupling hypothesis---that TH activity modulates serotonin
+deamination via dopamine-serotonin competition at MAO-A---is mechanistically
+derivable from MAO-A's known dual substrate specificity.
+MAO inhibitors (MAOIs, used as antidepressants) affect both dopaminergic and
+serotonergic metabolism, consistent with this coupling.
+
+The principal limitation is \textit{cellular compartmentalisation}:
+dopaminergic and serotonergic neurons are distinct cell populations.
+The KG merges dopaminergic (TH, dopamine) and serotonergic (MAO-A, serotonin)
+data without cell-type annotation, producing a path that is structurally valid
+in the merged graph but requires co-localisation conditions not encoded in the KG.
+The competition hypothesis would most plausibly apply in neurons co-expressing
+both pathways (rare), in pharmacological MAOI conditions, or in in vitro assays.
+C-2 is classified as weakly novel: the cross-pathway coupling is plausible but
+the compartmentalisation objection must be addressed before it is actionable.

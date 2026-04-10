@@ -1,0 +1,32 @@
+\begin{abstract}
+Cross-domain hypothesis generation---discovering mechanistic links between two
+domain-specific knowledge graphs---requires traversing graph boundaries that no
+single-domain operator can cross.
+We present a multi-operator pipeline consisting of \textit{align}, \textit{union},
+\textit{compose}, \textit{difference}, and \textit{evaluate} operators, and study its
+behaviour on Wikidata-derived bio-chem knowledge graph pairs across three independent
+domain contexts (cancer signaling, immunology, and neuroscience).
+
+Our experiments establish three findings.
+(1)~The \textit{align} operator is necessary and sufficient to unlock
+alignment-dependent cross-domain paths: without it, the compose operator produces
+zero cross-domain candidates; with it, the pipeline generates dozens to hundreds of
+structurally unique cross-domain path candidates, scaling non-linearly with graph size.
+(2)~Raw multi-hop output from real knowledge graphs contains substantial semantic
+drift---25\% of deep candidates are structurally non-mechanistic---and a relation-type
+filter derived from qualitative review reduces drift to 0\% while preserving all
+scientifically meaningful candidates, generalising across all three domain pairs
+without parameter retuning.
+(3)~The number of unique cross-domain candidates is better predicted by the structural
+diversity of bridge entities than by their count: neurotransmitter and eicosanoid bridges
+yield 6--8$\times$ more candidates per bridge pair than a single-metabolite bridge.
+
+We further identify a fundamental limitation of the current pipeline: the knowledge
+graph encodes relation types at the class level rather than the instance level,
+which means filter-passing candidates can carry chemically invalid edges that the
+filter cannot detect without substrate-specificity metadata.
+This finding, from a post-hoc relation semantics audit (Run~014),
+constrains all candidate interpretations and is the central theme of
+the Limitations and Discussion sections.
+Code and all experimental artefacts are released with this submission.
+\end{abstract}
