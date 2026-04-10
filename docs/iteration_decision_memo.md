@@ -1,121 +1,135 @@
 # Iteration Decision Memo
 
-**Date**: 2026-04-10
-**Author**: Claude (session: stoic-diffie)
-**Covers**: Run 001–004
+**Updated**: 2026-04-10 (Run 008)
+**Covers**: Run 001–008
 
 ---
 
-## What the Past 4 Runs Established
+## What Each Major Phase Established
 
-### Run 001: Infrastructure validated, scoring broken
-- KG pipeline ran end-to-end; C2 generated 2.87× more candidates than C1
-- Scoring was monotonic: all hypotheses scored the same regardless of domain or relation type
-- Key fix needed: cross-domain novelty distinction + synonym-aware alignment
+### Phase 1–2 (Run 001–006): Infrastructure + toy-data calibration
 
-### Run 002: Cross-domain signal introduced
-- Synonym-aware alignment produced 4 bio↔chem matches (0→4)
-- Cross-domain hypotheses appeared for first time (0→7)
-- H1 gap improved 0%→3.3%; H3 improved but didn't pass under condition-level method
-- Key insight: H3 evaluation method was wrong (mixing cross/same within a condition)
+- Built KG pipeline: align → union → compose → difference → evaluate
+- H1: consistent ~3-7% score gap, never reached 10% threshold
+- H2 PASS: evaluation layer noise-tolerant at score level (survivor selection caveat)
+- H3 PASS: cross-domain novelty real but tautological (hardcoded +0.2 bonus)
+- H4 PASS: demonstrated on engineered mixed-hop KG
+- **Phase 2 diagnosis**: toy data saturated; scoring confounders identified; real data needed
 
-### Run 003: First PASSes, new test frameworks
-- H2 PASS: evaluation layer is noise-tolerant on surviving candidates
-- H3 PASS: hypothesis-level comparison correctly shows cross-domain novelty advantage
-- H4 framework established but degenerate: all-2hop biology KG made naive=aware
-- Key finding: most important progress was in test design, not system performance
+### Phase 3 Run 007: Real Wikidata, 4 bridge-density conditions
 
-### Run 004: H4 PASS, H1 closest approach
-- H4 PASS on mixed-hop KG: Spearman(aware)=0.8929 >> Spearman(naive)=0.1429
-- C2_xdomain (cross-domain-only): mean_total=0.7807, +7.1% vs C1 (highest yet)
-- H4 original degenerate test now serves as negative control
+- same-domain (A/B): unique_to_multi = 0
+- cross-domain (C/D): unique_to_multi = 4
+- Bridge density (5% vs 15%) NOT the deciding factor
+- **Key finding**: alignment-induced path shortening (ADP/ATP merge) is the mechanism
+- **Remaining gap**: only 2-hop paths tested; no deeper exploration
 
----
+### Phase 3 Run 008: Deep composition (max 5 hops)
 
-## H1–H4 Current Status
-
-| Hypothesis | Status | Confidence | Notes |
-|-----------|--------|------------|-------|
-| H1 | inconclusive | Low | ~3-7% gap; 10% threshold may be miscalibrated |
-| H2 | partially supported | Medium | Survivor selection artifact; original framing untested |
-| H3 | provisionally supported | Medium | Tautological scoring (hardcoded +0.2); method changed mid-series |
-| H4 | provisionally supported | Medium | Demonstrated on engineered KG; needs robustness test |
+| Metric | Value |
+|--------|-------|
+| unique_to_R2_vs_R1 (alignment gain) | 4 (reproduced Run 007) |
+| unique_to_R3_vs_R2 (deep gain) | 60 |
+| cross-domain at depth ≥ 3 | **0** |
+| drift rate at 3-hop | 66.7% |
+| drift rate at 4-5-hop | 83.3% |
+| H1'' | PASS |
+| H3'' | FAIL (structural) |
+| H4 | FAIL (deep demoted, not promoted) |
 
 ---
 
-## What Each Run Added to H1–H4 Interpretation
+## Current Status of Each Hypothesis
 
-| Run | H1 | H2 | H3 | H4 |
-|-----|----|----|----|----|
-| Run 001 | Baseline (0%) | — | Baseline (FAIL) | — |
-| Run 002 | System improved (+3.3%) | — | Cross-domain signal exists | — |
-| Run 003 | Minor progress (+3.0%) | PASS (noise-tolerant) | PASS (correct method) | Framework set up |
-| Run 004 | Best yet (+7.1%/xdomain) | Stable | Stable | **PASS (mixed-hop)** |
-
----
-
-## Biggest Weaknesses of the Current System
-
-### 1. Testability is a constant (0.6)
-Every hypothesis gets the same testability score regardless of content. This is 20% of the total score — a constant offset that narrows the effective scoring range from [0,1] to roughly [0.5, 0.9]. Removing testability from the rubric (or implementing a real heuristic) would improve score discrimination.
-
-### 2. H3 PASS is partially by design
-The +0.2 cross-domain novelty bonus is a design choice, not an empirical discovery. H3 tests whether the implementation is internally consistent, not whether cross-domain hypotheses are genuinely more novel in any scientific sense. Any claim that "the system has discovered that cross-domain operations improve novelty" is overclaiming.
-
-### 3. H4 tested only on engineered data
-The mixed-hop KG was designed knowing the expected outcome. This is fine for demonstrating feasibility but insufficient for scientific validation. A stronger H4 test would use data where the expected outcome was not pre-computed.
-
-### 4. H1 threshold has no empirical basis
-The 10% threshold in `docs/hypotheses.md` was set at initialization. All 4 runs show 3-7% improvement. Either the system is genuinely limited to this improvement range on toy data, or the threshold is too high. Both interpretations are defensible; neither has been tested.
-
-### 5. Cross-run comparison confounded
-KG size changed between Run 002 and Run 003. H3 evaluation method changed mid-series. Absolute score comparisons across runs are unreliable. Only within-run comparisons (same input, same evaluator) are fully trustworthy.
+| Hypothesis | Status | Confidence | Bottleneck |
+|-----------|--------|------------|------------|
+| H1'' | PASS (conditional) | Medium | Only 4 pairs; needs scale validation |
+| H2  | Partially supported | Medium | Phase 3 untested |
+| H3'' | FAIL (structural) | High | KG too small for deep cross-domain paths |
+| H4  | Conditional fail | Medium | Provenance-aware penalizes depth by design |
 
 ---
 
-## Most Important Next Step
+## Biggest Finding: The Drift Profile
 
-**Option A: Fix H1 threshold and run a fair controlled comparison**
-- Set a defensible threshold (5%? 7%?) with explicit justification
-- Design a strict same-input comparison: C1 and C2 on the SAME merged KG (not C1 on one KG, C2 on two)
-- This would give a clean H1 answer
+Run 008 produced the first empirical drift rate profile across depths:
 
-**Option B: Invest in external validation for H3 and H4**
-- Define a small gold-standard novelty set (10-20 manually annotated hypotheses) for H3
-- Run H4 on a larger real or semi-real KG (e.g., WikiData toy subset)
-- This would give more credible PASS/FAIL verdicts
+| Depth | Drift Rate | Interpretation |
+|-------|-----------|----------------|
+| 2-hop | 37% | Marginal signal; some noise |
+| 3-hop | 67% | Majority noise |
+| 4-5-hop | 83% | Effectively all noise |
 
-**Option C: Extend to real-world data (Phase 3)**
-- WikiData / small PubMed-derived KG
-- The current toy data has saturated what it can show: any further toy-data experiments will be confounded by the fact that scoring is heuristic and data is synthetic
-
-**Recommendation**: Option A is the most actionable for the next run (Run 005). Option C is the most important for long-term credibility and should be planned as a parallel track.
+**Implication**: Deep composition (max_depth > 3) is not useful without pre-filtering.
+A relation-type filter before compose() could suppress low-specificity paths before
+they generate spurious hypotheses.
 
 ---
 
-## What Can Be Said Honestly After 4 Runs
+## Most Important Next Steps (Prioritized)
 
-1. **The multi-op pipeline generates more diverse candidates** (cross-domain + same-domain) than single-op. This is factual and consistent across all runs.
+### Priority 1: Drift suppression for deep compose
 
-2. **Cross-domain hypotheses score higher on novelty** due to a design choice in the scorer. Whether this reflects real-world novelty is unvalidated.
+Add a relation-quality filter to `compose()`:
+- Drop paths where any relation is in `_LOW_SPEC_RELATIONS`
+- Measure: does drift rate fall? Do genuine deep novelty candidates survive?
+- This is low implementation cost and directly actionable
 
-3. **The evaluation layer is robust to input noise** at the score level, subject to survivorship bias (fewer candidates at high noise).
+### Priority 2: Scale to 500+ node Wikidata
 
-4. **Provenance-aware evaluation can improve ranking** when the input contains mixed-depth paths. Whether this generalizes beyond engineered test cases is untested.
+Current KG has 57 nodes and 6 aligned nodes. H3'' requires a KG large enough
+for genuine multi-hop cross-domain paths. Need:
+- 500+ bio nodes, 500+ chem nodes
+- 30+ alignment pairs
+- Multiple cross-domain bridge types (not just same_as)
 
-5. **The 10% H1 threshold has not been met** in any run. The consistent ~3-7% gap suggests either: (a) the system is limited on toy data, (b) the threshold is miscalibrated, or (c) both.
+This requires either: (a) real Wikidata SPARQL query with larger scope,
+or (b) a semi-synthetic extension of the current dataset.
+
+### Priority 3: Revise H4 rubric
+
+Current provenance-aware penalizes depth. A useful alternative:
+- `quality_aware_traceability`: high score if ALL relations in path are strong,
+  regardless of path length; penalizes only paths with weak/mixed relations
+
+### Priority 4: Validate H1'' alignment mechanism
+
+The 4-pair gain is reproducible but small. To claim this as a meaningful result:
+- Test on multiple random seeds
+- Test with different alignment thresholds (0.4, 0.6)
+- Measure: is it always the same 4 pairs (ADP/ATP), or does it generalize?
 
 ---
 
-## Final Summary Judgment
+## What Can Be Said Honestly After 8 Runs
 
-This project has successfully demonstrated:
-- A working KG hypothesis generation pipeline (complete and tested)
-- Two hypothesis PASSes (H2, H3) — though with caveats documented above
-- H4 feasibility demonstration on engineered data
+1. **The multi-op pipeline reliably produces 4 unique cross-domain pairs** via alignment
+   (ADP/ATP merge). This is mechanistically understood and reproduced.
 
-The project has not yet demonstrated:
-- That multi-op pipelines are meaningfully better than single-op at the defined threshold
-- Any result that would generalize to real-world scientific KGs
+2. **Deep compose produces many new candidates**, but they are dominated by semantic drift
+   at depth ≥ 3. The useful signal from deep composition does not emerge in a 57-node KG.
 
-The infrastructure is ready for Phase 3 (real-world data). The experiment design lessons from Runs 001–004 should inform how hypotheses are operationalized in Phase 3 to avoid the tautological scoring problems encountered here.
+3. **Cross-domain novelty is an alignment phenomenon, not a depth phenomenon**.
+   All cross-domain candidates are 2-hop alignment shortcuts. No deeper cross-domain path
+   was found in this dataset.
+
+4. **Provenance-aware ranking is a depth-penalizing mechanism** in its current form.
+   It correctly demotes drift-heavy deep candidates, but this means it also cannot promote
+   any genuinely good deep candidates (there aren't any in this dataset).
+
+5. **H3'' requires a larger KG** to get a fair test. The current dataset is structurally
+   incapable of exhibiting deep cross-domain paths.
+
+---
+
+## Recommendation for Next Session
+
+**Run 009A**: Pre-compose relation filtering
+- Implement: filter paths where ALL relations are in `_STRONG_RELATIONS` before generating candidates
+- Re-run R3/R4/R5 with filtered compose
+- Measure: drift rate at each depth bucket, unique_to_filtered_multi_vs_unfiltered
+
+**Run 009B**: Scale validation (if larger dataset is available)
+- Use real Wikidata with 200+ bio nodes, 200+ chem nodes
+- Full Run 008 design on new scale
+- Measure: does deep compose produce cross-domain candidates at larger scale?

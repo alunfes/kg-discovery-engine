@@ -219,12 +219,21 @@ def difference(
 def compose(
     kg: KnowledgeGraph,
     max_depth: int = 3,
+    max_per_source: int = 0,
     _counter: list[int] | None = None,
 ) -> list[HypothesisCandidate]:
     """Generate hypotheses by finding transitive paths in the KG.
 
     For each pair (A, C) where A->...->C exists but A->C does not,
     generate a HypothesisCandidate.
+
+    Args:
+        kg: Input knowledge graph.
+        max_depth: BFS expansion depth limit. To get k-hop paths, use max_depth = 2k-1.
+            Default 3 → 2-hop max. Use 9 for up to 5-hop paths.
+        max_per_source: Cap on candidates per source node (0 = unlimited).
+            Use to limit path explosion on large graphs.
+        _counter: Shared ID counter (list of one int) for stable hypothesis IDs.
     """
     if _counter is None:
         _counter = [0]
@@ -252,11 +261,12 @@ def compose(
                     queue.append((neighbor_id, new_path))
 
         # Generate hypothesis for each reachable node (depth >= 2)
+        source_candidates: list[HypothesisCandidate] = []
         for target_id, path in visited.items():
             if target_id == source_id:
                 continue
-            # path has format: [src, rel1, mid1, rel2, ..., target]
-            # length 3 = direct edge (src, rel, tgt) → skip if direct edge exists
+            # path format: [src, rel1, mid1, rel2, ..., target]
+            # length 3 = direct edge (src, rel, tgt) → skip
             if len(path) <= 3:
                 continue  # direct path, not interesting
             if kg.has_direct_edge(source_id, target_id):
@@ -269,17 +279,12 @@ def compose(
 
             _counter[0] += 1
             hyp_id = f"H{_counter[0]:04d}"
-
-            # Build a human-readable relation from path
-            relations = path[1::2]  # every other element starting at index 1
             inferred_relation = "transitively_related_to"
-
             description = (
                 f"{src_node.label} may {inferred_relation} {tgt_node.label} "
                 f"via path: {' -> '.join(str(p) for p in path)}"
             )
-
-            candidates.append(
+            source_candidates.append(
                 HypothesisCandidate(
                     id=hyp_id,
                     subject_id=source_id,
@@ -291,6 +296,13 @@ def compose(
                     source_kg_name=kg.name,
                 )
             )
+
+        if max_per_source > 0:
+            # Keep shortest paths first (BFS already tends this way)
+            source_candidates.sort(key=lambda c: len(c.provenance))
+            source_candidates = source_candidates[:max_per_source]
+
+        candidates.extend(source_candidates)
 
     return candidates
 

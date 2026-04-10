@@ -1,0 +1,86 @@
+{
+  "run_id": "run_008",
+  "phase": "Phase3",
+  "experiment": "deep_composition",
+  "timestamp": "2026-04-10T11:45:30.463422",
+  "random_seed": 42,
+  "condition": "C_sparse_bridge",
+  "shallow_depth_param": 3,
+  "deep_depth_param": 9,
+  "pipelines": [
+    "R1_single_shallow",
+    "R2_multi_shallow",
+    "R3_multi_deep",
+    "R4_multi_deep_naive",
+    "R5_multi_deep_aware"
+  ],
+  "rubric": "EvaluationRubric(cross_domain_novelty_bonus=False)",
+  "tracking_fields": [
+    "path_length",
+    "operator_chain",
+    "alignment_used",
+    "alignment_count",
+    "merged_nodes_used",
+    "reachable_by_single",
+    "uniqueness_class",
+    "effective_path_length_after_alignment",
+    "drift_flags",
+    "semantic_drift_score"
+  ],
+  "research_questions": [
+    "H1'': alignment-induced reachability gain (not score improvement)",
+    "H3'': deep compose produces new cross-domain candidates",
+    "H4: provenance-aware ranking improves deep top-k quality"
+  ],
+  "results_summary": {
+    "h1pp": "PASS — alignment enables reachability of new pairs",
+    "h3pp": "PASS — deep compose (3-hop+) produces candidates unreachable by shallow multi-op",
+    "h4": "FAIL — provenance-aware demotes deep candidates",
+    "reachability": {
+      "r1_single_shallow_total": 60,
+      "r2_multi_shallow_total": 54,
+      "r3_multi_deep_total": 114,
+      "unique_to_r2_vs_r1": 4,
+      "unique_to_r3_vs_r2": 60,
+      "unique_to_r3_vs_r1": 64,
+      "deep_only_count": 60,
+      "h1pp_evidence": true,
+      "h3pp_evidence": true,
+      "note": "deep_only = pairs reachable by R3 but not R2 or R1 (requires deep compose)"
+    },
+    "ranking_comparison": {
+      "top_k": 10,
+      "naive_top_scores": [
+        0.735,
+        0.735,
+        0.735,
+        0.735,
+        0.735,
+        0.735,
+        0.735,
+        0.735,
+        0.735,
+        0.735
+      ],
+      "aware_top_scores": [
+        0.735,
+        0.735,
+        0.735,
+        0.735,
+        0.735,
+        0.735,
+        0.735,
+        0.735,
+        0.735,
+        0.735
+      ],
+      "overlap_count": 10,
+      "naive_only_count": 0,
+      "aware_only_count": 0,
+      "jaccard_similarity": 1.0,
+      "deep_promoted_by_aware": 8,
+      "deep_demoted_by_aware": 29,
+      "interpretation": "provenance-aware DEMOTES deep candidates"
+    }
+  }
+}

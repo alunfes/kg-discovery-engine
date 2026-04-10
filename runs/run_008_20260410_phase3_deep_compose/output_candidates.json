@@ -1,0 +1,4773 @@
+[
+  {
+    "id": "H0001",
+    "subject_id": "bio:TP53",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CDK2",
+    "description": "tumor protein p53 may transitively_related_to cyclin-dependent kinase 2 via path: bio:TP53 -> activates -> bio:CDKN1A -> inhibits -> bio:CDK2",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:TP53",
+      "activates",
+      "bio:CDKN1A",
+      "inhibits",
+      "bio:CDK2"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0002",
+    "subject_id": "bio:TP53",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CASP3",
+    "description": "tumor protein p53 may transitively_related_to caspase 3 via path: bio:TP53 -> activates -> bio:BAX -> activates -> bio:CASP3",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:TP53",
+      "activates",
+      "bio:BAX",
+      "activates",
+      "bio:CASP3"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0003",
+    "subject_id": "bio:TP53",
+    "relation": "transitively_related_to",
+    "object_id": "bio:lactate",
+    "description": "tumor protein p53 may transitively_related_to lactic acid via path: bio:TP53 -> activates -> bio:LDHA -> produces -> bio:lactate",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:TP53",
+      "activates",
+      "bio:LDHA",
+      "produces",
+      "bio:lactate"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0005",
+    "subject_id": "bio:TP53",
+    "relation": "transitively_related_to",
+    "object_id": "bio:NAD_plus",
+    "description": "tumor protein p53 may transitively_related_to nicotinamide adenine dinucleotide oxidized via path: bio:TP53 -> activates -> bio:LDHA -> produces -> bio:NAD_plus",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:TP53",
+      "activates",
+      "bio:LDHA",
+      "produces",
+      "bio:NAD_plus"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:NAD_plus"
+      ],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 1,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0007",
+    "subject_id": "bio:TP53",
+    "relation": "transitively_related_to",
+    "object_id": "bio:ADP",
+    "description": "tumor protein p53 may transitively_related_to adenosine diphosphate via path: bio:TP53 -> activates -> bio:HK2 -> produces -> bio:ADP",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:TP53",
+      "activates",
+      "bio:HK2",
+      "produces",
+      "bio:ADP"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:ADP"
+      ],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 1,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0011",
+    "subject_id": "bio:MDM2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CDKN1A",
+    "description": "MDM2 proto-oncogene may transitively_related_to cyclin-dependent kinase inhibitor p21 via path: bio:MDM2 -> inhibits -> bio:TP53 -> activates -> bio:CDKN1A",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:MDM2",
+      "inhibits",
+      "bio:TP53",
+      "activates",
+      "bio:CDKN1A"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0012",
+    "subject_id": "bio:MDM2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:PCNA",
+    "description": "MDM2 proto-oncogene may transitively_related_to proliferating cell nuclear antigen via path: bio:MDM2 -> inhibits -> bio:TP53 -> activates -> bio:PCNA",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:MDM2",
+      "inhibits",
+      "bio:TP53",
+      "activates",
+      "bio:PCNA"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0013",
+    "subject_id": "bio:MDM2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:BAX",
+    "description": "MDM2 proto-oncogene may transitively_related_to BCL2-associated X protein via path: bio:MDM2 -> inhibits -> bio:TP53 -> activates -> bio:BAX",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:MDM2",
+      "inhibits",
+      "bio:TP53",
+      "activates",
+      "bio:BAX"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0014",
+    "subject_id": "bio:MDM2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:PARP1",
+    "description": "MDM2 proto-oncogene may transitively_related_to poly ADP-ribose polymerase 1 via path: bio:MDM2 -> inhibits -> bio:TP53 -> activates -> bio:PARP1",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:MDM2",
+      "inhibits",
+      "bio:TP53",
+      "activates",
+      "bio:PARP1"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0015",
+    "subject_id": "bio:MDM2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:LDHA",
+    "description": "MDM2 proto-oncogene may transitively_related_to L-lactate dehydrogenase A via path: bio:MDM2 -> inhibits -> bio:TP53 -> activates -> bio:LDHA",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:MDM2",
+      "inhibits",
+      "bio:TP53",
+      "activates",
+      "bio:LDHA"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0016",
+    "subject_id": "bio:MDM2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:HK2",
+    "description": "MDM2 proto-oncogene may transitively_related_to hexokinase 2 via path: bio:MDM2 -> inhibits -> bio:TP53 -> activates -> bio:HK2",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:MDM2",
+      "inhibits",
+      "bio:TP53",
+      "activates",
+      "bio:HK2"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0027",
+    "subject_id": "bio:BRCA1",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CDKN1A",
+    "description": "BRCA1 protein may transitively_related_to cyclin-dependent kinase inhibitor p21 via path: bio:BRCA1 -> activates -> bio:TP53 -> activates -> bio:CDKN1A",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:BRCA1",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:CDKN1A"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0028",
+    "subject_id": "bio:BRCA1",
+    "relation": "transitively_related_to",
+    "object_id": "bio:PCNA",
+    "description": "BRCA1 protein may transitively_related_to proliferating cell nuclear antigen via path: bio:BRCA1 -> activates -> bio:TP53 -> activates -> bio:PCNA",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:BRCA1",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:PCNA"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0029",
+    "subject_id": "bio:BRCA1",
+    "relation": "transitively_related_to",
+    "object_id": "bio:BAX",
+    "description": "BRCA1 protein may transitively_related_to BCL2-associated X protein via path: bio:BRCA1 -> activates -> bio:TP53 -> activates -> bio:BAX",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:BRCA1",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:BAX"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0030",
+    "subject_id": "bio:BRCA1",
+    "relation": "transitively_related_to",
+    "object_id": "bio:PARP1",
+    "description": "BRCA1 protein may transitively_related_to poly ADP-ribose polymerase 1 via path: bio:BRCA1 -> activates -> bio:TP53 -> activates -> bio:PARP1",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:BRCA1",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:PARP1"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0031",
+    "subject_id": "bio:BRCA1",
+    "relation": "transitively_related_to",
+    "object_id": "bio:LDHA",
+    "description": "BRCA1 protein may transitively_related_to L-lactate dehydrogenase A via path: bio:BRCA1 -> activates -> bio:TP53 -> activates -> bio:LDHA",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:BRCA1",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:LDHA"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0032",
+    "subject_id": "bio:BRCA1",
+    "relation": "transitively_related_to",
+    "object_id": "bio:HK2",
+    "description": "BRCA1 protein may transitively_related_to hexokinase 2 via path: bio:BRCA1 -> activates -> bio:TP53 -> activates -> bio:HK2",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:BRCA1",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:HK2"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0043",
+    "subject_id": "bio:ATM",
+    "relation": "transitively_related_to",
+    "object_id": "bio:MDM2",
+    "description": "ATM serine/threonine kinase may transitively_related_to MDM2 proto-oncogene via path: bio:ATM -> activates -> bio:TP53 -> inhibits -> bio:MDM2",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:ATM",
+      "activates",
+      "bio:TP53",
+      "inhibits",
+      "bio:MDM2"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0044",
+    "subject_id": "bio:ATM",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CDKN1A",
+    "description": "ATM serine/threonine kinase may transitively_related_to cyclin-dependent kinase inhibitor p21 via path: bio:ATM -> activates -> bio:TP53 -> activates -> bio:CDKN1A",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:ATM",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:CDKN1A"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0045",
+    "subject_id": "bio:ATM",
+    "relation": "transitively_related_to",
+    "object_id": "bio:PCNA",
+    "description": "ATM serine/threonine kinase may transitively_related_to proliferating cell nuclear antigen via path: bio:ATM -> activates -> bio:TP53 -> activates -> bio:PCNA",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:ATM",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:PCNA"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0046",
+    "subject_id": "bio:ATM",
+    "relation": "transitively_related_to",
+    "object_id": "bio:BAX",
+    "description": "ATM serine/threonine kinase may transitively_related_to BCL2-associated X protein via path: bio:ATM -> activates -> bio:TP53 -> activates -> bio:BAX",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:ATM",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:BAX"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0047",
+    "subject_id": "bio:ATM",
+    "relation": "transitively_related_to",
+    "object_id": "bio:PARP1",
+    "description": "ATM serine/threonine kinase may transitively_related_to poly ADP-ribose polymerase 1 via path: bio:ATM -> activates -> bio:TP53 -> activates -> bio:PARP1",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:ATM",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:PARP1"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0048",
+    "subject_id": "bio:ATM",
+    "relation": "transitively_related_to",
+    "object_id": "bio:LDHA",
+    "description": "ATM serine/threonine kinase may transitively_related_to L-lactate dehydrogenase A via path: bio:ATM -> activates -> bio:TP53 -> activates -> bio:LDHA",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:ATM",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:LDHA"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0049",
+    "subject_id": "bio:ATM",
+    "relation": "transitively_related_to",
+    "object_id": "bio:HK2",
+    "description": "ATM serine/threonine kinase may transitively_related_to hexokinase 2 via path: bio:ATM -> activates -> bio:TP53 -> activates -> bio:HK2",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:ATM",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:HK2"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0059",
+    "subject_id": "bio:CHEK2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:MDM2",
+    "description": "checkpoint kinase 2 may transitively_related_to MDM2 proto-oncogene via path: bio:CHEK2 -> activates -> bio:TP53 -> inhibits -> bio:MDM2",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:CHEK2",
+      "activates",
+      "bio:TP53",
+      "inhibits",
+      "bio:MDM2"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0060",
+    "subject_id": "bio:CHEK2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CDKN1A",
+    "description": "checkpoint kinase 2 may transitively_related_to cyclin-dependent kinase inhibitor p21 via path: bio:CHEK2 -> activates -> bio:TP53 -> activates -> bio:CDKN1A",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:CHEK2",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:CDKN1A"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0061",
+    "subject_id": "bio:CHEK2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:PCNA",
+    "description": "checkpoint kinase 2 may transitively_related_to proliferating cell nuclear antigen via path: bio:CHEK2 -> activates -> bio:TP53 -> activates -> bio:PCNA",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:CHEK2",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:PCNA"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0062",
+    "subject_id": "bio:CHEK2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:BAX",
+    "description": "checkpoint kinase 2 may transitively_related_to BCL2-associated X protein via path: bio:CHEK2 -> activates -> bio:TP53 -> activates -> bio:BAX",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:CHEK2",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:BAX"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0063",
+    "subject_id": "bio:CHEK2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:PARP1",
+    "description": "checkpoint kinase 2 may transitively_related_to poly ADP-ribose polymerase 1 via path: bio:CHEK2 -> activates -> bio:TP53 -> activates -> bio:PARP1",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:CHEK2",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:PARP1"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0064",
+    "subject_id": "bio:CHEK2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:LDHA",
+    "description": "checkpoint kinase 2 may transitively_related_to L-lactate dehydrogenase A via path: bio:CHEK2 -> activates -> bio:TP53 -> activates -> bio:LDHA",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:CHEK2",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:LDHA"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0065",
+    "subject_id": "bio:CHEK2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:HK2",
+    "description": "checkpoint kinase 2 may transitively_related_to hexokinase 2 via path: bio:CHEK2 -> activates -> bio:TP53 -> activates -> bio:HK2",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:CHEK2",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:HK2"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0082",
+    "subject_id": "bio:RB1",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CDK2",
+    "description": "retinoblastoma protein may transitively_related_to cyclin-dependent kinase 2 via path: bio:RB1 -> inhibits -> bio:CCND1 -> activates -> bio:CDK2",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:RB1",
+      "inhibits",
+      "bio:CCND1",
+      "activates",
+      "bio:CDK2"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0084",
+    "subject_id": "bio:BCL2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CASP3",
+    "description": "B-cell lymphoma 2 may transitively_related_to caspase 3 via path: bio:BCL2 -> inhibits -> bio:BAX -> activates -> bio:CASP3",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:BCL2",
+      "inhibits",
+      "bio:BAX",
+      "activates",
+      "bio:CASP3"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0088",
+    "subject_id": "bio:BAX",
+    "relation": "transitively_related_to",
+    "object_id": "bio:PARP1",
+    "description": "BCL2-associated X protein may transitively_related_to poly ADP-ribose polymerase 1 via path: bio:BAX -> activates -> bio:CASP3 -> inhibits -> bio:PARP1",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:BAX",
+      "activates",
+      "bio:CASP3",
+      "inhibits",
+      "bio:PARP1"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0105",
+    "subject_id": "bio:PKM2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:acetyl_CoA",
+    "description": "pyruvate kinase M2 may transitively_related_to acetyl coenzyme A via path: bio:PKM2 -> produces -> bio:pyruvate -> produces -> bio:acetyl_CoA",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:PKM2",
+      "produces",
+      "bio:pyruvate",
+      "produces",
+      "bio:acetyl_CoA"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 2,
+      "merged_nodes_used": [
+        "bio:pyruvate",
+        "bio:acetyl_CoA"
+      ],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 0,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0110",
+    "subject_id": "bio:glucose",
+    "relation": "transitively_related_to",
+    "object_id": "bio:ADP",
+    "description": "glucose may transitively_related_to adenosine diphosphate via path: bio:glucose -> activates -> bio:HK2 -> produces -> bio:ADP",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:glucose",
+      "activates",
+      "bio:HK2",
+      "produces",
+      "bio:ADP"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:ADP"
+      ],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 1,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0111",
+    "subject_id": "chem_sub_c::chem:complex_I",
+    "relation": "transitively_related_to",
+    "object_id": "bio:ATP",
+    "description": "NADH ubiquinone oxidoreductase may transitively_related_to adenosine triphosphate via path: chem_sub_c::chem:complex_I -> activates -> chem_sub_c::chem:ATP_synthase -> produces -> bio:ATP",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "chem_sub_c::chem:complex_I",
+      "activates",
+      "chem_sub_c::chem:ATP_synthase",
+      "produces",
+      "bio:ATP"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:ATP"
+      ],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_multi",
+      "effective_path_length_after_alignment": 1,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0113",
+    "subject_id": "chem_sub_c::chem:complex_II",
+    "relation": "transitively_related_to",
+    "object_id": "bio:ATP",
+    "description": "succinate ubiquinone oxidoreductase may transitively_related_to adenosine triphosphate via path: chem_sub_c::chem:complex_II -> activates -> chem_sub_c::chem:ATP_synthase -> produces -> bio:ATP",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "chem_sub_c::chem:complex_II",
+      "activates",
+      "chem_sub_c::chem:ATP_synthase",
+      "produces",
+      "bio:ATP"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:ATP"
+      ],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_multi",
+      "effective_path_length_after_alignment": 1,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0004",
+    "subject_id": "bio:TP53",
+    "relation": "transitively_related_to",
+    "object_id": "bio:NADH",
+    "description": "tumor protein p53 may transitively_related_to nicotinamide adenine dinucleotide reduced via path: bio:TP53 -> activates -> bio:LDHA -> uses -> bio:NADH",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:TP53",
+      "activates",
+      "bio:LDHA",
+      "uses",
+      "bio:NADH"
+    ],
+    "scores": {
+      "plausibility": 0.7,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:NADH"
+      ],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 1,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0006",
+    "subject_id": "bio:TP53",
+    "relation": "transitively_related_to",
+    "object_id": "bio:ATP",
+    "description": "tumor protein p53 may transitively_related_to adenosine triphosphate via path: bio:TP53 -> activates -> bio:HK2 -> uses -> bio:ATP",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:TP53",
+      "activates",
+      "bio:HK2",
+      "uses",
+      "bio:ATP"
+    ],
+    "scores": {
+      "plausibility": 0.7,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:ATP"
+      ],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 1,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0008",
+    "subject_id": "bio:TP53",
+    "relation": "transitively_related_to",
+    "object_id": "bio:glucose",
+    "description": "tumor protein p53 may transitively_related_to glucose via path: bio:TP53 -> activates -> bio:HK2 -> phosphorylates -> bio:glucose",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:TP53",
+      "activates",
+      "bio:HK2",
+      "phosphorylates",
+      "bio:glucose"
+    ],
+    "scores": {
+      "plausibility": 0.7,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0017",
+    "subject_id": "bio:MDM2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CDK2",
+    "description": "MDM2 proto-oncogene may transitively_related_to cyclin-dependent kinase 2 via path: bio:MDM2 -> inhibits -> bio:TP53 -> activates -> bio:CDKN1A -> inhibits -> bio:CDK2",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:MDM2",
+      "inhibits",
+      "bio:TP53",
+      "activates",
+      "bio:CDKN1A",
+      "inhibits",
+      "bio:CDK2"
+    ],
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 3,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0018",
+    "subject_id": "bio:MDM2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CASP3",
+    "description": "MDM2 proto-oncogene may transitively_related_to caspase 3 via path: bio:MDM2 -> inhibits -> bio:TP53 -> activates -> bio:BAX -> activates -> bio:CASP3",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:MDM2",
+      "inhibits",
+      "bio:TP53",
+      "activates",
+      "bio:BAX",
+      "activates",
+      "bio:CASP3"
+    ],
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 3,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0019",
+    "subject_id": "bio:MDM2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:lactate",
+    "description": "MDM2 proto-oncogene may transitively_related_to lactic acid via path: bio:MDM2 -> inhibits -> bio:TP53 -> activates -> bio:LDHA -> produces -> bio:lactate",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:MDM2",
+      "inhibits",
+      "bio:TP53",
+      "activates",
+      "bio:LDHA",
+      "produces",
+      "bio:lactate"
+    ],
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 3,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0021",
+    "subject_id": "bio:MDM2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:NAD_plus",
+    "description": "MDM2 proto-oncogene may transitively_related_to nicotinamide adenine dinucleotide oxidized via path: bio:MDM2 -> inhibits -> bio:TP53 -> activates -> bio:LDHA -> produces -> bio:NAD_plus",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:MDM2",
+      "inhibits",
+      "bio:TP53",
+      "activates",
+      "bio:LDHA",
+      "produces",
+      "bio:NAD_plus"
+    ],
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:NAD_plus"
+      ],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0023",
+    "subject_id": "bio:MDM2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:ADP",
+    "description": "MDM2 proto-oncogene may transitively_related_to adenosine diphosphate via path: bio:MDM2 -> inhibits -> bio:TP53 -> activates -> bio:HK2 -> produces -> bio:ADP",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:MDM2",
+      "inhibits",
+      "bio:TP53",
+      "activates",
+      "bio:HK2",
+      "produces",
+      "bio:ADP"
+    ],
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:ADP"
+      ],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0033",
+    "subject_id": "bio:BRCA1",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CDK2",
+    "description": "BRCA1 protein may transitively_related_to cyclin-dependent kinase 2 via path: bio:BRCA1 -> activates -> bio:TP53 -> activates -> bio:CDKN1A -> inhibits -> bio:CDK2",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:BRCA1",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:CDKN1A",
+      "inhibits",
+      "bio:CDK2"
+    ],
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 3,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0034",
+    "subject_id": "bio:BRCA1",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CASP3",
+    "description": "BRCA1 protein may transitively_related_to caspase 3 via path: bio:BRCA1 -> activates -> bio:TP53 -> activates -> bio:BAX -> activates -> bio:CASP3",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:BRCA1",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:BAX",
+      "activates",
+      "bio:CASP3"
+    ],
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 3,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0035",
+    "subject_id": "bio:BRCA1",
+    "relation": "transitively_related_to",
+    "object_id": "bio:lactate",
+    "description": "BRCA1 protein may transitively_related_to lactic acid via path: bio:BRCA1 -> activates -> bio:TP53 -> activates -> bio:LDHA -> produces -> bio:lactate",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:BRCA1",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:LDHA",
+      "produces",
+      "bio:lactate"
+    ],
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 3,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0037",
+    "subject_id": "bio:BRCA1",
+    "relation": "transitively_related_to",
+    "object_id": "bio:NAD_plus",
+    "description": "BRCA1 protein may transitively_related_to nicotinamide adenine dinucleotide oxidized via path: bio:BRCA1 -> activates -> bio:TP53 -> activates -> bio:LDHA -> produces -> bio:NAD_plus",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:BRCA1",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:LDHA",
+      "produces",
+      "bio:NAD_plus"
+    ],
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:NAD_plus"
+      ],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0039",
+    "subject_id": "bio:BRCA1",
+    "relation": "transitively_related_to",
+    "object_id": "bio:ADP",
+    "description": "BRCA1 protein may transitively_related_to adenosine diphosphate via path: bio:BRCA1 -> activates -> bio:TP53 -> activates -> bio:HK2 -> produces -> bio:ADP",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:BRCA1",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:HK2",
+      "produces",
+      "bio:ADP"
+    ],
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:ADP"
+      ],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0050",
+    "subject_id": "bio:ATM",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CDK2",
+    "description": "ATM serine/threonine kinase may transitively_related_to cyclin-dependent kinase 2 via path: bio:ATM -> activates -> bio:TP53 -> activates -> bio:CDKN1A -> inhibits -> bio:CDK2",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:ATM",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:CDKN1A",
+      "inhibits",
+      "bio:CDK2"
+    ],
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 3,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0051",
+    "subject_id": "bio:ATM",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CASP3",
+    "description": "ATM serine/threonine kinase may transitively_related_to caspase 3 via path: bio:ATM -> activates -> bio:TP53 -> activates -> bio:BAX -> activates -> bio:CASP3",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:ATM",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:BAX",
+      "activates",
+      "bio:CASP3"
+    ],
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 3,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0052",
+    "subject_id": "bio:ATM",
+    "relation": "transitively_related_to",
+    "object_id": "bio:lactate",
+    "description": "ATM serine/threonine kinase may transitively_related_to lactic acid via path: bio:ATM -> activates -> bio:TP53 -> activates -> bio:LDHA -> produces -> bio:lactate",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:ATM",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:LDHA",
+      "produces",
+      "bio:lactate"
+    ],
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 3,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0054",
+    "subject_id": "bio:ATM",
+    "relation": "transitively_related_to",
+    "object_id": "bio:NAD_plus",
+    "description": "ATM serine/threonine kinase may transitively_related_to nicotinamide adenine dinucleotide oxidized via path: bio:ATM -> activates -> bio:TP53 -> activates -> bio:LDHA -> produces -> bio:NAD_plus",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:ATM",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:LDHA",
+      "produces",
+      "bio:NAD_plus"
+    ],
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:NAD_plus"
+      ],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0055",
+    "subject_id": "bio:ATM",
+    "relation": "transitively_related_to",
+    "object_id": "bio:ADP",
+    "description": "ATM serine/threonine kinase may transitively_related_to adenosine diphosphate via path: bio:ATM -> activates -> bio:TP53 -> activates -> bio:HK2 -> produces -> bio:ADP",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:ATM",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:HK2",
+      "produces",
+      "bio:ADP"
+    ],
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:ADP"
+      ],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0066",
+    "subject_id": "bio:CHEK2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CDK2",
+    "description": "checkpoint kinase 2 may transitively_related_to cyclin-dependent kinase 2 via path: bio:CHEK2 -> activates -> bio:TP53 -> activates -> bio:CDKN1A -> inhibits -> bio:CDK2",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:CHEK2",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:CDKN1A",
+      "inhibits",
+      "bio:CDK2"
+    ],
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 3,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0067",
+    "subject_id": "bio:CHEK2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CASP3",
+    "description": "checkpoint kinase 2 may transitively_related_to caspase 3 via path: bio:CHEK2 -> activates -> bio:TP53 -> activates -> bio:BAX -> activates -> bio:CASP3",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:CHEK2",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:BAX",
+      "activates",
+      "bio:CASP3"
+    ],
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 3,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0068",
+    "subject_id": "bio:CHEK2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:lactate",
+    "description": "checkpoint kinase 2 may transitively_related_to lactic acid via path: bio:CHEK2 -> activates -> bio:TP53 -> activates -> bio:LDHA -> produces -> bio:lactate",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:CHEK2",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:LDHA",
+      "produces",
+      "bio:lactate"
+    ],
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 3,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0070",
+    "subject_id": "bio:CHEK2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:NAD_plus",
+    "description": "checkpoint kinase 2 may transitively_related_to nicotinamide adenine dinucleotide oxidized via path: bio:CHEK2 -> activates -> bio:TP53 -> activates -> bio:LDHA -> produces -> bio:NAD_plus",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:CHEK2",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:LDHA",
+      "produces",
+      "bio:NAD_plus"
+    ],
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:NAD_plus"
+      ],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0072",
+    "subject_id": "bio:CHEK2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:ADP",
+    "description": "checkpoint kinase 2 may transitively_related_to adenosine diphosphate via path: bio:CHEK2 -> activates -> bio:TP53 -> activates -> bio:HK2 -> produces -> bio:ADP",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:CHEK2",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:HK2",
+      "produces",
+      "bio:ADP"
+    ],
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:ADP"
+      ],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0076",
+    "subject_id": "bio:CDKN1A",
+    "relation": "transitively_related_to",
+    "object_id": "bio:RB1",
+    "description": "cyclin-dependent kinase inhibitor p21 may transitively_related_to retinoblastoma protein via path: bio:CDKN1A -> inhibits -> bio:CDK2 -> phosphorylates -> bio:RB1",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:CDKN1A",
+      "inhibits",
+      "bio:CDK2",
+      "phosphorylates",
+      "bio:RB1"
+    ],
+    "scores": {
+      "plausibility": 0.7,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0077",
+    "subject_id": "bio:CDKN1A",
+    "relation": "transitively_related_to",
+    "object_id": "bio:ATP",
+    "description": "cyclin-dependent kinase inhibitor p21 may transitively_related_to adenosine triphosphate via path: bio:CDKN1A -> inhibits -> bio:CDK2 -> uses -> bio:ATP",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:CDKN1A",
+      "inhibits",
+      "bio:CDK2",
+      "uses",
+      "bio:ATP"
+    ],
+    "scores": {
+      "plausibility": 0.7,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:ATP"
+      ],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 1,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0079",
+    "subject_id": "bio:CDK2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CCND1",
+    "description": "cyclin-dependent kinase 2 may transitively_related_to cyclin D1 via path: bio:CDK2 -> phosphorylates -> bio:RB1 -> inhibits -> bio:CCND1",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:CDK2",
+      "phosphorylates",
+      "bio:RB1",
+      "inhibits",
+      "bio:CCND1"
+    ],
+    "scores": {
+      "plausibility": 0.7,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0080",
+    "subject_id": "bio:CCND1",
+    "relation": "transitively_related_to",
+    "object_id": "bio:RB1",
+    "description": "cyclin D1 may transitively_related_to retinoblastoma protein via path: bio:CCND1 -> activates -> bio:CDK2 -> phosphorylates -> bio:RB1",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:CCND1",
+      "activates",
+      "bio:CDK2",
+      "phosphorylates",
+      "bio:RB1"
+    ],
+    "scores": {
+      "plausibility": 0.7,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0081",
+    "subject_id": "bio:CCND1",
+    "relation": "transitively_related_to",
+    "object_id": "bio:ATP",
+    "description": "cyclin D1 may transitively_related_to adenosine triphosphate via path: bio:CCND1 -> activates -> bio:CDK2 -> uses -> bio:ATP",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:CCND1",
+      "activates",
+      "bio:CDK2",
+      "uses",
+      "bio:ATP"
+    ],
+    "scores": {
+      "plausibility": 0.7,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:ATP"
+      ],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 1,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0085",
+    "subject_id": "bio:BCL2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:PARP1",
+    "description": "B-cell lymphoma 2 may transitively_related_to poly ADP-ribose polymerase 1 via path: bio:BCL2 -> inhibits -> bio:BAX -> activates -> bio:CASP3 -> inhibits -> bio:PARP1",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:BCL2",
+      "inhibits",
+      "bio:BAX",
+      "activates",
+      "bio:CASP3",
+      "inhibits",
+      "bio:PARP1"
+    ],
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 3,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0093",
+    "subject_id": "bio:CASP3",
+    "relation": "transitively_related_to",
+    "object_id": "bio:PCNA",
+    "description": "caspase 3 may transitively_related_to proliferating cell nuclear antigen via path: bio:CASP3 -> inhibits -> bio:PARP1 -> binds_to -> bio:PCNA",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:CASP3",
+      "inhibits",
+      "bio:PARP1",
+      "binds_to",
+      "bio:PCNA"
+    ],
+    "scores": {
+      "plausibility": 0.7,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0098",
+    "subject_id": "bio:PARP1",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CDK2",
+    "description": "poly ADP-ribose polymerase 1 may transitively_related_to cyclin-dependent kinase 2 via path: bio:PARP1 -> binds_to -> bio:PCNA -> activates -> bio:CDK2",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:PARP1",
+      "binds_to",
+      "bio:PCNA",
+      "activates",
+      "bio:CDK2"
+    ],
+    "scores": {
+      "plausibility": 0.7,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0102",
+    "subject_id": "bio:PCNA",
+    "relation": "transitively_related_to",
+    "object_id": "bio:RB1",
+    "description": "proliferating cell nuclear antigen may transitively_related_to retinoblastoma protein via path: bio:PCNA -> activates -> bio:CDK2 -> phosphorylates -> bio:RB1",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:PCNA",
+      "activates",
+      "bio:CDK2",
+      "phosphorylates",
+      "bio:RB1"
+    ],
+    "scores": {
+      "plausibility": 0.7,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0103",
+    "subject_id": "bio:PCNA",
+    "relation": "transitively_related_to",
+    "object_id": "bio:ATP",
+    "description": "proliferating cell nuclear antigen may transitively_related_to adenosine triphosphate via path: bio:PCNA -> activates -> bio:CDK2 -> uses -> bio:ATP",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:PCNA",
+      "activates",
+      "bio:CDK2",
+      "uses",
+      "bio:ATP"
+    ],
+    "scores": {
+      "plausibility": 0.7,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:ATP"
+      ],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 1,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0106",
+    "subject_id": "bio:G6PD",
+    "relation": "transitively_related_to",
+    "object_id": "bio:HK2",
+    "description": "glucose-6-phosphate dehydrogenase may transitively_related_to hexokinase 2 via path: bio:G6PD -> uses -> bio:glucose -> activates -> bio:HK2",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:G6PD",
+      "uses",
+      "bio:glucose",
+      "activates",
+      "bio:HK2"
+    ],
+    "scores": {
+      "plausibility": 0.7,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0109",
+    "subject_id": "bio:glucose",
+    "relation": "transitively_related_to",
+    "object_id": "bio:ATP",
+    "description": "glucose may transitively_related_to adenosine triphosphate via path: bio:glucose -> activates -> bio:HK2 -> uses -> bio:ATP",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:glucose",
+      "activates",
+      "bio:HK2",
+      "uses",
+      "bio:ATP"
+    ],
+    "scores": {
+      "plausibility": 0.7,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:ATP"
+      ],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 1,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0112",
+    "subject_id": "chem_sub_c::chem:complex_I",
+    "relation": "transitively_related_to",
+    "object_id": "bio:ADP",
+    "description": "NADH ubiquinone oxidoreductase may transitively_related_to adenosine diphosphate via path: chem_sub_c::chem:complex_I -> activates -> chem_sub_c::chem:ATP_synthase -> uses -> bio:ADP",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "chem_sub_c::chem:complex_I",
+      "activates",
+      "chem_sub_c::chem:ATP_synthase",
+      "uses",
+      "bio:ADP"
+    ],
+    "scores": {
+      "plausibility": 0.7,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:ADP"
+      ],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_multi",
+      "effective_path_length_after_alignment": 1,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0114",
+    "subject_id": "chem_sub_c::chem:complex_II",
+    "relation": "transitively_related_to",
+    "object_id": "bio:ADP",
+    "description": "succinate ubiquinone oxidoreductase may transitively_related_to adenosine diphosphate via path: chem_sub_c::chem:complex_II -> activates -> chem_sub_c::chem:ATP_synthase -> uses -> bio:ADP",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "chem_sub_c::chem:complex_II",
+      "activates",
+      "chem_sub_c::chem:ATP_synthase",
+      "uses",
+      "bio:ADP"
+    ],
+    "scores": {
+      "plausibility": 0.7,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.705
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:ADP"
+      ],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_multi",
+      "effective_path_length_after_alignment": 1,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0009",
+    "subject_id": "bio:TP53",
+    "relation": "transitively_related_to",
+    "object_id": "bio:RB1",
+    "description": "tumor protein p53 may transitively_related_to retinoblastoma protein via path: bio:TP53 -> activates -> bio:CDKN1A -> inhibits -> bio:CDK2 -> phosphorylates -> bio:RB1",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:TP53",
+      "activates",
+      "bio:CDKN1A",
+      "inhibits",
+      "bio:CDK2",
+      "phosphorylates",
+      "bio:RB1"
+    ],
+    "scores": {
+      "plausibility": 0.5,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.675
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 3,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0020",
+    "subject_id": "bio:MDM2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:NADH",
+    "description": "MDM2 proto-oncogene may transitively_related_to nicotinamide adenine dinucleotide reduced via path: bio:MDM2 -> inhibits -> bio:TP53 -> activates -> bio:LDHA -> uses -> bio:NADH",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:MDM2",
+      "inhibits",
+      "bio:TP53",
+      "activates",
+      "bio:LDHA",
+      "uses",
+      "bio:NADH"
+    ],
+    "scores": {
+      "plausibility": 0.5,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.675
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:NADH"
+      ],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0022",
+    "subject_id": "bio:MDM2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:ATP",
+    "description": "MDM2 proto-oncogene may transitively_related_to adenosine triphosphate via path: bio:MDM2 -> inhibits -> bio:TP53 -> activates -> bio:HK2 -> uses -> bio:ATP",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:MDM2",
+      "inhibits",
+      "bio:TP53",
+      "activates",
+      "bio:HK2",
+      "uses",
+      "bio:ATP"
+    ],
+    "scores": {
+      "plausibility": 0.5,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.675
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:ATP"
+      ],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0024",
+    "subject_id": "bio:MDM2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:glucose",
+    "description": "MDM2 proto-oncogene may transitively_related_to glucose via path: bio:MDM2 -> inhibits -> bio:TP53 -> activates -> bio:HK2 -> phosphorylates -> bio:glucose",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:MDM2",
+      "inhibits",
+      "bio:TP53",
+      "activates",
+      "bio:HK2",
+      "phosphorylates",
+      "bio:glucose"
+    ],
+    "scores": {
+      "plausibility": 0.5,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.675
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 3,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0036",
+    "subject_id": "bio:BRCA1",
+    "relation": "transitively_related_to",
+    "object_id": "bio:NADH",
+    "description": "BRCA1 protein may transitively_related_to nicotinamide adenine dinucleotide reduced via path: bio:BRCA1 -> activates -> bio:TP53 -> activates -> bio:LDHA -> uses -> bio:NADH",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:BRCA1",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:LDHA",
+      "uses",
+      "bio:NADH"
+    ],
+    "scores": {
+      "plausibility": 0.5,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.675
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:NADH"
+      ],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0038",
+    "subject_id": "bio:BRCA1",
+    "relation": "transitively_related_to",
+    "object_id": "bio:ATP",
+    "description": "BRCA1 protein may transitively_related_to adenosine triphosphate via path: bio:BRCA1 -> activates -> bio:TP53 -> activates -> bio:HK2 -> uses -> bio:ATP",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:BRCA1",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:HK2",
+      "uses",
+      "bio:ATP"
+    ],
+    "scores": {
+      "plausibility": 0.5,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.675
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:ATP"
+      ],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0040",
+    "subject_id": "bio:BRCA1",
+    "relation": "transitively_related_to",
+    "object_id": "bio:glucose",
+    "description": "BRCA1 protein may transitively_related_to glucose via path: bio:BRCA1 -> activates -> bio:TP53 -> activates -> bio:HK2 -> phosphorylates -> bio:glucose",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:BRCA1",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:HK2",
+      "phosphorylates",
+      "bio:glucose"
+    ],
+    "scores": {
+      "plausibility": 0.5,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.675
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 3,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0053",
+    "subject_id": "bio:ATM",
+    "relation": "transitively_related_to",
+    "object_id": "bio:NADH",
+    "description": "ATM serine/threonine kinase may transitively_related_to nicotinamide adenine dinucleotide reduced via path: bio:ATM -> activates -> bio:TP53 -> activates -> bio:LDHA -> uses -> bio:NADH",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:ATM",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:LDHA",
+      "uses",
+      "bio:NADH"
+    ],
+    "scores": {
+      "plausibility": 0.5,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.675
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:NADH"
+      ],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0056",
+    "subject_id": "bio:ATM",
+    "relation": "transitively_related_to",
+    "object_id": "bio:glucose",
+    "description": "ATM serine/threonine kinase may transitively_related_to glucose via path: bio:ATM -> activates -> bio:TP53 -> activates -> bio:HK2 -> phosphorylates -> bio:glucose",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:ATM",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:HK2",
+      "phosphorylates",
+      "bio:glucose"
+    ],
+    "scores": {
+      "plausibility": 0.5,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.675
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 3,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0069",
+    "subject_id": "bio:CHEK2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:NADH",
+    "description": "checkpoint kinase 2 may transitively_related_to nicotinamide adenine dinucleotide reduced via path: bio:CHEK2 -> activates -> bio:TP53 -> activates -> bio:LDHA -> uses -> bio:NADH",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:CHEK2",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:LDHA",
+      "uses",
+      "bio:NADH"
+    ],
+    "scores": {
+      "plausibility": 0.5,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.675
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:NADH"
+      ],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0071",
+    "subject_id": "bio:CHEK2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:ATP",
+    "description": "checkpoint kinase 2 may transitively_related_to adenosine triphosphate via path: bio:CHEK2 -> activates -> bio:TP53 -> activates -> bio:HK2 -> uses -> bio:ATP",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:CHEK2",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:HK2",
+      "uses",
+      "bio:ATP"
+    ],
+    "scores": {
+      "plausibility": 0.5,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.675
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:ATP"
+      ],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0073",
+    "subject_id": "bio:CHEK2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:glucose",
+    "description": "checkpoint kinase 2 may transitively_related_to glucose via path: bio:CHEK2 -> activates -> bio:TP53 -> activates -> bio:HK2 -> phosphorylates -> bio:glucose",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:CHEK2",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:HK2",
+      "phosphorylates",
+      "bio:glucose"
+    ],
+    "scores": {
+      "plausibility": 0.5,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.675
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 3,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0078",
+    "subject_id": "bio:CDKN1A",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CCND1",
+    "description": "cyclin-dependent kinase inhibitor p21 may transitively_related_to cyclin D1 via path: bio:CDKN1A -> inhibits -> bio:CDK2 -> phosphorylates -> bio:RB1 -> inhibits -> bio:CCND1",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:CDKN1A",
+      "inhibits",
+      "bio:CDK2",
+      "phosphorylates",
+      "bio:RB1",
+      "inhibits",
+      "bio:CCND1"
+    ],
+    "scores": {
+      "plausibility": 0.5,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.675
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 3,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0083",
+    "subject_id": "bio:RB1",
+    "relation": "transitively_related_to",
+    "object_id": "bio:ATP",
+    "description": "retinoblastoma protein may transitively_related_to adenosine triphosphate via path: bio:RB1 -> inhibits -> bio:CCND1 -> activates -> bio:CDK2 -> uses -> bio:ATP",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:RB1",
+      "inhibits",
+      "bio:CCND1",
+      "activates",
+      "bio:CDK2",
+      "uses",
+      "bio:ATP"
+    ],
+    "scores": {
+      "plausibility": 0.5,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.675
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:ATP"
+      ],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0089",
+    "subject_id": "bio:BAX",
+    "relation": "transitively_related_to",
+    "object_id": "bio:PCNA",
+    "description": "BCL2-associated X protein may transitively_related_to proliferating cell nuclear antigen via path: bio:BAX -> activates -> bio:CASP3 -> inhibits -> bio:PARP1 -> binds_to -> bio:PCNA",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:BAX",
+      "activates",
+      "bio:CASP3",
+      "inhibits",
+      "bio:PARP1",
+      "binds_to",
+      "bio:PCNA"
+    ],
+    "scores": {
+      "plausibility": 0.5,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.675
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 3,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0094",
+    "subject_id": "bio:CASP3",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CDK2",
+    "description": "caspase 3 may transitively_related_to cyclin-dependent kinase 2 via path: bio:CASP3 -> inhibits -> bio:PARP1 -> binds_to -> bio:PCNA -> activates -> bio:CDK2",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:CASP3",
+      "inhibits",
+      "bio:PARP1",
+      "binds_to",
+      "bio:PCNA",
+      "activates",
+      "bio:CDK2"
+    ],
+    "scores": {
+      "plausibility": 0.5,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.675
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 3,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0099",
+    "subject_id": "bio:PARP1",
+    "relation": "transitively_related_to",
+    "object_id": "bio:RB1",
+    "description": "poly ADP-ribose polymerase 1 may transitively_related_to retinoblastoma protein via path: bio:PARP1 -> binds_to -> bio:PCNA -> activates -> bio:CDK2 -> phosphorylates -> bio:RB1",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:PARP1",
+      "binds_to",
+      "bio:PCNA",
+      "activates",
+      "bio:CDK2",
+      "phosphorylates",
+      "bio:RB1"
+    ],
+    "scores": {
+      "plausibility": 0.5,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.675
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 3,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0100",
+    "subject_id": "bio:PARP1",
+    "relation": "transitively_related_to",
+    "object_id": "bio:ATP",
+    "description": "poly ADP-ribose polymerase 1 may transitively_related_to adenosine triphosphate via path: bio:PARP1 -> binds_to -> bio:PCNA -> activates -> bio:CDK2 -> uses -> bio:ATP",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:PARP1",
+      "binds_to",
+      "bio:PCNA",
+      "activates",
+      "bio:CDK2",
+      "uses",
+      "bio:ATP"
+    ],
+    "scores": {
+      "plausibility": 0.5,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.675
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:ATP"
+      ],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0104",
+    "subject_id": "bio:PCNA",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CCND1",
+    "description": "proliferating cell nuclear antigen may transitively_related_to cyclin D1 via path: bio:PCNA -> activates -> bio:CDK2 -> phosphorylates -> bio:RB1 -> inhibits -> bio:CCND1",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:PCNA",
+      "activates",
+      "bio:CDK2",
+      "phosphorylates",
+      "bio:RB1",
+      "inhibits",
+      "bio:CCND1"
+    ],
+    "scores": {
+      "plausibility": 0.5,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.675
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 3,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0107",
+    "subject_id": "bio:G6PD",
+    "relation": "transitively_related_to",
+    "object_id": "bio:ATP",
+    "description": "glucose-6-phosphate dehydrogenase may transitively_related_to adenosine triphosphate via path: bio:G6PD -> uses -> bio:glucose -> activates -> bio:HK2 -> uses -> bio:ATP",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:G6PD",
+      "uses",
+      "bio:glucose",
+      "activates",
+      "bio:HK2",
+      "uses",
+      "bio:ATP"
+    ],
+    "scores": {
+      "plausibility": 0.5,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.675
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:ATP"
+      ],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0108",
+    "subject_id": "bio:G6PD",
+    "relation": "transitively_related_to",
+    "object_id": "bio:ADP",
+    "description": "glucose-6-phosphate dehydrogenase may transitively_related_to adenosine diphosphate via path: bio:G6PD -> uses -> bio:glucose -> activates -> bio:HK2 -> produces -> bio:ADP",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:G6PD",
+      "uses",
+      "bio:glucose",
+      "activates",
+      "bio:HK2",
+      "produces",
+      "bio:ADP"
+    ],
+    "scores": {
+      "plausibility": 0.5,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.675
+    },
+    "tracking": {
+      "path_length": 3,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:ADP"
+      ],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0010",
+    "subject_id": "bio:TP53",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CCND1",
+    "description": "tumor protein p53 may transitively_related_to cyclin D1 via path: bio:TP53 -> activates -> bio:CDKN1A -> inhibits -> bio:CDK2 -> phosphorylates -> bio:RB1 -> inhibits -> bio:CCND1",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:TP53",
+      "activates",
+      "bio:CDKN1A",
+      "inhibits",
+      "bio:CDK2",
+      "phosphorylates",
+      "bio:RB1",
+      "inhibits",
+      "bio:CCND1"
+    ],
+    "scores": {
+      "plausibility": 0.3,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.615
+    },
+    "tracking": {
+      "path_length": 4,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 4,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0025",
+    "subject_id": "bio:MDM2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:RB1",
+    "description": "MDM2 proto-oncogene may transitively_related_to retinoblastoma protein via path: bio:MDM2 -> inhibits -> bio:TP53 -> activates -> bio:CDKN1A -> inhibits -> bio:CDK2 -> phosphorylates -> bio:RB1",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:MDM2",
+      "inhibits",
+      "bio:TP53",
+      "activates",
+      "bio:CDKN1A",
+      "inhibits",
+      "bio:CDK2",
+      "phosphorylates",
+      "bio:RB1"
+    ],
+    "scores": {
+      "plausibility": 0.3,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.615
+    },
+    "tracking": {
+      "path_length": 4,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 4,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0026",
+    "subject_id": "bio:MDM2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CCND1",
+    "description": "MDM2 proto-oncogene may transitively_related_to cyclin D1 via path: bio:MDM2 -> inhibits -> bio:TP53 -> activates -> bio:CDKN1A -> inhibits -> bio:CDK2 -> phosphorylates -> bio:RB1 -> inhibits -> bio:CCND1",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:MDM2",
+      "inhibits",
+      "bio:TP53",
+      "activates",
+      "bio:CDKN1A",
+      "inhibits",
+      "bio:CDK2",
+      "phosphorylates",
+      "bio:RB1",
+      "inhibits",
+      "bio:CCND1"
+    ],
+    "scores": {
+      "plausibility": 0.3,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.615
+    },
+    "tracking": {
+      "path_length": 5,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 5,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0041",
+    "subject_id": "bio:BRCA1",
+    "relation": "transitively_related_to",
+    "object_id": "bio:RB1",
+    "description": "BRCA1 protein may transitively_related_to retinoblastoma protein via path: bio:BRCA1 -> activates -> bio:TP53 -> activates -> bio:CDKN1A -> inhibits -> bio:CDK2 -> phosphorylates -> bio:RB1",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:BRCA1",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:CDKN1A",
+      "inhibits",
+      "bio:CDK2",
+      "phosphorylates",
+      "bio:RB1"
+    ],
+    "scores": {
+      "plausibility": 0.3,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.615
+    },
+    "tracking": {
+      "path_length": 4,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 4,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0042",
+    "subject_id": "bio:BRCA1",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CCND1",
+    "description": "BRCA1 protein may transitively_related_to cyclin D1 via path: bio:BRCA1 -> activates -> bio:TP53 -> activates -> bio:CDKN1A -> inhibits -> bio:CDK2 -> phosphorylates -> bio:RB1 -> inhibits -> bio:CCND1",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:BRCA1",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:CDKN1A",
+      "inhibits",
+      "bio:CDK2",
+      "phosphorylates",
+      "bio:RB1",
+      "inhibits",
+      "bio:CCND1"
+    ],
+    "scores": {
+      "plausibility": 0.3,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.615
+    },
+    "tracking": {
+      "path_length": 5,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 5,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0057",
+    "subject_id": "bio:ATM",
+    "relation": "transitively_related_to",
+    "object_id": "bio:RB1",
+    "description": "ATM serine/threonine kinase may transitively_related_to retinoblastoma protein via path: bio:ATM -> activates -> bio:TP53 -> activates -> bio:CDKN1A -> inhibits -> bio:CDK2 -> phosphorylates -> bio:RB1",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:ATM",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:CDKN1A",
+      "inhibits",
+      "bio:CDK2",
+      "phosphorylates",
+      "bio:RB1"
+    ],
+    "scores": {
+      "plausibility": 0.3,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.615
+    },
+    "tracking": {
+      "path_length": 4,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 4,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0058",
+    "subject_id": "bio:ATM",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CCND1",
+    "description": "ATM serine/threonine kinase may transitively_related_to cyclin D1 via path: bio:ATM -> activates -> bio:TP53 -> activates -> bio:CDKN1A -> inhibits -> bio:CDK2 -> phosphorylates -> bio:RB1 -> inhibits -> bio:CCND1",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:ATM",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:CDKN1A",
+      "inhibits",
+      "bio:CDK2",
+      "phosphorylates",
+      "bio:RB1",
+      "inhibits",
+      "bio:CCND1"
+    ],
+    "scores": {
+      "plausibility": 0.3,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.615
+    },
+    "tracking": {
+      "path_length": 5,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 5,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0074",
+    "subject_id": "bio:CHEK2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:RB1",
+    "description": "checkpoint kinase 2 may transitively_related_to retinoblastoma protein via path: bio:CHEK2 -> activates -> bio:TP53 -> activates -> bio:CDKN1A -> inhibits -> bio:CDK2 -> phosphorylates -> bio:RB1",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:CHEK2",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:CDKN1A",
+      "inhibits",
+      "bio:CDK2",
+      "phosphorylates",
+      "bio:RB1"
+    ],
+    "scores": {
+      "plausibility": 0.3,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.615
+    },
+    "tracking": {
+      "path_length": 4,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 4,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0075",
+    "subject_id": "bio:CHEK2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CCND1",
+    "description": "checkpoint kinase 2 may transitively_related_to cyclin D1 via path: bio:CHEK2 -> activates -> bio:TP53 -> activates -> bio:CDKN1A -> inhibits -> bio:CDK2 -> phosphorylates -> bio:RB1 -> inhibits -> bio:CCND1",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:CHEK2",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:CDKN1A",
+      "inhibits",
+      "bio:CDK2",
+      "phosphorylates",
+      "bio:RB1",
+      "inhibits",
+      "bio:CCND1"
+    ],
+    "scores": {
+      "plausibility": 0.3,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.615
+    },
+    "tracking": {
+      "path_length": 5,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 5,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0086",
+    "subject_id": "bio:BCL2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:PCNA",
+    "description": "B-cell lymphoma 2 may transitively_related_to proliferating cell nuclear antigen via path: bio:BCL2 -> inhibits -> bio:BAX -> activates -> bio:CASP3 -> inhibits -> bio:PARP1 -> binds_to -> bio:PCNA",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:BCL2",
+      "inhibits",
+      "bio:BAX",
+      "activates",
+      "bio:CASP3",
+      "inhibits",
+      "bio:PARP1",
+      "binds_to",
+      "bio:PCNA"
+    ],
+    "scores": {
+      "plausibility": 0.3,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.615
+    },
+    "tracking": {
+      "path_length": 4,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 4,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0087",
+    "subject_id": "bio:BCL2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CDK2",
+    "description": "B-cell lymphoma 2 may transitively_related_to cyclin-dependent kinase 2 via path: bio:BCL2 -> inhibits -> bio:BAX -> activates -> bio:CASP3 -> inhibits -> bio:PARP1 -> binds_to -> bio:PCNA -> activates -> bio:CDK2",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:BCL2",
+      "inhibits",
+      "bio:BAX",
+      "activates",
+      "bio:CASP3",
+      "inhibits",
+      "bio:PARP1",
+      "binds_to",
+      "bio:PCNA",
+      "activates",
+      "bio:CDK2"
+    ],
+    "scores": {
+      "plausibility": 0.3,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.615
+    },
+    "tracking": {
+      "path_length": 5,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 5,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0090",
+    "subject_id": "bio:BAX",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CDK2",
+    "description": "BCL2-associated X protein may transitively_related_to cyclin-dependent kinase 2 via path: bio:BAX -> activates -> bio:CASP3 -> inhibits -> bio:PARP1 -> binds_to -> bio:PCNA -> activates -> bio:CDK2",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:BAX",
+      "activates",
+      "bio:CASP3",
+      "inhibits",
+      "bio:PARP1",
+      "binds_to",
+      "bio:PCNA",
+      "activates",
+      "bio:CDK2"
+    ],
+    "scores": {
+      "plausibility": 0.3,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.615
+    },
+    "tracking": {
+      "path_length": 4,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 4,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0091",
+    "subject_id": "bio:BAX",
+    "relation": "transitively_related_to",
+    "object_id": "bio:RB1",
+    "description": "BCL2-associated X protein may transitively_related_to retinoblastoma protein via path: bio:BAX -> activates -> bio:CASP3 -> inhibits -> bio:PARP1 -> binds_to -> bio:PCNA -> activates -> bio:CDK2 -> phosphorylates -> bio:RB1",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:BAX",
+      "activates",
+      "bio:CASP3",
+      "inhibits",
+      "bio:PARP1",
+      "binds_to",
+      "bio:PCNA",
+      "activates",
+      "bio:CDK2",
+      "phosphorylates",
+      "bio:RB1"
+    ],
+    "scores": {
+      "plausibility": 0.3,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.615
+    },
+    "tracking": {
+      "path_length": 5,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 5,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0092",
+    "subject_id": "bio:BAX",
+    "relation": "transitively_related_to",
+    "object_id": "bio:ATP",
+    "description": "BCL2-associated X protein may transitively_related_to adenosine triphosphate via path: bio:BAX -> activates -> bio:CASP3 -> inhibits -> bio:PARP1 -> binds_to -> bio:PCNA -> activates -> bio:CDK2 -> uses -> bio:ATP",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:BAX",
+      "activates",
+      "bio:CASP3",
+      "inhibits",
+      "bio:PARP1",
+      "binds_to",
+      "bio:PCNA",
+      "activates",
+      "bio:CDK2",
+      "uses",
+      "bio:ATP"
+    ],
+    "scores": {
+      "plausibility": 0.3,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.615
+    },
+    "tracking": {
+      "path_length": 5,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:ATP"
+      ],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 4,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0095",
+    "subject_id": "bio:CASP3",
+    "relation": "transitively_related_to",
+    "object_id": "bio:RB1",
+    "description": "caspase 3 may transitively_related_to retinoblastoma protein via path: bio:CASP3 -> inhibits -> bio:PARP1 -> binds_to -> bio:PCNA -> activates -> bio:CDK2 -> phosphorylates -> bio:RB1",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:CASP3",
+      "inhibits",
+      "bio:PARP1",
+      "binds_to",
+      "bio:PCNA",
+      "activates",
+      "bio:CDK2",
+      "phosphorylates",
+      "bio:RB1"
+    ],
+    "scores": {
+      "plausibility": 0.3,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.615
+    },
+    "tracking": {
+      "path_length": 4,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 4,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0096",
+    "subject_id": "bio:CASP3",
+    "relation": "transitively_related_to",
+    "object_id": "bio:ATP",
+    "description": "caspase 3 may transitively_related_to adenosine triphosphate via path: bio:CASP3 -> inhibits -> bio:PARP1 -> binds_to -> bio:PCNA -> activates -> bio:CDK2 -> uses -> bio:ATP",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:CASP3",
+      "inhibits",
+      "bio:PARP1",
+      "binds_to",
+      "bio:PCNA",
+      "activates",
+      "bio:CDK2",
+      "uses",
+      "bio:ATP"
+    ],
+    "scores": {
+      "plausibility": 0.3,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.615
+    },
+    "tracking": {
+      "path_length": 4,
+      "operator_chain": [
+        "align",
+        "union",
+        "compose"
+      ],
+      "alignment_used": true,
+      "alignment_count": 1,
+      "merged_nodes_used": [
+        "bio:ATP"
+      ],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 3,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  },
+  {
+    "id": "H0097",
+    "subject_id": "bio:CASP3",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CCND1",
+    "description": "caspase 3 may transitively_related_to cyclin D1 via path: bio:CASP3 -> inhibits -> bio:PARP1 -> binds_to -> bio:PCNA -> activates -> bio:CDK2 -> phosphorylates -> bio:RB1 -> inhibits -> bio:CCND1",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:CASP3",
+      "inhibits",
+      "bio:PARP1",
+      "binds_to",
+      "bio:PCNA",
+      "activates",
+      "bio:CDK2",
+      "phosphorylates",
+      "bio:RB1",
+      "inhibits",
+      "bio:CCND1"
+    ],
+    "scores": {
+      "plausibility": 0.3,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.615
+    },
+    "tracking": {
+      "path_length": 5,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 5,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333
+    }
+  },
+  {
+    "id": "H0101",
+    "subject_id": "bio:PARP1",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CCND1",
+    "description": "poly ADP-ribose polymerase 1 may transitively_related_to cyclin D1 via path: bio:PARP1 -> binds_to -> bio:PCNA -> activates -> bio:CDK2 -> phosphorylates -> bio:RB1 -> inhibits -> bio:CCND1",
+    "operator": "compose",
+    "source_kg_name": "union_bio_sub_c_chem_sub_c",
+    "provenance": [
+      "bio:PARP1",
+      "binds_to",
+      "bio:PCNA",
+      "activates",
+      "bio:CDK2",
+      "phosphorylates",
+      "bio:RB1",
+      "inhibits",
+      "bio:CCND1"
+    ],
+    "scores": {
+      "plausibility": 0.3,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 1.0,
+      "total": 0.615
+    },
+    "tracking": {
+      "path_length": 4,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": false,
+      "uniqueness_class": "reachable_only_by_deep_compose",
+      "effective_path_length_after_alignment": 4,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0
+    }
+  }
+]
