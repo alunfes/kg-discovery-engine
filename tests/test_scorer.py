@@ -92,3 +92,48 @@ class TestEvaluate:
         kg = _make_kg()
         result = evaluate([], kg)
         assert result == []
+
+    def test_cross_domain_hypothesis_higher_novelty_than_same_domain(self):
+        """A cross-domain hypothesis should score higher novelty than same-domain."""
+        kg = KnowledgeGraph(name="test")
+        for nid, label, domain in [
+            ("A", "NodeA", "biology"),
+            ("B", "NodeB", "biology"),
+            ("C", "NodeC", "chemistry"),
+        ]:
+            kg.add_node(KGNode(nid, label, domain))
+        kg.add_edge(KGEdge("A", "relates", "B"))
+
+        same_domain = _make_candidate("H0001", "A", "B", ["A", "r", "B"])
+        cross_domain = _make_candidate("H0002", "A", "C", ["A", "r", "B", "r2", "C"])
+
+        scored_same = evaluate([same_domain], kg)[0]
+        scored_cross = evaluate([cross_domain], kg)[0]
+
+        # Cross-domain novel hypothesis should have higher novelty
+        assert scored_cross.novelty > scored_same.novelty
+
+    def test_strong_relation_path_higher_plausibility(self):
+        """A path with all strong relations should score higher than a weak-relation path."""
+        from src.eval.scorer import _score_plausibility
+        from src.kg.models import HypothesisCandidate, KnowledgeGraph
+
+        kg = KnowledgeGraph(name="test")
+
+        # 2-hop strong: inhibits → catalyzes
+        strong_cand = HypothesisCandidate(
+            id="S1", subject_id="A", relation="r", object_id="C",
+            description="", provenance=["A", "inhibits", "B", "catalyzes", "C"],
+        )
+        # 2-hop weak: relates → belongs_to
+        weak_cand = HypothesisCandidate(
+            id="W1", subject_id="A", relation="r", object_id="C",
+            description="", provenance=["A", "relates", "B", "belongs_to", "C"],
+        )
+
+        p_strong = _score_plausibility(strong_cand, kg)
+        p_weak = _score_plausibility(weak_cand, kg)
+
+        assert p_strong > p_weak, (
+            f"Strong-relation path should score higher: {p_strong} vs {p_weak}"
+        )

@@ -120,3 +120,39 @@ class TestCompose:
         kg = build_biology_kg()
         cands = compose(kg)
         assert len(cands) > 0
+
+
+class TestSynonymAlign:
+    """Verify that synonym-based matching produces cross-domain alignments."""
+
+    def test_enzyme_catalyst_synonym_match(self):
+        """bio EnzymeX should align with chem CatalystM via synonym expansion."""
+        from src.kg.toy_data import build_biology_kg, build_chemistry_kg
+        bio = build_biology_kg()
+        chem = build_chemistry_kg()
+        alignment = align(bio, chem, threshold=0.4)
+        # enzyme ↔ catalyst: at least one bio enzyme maps to a chem catalyst
+        bio_enzyme_ids = {n.id for n in bio.nodes() if "enzyme" in n.id}
+        chem_catalyst_ids = {n.id for n in chem.nodes() if "catalyst" in n.id}
+        matched = {k: v for k, v in alignment.items()
+                   if k in bio_enzyme_ids and v in chem_catalyst_ids}
+        assert len(matched) >= 1, f"Expected enzyme↔catalyst alignment, got {alignment}"
+
+    def test_synonym_alignment_enables_cross_domain_hypotheses(self):
+        """After synonym alignment, compose on merged KG should produce cross-domain hyps."""
+        from src.kg.toy_data import build_biology_kg, build_chemistry_kg
+        from src.pipeline.operators import union
+        bio = build_biology_kg()
+        chem = build_chemistry_kg()
+        alignment = align(bio, chem, threshold=0.4)
+        assert len(alignment) > 0, "Alignment should be non-empty with synonym matching"
+        merged = union(bio, chem, alignment, name="merged")
+        cands = compose(merged)
+        # At least some hypotheses should span domains (bio subject → chem object or vice versa)
+        cross_domain = [
+            c for c in cands
+            if merged.get_node(c.subject_id) and merged.get_node(c.object_id)
+            and merged.get_node(c.subject_id).domain
+            != merged.get_node(c.object_id).domain
+        ]
+        assert len(cross_domain) > 0, "Expected cross-domain hypotheses after synonym alignment"

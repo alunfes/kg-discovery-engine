@@ -1,0 +1,18 @@
+{
+  "run_id": "run_006_20260410",
+  "date": "2026-04-10",
+  "purpose": "H3再検証 + evaluator品質改善: cross-domainボーナス除去 + testabilityヒューリスティック",
+  "hypotheses_under_test": ["H3", "evaluator_quality"],
+  "scorer_changes_vs_previous_runs": [
+    "cross_domain_novelty_bonus=False: prescriptive +0.2ボーナスを除去してH3を再検証",
+    "testability_heuristic=True: 定数0.6をrelation-chainヒューリスティックに置換 (範囲0.4-0.9)"
+  ],
+  "scorer": {
+    "cross_domain_novelty_bonus": false,
+    "testability_heuristic": true,
+    "provenance_aware": false
+  },
+  "input_kg": "biology + chemistry (align→union→compose→difference)",
+  "h3_judgment": "bonus除去後もcross-domain novelty優位性が持続するか？",
+  "evaluator_quality_judgment": "testability std > 0 (discriminative) かつ total_std改善"
+}

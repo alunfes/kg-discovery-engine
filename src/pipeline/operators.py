@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-import itertools
+import re
 from collections import deque
 from typing import Optional
 
@@ -11,19 +11,67 @@ from src.kg.models import HypothesisCandidate, KGEdge, KGNode, KnowledgeGraph
 # AlignmentMap: {node_id_in_kg1: node_id_in_kg2}
 AlignmentMap = dict[str, str]
 
+# Cross-domain synonym dictionary for analogical label matching.
+# Maps a concept token to semantically equivalent tokens in other domains.
+_SYNONYM_DICT: dict[str, frozenset[str]] = {
+    "enzyme": frozenset({"catalyst"}),
+    "catalyst": frozenset({"enzyme"}),
+    "protein": frozenset({"compound", "molecule"}),
+    "compound": frozenset({"protein", "molecule"}),
+    "molecule": frozenset({"protein", "compound"}),
+    "inhibit": frozenset({"block", "suppress"}),
+    "block": frozenset({"inhibit"}),
+    "suppress": frozenset({"inhibit"}),
+    "reaction": frozenset({"process"}),
+    "process": frozenset({"reaction"}),
+}
+
 
 # ---------------------------------------------------------------------------
 # String similarity helpers
 # ---------------------------------------------------------------------------
 
+def _split_camel(label: str) -> list[str]:
+    """Split a CamelCase label into lowercase tokens.
+
+    "EnzymeX" → ["enzyme", "x"]
+    "CatalystM" → ["catalyst", "m"]
+    """
+    parts = re.sub(r"([A-Z])", r" \1", label).strip().split()
+    return [p.lower() for p in parts if p.strip()]
+
+
 def _token_set(label: str) -> set[str]:
-    """Lowercase token set for Jaccard similarity."""
-    return set(label.lower().split())
+    """Produce a lowercase token set from a label.
+
+    Handles both space-separated and CamelCase labels.
+    """
+    space_tokens = {t.lower() for t in label.split() if t}
+    camel_tokens = set(_split_camel(label))
+    return space_tokens | camel_tokens
 
 
 def _jaccard(a: str, b: str) -> float:
-    """Jaccard similarity between two label strings."""
-    ta, tb = _token_set(a), _token_set(b)
+    """Jaccard similarity with cross-domain synonym bridge detection.
+
+    If any token in label_a is a direct synonym of any token in label_b
+    (or vice versa), a synonym-bridge score of 0.5 is returned.  This
+    ensures cross-domain analogues such as "enzyme"↔"catalyst" clear the
+    default threshold (0.4) regardless of identifier suffixes ("EnzymeX",
+    "CatalystM") that would otherwise dilute the Jaccard score.
+    """
+    ta = _token_set(a)
+    tb = _token_set(b)
+
+    # Synonym-bridge check: a token in ta has a direct synonym present in tb
+    for token in ta:
+        if _SYNONYM_DICT.get(token, frozenset()) & tb:
+            return 0.5
+    for token in tb:
+        if _SYNONYM_DICT.get(token, frozenset()) & ta:
+            return 0.5
+
+    # Standard token Jaccard (no synonym bridge)
     if not ta and not tb:
         return 1.0
     intersection = len(ta & tb)
@@ -32,7 +80,7 @@ def _jaccard(a: str, b: str) -> float:
 
 
 def _label_similarity(label_a: str, label_b: str) -> float:
-    """Combined similarity: exact match=1.0, Jaccard otherwise."""
+    """Combined similarity: exact match=1.0, synonym-aware Jaccard otherwise."""
     if label_a.lower() == label_b.lower():
         return 1.0
     return _jaccard(label_a, label_b)
@@ -171,12 +219,21 @@ def difference(
 def compose(
     kg: KnowledgeGraph,
     max_depth: int = 3,
+    max_per_source: int = 0,
     _counter: list[int] | None = None,
 ) -> list[HypothesisCandidate]:
     """Generate hypotheses by finding transitive paths in the KG.
 
     For each pair (A, C) where A->...->C exists but A->C does not,
     generate a HypothesisCandidate.
+
+    Args:
+        kg: Input knowledge graph.
+        max_depth: BFS expansion depth limit. To get k-hop paths, use max_depth = 2k-1.
+            Default 3 → 2-hop max. Use 9 for up to 5-hop paths.
+        max_per_source: Cap on candidates per source node (0 = unlimited).
+            Use to limit path explosion on large graphs.
+        _counter: Shared ID counter (list of one int) for stable hypothesis IDs.
     """
     if _counter is None:
         _counter = [0]
@@ -204,11 +261,12 @@ def compose(
                     queue.append((neighbor_id, new_path))
 
         # Generate hypothesis for each reachable node (depth >= 2)
+        source_candidates: list[HypothesisCandidate] = []
         for target_id, path in visited.items():
             if target_id == source_id:
                 continue
-            # path has format: [src, rel1, mid1, rel2, ..., target]
-            # length 3 = direct edge (src, rel, tgt) → skip if direct edge exists
+            # path format: [src, rel1, mid1, rel2, ..., target]
+            # length 3 = direct edge (src, rel, tgt) → skip
             if len(path) <= 3:
                 continue  # direct path, not interesting
             if kg.has_direct_edge(source_id, target_id):
@@ -221,17 +279,12 @@ def compose(
 
             _counter[0] += 1
             hyp_id = f"H{_counter[0]:04d}"
-
-            # Build a human-readable relation from path
-            relations = path[1::2]  # every other element starting at index 1
             inferred_relation = "transitively_related_to"
-
             description = (
                 f"{src_node.label} may {inferred_relation} {tgt_node.label} "
                 f"via path: {' -> '.join(str(p) for p in path)}"
             )
-
-            candidates.append(
+            source_candidates.append(
                 HypothesisCandidate(
                     id=hyp_id,
                     subject_id=source_id,
@@ -244,7 +297,50 @@ def compose(
                 )
             )
 
+        if max_per_source > 0:
+            # Keep shortest paths first (BFS already tends this way)
+            source_candidates.sort(key=lambda c: len(c.provenance))
+            source_candidates = source_candidates[:max_per_source]
+
+        candidates.extend(source_candidates)
+
     return candidates
+
+
+# ---------------------------------------------------------------------------
+# Cross-domain compose variant (Run 004)
+# ---------------------------------------------------------------------------
+
+def compose_cross_domain(
+    kg: KnowledgeGraph,
+    max_depth: int = 3,
+    _counter: list[int] | None = None,
+) -> list[HypothesisCandidate]:
+    """Generate hypotheses restricted to cross-domain (subject.domain ≠ object.domain).
+
+    Wrapper around compose() that filters out same-domain candidates.
+    Useful for isolating the cross-domain contribution of the multi-op pipeline (H1 test).
+    """
+    all_candidates = compose(kg, max_depth=max_depth, _counter=_counter)
+    return [
+        c for c in all_candidates
+        if _is_cross_domain_candidate(c, kg)
+    ]
+
+
+def _is_cross_domain_candidate(
+    candidate: HypothesisCandidate,
+    kg: KnowledgeGraph,
+) -> bool:
+    """Return True if subject and object belong to different domains."""
+    src = kg.get_node(candidate.subject_id)
+    tgt = kg.get_node(candidate.object_id)
+    if src and tgt:
+        return src.domain != tgt.domain
+    # Fallback: parse domain from ID prefix
+    s_prefix = candidate.subject_id.split(":")[0] if ":" in candidate.subject_id else ""
+    t_prefix = candidate.object_id.split(":")[0] if ":" in candidate.object_id else ""
+    return bool(s_prefix) and bool(t_prefix) and s_prefix != t_prefix
 
 
 # ---------------------------------------------------------------------------

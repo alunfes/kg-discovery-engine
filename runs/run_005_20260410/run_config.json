@@ -1,0 +1,17 @@
+{
+  "run_id": "run_005_20260410",
+  "date": "2026-04-10",
+  "purpose": "H1公平再検証: 候補バジェット制御付きsingle-op vs multi-op比較",
+  "hypothesis_under_test": "H1",
+  "method": "fair_comparison_top_N_budget_control",
+  "input_kg_c1": "bio_chem_bridge_kg (build_bio_chem_bridge_kg)",
+  "input_kg_c2": "biology + chemistry KGs (align→union→compose→difference)",
+  "budget_control": "top-N where N = min(C1_candidates, C2_candidates)",
+  "scorer": {
+    "cross_domain_novelty_bonus": true,
+    "testability_heuristic": false,
+    "provenance_aware": false
+  },
+  "h1_judgment_method": "Cohen's d effect size (not fixed 10% threshold)",
+  "h1_threshold": "d > 0.2 (small effect)"
+}

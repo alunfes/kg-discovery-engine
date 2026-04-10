@@ -1,0 +1,22 @@
+{
+  "run_id": "run_007",
+  "phase": "Phase3",
+  "timestamp": "2026-04-10T11:09:01.689835",
+  "data_source": "fallback_semi_manual",
+  "conditions": [
+    "A_bio_only",
+    "B_chem_only",
+    "C_sparse_bridge",
+    "D_dense_bridge"
+  ],
+  "pipelines": [
+    "single_op",
+    "multi_op"
+  ],
+  "rubric": "EvaluationRubric(cross_domain_novelty_bonus=False)",
+  "random_seed": 42,
+  "research_questions": [
+    "H1': multi-op outperforms single-op in sparse-bridge or high-compositionality conditions",
+    "H3': cross-domain ops produce genuine novelty when structural distance is meaningful"
+  ]
+}
