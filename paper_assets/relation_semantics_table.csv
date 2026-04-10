@@ -1,0 +1,23 @@
+relation_name,category,source_domain,direction_semantics,safe_for_mechanistic_inference,example_path,notes
+encodes,directional_mechanistic,bio,causal,true,bio:g_VHL → encodes → bio:VHL,Gene→protein; causal template relationship; does not imply constitutive expression
+activates,directional_mechanistic,bio,causal,true,bio:HIF1A → activates → bio:LDHA,Regulator promotes target function/expression; magnitude and kinetics not encoded
+inhibits,directional_mechanistic,bio,causal,true (track polarity),bio:VHL → inhibits → bio:HIF1A,Track sign: double inhibition = activation; mechanism (competitive/allosteric) unspecified
+catalyzes,directional_mechanistic,bio,causal,conditional,imm:PTGS1 → catalyzes → imm:m_AA,Substrate-specific; weaker when target is reaction class rather than specific substrate
+phosphorylates,directional_mechanistic,bio,causal,true,bio:CDK2 → phosphorylates → bio:RB1,Well-defined kinase→substrate modification; not in 5 key candidate paths
+produces (bio enzyme→metabolite),directional_mechanistic,bio,causal,true,imm:PTGS2 → produces → imm:m_PGE2,Forward biosynthesis direction; strong when enzyme and product are specific
+produces (reaction_class→fg_class),chemically_risky,chem,class-level generalisation,false,phar:r_Methylation → produces → phar:fg_Piperidine,Generalisation may not apply to specific substrate; C-1 artifact arises from this pattern
+requires_cofactor,directional_mechanistic (weak),bio,dependency (enzyme needs cofactor),conditional,bio:LDHA → requires_cofactor → bio:m_NADH,Biochemical dependency not causal production; not in _STRONG_MECHANISTIC set
+is_substrate_of,directional_but_noncausal,bio,ordering (metabolite→enzyme; inverted vs catalyzes),false,neu:m_Dopamine → is_substrate_of → neu:MAOA,Direction inverted: encodes shared-enzyme membership not causal transmission; C-2 source of compartmentalization risk
+undergoes,directional_but_noncausal,bio+chem,ordering (molecule→reaction class),false,chem:NADH → undergoes → chem:r_Oxidation,Reactivity class claim; not substrate-specific mechanistic event; passes Run 012 filter but is DN
+is_precursor_of,directional_but_noncausal,chem,ordering (precursor→product),false,chem:LinoleicAcid → is_precursor_of → chem:ArachidonicAcid,Temporal ordering without mechanism; not blocked by Run 012 filter (gap)
+is_product_of,directional_but_noncausal,chem,ordering (reversed; product←precursor),false,chem:ADP → is_product_of → chem:ATP,Inverted direction: reads backward in causal time; blocked by Run 012 filter
+interacts_with,symmetric_structural,bio,undirected,false,bio:BRCA1 → interacts_with → bio:BRCA2,No causal direction; PPI interaction; penalised in _LOW_SPEC_TRACE_RELATIONS
+contains,symmetric_structural,chem,structural composition,false,chem:ATP → contains → chem:Adenine,Compositional fact only; blocked by Run 012 filter
+is_isomer_of,symmetric_structural,chem,symmetric,false,chem:SuccinicAcid → is_isomer_of → chem:FumaricAcid,Cannot transfer functional properties; blocked by Run 012 filter
+is_reverse_of,symmetric_structural,chem,symmetric,false,chem:r_Condensation → is_reverse_of → chem:r_Hydrolysis,Thermodynamic inverse; no causal direction; blocked by Run 012 filter
+is_polymer_of,symmetric_structural,chem,structural,false,chem:Starch → is_polymer_of → chem:Glucose,Structural class relation only
+is_type_of,symmetric_structural,chem,taxonomic,false,chem:mRNA → is_type_of → chem:RNA,Taxonomic membership; no mechanistic content
+is_cofactor_of,directional_but_noncausal,chem,dependency (cofactor→reaction),false,chem:Mg2plus → is_cofactor_of → chem:r_Phosphorylation,Functional dependency; not causal production
+reacts_with,context_dependent,chem,context-dependent,false,chem:Doxorubicin → reacts_with → chem:DNA,Chemical reactivity requires conditions/context; undirected or weakly directed
+inhibits (chem compound→reaction),directional_mechanistic,chem,causal,conditional,chem:Metformin → inhibits → chem:r_Oxidation,Weaker when target is reaction class vs specific enzyme; substrate range unspecified
+same_entity_as,symmetric_structural,bridge,identity (alignment artifact),false,bio:m_NADH → same_entity_as → chem:NADH,Alignment operator artifact; should not appear in composed paths after union

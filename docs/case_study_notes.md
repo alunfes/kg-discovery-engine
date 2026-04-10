@@ -4,9 +4,16 @@
 Appendix. Each entry is 2–3 paragraphs suitable for direct incorporation into the
 manuscript. Language is conservative throughout.
 
+**Run 014 addition**: Each candidate now includes an `Interpretation Confidence`
+annotation (high / medium / low) derived from relation semantics analysis. See
+`docs/relation_semantics_audit.md` and `docs/candidate_interpretation_rules.md`
+for the full classification framework.
+
 ---
 
 ## Candidate A-1 — VHL/HIF1A/LDHA/NADH Cascade (Subset A, 5-hop)
+
+**Interpretation Confidence: high** | Directionality risk: none | Chemistry validity risk: none | Context dependence risk: none
 
 The pipeline's highest-quality Subset A candidate connects the VHL tumour suppressor
 gene to NADH oxidation chemistry via a 5-hop cross-domain path:
@@ -36,6 +43,8 @@ bridge dispersion metric (Claim 3) is necessary to predict candidate diversity.
 ---
 
 ## Candidate B-1 — PTGS1 / Arachidonic Acid / Catechol (Subset B, 3-hop)
+
+**Interpretation Confidence: low** | Directionality risk: high | Chemistry validity risk: high | Context dependence risk: moderate
 
 Candidate B-1 connects COX-1 (PTGS1) to catechol functional-group chemistry via a
 3-hop cross-domain path:
@@ -71,6 +80,8 @@ assays with catechol-containing fractions would constitute a minimal experimenta
 
 ## Candidate B-2 — PTGS2 / Arachidonic Acid / Catechol (Subset B, 3-hop)
 
+**Interpretation Confidence: low** | Directionality risk: high | Chemistry validity risk: high | Context dependence risk: moderate
+
 Candidate B-2 is structurally identical to B-1 but substitutes the inducible
 isoform COX-2 (PTGS2) for COX-1:
 `PTGS2 → catalyzes → m_AA → undergoes → r_OxidationNat → produces → fg_Catechol`.
@@ -100,6 +111,8 @@ connection.
 ---
 
 ## Candidate C-1 — TH / Dopamine / Methylation / Piperidine (Subset C, 3-hop)
+
+**Interpretation Confidence: low** | Directionality risk: none | Chemistry validity risk: high | Context dependence risk: none
 
 Candidate C-1 connects tyrosine hydroxylase (TH) to piperidine-scaffold drug
 chemistry via a 3-hop path:
@@ -137,6 +150,8 @@ chemistry fact.
 
 ## Candidate C-2 — TH / Dopamine / MAOA / Serotonin / Deamination (Subset C, 4-hop)
 
+**Interpretation Confidence: medium** | Directionality risk: moderate | Chemistry validity risk: none | Context dependence risk: high
+
 Candidate C-2 connects tyrosine hydroxylase to serotonin deamination via MAO-A:
 `TH → catalyzes → m_Dopamine → is_substrate_of → MAOA → catalyzes → m_Serotonin → undergoes → r_Deamination`.
 The path traverses four hops: TH-produced dopamine is a substrate of MAO-A, which
@@ -167,3 +182,44 @@ C-2 is classified as *weakly novel*: the cross-pathway coupling is mechanistical
 plausible but requires evidence against the compartmentalisation objection and
 experimental measurement of dopamine-serotonin competition at MAO-A kinetics before
 it can be treated as an actionable hypothesis.
+
+---
+
+## Run 014 Addendum — Interpretation Confidence Summary
+
+**Purpose**: For paper Discussion/Limitations. Explains why candidates are described
+as "hypothesis-like candidates with explicit limitations" rather than validated hypotheses.
+
+The five candidates presented in this study span a spectrum of mechanistic interpretability.
+This spectrum is not a function of the pipeline's scoring (which ranked all five as
+"promising" or "potentially novel"), but of the underlying KG's relation schema.
+
+A-1 achieves the highest interpretation confidence (high) because its path contains
+only directional-mechanistic and biochemical-dependency relations applied to specific,
+well-characterised entities. Every edge is substrate-specific and causally oriented.
+The weakness of A-1 is not its interpretability but its novelty: it reconstructs a
+known pathway (the Warburg effect) rather than generating new knowledge.
+
+B-1 and B-2 achieve the lowest interpretation confidence (low) due to two concurrent
+problems: the path direction implies a production relationship (COX → catechol) that
+inverts the established pharmacological direction (catechol inhibits COX), and the
+key chemical step (`r_OxidationNat → produces → fg_Catechol_nat`) is a reaction-class
+generalisation that does not hold for arachidonic acid as the specific substrate.
+
+C-1 achieves low interpretation confidence due to a single critical failure: the
+`r_Methylation → produces → fg_Piperidine` edge encodes a class-level synthetic
+chemistry generalisation that has no biochemical counterpart in dopamine metabolism.
+The directional and contextual aspects of C-1 are sound; the chemistry validity failure
+is the limiting factor.
+
+C-2 achieves medium interpretation confidence. Its individual edges are established,
+and the shared-enzyme topology is structurally correct. The interpretation problem is
+contextual: the KG merges dopaminergic and serotonergic neuron data without
+compartment annotation, making it impossible to determine from the graph alone whether
+the implied substrate competition is physiologically accessible.
+
+**Paper language recommendation**: Describe all five candidates as
+"structurally generated cross-domain connections with variable mechanistic interpretability"
+rather than "mechanistic hypotheses." Reserve "mechanistic hypothesis" for candidates
+where all relations are directional-mechanistic and substrate-specific — which, in
+this study, no candidate fully satisfies (A-1 comes closest but lacks novelty).

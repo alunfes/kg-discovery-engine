@@ -1,0 +1,77 @@
+{
+  "run_id": "run_014",
+  "date": "2026-04-10",
+  "type": "interpretation_layer",
+  "description": "Relation semantics audit — lightweight interpretation layer. No new experiments. Static analysis of all KG relation types and re-evaluation of 5 candidates using semantic classification framework.",
+  "new_experiments": false,
+  "input_artifacts": [
+    "runs/run_011_*/output_candidates.json",
+    "runs/run_012_*/output_candidates.json",
+    "runs/run_013_*/output_candidates.json",
+    "docs/candidate_self_validation.md",
+    "src/pipeline/operators.py",
+    "src/eval/scorer.py",
+    "src/data/wikidata_phase4_loader.py",
+    "src/data/wikidata_phase4_subset_b.py",
+    "src/data/wikidata_phase4_subset_c.py"
+  ],
+  "outputs": [
+    "docs/relation_semantics_audit.md",
+    "docs/candidate_interpretation_rules.md",
+    "paper_assets/relation_semantics_table.csv",
+    "docs/candidate_self_validation.md (appended: Run 014 addendum)",
+    "docs/threats_to_validity.md (appended: T5.1-T5.4)",
+    "docs/case_study_notes.md (appended: interpretation confidence annotations)"
+  ],
+  "relation_classification": {
+    "directional_mechanistic": ["encodes", "activates", "inhibits", "catalyzes", "phosphorylates", "produces (bio enzyme→metabolite)", "inhibits (chem compound→reaction)"],
+    "directional_mechanistic_weak": ["requires_cofactor"],
+    "directional_but_noncausal": ["is_substrate_of", "undergoes", "is_precursor_of", "is_product_of", "is_cofactor_of"],
+    "symmetric_structural": ["interacts_with", "contains", "is_isomer_of", "is_reverse_of", "is_polymer_of", "is_type_of", "same_entity_as"],
+    "context_dependent": ["reacts_with"],
+    "chemically_risky": ["produces (reaction_class→fg_class)"]
+  },
+  "candidate_risk_matrix": {
+    "A-1": {
+      "interpretation_confidence": "high",
+      "directionality_risk": "none",
+      "chemistry_validity_risk": "none",
+      "context_dependence_risk": "none"
+    },
+    "B-1": {
+      "interpretation_confidence": "low",
+      "directionality_risk": "high",
+      "chemistry_validity_risk": "high",
+      "context_dependence_risk": "moderate"
+    },
+    "B-2": {
+      "interpretation_confidence": "low",
+      "directionality_risk": "high",
+      "chemistry_validity_risk": "high",
+      "context_dependence_risk": "moderate"
+    },
+    "C-1": {
+      "interpretation_confidence": "low",
+      "directionality_risk": "none",
+      "chemistry_validity_risk": "high",
+      "context_dependence_risk": "none"
+    },
+    "C-2": {
+      "interpretation_confidence": "medium",
+      "directionality_risk": "moderate",
+      "chemistry_validity_risk": "none",
+      "context_dependence_risk": "high"
+    }
+  },
+  "filter_gap_analysis": {
+    "produces_class_level": "Run 012 filter includes `produces` in _STRONG_MECHANISTIC but cannot distinguish bio enzyme→metabolite (safe) from reaction_class→fg_class (risky). Source of C-1 artifact and B-1/B-2 concern.",
+    "is_precursor_of": "Not in filter blocklist; paths through is_precursor_of encode ordering only, not mechanism.",
+    "is_substrate_of": "Not in filter blocklist; direction is inverted relative to causal flow; source of C-2 semantic ambiguity."
+  },
+  "success_criteria_met": {
+    "5_candidates_explained_by_relation_semantics": true,
+    "weakly_novel_reasoning_sharpened": true,
+    "paper_ready_rules_table": true,
+    "existing_results_not_overturned": true
+  }
+}

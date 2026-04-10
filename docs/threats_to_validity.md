@@ -171,7 +171,119 @@ in a ranked output.
 
 ---
 
-## 5. Per-Claim Threat Summary
+## 5. Relation Semantic Insufficiency (Run 014 Addition)
+
+### T5.1 — Class-Level Relations Cannot Validate Substrate-Specific Claims
+
+**Threat**: The KG encodes several relation types at the *class level* rather than the
+*instance level*. Specifically, the `produces` relation between a reaction class and a
+functional group class (e.g., `r_Methylation → produces → fg_Piperidine`) encodes a
+chemical generalisation that asserts the reaction type *can* produce compounds bearing
+the functional group — but does not validate whether a specific substrate in the path
+actually undergoes this transformation to yield that group.
+
+**Affected candidates**:
+- C-1: `r_Methylation → produces → fg_Piperidine` — methylation of dopamine yields
+  methoxydopamine, not piperidine. The KG edge is a synthetic chemistry generalisation
+  incorrectly applied to a specific biochemical substrate.
+- B-1/B-2: `r_OxidationNat → produces → fg_Catechol_nat` — COX-1/COX-2-mediated AA
+  oxidation yields prostaglandin endoperoxides, not catechol compounds. The KG edge
+  is a natural-products chemistry generalisation not specific to the AA substrate.
+
+**Impact on Claim 2**: The Run 012 filter includes `produces` in its
+`_STRONG_MECHANISTIC` set, causing it to *support* filter passage for C-1 and B-1/B-2.
+The filter correctly identifies `produces` as a mechanistically relevant relation type
+in general, but cannot distinguish substrate-specific `produces` (safe) from
+class-level `produces` (risky). This means the filter has a precision gap: some
+filter-passing candidates carry chemically invalid edges that the filter cannot detect.
+
+**Mitigation**: Acknowledged in paper Limitations. Future work should add
+substrate-specificity metadata to `produces` edges in the KG, allowing the filter to
+distinguish `specific_produces` (substrate-verified) from `class_produces`
+(generalisation only).
+
+---
+
+### T5.2 — `is_substrate_of` Does Not Encode Causal Transmission
+
+**Threat**: The relation `is_substrate_of` (metabolite → enzyme) encodes shared-enzyme
+membership: "this metabolite can be processed by this enzyme." It does not encode
+that the metabolite *causes* the enzyme to act on other substrates. A path
+`A → is_substrate_of → enzyme → catalyzes → B` can be read naively as "A causes the
+enzyme to process B," which overstates the mechanistic content.
+
+**Affected candidate**: C-2. The path `m_Dopamine → is_substrate_of → MAOA → catalyzes
+→ m_Serotonin` does not establish that dopamine availability modulates serotonin
+deamination; it establishes that dopamine and serotonin are both MAOA substrates.
+The competition hypothesis requires the additional premise of co-localisation and
+substrate concentration effects not encoded in the KG.
+
+**Impact on Claim 2**: C-2 was classified as `weakly_novel` based on its mechanistic
+plausibility. The `is_substrate_of` semantic issue means the causal chain claim is
+overstated. The path is better described as "shared-enzyme membership connection"
+than "mechanistic regulatory coupling."
+
+**Mitigation**: Acknowledged in paper Limitations and Case Study. The compartmentalisation
+objection (T5.3 below) provides an independent pathway to the same conclusion.
+
+---
+
+### T5.3 — KG Merges Cell-Type-Specific Knowledge Without Annotation
+
+**Threat**: Subset C merges neurotransmitter pathway data from dopaminergic neurons
+(TH, dopamine, COMT) and serotonergic neurons (TPH, serotonin, MAO-A) into a single
+graph without cell-type annotation. As a result, the compose operator can generate
+paths that cross cell-type boundaries, creating candidates that represent real
+biochemical connections at the molecular level but spurious connections at the
+cellular/physiological level.
+
+**Affected candidate**: C-2. The path traverses from TH (dopaminergic context) via
+dopamine to MAOA and serotonin (serotonergic context). In the single merged KG,
+this is a valid 4-hop path. In vivo, dopamine-producing TH neurons and serotonin-
+metabolising MAO-A activity are spatially separated in distinct cell populations.
+
+**Broader implication**: Any multi-hop path in a merged KG may cross implicit
+biological boundaries (cell type, tissue, developmental stage, condition) that the
+KG does not represent. The compose operator has no mechanism to detect or penalise
+such boundary crossings, because the relevant metadata is absent from the node schema.
+
+**Impact on Claim 2**: Limits the claim that deep cross-domain candidates represent
+mechanistically actionable hypotheses. Some candidates are cross-domain at the
+*knowledge schema* level (bio KG + chem KG) but represent intra-domain coincidences
+at the *biological reality* level (same molecule in different cell types).
+
+**Mitigation**: Future KG construction should include cell-type, tissue, and condition
+annotations as node attributes. The compose operator could then include a
+compartment-consistency filter to block paths that cross annotated boundaries without
+an explicit transport or interaction mechanism.
+
+---
+
+### T5.4 — Path Direction Can Invert Known Pharmacological Relationships
+
+**Threat**: The compose operator generates paths in the structural direction allowed
+by the KG edge orientations. When the known pharmacological relationship is the *reverse*
+of the path direction, the generated candidate implies a biologically incorrect causal
+direction without the pipeline detecting the inversion.
+
+**Affected candidates**: B-1 and B-2. The paths imply COX-1/COX-2 → AA → catechol
+(forward production chain). The known pharmacological literature reports catechol
+compounds as COX-1/COX-2 *inhibitors* (catechol → COX inhibition). The generated
+path encodes the biologically misleading direction.
+
+**Impact**: A researcher reading the pipeline output would infer that COX enzymes
+produce catechol compounds (forward direction), when the relevant biology is that
+catechol compounds inhibit COX enzymes (reverse direction). This inversion could
+misdirect experimental design.
+
+**Mitigation**: Directionality audit (as in Run 014's candidate interpretation rules)
+is required for any cross-domain candidate before experimental follow-up. Future work
+could add a directionality-check module that queries a pharmacological database for
+known inhibition/activation relationships between path endpoints and flags inversions.
+
+---
+
+## 6. Per-Claim Threat Summary
 
 ### Claim 1 — Alignment Unlocks Unreachable Paths
 

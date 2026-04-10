@@ -764,3 +764,237 @@ must be addressed.
 - C-2 illustrates a **novel cross-pathway hypothesis** with plausibility concerns
   about cellular compartmentalisation — a good candidate for the "next steps"
   discussion in the paper.
+
+---
+
+## Run 014 Addendum — Relation Semantics Analysis
+
+**Date**: 2026-04-10  
+**Source**: `docs/relation_semantics_audit.md`, `docs/candidate_interpretation_rules.md`  
+**Method**: Static audit of all relation types in the KG; classification into five semantic
+categories; re-evaluation of each candidate's path under the classification framework.
+
+### Risk Evaluation Matrix
+
+Each candidate is scored on four dimensions:
+- **interpretation_confidence**: high / medium / low — how confidently the path can be
+  read as a mechanistic chain without additional validation
+- **directionality_risk**: none / moderate / high — whether the path direction matches
+  the known biological direction of the implied relationship
+- **chemistry_validity_risk**: none / moderate / high — whether any `produces` edge in
+  the path requires substrate-specific chemical validation before the claim is meaningful
+- **context_dependence_risk**: none / moderate / high — whether the path crosses
+  biological compartments, cell types, or requires experimental context annotation
+
+| Candidate | interpretation_confidence | directionality_risk | chemistry_validity_risk | context_dependence_risk |
+|---|---|---|---|---|
+| A-1 | high | none | none | none |
+| B-1 | low | high | high | moderate |
+| B-2 | low | high | high | moderate |
+| C-1 | low | none | high | none |
+| C-2 | medium | moderate | none | high |
+
+### Per-Candidate Relation Semantics Analysis
+
+#### A-1 — VHL/HIF1A/LDHA/NADH/r_Oxidation (5-hop)
+
+**Path**: `g_VHL → [encodes] → VHL → [inhibits] → HIF1A → [activates] → LDHA → [requires_cofactor] → m_NADH → [undergoes] → r_Oxidation`
+
+**Relation classification**:
+- `encodes`: directional_mechanistic (DM) — safe
+- `inhibits`: directional_mechanistic (DM) — safe; note double-negative polarity
+  tracking not needed here (single inhibit step)
+- `activates`: directional_mechanistic (DM) — safe
+- `requires_cofactor`: directional_mechanistic weak (DM-weak) — encodes enzymatic
+  dependency, not causal production; LDHA needs NADH, not "produces" or "activates" NADH
+- `undergoes`: directional_but_noncausal (DN) — NADH is a member of the chemical
+  class that undergoes oxidation; this is a reactivity property, not a specific
+  mechanistic event
+
+**Chain type**: DM×3 + DM-weak×1 + DN×1 → Biochemical dependency chain
+
+**Why interpretation_confidence = high**: The path direction is causally coherent
+(VHL loss → HIF1A stabilisation → LDHA upregulation → NADH consumption). The DN step
+(`undergoes r_Oxidation`) is a known chemical property of NADH and does not invert
+the chain. The DM-weak step (`requires_cofactor`) correctly establishes the
+LDHA-NADH biochemical dependency.
+
+**Why directionality_risk = none**: The path reads in the correct causal direction
+(loss of VHL → downstream effects). The only subtlety is that `requires_cofactor`
+reads enzyme→cofactor, which correctly identifies NADH as consumed rather than produced.
+
+**Why chemistry_validity_risk = none**: No `reaction_class → produces → fg_class`
+edges in the path. All edges are substrate-specific (NADH undergoing oxidation is
+universally correct; it is not a class-level generalisation).
+
+**Why context_dependence_risk = none**: The VHL/HIF1A/LDHA cascade is a constitutive
+pathway in hypoxic and VHL-deficient cancer cells. No cell-type-specific compartmentalisation
+concern.
+
+---
+
+#### B-1 — PTGS1 / Arachidonic Acid / Catechol (3-hop)
+
+**Path**: `PTGS1 → [catalyzes] → m_AA → [undergoes] → r_OxidationNat → [produces] → fg_Catechol_nat`
+
+**Relation classification**:
+- `catalyzes`: directional_mechanistic (DM) — but substrate-specific: COX-1 catalyzes
+  AA oxygenation to prostaglandin G2, not to catechol compounds
+- `undergoes`: directional_but_noncausal (DN) — AA is a member of the class of
+  molecules that undergo oxidation; this is a reactivity statement, not a specific event
+- `produces`: chemically_risky (CR) — `r_OxidationNat → produces → fg_Catechol_nat`
+  is a reaction-class → functional-group-class generalisation. AA oxidation by COX-1
+  does NOT produce catechol compounds in standard prostanoid biochemistry.
+
+**Chain type**: DM×1 + DN×1 + CR×1 → Requires chemical pre-validation
+
+**Why interpretation_confidence = low**: The CR step (r_OxidationNat → produces →
+fg_Catechol_nat) applied to AA as substrate is not supported by standard biochemistry.
+The KG encodes a class-level relation that does not hold for this specific substrate.
+The path cannot be read as a mechanistic claim without first validating the
+catechol-production step for AA specifically.
+
+**Why directionality_risk = high**: The path implies COX-1 → AA → catechol (forward
+production direction). The known pharmacological relationship is the reverse: catechol
+compounds (caffeic acid, catechins, EGCG) *inhibit* COX-1. The pipeline generated a
+structurally valid path, but the biologically actionable direction (catechol → COX-1)
+is the inverse of what the path encodes.
+
+**Why chemistry_validity_risk = high**: The `r_OxidationNat → produces → fg_Catechol_nat`
+edge is a class-level chemical generalisation. Oxidative reactions in general can produce
+catechol-type aromatic compounds (e.g., phenol hydroxylation), but AA oxidation by COX-1
+specifically produces prostaglandin endoperoxides (PGG2, PGH2), which are not catechol
+structures.
+
+**Why context_dependence_risk = moderate**: COX-1 is constitutively expressed, so the
+PTGS1/AA step is not context-dependent. However, whether AA undergoes catechol-producing
+oxidation depends on the enzymatic context (LOX vs. COX vs. non-enzymatic autoxidation),
+which the KG does not distinguish.
+
+---
+
+#### B-2 — PTGS2 / Arachidonic Acid / Catechol (3-hop)
+
+**Path**: `PTGS2 → [catalyzes] → m_AA → [undergoes] → r_OxidationNat → [produces] → fg_Catechol_nat`
+
+**Relation classification**: Identical to B-1 (PTGS2 substituted for PTGS1).
+
+**Risk profile**: Identical to B-1 across all four dimensions.
+
+**Additional note**: The pharmacological significance of COX-2 (as the primary NSAID
+target) makes B-2 more clinically relevant than B-1 if the directionality and
+chemistry concerns are resolved, but does not change the risk classification.
+
+---
+
+#### C-1 — TH / Dopamine / Methylation / Piperidine (3-hop)
+
+**Path**: `TH → [catalyzes] → m_Dopamine → [undergoes] → r_Methylation → [produces] → fg_Piperidine`
+
+**Relation classification**:
+- `catalyzes`: directional_mechanistic (DM) — TH specifically catalyzes tyrosine → DOPA
+  (committed step in dopamine biosynthesis). Correct and substrate-specific.
+- `undergoes`: directional_but_noncausal (DN) — dopamine undergoes methylation (via COMT
+  in vivo). This is biologically correct (dopamine methylation produces 3-methoxytyramine),
+  but the specific methylation product matters for the next step.
+- `produces`: chemically_risky (CR) — `r_Methylation → produces → fg_Piperidine`.
+  **This edge is the critical artifact**. Methylation of dopamine produces
+  3-methoxytyramine (a methoxy-phenethylamine), which bears no piperidine structural
+  motif. The piperidine ring (a 6-membered saturated nitrogen heterocycle) is not
+  produced by simple O-methylation of catecholamines. The edge appears to encode
+  a synthetic organic chemistry generalisation (N-methylation can be part of piperidine
+  synthesis routes) incorrectly applied to dopamine methylation.
+
+**Chain type**: DM×1 + DN×1 + CR×1 → Requires chemical pre-validation
+
+**Why interpretation_confidence = low**: The path fails at the CR step. Regardless
+of the correctness of the TH → dopamine → methylation sequence, the methylation →
+piperidine production claim has no biochemical support for dopamine as the specific
+substrate. The path cannot be meaningfully interpreted as a biological hypothesis
+without first validating or invalidating this edge.
+
+**Why directionality_risk = none**: The first two steps (TH catalyzes dopamine,
+dopamine undergoes methylation) read in the correct causal direction. The direction
+problem is not about reversal; it is about chemical validity of the third step.
+
+**Why chemistry_validity_risk = high**: The `r_Methylation → produces → fg_Piperidine`
+edge is the highest-priority chemical validation target in the entire candidate set.
+Dopamine O-methylation by COMT yields 3-methoxytyramine. Piperidine synthesis requires
+reductive amination or cyclisation reactions, not simple O-methylation of catecholamines.
+The KG edge likely conflates: (a) methylation as a step in piperidine synthesis
+(synthetic organic chemistry), with (b) COMT-mediated dopamine methylation (neurotransmitter
+catabolism). These are chemically unrelated processes.
+
+**Why context_dependence_risk = none**: The TH → dopamine pathway is specific to
+dopaminergic neurons, but this is not a compartmentalisation problem within the path
+itself. The risk is chemical, not contextual.
+
+---
+
+#### C-2 — TH / Dopamine / MAOA / Serotonin / Deamination (4-hop)
+
+**Path**: `TH → [catalyzes] → m_Dopamine → [is_substrate_of] → MAOA → [catalyzes] → m_Serotonin → [undergoes] → r_Deamination`
+
+**Relation classification**:
+- `catalyzes` (×2): directional_mechanistic (DM) — TH catalyzes dopamine; MAOA
+  catalyzes serotonin. Both are substrate-specific and established.
+- `is_substrate_of`: directional_but_noncausal (DN), **inverted direction** — this
+  relation reads metabolite → enzyme, which is the reverse of the causal direction.
+  It encodes "dopamine can be processed by MAOA," not "dopamine causes MAOA to act
+  on serotonin." The causal transmission from dopamine to serotonin requires the
+  additional premise of substrate competition at the MAOA active site.
+- `undergoes`: directional_but_noncausal (DN) — serotonin undergoes deamination;
+  correct reactivity statement.
+
+**Chain type**: DM×2 + DN(inverted)×1 + DN×1 → Context-dependent; requires
+compartmentalization verification
+
+**Why interpretation_confidence = medium** (not low, because each edge is
+individually established): The individual biological facts are correct. The chain
+connects known facts in a structurally valid path. The interpretation risk arises not
+from invalid edges but from the coexistence assumption required to read the path as
+causal. If dopamine and serotonin compete at the same MAOA molecules, the path implies
+a real regulatory coupling. The medium confidence reflects this conditional validity.
+
+**Why directionality_risk = moderate**: The `is_substrate_of` relation introduces
+a direction subtlety: the metabolite is listed as the source, enzyme as the target.
+This is the reverse of causal flow (enzyme acts on metabolite). A naive reading of
+`m_Dopamine → is_substrate_of → MAOA → catalyzes → m_Serotonin` might suggest
+"dopamine causes MAOA to process serotonin," which overstates the mechanistic content.
+The correct reading is: "dopamine and serotonin are both MAOA substrates, and high
+dopamine availability might compete with serotonin for MAOA." Moderate risk because
+the misreading is plausible but correctable.
+
+**Why chemistry_validity_risk = none**: All edges encode biologically established
+chemical relationships. No class-level `produces` edge is present.
+
+**Why context_dependence_risk = high**: Dopaminergic neurons (TH-expressing) and
+serotonergic neurons (primary site of serotonin synthesis) are distinct cell populations.
+In vivo, these populations do not share the same MAOA molecules under normal conditions.
+The path is structurally valid in the KG because both neurotransmitter pathways are
+represented in the same merged graph (Subset C neuroscience + pharmacology), but the
+biological hypothesis requires cellular co-localisation that is not the norm. The
+hypothesis is meaningful only in: (a) rare co-expressing neurons, (b) pharmacological
+MAO-A inhibition conditions, or (c) in vitro mixed-substrate assays.
+
+---
+
+### Convergent Pattern: KG Relation Semantics as the Limiting Factor
+
+All four risk dimensions can be traced to a single underlying cause: the KG encodes
+relation types at the class level rather than the instance level.
+
+| Root cause | Affected candidates | Dimension |
+|---|---|---|
+| Reaction-class → fg-class `produces` edge (B-1/B-2: r_OxidationNat; C-1: r_Methylation) | B-1, B-2, C-1 | chemistry_validity_risk |
+| Path direction encodes synthetic chemistry route not biological pharmacology | B-1, B-2 | directionality_risk |
+| KG merges cell-type-specific data without annotation | C-2 | context_dependence_risk |
+| `is_substrate_of` encodes shared-enzyme membership not causal transmission | C-2 | directionality_risk |
+
+**Implication for paper**: The candidates' weaknesses all converge on the same gap —
+the pipeline generates structurally valid paths but cannot distinguish between
+(a) paths that encode a specific mechanistic claim, and (b) paths that chain together
+class-level chemical generalisations. This gap is a property of the KG's relation
+schema, not of the pipeline's search algorithm. It suggests that future work should
+enrich the KG with relation modifiers (substrate-specific, context-annotated,
+directionality-explicit) rather than solely increasing KG scale.
