@@ -19,6 +19,7 @@ class EvaluationRubric:
     provenance_aware: bool = False  # H4 flag
     cross_domain_novelty_bonus: bool = True  # Run 006: set False to remove tautological +0.2
     testability_heuristic: bool = False  # Run 006: set True to replace constant 0.6
+    revised_traceability: bool = False  # Run 010: quality-based penalty instead of depth penalty
 
     def __post_init__(self) -> None:
         total = (
@@ -65,6 +66,19 @@ class ScoredHypothesis:
                 "total": round(self.total_score, 4),
             },
         }
+
+
+# Relations penalised in revised traceability scoring (Run 010).
+# These are low-specificity relations that weaken the inferential chain.
+_LOW_SPEC_TRACE_RELATIONS: frozenset[str] = frozenset({
+    "relates_to", "associated_with", "part_of", "has_part", "interacts_with",
+    "is_a", "connected_to", "involves", "related_to",
+})
+
+# Generic intermediate-node labels that reduce path specificity (Run 010).
+_WEAK_INTERMEDIATE_LABELS: frozenset[str] = frozenset({
+    "process", "system", "entity", "substance", "compound",
+})
 
 
 # Relations considered functionally meaningful (raise plausibility when all
@@ -212,14 +226,65 @@ def _score_testability(
     return 0.6
 
 
-def _score_traceability(
+def _score_traceability_revised(
     candidate: HypothesisCandidate,
-    _kg: KnowledgeGraph,
-    provenance_aware: bool,
+    kg: KnowledgeGraph,
 ) -> float:
-    """Score based on provenance depth."""
+    """Quality-based traceability scoring — Run 010 rubric revision.
+
+    Penalises weak chains rather than long chains:
+    1. Low-specificity relation: -0.1 per occurrence
+    2. Same relation appearing consecutively: -0.15 per pair
+    3. Generic intermediate node label: -0.05 per node
+
+    Base score = 1.0; floor = 0.1.
+    """
     path = candidate.provenance
     hops = max(0, (len(path) - 1) // 2) if len(path) >= 3 else 0
+    if hops == 0:
+        return 0.0
+
+    relations = path[1::2]
+    node_ids = path[0::2]
+    intermediate_ids = node_ids[1:-1]
+
+    score = 1.0
+
+    # Penalty 1: low-specificity relations
+    for r in relations:
+        if r in _LOW_SPEC_TRACE_RELATIONS:
+            score -= 0.1
+
+    # Penalty 2: consecutive repeated relations
+    for i in range(len(relations) - 1):
+        if relations[i] == relations[i + 1]:
+            score -= 0.15
+
+    # Penalty 3: generic intermediate node labels
+    for nid in intermediate_ids:
+        node = kg.get_node(nid)
+        if node and any(w in node.label.lower() for w in _WEAK_INTERMEDIATE_LABELS):
+            score -= 0.05
+
+    return max(0.1, score)
+
+
+def _score_traceability(
+    candidate: HypothesisCandidate,
+    kg: KnowledgeGraph,
+    provenance_aware: bool,
+    revised: bool = False,
+) -> float:
+    """Score based on provenance depth.
+
+    revised=True uses quality-based penalty (Run 010); otherwise uses the
+    original depth-based formula.
+    """
+    path = candidate.provenance
+    hops = max(0, (len(path) - 1) // 2) if len(path) >= 3 else 0
+
+    if revised:
+        return _score_traceability_revised(candidate, kg)
 
     if not provenance_aware:
         # naive: fixed score if provenance exists
@@ -267,7 +332,9 @@ def evaluate(
         p = _score_plausibility(candidate, kg)
         n = _score_novelty(candidate, kg, rubric.cross_domain_novelty_bonus)
         t = _score_testability(candidate, kg, rubric.testability_heuristic)
-        tr = _score_traceability(candidate, kg, rubric.provenance_aware)
+        tr = _score_traceability(
+            candidate, kg, rubric.provenance_aware, rubric.revised_traceability
+        )
         es = _score_evidence_support(candidate, kg)
 
         total = (

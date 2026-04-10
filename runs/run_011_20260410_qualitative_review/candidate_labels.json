@@ -1,0 +1,482 @@
+[
+  {
+    "id": "H0268",
+    "subject_id": "bio:HIF1A",
+    "object_id": "chem_C::chem:r_Oxidation",
+    "path_length": 3,
+    "is_cross_domain": true,
+    "drift_flags": [],
+    "semantic_drift_score": 0.0,
+    "provenance": [
+      "bio:HIF1A",
+      "activates",
+      "bio:LDHA",
+      "requires_cofactor",
+      "bio:m_NADH",
+      "undergoes",
+      "chem_C::chem:r_Oxidation"
+    ],
+    "naive_rank": 549,
+    "revised_rank": 498,
+    "label": "weak_speculative",
+    "reason": "Mixed chain: strong_ratio=0.33, hard_drift=0.00, mild_drift=0.67. Has some mechanistic anchors but path is not strongly grounded. Could be refined by drift filtering."
+  },
+  {
+    "id": "H0344",
+    "subject_id": "bio:GAPDH",
+    "object_id": "chem_C::chem:r_Reduction",
+    "path_length": 3,
+    "is_cross_domain": true,
+    "drift_flags": [],
+    "semantic_drift_score": 0.0,
+    "provenance": [
+      "bio:GAPDH",
+      "produces",
+      "bio:m_NADH",
+      "undergoes",
+      "chem_C::chem:r_Oxidation",
+      "is_reverse_of",
+      "chem_C::chem:r_Reduction"
+    ],
+    "naive_rank": 558,
+    "revised_rank": 506,
+    "label": "weak_speculative",
+    "reason": "Mixed chain: strong_ratio=0.33, hard_drift=0.33, mild_drift=0.33. Has some mechanistic anchors but path is not strongly grounded. Could be refined by drift filtering."
+  },
+  {
+    "id": "H0378",
+    "subject_id": "bio:LDHA",
+    "object_id": "chem_C::chem:r_Reduction",
+    "path_length": 3,
+    "is_cross_domain": true,
+    "drift_flags": [],
+    "semantic_drift_score": 0.0,
+    "provenance": [
+      "bio:LDHA",
+      "requires_cofactor",
+      "bio:m_NADH",
+      "undergoes",
+      "chem_C::chem:r_Oxidation",
+      "is_reverse_of",
+      "chem_C::chem:r_Reduction"
+    ],
+    "naive_rank": 571,
+    "revised_rank": 515,
+    "label": "drift_heavy",
+    "reason": "Almost all relations are drift-triggering (total_drift_ratio=1.00) with zero mechanistic anchors. No scientific hypothesis content."
+  },
+  {
+    "id": "H0401",
+    "subject_id": "bio:MDH2",
+    "object_id": "chem_C::chem:r_Reduction",
+    "path_length": 3,
+    "is_cross_domain": true,
+    "drift_flags": [],
+    "semantic_drift_score": 0.0,
+    "provenance": [
+      "bio:MDH2",
+      "produces",
+      "bio:m_NADH",
+      "undergoes",
+      "chem_C::chem:r_Oxidation",
+      "is_reverse_of",
+      "chem_C::chem:r_Reduction"
+    ],
+    "naive_rank": 578,
+    "revised_rank": 516,
+    "label": "weak_speculative",
+    "reason": "Mixed chain: strong_ratio=0.33, hard_drift=0.33, mild_drift=0.33. Has some mechanistic anchors but path is not strongly grounded. Could be refined by drift filtering."
+  },
+  {
+    "id": "H0407",
+    "subject_id": "bio:m_AMP",
+    "object_id": "chem_C::chem:Deoxyribose",
+    "path_length": 3,
+    "is_cross_domain": true,
+    "drift_flags": [],
+    "semantic_drift_score": 0.0,
+    "provenance": [
+      "bio:m_AMP",
+      "is_product_of",
+      "chem_C::chem:ATP",
+      "contains",
+      "chem_C::chem:Ribose",
+      "is_precursor_of",
+      "chem_C::chem:Deoxyribose"
+    ],
+    "naive_rank": 579,
+    "revised_rank": 517,
+    "label": "drift_heavy",
+    "reason": "Majority of relations are structural/generic connectors (hard_drift_ratio=0.67). Chain expands transitively without mechanistic content."
+  },
+  {
+    "id": "H0408",
+    "subject_id": "bio:m_AMP",
+    "object_id": "chem_C::chem:Guanine",
+    "path_length": 3,
+    "is_cross_domain": true,
+    "drift_flags": [],
+    "semantic_drift_score": 0.0,
+    "provenance": [
+      "bio:m_AMP",
+      "is_product_of",
+      "chem_C::chem:ATP",
+      "is_isomer_of",
+      "chem_C::chem:GTP",
+      "contains",
+      "chem_C::chem:Guanine"
+    ],
+    "naive_rank": 580,
+    "revised_rank": 518,
+    "label": "drift_heavy",
+    "reason": "Majority of relations are structural/generic connectors (hard_drift_ratio=1.00). Chain expands transitively without mechanistic content."
+  },
+  {
+    "id": "H0428",
+    "subject_id": "bio:m_3PG",
+    "object_id": "chem_C::chem:fg_Amino",
+    "path_length": 3,
+    "is_cross_domain": true,
+    "drift_flags": [
+      "relation_repetition"
+    ],
+    "semantic_drift_score": 0.3333,
+    "provenance": [
+      "bio:m_3PG",
+      "is_precursor_of",
+      "bio:aa_Ser",
+      "is_precursor_of",
+      "bio:aa_Gly",
+      "contains",
+      "chem_C::chem:fg_Amino"
+    ],
+    "naive_rank": 585,
+    "revised_rank": 631,
+    "label": "drift_heavy",
+    "reason": "Consecutive repeated relation + no strong mechanistic relations + high drift ratio (1.00). Pure chain repetition without biological inference."
+  },
+  {
+    "id": "H0429",
+    "subject_id": "bio:m_3PG",
+    "object_id": "chem_C::chem:fg_Carboxyl",
+    "path_length": 3,
+    "is_cross_domain": true,
+    "drift_flags": [
+      "relation_repetition"
+    ],
+    "semantic_drift_score": 0.3333,
+    "provenance": [
+      "bio:m_3PG",
+      "is_precursor_of",
+      "bio:aa_Ser",
+      "is_precursor_of",
+      "bio:aa_Gly",
+      "contains",
+      "chem_C::chem:fg_Carboxyl"
+    ],
+    "naive_rank": 586,
+    "revised_rank": 632,
+    "label": "drift_heavy",
+    "reason": "Consecutive repeated relation + no strong mechanistic relations + high drift ratio (1.00). Pure chain repetition without biological inference."
+  },
+  {
+    "id": "H0633",
+    "subject_id": "bio:s_Insulin",
+    "object_id": "chem_C::chem:r_Oxidation",
+    "path_length": 3,
+    "is_cross_domain": true,
+    "drift_flags": [],
+    "semantic_drift_score": 0.0,
+    "provenance": [
+      "bio:s_Insulin",
+      "inhibits",
+      "bio:LDHA",
+      "requires_cofactor",
+      "bio:m_NADH",
+      "undergoes",
+      "chem_C::chem:r_Oxidation"
+    ],
+    "naive_rank": 613,
+    "revised_rank": 537,
+    "label": "weak_speculative",
+    "reason": "Mixed chain: strong_ratio=0.33, hard_drift=0.00, mild_drift=0.67. Has some mechanistic anchors but path is not strongly grounded. Could be refined by drift filtering."
+  },
+  {
+    "id": "H0275",
+    "subject_id": "bio:HIF1A",
+    "object_id": "chem_C::chem:r_Reduction",
+    "path_length": 4,
+    "is_cross_domain": true,
+    "drift_flags": [],
+    "semantic_drift_score": 0.0,
+    "provenance": [
+      "bio:HIF1A",
+      "activates",
+      "bio:LDHA",
+      "requires_cofactor",
+      "bio:m_NADH",
+      "undergoes",
+      "chem_C::chem:r_Oxidation",
+      "is_reverse_of",
+      "chem_C::chem:r_Reduction"
+    ],
+    "naive_rank": 799,
+    "revised_rank": 725,
+    "label": "weak_speculative",
+    "reason": "Mixed chain: strong_ratio=0.25, hard_drift=0.25, mild_drift=0.50. Has some mechanistic anchors but path is not strongly grounded. Could be refined by drift filtering."
+  },
+  {
+    "id": "H0293",
+    "subject_id": "bio:VHL",
+    "object_id": "chem_C::chem:r_Oxidation",
+    "path_length": 4,
+    "is_cross_domain": true,
+    "drift_flags": [],
+    "semantic_drift_score": 0.0,
+    "provenance": [
+      "bio:VHL",
+      "inhibits",
+      "bio:HIF1A",
+      "activates",
+      "bio:LDHA",
+      "requires_cofactor",
+      "bio:m_NADH",
+      "undergoes",
+      "chem_C::chem:r_Oxidation"
+    ],
+    "naive_rank": 806,
+    "revised_rank": 732,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with majority strong relations (0.50) and no generic connectors. Plausible hypothesis candidate."
+  },
+  {
+    "id": "H0300",
+    "subject_id": "bio:VHL",
+    "object_id": "chem_C::chem:r_Reduction",
+    "path_length": 5,
+    "is_cross_domain": true,
+    "drift_flags": [],
+    "semantic_drift_score": 0.0,
+    "provenance": [
+      "bio:VHL",
+      "inhibits",
+      "bio:HIF1A",
+      "activates",
+      "bio:LDHA",
+      "requires_cofactor",
+      "bio:m_NADH",
+      "undergoes",
+      "chem_C::chem:r_Oxidation",
+      "is_reverse_of",
+      "chem_C::chem:r_Reduction"
+    ],
+    "naive_rank": 813,
+    "revised_rank": 739,
+    "label": "weak_speculative",
+    "reason": "Mixed chain: strong_ratio=0.40, hard_drift=0.20, mild_drift=0.40. Has some mechanistic anchors but path is not strongly grounded. Could be refined by drift filtering."
+  },
+  {
+    "id": "H0348",
+    "subject_id": "bio:PGAM1",
+    "object_id": "chem_C::chem:fg_Amino",
+    "path_length": 4,
+    "is_cross_domain": true,
+    "drift_flags": [
+      "relation_repetition"
+    ],
+    "semantic_drift_score": 0.3333,
+    "provenance": [
+      "bio:PGAM1",
+      "catalyzes",
+      "bio:m_3PG",
+      "is_precursor_of",
+      "bio:aa_Ser",
+      "is_precursor_of",
+      "bio:aa_Gly",
+      "contains",
+      "chem_C::chem:fg_Amino"
+    ],
+    "naive_rank": 819,
+    "revised_rank": 847,
+    "label": "weak_speculative",
+    "reason": "Mixed chain: strong_ratio=0.25, hard_drift=0.25, mild_drift=0.50. Has some mechanistic anchors but path is not strongly grounded. Could be refined by drift filtering."
+  },
+  {
+    "id": "H0349",
+    "subject_id": "bio:PGAM1",
+    "object_id": "chem_C::chem:fg_Carboxyl",
+    "path_length": 4,
+    "is_cross_domain": true,
+    "drift_flags": [
+      "relation_repetition"
+    ],
+    "semantic_drift_score": 0.3333,
+    "provenance": [
+      "bio:PGAM1",
+      "catalyzes",
+      "bio:m_3PG",
+      "is_precursor_of",
+      "bio:aa_Ser",
+      "is_precursor_of",
+      "bio:aa_Gly",
+      "contains",
+      "chem_C::chem:fg_Carboxyl"
+    ],
+    "naive_rank": 820,
+    "revised_rank": 848,
+    "label": "weak_speculative",
+    "reason": "Mixed chain: strong_ratio=0.25, hard_drift=0.25, mild_drift=0.50. Has some mechanistic anchors but path is not strongly grounded. Could be refined by drift filtering."
+  },
+  {
+    "id": "H0356",
+    "subject_id": "bio:ENO1",
+    "object_id": "chem_C::chem:fg_Amino",
+    "path_length": 4,
+    "is_cross_domain": true,
+    "drift_flags": [
+      "relation_repetition"
+    ],
+    "semantic_drift_score": 0.3333,
+    "provenance": [
+      "bio:ENO1",
+      "catalyzes",
+      "bio:m_3PG",
+      "is_precursor_of",
+      "bio:aa_Ser",
+      "is_precursor_of",
+      "bio:aa_Gly",
+      "contains",
+      "chem_C::chem:fg_Amino"
+    ],
+    "naive_rank": 821,
+    "revised_rank": 849,
+    "label": "weak_speculative",
+    "reason": "Mixed chain: strong_ratio=0.25, hard_drift=0.25, mild_drift=0.50. Has some mechanistic anchors but path is not strongly grounded. Could be refined by drift filtering."
+  },
+  {
+    "id": "H0357",
+    "subject_id": "bio:ENO1",
+    "object_id": "chem_C::chem:fg_Carboxyl",
+    "path_length": 4,
+    "is_cross_domain": true,
+    "drift_flags": [
+      "relation_repetition"
+    ],
+    "semantic_drift_score": 0.3333,
+    "provenance": [
+      "bio:ENO1",
+      "catalyzes",
+      "bio:m_3PG",
+      "is_precursor_of",
+      "bio:aa_Ser",
+      "is_precursor_of",
+      "bio:aa_Gly",
+      "contains",
+      "chem_C::chem:fg_Carboxyl"
+    ],
+    "naive_rank": 822,
+    "revised_rank": 850,
+    "label": "weak_speculative",
+    "reason": "Mixed chain: strong_ratio=0.25, hard_drift=0.25, mild_drift=0.50. Has some mechanistic anchors but path is not strongly grounded. Could be refined by drift filtering."
+  },
+  {
+    "id": "H0517",
+    "subject_id": "bio:g_HIF1A",
+    "object_id": "chem_C::chem:r_Oxidation",
+    "path_length": 4,
+    "is_cross_domain": true,
+    "drift_flags": [],
+    "semantic_drift_score": 0.0,
+    "provenance": [
+      "bio:g_HIF1A",
+      "encodes",
+      "bio:HIF1A",
+      "activates",
+      "bio:LDHA",
+      "requires_cofactor",
+      "bio:m_NADH",
+      "undergoes",
+      "chem_C::chem:r_Oxidation"
+    ],
+    "naive_rank": 847,
+    "revised_rank": 761,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with majority strong relations (0.50) and no generic connectors. Plausible hypothesis candidate."
+  },
+  {
+    "id": "H0524",
+    "subject_id": "bio:g_HIF1A",
+    "object_id": "chem_C::chem:r_Reduction",
+    "path_length": 5,
+    "is_cross_domain": true,
+    "drift_flags": [],
+    "semantic_drift_score": 0.0,
+    "provenance": [
+      "bio:g_HIF1A",
+      "encodes",
+      "bio:HIF1A",
+      "activates",
+      "bio:LDHA",
+      "requires_cofactor",
+      "bio:m_NADH",
+      "undergoes",
+      "chem_C::chem:r_Oxidation",
+      "is_reverse_of",
+      "chem_C::chem:r_Reduction"
+    ],
+    "naive_rank": 854,
+    "revised_rank": 768,
+    "label": "weak_speculative",
+    "reason": "Mixed chain: strong_ratio=0.40, hard_drift=0.20, mild_drift=0.40. Has some mechanistic anchors but path is not strongly grounded. Could be refined by drift filtering."
+  },
+  {
+    "id": "H0618",
+    "subject_id": "bio:g_VHL",
+    "object_id": "chem_C::chem:r_Oxidation",
+    "path_length": 5,
+    "is_cross_domain": true,
+    "drift_flags": [],
+    "semantic_drift_score": 0.0,
+    "provenance": [
+      "bio:g_VHL",
+      "encodes",
+      "bio:VHL",
+      "inhibits",
+      "bio:HIF1A",
+      "activates",
+      "bio:LDHA",
+      "requires_cofactor",
+      "bio:m_NADH",
+      "undergoes",
+      "chem_C::chem:r_Oxidation"
+    ],
+    "naive_rank": 878,
+    "revised_rank": 780,
+    "label": "promising",
+    "reason": "High strong-relation ratio (0.60) with no hard-drift connectors. Cross-domain path is mechanistically specific and biologically plausible."
+  },
+  {
+    "id": "H0644",
+    "subject_id": "bio:s_Insulin",
+    "object_id": "chem_C::chem:r_Reduction",
+    "path_length": 4,
+    "is_cross_domain": true,
+    "drift_flags": [],
+    "semantic_drift_score": 0.0,
+    "provenance": [
+      "bio:s_Insulin",
+      "inhibits",
+      "bio:LDHA",
+      "requires_cofactor",
+      "bio:m_NADH",
+      "undergoes",
+      "chem_C::chem:r_Oxidation",
+      "is_reverse_of",
+      "chem_C::chem:r_Reduction"
+    ],
+    "naive_rank": 889,
+    "revised_rank": 787,
+    "label": "weak_speculative",
+    "reason": "Mixed chain: strong_ratio=0.25, hard_drift=0.25, mild_drift=0.50. Has some mechanistic anchors but path is not strongly grounded. Could be refined by drift filtering."
+  }
+]

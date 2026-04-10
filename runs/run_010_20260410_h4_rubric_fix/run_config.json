@@ -1,0 +1,53 @@
+{
+  "run_id": "run_010",
+  "phase": "Phase4",
+  "experiment": "h4_rubric_revision_reranking",
+  "timestamp": "2026-04-10T12:39:50.698961",
+  "random_seed": 42,
+  "data_source": "fallback",
+  "condition": "C",
+  "reuses_run_009_kg": true,
+  "ranking_schemes": [
+    "naive (provenance_aware=False, revised=False)",
+    "old_aware (provenance_aware=True, revised=False)",
+    "revised_aware (revised_traceability=True)"
+  ],
+  "revised_traceability_design": {
+    "base_score": 1.0,
+    "floor": 0.1,
+    "penalties": {
+      "low_specificity_relation": -0.1,
+      "consecutive_repeated_relation": -0.15,
+      "generic_intermediate_node": -0.05
+    },
+    "low_spec_relations": [
+      "relates_to",
+      "associated_with",
+      "part_of",
+      "has_part",
+      "interacts_with",
+      "is_a",
+      "connected_to",
+      "involves",
+      "related_to"
+    ],
+    "weak_node_labels": [
+      "process",
+      "system",
+      "entity",
+      "substance",
+      "compound"
+    ]
+  },
+  "top_k": 20,
+  "results": {
+    "total_candidates": 939,
+    "deep_candidates": 520,
+    "deep_cross_domain": 20,
+    "h4_verdict_old_aware": "FAIL",
+    "h4_verdict_revised": "PASS",
+    "jaccard_naive_vs_revised": 0.4286,
+    "deep_promoted_by_revised": 309,
+    "deep_demoted_by_revised": 209
+  }
+}
