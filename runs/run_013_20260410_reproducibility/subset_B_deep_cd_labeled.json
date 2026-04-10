@@ -1,0 +1,742 @@
+[
+  {
+    "id": "H0009",
+    "subject_id": "imm:PTGS1",
+    "object_id": "chem_run013::nat:fg_Catechol_nat",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "imm:PTGS1",
+      "catalyzes",
+      "imm:m_AA",
+      "undergoes",
+      "chem_run013::nat:r_OxidationNat",
+      "produces",
+      "chem_run013::nat:fg_Catechol_nat"
+    ]
+  },
+  {
+    "id": "H0010",
+    "subject_id": "imm:PTGS1",
+    "object_id": "chem_run013::nat:fg_Lactone",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "imm:PTGS1",
+      "catalyzes",
+      "imm:m_AA",
+      "undergoes",
+      "chem_run013::nat:r_Cyclization",
+      "produces",
+      "chem_run013::nat:fg_Lactone"
+    ]
+  },
+  {
+    "id": "H0011",
+    "subject_id": "imm:PTGS1",
+    "object_id": "chem_run013::nat:fg_Phenolic",
+    "path_length": 4,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with strong relations (0.75) and no generic connectors",
+    "strong_ratio": 0.5,
+    "provenance": [
+      "imm:PTGS1",
+      "catalyzes",
+      "imm:m_AA",
+      "is_precursor_of",
+      "imm:m_LTB4",
+      "undergoes",
+      "chem_run013::nat:r_HydroxylationNat",
+      "produces",
+      "chem_run013::nat:fg_Phenolic"
+    ]
+  },
+  {
+    "id": "H0018",
+    "subject_id": "imm:PTGS2",
+    "object_id": "chem_run013::nat:fg_Catechol_nat",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "imm:PTGS2",
+      "catalyzes",
+      "imm:m_AA",
+      "undergoes",
+      "chem_run013::nat:r_OxidationNat",
+      "produces",
+      "chem_run013::nat:fg_Catechol_nat"
+    ]
+  },
+  {
+    "id": "H0019",
+    "subject_id": "imm:PTGS2",
+    "object_id": "chem_run013::nat:fg_Lactone",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "imm:PTGS2",
+      "catalyzes",
+      "imm:m_AA",
+      "undergoes",
+      "chem_run013::nat:r_Cyclization",
+      "produces",
+      "chem_run013::nat:fg_Lactone"
+    ]
+  },
+  {
+    "id": "H0020",
+    "subject_id": "imm:PTGS2",
+    "object_id": "chem_run013::nat:fg_Phenolic",
+    "path_length": 4,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with strong relations (0.75) and no generic connectors",
+    "strong_ratio": 0.5,
+    "provenance": [
+      "imm:PTGS2",
+      "catalyzes",
+      "imm:m_AA",
+      "is_precursor_of",
+      "imm:m_LTB4",
+      "undergoes",
+      "chem_run013::nat:r_HydroxylationNat",
+      "produces",
+      "chem_run013::nat:fg_Phenolic"
+    ]
+  },
+  {
+    "id": "H0028",
+    "subject_id": "imm:ALOX5",
+    "object_id": "chem_run013::nat:fg_Catechol_nat",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "imm:ALOX5",
+      "catalyzes",
+      "imm:m_AA",
+      "undergoes",
+      "chem_run013::nat:r_OxidationNat",
+      "produces",
+      "chem_run013::nat:fg_Catechol_nat"
+    ]
+  },
+  {
+    "id": "H0029",
+    "subject_id": "imm:ALOX5",
+    "object_id": "chem_run013::nat:fg_Lactone",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "imm:ALOX5",
+      "catalyzes",
+      "imm:m_AA",
+      "undergoes",
+      "chem_run013::nat:r_Cyclization",
+      "produces",
+      "chem_run013::nat:fg_Lactone"
+    ]
+  },
+  {
+    "id": "H0030",
+    "subject_id": "imm:ALOX5",
+    "object_id": "chem_run013::nat:fg_Phenolic",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "imm:ALOX5",
+      "produces",
+      "imm:m_LTB4",
+      "undergoes",
+      "chem_run013::nat:r_HydroxylationNat",
+      "produces",
+      "chem_run013::nat:fg_Phenolic"
+    ]
+  },
+  {
+    "id": "H0038",
+    "subject_id": "imm:ALOX12",
+    "object_id": "chem_run013::nat:fg_Catechol_nat",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "imm:ALOX12",
+      "catalyzes",
+      "imm:m_AA",
+      "undergoes",
+      "chem_run013::nat:r_OxidationNat",
+      "produces",
+      "chem_run013::nat:fg_Catechol_nat"
+    ]
+  },
+  {
+    "id": "H0039",
+    "subject_id": "imm:ALOX12",
+    "object_id": "chem_run013::nat:fg_Lactone",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "imm:ALOX12",
+      "catalyzes",
+      "imm:m_AA",
+      "undergoes",
+      "chem_run013::nat:r_Cyclization",
+      "produces",
+      "chem_run013::nat:fg_Lactone"
+    ]
+  },
+  {
+    "id": "H0040",
+    "subject_id": "imm:ALOX12",
+    "object_id": "chem_run013::nat:fg_Phenolic",
+    "path_length": 4,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with strong relations (0.75) and no generic connectors",
+    "strong_ratio": 0.5,
+    "provenance": [
+      "imm:ALOX12",
+      "catalyzes",
+      "imm:m_AA",
+      "is_precursor_of",
+      "imm:m_LTB4",
+      "undergoes",
+      "chem_run013::nat:r_HydroxylationNat",
+      "produces",
+      "chem_run013::nat:fg_Phenolic"
+    ]
+  },
+  {
+    "id": "H0048",
+    "subject_id": "imm:ALOX15",
+    "object_id": "chem_run013::nat:fg_Catechol_nat",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "imm:ALOX15",
+      "catalyzes",
+      "imm:m_AA",
+      "undergoes",
+      "chem_run013::nat:r_OxidationNat",
+      "produces",
+      "chem_run013::nat:fg_Catechol_nat"
+    ]
+  },
+  {
+    "id": "H0049",
+    "subject_id": "imm:ALOX15",
+    "object_id": "chem_run013::nat:fg_Lactone",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "imm:ALOX15",
+      "catalyzes",
+      "imm:m_AA",
+      "undergoes",
+      "chem_run013::nat:r_Cyclization",
+      "produces",
+      "chem_run013::nat:fg_Lactone"
+    ]
+  },
+  {
+    "id": "H0050",
+    "subject_id": "imm:ALOX15",
+    "object_id": "chem_run013::nat:fg_Phenolic",
+    "path_length": 4,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with strong relations (0.75) and no generic connectors",
+    "strong_ratio": 0.5,
+    "provenance": [
+      "imm:ALOX15",
+      "catalyzes",
+      "imm:m_AA",
+      "is_precursor_of",
+      "imm:m_LTB4",
+      "undergoes",
+      "chem_run013::nat:r_HydroxylationNat",
+      "produces",
+      "chem_run013::nat:fg_Phenolic"
+    ]
+  },
+  {
+    "id": "H0052",
+    "subject_id": "imm:PTGES",
+    "object_id": "chem_run013::nat:fg_Catechol_nat",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "imm:PTGES",
+      "catalyzes",
+      "imm:m_PGE2",
+      "undergoes",
+      "chem_run013::nat:r_OxidationNat",
+      "produces",
+      "chem_run013::nat:fg_Catechol_nat"
+    ]
+  },
+  {
+    "id": "H0060",
+    "subject_id": "imm:PLA2G4A",
+    "object_id": "chem_run013::nat:fg_Catechol_nat",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "imm:PLA2G4A",
+      "catalyzes",
+      "imm:m_AA",
+      "undergoes",
+      "chem_run013::nat:r_OxidationNat",
+      "produces",
+      "chem_run013::nat:fg_Catechol_nat"
+    ]
+  },
+  {
+    "id": "H0061",
+    "subject_id": "imm:PLA2G4A",
+    "object_id": "chem_run013::nat:fg_Lactone",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "imm:PLA2G4A",
+      "catalyzes",
+      "imm:m_AA",
+      "undergoes",
+      "chem_run013::nat:r_Cyclization",
+      "produces",
+      "chem_run013::nat:fg_Lactone"
+    ]
+  },
+  {
+    "id": "H0062",
+    "subject_id": "imm:PLA2G4A",
+    "object_id": "chem_run013::nat:fg_Phenolic",
+    "path_length": 4,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with strong relations (0.75) and no generic connectors",
+    "strong_ratio": 0.5,
+    "provenance": [
+      "imm:PLA2G4A",
+      "catalyzes",
+      "imm:m_AA",
+      "is_precursor_of",
+      "imm:m_LTB4",
+      "undergoes",
+      "chem_run013::nat:r_HydroxylationNat",
+      "produces",
+      "chem_run013::nat:fg_Phenolic"
+    ]
+  },
+  {
+    "id": "H0084",
+    "subject_id": "imm:g_PTGS2",
+    "object_id": "chem_run013::nat:r_OxidationNat",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "imm:g_PTGS2",
+      "encodes",
+      "imm:PTGS2",
+      "catalyzes",
+      "imm:m_AA",
+      "undergoes",
+      "chem_run013::nat:r_OxidationNat"
+    ]
+  },
+  {
+    "id": "H0085",
+    "subject_id": "imm:g_PTGS2",
+    "object_id": "chem_run013::nat:r_Cyclization",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "imm:g_PTGS2",
+      "encodes",
+      "imm:PTGS2",
+      "catalyzes",
+      "imm:m_AA",
+      "undergoes",
+      "chem_run013::nat:r_Cyclization"
+    ]
+  },
+  {
+    "id": "H0089",
+    "subject_id": "imm:g_PTGS2",
+    "object_id": "chem_run013::nat:fg_Catechol_nat",
+    "path_length": 4,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.75,
+    "provenance": [
+      "imm:g_PTGS2",
+      "encodes",
+      "imm:PTGS2",
+      "catalyzes",
+      "imm:m_AA",
+      "undergoes",
+      "chem_run013::nat:r_OxidationNat",
+      "produces",
+      "chem_run013::nat:fg_Catechol_nat"
+    ]
+  },
+  {
+    "id": "H0090",
+    "subject_id": "imm:g_PTGS2",
+    "object_id": "chem_run013::nat:fg_Lactone",
+    "path_length": 4,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.75,
+    "provenance": [
+      "imm:g_PTGS2",
+      "encodes",
+      "imm:PTGS2",
+      "catalyzes",
+      "imm:m_AA",
+      "undergoes",
+      "chem_run013::nat:r_Cyclization",
+      "produces",
+      "chem_run013::nat:fg_Lactone"
+    ]
+  },
+  {
+    "id": "H0091",
+    "subject_id": "imm:g_PTGS2",
+    "object_id": "chem_run013::nat:r_HydroxylationNat",
+    "path_length": 4,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with strong relations (0.75) and no generic connectors",
+    "strong_ratio": 0.5,
+    "provenance": [
+      "imm:g_PTGS2",
+      "encodes",
+      "imm:PTGS2",
+      "catalyzes",
+      "imm:m_AA",
+      "is_precursor_of",
+      "imm:m_LTB4",
+      "undergoes",
+      "chem_run013::nat:r_HydroxylationNat"
+    ]
+  },
+  {
+    "id": "H0092",
+    "subject_id": "imm:g_PTGS2",
+    "object_id": "chem_run013::nat:fg_Phenolic",
+    "path_length": 5,
+    "label": "promising",
+    "reason": "5-hop cross-domain path with strong relations (0.80) and no generic connectors",
+    "strong_ratio": 0.6,
+    "provenance": [
+      "imm:g_PTGS2",
+      "encodes",
+      "imm:PTGS2",
+      "catalyzes",
+      "imm:m_AA",
+      "is_precursor_of",
+      "imm:m_LTB4",
+      "undergoes",
+      "chem_run013::nat:r_HydroxylationNat",
+      "produces",
+      "chem_run013::nat:fg_Phenolic"
+    ]
+  },
+  {
+    "id": "H0097",
+    "subject_id": "imm:g_ALOX5",
+    "object_id": "chem_run013::nat:r_OxidationNat",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "imm:g_ALOX5",
+      "encodes",
+      "imm:ALOX5",
+      "catalyzes",
+      "imm:m_AA",
+      "undergoes",
+      "chem_run013::nat:r_OxidationNat"
+    ]
+  },
+  {
+    "id": "H0098",
+    "subject_id": "imm:g_ALOX5",
+    "object_id": "chem_run013::nat:r_Cyclization",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "imm:g_ALOX5",
+      "encodes",
+      "imm:ALOX5",
+      "catalyzes",
+      "imm:m_AA",
+      "undergoes",
+      "chem_run013::nat:r_Cyclization"
+    ]
+  },
+  {
+    "id": "H0102",
+    "subject_id": "imm:g_ALOX5",
+    "object_id": "chem_run013::nat:r_HydroxylationNat",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "imm:g_ALOX5",
+      "encodes",
+      "imm:ALOX5",
+      "produces",
+      "imm:m_LTB4",
+      "undergoes",
+      "chem_run013::nat:r_HydroxylationNat"
+    ]
+  },
+  {
+    "id": "H0103",
+    "subject_id": "imm:g_ALOX5",
+    "object_id": "chem_run013::nat:fg_Catechol_nat",
+    "path_length": 4,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.75,
+    "provenance": [
+      "imm:g_ALOX5",
+      "encodes",
+      "imm:ALOX5",
+      "catalyzes",
+      "imm:m_AA",
+      "undergoes",
+      "chem_run013::nat:r_OxidationNat",
+      "produces",
+      "chem_run013::nat:fg_Catechol_nat"
+    ]
+  },
+  {
+    "id": "H0104",
+    "subject_id": "imm:g_ALOX5",
+    "object_id": "chem_run013::nat:fg_Lactone",
+    "path_length": 4,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.75,
+    "provenance": [
+      "imm:g_ALOX5",
+      "encodes",
+      "imm:ALOX5",
+      "catalyzes",
+      "imm:m_AA",
+      "undergoes",
+      "chem_run013::nat:r_Cyclization",
+      "produces",
+      "chem_run013::nat:fg_Lactone"
+    ]
+  },
+  {
+    "id": "H0105",
+    "subject_id": "imm:g_ALOX5",
+    "object_id": "chem_run013::nat:fg_Phenolic",
+    "path_length": 4,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.75,
+    "provenance": [
+      "imm:g_ALOX5",
+      "encodes",
+      "imm:ALOX5",
+      "produces",
+      "imm:m_LTB4",
+      "undergoes",
+      "chem_run013::nat:r_HydroxylationNat",
+      "produces",
+      "chem_run013::nat:fg_Phenolic"
+    ]
+  },
+  {
+    "id": "H0111",
+    "subject_id": "imm:g_PTGES",
+    "object_id": "chem_run013::nat:r_OxidationNat",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "imm:g_PTGES",
+      "encodes",
+      "imm:PTGES",
+      "catalyzes",
+      "imm:m_PGE2",
+      "undergoes",
+      "chem_run013::nat:r_OxidationNat"
+    ]
+  },
+  {
+    "id": "H0112",
+    "subject_id": "imm:g_PTGES",
+    "object_id": "chem_run013::nat:fg_Catechol_nat",
+    "path_length": 4,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.75,
+    "provenance": [
+      "imm:g_PTGES",
+      "encodes",
+      "imm:PTGES",
+      "catalyzes",
+      "imm:m_PGE2",
+      "undergoes",
+      "chem_run013::nat:r_OxidationNat",
+      "produces",
+      "chem_run013::nat:fg_Catechol_nat"
+    ]
+  },
+  {
+    "id": "H0119",
+    "subject_id": "imm:g_PLA2G4A",
+    "object_id": "chem_run013::nat:r_OxidationNat",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "imm:g_PLA2G4A",
+      "encodes",
+      "imm:PLA2G4A",
+      "catalyzes",
+      "imm:m_AA",
+      "undergoes",
+      "chem_run013::nat:r_OxidationNat"
+    ]
+  },
+  {
+    "id": "H0120",
+    "subject_id": "imm:g_PLA2G4A",
+    "object_id": "chem_run013::nat:r_Cyclization",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "imm:g_PLA2G4A",
+      "encodes",
+      "imm:PLA2G4A",
+      "catalyzes",
+      "imm:m_AA",
+      "undergoes",
+      "chem_run013::nat:r_Cyclization"
+    ]
+  },
+  {
+    "id": "H0125",
+    "subject_id": "imm:g_PLA2G4A",
+    "object_id": "chem_run013::nat:fg_Catechol_nat",
+    "path_length": 4,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.75,
+    "provenance": [
+      "imm:g_PLA2G4A",
+      "encodes",
+      "imm:PLA2G4A",
+      "catalyzes",
+      "imm:m_AA",
+      "undergoes",
+      "chem_run013::nat:r_OxidationNat",
+      "produces",
+      "chem_run013::nat:fg_Catechol_nat"
+    ]
+  },
+  {
+    "id": "H0126",
+    "subject_id": "imm:g_PLA2G4A",
+    "object_id": "chem_run013::nat:fg_Lactone",
+    "path_length": 4,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.75,
+    "provenance": [
+      "imm:g_PLA2G4A",
+      "encodes",
+      "imm:PLA2G4A",
+      "catalyzes",
+      "imm:m_AA",
+      "undergoes",
+      "chem_run013::nat:r_Cyclization",
+      "produces",
+      "chem_run013::nat:fg_Lactone"
+    ]
+  },
+  {
+    "id": "H0127",
+    "subject_id": "imm:g_PLA2G4A",
+    "object_id": "chem_run013::nat:r_HydroxylationNat",
+    "path_length": 4,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with strong relations (0.75) and no generic connectors",
+    "strong_ratio": 0.5,
+    "provenance": [
+      "imm:g_PLA2G4A",
+      "encodes",
+      "imm:PLA2G4A",
+      "catalyzes",
+      "imm:m_AA",
+      "is_precursor_of",
+      "imm:m_LTB4",
+      "undergoes",
+      "chem_run013::nat:r_HydroxylationNat"
+    ]
+  },
+  {
+    "id": "H0128",
+    "subject_id": "imm:g_PLA2G4A",
+    "object_id": "chem_run013::nat:fg_Phenolic",
+    "path_length": 5,
+    "label": "promising",
+    "reason": "5-hop cross-domain path with strong relations (0.80) and no generic connectors",
+    "strong_ratio": 0.6,
+    "provenance": [
+      "imm:g_PLA2G4A",
+      "encodes",
+      "imm:PLA2G4A",
+      "catalyzes",
+      "imm:m_AA",
+      "is_precursor_of",
+      "imm:m_LTB4",
+      "undergoes",
+      "chem_run013::nat:r_HydroxylationNat",
+      "produces",
+      "chem_run013::nat:fg_Phenolic"
+    ]
+  }
+]
