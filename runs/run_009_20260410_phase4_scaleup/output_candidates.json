@@ -1,0 +1,798 @@
+[
+  {
+    "id": "H0001",
+    "subject_id": "bio:TP53",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CDK2",
+    "description": "TP53 may transitively_related_to CDK2 via path: bio:TP53 -> activates -> bio:CDKN1A -> inhibits -> bio:CDK2",
+    "operator": "compose",
+    "source_kg_name": "union_bio_C_chem_C",
+    "provenance": [
+      "bio:TP53",
+      "activates",
+      "bio:CDKN1A",
+      "inhibits",
+      "bio:CDK2"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0,
+      "is_cross_domain": false
+    }
+  },
+  {
+    "id": "H0002",
+    "subject_id": "bio:TP53",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CYCS",
+    "description": "TP53 may transitively_related_to Cytochrome c via path: bio:TP53 -> activates -> bio:BAX -> activates -> bio:CYCS",
+    "operator": "compose",
+    "source_kg_name": "union_bio_C_chem_C",
+    "provenance": [
+      "bio:TP53",
+      "activates",
+      "bio:BAX",
+      "activates",
+      "bio:CYCS"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333,
+      "is_cross_domain": false
+    }
+  },
+  {
+    "id": "H0003",
+    "subject_id": "bio:TP53",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CASP9",
+    "description": "TP53 may transitively_related_to Caspase-9 via path: bio:TP53 -> activates -> bio:APAF1 -> activates -> bio:CASP9",
+    "operator": "compose",
+    "source_kg_name": "union_bio_C_chem_C",
+    "provenance": [
+      "bio:TP53",
+      "activates",
+      "bio:APAF1",
+      "activates",
+      "bio:CASP9"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333,
+      "is_cross_domain": false
+    }
+  },
+  {
+    "id": "H0011",
+    "subject_id": "bio:MDM2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CDKN1A",
+    "description": "MDM2 may transitively_related_to p21 via path: bio:MDM2 -> inhibits -> bio:TP53 -> activates -> bio:CDKN1A",
+    "operator": "compose",
+    "source_kg_name": "union_bio_C_chem_C",
+    "provenance": [
+      "bio:MDM2",
+      "inhibits",
+      "bio:TP53",
+      "activates",
+      "bio:CDKN1A"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0,
+      "is_cross_domain": false
+    }
+  },
+  {
+    "id": "H0012",
+    "subject_id": "bio:MDM2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:BAX",
+    "description": "MDM2 may transitively_related_to BAX via path: bio:MDM2 -> inhibits -> bio:TP53 -> activates -> bio:BAX",
+    "operator": "compose",
+    "source_kg_name": "union_bio_C_chem_C",
+    "provenance": [
+      "bio:MDM2",
+      "inhibits",
+      "bio:TP53",
+      "activates",
+      "bio:BAX"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0,
+      "is_cross_domain": false
+    }
+  },
+  {
+    "id": "H0013",
+    "subject_id": "bio:MDM2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:APAF1",
+    "description": "MDM2 may transitively_related_to APAF1 via path: bio:MDM2 -> inhibits -> bio:TP53 -> activates -> bio:APAF1",
+    "operator": "compose",
+    "source_kg_name": "union_bio_C_chem_C",
+    "provenance": [
+      "bio:MDM2",
+      "inhibits",
+      "bio:TP53",
+      "activates",
+      "bio:APAF1"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0,
+      "is_cross_domain": false
+    }
+  },
+  {
+    "id": "H0014",
+    "subject_id": "bio:MDM2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:BCL2",
+    "description": "MDM2 may transitively_related_to BCL-2 via path: bio:MDM2 -> inhibits -> bio:TP53 -> inhibits -> bio:BCL2",
+    "operator": "compose",
+    "source_kg_name": "union_bio_C_chem_C",
+    "provenance": [
+      "bio:MDM2",
+      "inhibits",
+      "bio:TP53",
+      "inhibits",
+      "bio:BCL2"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333,
+      "is_cross_domain": false
+    }
+  },
+  {
+    "id": "H0015",
+    "subject_id": "bio:MDM2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:p_Apoptosis",
+    "description": "MDM2 may transitively_related_to Apoptosis via path: bio:MDM2 -> inhibits -> bio:TP53 -> activates -> bio:p_Apoptosis",
+    "operator": "compose",
+    "source_kg_name": "union_bio_C_chem_C",
+    "provenance": [
+      "bio:MDM2",
+      "inhibits",
+      "bio:TP53",
+      "activates",
+      "bio:p_Apoptosis"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0,
+      "is_cross_domain": false
+    }
+  },
+  {
+    "id": "H0016",
+    "subject_id": "bio:MDM2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:p_DDR",
+    "description": "MDM2 may transitively_related_to DNA damage response via path: bio:MDM2 -> inhibits -> bio:TP53 -> activates -> bio:p_DDR",
+    "operator": "compose",
+    "source_kg_name": "union_bio_C_chem_C",
+    "provenance": [
+      "bio:MDM2",
+      "inhibits",
+      "bio:TP53",
+      "activates",
+      "bio:p_DDR"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0,
+      "is_cross_domain": false
+    }
+  },
+  {
+    "id": "H0028",
+    "subject_id": "bio:MDM4",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CDKN1A",
+    "description": "MDM4 may transitively_related_to p21 via path: bio:MDM4 -> inhibits -> bio:TP53 -> activates -> bio:CDKN1A",
+    "operator": "compose",
+    "source_kg_name": "union_bio_C_chem_C",
+    "provenance": [
+      "bio:MDM4",
+      "inhibits",
+      "bio:TP53",
+      "activates",
+      "bio:CDKN1A"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0,
+      "is_cross_domain": false
+    }
+  },
+  {
+    "id": "H0029",
+    "subject_id": "bio:MDM4",
+    "relation": "transitively_related_to",
+    "object_id": "bio:BAX",
+    "description": "MDM4 may transitively_related_to BAX via path: bio:MDM4 -> inhibits -> bio:TP53 -> activates -> bio:BAX",
+    "operator": "compose",
+    "source_kg_name": "union_bio_C_chem_C",
+    "provenance": [
+      "bio:MDM4",
+      "inhibits",
+      "bio:TP53",
+      "activates",
+      "bio:BAX"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0,
+      "is_cross_domain": false
+    }
+  },
+  {
+    "id": "H0030",
+    "subject_id": "bio:MDM4",
+    "relation": "transitively_related_to",
+    "object_id": "bio:APAF1",
+    "description": "MDM4 may transitively_related_to APAF1 via path: bio:MDM4 -> inhibits -> bio:TP53 -> activates -> bio:APAF1",
+    "operator": "compose",
+    "source_kg_name": "union_bio_C_chem_C",
+    "provenance": [
+      "bio:MDM4",
+      "inhibits",
+      "bio:TP53",
+      "activates",
+      "bio:APAF1"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0,
+      "is_cross_domain": false
+    }
+  },
+  {
+    "id": "H0031",
+    "subject_id": "bio:MDM4",
+    "relation": "transitively_related_to",
+    "object_id": "bio:BCL2",
+    "description": "MDM4 may transitively_related_to BCL-2 via path: bio:MDM4 -> inhibits -> bio:TP53 -> inhibits -> bio:BCL2",
+    "operator": "compose",
+    "source_kg_name": "union_bio_C_chem_C",
+    "provenance": [
+      "bio:MDM4",
+      "inhibits",
+      "bio:TP53",
+      "inhibits",
+      "bio:BCL2"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333,
+      "is_cross_domain": false
+    }
+  },
+  {
+    "id": "H0032",
+    "subject_id": "bio:MDM4",
+    "relation": "transitively_related_to",
+    "object_id": "bio:p_Apoptosis",
+    "description": "MDM4 may transitively_related_to Apoptosis via path: bio:MDM4 -> inhibits -> bio:TP53 -> activates -> bio:p_Apoptosis",
+    "operator": "compose",
+    "source_kg_name": "union_bio_C_chem_C",
+    "provenance": [
+      "bio:MDM4",
+      "inhibits",
+      "bio:TP53",
+      "activates",
+      "bio:p_Apoptosis"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0,
+      "is_cross_domain": false
+    }
+  },
+  {
+    "id": "H0033",
+    "subject_id": "bio:MDM4",
+    "relation": "transitively_related_to",
+    "object_id": "bio:p_DDR",
+    "description": "MDM4 may transitively_related_to DNA damage response via path: bio:MDM4 -> inhibits -> bio:TP53 -> activates -> bio:p_DDR",
+    "operator": "compose",
+    "source_kg_name": "union_bio_C_chem_C",
+    "provenance": [
+      "bio:MDM4",
+      "inhibits",
+      "bio:TP53",
+      "activates",
+      "bio:p_DDR"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0,
+      "is_cross_domain": false
+    }
+  },
+  {
+    "id": "H0045",
+    "subject_id": "bio:BRCA1",
+    "relation": "transitively_related_to",
+    "object_id": "bio:p_DDR",
+    "description": "BRCA1 may transitively_related_to DNA damage response via path: bio:BRCA1 -> activates -> bio:r_RAD51 -> activates -> bio:p_DDR",
+    "operator": "compose",
+    "source_kg_name": "union_bio_C_chem_C",
+    "provenance": [
+      "bio:BRCA1",
+      "activates",
+      "bio:r_RAD51",
+      "activates",
+      "bio:p_DDR"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333,
+      "is_cross_domain": false
+    }
+  },
+  {
+    "id": "H0046",
+    "subject_id": "bio:BRCA2",
+    "relation": "transitively_related_to",
+    "object_id": "bio:p_DDR",
+    "description": "BRCA2 may transitively_related_to DNA damage response via path: bio:BRCA2 -> activates -> bio:r_RAD51 -> activates -> bio:p_DDR",
+    "operator": "compose",
+    "source_kg_name": "union_bio_C_chem_C",
+    "provenance": [
+      "bio:BRCA2",
+      "activates",
+      "bio:r_RAD51",
+      "activates",
+      "bio:p_DDR"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333,
+      "is_cross_domain": false
+    }
+  },
+  {
+    "id": "H0047",
+    "subject_id": "bio:ATM",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CDK2",
+    "description": "ATM may transitively_related_to CDK2 via path: bio:ATM -> activates -> bio:CHEK2 -> inhibits -> bio:CDK2",
+    "operator": "compose",
+    "source_kg_name": "union_bio_C_chem_C",
+    "provenance": [
+      "bio:ATM",
+      "activates",
+      "bio:CHEK2",
+      "inhibits",
+      "bio:CDK2"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [],
+      "semantic_drift_score": 0.0,
+      "is_cross_domain": false
+    }
+  },
+  {
+    "id": "H0048",
+    "subject_id": "bio:ATM",
+    "relation": "transitively_related_to",
+    "object_id": "bio:CDKN1A",
+    "description": "ATM may transitively_related_to p21 via path: bio:ATM -> activates -> bio:TP53 -> activates -> bio:CDKN1A",
+    "operator": "compose",
+    "source_kg_name": "union_bio_C_chem_C",
+    "provenance": [
+      "bio:ATM",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:CDKN1A"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333,
+      "is_cross_domain": false
+    }
+  },
+  {
+    "id": "H0049",
+    "subject_id": "bio:ATM",
+    "relation": "transitively_related_to",
+    "object_id": "bio:BAX",
+    "description": "ATM may transitively_related_to BAX via path: bio:ATM -> activates -> bio:TP53 -> activates -> bio:BAX",
+    "operator": "compose",
+    "source_kg_name": "union_bio_C_chem_C",
+    "provenance": [
+      "bio:ATM",
+      "activates",
+      "bio:TP53",
+      "activates",
+      "bio:BAX"
+    ],
+    "scores": {
+      "plausibility": 0.8,
+      "novelty": 0.8,
+      "testability": 0.6,
+      "traceability": 0.7,
+      "evidence_support": 0.7,
+      "total": 0.735
+    },
+    "tracking": {
+      "path_length": 2,
+      "operator_chain": [
+        "compose"
+      ],
+      "alignment_used": false,
+      "alignment_count": 0,
+      "merged_nodes_used": [],
+      "reachable_by_single": true,
+      "uniqueness_class": "reachable_by_single",
+      "effective_path_length_after_alignment": 2,
+      "drift_flags": [
+        "relation_repetition"
+      ],
+      "semantic_drift_score": 0.3333,
+      "is_cross_domain": false
+    }
+  }
+]

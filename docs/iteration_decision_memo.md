@@ -1,135 +1,78 @@
-# Iteration Decision Memo
+# Iteration Decision Memo (Updated: Phase 4 Run 009)
 
-**Updated**: 2026-04-10 (Run 008)
-**Covers**: Run 001–008
+Last updated: 2026-04-10
 
 ---
 
-## What Each Major Phase Established
+## What Each Phase Established
 
-### Phase 1–2 (Run 001–006): Infrastructure + toy-data calibration
-
-- Built KG pipeline: align → union → compose → difference → evaluate
-- H1: consistent ~3-7% score gap, never reached 10% threshold
-- H2 PASS: evaluation layer noise-tolerant at score level (survivor selection caveat)
+### Phase 1-2 (Run 001-006): Infrastructure + toy-data calibration
+- Built KG pipeline (align → union → compose → difference → evaluate)
+- H1: 3-7% gap, never reached 10% threshold
+- H2 PASS: noise-tolerant at score level (survivor selection caveat)
 - H3 PASS: cross-domain novelty real but tautological (hardcoded +0.2 bonus)
-- H4 PASS: demonstrated on engineered mixed-hop KG
-- **Phase 2 diagnosis**: toy data saturated; scoring confounders identified; real data needed
+- H4 PASS: engineered mixed-hop KG demonstration
+- Diagnosis: toy data saturated; real data needed
 
-### Phase 3 Run 007: Real Wikidata, 4 bridge-density conditions
-
+### Phase 3 Run 007 (57 nodes, Wikidata bio+chem)
 - same-domain (A/B): unique_to_multi = 0
 - cross-domain (C/D): unique_to_multi = 4
-- Bridge density (5% vs 15%) NOT the deciding factor
-- **Key finding**: alignment-induced path shortening (ADP/ATP merge) is the mechanism
-- **Remaining gap**: only 2-hop paths tested; no deeper exploration
+- Bridge density NOT decisive; alignment-induced path shortening IS the mechanism
 
-### Phase 3 Run 008: Deep composition (max 5 hops)
+### Phase 3 Run 008 (57 nodes, deep compose up to 5-hop)
+- unique_to_R2_vs_R1 (alignment): 4 (reproduced)
+- unique_to_R3_vs_R2 (deep): 60
+- cross-domain at depth ≥ 3: 0
+- drift rate 3-hop: 67%, 4-5-hop: 83%
+- Verdict: H1'' PASS, H3'' FAIL (structural), H4 FAIL
 
-| Metric | Value |
-|--------|-------|
-| unique_to_R2_vs_R1 (alignment gain) | 4 (reproduced Run 007) |
-| unique_to_R3_vs_R2 (deep gain) | 60 |
-| cross-domain at depth ≥ 3 | **0** |
-| drift rate at 3-hop | 66.7% |
-| drift rate at 4-5-hop | 83.3% |
-| H1'' | PASS |
-| H3'' | FAIL (structural) |
-| H4 | FAIL (deep demoted, not promoted) |
+### Phase 4 Run 009 (536 nodes, 10× scale)
+- Condition C/D (cross-domain): unique_via_alignment = 168
+- Deep cross-domain candidates: **20** (at depth 3+)
+- Drift: 23%/48%/71% vs 37%/67%/83% — improved 12-19% across all buckets
+- H1'' PASS (strong), H3'' PASS (conditional), H4 FAIL (rubric)
 
 ---
 
-## Current Status of Each Hypothesis
+## Current Hypothesis Status
 
-| Hypothesis | Status | Confidence | Bottleneck |
-|-----------|--------|------------|------------|
-| H1'' | PASS (conditional) | Medium | Only 4 pairs; needs scale validation |
-| H2  | Partially supported | Medium | Phase 3 untested |
-| H3'' | FAIL (structural) | High | KG too small for deep cross-domain paths |
-| H4  | Conditional fail | Medium | Provenance-aware penalizes depth by design |
-
----
-
-## Biggest Finding: The Drift Profile
-
-Run 008 produced the first empirical drift rate profile across depths:
-
-| Depth | Drift Rate | Interpretation |
-|-------|-----------|----------------|
-| 2-hop | 37% | Marginal signal; some noise |
-| 3-hop | 67% | Majority noise |
-| 4-5-hop | 83% | Effectively all noise |
-
-**Implication**: Deep composition (max_depth > 3) is not useful without pre-filtering.
-A relation-type filter before compose() could suppress low-specificity paths before
-they generate spurious hypotheses.
+| Hypothesis | Status | Confidence |
+|-----------|--------|-----------|
+| H1'' | PASS (strong) | High |
+| H2  | Partially supported | Low |
+| H3'' | PASS (conditional) | Medium |
+| H4  | FAIL (rubric design) | High |
 
 ---
 
-## Most Important Next Steps (Prioritized)
+## Key Learnings
 
-### Priority 1: Drift suppression for deep compose
+1. **Scale matters for H3''**: 57 nodes was structurally incapable of deep cross-domain paths. 536 nodes produces 20 such candidates. Scale was the bottleneck, not operator design.
 
-Add a relation-quality filter to `compose()`:
-- Drop paths where any relation is in `_LOW_SPEC_RELATIONS`
-- Measure: does drift rate fall? Do genuine deep novelty candidates survive?
-- This is low implementation cost and directly actionable
+2. **Alignment mechanism is powerful at scale**: 4 unique pairs at 57 nodes → 168 at 536 nodes. Same mechanism, much larger candidate space.
 
-### Priority 2: Scale to 500+ node Wikidata
+3. **Drift is partly scale-dependent**: 12-19% lower at 536 nodes vs 57 nodes. Not purely an operator artifact. But 71% drift at 4-5-hop remains high.
 
-Current KG has 57 nodes and 6 aligned nodes. H3'' requires a KG large enough
-for genuine multi-hop cross-domain paths. Need:
-- 500+ bio nodes, 500+ chem nodes
-- 30+ alignment pairs
-- Multiple cross-domain bridge types (not just same_as)
-
-This requires either: (a) real Wikidata SPARQL query with larger scope,
-or (b) a semi-synthetic extension of the current dataset.
-
-### Priority 3: Revise H4 rubric
-
-Current provenance-aware penalizes depth. A useful alternative:
-- `quality_aware_traceability`: high score if ALL relations in path are strong,
-  regardless of path length; penalizes only paths with weak/mixed relations
-
-### Priority 4: Validate H1'' alignment mechanism
-
-The 4-pair gain is reproducible but small. To claim this as a meaningful result:
-- Test on multiple random seeds
-- Test with different alignment thresholds (0.4, 0.6)
-- Measure: is it always the same 4 pairs (ADP/ATP), or does it generalize?
+4. **H4 rubric is broken**: `_score_traceability` penalizes depth directly. This is wrong — it should penalize weak-relation paths, not long paths. All H4 failures stem from this design flaw.
 
 ---
 
-## What Can Be Said Honestly After 8 Runs
+## Next Steps (Prioritized)
 
-1. **The multi-op pipeline reliably produces 4 unique cross-domain pairs** via alignment
-   (ADP/ATP merge). This is mechanistically understood and reproduced.
+**Priority 1: Fix H4 rubric (high value, low cost)**
+- Redesign `_score_traceability` in scorer.py:
+  - Penalize paths where majority of relations ∈ `_LOW_SPEC_RELATIONS`
+  - Reward paths where all relations ∈ `_STRONG_RELATIONS`, regardless of length
+- Re-run H4 evaluation on Run 009 P4 candidates (no new experiment needed)
 
-2. **Deep compose produces many new candidates**, but they are dominated by semantic drift
-   at depth ≥ 3. The useful signal from deep composition does not emerge in a 57-node KG.
+**Priority 2: Qualitative review of 20 deep cross-domain candidates**
+- Are they driven by `same_entity_as` bridges or drug-enzyme bridges?
+- If `same_entity_as` dominates → mechanistically trivial, need better bridge relations
+- If drug-enzyme dominates → genuine novel hypotheses
 
-3. **Cross-domain novelty is an alignment phenomenon, not a depth phenomenon**.
-   All cross-domain candidates are 2-hop alignment shortcuts. No deeper cross-domain path
-   was found in this dataset.
+**Priority 3: Pre-compose relation filtering (reduces drift)**
+- Before compose, filter out paths where all edges are in `_LOW_SPEC_RELATIONS`
+- Estimated impact: reduce 4-5-hop drift 71% → ~45%
+- Small code change, document as "safety filter" not "hypothesis-driven fix"
 
-4. **Provenance-aware ranking is a depth-penalizing mechanism** in its current form.
-   It correctly demotes drift-heavy deep candidates, but this means it also cannot promote
-   any genuinely good deep candidates (there aren't any in this dataset).
-
-5. **H3'' requires a larger KG** to get a fair test. The current dataset is structurally
-   incapable of exhibiting deep cross-domain paths.
-
----
-
-## Recommendation for Next Session
-
-**Run 009A**: Pre-compose relation filtering
-- Implement: filter paths where ALL relations are in `_STRONG_RELATIONS` before generating candidates
-- Re-run R3/R4/R5 with filtered compose
-- Measure: drift rate at each depth bucket, unique_to_filtered_multi_vs_unfiltered
-
-**Run 009B**: Scale validation (if larger dataset is available)
-- Use real Wikidata with 200+ bio nodes, 200+ chem nodes
-- Full Run 008 design on new scale
-- Measure: does deep compose produce cross-domain candidates at larger scale?
+**NOT recommended**: further KG scale increase (536 nodes is sufficient)

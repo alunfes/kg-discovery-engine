@@ -1,0 +1,64 @@
+{
+  "run_id": "run_009",
+  "phase": "Phase4",
+  "experiment": "scale_up_500plus_nodes",
+  "timestamp": "2026-04-10T12:18:50.173155",
+  "random_seed": 42,
+  "data_source": "fallback",
+  "conditions": [
+    "A_bio_only",
+    "B_chem_only",
+    "C_sparse_bridge",
+    "D_medium_bridge"
+  ],
+  "pipelines": [
+    "P1_single_shallow",
+    "P2_multi_shallow",
+    "P3_multi_mid",
+    "P4_multi_deep"
+  ],
+  "depths": {
+    "P1": "max_depth=3 (2-hop)",
+    "P2": "max_depth=3 (2-hop)",
+    "P3": "max_depth=5 (3-hop)",
+    "P4": "max_depth=9 (4-5-hop, max_per_source=50)"
+  },
+  "rubric": "EvaluationRubric(cross_domain_novelty_bonus=False)",
+  "research_questions": [
+    "H3'': Does 500+ node KG enable deep cross-domain candidates?",
+    "H4: Does provenance-aware ranking improve top-k at scale?",
+    "Scale: Is drift rate lower at 500+ nodes (scale artifact vs operator issue)?",
+    "H1'': How many unique alignment pairs at scale?"
+  ],
+  "phase3_baseline": {
+    "run": "Run 008",
+    "node_count": 57,
+    "drift_2hop": 0.37,
+    "drift_3hop": 0.67,
+    "drift_4hop": 0.83,
+    "unique_via_alignment": 4,
+    "deep_cross_domain": 0
+  },
+  "verdicts": {
+    "A": {
+      "h1pp": "FAIL — 0 unique pairs from alignment",
+      "h3pp": "FAIL — 0 deep cross-domain candidates (same-domain saturation)",
+      "h4": "FAIL"
+    },
+    "B": {
+      "h1pp": "FAIL — 0 unique pairs from alignment",
+      "h3pp": "FAIL — 0 deep cross-domain candidates (same-domain saturation)",
+      "h4": "INCONCLUSIVE"
+    },
+    "C": {
+      "h1pp": "PASS — 168 unique pairs via alignment",
+      "h3pp": "PASS — 20 deep cross-domain candidates found",
+      "h4": "FAIL"
+    },
+    "D": {
+      "h1pp": "PASS — 168 unique pairs via alignment",
+      "h3pp": "PASS — 20 deep cross-domain candidates found",
+      "h4": "FAIL"
+    }
+  }
+}
