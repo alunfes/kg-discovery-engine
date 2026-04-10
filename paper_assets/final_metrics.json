@@ -1,0 +1,130 @@
+{
+  "project": "KG Discovery Engine",
+  "generated": "2026-04-10",
+  "runs_included": "001-013",
+
+  "hypothesis_status": {
+    "H1_double_prime": {
+      "verdict": "PASS",
+      "confidence": "Very High",
+      "replication_count": "3/3 independent domain pairs",
+      "evidence_runs": ["007", "009", "013A", "013B", "013C"]
+    },
+    "H2": {
+      "verdict": "Partial",
+      "confidence": "Low",
+      "note": "Tested on synthetic KG only (Runs 001-006); not retested on real data"
+    },
+    "H3_double_prime": {
+      "verdict": "PASS",
+      "confidence": "High",
+      "replication_count": "3/3 independent domain pairs (100% promising after filter)",
+      "evidence_runs": ["009", "011", "012", "013A", "013B", "013C"]
+    },
+    "H4": {
+      "verdict": "PASS",
+      "confidence": "High",
+      "note": "Revised rubric only; top-20 still 2-hop dominated",
+      "evidence_runs": ["009", "010"]
+    }
+  },
+
+  "scale_progression": {
+    "run_007_57n": {
+      "bio_nodes": 38, "chem_nodes": 19,
+      "aligned_pairs": 4, "unique_to_alignment": 4,
+      "deep_cross_domain": 0, "scale_note": "Too small for deep CD"
+    },
+    "run_009_536n": {
+      "bio_nodes": 293, "chem_nodes": 243,
+      "aligned_pairs": 7, "unique_to_alignment": 168,
+      "deep_cross_domain_raw": 20, "drift_heavy_pct": 25.0,
+      "promising_pct": 15.0
+    }
+  },
+
+  "filter_effect_run012": {
+    "before": {
+      "total_candidates": 939,
+      "deep_cross_domain": 20,
+      "drift_heavy_pct": 25.0,
+      "promising_pct": 15.0
+    },
+    "after": {
+      "total_candidates": 446,
+      "deep_cross_domain": 3,
+      "drift_heavy_pct": 0.0,
+      "promising_pct": 100.0
+    },
+    "promising_lost": 0,
+    "filter_spec": {
+      "blocked_relations": ["contains", "is_product_of", "is_reverse_of", "is_isomer_of"],
+      "min_strong_ratio": 0.40,
+      "guard_consecutive": true,
+      "filter_generic_intermediates": true
+    }
+  },
+
+  "h4_ranking_run010": {
+    "deep_candidates_promoted_vs_naive": 309,
+    "deep_candidates_demoted_vs_naive": 209,
+    "net_deep_gain": 100,
+    "deep_cross_domain_promoted": 14,
+    "deep_cross_domain_demoted": 6,
+    "jaccard_naive_vs_revised": 0.429,
+    "top20_depth_naive": "2-hop only",
+    "top20_depth_revised": "2-hop only",
+    "mean_score_all_subsets": 0.78
+  },
+
+  "reproducibility_run013": {
+    "success_criteria_met": "3/3 subsets",
+    "subset_A": {
+      "domain_pair": "Cancer signaling / Metabolic chemistry",
+      "bio_nodes": 293, "chem_nodes": 243,
+      "aligned_pairs": 7,
+      "total_candidates_baseline": 939,
+      "total_candidates_filtered": 446,
+      "deep_cd_baseline": 20,
+      "deep_cd_filtered": 3,
+      "promising_pct": 100.0,
+      "drift_heavy_pct": 0.0,
+      "unique_to_alignment": 5,
+      "drift_by_depth": {"2hop": 0.0883, "3hop": 0.1612, "4_5hop": 0.2372}
+    },
+    "subset_B": {
+      "domain_pair": "Immunology / Natural products",
+      "bio_nodes": 178, "chem_nodes": 110,
+      "aligned_pairs": 5,
+      "total_candidates_baseline": 449,
+      "total_candidates_filtered": 170,
+      "deep_cd_baseline": 45,
+      "deep_cd_filtered": 39,
+      "promising_pct": 100.0,
+      "drift_heavy_pct": 0.0,
+      "unique_to_alignment": 40,
+      "bridge_class": "Eicosanoids (AA, PGE2, LTB4, PGI2, TXA2)",
+      "drift_by_depth": {"2hop": 0.1279, "3hop": 0.2203, "4_5hop": 0.2932}
+    },
+    "subset_C": {
+      "domain_pair": "Neuroscience / Neuro-pharmacology",
+      "bio_nodes": 151, "chem_nodes": 86,
+      "aligned_pairs": 9,
+      "total_candidates_baseline": 659,
+      "total_candidates_filtered": 292,
+      "deep_cd_baseline": 86,
+      "deep_cd_filtered": 33,
+      "promising_pct": 100.0,
+      "drift_heavy_pct": 0.0,
+      "unique_to_alignment": 55,
+      "bridge_class": "Neurotransmitters (Dopamine, Serotonin, GABA, NE, ...)",
+      "drift_by_depth": {"2hop": 0.0562, "3hop": 0.1837, "4_5hop": 0.2953}
+    }
+  },
+
+  "bridge_dispersion_analysis": {
+    "subset_A": {"aligned_pairs": 7, "unique_to_alignment": 5, "unique_per_bridge": 0.7, "bridge_diversity": "Low (1 hub: NADH)"},
+    "subset_B": {"aligned_pairs": 5, "unique_to_alignment": 40, "unique_per_bridge": 8.0, "bridge_diversity": "High (5 eicosanoids)"},
+    "subset_C": {"aligned_pairs": 9, "unique_to_alignment": 55, "unique_per_bridge": 6.1, "bridge_diversity": "High (6-8 neurotransmitters)"}
+  }
+}

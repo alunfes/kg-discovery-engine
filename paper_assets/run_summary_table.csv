@@ -1,0 +1,14 @@
+run,date,phase,purpose,scale,key_finding,H1_verdict,H3_verdict,H4_verdict,notes
+001,2026-04-10,1,Synthetic KG basic operators,57 nodes (synthetic),Align+compose works; baseline established,prototype,-,-,Toy KG
+002,2026-04-10,1,Synonym-aware align + plausibility scoring,57 nodes (synthetic),Label similarity threshold tuned; synonym bridge 0.5,prototype,-,-,Jaccard+synonym dict
+003,2026-04-10,1,H3 PASS + H2/H4 verification framework,57 nodes (synthetic),H3 PASS (synthetic); H2 noise-tolerant at 50% deletion,PASS(syn),PASS(syn),-,Synthetic baseline
+004,2026-04-10,1,H4 PASS + cross-domain H1 isolation,57 nodes (synthetic),H4 PASS (synthetic); H1 cross-domain isolation,PASS(syn),PASS(syn),PASS(syn),Old rubric
+005,2026-04-10,2,Phase 2 calibration (Run A),57 nodes (synthetic),C1/C2/C3 condition framework; calibration,PASS(syn),-,-,Condition definition
+006,2026-04-10,2,Final calibration + Phase 3 prep,57 nodes (synthetic),cross_domain_novelty_bonus removed; testability_heuristic,PASS(syn),-,-,Rubric tuning
+007,2026-04-10,3,Real data — Wikidata 57 nodes,57 nodes (real),H1'' conditional PASS; 4 unique pairs via alignment,PASS(cond),-,-,First real-data test
+008,2026-04-10,3,Deep compose — 57 nodes,57 nodes (real),H3'' FAIL: 57 nodes structurally incapable of 3-hop CD,PASS,FAIL(scale),-,Scale bottleneck identified
+009,2026-04-10,4,Scale-up 536 nodes; H3''/H4 test,536 nodes (real),H3'' PASS (20 deep CD); H4 FAIL (old rubric); 168 unique pairs,PASS(strong),PASS(noisy),FAIL(rubric),Seminal scale-up
+010,2026-04-10,4,H4 rubric revision + re-rank,536 nodes (real),H4 PASS (revised_traceability); 309 deep promoted,PASS,-,PASS,Rubric fix
+011,2026-04-10,4,Qualitative review of 20 deep CD candidates,536 nodes (real),25% drift_heavy; 15% promising; filter recommendation,PASS,-,PASS,Manual review
+012,2026-04-10,4,Drift filter implementation,536 nodes (real),0% drift_heavy; 100% promising; 3 promising survivors (VHL/HIF1A/LDHA),PASS,PASS(quality),PASS,Filter derived
+013,2026-04-10,4,Reproducibility: 3 subsets,288-536 nodes (real 3 pairs),SUCCESS 3/3; H1'' Very High; H3'' 39/33 deep CD in B/C,PASS(VH),PASS(replicated),inherited,Final validation

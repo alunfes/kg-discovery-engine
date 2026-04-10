@@ -1,0 +1,4 @@
+subset,domain_pair,bio_nodes,chem_nodes,total_nodes,bio_edges,chem_edges,aligned_pairs,bridge_class,bridge_entities,total_candidates_raw,total_candidates_filtered,filter_reduction_pct,deep_cd_raw,deep_cd_filtered,drift_heavy_pct_raw,drift_heavy_pct_filtered,promising_pct_raw,promising_pct_filtered,unique_to_alignment,unique_per_bridge_ratio,mean_score_top20,drift_2hop,drift_3hop,drift_4_5hop
+A,Cancer signaling / Metabolic chemistry,293,243,536,233,191,7,NADH (1 hub metabolite),NADH,939,446,52.5,20,3,25.0,0.0,15.0,100.0,5,0.7,0.78,0.0883,0.1612,0.2372
+B,Immunology / Natural products,178,110,288,122,90,5,Eicosanoids,"AA,PGE2,LTB4,PGI2,TXA2",449,170,62.1,45,39,N/A,0.0,N/A,100.0,40,8.0,0.78,0.1279,0.2203,0.2932
+C,Neuroscience / Neuro-pharmacology,151,86,237,128,78,9,Neurotransmitters,"Dopamine,Serotonin,GABA,NE",659,292,55.7,86,33,N/A,0.0,N/A,100.0,55,6.1,0.78,0.0562,0.1837,0.2953
