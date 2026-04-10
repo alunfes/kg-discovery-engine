@@ -1,0 +1,866 @@
+{
+  "run_id": "run_006_20260410",
+  "candidates_r6_scorer": [
+    {
+      "id": "H0001",
+      "subject_id": "bio:protein_A",
+      "relation": "transitively_related_to",
+      "object_id": "bio:reaction_1",
+      "description": "ProteinA may transitively_related_to Reaction1 via path: bio:protein_A -> inhibits -> bio:enzyme_X -> catalyzes -> bio:reaction_1",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "bio:protein_A",
+        "inhibits",
+        "bio:enzyme_X",
+        "catalyzes",
+        "bio:reaction_1"
+      ],
+      "scores": {
+        "plausibility": 0.8,
+        "novelty": 0.8,
+        "testability": 0.9,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.795
+      }
+    },
+    {
+      "id": "H0002",
+      "subject_id": "bio:protein_A",
+      "relation": "transitively_related_to",
+      "object_id": "chemistry::chem:reaction_alpha",
+      "description": "ProteinA may transitively_related_to ReactionAlpha via path: bio:protein_A -> inhibits -> bio:enzyme_X -> accelerates -> chemistry::chem:reaction_alpha",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "bio:protein_A",
+        "inhibits",
+        "bio:enzyme_X",
+        "accelerates",
+        "chemistry::chem:reaction_alpha"
+      ],
+      "scores": {
+        "plausibility": 0.8,
+        "novelty": 0.8,
+        "testability": 0.9,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.795
+      }
+    },
+    {
+      "id": "H0005",
+      "subject_id": "bio:protein_B",
+      "relation": "transitively_related_to",
+      "object_id": "bio:reaction_1",
+      "description": "ProteinB may transitively_related_to Reaction1 via path: bio:protein_B -> activates -> bio:enzyme_X -> catalyzes -> bio:reaction_1",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "bio:protein_B",
+        "activates",
+        "bio:enzyme_X",
+        "catalyzes",
+        "bio:reaction_1"
+      ],
+      "scores": {
+        "plausibility": 0.8,
+        "novelty": 0.8,
+        "testability": 0.9,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.795
+      }
+    },
+    {
+      "id": "H0006",
+      "subject_id": "bio:protein_B",
+      "relation": "transitively_related_to",
+      "object_id": "chemistry::chem:reaction_alpha",
+      "description": "ProteinB may transitively_related_to ReactionAlpha via path: bio:protein_B -> activates -> bio:enzyme_X -> accelerates -> chemistry::chem:reaction_alpha",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "bio:protein_B",
+        "activates",
+        "bio:enzyme_X",
+        "accelerates",
+        "chemistry::chem:reaction_alpha"
+      ],
+      "scores": {
+        "plausibility": 0.8,
+        "novelty": 0.8,
+        "testability": 0.9,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.795
+      }
+    },
+    {
+      "id": "H0007",
+      "subject_id": "bio:protein_C",
+      "relation": "transitively_related_to",
+      "object_id": "bio:reaction_2",
+      "description": "ProteinC may transitively_related_to Reaction2 via path: bio:protein_C -> inhibits -> bio:enzyme_Y -> catalyzes -> bio:reaction_2",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "bio:protein_C",
+        "inhibits",
+        "bio:enzyme_Y",
+        "catalyzes",
+        "bio:reaction_2"
+      ],
+      "scores": {
+        "plausibility": 0.8,
+        "novelty": 0.8,
+        "testability": 0.9,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.795
+      }
+    },
+    {
+      "id": "H0008",
+      "subject_id": "bio:protein_C",
+      "relation": "transitively_related_to",
+      "object_id": "chemistry::chem:reaction_beta",
+      "description": "ProteinC may transitively_related_to ReactionBeta via path: bio:protein_C -> inhibits -> bio:enzyme_Y -> accelerates -> chemistry::chem:reaction_beta",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "bio:protein_C",
+        "inhibits",
+        "bio:enzyme_Y",
+        "accelerates",
+        "chemistry::chem:reaction_beta"
+      ],
+      "scores": {
+        "plausibility": 0.8,
+        "novelty": 0.8,
+        "testability": 0.9,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.795
+      }
+    },
+    {
+      "id": "H0009",
+      "subject_id": "bio:enzyme_X",
+      "relation": "transitively_related_to",
+      "object_id": "bio:protein_B",
+      "description": "EnzymeX may transitively_related_to ProteinB via path: bio:enzyme_X -> catalyzes -> bio:reaction_1 -> produces -> bio:protein_B",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "bio:enzyme_X",
+        "catalyzes",
+        "bio:reaction_1",
+        "produces",
+        "bio:protein_B"
+      ],
+      "scores": {
+        "plausibility": 0.8,
+        "novelty": 0.8,
+        "testability": 0.9,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.795
+      }
+    },
+    {
+      "id": "H0010",
+      "subject_id": "bio:enzyme_X",
+      "relation": "transitively_related_to",
+      "object_id": "chemistry::chem:intermediate_I",
+      "description": "EnzymeX may transitively_related_to IntermediateI via path: bio:enzyme_X -> accelerates -> chemistry::chem:reaction_alpha -> yields -> chemistry::chem:intermediate_I",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "bio:enzyme_X",
+        "accelerates",
+        "chemistry::chem:reaction_alpha",
+        "yields",
+        "chemistry::chem:intermediate_I"
+      ],
+      "scores": {
+        "plausibility": 0.8,
+        "novelty": 0.8,
+        "testability": 0.9,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.795
+      }
+    },
+    {
+      "id": "H0011",
+      "subject_id": "bio:enzyme_Y",
+      "relation": "transitively_related_to",
+      "object_id": "bio:metabolite_M",
+      "description": "EnzymeY may transitively_related_to MetaboliteM via path: bio:enzyme_Y -> catalyzes -> bio:reaction_2 -> produces -> bio:metabolite_M",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "bio:enzyme_Y",
+        "catalyzes",
+        "bio:reaction_2",
+        "produces",
+        "bio:metabolite_M"
+      ],
+      "scores": {
+        "plausibility": 0.8,
+        "novelty": 0.8,
+        "testability": 0.9,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.795
+      }
+    },
+    {
+      "id": "H0012",
+      "subject_id": "bio:enzyme_Y",
+      "relation": "transitively_related_to",
+      "object_id": "chemistry::chem:polymer_Z",
+      "description": "EnzymeY may transitively_related_to PolymerZ via path: bio:enzyme_Y -> accelerates -> chemistry::chem:reaction_beta -> produces -> chemistry::chem:polymer_Z",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "bio:enzyme_Y",
+        "accelerates",
+        "chemistry::chem:reaction_beta",
+        "produces",
+        "chemistry::chem:polymer_Z"
+      ],
+      "scores": {
+        "plausibility": 0.8,
+        "novelty": 0.8,
+        "testability": 0.9,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.795
+      }
+    },
+    {
+      "id": "H0013",
+      "subject_id": "bio:enzyme_Z",
+      "relation": "transitively_related_to",
+      "object_id": "bio:protein_C",
+      "description": "EnzymeZ may transitively_related_to ProteinC via path: bio:enzyme_Z -> catalyzes -> bio:reaction_3 -> produces -> bio:protein_C",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "bio:enzyme_Z",
+        "catalyzes",
+        "bio:reaction_3",
+        "produces",
+        "bio:protein_C"
+      ],
+      "scores": {
+        "plausibility": 0.8,
+        "novelty": 0.8,
+        "testability": 0.9,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.795
+      }
+    },
+    {
+      "id": "H0014",
+      "subject_id": "bio:reaction_1",
+      "relation": "transitively_related_to",
+      "object_id": "bio:enzyme_X",
+      "description": "Reaction1 may transitively_related_to EnzymeX via path: bio:reaction_1 -> produces -> bio:protein_B -> activates -> bio:enzyme_X",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "bio:reaction_1",
+        "produces",
+        "bio:protein_B",
+        "activates",
+        "bio:enzyme_X"
+      ],
+      "scores": {
+        "plausibility": 0.8,
+        "novelty": 0.8,
+        "testability": 0.9,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.795
+      }
+    },
+    {
+      "id": "H0015",
+      "subject_id": "bio:reaction_2",
+      "relation": "transitively_related_to",
+      "object_id": "bio:enzyme_Z",
+      "description": "Reaction2 may transitively_related_to EnzymeZ via path: bio:reaction_2 -> produces -> bio:metabolite_M -> activates -> bio:enzyme_Z",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "bio:reaction_2",
+        "produces",
+        "bio:metabolite_M",
+        "activates",
+        "bio:enzyme_Z"
+      ],
+      "scores": {
+        "plausibility": 0.8,
+        "novelty": 0.8,
+        "testability": 0.9,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.795
+      }
+    },
+    {
+      "id": "H0016",
+      "subject_id": "bio:reaction_3",
+      "relation": "transitively_related_to",
+      "object_id": "bio:enzyme_Y",
+      "description": "Reaction3 may transitively_related_to EnzymeY via path: bio:reaction_3 -> produces -> bio:protein_C -> inhibits -> bio:enzyme_Y",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "bio:reaction_3",
+        "produces",
+        "bio:protein_C",
+        "inhibits",
+        "bio:enzyme_Y"
+      ],
+      "scores": {
+        "plausibility": 0.8,
+        "novelty": 0.8,
+        "testability": 0.9,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.795
+      }
+    },
+    {
+      "id": "H0019",
+      "subject_id": "bio:nucleus",
+      "relation": "transitively_related_to",
+      "object_id": "bio:enzyme_X",
+      "description": "Nucleus may transitively_related_to EnzymeX via path: bio:nucleus -> encodes -> bio:protein_A -> inhibits -> bio:enzyme_X",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "bio:nucleus",
+        "encodes",
+        "bio:protein_A",
+        "inhibits",
+        "bio:enzyme_X"
+      ],
+      "scores": {
+        "plausibility": 0.8,
+        "novelty": 0.8,
+        "testability": 0.9,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.795
+      }
+    },
+    {
+      "id": "H0022",
+      "subject_id": "bio:nucleus",
+      "relation": "transitively_related_to",
+      "object_id": "bio:enzyme_Y",
+      "description": "Nucleus may transitively_related_to EnzymeY via path: bio:nucleus -> encodes -> bio:protein_C -> inhibits -> bio:enzyme_Y",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "bio:nucleus",
+        "encodes",
+        "bio:protein_C",
+        "inhibits",
+        "bio:enzyme_Y"
+      ],
+      "scores": {
+        "plausibility": 0.8,
+        "novelty": 0.8,
+        "testability": 0.9,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.795
+      }
+    },
+    {
+      "id": "H0023",
+      "subject_id": "bio:metabolite_M",
+      "relation": "transitively_related_to",
+      "object_id": "bio:reaction_3",
+      "description": "MetaboliteM may transitively_related_to Reaction3 via path: bio:metabolite_M -> activates -> bio:enzyme_Z -> catalyzes -> bio:reaction_3",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "bio:metabolite_M",
+        "activates",
+        "bio:enzyme_Z",
+        "catalyzes",
+        "bio:reaction_3"
+      ],
+      "scores": {
+        "plausibility": 0.8,
+        "novelty": 0.8,
+        "testability": 0.9,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.795
+      }
+    },
+    {
+      "id": "H0024",
+      "subject_id": "bio:metabolite_M",
+      "relation": "transitively_related_to",
+      "object_id": "chemistry::chem:reaction_gamma",
+      "description": "MetaboliteM may transitively_related_to ReactionGamma via path: bio:metabolite_M -> activates -> bio:enzyme_Z -> accelerates -> chemistry::chem:reaction_gamma",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "bio:metabolite_M",
+        "activates",
+        "bio:enzyme_Z",
+        "accelerates",
+        "chemistry::chem:reaction_gamma"
+      ],
+      "scores": {
+        "plausibility": 0.8,
+        "novelty": 0.8,
+        "testability": 0.9,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.795
+      }
+    },
+    {
+      "id": "H0025",
+      "subject_id": "chemistry::chem:reaction_alpha",
+      "relation": "transitively_related_to",
+      "object_id": "bio:enzyme_X",
+      "description": "ReactionAlpha may transitively_related_to EnzymeX via path: chemistry::chem:reaction_alpha -> yields -> bio:protein_B -> activates -> bio:enzyme_X",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "chemistry::chem:reaction_alpha",
+        "yields",
+        "bio:protein_B",
+        "activates",
+        "bio:enzyme_X"
+      ],
+      "scores": {
+        "plausibility": 0.8,
+        "novelty": 0.8,
+        "testability": 0.9,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.795
+      }
+    },
+    {
+      "id": "H0026",
+      "subject_id": "chemistry::chem:reaction_alpha",
+      "relation": "transitively_related_to",
+      "object_id": "bio:enzyme_Z",
+      "description": "ReactionAlpha may transitively_related_to EnzymeZ via path: chemistry::chem:reaction_alpha -> yields -> chemistry::chem:intermediate_I -> activates -> bio:enzyme_Z",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "chemistry::chem:reaction_alpha",
+        "yields",
+        "chemistry::chem:intermediate_I",
+        "activates",
+        "bio:enzyme_Z"
+      ],
+      "scores": {
+        "plausibility": 0.8,
+        "novelty": 0.8,
+        "testability": 0.9,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.795
+      }
+    },
+    {
+      "id": "H0027",
+      "subject_id": "chemistry::chem:reaction_gamma",
+      "relation": "transitively_related_to",
+      "object_id": "bio:enzyme_Y",
+      "description": "ReactionGamma may transitively_related_to EnzymeY via path: chemistry::chem:reaction_gamma -> yields -> bio:protein_C -> inhibits -> bio:enzyme_Y",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "chemistry::chem:reaction_gamma",
+        "yields",
+        "bio:protein_C",
+        "inhibits",
+        "bio:enzyme_Y"
+      ],
+      "scores": {
+        "plausibility": 0.8,
+        "novelty": 0.8,
+        "testability": 0.9,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.795
+      }
+    },
+    {
+      "id": "H0028",
+      "subject_id": "chemistry::chem:solvent_S",
+      "relation": "transitively_related_to",
+      "object_id": "bio:reaction_2",
+      "description": "SolventS may transitively_related_to Reaction2 via path: chemistry::chem:solvent_S -> facilitates -> bio:enzyme_Y -> catalyzes -> bio:reaction_2",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "chemistry::chem:solvent_S",
+        "facilitates",
+        "bio:enzyme_Y",
+        "catalyzes",
+        "bio:reaction_2"
+      ],
+      "scores": {
+        "plausibility": 0.8,
+        "novelty": 0.8,
+        "testability": 0.9,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.795
+      }
+    },
+    {
+      "id": "H0029",
+      "subject_id": "chemistry::chem:solvent_S",
+      "relation": "transitively_related_to",
+      "object_id": "chemistry::chem:reaction_beta",
+      "description": "SolventS may transitively_related_to ReactionBeta via path: chemistry::chem:solvent_S -> facilitates -> bio:enzyme_Y -> accelerates -> chemistry::chem:reaction_beta",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "chemistry::chem:solvent_S",
+        "facilitates",
+        "bio:enzyme_Y",
+        "accelerates",
+        "chemistry::chem:reaction_beta"
+      ],
+      "scores": {
+        "plausibility": 0.8,
+        "novelty": 0.8,
+        "testability": 0.9,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.795
+      }
+    },
+    {
+      "id": "H0030",
+      "subject_id": "chemistry::chem:solvent_S",
+      "relation": "transitively_related_to",
+      "object_id": "bio:reaction_3",
+      "description": "SolventS may transitively_related_to Reaction3 via path: chemistry::chem:solvent_S -> facilitates -> bio:enzyme_Z -> catalyzes -> bio:reaction_3",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "chemistry::chem:solvent_S",
+        "facilitates",
+        "bio:enzyme_Z",
+        "catalyzes",
+        "bio:reaction_3"
+      ],
+      "scores": {
+        "plausibility": 0.8,
+        "novelty": 0.8,
+        "testability": 0.9,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.795
+      }
+    },
+    {
+      "id": "H0031",
+      "subject_id": "chemistry::chem:solvent_S",
+      "relation": "transitively_related_to",
+      "object_id": "chemistry::chem:reaction_gamma",
+      "description": "SolventS may transitively_related_to ReactionGamma via path: chemistry::chem:solvent_S -> facilitates -> bio:enzyme_Z -> accelerates -> chemistry::chem:reaction_gamma",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "chemistry::chem:solvent_S",
+        "facilitates",
+        "bio:enzyme_Z",
+        "accelerates",
+        "chemistry::chem:reaction_gamma"
+      ],
+      "scores": {
+        "plausibility": 0.8,
+        "novelty": 0.8,
+        "testability": 0.9,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.795
+      }
+    },
+    {
+      "id": "H0032",
+      "subject_id": "chemistry::chem:intermediate_I",
+      "relation": "transitively_related_to",
+      "object_id": "bio:reaction_3",
+      "description": "IntermediateI may transitively_related_to Reaction3 via path: chemistry::chem:intermediate_I -> activates -> bio:enzyme_Z -> catalyzes -> bio:reaction_3",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "chemistry::chem:intermediate_I",
+        "activates",
+        "bio:enzyme_Z",
+        "catalyzes",
+        "bio:reaction_3"
+      ],
+      "scores": {
+        "plausibility": 0.8,
+        "novelty": 0.8,
+        "testability": 0.9,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.795
+      }
+    },
+    {
+      "id": "H0033",
+      "subject_id": "chemistry::chem:intermediate_I",
+      "relation": "transitively_related_to",
+      "object_id": "chemistry::chem:reaction_gamma",
+      "description": "IntermediateI may transitively_related_to ReactionGamma via path: chemistry::chem:intermediate_I -> activates -> bio:enzyme_Z -> accelerates -> chemistry::chem:reaction_gamma",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "chemistry::chem:intermediate_I",
+        "activates",
+        "bio:enzyme_Z",
+        "accelerates",
+        "chemistry::chem:reaction_gamma"
+      ],
+      "scores": {
+        "plausibility": 0.8,
+        "novelty": 0.8,
+        "testability": 0.9,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.795
+      }
+    },
+    {
+      "id": "H0020",
+      "subject_id": "bio:nucleus",
+      "relation": "transitively_related_to",
+      "object_id": "bio:cell_membrane",
+      "description": "Nucleus may transitively_related_to CellMembrane via path: bio:nucleus -> encodes -> bio:protein_A -> binds_to -> bio:cell_membrane",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "bio:nucleus",
+        "encodes",
+        "bio:protein_A",
+        "binds_to",
+        "bio:cell_membrane"
+      ],
+      "scores": {
+        "plausibility": 0.7,
+        "novelty": 0.8,
+        "testability": 0.9,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.765
+      }
+    },
+    {
+      "id": "H0003",
+      "subject_id": "bio:protein_A",
+      "relation": "transitively_related_to",
+      "object_id": "bio:enzyme_Y",
+      "description": "ProteinA may transitively_related_to EnzymeY via path: bio:protein_A -> binds_to -> bio:cell_membrane -> contains -> bio:enzyme_Y",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "bio:protein_A",
+        "binds_to",
+        "bio:cell_membrane",
+        "contains",
+        "bio:enzyme_Y"
+      ],
+      "scores": {
+        "plausibility": 0.7,
+        "novelty": 0.8,
+        "testability": 0.8,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.745
+      }
+    },
+    {
+      "id": "H0004",
+      "subject_id": "bio:protein_A",
+      "relation": "transitively_related_to",
+      "object_id": "bio:enzyme_Z",
+      "description": "ProteinA may transitively_related_to EnzymeZ via path: bio:protein_A -> dissolves_in -> chemistry::chem:solvent_S -> facilitates -> bio:enzyme_Z",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "bio:protein_A",
+        "dissolves_in",
+        "chemistry::chem:solvent_S",
+        "facilitates",
+        "bio:enzyme_Z"
+      ],
+      "scores": {
+        "plausibility": 0.7,
+        "novelty": 0.8,
+        "testability": 0.8,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.745
+      }
+    },
+    {
+      "id": "H0017",
+      "subject_id": "bio:cell_membrane",
+      "relation": "transitively_related_to",
+      "object_id": "bio:reaction_2",
+      "description": "CellMembrane may transitively_related_to Reaction2 via path: bio:cell_membrane -> contains -> bio:enzyme_Y -> catalyzes -> bio:reaction_2",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "bio:cell_membrane",
+        "contains",
+        "bio:enzyme_Y",
+        "catalyzes",
+        "bio:reaction_2"
+      ],
+      "scores": {
+        "plausibility": 0.7,
+        "novelty": 0.8,
+        "testability": 0.8,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.745
+      }
+    },
+    {
+      "id": "H0018",
+      "subject_id": "bio:cell_membrane",
+      "relation": "transitively_related_to",
+      "object_id": "chemistry::chem:reaction_beta",
+      "description": "CellMembrane may transitively_related_to ReactionBeta via path: bio:cell_membrane -> contains -> bio:enzyme_Y -> accelerates -> chemistry::chem:reaction_beta",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "bio:cell_membrane",
+        "contains",
+        "bio:enzyme_Y",
+        "accelerates",
+        "chemistry::chem:reaction_beta"
+      ],
+      "scores": {
+        "plausibility": 0.7,
+        "novelty": 0.8,
+        "testability": 0.8,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.745
+      }
+    },
+    {
+      "id": "H0021",
+      "subject_id": "bio:nucleus",
+      "relation": "transitively_related_to",
+      "object_id": "chemistry::chem:solvent_S",
+      "description": "Nucleus may transitively_related_to SolventS via path: bio:nucleus -> encodes -> bio:protein_A -> dissolves_in -> chemistry::chem:solvent_S",
+      "operator": "compose",
+      "source_kg_name": "merged_bio_chem",
+      "provenance": [
+        "bio:nucleus",
+        "encodes",
+        "bio:protein_A",
+        "dissolves_in",
+        "chemistry::chem:solvent_S"
+      ],
+      "scores": {
+        "plausibility": 0.7,
+        "novelty": 0.8,
+        "testability": 0.8,
+        "traceability": 0.7,
+        "evidence_support": 0.7,
+        "total": 0.745
+      }
+    }
+  ],
+  "summary": {
+    "run": "006",
+    "scorer_changes": [
+      "cross_domain_novelty_bonus=False (tautological +0.2 removed)",
+      "testability_heuristic=True (constant 0.6 replaced with relation-chain heuristic)"
+    ],
+    "candidate_count": 33,
+    "h3_standard_scorer": {
+      "method": "hypothesis_level",
+      "cross_domain_count": 14,
+      "same_domain_count": 19,
+      "cross_domain_novelty": 1.0,
+      "same_domain_novelty": 0.8,
+      "ratio": 1.25,
+      "threshold": 1.2,
+      "pass": true
+    },
+    "h3_no_bonus": {
+      "method": "hypothesis_level",
+      "cross_domain_count": 14,
+      "same_domain_count": 19,
+      "cross_domain_novelty": 0.8,
+      "same_domain_novelty": 0.8,
+      "ratio": 1.0,
+      "threshold": 1.2,
+      "pass": false
+    },
+    "h3_verdict": {
+      "cross_domain_inherently_superior": false,
+      "interpretation": "Cross-domain novelty advantage was primarily by-design (+0.2 bonus removed → FAIL)"
+    },
+    "testability_distribution": {
+      "standard_mean": 0.6,
+      "standard_std": 0.0,
+      "r6_mean": 0.8848,
+      "r6_std": 0.0364
+    },
+    "score_discrimination": {
+      "standard_total_std": 0.0286,
+      "r6_total_std": 0.0186,
+      "discrimination_improved": false
+    },
+    "r6_stats": {
+      "n": 33,
+      "mean_total": 0.7865,
+      "median_total": 0.795,
+      "std_total": 0.0186,
+      "min_total": 0.745,
+      "max_total": 0.795,
+      "top3_mean": 0.795,
+      "promising_ratio": 1.0,
+      "category_distribution": {
+        "promising": 1.0
+      }
+    },
+    "standard_stats": {
+      "n": 33,
+      "mean_total": 0.7508,
+      "median_total": 0.735,
+      "std_total": 0.0286,
+      "min_total": 0.705,
+      "max_total": 0.785,
+      "top3_mean": 0.785,
+      "promising_ratio": 1.0,
+      "category_distribution": {
+        "promising": 1.0
+      }
+    }
+  }
+}

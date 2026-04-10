@@ -20,7 +20,13 @@ from pathlib import Path
 # Allow running as script from repo root
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from src.eval.scorer import EvaluationRubric, ScoredHypothesis, evaluate
+from src.eval.scorer import (
+    EvaluationRubric,
+    ScoredHypothesis,
+    cohens_d,
+    evaluate,
+    score_category,
+)
 from src.kg.toy_data import (
     build_bio_chem_bridge_kg,
     build_biology_kg,
@@ -397,6 +403,206 @@ def run_h4_mixed_hop() -> dict:
         "spearman_aware": spearman_aware,
         "gold_proxy": "hop_count_asc+strong_relation_count_desc",
         "pass": spearman_aware > spearman_naive,
+    }
+
+
+# ---------------------------------------------------------------------------
+# Run 005: Fair H1 comparison with budget control
+# ---------------------------------------------------------------------------
+
+def _score_stats(scored: list[ScoredHypothesis]) -> dict:
+    """Compute detailed statistics for a list of scored hypotheses."""
+    if not scored:
+        return {"n": 0}
+    scores = [s.total_score for s in scored]
+    n = len(scores)
+    mean = sum(scores) / n
+    sorted_scores = sorted(scores)
+    mid = n // 2
+    median = sorted_scores[mid] if n % 2 else (sorted_scores[mid - 1] + sorted_scores[mid]) / 2
+    variance = sum((x - mean) ** 2 for x in scores) / max(n - 1, 1)
+    std = variance ** 0.5
+    top3_mean = sum(s.total_score for s in scored[:3]) / min(3, n)
+    cat_counts: dict[str, int] = {}
+    for s in scored:
+        cat = score_category(s.total_score)
+        cat_counts[cat] = cat_counts.get(cat, 0) + 1
+    return {
+        "n": n,
+        "mean_total": round(mean, 4),
+        "median_total": round(median, 4),
+        "std_total": round(std, 4),
+        "min_total": round(min(scores), 4),
+        "max_total": round(max(scores), 4),
+        "top3_mean": round(top3_mean, 4),
+        "promising_ratio": round(sum(1 for c in cat_counts if c == "promising"
+                                    for _ in range(cat_counts[c])) / n, 4),
+        "category_distribution": {k: round(v / n, 4) for k, v in cat_counts.items()},
+    }
+
+
+def _effect_size_label(d: float) -> str:
+    """Cohen's d convention: negligible / small / medium / large."""
+    abs_d = abs(d)
+    if abs_d < 0.2:
+        return "negligible"
+    if abs_d < 0.5:
+        return "small"
+    if abs_d < 0.8:
+        return "medium"
+    return "large"
+
+
+def run_005_fair_comparison() -> dict:
+    """Run 005: Controlled H1 re-evaluation with budget-matched top-N comparison.
+
+    C1 (single-op): compose-only on bio_chem_bridge_kg.
+    C2 (multi-op):  align→union→compose→difference on biology + chemistry KGs.
+    Budget control: compare only top-N candidates where N = min(|C1|, |C2|).
+    H1 judgement: Cohen's d effect size, not an arbitrary 10% threshold.
+    """
+    bridge_kg = build_bio_chem_bridge_kg()
+    bio_kg = build_biology_kg()
+    chem_kg = build_chemistry_kg()
+    rubric = EvaluationRubric()
+
+    # C1: single-op on bridge KG
+    c1_cands = compose(bridge_kg)
+    c1_scored = evaluate(c1_cands, bridge_kg, rubric)
+
+    # C2: full multi-op pipeline
+    alignment = align(bio_kg, chem_kg, threshold=0.4)
+    merged_kg = union(bio_kg, chem_kg, alignment, name="merged_bio_chem")
+    counter: list[int] = [0]
+    c2_merged = compose(merged_kg, _counter=counter)
+    diff_kg = difference(bio_kg, chem_kg, alignment, name="diff_bio_chem")
+    c2_diff = compose(diff_kg, _counter=counter)
+    c2_scored = evaluate(c2_merged + c2_diff, merged_kg, rubric)
+
+    # Budget control: top-N
+    budget_n = min(len(c1_scored), len(c2_scored))
+    c1_top = c1_scored[:budget_n]
+    c2_top = c2_scored[:budget_n]
+
+    c1_scores = [s.total_score for s in c1_top]
+    c2_scores = [s.total_score for s in c2_top]
+    d = cohens_d(c2_scores, c1_scores)  # positive = C2 better
+    mean_diff = (sum(c2_scores) / max(len(c2_scores), 1)) - (
+        sum(c1_scores) / max(len(c1_scores), 1)
+    )
+    c1_mean = sum(c1_scores) / max(len(c1_scores), 1)
+    rel_diff_pct = round(100.0 * mean_diff / c1_mean, 2) if c1_mean > 0 else 0.0
+
+    h1_pass = d > 0.2  # "small" effect or larger is meaningful
+
+    return {
+        "run": "005",
+        "method": "fair_comparison_top_N_budget_control",
+        "input_kg_c1": "bio_chem_bridge_kg",
+        "input_kg_c2": "biology + chemistry (align→union→diff)",
+        "c1_total_candidates": len(c1_scored),
+        "c2_total_candidates": len(c2_scored),
+        "budget_n": budget_n,
+        "c1_stats": _score_stats(c1_top),
+        "c2_stats": _score_stats(c2_top),
+        "cohens_d": round(d, 4),
+        "effect_size_label": _effect_size_label(d),
+        "mean_diff": round(mean_diff, 4),
+        "relative_diff_pct": rel_diff_pct,
+        "h1_verdict": {
+            "pass": h1_pass,
+            "basis": "Cohen's d > 0.2 (small effect threshold)",
+            "cohens_d": round(d, 4),
+            "effect_size_label": _effect_size_label(d),
+        },
+    }
+
+
+# ---------------------------------------------------------------------------
+# Run 006: H3 re-verification + evaluator quality (no cross-domain bonus)
+# ---------------------------------------------------------------------------
+
+def run_006_h3_evaluator_quality() -> dict:
+    """Run 006: Remove tautological cross-domain bonus + enable testability heuristic.
+
+    Two scorer changes vs all previous runs:
+    1. cross_domain_novelty_bonus=False: removes prescriptive +0.2 novelty bonus
+    2. testability_heuristic=True: replaces constant 0.6 with relation-chain heuristic
+
+    Questions answered:
+    - Does cross-domain novelty advantage persist without the hardcoded bonus?
+    - Does testability heuristic improve score discrimination (higher std)?
+    """
+    bio_kg = build_biology_kg()
+    chem_kg = build_chemistry_kg()
+    alignment = align(bio_kg, chem_kg, threshold=0.4)
+    merged_kg = union(bio_kg, chem_kg, alignment, name="merged_bio_chem")
+
+    counter: list[int] = [0]
+    c2_merged = compose(merged_kg, _counter=counter)
+    diff_kg = difference(bio_kg, chem_kg, alignment, name="diff_bio_chem_r6")
+    c2_diff = compose(diff_kg, _counter=counter)
+    c2_candidates = c2_merged + c2_diff
+
+    # Standard scorer (baseline for comparison)
+    std_rubric = EvaluationRubric()
+    std_scored = evaluate(c2_candidates, merged_kg, std_rubric)
+
+    # Run 006 scorer
+    r6_rubric = EvaluationRubric(
+        cross_domain_novelty_bonus=False,
+        testability_heuristic=True,
+    )
+    r6_scored = evaluate(c2_candidates, merged_kg, r6_rubric)
+
+    # H3 under each scorer
+    h3_standard = evaluate_h3(std_scored, merged_kg)
+    h3_no_bonus = evaluate_h3(r6_scored, merged_kg)
+
+    def _std(values: list[float]) -> float:
+        n = len(values)
+        if n < 2:
+            return 0.0
+        mean = sum(values) / n
+        return (sum((x - mean) ** 2 for x in values) / (n - 1)) ** 0.5
+
+    std_test = [s.testability for s in std_scored]
+    r6_test = [s.testability for s in r6_scored]
+    std_total = [s.total_score for s in std_scored]
+    r6_total = [s.total_score for s in r6_scored]
+
+    discrimination_improved = _std(r6_total) > _std(std_total)
+
+    return {
+        "run": "006",
+        "scorer_changes": [
+            "cross_domain_novelty_bonus=False (tautological +0.2 removed)",
+            "testability_heuristic=True (constant 0.6 replaced with relation-chain heuristic)",
+        ],
+        "candidate_count": len(c2_candidates),
+        "h3_standard_scorer": h3_standard,
+        "h3_no_bonus": h3_no_bonus,
+        "h3_verdict": {
+            "cross_domain_inherently_superior": h3_no_bonus["pass"],
+            "interpretation": (
+                "Cross-domain novelty is intrinsic (bonus removal did not change verdict)"
+                if h3_no_bonus["pass"]
+                else "Cross-domain novelty advantage was primarily by-design (+0.2 bonus removed → FAIL)"
+            ),
+        },
+        "testability_distribution": {
+            "standard_mean": round(sum(std_test) / max(len(std_test), 1), 4),
+            "standard_std": round(_std(std_test), 4),
+            "r6_mean": round(sum(r6_test) / max(len(r6_test), 1), 4),
+            "r6_std": round(_std(r6_test), 4),
+        },
+        "score_discrimination": {
+            "standard_total_std": round(_std(std_total), 4),
+            "r6_total_std": round(_std(r6_total), 4),
+            "discrimination_improved": discrimination_improved,
+        },
+        "r6_stats": _score_stats(r6_scored),
+        "standard_stats": _score_stats(std_scored),
     }
 
 

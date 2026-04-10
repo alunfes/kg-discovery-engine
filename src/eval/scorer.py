@@ -17,6 +17,8 @@ class EvaluationRubric:
     traceability_weight: float = 0.15
     evidence_support_weight: float = 0.10
     provenance_aware: bool = False  # H4 flag
+    cross_domain_novelty_bonus: bool = True  # Run 006: set False to remove tautological +0.2
+    testability_heuristic: bool = False  # Run 006: set True to replace constant 0.6
 
     def __post_init__(self) -> None:
         total = (
@@ -72,6 +74,18 @@ _STRONG_RELATIONS: frozenset[str] = frozenset({
     "accelerates", "yields", "facilitates",
 })
 
+# Relations that imply measurable/testable interactions (Run 006 heuristic).
+_MEASURABLE_RELATIONS: frozenset[str] = frozenset({
+    "produces", "inhibits", "activates", "binds_to",
+    "catalyzes", "accelerates", "yields", "facilitates", "encodes",
+})
+
+# Relations that are abstract/generic and reduce testability (Run 006 heuristic).
+_ABSTRACT_RELATIONS: frozenset[str] = frozenset({
+    "relates_to", "associated_with", "similar_to", "analogous_to",
+    "related_to", "modulates", "precursor_to",
+})
+
 
 def _score_plausibility(candidate: HypothesisCandidate, kg: KnowledgeGraph) -> float:
     """Score based on provenance path length and relation quality.
@@ -101,27 +115,100 @@ def _score_plausibility(candidate: HypothesisCandidate, kg: KnowledgeGraph) -> f
     return base
 
 
-def _score_novelty(candidate: HypothesisCandidate, kg: KnowledgeGraph) -> float:
+def _score_novelty(
+    candidate: HypothesisCandidate,
+    kg: KnowledgeGraph,
+    cross_domain_bonus: bool = True,
+) -> float:
     """Score based on whether the relation is absent from KG.
 
-    Cross-domain hypotheses (subject and object in different domains) get a bonus.
+    Cross-domain hypotheses (subject and object in different domains) get a bonus
+    when cross_domain_bonus=True (default). Set False to test whether cross-domain
+    novelty is intrinsic rather than prescribed (Run 006 H3 re-verification).
     """
     if kg.has_direct_edge(candidate.subject_id, candidate.object_id):
         return 0.2  # already known
 
     base = 0.8  # new relation
 
-    # Cross-domain bonus
-    src_node = kg.get_node(candidate.subject_id)
-    tgt_node = kg.get_node(candidate.object_id)
-    if src_node and tgt_node and src_node.domain != tgt_node.domain:
-        base = min(1.0, base + 0.2)
+    if cross_domain_bonus:
+        src_node = kg.get_node(candidate.subject_id)
+        tgt_node = kg.get_node(candidate.object_id)
+        if src_node and tgt_node and src_node.domain != tgt_node.domain:
+            base = min(1.0, base + 0.2)
 
     return base
 
 
-def _score_testability(_candidate: HypothesisCandidate, _kg: KnowledgeGraph) -> float:
-    """Fixed testability score for v0 (future: analyse predicate type)."""
+def _score_testability_heuristic(
+    candidate: HypothesisCandidate,
+    kg: KnowledgeGraph,
+) -> float:
+    """Heuristic testability score based on relation chain quality (Run 006).
+
+    Rules:
+    - All measurable relations (produces/inhibits/activates/...): base=0.8
+    - Majority measurable (>= 50%): base=0.7
+    - Majority abstract (>= 50%): base=0.5
+    - All abstract: base=0.4
+    - Otherwise: base=0.6
+    - +0.1 bonus when both nodes have a specific domain namespace (not bridge)
+
+    Resulting range: 0.4–0.9
+    """
+    path = candidate.provenance
+    if len(path) < 3:
+        return 0.5
+
+    relations = path[1::2]
+    if not relations:
+        return 0.5
+
+    total = len(relations)
+    measurable = sum(1 for r in relations if r in _MEASURABLE_RELATIONS)
+    abstract = sum(1 for r in relations if r in _ABSTRACT_RELATIONS)
+
+    measurable_ratio = measurable / total
+    abstract_ratio = abstract / total
+
+    if measurable_ratio >= 1.0:
+        score = 0.8
+    elif measurable_ratio >= 0.5:
+        score = 0.7
+    elif abstract_ratio >= 1.0:
+        score = 0.4
+    elif abstract_ratio >= 0.5:
+        score = 0.5
+    else:
+        score = 0.6
+
+    # Bonus for concrete (non-bridge) namespaced nodes
+    subj_id = candidate.subject_id
+    obj_id = candidate.object_id
+    is_specific = (
+        ":" in subj_id
+        and ":" in obj_id
+        and "bridge" not in subj_id.lower()
+        and "bridge" not in obj_id.lower()
+    )
+    if is_specific:
+        score = min(0.9, score + 0.1)
+
+    return round(score, 4)
+
+
+def _score_testability(
+    candidate: HypothesisCandidate,
+    kg: KnowledgeGraph,
+    heuristic: bool = False,
+) -> float:
+    """Score testability of a hypothesis.
+
+    When heuristic=False (default): fixed constant 0.6 (v0 behaviour).
+    When heuristic=True: relation-chain heuristic, range 0.4–0.9 (Run 006).
+    """
+    if heuristic:
+        return _score_testability_heuristic(candidate, kg)
     return 0.6
 
 
@@ -178,8 +265,8 @@ def evaluate(
 
     for candidate in candidates:
         p = _score_plausibility(candidate, kg)
-        n = _score_novelty(candidate, kg)
-        t = _score_testability(candidate, kg)
+        n = _score_novelty(candidate, kg, rubric.cross_domain_novelty_bonus)
+        t = _score_testability(candidate, kg, rubric.testability_heuristic)
         tr = _score_traceability(candidate, kg, rubric.provenance_aware)
         es = _score_evidence_support(candidate, kg)
 
@@ -205,3 +292,41 @@ def evaluate(
 
     scored.sort(key=lambda x: x.total_score, reverse=True)
     return scored
+
+
+def cohens_d(group_a: list[float], group_b: list[float]) -> float:
+    """Compute Cohen's d effect size between two groups.
+
+    Positive value means group_a has higher mean.
+    Returns 0.0 when either group has fewer than 2 samples.
+    """
+    n_a = len(group_a)
+    n_b = len(group_b)
+    if n_a < 2 or n_b < 2:
+        return 0.0
+    mean_a = sum(group_a) / n_a
+    mean_b = sum(group_b) / n_b
+    var_a = sum((x - mean_a) ** 2 for x in group_a) / (n_a - 1)
+    var_b = sum((x - mean_b) ** 2 for x in group_b) / (n_b - 1)
+    pooled_std = ((var_a + var_b) / 2) ** 0.5
+    if pooled_std == 0:
+        return 0.0
+    return (mean_a - mean_b) / pooled_std
+
+
+def score_category(total_score: float) -> str:
+    """Classify a hypothesis by total score into a named category.
+
+    Categories:
+    - contradicted    : total < 0.40
+    - weak_speculative: 0.40 ≤ total < 0.60
+    - promising       : 0.60 ≤ total < 0.85
+    - known_restatement: total ≥ 0.85 (high-confidence, likely restates existing knowledge)
+    """
+    if total_score >= 0.85:
+        return "known_restatement"
+    if total_score >= 0.60:
+        return "promising"
+    if total_score >= 0.40:
+        return "weak_speculative"
+    return "contradicted"
