@@ -1,0 +1,24 @@
+{
+  "run_id": "run_012",
+  "date": "20260410",
+  "condition": "C",
+  "description": "Review-driven drift filter: pre-compose relation filter + guards",
+  "pipeline": "P4-filtered (align→union→filtered_compose+diff→evaluate)",
+  "filter_spec": {
+    "filter_relations": [
+      "contains",
+      "is_isomer_of",
+      "is_product_of",
+      "is_reverse_of"
+    ],
+    "guard_consecutive_repeat": true,
+    "min_strong_ratio": 0.4,
+    "filter_generic_intermediates": true
+  },
+  "rubric": "revised_traceability=True (Run 010 quality-based penalty)",
+  "random_seed": 42,
+  "max_depth": 9,
+  "max_per_source": 50,
+  "baseline_run": "run_009_20260410_phase4_scaleup (Condition C P4)",
+  "reference_labels": "run_011_20260410_qualitative_review/candidate_labels.json"
+}

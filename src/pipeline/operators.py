@@ -213,6 +213,98 @@ def difference(
 
 
 # ---------------------------------------------------------------------------
+# compose — filter helpers (Run 012)
+# ---------------------------------------------------------------------------
+
+# Relations considered mechanistically strong for strong-ratio guard.
+_STRONG_MECHANISTIC: frozenset[str] = frozenset({
+    "inhibits", "activates", "catalyzes", "produces", "encodes",
+    "accelerates", "yields", "facilitates",
+})
+
+# Generic intermediate-node labels that reduce path specificity.
+_GENERIC_INTERMEDIATE_LABELS: frozenset[str] = frozenset({
+    "process", "system", "entity", "substance", "compound",
+})
+
+
+def _path_relations(path: list[str]) -> list[str]:
+    """Extract relation types from a provenance path list."""
+    return path[1::2]
+
+
+def _path_intermediate_ids(path: list[str]) -> list[str]:
+    """Extract intermediate node IDs (excluding source and target)."""
+    node_ids = path[0::2]
+    return node_ids[1:-1]
+
+
+def _has_filtered_relation(
+    path: list[str],
+    filter_relations: frozenset[str],
+) -> bool:
+    """Return True if any relation in the path is in filter_relations."""
+    return any(r in filter_relations for r in _path_relations(path))
+
+
+def _has_consecutive_repeat(path: list[str]) -> bool:
+    """Return True if the same relation type appears consecutively in the path."""
+    rels = _path_relations(path)
+    return any(rels[i] == rels[i + 1] for i in range(len(rels) - 1))
+
+
+def _strong_ratio(path: list[str]) -> float:
+    """Return fraction of relations in _STRONG_MECHANISTIC."""
+    rels = _path_relations(path)
+    if not rels:
+        return 0.0
+    return sum(1 for r in rels if r in _STRONG_MECHANISTIC) / len(rels)
+
+
+def _has_generic_intermediate(path: list[str], kg: KnowledgeGraph) -> bool:
+    """Return True if any intermediate node has a generic label."""
+    for nid in _path_intermediate_ids(path):
+        node = kg.get_node(nid)
+        if node and any(w in node.label.lower() for w in _GENERIC_INTERMEDIATE_LABELS):
+            return True
+    return False
+
+
+def _passes_compose_filters(
+    path: list[str],
+    kg: KnowledgeGraph,
+    filter_relations: frozenset[str] | None,
+    guard_consecutive_repeat: bool,
+    min_strong_ratio: float,
+    filter_generic_intermediates: bool,
+) -> bool:
+    """Return True if the path passes all enabled compose filters.
+
+    Filters applied (each independently enabled/disabled):
+    1. filter_relations: reject if any relation is in the blocked set.
+    2. guard_consecutive_repeat: reject if same relation appears consecutively.
+    3. min_strong_ratio: for depth≥3 paths, reject if strong-relation ratio < threshold.
+    4. filter_generic_intermediates: reject if any intermediate node is generic.
+    """
+    hops = max(0, (len(path) - 1) // 2) if len(path) >= 3 else 0
+
+    if filter_relations and _has_filtered_relation(path, filter_relations):
+        return False
+
+    if guard_consecutive_repeat and _has_consecutive_repeat(path):
+        return False
+
+    if min_strong_ratio > 0.0 and hops >= 3:
+        if _strong_ratio(path) < min_strong_ratio:
+            return False
+
+    if filter_generic_intermediates and _has_generic_intermediate(path, kg):
+        return False
+
+    return True
+
+
+# ---------------------------------------------------------------------------
 # compose
 # ---------------------------------------------------------------------------
 
@@ -221,6 +313,10 @@ def compose(
     max_depth: int = 3,
     max_per_source: int = 0,
     _counter: list[int] | None = None,
+    filter_relations: frozenset[str] | None = None,
+    guard_consecutive_repeat: bool = False,
+    min_strong_ratio: float = 0.0,
+    filter_generic_intermediates: bool = False,
 ) -> list[HypothesisCandidate]:
     """Generate hypotheses by finding transitive paths in the KG.
 
@@ -234,9 +330,27 @@ def compose(
         max_per_source: Cap on candidates per source node (0 = unlimited).
             Use to limit path explosion on large graphs.
         _counter: Shared ID counter (list of one int) for stable hypothesis IDs.
+        filter_relations: Frozenset of relation types to exclude. Any path containing
+            one of these relations is dropped before emitting a candidate.
+            Default None (no filtering). Run 012 uses: contains, is_product_of,
+            is_reverse_of, is_isomer_of.
+        guard_consecutive_repeat: If True, reject paths where the same relation
+            type appears consecutively (e.g. A→r→B→r→C). Default False.
+        min_strong_ratio: Minimum fraction of relations in the path that must belong
+            to _STRONG_MECHANISTIC. Applied only to paths with depth≥3. 0.0 = disabled.
+        filter_generic_intermediates: If True, reject paths whose intermediate nodes
+            have generic labels (process, system, entity, substance, compound).
+            Default False.
     """
     if _counter is None:
         _counter = [0]
+
+    use_filters = bool(
+        filter_relations
+        or guard_consecutive_repeat
+        or min_strong_ratio > 0.0
+        or filter_generic_intermediates
+    )
 
     candidates: list[HypothesisCandidate] = []
     node_ids = [n.id for n in kg.nodes()]
@@ -271,6 +385,16 @@ def compose(
                 continue  # direct path, not interesting
             if kg.has_direct_edge(source_id, target_id):
                 continue  # already known
+
+            # Apply compose filters (Run 012+) — skipped when all flags are off
+            if use_filters and not _passes_compose_filters(
+                path, kg,
+                filter_relations=filter_relations,
+                guard_consecutive_repeat=guard_consecutive_repeat,
+                min_strong_ratio=min_strong_ratio,
+                filter_generic_intermediates=filter_generic_intermediates,
+            ):
+                continue
 
             src_node = kg.get_node(source_id)
             tgt_node = kg.get_node(target_id)
