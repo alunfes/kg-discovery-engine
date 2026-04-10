@@ -121,3 +121,35 @@ python scripts/generate_figures.py
 All figures are deterministically regenerated. No external data fetches or random
 seeds beyond `random.seed(42)` / `np.random.seed(42)` (which affect no content in
 the current version, but are set for forward compatibility).
+
+---
+
+## Figure 5 — Phase 4 Full KG (`phase4_full_kg.png`)
+
+**What it shows**: The maximum KG used in Phase 4 experiments (Run 009, Condition D).
+536 nodes (bio=293, chem=243), 464 edges, 81 bridge/alignment-candidate nodes.
+
+**Layout**: Domain-separated — biology nodes (blue) left cluster, chemistry nodes (orange)
+right cluster, bridge nodes (gold) in the centre. Within each cluster, spring_layout with
+seed=42. Bridge-adjacent edges drawn in gold; intra-domain edges in faint grey.
+
+**Claim supported**: Background / Methods visual. Demonstrates scale and cross-domain
+connectivity of the actual KG used in scale-up experiments.
+
+**20-second takeaway**: Two distinct domain clouds connected by a dense gold bridge zone.
+The bridge nodes are structurally central — removing them would disconnect the domains.
+
+**Data source**: `src/kg/phase4_data.build_condition_d()` + `src/data/wikidata_phase4_loader`
+(fallback curated dataset, deterministic).
+
+**Variants**:
+- `phase4_full_kg_preview.png` — 960×540 Twitter/Slack preview
+- `phase4_kg_bio_only.png` — biology subgraph only (293 nodes)
+- `phase4_kg_chem_only.png` — chemistry subgraph only (243 nodes)
+- `phase4_kg_bridge_focused.png` — bridge nodes + 1-hop neighbours
+
+**Generation**:
+```bash
+python scripts/generate_phase4_kg_viz.py
+```
+SEED=42, dpi=200 (main), dpi=150 (variants). Requires matplotlib, networkx, numpy.
