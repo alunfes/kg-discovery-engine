@@ -1,0 +1,33 @@
+{
+  "run_id": "run_013",
+  "date": "20260410",
+  "purpose": "Cross-subset reproducibility test for Run 012 pipeline",
+  "subsets": {
+    "A": "Original Phase 4 KG (bio:/chem:, cancer signaling + metabolic chemistry)",
+    "B": "Immunology (imm:) + Natural products (nat:)",
+    "C": "Neuroscience (neu:) + Neuro-pharmacology (phar:)"
+  },
+  "pipeline_spec": {
+    "filter_relations": [
+      "contains",
+      "is_isomer_of",
+      "is_product_of",
+      "is_reverse_of"
+    ],
+    "guard_consecutive_repeat": true,
+    "min_strong_ratio": 0.4,
+    "filter_generic_intermediates": true,
+    "max_depth": 9,
+    "max_per_source": 50,
+    "random_seed": 42,
+    "note": "Identical to Run 012 — NOT retuned per subset"
+  },
+  "success_criteria": {
+    "passing_subsets_required": 2,
+    "per_subset_criteria": [
+      "unique_to_multi > 0 (alignment-dependent reachability)",
+      "filtered deep CD count >= 1",
+      "promising label count >= 1 after filter"
+    ]
+  }
+}

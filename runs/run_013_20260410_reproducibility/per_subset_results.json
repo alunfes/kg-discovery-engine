@@ -1,0 +1,194 @@
+{
+  "A": {
+    "subset": "A",
+    "kg_stats": {
+      "bio_nodes": 293,
+      "bio_edges": 233,
+      "chem_nodes": 243,
+      "chem_edges": 191,
+      "aligned_pairs": 7
+    },
+    "metric_1_total_candidates": {
+      "baseline": 939,
+      "filtered": 446
+    },
+    "metric_2_deep_cross_domain": {
+      "baseline": 20,
+      "filtered": 3
+    },
+    "metric_3_label_distribution": {
+      "total": 3,
+      "promising": 3,
+      "weak_speculative": 0,
+      "drift_heavy": 0,
+      "promising_pct": 100.0,
+      "drift_heavy_pct": 0.0
+    },
+    "metric_4_alignment_reachability": {
+      "unique_to_multi": 5,
+      "aligned_pairs": 7
+    },
+    "metric_5_top20": {
+      "depth_distribution": {
+        "2-hop": 20
+      },
+      "cross_domain_count": 0,
+      "mean_score": 0.78,
+      "scores": [
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78
+      ]
+    },
+    "metric_6_drift_by_depth": {
+      "2-hop": 0.0883,
+      "3-hop": 0.1612,
+      "4-5-hop": 0.2372
+    }
+  },
+  "B": {
+    "subset": "B",
+    "kg_stats": {
+      "bio_nodes": 178,
+      "bio_edges": 122,
+      "chem_nodes": 110,
+      "chem_edges": 90,
+      "aligned_pairs": 5
+    },
+    "metric_1_total_candidates": {
+      "baseline": 449,
+      "filtered": 170
+    },
+    "metric_2_deep_cross_domain": {
+      "baseline": 45,
+      "filtered": 39
+    },
+    "metric_3_label_distribution": {
+      "total": 39,
+      "promising": 39,
+      "weak_speculative": 0,
+      "drift_heavy": 0,
+      "promising_pct": 100.0,
+      "drift_heavy_pct": 0.0
+    },
+    "metric_4_alignment_reachability": {
+      "unique_to_multi": 40,
+      "aligned_pairs": 5
+    },
+    "metric_5_top20": {
+      "depth_distribution": {
+        "2-hop": 20
+      },
+      "cross_domain_count": 0,
+      "mean_score": 0.78,
+      "scores": [
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78
+      ]
+    },
+    "metric_6_drift_by_depth": {
+      "2-hop": 0.1279,
+      "3-hop": 0.2203,
+      "4-5-hop": 0.2932
+    }
+  },
+  "C": {
+    "subset": "C",
+    "kg_stats": {
+      "bio_nodes": 151,
+      "bio_edges": 128,
+      "chem_nodes": 86,
+      "chem_edges": 78,
+      "aligned_pairs": 9
+    },
+    "metric_1_total_candidates": {
+      "baseline": 659,
+      "filtered": 292
+    },
+    "metric_2_deep_cross_domain": {
+      "baseline": 86,
+      "filtered": 33
+    },
+    "metric_3_label_distribution": {
+      "total": 33,
+      "promising": 33,
+      "weak_speculative": 0,
+      "drift_heavy": 0,
+      "promising_pct": 100.0,
+      "drift_heavy_pct": 0.0
+    },
+    "metric_4_alignment_reachability": {
+      "unique_to_multi": 55,
+      "aligned_pairs": 9
+    },
+    "metric_5_top20": {
+      "depth_distribution": {
+        "2-hop": 20
+      },
+      "cross_domain_count": 0,
+      "mean_score": 0.78,
+      "scores": [
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78,
+        0.78
+      ]
+    },
+    "metric_6_drift_by_depth": {
+      "2-hop": 0.0562,
+      "3-hop": 0.1837,
+      "4-5-hop": 0.2953
+    }
+  }
+}

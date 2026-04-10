@@ -1,0 +1,64 @@
+[
+  {
+    "id": "H0181",
+    "subject_id": "bio:VHL",
+    "object_id": "chem_run013::chem:r_Oxidation",
+    "path_length": 4,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.5,
+    "provenance": [
+      "bio:VHL",
+      "inhibits",
+      "bio:HIF1A",
+      "activates",
+      "bio:LDHA",
+      "requires_cofactor",
+      "bio:m_NADH",
+      "undergoes",
+      "chem_run013::chem:r_Oxidation"
+    ]
+  },
+  {
+    "id": "H0299",
+    "subject_id": "bio:g_HIF1A",
+    "object_id": "chem_run013::chem:r_Oxidation",
+    "path_length": 4,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.5,
+    "provenance": [
+      "bio:g_HIF1A",
+      "encodes",
+      "bio:HIF1A",
+      "activates",
+      "bio:LDHA",
+      "requires_cofactor",
+      "bio:m_NADH",
+      "undergoes",
+      "chem_run013::chem:r_Oxidation"
+    ]
+  },
+  {
+    "id": "H0378",
+    "subject_id": "bio:g_VHL",
+    "object_id": "chem_run013::chem:r_Oxidation",
+    "path_length": 5,
+    "label": "promising",
+    "reason": "5-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6,
+    "provenance": [
+      "bio:g_VHL",
+      "encodes",
+      "bio:VHL",
+      "inhibits",
+      "bio:HIF1A",
+      "activates",
+      "bio:LDHA",
+      "requires_cofactor",
+      "bio:m_NADH",
+      "undergoes",
+      "chem_run013::chem:r_Oxidation"
+    ]
+  }
+]

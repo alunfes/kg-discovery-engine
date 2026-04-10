@@ -1,0 +1,628 @@
+[
+  {
+    "id": "H0011",
+    "subject_id": "neu:TH",
+    "object_id": "chem_run013::phar:fg_Piperidine",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "neu:TH",
+      "catalyzes",
+      "neu:m_Dopamine",
+      "undergoes",
+      "chem_run013::phar:r_Methylation",
+      "produces",
+      "chem_run013::phar:fg_Piperidine"
+    ]
+  },
+  {
+    "id": "H0015",
+    "subject_id": "neu:TH",
+    "object_id": "chem_run013::phar:r_Deamination",
+    "path_length": 4,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with strong relations (0.75) and no generic connectors",
+    "strong_ratio": 0.5,
+    "provenance": [
+      "neu:TH",
+      "catalyzes",
+      "neu:m_Dopamine",
+      "is_substrate_of",
+      "neu:MAOA",
+      "catalyzes",
+      "neu:m_Serotonin",
+      "undergoes",
+      "chem_run013::phar:r_Deamination"
+    ]
+  },
+  {
+    "id": "H0026",
+    "subject_id": "neu:DDC",
+    "object_id": "chem_run013::phar:fg_Piperidine",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "neu:DDC",
+      "catalyzes",
+      "neu:m_Dopamine",
+      "undergoes",
+      "chem_run013::phar:r_Methylation",
+      "produces",
+      "chem_run013::phar:fg_Piperidine"
+    ]
+  },
+  {
+    "id": "H0030",
+    "subject_id": "neu:DDC",
+    "object_id": "chem_run013::phar:r_Deamination",
+    "path_length": 4,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with strong relations (0.75) and no generic connectors",
+    "strong_ratio": 0.5,
+    "provenance": [
+      "neu:DDC",
+      "catalyzes",
+      "neu:m_Dopamine",
+      "is_substrate_of",
+      "neu:MAOA",
+      "catalyzes",
+      "neu:m_Serotonin",
+      "undergoes",
+      "chem_run013::phar:r_Deamination"
+    ]
+  },
+  {
+    "id": "H0043",
+    "subject_id": "neu:DBH",
+    "object_id": "chem_run013::phar:fg_Piperidine",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "neu:DBH",
+      "catalyzes",
+      "neu:m_Dopamine",
+      "undergoes",
+      "chem_run013::phar:r_Methylation",
+      "produces",
+      "chem_run013::phar:fg_Piperidine"
+    ]
+  },
+  {
+    "id": "H0047",
+    "subject_id": "neu:DBH",
+    "object_id": "chem_run013::phar:r_Deamination",
+    "path_length": 4,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with strong relations (0.75) and no generic connectors",
+    "strong_ratio": 0.5,
+    "provenance": [
+      "neu:DBH",
+      "catalyzes",
+      "neu:m_Dopamine",
+      "is_substrate_of",
+      "neu:MAOA",
+      "catalyzes",
+      "neu:m_Serotonin",
+      "undergoes",
+      "chem_run013::phar:r_Deamination"
+    ]
+  },
+  {
+    "id": "H0052",
+    "subject_id": "neu:PNMT",
+    "object_id": "chem_run013::phar:fg_Piperidine",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "neu:PNMT",
+      "catalyzes",
+      "neu:m_Norepinephrine",
+      "undergoes",
+      "chem_run013::phar:r_Methylation",
+      "produces",
+      "chem_run013::phar:fg_Piperidine"
+    ]
+  },
+  {
+    "id": "H0082",
+    "subject_id": "neu:GAD1",
+    "object_id": "chem_run013::phar:fg_Phenethylamine",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "neu:GAD1",
+      "produces",
+      "neu:m_GABA",
+      "undergoes",
+      "chem_run013::phar:r_Deamination",
+      "produces",
+      "chem_run013::phar:fg_Phenethylamine"
+    ]
+  },
+  {
+    "id": "H0087",
+    "subject_id": "neu:GAD2",
+    "object_id": "chem_run013::phar:fg_Phenethylamine",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "neu:GAD2",
+      "produces",
+      "neu:m_GABA",
+      "undergoes",
+      "chem_run013::phar:r_Deamination",
+      "produces",
+      "chem_run013::phar:fg_Phenethylamine"
+    ]
+  },
+  {
+    "id": "H0098",
+    "subject_id": "neu:MAOA",
+    "object_id": "chem_run013::phar:fg_Piperidine",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "neu:MAOA",
+      "catalyzes",
+      "neu:m_Dopamine",
+      "undergoes",
+      "chem_run013::phar:r_Methylation",
+      "produces",
+      "chem_run013::phar:fg_Piperidine"
+    ]
+  },
+  {
+    "id": "H0109",
+    "subject_id": "neu:DAT",
+    "object_id": "chem_run013::phar:fg_Piperidine",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "neu:DAT",
+      "facilitates",
+      "neu:m_Dopamine",
+      "undergoes",
+      "chem_run013::phar:r_Methylation",
+      "produces",
+      "chem_run013::phar:fg_Piperidine"
+    ]
+  },
+  {
+    "id": "H0113",
+    "subject_id": "neu:DAT",
+    "object_id": "chem_run013::phar:r_Deamination",
+    "path_length": 4,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with strong relations (0.75) and no generic connectors",
+    "strong_ratio": 0.5,
+    "provenance": [
+      "neu:DAT",
+      "facilitates",
+      "neu:m_Dopamine",
+      "is_substrate_of",
+      "neu:MAOA",
+      "catalyzes",
+      "neu:m_Serotonin",
+      "undergoes",
+      "chem_run013::phar:r_Deamination"
+    ]
+  },
+  {
+    "id": "H0118",
+    "subject_id": "neu:NET",
+    "object_id": "chem_run013::phar:fg_Piperidine",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "neu:NET",
+      "facilitates",
+      "neu:m_Norepinephrine",
+      "undergoes",
+      "chem_run013::phar:r_Methylation",
+      "produces",
+      "chem_run013::phar:fg_Piperidine"
+    ]
+  },
+  {
+    "id": "H0136",
+    "subject_id": "neu:VMAT2",
+    "object_id": "chem_run013::phar:fg_Piperidine",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "neu:VMAT2",
+      "facilitates",
+      "neu:m_Dopamine",
+      "undergoes",
+      "chem_run013::phar:r_Methylation",
+      "produces",
+      "chem_run013::phar:fg_Piperidine"
+    ]
+  },
+  {
+    "id": "H0140",
+    "subject_id": "neu:VMAT2",
+    "object_id": "chem_run013::phar:r_Deamination",
+    "path_length": 4,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with strong relations (0.75) and no generic connectors",
+    "strong_ratio": 0.5,
+    "provenance": [
+      "neu:VMAT2",
+      "facilitates",
+      "neu:m_Dopamine",
+      "is_substrate_of",
+      "neu:MAOA",
+      "catalyzes",
+      "neu:m_Serotonin",
+      "undergoes",
+      "chem_run013::phar:r_Deamination"
+    ]
+  },
+  {
+    "id": "H0149",
+    "subject_id": "neu:GAT1",
+    "object_id": "chem_run013::phar:fg_Phenethylamine",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "neu:GAT1",
+      "facilitates",
+      "neu:m_GABA",
+      "undergoes",
+      "chem_run013::phar:r_Deamination",
+      "produces",
+      "chem_run013::phar:fg_Phenethylamine"
+    ]
+  },
+  {
+    "id": "H0152",
+    "subject_id": "neu:GlyT1",
+    "object_id": "chem_run013::phar:fg_Phenethylamine",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "neu:GlyT1",
+      "facilitates",
+      "neu:m_Glycine",
+      "undergoes",
+      "chem_run013::phar:r_Deamination",
+      "produces",
+      "chem_run013::phar:fg_Phenethylamine"
+    ]
+  },
+  {
+    "id": "H0200",
+    "subject_id": "neu:g_TH",
+    "object_id": "chem_run013::phar:r_Hydroxylation",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "neu:g_TH",
+      "encodes",
+      "neu:TH",
+      "catalyzes",
+      "neu:m_Dopamine",
+      "undergoes",
+      "chem_run013::phar:r_Hydroxylation"
+    ]
+  },
+  {
+    "id": "H0201",
+    "subject_id": "neu:g_TH",
+    "object_id": "chem_run013::phar:r_Methylation",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "neu:g_TH",
+      "encodes",
+      "neu:TH",
+      "catalyzes",
+      "neu:m_Dopamine",
+      "undergoes",
+      "chem_run013::phar:r_Methylation"
+    ]
+  },
+  {
+    "id": "H0206",
+    "subject_id": "neu:g_TH",
+    "object_id": "chem_run013::phar:fg_Piperidine",
+    "path_length": 4,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.75,
+    "provenance": [
+      "neu:g_TH",
+      "encodes",
+      "neu:TH",
+      "catalyzes",
+      "neu:m_Dopamine",
+      "undergoes",
+      "chem_run013::phar:r_Methylation",
+      "produces",
+      "chem_run013::phar:fg_Piperidine"
+    ]
+  },
+  {
+    "id": "H0210",
+    "subject_id": "neu:g_TH",
+    "object_id": "chem_run013::phar:r_Deamination",
+    "path_length": 5,
+    "label": "promising",
+    "reason": "5-hop cross-domain path with strong relations (0.80) and no generic connectors",
+    "strong_ratio": 0.6,
+    "provenance": [
+      "neu:g_TH",
+      "encodes",
+      "neu:TH",
+      "catalyzes",
+      "neu:m_Dopamine",
+      "is_substrate_of",
+      "neu:MAOA",
+      "catalyzes",
+      "neu:m_Serotonin",
+      "undergoes",
+      "chem_run013::phar:r_Deamination"
+    ]
+  },
+  {
+    "id": "H0230",
+    "subject_id": "neu:g_MAOA",
+    "object_id": "chem_run013::phar:r_Hydroxylation",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "neu:g_MAOA",
+      "encodes",
+      "neu:MAOA",
+      "catalyzes",
+      "neu:m_Dopamine",
+      "undergoes",
+      "chem_run013::phar:r_Hydroxylation"
+    ]
+  },
+  {
+    "id": "H0231",
+    "subject_id": "neu:g_MAOA",
+    "object_id": "chem_run013::phar:r_Methylation",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "neu:g_MAOA",
+      "encodes",
+      "neu:MAOA",
+      "catalyzes",
+      "neu:m_Dopamine",
+      "undergoes",
+      "chem_run013::phar:r_Methylation"
+    ]
+  },
+  {
+    "id": "H0235",
+    "subject_id": "neu:g_MAOA",
+    "object_id": "chem_run013::phar:r_Deamination",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "neu:g_MAOA",
+      "encodes",
+      "neu:MAOA",
+      "catalyzes",
+      "neu:m_Serotonin",
+      "undergoes",
+      "chem_run013::phar:r_Deamination"
+    ]
+  },
+  {
+    "id": "H0237",
+    "subject_id": "neu:g_MAOA",
+    "object_id": "chem_run013::phar:fg_Piperidine",
+    "path_length": 4,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with strong relations (1.00) and no generic connectors",
+    "strong_ratio": 0.75,
+    "provenance": [
+      "neu:g_MAOA",
+      "encodes",
+      "neu:MAOA",
+      "catalyzes",
+      "neu:m_Dopamine",
+      "undergoes",
+      "chem_run013::phar:r_Methylation",
+      "produces",
+      "chem_run013::phar:fg_Piperidine"
+    ]
+  },
+  {
+    "id": "H0263",
+    "subject_id": "chem_run013::phar:Levodopa",
+    "object_id": "neu:HTR1A",
+    "path_length": 4,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with strong relations (0.50) and no generic connectors",
+    "strong_ratio": 0.5,
+    "provenance": [
+      "chem_run013::phar:Levodopa",
+      "is_precursor_of",
+      "neu:m_Dopamine",
+      "is_substrate_of",
+      "neu:MAOA",
+      "catalyzes",
+      "neu:m_Serotonin",
+      "activates",
+      "neu:HTR1A"
+    ]
+  },
+  {
+    "id": "H0264",
+    "subject_id": "chem_run013::phar:Levodopa",
+    "object_id": "neu:HTR2A",
+    "path_length": 4,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with strong relations (0.50) and no generic connectors",
+    "strong_ratio": 0.5,
+    "provenance": [
+      "chem_run013::phar:Levodopa",
+      "is_precursor_of",
+      "neu:m_Dopamine",
+      "is_substrate_of",
+      "neu:MAOA",
+      "catalyzes",
+      "neu:m_Serotonin",
+      "activates",
+      "neu:HTR2A"
+    ]
+  },
+  {
+    "id": "H0265",
+    "subject_id": "chem_run013::phar:Levodopa",
+    "object_id": "neu:HTR3A",
+    "path_length": 4,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with strong relations (0.50) and no generic connectors",
+    "strong_ratio": 0.5,
+    "provenance": [
+      "chem_run013::phar:Levodopa",
+      "is_precursor_of",
+      "neu:m_Dopamine",
+      "is_substrate_of",
+      "neu:MAOA",
+      "catalyzes",
+      "neu:m_Serotonin",
+      "activates",
+      "neu:HTR3A"
+    ]
+  },
+  {
+    "id": "H0279",
+    "subject_id": "chem_run013::phar:Tyrosine_phar",
+    "object_id": "neu:HTR1A",
+    "path_length": 4,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with strong relations (0.50) and no generic connectors",
+    "strong_ratio": 0.5,
+    "provenance": [
+      "chem_run013::phar:Tyrosine_phar",
+      "is_precursor_of",
+      "neu:m_Dopamine",
+      "is_substrate_of",
+      "neu:MAOA",
+      "catalyzes",
+      "neu:m_Serotonin",
+      "activates",
+      "neu:HTR1A"
+    ]
+  },
+  {
+    "id": "H0280",
+    "subject_id": "chem_run013::phar:Tyrosine_phar",
+    "object_id": "neu:HTR2A",
+    "path_length": 4,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with strong relations (0.50) and no generic connectors",
+    "strong_ratio": 0.5,
+    "provenance": [
+      "chem_run013::phar:Tyrosine_phar",
+      "is_precursor_of",
+      "neu:m_Dopamine",
+      "is_substrate_of",
+      "neu:MAOA",
+      "catalyzes",
+      "neu:m_Serotonin",
+      "activates",
+      "neu:HTR2A"
+    ]
+  },
+  {
+    "id": "H0281",
+    "subject_id": "chem_run013::phar:Tyrosine_phar",
+    "object_id": "neu:HTR3A",
+    "path_length": 4,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with strong relations (0.50) and no generic connectors",
+    "strong_ratio": 0.5,
+    "provenance": [
+      "chem_run013::phar:Tyrosine_phar",
+      "is_precursor_of",
+      "neu:m_Dopamine",
+      "is_substrate_of",
+      "neu:MAOA",
+      "catalyzes",
+      "neu:m_Serotonin",
+      "activates",
+      "neu:HTR3A"
+    ]
+  },
+  {
+    "id": "H0286",
+    "subject_id": "chem_run013::phar:Tryptophan_phar",
+    "object_id": "neu:PRKACA",
+    "path_length": 3,
+    "label": "promising",
+    "reason": "3-hop cross-domain path with strong relations (0.67) and no generic connectors",
+    "strong_ratio": 0.6667,
+    "provenance": [
+      "chem_run013::phar:Tryptophan_phar",
+      "is_precursor_of",
+      "neu:m_Serotonin",
+      "activates",
+      "neu:HTR1A",
+      "inhibits",
+      "neu:PRKACA"
+    ]
+  },
+  {
+    "id": "H0287",
+    "subject_id": "chem_run013::phar:Tryptophan_phar",
+    "object_id": "neu:CREB1",
+    "path_length": 4,
+    "label": "promising",
+    "reason": "4-hop cross-domain path with strong relations (0.75) and no generic connectors",
+    "strong_ratio": 0.75,
+    "provenance": [
+      "chem_run013::phar:Tryptophan_phar",
+      "is_precursor_of",
+      "neu:m_Serotonin",
+      "activates",
+      "neu:HTR1A",
+      "inhibits",
+      "neu:PRKACA",
+      "activates",
+      "neu:CREB1"
+    ]
+  }
+]

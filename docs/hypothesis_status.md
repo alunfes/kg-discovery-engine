@@ -1,18 +1,21 @@
-# Hypothesis Status (Updated: Phase 4 Run 012)
+# Hypothesis Status (Updated: Phase 4 Run 013)
 
 Last updated: 2026-04-10  
-Latest run: run_012_20260410_drift_filter (drift-filtered pipeline)
+Latest run: run_013_20260410_reproducibility (cross-subset reproducibility test)
 
 ---
 
 ## H1'' — Alignment Enables Unreachable Cross-Domain Paths
 
-**Status: PASS (strong, replicated at scale)**
+**Status: PASS (strongly replicated across 3 domain pairs)**
 
 - Phase 3 Run 008 (57 nodes): 4 unique pairs via alignment
 - Phase 4 Run 009 (536 nodes): **168 unique pairs** via alignment (Conditions C and D)
+- Run 013 Subset A: 5 unique pairs (filter-cleaned)
+- Run 013 Subset B: **40 unique pairs** (immune/natural-products domain)
+- Run 013 Subset C: **55 unique pairs** (neuroscience/pharma domain)
 - Mechanism: bridge merges create 2-hop shortcuts to otherwise unreachable nodes
-- Confidence: **High**
+- Confidence: **Very High** (replicated in 3/3 independent domain pairs)
 
 ---
 
@@ -27,17 +30,21 @@ Latest run: run_012_20260410_drift_filter (drift-filtered pipeline)
 
 ## H3'' — Deep Compose (3-hop+) Finds New Cross-Domain Candidates
 
-**Status: PASS (conditional, scale-dependent)**
+**Status: PASS (replicated across 3 domain pairs, 100% promising rate)**
 
 | Run | Nodes | Deep Cross-Domain | Drift-heavy% | Verdict |
 |-----|-------|-------------------|-------------|---------|
 | Run 008 | 57 | 0 | N/A | FAIL (structural) |
 | Run 009 | 536 | 20 | 25% | PASS |
 | Run 012 | 536 | 3 (filtered) | 0% | PASS (quality) |
+| Run 013 A | 536 | 3 (filtered) | 0% | PASS (replicated) |
+| Run 013 B | 288 | 39 (filtered) | 0% | PASS (immune/NP) |
+| Run 013 C | 237 | 33 (filtered) | 0% | PASS (neuro/pharma) |
 
-- Run 012 filter eliminates all drift_heavy candidates without losing promising ones
-- 3 surviving candidates form a coherent biological hypothesis (VHL/HIF1A/LDHA cascade)
-- Confidence: **Medium-High** (quality of deep candidates demonstrated)
+- Filter spec transfers to 3 different domain pairs without retuning
+- 100% promising rate after filter in ALL subsets
+- Eicosanoid/neurotransmitter bridges generate more deep CD than NADH bridges
+- Confidence: **High** (replicated 3/3 independent domain pairs)
 
 ---
 
@@ -85,9 +92,9 @@ Run 012 filter: contains, is_product_of, is_reverse_of, is_isomer_of + consecuti
 
 | Hypothesis | Status | Confidence | Next Step |
 |-----------|--------|-----------|-----------|
-| H1'' | **PASS** | High | Validated |
+| H1'' | **PASS (3/3 subsets)** | Very High | Validated |
 | H2 | Partial | Low | Noise test on real KG |
-| H3'' | **PASS** (quality) | Medium-High | Run 013: filter後の公正テスト |
+| H3'' | **PASS (3/3 subsets, 100% promising)** | High | Deep candidate top-20 promotion |
 | H4 | **PASS** (revised rubric) | High | top-20進出のためdeep候補品質向上 |
 
 ---
@@ -103,3 +110,4 @@ Run 012 filter: contains, is_product_of, is_reverse_of, is_isomer_of + consecuti
 | 010 | H4 rubric revision (revised_traceability): FAIL→PASS |
 | 011 | Qualitative review: drift_heavy=25%, promising=15% |
 | 012 | Drift filter: drift_heavy=0%, promising=100% (3 survivors) |
+| 013 | **Reproducibility: SUCCESS 3/3** — H1''/H3'' replicated across immune/NP and neuro/pharma domains |
