@@ -18,6 +18,51 @@ _TIMEFRAME_MAP: dict[str, str] = {
     "1h": "1h", "4h": "4h", "1d": "1d", "15m": "15m", "5m": "5m", "1m": "1m",
 }
 
+# Continuous aggregates may not be populated. These timeframes fall back to 1m + resample.
+_FALLBACK_VIA_1M: frozenset[str] = frozenset({"1h", "4h", "1d"})
+_MS_PER_TIMEFRAME: dict[str, int] = {
+    "1m": 60_000,
+    "5m": 300_000,
+    "15m": 900_000,
+    "1h": 3_600_000,
+    "4h": 14_400_000,
+    "1d": 86_400_000,
+}
+
+
+def _resample_1m_to_tf(candles_1m: list[OHLCV], timeframe: str) -> list[OHLCV]:
+    """Resample 1-minute OHLCV candles to a coarser timeframe.
+
+    Args:
+        candles_1m: List of 1m OHLCV candles sorted ascending by timestamp.
+        timeframe: Target timeframe, e.g. '1h'.
+
+    Returns:
+        Resampled OHLCV candles sorted ascending by timestamp.
+    """
+    interval_ms = _MS_PER_TIMEFRAME.get(timeframe, 3_600_000)
+    if not candles_1m:
+        return []
+    buckets: dict[int, list[OHLCV]] = {}
+    for c in candles_1m:
+        bucket_ts = (c.timestamp // interval_ms) * interval_ms
+        buckets.setdefault(bucket_ts, []).append(c)
+    result: list[OHLCV] = []
+    for bucket_ts in sorted(buckets):
+        group = buckets[bucket_ts]
+        symbol = group[0].symbol
+        result.append(OHLCV(
+            timestamp=bucket_ts,
+            symbol=symbol,
+            open=group[0].open,
+            high=max(c.high for c in group),
+            low=min(c.low for c in group),
+            close=group[-1].close,
+            volume=sum(c.volume for c in group),
+            timeframe=timeframe,
+        ))
+    return result
+
 
 def _encode_symbol(symbol: str) -> str:
     """URL-encode a symbol for use in a path segment.
@@ -56,7 +101,8 @@ def _fetch_json(url: str, timeout_s: int) -> Any:
 def _parse_ohlcv(raw: Any, symbol: str, timeframe: str) -> list[OHLCV]:
     """Parse a raw API response into a list of OHLCV records.
 
-    Expects a list of dicts with keys: timestamp, open, high, low, close, volume.
+    Accepts either a bare list or a dict with a 'data' key (as the API returns).
+    Expects items with keys: timestamp, open, high, low, close, volume.
 
     Args:
         raw: Parsed JSON from the /ohlcv endpoint.
@@ -66,6 +112,8 @@ def _parse_ohlcv(raw: Any, symbol: str, timeframe: str) -> list[OHLCV]:
     Returns:
         List of OHLCV records sorted ascending by timestamp.
     """
+    if isinstance(raw, dict):
+        raw = raw.get("data", [])
     if not isinstance(raw, list):
         return []
     records: list[OHLCV] = []
@@ -90,7 +138,8 @@ def _parse_ohlcv(raw: Any, symbol: str, timeframe: str) -> list[OHLCV]:
 def _parse_funding(raw: Any, symbol: str) -> list[FundingRate]:
     """Parse a raw API response into a list of FundingRate records.
 
-    Expects a list of dicts with keys: timestamp, funding_rate, mark_price.
+    Accepts either a bare list or a dict with a 'data' key (as the API returns).
+    Expects items with keys: timestamp, funding_rate, mark_price.
 
     Args:
         raw: Parsed JSON from the /funding endpoint.
@@ -99,6 +148,8 @@ def _parse_funding(raw: Any, symbol: str) -> list[FundingRate]:
     Returns:
         List of FundingRate records sorted ascending by timestamp.
     """
+    if isinstance(raw, dict):
+        raw = raw.get("data", [])
     if not isinstance(raw, list):
         return []
     records: list[FundingRate] = []
@@ -177,6 +228,15 @@ class HttpMarketConnector(BaseMarketConnector):
             List of OHLCV records sorted ascending by timestamp.
         """
         enc = _encode_symbol(symbol)
+        if timeframe in _FALLBACK_VIA_1M:
+            # Continuous aggregates may be empty; fetch 1m and resample
+            url = (
+                f"{self.config.base_url}/ohlcv/{enc}"
+                f"?timeframe=1m&start={start_ms}&end={end_ms}"
+            )
+            raw = self._request_with_retry(url)
+            candles_1m = _parse_ohlcv(raw, symbol, "1m")
+            return _resample_1m_to_tf(candles_1m, timeframe)
         tf = _TIMEFRAME_MAP.get(timeframe, timeframe)
         url = (
             f"{self.config.base_url}/ohlcv/{enc}"

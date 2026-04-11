@@ -34,6 +34,10 @@ _SYMBOL_MAP = {
 _HOUR_MS = 3_600_000
 _BASE_TS = 1_744_000_000_000
 
+# Real data range for shogun VPS (2026-03-22 to 2026-03-27)
+_REAL_END_MS = 1_774_582_860_000    # 2026-03-27 03:41 UTC
+_REAL_START_MS = 1_774_137_600_000  # 2026-03-22 00:00 UTC
+
 
 def setup_output_dir(run_id: str) -> str:
     """Create artifacts/runs/{run_id}/ directory at project root and return its path."""
@@ -105,20 +109,30 @@ def write_run_notes(
 
 
 def _fetch_data(
-    connector: MockMarketConnector,
+    connector,
     symbols: list[str],
     timeframe: str,
     max_candles: int,
+    start_ms: int | None = None,
+    end_ms: int | None = None,
 ) -> tuple[dict[str, list[OHLCV]], dict[str, list[FundingRate]]]:
-    """Fetch OHLCV and funding data for all symbols."""
-    end_ms = _BASE_TS + max_candles * _HOUR_MS
+    """Fetch OHLCV and funding data for all symbols.
+
+    If start_ms/end_ms are provided (real-data mode), use them directly.
+    Otherwise use mock-data range (_BASE_TS + max_candles hours).
+    """
+    if start_ms is None:
+        start_ms = _BASE_TS
+    if end_ms is None:
+        end_ms = _BASE_TS + max_candles * _HOUR_MS
+
     candles_by_symbol: dict[str, list[OHLCV]] = {}
     funding_by_symbol: dict[str, list[FundingRate]] = {}
 
     for short_sym in symbols:
         full_sym = _SYMBOL_MAP.get(short_sym, short_sym)
-        ohlcv = connector.get_ohlcv(full_sym, timeframe, _BASE_TS, end_ms)
-        funding = connector.get_funding(full_sym, _BASE_TS, end_ms)
+        ohlcv = connector.get_ohlcv(full_sym, timeframe, start_ms, end_ms)
+        funding = connector.get_funding(full_sym, start_ms, end_ms)
         if ohlcv:
             candles_by_symbol[short_sym] = ohlcv
             funding_by_symbol[short_sym] = funding
@@ -159,12 +173,38 @@ def _write_artifacts(
         _write_cards_json(discarded, os.path.join(output_dir, "discarded_candidates.json"))
 
 
+def _resolve_real_range(base_url: str, timeout_s: int = 30) -> tuple[int, int]:
+    """Return (start_ms, end_ms) for real-data mode from the API status endpoint.
+
+    end_ms = latest candle across all tracked symbols.
+    start_ms = end_ms - 10 days, or _REAL_START_MS fallback if status unavailable.
+    """
+    import urllib.request as _ureq
+    import json as _json
+    try:
+        with _ureq.urlopen(f"{base_url}/status", timeout=timeout_s) as resp:
+            data = _json.loads(resp.read())
+        last_candles = [
+            v.get("last_candle", 0)
+            for v in data.get("symbols", {}).values()
+            if v.get("last_candle")
+        ]
+        if not last_candles:
+            return _REAL_START_MS, _REAL_END_MS
+        end_ms = max(last_candles)
+        start_ms = end_ms - 10 * 24 * 3_600_000  # 10 days back
+        return start_ms, end_ms
+    except Exception:
+        return _REAL_START_MS, _REAL_END_MS
+
+
 def run_mvp(
     connector_type: str = "mock",
     symbols: list[str] | None = None,
     timeframe: str = "1h",
     output_dir: str | None = None,
     max_candles: int = 200,
+    base_url: str = "http://localhost:8081",
 ) -> RunStatus:
     """Run the full MVP experiment end-to-end.
 
@@ -184,7 +224,8 @@ def run_mvp(
         symbols = list(_DEFAULT_SYMBOLS)
 
     now = datetime.datetime.utcnow()
-    run_id = f"{now.strftime('%Y%m%d_%H%M%S')}_hyperliquid_mvp"
+    suffix = "_real" if connector_type != "mock" else ""
+    run_id = f"{now.strftime('%Y%m%d_%H%M%S')}_hyperliquid_mvp{suffix}"
     started_at = now.strftime("%Y-%m-%dT%H:%M:%SZ")
 
     status = RunStatus.new(
@@ -196,16 +237,29 @@ def run_mvp(
 
     try:
         # Step 1: connector
+        start_ms: int | None = None
+        end_ms: int | None = None
         if connector_type == "mock":
             connector = MockMarketConnector()
         else:
             from src.ingestion.http_connector import HttpMarketConnector
-            connector = HttpMarketConnector()
+            from src.ingestion.base_connector import ConnectorConfig
+            config = ConnectorConfig(
+                base_url=base_url,
+                timeout_s=30,
+                max_retries=3,
+                symbols=list(_SYMBOL_MAP[s] for s in symbols if s in _SYMBOL_MAP),
+                timeframes=[timeframe],
+            )
+            connector = HttpMarketConnector(config)
+            # Dynamically resolve real data range from API status
+            start_ms, end_ms = _resolve_real_range(base_url, config.timeout_s)
 
         # Step 2: fetch data
         status.phase = "ingestion"
         candles_by_sym, funding_by_sym = _fetch_data(
-            connector, symbols, timeframe, max_candles
+            connector, symbols, timeframe, max_candles,
+            start_ms=start_ms, end_ms=end_ms,
         )
         status.n_candles_loaded = sum(len(v) for v in candles_by_sym.values())
 
@@ -269,6 +323,10 @@ if __name__ == "__main__":
     parser.add_argument(
         "--output-dir", default=None, help="Override output directory"
     )
+    parser.add_argument(
+        "--api-url", default="http://localhost:18081",
+        help="Market-data API base URL (default: http://localhost:18081 for SSH tunnel)"
+    )
     args = parser.parse_args()
 
     connector_type = "http" if args.real else "mock"
@@ -278,6 +336,7 @@ if __name__ == "__main__":
         timeframe=args.timeframe,
         output_dir=args.output_dir,
         max_candles=args.max_candles,
+        base_url=args.api_url,
     )
 
     print(f"Run ID   : {result.run_id}")
