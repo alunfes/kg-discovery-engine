@@ -45,7 +45,7 @@ def extract_vol_burst(
     candles: list[OHLCV],
     short_window: int = 10,
     long_window: int = 40,
-    threshold: float = 2.0,
+    threshold: float = 1.3,
 ) -> list[StateEvent]:
     """Detect realized volatility bursts.
 
@@ -53,6 +53,8 @@ def extract_vol_burst(
     Burst = short_vol > threshold * long_vol_average.
     Intensity = min(1.0, short_vol / long_vol_average / threshold).
     Direction = 'up' if last 3 bars' returns are net positive, else 'down'.
+    Threshold calibrated for hourly Hyperliquid data (2.0 -> 1.3, 2026-04-12).
+    Note: calm market periods (max ratio ~1.15) may still yield 0 events; normal.
     """
     if len(candles) < long_window + 1:
         return []
@@ -84,13 +86,15 @@ def extract_vol_burst(
 
 def extract_funding_extreme(
     records: list[FundingRate],
-    threshold: float = 0.0005,
+    threshold: float = 0.00002,
 ) -> list[StateEvent]:
     """Detect funding rate extremes.
 
     Extreme when |funding_rate| > threshold.
     Direction = 'up' (positive funding, longs pay) or 'down' (negative, shorts pay).
     Intensity = min(1.0, |funding_rate| / threshold).
+    Threshold calibrated for hourly Hyperliquid funding data (5e-4 -> 2e-5, 2026-04-12).
+    Original 5e-4 was designed for 8h settlement intervals; hourly rates are ~40x smaller.
     """
     events: list[StateEvent] = []
     for rec in records:
