@@ -33,6 +33,13 @@ class KGEdge:
     target_id: str
     weight: float = 1.0
     attributes: dict = field(default_factory=dict)
+    # Temporal attributes (Phase A) — all Optional for backward compatibility
+    valid_from: Optional[str] = None    # ISO 8601 date/datetime
+    valid_to: Optional[str] = None      # ISO 8601 date/datetime
+    observed_at: Optional[str] = None   # ISO 8601 date/datetime
+    confidence: float = 1.0             # 0.0–1.0
+    # Typed relation algebra (Phase A)
+    relation_type: Optional[str] = None  # causal|structural|statistical|temporal|evidential|ontological
 
     def __hash__(self) -> int:
         return hash((self.source_id, self.relation, self.target_id))
@@ -119,6 +126,7 @@ class HypothesisCandidate:
     # provenance is a list of node/edge IDs forming the derivation path
     operator: str = ""   # which operator generated this
     source_kg_name: str = ""
+    flags: list[str] = field(default_factory=list)  # Phase A: warning flags (e.g. type transition alerts)
 
     def __repr__(self) -> str:
         return (
