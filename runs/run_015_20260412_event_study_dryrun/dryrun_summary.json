@@ -1,0 +1,33 @@
+[
+  {
+    "hypothesis_id": "C1",
+    "event_count": 33,
+    "unique_days": 21,
+    "mean_return": -0.005095882181288526,
+    "hit_rate": 0.42424242424242425,
+    "p_value_approx": 0.5,
+    "run_dir": "runs/run_015_20260412_event_study_dryrun/C1"
+  },
+  {
+    "hypothesis_id": "C2",
+    "chain_count": 8,
+    "unique_bridges": 1,
+    "bridge_concentration": 1.0,
+    "event_count": 6,
+    "mean_return": 0.03904869173267262,
+    "hit_rate": 0.6666666666666666,
+    "p_value_approx": 0.5,
+    "run_dir": "runs/run_015_20260412_event_study_dryrun/C2"
+  },
+  {
+    "hypothesis_id": "C3",
+    "chain_count": 37,
+    "unique_bridges": 1,
+    "bridge_concentration": 1.0,
+    "event_count": 12,
+    "mean_return": 0.0068190010593892686,
+    "hit_rate": 0.5,
+    "p_value_approx": 0.5,
+    "run_dir": "runs/run_015_20260412_event_study_dryrun/C3"
+  }
+]

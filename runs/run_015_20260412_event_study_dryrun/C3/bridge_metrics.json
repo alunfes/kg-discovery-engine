@@ -1,0 +1,11 @@
+{
+  "bridge_frequency": 37,
+  "unique_bridges": 1,
+  "bridge_concentration": 1.0,
+  "top_bridges": [
+    [
+      "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+      37
+    ]
+  ]
+}

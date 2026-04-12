@@ -1,0 +1,44 @@
+{
+  "hypothesis_id": "C3",
+  "event_count": 12,
+  "unique_days": 7,
+  "event_window_mean_return": 0.0068190010593892686,
+  "event_window_median_return": -0.0026253474496639277,
+  "hit_rate": 0.5,
+  "mean_abnormal_return": 0.015030537692522173,
+  "mean_vol_shift": 1.0101613696340235,
+  "null_results": [
+    {
+      "baseline": "random_timestamp",
+      "n_iterations": 20,
+      "mean_forward_return": -0.004567295571049585,
+      "std_forward_return": 0.01832999258670449
+    },
+    {
+      "baseline": "shuffled_events",
+      "n_iterations": 20,
+      "mean_forward_return": 0.0068190010593892686,
+      "std_forward_return": 0.0
+    },
+    {
+      "baseline": "matched_volatility",
+      "n_iterations": 20,
+      "mean_forward_return": -0.005878986894016945,
+      "std_forward_return": 0.02175788679575567
+    },
+    {
+      "baseline": "matched_symbol",
+      "n_iterations": 20,
+      "mean_forward_return": 0.0068190010593892686,
+      "std_forward_return": 0.0
+    }
+  ],
+  "p_value_approx": 0.5,
+  "sanity_checks": {
+    "event_count": 12,
+    "sufficient_events": true,
+    "unique_days": 7,
+    "not_clustered": true,
+    "return_std_nonzero": true
+  }
+}

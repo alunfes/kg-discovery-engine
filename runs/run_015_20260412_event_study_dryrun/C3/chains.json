@@ -1,0 +1,594 @@
+[
+  {
+    "chain_id": "ad1179fcf4c5",
+    "source_ts": 763200000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 781200000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 5,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 763200000,
+      "target_ts": 781200000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "a6359063e1ca",
+    "source_ts": 824400000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 918000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 26,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 824400000,
+      "target_ts": 918000000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "de28bdd29ac0",
+    "source_ts": 838800000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 918000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 22,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 838800000,
+      "target_ts": 918000000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "b990d3a3f37d",
+    "source_ts": 1321200000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 1429200000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 30,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 1321200000,
+      "target_ts": 1429200000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "cfbd76a5931c",
+    "source_ts": 1321200000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 1443600000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 34,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 1321200000,
+      "target_ts": 1443600000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "b43a6c856f81",
+    "source_ts": 1346400000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 1429200000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 23,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 1346400000,
+      "target_ts": 1429200000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "9f1ae358f2a9",
+    "source_ts": 1346400000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 1443600000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 27,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 1346400000,
+      "target_ts": 1443600000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "c1dbc3b58716",
+    "source_ts": 1371600000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 1429200000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 16,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 1371600000,
+      "target_ts": 1429200000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "30a2849d24d1",
+    "source_ts": 1371600000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 1443600000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 20,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 1371600000,
+      "target_ts": 1443600000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "6a67ea2d6b4f",
+    "source_ts": 2062800000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 2098800000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 10,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 2062800000,
+      "target_ts": 2098800000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "a138c743509a",
+    "source_ts": 2084400000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 2098800000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 4,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 2084400000,
+      "target_ts": 2098800000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "32fdd6988031",
+    "source_ts": 2361600000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 2502000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 39,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 2361600000,
+      "target_ts": 2502000000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "1cd7545442b7",
+    "source_ts": 2361600000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 2520000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 44,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 2361600000,
+      "target_ts": 2520000000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "0ebcc51aa6c1",
+    "source_ts": 2408400000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 2502000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 26,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 2408400000,
+      "target_ts": 2502000000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "99b8f106221e",
+    "source_ts": 2408400000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 2520000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 31,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 2408400000,
+      "target_ts": 2520000000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "0ebcc51aa6c1",
+    "source_ts": 2408400000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 2502000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 26,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 2408400000,
+      "target_ts": 2502000000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "99b8f106221e",
+    "source_ts": 2408400000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 2520000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 31,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 2408400000,
+      "target_ts": 2520000000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "0ebcc51aa6c1",
+    "source_ts": 2408400000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 2502000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 26,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 2408400000,
+      "target_ts": 2502000000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "99b8f106221e",
+    "source_ts": 2408400000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 2520000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 31,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 2408400000,
+      "target_ts": 2520000000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "73ca3dce99a9",
+    "source_ts": 2412000000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 2502000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 25,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 2412000000,
+      "target_ts": 2502000000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "23b42242ec4d",
+    "source_ts": 2412000000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 2520000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 30,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 2412000000,
+      "target_ts": 2520000000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "73ca3dce99a9",
+    "source_ts": 2412000000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 2502000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 25,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 2412000000,
+      "target_ts": 2502000000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "23b42242ec4d",
+    "source_ts": 2412000000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 2520000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 30,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 2412000000,
+      "target_ts": 2520000000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "73ca3dce99a9",
+    "source_ts": 2412000000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 2502000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 25,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 2412000000,
+      "target_ts": 2502000000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "23b42242ec4d",
+    "source_ts": 2412000000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 2520000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 30,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 2412000000,
+      "target_ts": 2520000000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "ad2557d3e901",
+    "source_ts": 2448000000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 2502000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 15,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 2448000000,
+      "target_ts": 2502000000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "cedfe44e7f22",
+    "source_ts": 2448000000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 2520000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 20,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 2448000000,
+      "target_ts": 2520000000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "ad2557d3e901",
+    "source_ts": 2448000000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 2502000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 15,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 2448000000,
+      "target_ts": 2502000000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "cedfe44e7f22",
+    "source_ts": 2448000000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 2520000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 20,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 2448000000,
+      "target_ts": 2520000000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "7c45aa4bdeae",
+    "source_ts": 2458800000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 2502000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 12,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 2458800000,
+      "target_ts": 2502000000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "7aab651ed052",
+    "source_ts": 2458800000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 2520000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 17,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 2458800000,
+      "target_ts": 2520000000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "7c45aa4bdeae",
+    "source_ts": 2458800000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 2502000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 12,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 2458800000,
+      "target_ts": 2502000000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "7aab651ed052",
+    "source_ts": 2458800000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 2520000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 17,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 2458800000,
+      "target_ts": 2520000000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "9f405395dd7e",
+    "source_ts": 2487600000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 2502000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 4,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 2487600000,
+      "target_ts": 2502000000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "b96631825ca9",
+    "source_ts": 2487600000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 2520000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 9,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 2487600000,
+      "target_ts": 2520000000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "9f405395dd7e",
+    "source_ts": 2487600000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 2502000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 4,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 2487600000,
+      "target_ts": 2502000000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "b96631825ca9",
+    "source_ts": 2487600000,
+    "source_symbol": "SOL",
+    "source_state_type": "funding_extreme",
+    "target_ts": 2520000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "SOL:funding_extreme\u2192BTC:price_momentum\u2192HYPE:price_momentum",
+    "total_lag_bars": 9,
+    "provenance": {
+      "hypothesis_id": "C3",
+      "source_ts": 2487600000,
+      "target_ts": 2520000000,
+      "n_intermediates": 1
+    }
+  }
+]

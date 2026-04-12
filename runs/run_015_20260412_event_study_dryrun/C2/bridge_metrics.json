@@ -1,0 +1,11 @@
+{
+  "bridge_frequency": 8,
+  "unique_bridges": 1,
+  "bridge_concentration": 1.0,
+  "top_bridges": [
+    [
+      "ETH:vol_burst\u2192BTC:vol_burst\u2192HYPE:price_momentum",
+      8
+    ]
+  ]
+}

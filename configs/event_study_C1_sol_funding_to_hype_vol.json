@@ -1,0 +1,32 @@
+{
+  "_comment": "C1: SOL funding_extreme precedes HYPE vol_burst (single-event study)",
+  "hypothesis_id": "C1",
+  "description": "SOL funding_extreme precedes HYPE vol_burst within 24 hours",
+  "event_type": "single",
+  "bar_duration_ms": 3600000,
+  "source_event": {
+    "symbol": "SOL",
+    "state_type": "funding_extreme",
+    "min_intensity": 0.5
+  },
+  "target_event": {
+    "symbol": "HYPE",
+    "state_type": "vol_burst",
+    "min_intensity": 0.0
+  },
+  "lead_lag": {
+    "min_bars": 1,
+    "max_bars": 24
+  },
+  "estimation_window_bars": 168,
+  "event_window_bars": 24,
+  "target_return_symbol": "HYPE",
+  "null_baselines": [
+    "random_timestamp",
+    "shuffled_events",
+    "matched_volatility",
+    "matched_symbol"
+  ],
+  "dedup_window_bars": 4,
+  "regime_slices": []
+}

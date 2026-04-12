@@ -1,0 +1,24 @@
+{
+  "_comment": "C2: ETH vol_burst -> BTC vol_burst -> HYPE price_momentum (chained)",
+  "hypothesis_id": "C2",
+  "description": "ETH vol_burst leads BTC vol_burst which leads HYPE price_momentum",
+  "event_type": "chained",
+  "bar_duration_ms": 3600000,
+  "chain": [
+    {"symbol": "ETH", "state_type": "vol_burst",       "min_intensity": 0.5},
+    {"symbol": "BTC", "state_type": "vol_burst",       "min_intensity": 0.5},
+    {"symbol": "HYPE","state_type": "price_momentum",  "min_intensity": 0.3}
+  ],
+  "link_max_bars": [12, 12],
+  "estimation_window_bars": 168,
+  "event_window_bars": 24,
+  "target_return_symbol": "HYPE",
+  "null_baselines": [
+    "random_timestamp",
+    "shuffled_events",
+    "matched_volatility",
+    "matched_symbol"
+  ],
+  "dedup_window_bars": 4,
+  "regime_slices": []
+}
