@@ -45,6 +45,9 @@ class ScoredHypothesis:
     evidence_support: float = 0.0
     total_score: float = 0.0
     score_breakdown: dict = field(default_factory=dict)
+    # Phase B: belief revision tracking
+    contradiction_count: int = 0
+    belief_history: list[float] = field(default_factory=list)
 
     def to_dict(self) -> dict:
         """Serialize to a JSON-compatible dict."""
