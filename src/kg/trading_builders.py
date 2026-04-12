@@ -71,12 +71,21 @@ def _ensure_state_node(kg: KnowledgeGraph, sym: str, st: str, domain: str) -> st
 
 
 def _micro_intra_symbol(kg: KnowledgeGraph, sym: str, evs: list[StateEvent],
-                        counts: dict[tuple, int]) -> None:
-    """Add intra-symbol temporal edges (lead-lag, co-occurrence)."""
+                        counts: dict[tuple, int],
+                        min_pm_intensity: float = 0.5) -> None:
+    """Add intra-symbol temporal edges (lead-lag, co-occurrence).
+
+    price_momentum events below min_pm_intensity are skipped to prevent
+    ubiquitous low-quality momentum signals from becoming generic bridges.
+    """
     for i, ev_a in enumerate(evs):
         for ev_b in evs[i + 1:]:
             if ev_b.timestamp - ev_a.timestamp > 2 * _BAR_MS:
                 break
+            if ev_a.state_type == "price_momentum" and ev_a.intensity < min_pm_intensity:
+                continue
+            if ev_b.state_type == "price_momentum" and ev_b.intensity < min_pm_intensity:
+                continue
             id_a = _state_nid(sym, ev_a.state_type)
             id_b = _state_nid(sym, ev_b.state_type)
             if id_a == id_b:
@@ -107,12 +116,15 @@ def _micro_calm_after_vol(kg: KnowledgeGraph, sym: str, evs: list[StateEvent],
 
 
 def build_microstructure_kg(snapshot: MarketSnapshot,
-                             symbols: list[str]) -> KnowledgeGraph:
+                             symbols: list[str],
+                             min_pm_intensity: float = 0.5) -> KnowledgeGraph:
     """Build Microstructure KG from market state events.
 
     Nodes: asset nodes + per-symbol observed state-type nodes.
     Edges: temporal co-occurrence and lead-lag relationships within each symbol.
     Weight reflects normalised observation count.
+    min_pm_intensity: minimum intensity for price_momentum events to generate
+    intra-symbol edges (prevents weak momentum from acting as generic bridge).
     """
     kg = KnowledgeGraph(name="microstructure")
     counts: dict[tuple, int] = {}
@@ -122,9 +134,14 @@ def build_microstructure_kg(snapshot: MarketSnapshot,
         _ensure_node(kg, sym, sym, "microstructure")
         evs = by_sym.get(sym, [])
         for st in {e.state_type for e in evs}:
+            if st == "price_momentum":
+                # Only add price_momentum node if at least one event exceeds threshold
+                if not any(e.intensity >= min_pm_intensity for e in evs
+                           if e.state_type == "price_momentum"):
+                    continue
             nid = _ensure_state_node(kg, sym, st, "microstructure")
             _upsert_edge(kg, sym, "leads_to", nid, counts)
-        _micro_intra_symbol(kg, sym, evs, counts)
+        _micro_intra_symbol(kg, sym, evs, counts, min_pm_intensity)
         _micro_calm_after_vol(kg, sym, evs, counts)
     return kg
 
@@ -132,8 +149,13 @@ def build_microstructure_kg(snapshot: MarketSnapshot,
 
 def _cross_pair(kg: KnowledgeGraph, sym_x: str, sym_y: str,
                 evs_x: list[StateEvent], evs_y: list[StateEvent],
-                counts: dict[tuple, int]) -> None:
-    """Add cross-asset edges between one pair of symbols."""
+                counts: dict[tuple, int],
+                min_pm_intensity: float = 0.5) -> None:
+    """Add cross-asset edges between one pair of symbols.
+
+    min_pm_intensity gates spills_over_to edges from price_momentum events;
+    only high-intensity momentum spills across assets.
+    """
     for ev_x in evs_x:
         id_x = _state_nid(sym_x, ev_x.state_type)
         for ev_y in evs_y:
@@ -148,7 +170,8 @@ def _cross_pair(kg: KnowledgeGraph, sym_x: str, sym_y: str,
                 _upsert_edge(kg, id_x, "precedes_move_in", id_y, counts)
             if lags and same:
                 _upsert_edge(kg, id_y, "precedes_move_in", id_x, counts)
-            if leads and ev_x.state_type == "price_momentum":
+            if (leads and ev_x.state_type == "price_momentum"
+                    and ev_x.intensity >= min_pm_intensity):
                 _upsert_edge(kg, id_x, "spills_over_to", id_y, counts)
 
     vb_x = {e.timestamp for e in evs_x if e.state_type == "vol_burst"}
@@ -160,11 +183,14 @@ def _cross_pair(kg: KnowledgeGraph, sym_x: str, sym_y: str,
 
 
 def build_cross_asset_kg(snapshot: MarketSnapshot,
-                         symbols: list[str]) -> KnowledgeGraph:
+                         symbols: list[str],
+                         min_pm_intensity: float = 0.5) -> KnowledgeGraph:
     """Build Cross-Asset KG from cross-symbol state relationships.
 
     Nodes: asset nodes + {SYMBOL}:{state_type} for each observed state.
     Edges: precedes_move_in, co_moves_with, diverges_from, spills_over_to.
+    min_pm_intensity: only price_momentum events at or above this intensity
+    generate spills_over_to edges (prevents weak momentum flooding the KG).
     """
     kg = KnowledgeGraph(name="cross_asset")
     counts: dict[tuple, int] = {}
@@ -180,7 +206,8 @@ def build_cross_asset_kg(snapshot: MarketSnapshot,
     for i, sym_x in enumerate(symbols):
         for sym_y in symbols[i + 1:]:
             _cross_pair(kg, sym_x, sym_y,
-                        by_sym.get(sym_x, []), by_sym.get(sym_y, []), counts)
+                        by_sym.get(sym_x, []), by_sym.get(sym_y, []),
+                        counts, min_pm_intensity)
     return kg
 
 
@@ -297,14 +324,17 @@ def build_regime_kg(snapshot: MarketSnapshot,
 
 
 def build_all_kgs(snapshot: MarketSnapshot,
-                  symbols: list[str]) -> dict[str, KnowledgeGraph]:
+                  symbols: list[str],
+                  min_pm_intensity: float = 0.5) -> dict[str, KnowledgeGraph]:
     """Build all 4 KGs and return as dict.
 
     Keys: 'microstructure', 'cross_asset', 'execution', 'regime'.
+    min_pm_intensity is forwarded to microstructure and cross_asset builders
+    to filter out weak price_momentum signals from being generic bridges.
     """
     return {
-        "microstructure": build_microstructure_kg(snapshot, symbols),
-        "cross_asset": build_cross_asset_kg(snapshot, symbols),
+        "microstructure": build_microstructure_kg(snapshot, symbols, min_pm_intensity),
+        "cross_asset": build_cross_asset_kg(snapshot, symbols, min_pm_intensity),
         "execution": build_execution_kg(snapshot, symbols),
         "regime": build_regime_kg(snapshot, symbols),
     }
