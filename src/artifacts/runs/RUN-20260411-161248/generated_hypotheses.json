@@ -1,0 +1,578 @@
+[
+  {
+    "hypothesis_id": "RUN-20260411-161248-C0008",
+    "created_at": "2026-04-11T16:12:48Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "execution",
+    "hypothesis_text": "High Volatility Regime may transitively_related_to Funding Long Extreme via path: regime::high_vol_regime -> invalidates -> regime::calm_regime -> suppresses_in -> regime::funding_long_extreme",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "regime::high_vol_regime",
+      "invalidates",
+      "regime::calm_regime",
+      "suppresses_in",
+      "regime::funding_long_extreme"
+    ],
+    "source_streams": [
+      "execution+regime"
+    ],
+    "regime_condition": "high_volatility",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "6h",
+    "actionability_score": 0.6,
+    "novelty_score": 0.3,
+    "reproducibility_score": 0.85,
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "untested",
+    "decay_risk": "high",
+    "next_recommended_test": "backtest_slippage_vs_spread_proxy"
+  },
+  {
+    "hypothesis_id": "RUN-20260411-161248-C0009",
+    "created_at": "2026-04-11T16:12:48Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "execution",
+    "hypothesis_text": "Low Volatility Regime may transitively_related_to Funding Long Extreme via path: regime::low_vol_regime -> transitions_to -> regime::calm_regime -> suppresses_in -> regime::funding_long_extreme",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "regime::low_vol_regime",
+      "transitions_to",
+      "regime::calm_regime",
+      "suppresses_in",
+      "regime::funding_long_extreme"
+    ],
+    "source_streams": [
+      "execution+regime"
+    ],
+    "regime_condition": "funding_extreme",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "6h",
+    "actionability_score": 0.6,
+    "novelty_score": 0.3,
+    "reproducibility_score": 0.85,
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "untested",
+    "decay_risk": "high",
+    "next_recommended_test": "backtest_slippage_vs_spread_proxy"
+  },
+  {
+    "hypothesis_id": "RUN-20260411-161248-C0010",
+    "created_at": "2026-04-11T16:12:48Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "execution",
+    "hypothesis_text": "Calm Market Regime may transitively_related_to High Volatility Regime via path: regime::calm_regime -> suppresses_in -> regime::funding_long_extreme -> activates -> regime::high_vol_regime",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "regime::calm_regime",
+      "suppresses_in",
+      "regime::funding_long_extreme",
+      "activates",
+      "regime::high_vol_regime"
+    ],
+    "source_streams": [
+      "execution+regime"
+    ],
+    "regime_condition": "high_volatility",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "6h",
+    "actionability_score": 0.6,
+    "novelty_score": 0.3,
+    "reproducibility_score": 0.85,
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "untested",
+    "decay_risk": "high",
+    "next_recommended_test": "backtest_slippage_vs_spread_proxy"
+  },
+  {
+    "hypothesis_id": "RUN-20260411-161248-C0011",
+    "created_at": "2026-04-11T16:12:48Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "execution",
+    "hypothesis_text": "Calm Market Regime may transitively_related_to Funding Short Extreme via path: regime::calm_regime -> suppresses_in -> regime::funding_long_extreme -> transitions_to -> regime::funding_short_extreme",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "regime::calm_regime",
+      "suppresses_in",
+      "regime::funding_long_extreme",
+      "transitions_to",
+      "regime::funding_short_extreme"
+    ],
+    "source_streams": [
+      "execution+regime"
+    ],
+    "regime_condition": "funding_extreme",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "6h",
+    "actionability_score": 0.6,
+    "novelty_score": 0.3,
+    "reproducibility_score": 0.85,
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "untested",
+    "decay_risk": "high",
+    "next_recommended_test": "backtest_slippage_vs_spread_proxy"
+  },
+  {
+    "hypothesis_id": "RUN-20260411-161248-C0012",
+    "created_at": "2026-04-11T16:12:48Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "execution",
+    "hypothesis_text": "Funding Long Extreme may transitively_related_to Calm Market Regime via path: regime::funding_long_extreme -> activates -> regime::high_vol_regime -> invalidates -> regime::calm_regime",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "regime::funding_long_extreme",
+      "activates",
+      "regime::high_vol_regime",
+      "invalidates",
+      "regime::calm_regime"
+    ],
+    "source_streams": [
+      "execution+regime"
+    ],
+    "regime_condition": "high_volatility",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "6h",
+    "actionability_score": 0.6,
+    "novelty_score": 0.3,
+    "reproducibility_score": 1.0,
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "untested",
+    "decay_risk": "high",
+    "next_recommended_test": "backtest_slippage_vs_spread_proxy"
+  },
+  {
+    "hypothesis_id": "RUN-20260411-161248-C0013",
+    "created_at": "2026-04-11T16:12:48Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "execution",
+    "hypothesis_text": "Funding Long Extreme may transitively_related_to Volume Surge Regime via path: regime::funding_long_extreme -> activates -> regime::high_vol_regime -> amplifies_in -> regime::volume_surge_regime",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "regime::funding_long_extreme",
+      "activates",
+      "regime::high_vol_regime",
+      "amplifies_in",
+      "regime::volume_surge_regime"
+    ],
+    "source_streams": [
+      "execution+regime"
+    ],
+    "regime_condition": "high_volatility",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "6h",
+    "actionability_score": 0.6,
+    "novelty_score": 0.3,
+    "reproducibility_score": 1.0,
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "untested",
+    "decay_risk": "high",
+    "next_recommended_test": "backtest_slippage_vs_spread_proxy"
+  },
+  {
+    "hypothesis_id": "RUN-20260411-161248-C0014",
+    "created_at": "2026-04-11T16:12:48Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "execution",
+    "hypothesis_text": "Funding Short Extreme may transitively_related_to High Volatility Regime via path: regime::funding_short_extreme -> transitions_to -> regime::funding_long_extreme -> activates -> regime::high_vol_regime",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "regime::funding_short_extreme",
+      "transitions_to",
+      "regime::funding_long_extreme",
+      "activates",
+      "regime::high_vol_regime"
+    ],
+    "source_streams": [
+      "execution+regime"
+    ],
+    "regime_condition": "high_volatility",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "6h",
+    "actionability_score": 0.6,
+    "novelty_score": 0.3,
+    "reproducibility_score": 1.0,
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "untested",
+    "decay_risk": "high",
+    "next_recommended_test": "backtest_slippage_vs_spread_proxy"
+  },
+  {
+    "hypothesis_id": "RUN-20260411-161248-C0015",
+    "created_at": "2026-04-11T16:12:48Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "execution",
+    "hypothesis_text": "Volume Surge Regime may transitively_related_to Calm Market Regime via path: regime::volume_surge_regime -> amplifies_in -> regime::high_vol_regime -> invalidates -> regime::calm_regime",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "regime::volume_surge_regime",
+      "amplifies_in",
+      "regime::high_vol_regime",
+      "invalidates",
+      "regime::calm_regime"
+    ],
+    "source_streams": [
+      "execution+regime"
+    ],
+    "regime_condition": "high_volatility",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "6h",
+    "actionability_score": 0.6,
+    "novelty_score": 0.3,
+    "reproducibility_score": 1.0,
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "untested",
+    "decay_risk": "high",
+    "next_recommended_test": "backtest_slippage_vs_spread_proxy"
+  },
+  {
+    "hypothesis_id": "RUN-20260411-161248-C0000",
+    "created_at": "2026-04-11T16:12:48Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "regime",
+    "hypothesis_text": "High Volatility Regime may transitively_related_to Funding Long Extreme via path: high_vol_regime -> invalidates -> calm_regime -> suppresses_in -> funding_long_extreme",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "high_vol_regime",
+      "invalidates",
+      "calm_regime",
+      "suppresses_in",
+      "funding_long_extreme"
+    ],
+    "source_streams": [
+      "regime"
+    ],
+    "regime_condition": "high_volatility",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "30d",
+    "actionability_score": 0.3,
+    "novelty_score": 0.6,
+    "reproducibility_score": 0.85,
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "decay_risk": "medium",
+    "next_recommended_test": "regime_classification_accuracy_test"
+  },
+  {
+    "hypothesis_id": "RUN-20260411-161248-C0001",
+    "created_at": "2026-04-11T16:12:48Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "regime",
+    "hypothesis_text": "Low Volatility Regime may transitively_related_to Funding Long Extreme via path: low_vol_regime -> transitions_to -> calm_regime -> suppresses_in -> funding_long_extreme",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "low_vol_regime",
+      "transitions_to",
+      "calm_regime",
+      "suppresses_in",
+      "funding_long_extreme"
+    ],
+    "source_streams": [
+      "regime"
+    ],
+    "regime_condition": "funding_extreme",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "30d",
+    "actionability_score": 0.3,
+    "novelty_score": 0.6,
+    "reproducibility_score": 0.85,
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "decay_risk": "medium",
+    "next_recommended_test": "regime_classification_accuracy_test"
+  },
+  {
+    "hypothesis_id": "RUN-20260411-161248-C0002",
+    "created_at": "2026-04-11T16:12:48Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "regime",
+    "hypothesis_text": "Calm Market Regime may transitively_related_to High Volatility Regime via path: calm_regime -> suppresses_in -> funding_long_extreme -> activates -> high_vol_regime",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "calm_regime",
+      "suppresses_in",
+      "funding_long_extreme",
+      "activates",
+      "high_vol_regime"
+    ],
+    "source_streams": [
+      "regime"
+    ],
+    "regime_condition": "high_volatility",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "30d",
+    "actionability_score": 0.3,
+    "novelty_score": 0.6,
+    "reproducibility_score": 0.85,
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "decay_risk": "medium",
+    "next_recommended_test": "regime_classification_accuracy_test"
+  },
+  {
+    "hypothesis_id": "RUN-20260411-161248-C0003",
+    "created_at": "2026-04-11T16:12:48Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "regime",
+    "hypothesis_text": "Calm Market Regime may transitively_related_to Funding Short Extreme via path: calm_regime -> suppresses_in -> funding_long_extreme -> transitions_to -> funding_short_extreme",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "calm_regime",
+      "suppresses_in",
+      "funding_long_extreme",
+      "transitions_to",
+      "funding_short_extreme"
+    ],
+    "source_streams": [
+      "regime"
+    ],
+    "regime_condition": "funding_extreme",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "30d",
+    "actionability_score": 0.3,
+    "novelty_score": 0.6,
+    "reproducibility_score": 0.85,
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "decay_risk": "medium",
+    "next_recommended_test": "regime_classification_accuracy_test"
+  },
+  {
+    "hypothesis_id": "RUN-20260411-161248-C0004",
+    "created_at": "2026-04-11T16:12:48Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "regime",
+    "hypothesis_text": "Funding Long Extreme may transitively_related_to Calm Market Regime via path: funding_long_extreme -> activates -> high_vol_regime -> invalidates -> calm_regime",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "funding_long_extreme",
+      "activates",
+      "high_vol_regime",
+      "invalidates",
+      "calm_regime"
+    ],
+    "source_streams": [
+      "regime"
+    ],
+    "regime_condition": "high_volatility",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "30d",
+    "actionability_score": 0.3,
+    "novelty_score": 0.6,
+    "reproducibility_score": 1.0,
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "decay_risk": "medium",
+    "next_recommended_test": "regime_classification_accuracy_test"
+  },
+  {
+    "hypothesis_id": "RUN-20260411-161248-C0005",
+    "created_at": "2026-04-11T16:12:48Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "regime",
+    "hypothesis_text": "Funding Long Extreme may transitively_related_to Volume Surge Regime via path: funding_long_extreme -> activates -> high_vol_regime -> amplifies_in -> volume_surge_regime",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "funding_long_extreme",
+      "activates",
+      "high_vol_regime",
+      "amplifies_in",
+      "volume_surge_regime"
+    ],
+    "source_streams": [
+      "regime"
+    ],
+    "regime_condition": "high_volatility",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "30d",
+    "actionability_score": 0.3,
+    "novelty_score": 0.6,
+    "reproducibility_score": 1.0,
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "decay_risk": "medium",
+    "next_recommended_test": "regime_classification_accuracy_test"
+  },
+  {
+    "hypothesis_id": "RUN-20260411-161248-C0006",
+    "created_at": "2026-04-11T16:12:48Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "regime",
+    "hypothesis_text": "Funding Short Extreme may transitively_related_to High Volatility Regime via path: funding_short_extreme -> transitions_to -> funding_long_extreme -> activates -> high_vol_regime",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "funding_short_extreme",
+      "transitions_to",
+      "funding_long_extreme",
+      "activates",
+      "high_vol_regime"
+    ],
+    "source_streams": [
+      "regime"
+    ],
+    "regime_condition": "high_volatility",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "30d",
+    "actionability_score": 0.3,
+    "novelty_score": 0.6,
+    "reproducibility_score": 1.0,
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "decay_risk": "medium",
+    "next_recommended_test": "regime_classification_accuracy_test"
+  },
+  {
+    "hypothesis_id": "RUN-20260411-161248-C0007",
+    "created_at": "2026-04-11T16:12:48Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "regime",
+    "hypothesis_text": "Volume Surge Regime may transitively_related_to Calm Market Regime via path: volume_surge_regime -> amplifies_in -> high_vol_regime -> invalidates -> calm_regime",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "volume_surge_regime",
+      "amplifies_in",
+      "high_vol_regime",
+      "invalidates",
+      "calm_regime"
+    ],
+    "source_streams": [
+      "regime"
+    ],
+    "regime_condition": "high_volatility",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "30d",
+    "actionability_score": 0.3,
+    "novelty_score": 0.6,
+    "reproducibility_score": 1.0,
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "decay_risk": "medium",
+    "next_recommended_test": "regime_classification_accuracy_test"
+  }
+]
