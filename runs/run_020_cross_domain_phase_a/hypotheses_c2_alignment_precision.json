@@ -1,0 +1,250 @@
+{
+  "run_id": "run_020_cross_domain_phase_a",
+  "condition": "C2_alignment_precision",
+  "count": 11,
+  "hypotheses": [
+    {
+      "id": "H3049",
+      "subject_id": "chem:mechanism:sirt1_activation",
+      "subject_label": "SIRT1 Activation",
+      "relation": "transitively_related_to",
+      "object_id": "bio:process:neurodegeneration",
+      "object_label": "Neurodegeneration",
+      "description": "SIRT1 Activation may reduce Neurodegeneration via SIRT1 protein activity",
+      "provenance": [
+        "chem:mechanism:sirt1_activation",
+        "activates",
+        "bio:protein:sirt1",
+        "reduces",
+        "bio:process:neurodegeneration"
+      ],
+      "operator": "compose_cross_domain",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C2_multi_op",
+      "chain_length": 5,
+      "condition": "C2_alignment_precision"
+    },
+    {
+      "id": "H3017",
+      "subject_id": "chem:compound:resveratrol",
+      "subject_label": "Resveratrol",
+      "relation": "transitively_related_to",
+      "object_id": "bio:pathway:mtor_signaling",
+      "object_label": "mTOR Signaling",
+      "description": "Resveratrol may regulate mTOR Signaling via mTOR Kinase inhibition",
+      "provenance": [
+        "chem:compound:resveratrol",
+        "inhibits",
+        "chem:target:mtor_kinase",
+        "regulates",
+        "bio:pathway:mtor_signaling"
+      ],
+      "operator": "compose_cross_domain",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C2_multi_op",
+      "chain_length": 5,
+      "condition": "C2_alignment_precision"
+    },
+    {
+      "id": "H3011",
+      "subject_id": "chem:drug:hydroxychloroquine",
+      "subject_label": "Hydroxychloroquine",
+      "relation": "transitively_related_to",
+      "object_id": "bio:pathway:mtor_signaling",
+      "object_label": "mTOR Signaling",
+      "description": "Hydroxychloroquine may modulate mTOR Signaling via mTOR Kinase",
+      "provenance": [
+        "chem:drug:hydroxychloroquine",
+        "inhibits",
+        "chem:target:mtor_kinase",
+        "regulates",
+        "bio:pathway:mtor_signaling"
+      ],
+      "operator": "compose_cross_domain",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C2_multi_op",
+      "chain_length": 5,
+      "condition": "C2_alignment_precision"
+    },
+    {
+      "id": "H3050",
+      "subject_id": "chem:mechanism:pi3k_inhibition",
+      "subject_label": "PI3K Inhibition",
+      "relation": "transitively_related_to",
+      "object_id": "bio:process:tumor_angiogenesis",
+      "object_label": "Tumor Angiogenesis",
+      "description": "PI3K Inhibition may reduce Tumor Angiogenesis via PI3K-AKT pathway",
+      "provenance": [
+        "chem:mechanism:pi3k_inhibition",
+        "suppresses",
+        "bio:pathway:pi3k_akt",
+        "reduces",
+        "bio:process:tumor_angiogenesis"
+      ],
+      "operator": "compose_cross_domain",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C2_multi_op",
+      "chain_length": 5,
+      "condition": "C2_alignment_precision"
+    },
+    {
+      "id": "H3029",
+      "subject_id": "chem:drug:bortezomib",
+      "subject_label": "Bortezomib",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:huntingtons",
+      "object_label": "Huntington's Disease",
+      "description": "Bortezomib may affect Huntington's Disease via ubiquitin-proteasome disruption",
+      "provenance": [
+        "chem:drug:bortezomib",
+        "produces",
+        "chem:mechanism:proteasome_inhibition",
+        "disrupts",
+        "bio:pathway:ubiquitin_proteasome",
+        "worsens",
+        "bio:disease:huntingtons"
+      ],
+      "operator": "compose_cross_domain",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C2_multi_op",
+      "chain_length": 7,
+      "condition": "C2_alignment_precision"
+    },
+    {
+      "id": "H3040",
+      "subject_id": "chem:compound:kaempferol",
+      "subject_label": "Kaempferol",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:colon_cancer",
+      "object_label": "Colorectal Cancer",
+      "description": "Kaempferol may attenuate Colorectal Cancer via PI3K-AKT suppression",
+      "provenance": [
+        "chem:compound:kaempferol",
+        "produces",
+        "chem:mechanism:pi3k_inhibition",
+        "suppresses",
+        "bio:pathway:pi3k_akt",
+        "attenuates",
+        "bio:disease:colon_cancer"
+      ],
+      "operator": "compose_cross_domain",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C2_multi_op",
+      "chain_length": 7,
+      "condition": "C2_alignment_precision"
+    },
+    {
+      "id": "H3053",
+      "subject_id": "chem:drug:lithium",
+      "subject_label": "Lithium",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:alzheimers",
+      "object_label": "Alzheimer's Disease",
+      "description": "Lithium may attenuate Alzheimer's Disease via Wnt pathway and tau reduction",
+      "provenance": [
+        "chem:drug:lithium",
+        "inhibits",
+        "chem:mechanism:wnt_inhibition",
+        "activates",
+        "bio:pathway:wnt_signaling",
+        "reduces",
+        "bio:process:tau_hyperphosphorylation",
+        "attenuates",
+        "bio:disease:alzheimers"
+      ],
+      "operator": "compose_cross_domain",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C2_multi_op",
+      "chain_length": 9,
+      "condition": "C2_alignment_precision"
+    },
+    {
+      "id": "H3018",
+      "subject_id": "chem:compound:resveratrol",
+      "subject_label": "Resveratrol",
+      "relation": "transitively_related_to",
+      "object_id": "bio:protein:sirt1",
+      "object_label": "SIRT1",
+      "description": "Resveratrol may activate SIRT1 via SIRT1 Activation mechanism",
+      "provenance": [
+        "chem:compound:resveratrol",
+        "produces",
+        "chem:mechanism:sirt1_activation",
+        "activates",
+        "bio:protein:sirt1"
+      ],
+      "operator": "compose_cross_domain",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C2_multi_op",
+      "chain_length": 5,
+      "condition": "C2_alignment_precision"
+    },
+    {
+      "id": "H3002",
+      "subject_id": "chem:drug:rapamycin",
+      "subject_label": "Rapamycin",
+      "relation": "transitively_related_to",
+      "object_id": "bio:pathway:mtor_signaling",
+      "object_label": "mTOR Signaling",
+      "description": "Rapamycin may modulate mTOR Signaling via mTOR Kinase inhibition",
+      "provenance": [
+        "chem:drug:rapamycin",
+        "inhibits",
+        "chem:target:mtor_kinase",
+        "regulates",
+        "bio:pathway:mtor_signaling"
+      ],
+      "operator": "compose_cross_domain",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C2_multi_op",
+      "chain_length": 5,
+      "condition": "C2_alignment_precision"
+    },
+    {
+      "id": "H3003",
+      "subject_id": "chem:drug:rapamycin",
+      "subject_label": "Rapamycin",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:breast_cancer",
+      "object_label": "Breast Cancer",
+      "description": "Rapamycin may reduce Breast Cancer risk via mTOR pathway suppression",
+      "provenance": [
+        "chem:drug:rapamycin",
+        "produces",
+        "chem:mechanism:mtor_inhibition",
+        "inhibits",
+        "bio:pathway:mtor_signaling",
+        "promotes",
+        "bio:disease:breast_cancer"
+      ],
+      "operator": "compose_cross_domain",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C2_multi_op",
+      "chain_length": 7,
+      "condition": "C2_alignment_precision"
+    },
+    {
+      "id": "H3066",
+      "subject_id": "chem:compound:kaempferol",
+      "subject_label": "Kaempferol",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:breast_cancer",
+      "object_label": "Breast Cancer",
+      "description": "Kaempferol may attenuate Breast Cancer via PI3K-AKT suppression",
+      "provenance": [
+        "chem:compound:kaempferol",
+        "produces",
+        "chem:mechanism:pi3k_inhibition",
+        "suppresses",
+        "bio:pathway:pi3k_akt",
+        "attenuates",
+        "bio:disease:breast_cancer"
+      ],
+      "operator": "compose_cross_domain",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C2_multi_op",
+      "chain_length": 7,
+      "condition": "C2_alignment_precision"
+    }
+  ]
+}

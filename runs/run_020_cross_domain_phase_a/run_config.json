@@ -1,0 +1,37 @@
+{
+  "run_id": "run_020_cross_domain_phase_a",
+  "date": "2026-04-14T08:11:55Z",
+  "description": "P1 Phase A: bridge_quality / alignment_precision conditions. 5 conditions, pool=70 C2 from run_018, T_high=0.75.",
+  "seed": 42,
+  "t_high": 0.75,
+  "target_per_condition": 30,
+  "condition_counts": {
+    "C2_baseline": 30,
+    "C2_bridge_quality": 30,
+    "C2_alignment_precision": 11,
+    "C2_novelty_ceiling": 8,
+    "C2_combined": 6
+  },
+  "total_unique_hypotheses": 52,
+  "source": {
+    "hypothesis_pool": "runs/run_018_investigability_replication/hypotheses_c2.json",
+    "novelty_scores": "runs/run_019_novelty_tradeoff_analysis/novelty_scores.json"
+  },
+  "conditions": {
+    "C2_baseline": "First 30 from C2 pool (no filter), ordered by ID",
+    "C2_bridge_quality": "Bridge broad confidence ≥ 0.7 (broad semantic synonyms)",
+    "C2_alignment_precision": "Bridge strict confidence ≥ 0.8 (token-overlap only)",
+    "C2_novelty_ceiling": "combined_novelty ≤ 0.75 (from run_019)",
+    "C2_combined": "bridge_broad ≥ 0.7 AND novelty ≤ 0.75"
+  },
+  "note_underpowered": "C2_alignment_precision, C2_novelty_ceiling, and C2_combined may have N < 30 due to structural constraints of the run_018 pool. C2_novelty_ceiling: pool mean combined_novelty = 0.833 > T_high=0.75; only ~8/70 hypotheses qualify.",
+  "success_criteria": {
+    "primary": "bridge_quality OR alignment_precision investigability ≥ 0.95",
+    "go_phase_b": "At least one filtered condition achieves investigability ≥ 0.95",
+    "no_go": "All conditions investigability ≤ 0.92 → structural KG problem"
+  },
+  "reference": {
+    "C1_investigability": 0.971,
+    "C2_baseline_investigability_run018": 0.914
+  }
+}

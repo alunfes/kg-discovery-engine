@@ -1,0 +1,141 @@
+{
+  "run_id": "run_020_cross_domain_phase_a",
+  "condition": "C2_combined",
+  "count": 6,
+  "hypotheses": [
+    {
+      "id": "H3023",
+      "subject_id": "chem:drug:metformin",
+      "subject_label": "Metformin",
+      "relation": "transitively_related_to",
+      "object_id": "bio:process:oxidative_stress",
+      "object_label": "Oxidative Stress",
+      "description": "Metformin may reduce Oxidative Stress via AMPK-NRF2 axis",
+      "provenance": [
+        "chem:drug:metformin",
+        "produces",
+        "chem:mechanism:ampk_activation",
+        "induces",
+        "bio:protein:nrf2",
+        "reduces",
+        "bio:process:oxidative_stress"
+      ],
+      "operator": "compose_cross_domain",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C2_multi_op",
+      "chain_length": 7,
+      "condition": "C2_combined"
+    },
+    {
+      "id": "H3003",
+      "subject_id": "chem:drug:rapamycin",
+      "subject_label": "Rapamycin",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:breast_cancer",
+      "object_label": "Breast Cancer",
+      "description": "Rapamycin may reduce Breast Cancer risk via mTOR pathway suppression",
+      "provenance": [
+        "chem:drug:rapamycin",
+        "produces",
+        "chem:mechanism:mtor_inhibition",
+        "inhibits",
+        "bio:pathway:mtor_signaling",
+        "promotes",
+        "bio:disease:breast_cancer"
+      ],
+      "operator": "compose_cross_domain",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C2_multi_op",
+      "chain_length": 7,
+      "condition": "C2_combined"
+    },
+    {
+      "id": "H3018",
+      "subject_id": "chem:compound:resveratrol",
+      "subject_label": "Resveratrol",
+      "relation": "transitively_related_to",
+      "object_id": "bio:protein:sirt1",
+      "object_label": "SIRT1",
+      "description": "Resveratrol may activate SIRT1 via SIRT1 Activation mechanism",
+      "provenance": [
+        "chem:compound:resveratrol",
+        "produces",
+        "chem:mechanism:sirt1_activation",
+        "activates",
+        "bio:protein:sirt1"
+      ],
+      "operator": "compose_cross_domain",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C2_multi_op",
+      "chain_length": 5,
+      "condition": "C2_combined"
+    },
+    {
+      "id": "H3038",
+      "subject_id": "chem:compound:curcumin",
+      "subject_label": "Curcumin",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:alzheimers",
+      "object_label": "Alzheimer's Disease",
+      "description": "Curcumin may attenuate Alzheimer's Disease via STAT3-neuroinflammation",
+      "provenance": [
+        "chem:compound:curcumin",
+        "produces",
+        "chem:mechanism:stat3_inhibition",
+        "reduces",
+        "bio:pathway:neuroinflammation",
+        "attenuates",
+        "bio:disease:alzheimers"
+      ],
+      "operator": "compose_cross_domain",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C2_multi_op",
+      "chain_length": 7,
+      "condition": "C2_combined"
+    },
+    {
+      "id": "H3002",
+      "subject_id": "chem:drug:rapamycin",
+      "subject_label": "Rapamycin",
+      "relation": "transitively_related_to",
+      "object_id": "bio:pathway:mtor_signaling",
+      "object_label": "mTOR Signaling",
+      "description": "Rapamycin may modulate mTOR Signaling via mTOR Kinase inhibition",
+      "provenance": [
+        "chem:drug:rapamycin",
+        "inhibits",
+        "chem:target:mtor_kinase",
+        "regulates",
+        "bio:pathway:mtor_signaling"
+      ],
+      "operator": "compose_cross_domain",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C2_multi_op",
+      "chain_length": 5,
+      "condition": "C2_combined"
+    },
+    {
+      "id": "H3047",
+      "subject_id": "chem:drug:erlotinib",
+      "subject_label": "Erlotinib",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:lung_cancer",
+      "object_label": "Lung Cancer",
+      "description": "Erlotinib may suppress Lung Cancer via EGFR-PI3K-AKT pathway",
+      "provenance": [
+        "chem:drug:erlotinib",
+        "inhibits",
+        "chem:target:egfr_kinase",
+        "suppresses",
+        "bio:pathway:pi3k_akt",
+        "attenuates",
+        "bio:disease:lung_cancer"
+      ],
+      "operator": "compose_cross_domain",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C2_multi_op",
+      "chain_length": 7,
+      "condition": "C2_combined"
+    }
+  ]
+}

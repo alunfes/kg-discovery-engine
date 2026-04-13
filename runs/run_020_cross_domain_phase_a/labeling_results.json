@@ -1,0 +1,1292 @@
+[
+  {
+    "id": "H3001",
+    "condition": "C2_bridge_quality",
+    "description": "Metformin may inhibit Cholesterol Biosynthesis via AMPK Pathway activation",
+    "label_layer1": "supported",
+    "label_layer2": "novel_supported",
+    "total_pubmed_hits_2024_2025": 3,
+    "past_pubmed_hits_le2023": 13,
+    "evidence_pmids": [
+      "40097416",
+      "39775614",
+      "38798180"
+    ],
+    "evidence_titles": [
+      "High glucose levels promote glycolysis and cholesterol synthesis via ERRα and suppress the autophagy-lysosomal pathway in endometrial cancer.",
+      "Repurposing of Metabolic Drugs Metformin and Simvastatin as an Emerging Class of Cancer Therapeutics.",
+      "Early life interventions metformin and trodusquemine metabolically reprogram the developing mouse liver through transcriptomic alterations."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 3 total hits, 3 fetched; 2 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Layer 1 positive AND past hits=13 ≤ 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3002",
+    "condition": "C2_combined",
+    "description": "Rapamycin may modulate mTOR Signaling via mTOR Kinase inhibition",
+    "label_layer1": "partially_supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 865,
+    "past_pubmed_hits_le2023": 5508,
+    "evidence_pmids": [
+      "41839601",
+      "41656814",
+      "41561043",
+      "41521996",
+      "41516092"
+    ],
+    "evidence_titles": [
+      "[Protective mechanism of electroacupuncture on gastric mucosa in rats with chronic atrophic gastritis based on PI3K/AKT/mTOR signaling pathway].",
+      "[Retinal protective effects of zinc",
+      "",
+      "Therapeutic effects of Melittin acupoint injection on rheumatoid arthritis through autophagy activation and PI3K/AKT/mTOR pathway inhibition.",
+      "Targeting the MAPK Pathway in Cancer."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 865 total hits, 5 fetched; 1 supporting, 0 contradictory, 0 inconclusive. Moderate positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=5508 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3003",
+    "condition": "C2_combined",
+    "description": "Rapamycin may reduce Breast Cancer risk via mTOR pathway suppression",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 166,
+    "past_pubmed_hits_le2023": 1472,
+    "evidence_pmids": [
+      "41640662",
+      "41509976",
+      "41502518",
+      "41502508",
+      "41456140"
+    ],
+    "evidence_titles": [
+      "Investigating the Effects of Morin and Aminoimidazole Carboxamide Ribonucleotide on the AMPK/mTOR/ULK1 Signaling Pathway in Breast Cancer Cell Line (MCF-7).",
+      "Bioinspired membrane-fusogenic nanomicelles for synergistic chemotherapy, photodynamic therapy, and gas therapy of breast cancer.",
+      "miR-512-3p/RPS6KA2 Axis Regulates Cisplatin Resistance in Ovarian Cancer via Autophagy and Ferroptosis.",
+      "ZMIZ2/MCM3 Axis Participates in Triple-Negative Breast Cancer Progression.",
+      "Multi-target prediction to Detect the Anti-cancerous Potential of Sida cordifolia in Treating Breast Cancer."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 166 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=1472 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3004",
+    "condition": "C2_baseline",
+    "description": "Sildenafil may activate AMPK Pathway via PDE5 Inhibition",
+    "label_layer1": "not_investigated",
+    "label_layer2": "plausible_novel",
+    "total_pubmed_hits_2024_2025": 0,
+    "past_pubmed_hits_le2023": 1,
+    "evidence_pmids": [],
+    "evidence_titles": [],
+    "rationale_layer1": "No papers found in PubMed 2024-2025.",
+    "rationale_layer2": "Layer 1 = not_investigated, past hits=1 ≤ 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3005",
+    "condition": "C2_baseline",
+    "description": "Sildenafil may modulate PI3K-AKT via PDE5 Inhibition",
+    "label_layer1": "partially_supported",
+    "label_layer2": "novel_supported",
+    "total_pubmed_hits_2024_2025": 4,
+    "past_pubmed_hits_le2023": 17,
+    "evidence_pmids": [
+      "41469822",
+      "40385484",
+      "39226294",
+      "39027562"
+    ],
+    "evidence_titles": [
+      "Sildenafil reduced neuroinflammation and improved white matter injury in a rat model of term neonatal hypoxic-ischemic encephalopathy.",
+      "Bioactive compound combinations from",
+      "Nesfatin-1 regulates the phenotype transition of cavernous smooth muscle cells by activating PI3K/AKT/mTOR signaling pathway to improve diabetic erectile dysfunction.",
+      "Nesfatin-1 regulates the phenotype transition of cavernous smooth muscle cells by activating PI3K/AKT/mTOR signaling pathway to improve diabetic erectile dysfunction."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 4 total hits, 4 fetched; 1 supporting, 0 contradictory, 0 inconclusive. Moderate positive signals.",
+    "rationale_layer2": "Layer 1 positive AND past hits=17 ≤ 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3006",
+    "condition": "C2_baseline",
+    "description": "Sildenafil may activate Autophagy Pathway via PDE5 Inhibition",
+    "label_layer1": "investigated_but_inconclusive",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 1,
+    "past_pubmed_hits_le2023": 25,
+    "evidence_pmids": [
+      "41005622"
+    ],
+    "evidence_titles": [
+      "Chronic inhibition of cGMP-specific phosphodiesterase 5 attenuates myocardial hypertrophy by promoting mitophagy in cardiomyocytes."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 1 total hits, 1 fetched; 1 supporting, 0 contradictory, 0 inconclusive. Evidence exists but mixed.",
+    "rationale_layer2": "Past (≤2023) hits=25 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3007",
+    "condition": "C2_baseline",
+    "description": "Sildenafil may improve Heart Failure via PDE5 Inhibition",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 36,
+    "past_pubmed_hits_le2023": 480,
+    "evidence_pmids": [
+      "41304908",
+      "41258850",
+      "41094728",
+      "41054690",
+      "41005622"
+    ],
+    "evidence_titles": [
+      "Efficacy and Safety of Sildenafil in Combination with Dapagliflozin Versus Dapagliflozin Monotherapy in the Management of Heart Failure with Pulmonary Arterial Hypertension: A Randomized Controlled Trial.",
+      "Hemocompatibility Outcomes With Pharmacological Therapy Following LVAD Implantation: Insights From the ARIES-HM3 Trial.",
+      "Tartaric acid pellets as a core for extended release of sildenafil citrate: development via solid dispersion and factorial design.",
+      "The Role of Phosphodiesterase-5 Enzyme Inhibitors and Prostacyclin Analogs in Reactive Pulmonary Vasculopathy in Systolic Heart Failure: A Narrative Review.",
+      "Chronic inhibition of cGMP-specific phosphodiesterase 5 attenuates myocardial hypertrophy by promoting mitophagy in cardiomyocytes."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 36 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=480 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3008",
+    "condition": "C2_baseline",
+    "description": "Sildenafil may reduce Neuroinflammation via PDE5 Inhibition",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 7,
+    "past_pubmed_hits_le2023": 25,
+    "evidence_pmids": [
+      "41469822",
+      "41161293",
+      "39451238",
+      "39425458",
+      "39158758"
+    ],
+    "evidence_titles": [
+      "Sildenafil reduced neuroinflammation and improved white matter injury in a rat model of term neonatal hypoxic-ischemic encephalopathy.",
+      "Therapeutic innovation through drug repurposing: A multidimensional approach toward treating Parkinson's disease.",
+      "The Emerging Role of Phosphodiesterase 5 Inhibition in Neurological Disorders: The State of the Art.",
+      "Multimodal action of phosphodiesterase 5 inhibitors against neurodegenerative disorders: An update review.",
+      "The Antidepressant- and Anxiolytic-Like Effects of the Phosphodiesterase Type-5 Inhibitor Tadalafil are Associated with the Modulation of the Gut-Brain Axis During CNS Autoimmunity."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 7 total hits, 5 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=25 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3009",
+    "condition": "C2_bridge_quality",
+    "description": "Aspirin may reduce TNF-alpha levels via COX Inhibition",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 59,
+    "past_pubmed_hits_le2023": 444,
+    "evidence_pmids": [
+      "41407245",
+      "41393721",
+      "41242519",
+      "41197926",
+      "41192834"
+    ],
+    "evidence_titles": [
+      "Targeting trophoblast cell mitochondrial dysfunction in preeclampsia via drug repurposing.",
+      "Evaluation of the Anti-inflammatory Effects of Ticagrelor and Prasugrel as Add-On Therapy to Aspirin in Diabetic Patients Post-percutaneous Coronary Intervention.",
+      "Paeoniflorin attenuates ASA-induced enteropathy in simulated high-altitude hypoxia in rats by regulating intestinal inflammation, intestinal barrier, and intestinal flora.",
+      "Modulatory effects of lannea welwitschia on cadmium-induced reproductive and biochemical dysregulation via steroidogenic enzyme regulation in female rats.",
+      "Immunomodulatory Effects of Ticagrelor in Myocardial Infarction: Shifting the Cytokine Balance Toward an Anti-Inflammatory Profile."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 59 total hits, 5 fetched; 2 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=444 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3010",
+    "condition": "C2_bridge_quality",
+    "description": "Aspirin may attenuate Amyloid Cascade via COX Inhibition",
+    "label_layer1": "investigated_but_inconclusive",
+    "label_layer2": "plausible_novel",
+    "total_pubmed_hits_2024_2025": 1,
+    "past_pubmed_hits_le2023": 1,
+    "evidence_pmids": [
+      "39141762"
+    ],
+    "evidence_titles": [],
+    "rationale_layer1": "PubMed 2024-2025: 1 total hits, 0 fetched; 0 supporting, 0 contradictory, 0 inconclusive. Papers found; abstracts unavailable.",
+    "rationale_layer2": "Layer 1 = investigated_but_inconclusive, past hits=1 ≤ 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3011",
+    "condition": "C2_alignment_precision",
+    "description": "Hydroxychloroquine may modulate mTOR Signaling via mTOR Kinase",
+    "label_layer1": "supported",
+    "label_layer2": "novel_supported",
+    "total_pubmed_hits_2024_2025": 4,
+    "past_pubmed_hits_le2023": 15,
+    "evidence_pmids": [
+      "41504063",
+      "40897974",
+      "40619511",
+      "38812314"
+    ],
+    "evidence_titles": [
+      "The Dual Role of Autophagy in Lung Cancer: From Molecular Mechanisms to Metabolic Regulation and Targeted Therapy Strategies.",
+      "Targeting dormant tumor cells to prevent recurrent breast cancer: a randomized phase 2 trial.",
+      "Hydroxychloroquine improves manifestation of PE rats under oxidative stress by regulating the PI3K/AKT/mTOR signaling pathway to inhibit autophagy.",
+      "Ibrutinib Contributes to Atrial Arrhythmia through the Autophagic Degradation of Connexins by Inhibiting the PI3K-AKT-mTOR Signaling Pathway."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 4 total hits, 4 fetched; 2 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Layer 1 positive AND past hits=15 ≤ 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3012",
+    "condition": "C2_baseline",
+    "description": "Hydroxychloroquine may suppress PI3K-AKT via mTOR Kinase",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 12,
+    "past_pubmed_hits_le2023": 29,
+    "evidence_pmids": [
+      "41504063",
+      "41076144",
+      "40869940",
+      "40619511",
+      "40153325"
+    ],
+    "evidence_titles": [
+      "The Dual Role of Autophagy in Lung Cancer: From Molecular Mechanisms to Metabolic Regulation and Targeted Therapy Strategies.",
+      "Artemisinin-hydroxychloroquine combination from traditional antimalarial medicine attenuates pulmonary fibrosis via PI3K/AKT/GSK3β-mediated inhibition of epithelial-mesenchymal transition.",
+      "Autophagy and PXR Crosstalk in the Regulation of Cancer Drug Metabolism and Resistance According to Gene Mutational Status in Colorectal Cancer.",
+      "Hydroxychloroquine improves manifestation of PE rats under oxidative stress by regulating the PI3K/AKT/mTOR signaling pathway to inhibit autophagy.",
+      "Hydroxychloroquine inhibits the PI3K/AKT pathway in synovial fibroblasts of rheumatoid arthritis and alleviates collagen-induced arthritis in mice."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 12 total hits, 5 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=29 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3013",
+    "condition": "C2_baseline",
+    "description": "Quercetin may reduce APP cleavage via BACE1 Enzyme inhibition",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 13,
+    "past_pubmed_hits_le2023": 38,
+    "evidence_pmids": [
+      "41383949",
+      "41262070",
+      "40899340",
+      "40478444",
+      "40341631"
+    ],
+    "evidence_titles": [
+      "Downregulation of forkhead box O1 (FOXO1) acetylation ameliorates cognitive dysfunction by inhibiting endoplasmic reticulum stress-regulated neuronal apoptosis in APP/PS1 transgenic mice.",
+      "Integrative Network Analysis of Antioxidant Nutrients Targeting 7-Ketocholesterol-Induced Lipotoxicity via Sterol Metabolism and Organelle Protection Pathways.",
+      "The Therapeutic Potential of Flavonols in Alzheimer's Disease: Inhibiting Amyloid-β, Oxidative Stress, and Neuroinflammation.",
+      "Evaluating computational and experimental approaches in early-stage Alzheimer's drug discovery: a systematic review.",
+      "Evaluation of the Neurotherapeutic Effect of Quercetin on Neuronal miR-124 and β-Site Amyloid Precursor Protein Cleaving Enzyme 1 (BACE1) in an Experimental Alzheimer's Disease Model."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 13 total hits, 5 fetched; 2 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=38 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3014",
+    "condition": "C2_baseline",
+    "description": "Quercetin may attenuate Alzheimer's Disease via BACE1 and Amyloid Cascade",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 203,
+    "past_pubmed_hits_le2023": 472,
+    "evidence_pmids": [
+      "41515408",
+      "41502755",
+      "41479381",
+      "41475761",
+      "41450541"
+    ],
+    "evidence_titles": [
+      "D-Penicillamine/Dihydroquercetin Dual-Loaded Metal-Organic Framework as a Microenvironment Copper Regulator for Enhancing the Therapeutic Efficacy of Polyphenolic Antioxidant in Alzheimer's Disease.",
+      "Repurposed Arylidene-hydrazinyl-1,3-thiazoles as Multitarget Anti-Alzheimer's Agents via Combined Computational and Experimental Studies.",
+      "Therapeutic Applications of Natural Flavonoids Against Alzheimer's Disease-like Pathology: Special Focus on PI3K/Akt and Nrf2 Signaling Pathways.",
+      "Chitosan/selenium nanoparticles Pickering emulsion prolong quercetin retention time to ameliorates cognitive disorder: Focus on restoring the metabolic disorder and gut microbiota.",
+      "Exploring the Mahuang Fuzi Xixin Decoction's mechanism for treating Alzheimer's disease using molecular docking and network pharmacology."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 203 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=472 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3015",
+    "condition": "C2_baseline",
+    "description": "Berberine may improve Type 2 Diabetes via AMPK activation and insulin sensitization",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 62,
+    "past_pubmed_hits_le2023": 223,
+    "evidence_pmids": [
+      "41799384",
+      "41505913",
+      "41476996",
+      "41471379",
+      "41459531"
+    ],
+    "evidence_titles": [
+      "Pharmacological advances in multi-targeted strategies for type 2 diabetes mellitus: a systematic perspective based on traditional Chinese medicine.",
+      "Jiangtang Tiaozhi formula improves obesity and insulin resistance by inhibiting skeletal muscle inflammation and pyroptosis in diet-induced obese mice.",
+      "Mechanism of Jianpixiaoke Recipe in Treating Type 2 Diabetes Based on Network Pharmacology and Molecular Docking.",
+      "Berberine: A Rising Star in the Management of Type 2 Diabetes-Novel Insights into Its Anti-Inflammatory, Metabolic, and Epigenetic Mechanisms.",
+      "Targeting the TLR4 axis with microbiota-oriented interventions and innovations in diabetes therapy: a narrative review."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 62 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=223 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3016",
+    "condition": "C2_bridge_quality",
+    "description": "Berberine may inhibit Cholesterol Biosynthesis via AMPK Activation",
+    "label_layer1": "investigated_but_inconclusive",
+    "label_layer2": "plausible_novel",
+    "total_pubmed_hits_2024_2025": 1,
+    "past_pubmed_hits_le2023": 7,
+    "evidence_pmids": [
+      "39909237"
+    ],
+    "evidence_titles": [
+      "Mechanistic insights into alkaloid-based inhibition of squalene epoxidase: A combined in silico and experimental approach for targeting cholesterol biosynthesis."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 1 total hits, 1 fetched; 1 supporting, 0 contradictory, 0 inconclusive. Evidence exists but mixed.",
+    "rationale_layer2": "Layer 1 = investigated_but_inconclusive, past hits=7 ≤ 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3017",
+    "condition": "C2_alignment_precision",
+    "description": "Resveratrol may regulate mTOR Signaling via mTOR Kinase inhibition",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 18,
+    "past_pubmed_hits_le2023": 79,
+    "evidence_pmids": [
+      "41795275",
+      "41373947",
+      "41359100",
+      "41261618",
+      "41155356"
+    ],
+    "evidence_titles": [
+      "Effects of resveratrol in a chronic stress model of layer chicks: insights from transcriptomics, metabolomics, and network pharmacology.",
+      "Bioactive Nutritional Components Within the Planetary Health Diet for Preventing Sarcopenic Obesity and Diabetic Sarcopenia: A Systematic Review.",
+      "Phytochemicals and nanoformulation strategies for rheumatoid arthritis: mechanistic insights, therapeutic advances, and translational challenges.",
+      "Mendelian randomization reveals the causal links between miRNAs and rheumatoid arthritis.",
+      "Genetic and Pathogenic Overlaps Between Autism Spectrum Disorder and Alzheimer's Disease: Evolutionary Features and Opportunities for Drug Repurposing."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 18 total hits, 5 fetched; 2 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=79 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3018",
+    "condition": "C2_combined",
+    "description": "Resveratrol may activate SIRT1 via SIRT1 Activation mechanism",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 239,
+    "past_pubmed_hits_le2023": 1893,
+    "evidence_pmids": [
+      "41573560",
+      "41470875",
+      "41446880",
+      "41416347",
+      "41399758"
+    ],
+    "evidence_titles": [
+      "Bioactives and exercise synergize to modulate AMPK and inflammation.",
+      "Mediterranean Diet, Polyphenols, and Neuroprotection: Mechanistic Insights into Resveratrol and Oleuropein.",
+      "The role of neuro-supportive substances of natural origin in neurological conditions-A literature-based formulators' perspective.",
+      "Targeting SIRT1: A Potential Strategy for Combating Severe COVID-19.",
+      "Dihydro-R demonstrates innate immunity against Adenovirus-7 by suppressing the NF-κB/JAK-STAT pathway in a SIRT1-dependent manner."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 239 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=1893 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3019",
+    "condition": "C2_baseline",
+    "description": "Resveratrol may delay Cell Senescence via SIRT1 Activation",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 12,
+    "past_pubmed_hits_le2023": 58,
+    "evidence_pmids": [
+      "41383484",
+      "41158311",
+      "39438391",
+      "39192424",
+      "39171818"
+    ],
+    "evidence_titles": [
+      "Resveratrol attenuates pulmonary fibrosis by inhibiting alveolar epithelial senescence via targeting SASP-related proteins: an integrated bioinformatics-experimental study.",
+      "Cellular senescence in cancer: Unveiling dual roles, tumor microenvironment dynamics and therapeutic innovations (Review).",
+      "Divergent regulation of long non-coding RNAs H19 and PURPL affects cell senescence in human dermal fibroblasts.",
+      "[Inhibition Effect of Resveratrol on Spontaneous Senescence of Human Bone Marrow Derived Mesenchymal Stem Cells].",
+      "Retraction: Resveratrol attenuates inflammation environment-induced nucleus pulposus cell senescence in vitro."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 12 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=58 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3020",
+    "condition": "C2_baseline",
+    "description": "mTOR Inhibition may activate AMPK Pathway via mTOR-AMPK crosstalk",
+    "label_layer1": "not_investigated",
+    "label_layer2": "plausible_novel",
+    "total_pubmed_hits_2024_2025": 0,
+    "past_pubmed_hits_le2023": 9,
+    "evidence_pmids": [],
+    "evidence_titles": [],
+    "rationale_layer1": "No papers found in PubMed 2024-2025.",
+    "rationale_layer2": "Layer 1 = not_investigated, past hits=9 ≤ 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3021",
+    "condition": "C2_bridge_quality",
+    "description": "Metformin may attenuate Alzheimer's Disease via AMPK-mediated neuroinflammation reduction",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 136,
+    "past_pubmed_hits_le2023": 300,
+    "evidence_pmids": [
+      "41814705",
+      "41473419",
+      "41453655",
+      "41451400",
+      "41383947"
+    ],
+    "evidence_titles": [
+      "[Qiangji Decoction regulates AMPKα/Drp1/Nrf2 pathway to ameliorate neural damage induced by D-galactose by suppressing oxidative stress and neuronal apoptosis].",
+      "Critical evaluation of real-world evidence of repurposable medicines in the Alzheimer's disease drug development pipeline using a target trial emulation.",
+      "PACAP: A promising disease-modifying target for Alzheimer's disease.",
+      "Bibliometric analysis of global research trends on the relationship between alzheimer's disease and type 2 diabetes mellitus.",
+      "Beta cells to brain cells: The pivotal role of insulin and glucose metabolism in Alzheimer's disease."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 136 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=300 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3022",
+    "condition": "C2_bridge_quality",
+    "description": "Metformin may ameliorate NAFLD via AMPK-mediated insulin sensitization",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 54,
+    "past_pubmed_hits_le2023": 431,
+    "evidence_pmids": [
+      "41641276",
+      "41607999",
+      "41174662",
+      "40978954",
+      "40896767"
+    ],
+    "evidence_titles": [
+      "The interactions between autophagy and immune in the liver-adipose-ovary circuit of polycystic ovary syndrome.",
+      "Impact of Glucagon-Like Peptide-1 Agonists on Hepatocellular Carcinoma Risk and Management in Type 2 Diabetes Mellitus: A Scoping Review.",
+      "Randomized controlled trial of effects of metformin in NAFLD patients with newly diagnosed type 2 diabetes treated with an intensive lifestyle: a study protocol.",
+      "Impact of Metformin Use on Liver Function Tests in Diabetic Patients With Suspected Non-Alcoholic Fatty Liver Disease (NAFLD): A Cross-Sectional Analysis.",
+      "Screening for the Prevalence of Nonalcoholic Fatty Liver Disease (NAFLD) Among Patients With Prediabetes and Type 2 Diabetes: A Comparison of Three Screening Systems."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 54 total hits, 5 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=431 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3023",
+    "condition": "C2_combined",
+    "description": "Metformin may reduce Oxidative Stress via AMPK-NRF2 axis",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 575,
+    "past_pubmed_hits_le2023": 1640,
+    "evidence_pmids": [
+      "41814705",
+      "41684515",
+      "41656807",
+      "41614781",
+      "41607469"
+    ],
+    "evidence_titles": [
+      "[Qiangji Decoction regulates AMPKα/Drp1/Nrf2 pathway to ameliorate neural damage induced by D-galactose by suppressing oxidative stress and neuronal apoptosis].",
+      "Troxerutin, a herbal metabolite with antidiabetic and antihypercholesterolemic potential, regulates metabolic gene activity in male diabetic rats.",
+      "Mechanisms of gypenosides in type 2 diabetes mellitus via regulation of m6A methylase METTL3/14 and demethylase FTO.",
+      "Evaluation of Serum Antioxidant Activity in Type 2 Diabetes and Prediabetes: Links with Nutritional and Anthropometric Factors-Preliminary Studies.",
+      "Effects of combined oral contraceptives and metformin on paraoxonase 1 lactonase activity and status in patients with polycystic ovary syndrome and insulin resistance."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 575 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=1640 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3024",
+    "condition": "C2_baseline",
+    "description": "Rapamycin may protect against Parkinson's Disease via mTOR-autophagy axis",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 65,
+    "past_pubmed_hits_le2023": 426,
+    "evidence_pmids": [
+      "41536634",
+      "41452493",
+      "41403389",
+      "41288829",
+      "41152735"
+    ],
+    "evidence_titles": [
+      "Advances in autophagy for Parkinson's disease pathogenesis and treatment.",
+      "Paeony root prevents 6-hydroxydopamine-induced neurotoxicity by regulating autophagic dysfunction via AKT signaling in Parkinson's disease models.",
+      "Reversing Autophagy Inhibition Ameliorates Neurodegeneration in Hereditary Spastic Paraplegia Caused by a Degradation-Resistant SPAST Mutation.",
+      "\"Rewiring brain immunity: targeting microglial metabolism for neuroprotection in neurodegenerative disorders\".",
+      "FGF21 confers neuroprotection in Parkinson's disease by activating the FGFR1-sirt1 pathway."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 65 total hits, 5 fetched; 2 supporting, 0 contradictory, 1 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=426 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3025",
+    "condition": "C2_baseline",
+    "description": "Rapamycin may attenuate Huntington's Disease via protein aggregation clearance",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 15,
+    "past_pubmed_hits_le2023": 154,
+    "evidence_pmids": [
+      "40940752",
+      "40482009",
+      "40413758",
+      "40358175",
+      "40318213"
+    ],
+    "evidence_titles": [
+      "Beyond Support Cells: Astrocytic Autophagy as a Central Regulator of CNS Homeostasis and Neurodegenerative Diseases.",
+      "Unraveling novel mechanisms of ATP-Binding cassette (ABC) transporter in insulin Resistance-induced amyloidogenesis.",
+      "Defective autophagy in a fibroin secretion-deficient silkworm mutant.",
+      "Dopamine Receptor D3 Induces Transient, mTORC1-Dependent Autophagy That Becomes Persistent, AMPK-Mediated, and Neuroprotective in Experimental Models of Huntington's Disease.",
+      "Autophagy Regulates Putative Anion Transporter 1 Expression in Intestinal Epithelial Cells."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 15 total hits, 5 fetched; 2 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=154 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3026",
+    "condition": "C2_baseline",
+    "description": "Rapamycin may delay Cell Senescence via mTOR Kinase inhibition",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 29,
+    "past_pubmed_hits_le2023": 103,
+    "evidence_pmids": [
+      "41360355",
+      "41249115",
+      "41165878",
+      "41068078",
+      "41020919"
+    ],
+    "evidence_titles": [
+      "Polystyrene nanoplastics induce ovarian granulosa cell senescence via autophagy suppression.",
+      "DEPTOR regulates nucleus pulposus cell senescence through the mTORC1/S6K1/ATG1 pathway to alleviate intervertebral disk degeneration.",
+      "The role of the SIRT1 and mTOR pathways in exercise-induced β-cell senescence reduction in type 2 diabetes mellitus.",
+      "mTOR dysregulation induces IL-6 and paracrine AT2 cell senescence impeding lung repair in lymphangioleiomyomatosis.",
+      "Integrative bioinformatics analysis and elastic network modeling elucidate the role of cellular senescence in meningioma recurrence."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 29 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=103 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3027",
+    "condition": "C2_novelty_ceiling",
+    "description": "Aspirin may reduce Colorectal Cancer risk via COX-2 and Wnt pathway",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 112,
+    "past_pubmed_hits_le2023": 1243,
+    "evidence_pmids": [
+      "41592353",
+      "41456465",
+      "41425108",
+      "41297015",
+      "41297014"
+    ],
+    "evidence_titles": [
+      "Platelet activation, aspirin, and cancer: From basic science to clinical trials.",
+      "The effect of metformin exposure on colorectal cancer incidence according to tumor sidedness.",
+      "Role of Post-discharge Venous Thromboembolism Prophylaxis after Colorectal Surgery.",
+      "Low-Dose Aspirin for PI3K-Altered Localized Colorectal Cancer. Reply.",
+      "Low-Dose Aspirin for PI3K-Altered Localized Colorectal Cancer."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 112 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=1243 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3028",
+    "condition": "C2_baseline",
+    "description": "Aspirin may attenuate Alzheimer's Disease via COX-mediated neuroinflammation",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 45,
+    "past_pubmed_hits_le2023": 298,
+    "evidence_pmids": [
+      "41088732",
+      "41045146",
+      "41043446",
+      "40842657",
+      "40842647"
+    ],
+    "evidence_titles": [
+      "What Is the Association Between Music-Related Leisure Activities and Dementia Risk? A Cohort Study.",
+      "Adjudication of cause of death in older adults: Learnings for death certification from the ASPirin in Reducing Events in the Elderly study.",
+      "Aspirin and healthy lifespan in older people: main outcome of the ASPREE-XT observational study.",
+      "Probable lecanemab-associated pontine hemorrhage following cardiovascular intervention: Clinical implications for lecanemab use.",
+      "Effect of aspirin use on conversion risk from mild cognitive impairment to Alzheimer's disease."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 45 total hits, 5 fetched; 2 supporting, 0 contradictory, 1 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=298 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3029",
+    "condition": "C2_alignment_precision",
+    "description": "Bortezomib may affect Huntington's Disease via ubiquitin-proteasome disruption",
+    "label_layer1": "partially_supported",
+    "label_layer2": "novel_supported",
+    "total_pubmed_hits_2024_2025": 1,
+    "past_pubmed_hits_le2023": 9,
+    "evidence_pmids": [
+      "39034204"
+    ],
+    "evidence_titles": [
+      "Real-World Treatment Patterns, Survival, and Economic Burden Among Elderly MCL Patients Previously Treated With cBTKis."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 1 total hits, 1 fetched; 0 supporting, 0 contradictory, 0 inconclusive. Some evidence; labelled conservatively.",
+    "rationale_layer2": "Layer 1 positive AND past hits=9 ≤ 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3030",
+    "condition": "C2_novelty_ceiling",
+    "description": "Bortezomib may activate Apoptosis Pathway via proteasome inhibition",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 173,
+    "past_pubmed_hits_le2023": 2347,
+    "evidence_pmids": [
+      "41468107",
+      "41458974",
+      "41437070",
+      "41373771",
+      "41353268"
+    ],
+    "evidence_titles": [
+      "Immune-Suppressed, Not Immune-Cold: HMOX1-CD14-Immunoproteasome Axis and Structure-Guided Combination Pharmacotherapies in Isocitrate Dehydrogenase-Mutant Glioblastoma.",
+      "Targeting lipogenesis promotes the synergistic effect of the selective HDAC6 inhibitor ITF3756 with bortezomib in colon cancer cells.",
+      "Darunavir analog precursors target mitochondrial metabolism in multiple myeloma and CLL.",
+      "Amphiphilic Poly(N-vinylpyrrolidone) Biocomposites with Bortezomib and DR5-Selective TRAIL Variants: A Promising Approach to Pancreatic Cancer Treatment.",
+      "TRIP13 alters mitochondrial function and promotes bortezomib resistance in multiple myeloma."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 173 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=2347 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3032",
+    "condition": "C2_bridge_quality",
+    "description": "Valproic Acid may reverse Epigenetic Silencing via HDAC inhibition",
+    "label_layer1": "not_investigated",
+    "label_layer2": "plausible_novel",
+    "total_pubmed_hits_2024_2025": 0,
+    "past_pubmed_hits_le2023": 14,
+    "evidence_pmids": [],
+    "evidence_titles": [],
+    "rationale_layer1": "No papers found in PubMed 2024-2025.",
+    "rationale_layer2": "Layer 1 = not_investigated, past hits=14 ≤ 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3035",
+    "condition": "C2_bridge_quality",
+    "description": "Berberine may attenuate Parkinson's Disease via AMPK-oxidative stress reduction",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 23,
+    "past_pubmed_hits_le2023": 56,
+    "evidence_pmids": [
+      "41366488",
+      "41191158",
+      "40808332",
+      "40806472",
+      "40801981"
+    ],
+    "evidence_titles": [
+      "Innovative approach in Parkinson's targeting via berberine-loaded mucoadhesive surface-modified liposomes: a multi-faceted study.",
+      "Nanomedicine-enabled neuroprotection: therapeutic role of berberine in neurodegenerative diseases.",
+      "Levodopa and Plant-Derived Bioactive Compounds in Parkinson's Disease: Mechanisms, Efficacy, and Future Perspectives.",
+      "Investigating Neuroprotective Effects of Berberine on Mitochondrial Dysfunction and Autophagy Impairment in Parkinson's Disease.",
+      "The IL-12 family cytokines in neurodegenerative diseases: dual roles in neurotoxicity and neuroprotection."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 23 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=56 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3058",
+    "condition": "C2_bridge_quality",
+    "description": "Curcumin may suppress Glioblastoma via STAT3-PI3K-AKT axis",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 41,
+    "past_pubmed_hits_le2023": 202,
+    "evidence_pmids": [
+      "41392531",
+      "41334733",
+      "41284504",
+      "41233403",
+      "41227348"
+    ],
+    "evidence_titles": [
+      "A Comprehensive Analysis of Natural Bioactive Molecules for the Treatment and Control of Glioblastoma Multiforme (GBM) Targeting Underlying Molecular Mechanism.",
+      "Engineered extracellular vesicles for nose-to-brain co-delivery of chlorotoxin and curcumin for treatment of glioblastoma.",
+      "Dual-targeted hyaluronic acid conjugates on lipid nanoparticles improve delivery and efficacy against glioblastoma: The linkage leads the fate.",
+      "Unraveling the structure-activity relationships of organometallic ferrocene-pyrazole and ferrocene-pyrimidine curcumin analogues in amyloid-β aggregation and glioblastoma treatment.",
+      "Novel Taxol-Derivative, STO-1, Induces Selective Anti-Tumor Immunity and Sustained Remission of Glioblastoma Without Triggering Autoimmune Reactions."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 41 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=202 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3037",
+    "condition": "C2_bridge_quality",
+    "description": "Curcumin may suppress Rheumatoid Arthritis via STAT3-NF-kB pathway",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 57,
+    "past_pubmed_hits_le2023": 143,
+    "evidence_pmids": [
+      "41601662",
+      "41372521",
+      "41370192",
+      "41359100",
+      "41327719"
+    ],
+    "evidence_titles": [
+      "Curcumin for the clinical treatment of rheumatoid arthritis: a systematic review and meta-analysis of placebo-controlled randomized clinical trials.",
+      "Effects of curcumin and Curcuma longa extract on inflammatory biomarkers in patients with rheumatoid arthritis (RA) and systemic lupus erythematosus (SLE): a systematic review and meta-analysis of randomized controlled trials.",
+      "Curcumin (Curcuma longa) Supplementation Improves Tibiofemoral Joint Outcomes in Low-Dose Prednisone-Treated Experimental Rheumatoid Arthritis.",
+      "Phytochemicals and nanoformulation strategies for rheumatoid arthritis: mechanistic insights, therapeutic advances, and translational challenges.",
+      "Effect of curcumin on inflammatory markers and disease activity in patients with rheumatoid arthritis: A meta-analysis."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 57 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=143 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3049",
+    "condition": "C2_alignment_precision",
+    "description": "SIRT1 Activation may reduce Neurodegeneration via SIRT1 protein activity",
+    "label_layer1": "supported",
+    "label_layer2": "novel_supported",
+    "total_pubmed_hits_2024_2025": 4,
+    "past_pubmed_hits_le2023": 18,
+    "evidence_pmids": [
+      "41254180",
+      "40506775",
+      "39105797",
+      "38526770"
+    ],
+    "evidence_titles": [
+      "Neuroprotective effects of Chlorella vulgaris loaded niosomes via SIRT1 activation in aluminum chloride-induced Alzheimer's model.",
+      "Exercise orchestrates systemic metabolic and neuroimmune homeostasis via the brain-muscle-liver axis to slow down aging and neurodegeneration: a narrative review.",
+      "Interaction between resveratrol and SIRT1: role in neurodegenerative diseases.",
+      "Myricanol attenuates sepsis-induced inflammatory responses by nuclear factor erythroid 2-related factor 2 signaling and nuclear factor kappa B/mitogen-activated protein kinase pathway via upregulating Sirtuin 1."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 4 total hits, 4 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Layer 1 positive AND past hits=18 ≤ 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3053",
+    "condition": "C2_alignment_precision",
+    "description": "Lithium may attenuate Alzheimer's Disease via Wnt pathway and tau reduction",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 7,
+    "past_pubmed_hits_le2023": 103,
+    "evidence_pmids": [
+      "40950166",
+      "40755110",
+      "40442456",
+      "40204225",
+      "40095208"
+    ],
+    "evidence_titles": [
+      "Lithium Chloride Inhibits Iron Dysregulation and Ferroptosis in Induced Pluripotent Stem Cells with ApoE4/E4 from a sporadic Alzheimer's disease patient.",
+      "Lithium Chloride Improves Electrophysiological and Memory Deficits in Rats with Streptozotocin-Induced Alzheimer's Disease.",
+      "Wnt/β-catenin Pathway Activation Reverses Tau Hyperphosphorylation and β-Amyloid Accumulation Induced by Combined Manganese and Iron Exposure in PC12 Cells.",
+      "Anti-Alzheimer effects of an HDAC6 inhibitor, WY118, alone and in combination of lithium chloride: Synergistic suppression of ferroptosis via the modulation of tau phosphorylation and MAPK signaling.",
+      "Intranasal Delivery of Lithium Salt Suppresses Inflammatory Pyroptosis in the Brain and Ameliorates Memory Loss and Depression-like Behavior in 5XFAD Mice."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 7 total hits, 5 fetched; 4 supporting, 0 contradictory, 1 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=103 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3055",
+    "condition": "C2_bridge_quality",
+    "description": "EGCG may attenuate Alzheimer's Disease via BACE1 inhibition",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 42,
+    "past_pubmed_hits_le2023": 218,
+    "evidence_pmids": [
+      "41246229",
+      "41145344",
+      "41126961",
+      "41009475",
+      "40895150"
+    ],
+    "evidence_titles": [
+      "Flavonoids and phenolic compounds: a promising avenue for neurodegenerative disease therapy.",
+      "Risk reduction and precision prevention across the Alzheimer's disease continuum: a systematic review of clinical trials combining multidomain lifestyle interventions and pharmacological or nutraceutical approaches.",
+      "3-Hydroxytyrosol as a phenolic cholinesterase inhibitor with antiamnesic activity: a multimethodological study of selected plant phenolics.",
+      "Neuroactive Phytochemicals as Multi-Target Modulators of Mental Health and Cognitive Function: An Integrative Review.",
+      "Polyphenols and Alzheimer's Disease: A Review on Molecular and Therapeutic Insights With In Silico Support."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 42 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=218 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3066",
+    "condition": "C2_alignment_precision",
+    "description": "Kaempferol may attenuate Breast Cancer via PI3K-AKT suppression",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 38,
+    "past_pubmed_hits_le2023": 159,
+    "evidence_pmids": [
+      "41769280",
+      "41463161",
+      "41280485",
+      "41234608",
+      "41123779"
+    ],
+    "evidence_titles": [
+      "Screening and Docking Molecular Studies of Natural Products Targeting overexpressed Receptors HER-2 in Breast Cancer.",
+      "The Anticancer Effect of Kaempferol Through Downregulation of CDKs and PD-L1 in Triple-Negative Breast Cancer Cells.",
+      "Phytochemical composition, biological activities, and molecular docking studies of ethanolic fruit extract of",
+      "Phytofabricated Silver Nanoparticles From",
+      "Kaempferols from Echinacea purpurea demonstrate anti-cancer potential by targeting anexelekto in breast cancer therapy using chemoinformatics approach."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 38 total hits, 5 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=159 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3038",
+    "condition": "C2_combined",
+    "description": "Curcumin may attenuate Alzheimer's Disease via STAT3-neuroinflammation",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 203,
+    "past_pubmed_hits_le2023": 1039,
+    "evidence_pmids": [
+      "41594549",
+      "41446880",
+      "41426598",
+      "41424454",
+      "41399798"
+    ],
+    "evidence_titles": [
+      "Advances in Bioactive Compounds from Plants and Their Applications in Alzheimer's Disease.",
+      "The role of neuro-supportive substances of natural origin in neurological conditions-A literature-based formulators' perspective.",
+      "Global trends and perspectives in mitophagy on neurodegenerative diseases: a scientometric analysis over 20 years.",
+      "Nasal Delivery of Phytochemicals Using Nanocarriers: Therapeutic Opportunities and Translational Challenges.",
+      "Decoding natural products for neuroprotection: Pathway networks and structural insights for drug development."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 203 total hits, 5 fetched; 2 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=1039 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3052",
+    "condition": "C2_bridge_quality",
+    "description": "Dasatinib may clear senescent cells via BCL-2 inhibition",
+    "label_layer1": "supported",
+    "label_layer2": "novel_supported",
+    "total_pubmed_hits_2024_2025": 21,
+    "past_pubmed_hits_le2023": 18,
+    "evidence_pmids": [
+      "41469373",
+      "41448378",
+      "41320784",
+      "41158311",
+      "41020919"
+    ],
+    "evidence_titles": [
+      "Chemotherapy-induced adipo-lineage cell senescence drives bone loss.",
+      "The anti-aging drug Senolytics alleviates vascular endothelial cell senescence by antagonizing the JPX-BRD4-p65 complex.",
+      "β-catenin initiates peritoneal fibrosis by triggering mitochondrial fission-mediated mesothelial cell senescence fate transition.",
+      "Cellular senescence in cancer: Unveiling dual roles, tumor microenvironment dynamics and therapeutic innovations (Review).",
+      "Integrative bioinformatics analysis and elastic network modeling elucidate the role of cellular senescence in meningioma recurrence."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 21 total hits, 5 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Layer 1 positive AND past hits=18 ≤ 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3040",
+    "condition": "C2_alignment_precision",
+    "description": "Kaempferol may attenuate Colorectal Cancer via PI3K-AKT suppression",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 33,
+    "past_pubmed_hits_le2023": 45,
+    "evidence_pmids": [
+      "41463421",
+      "41395189",
+      "41292411",
+      "41045501",
+      "40959291"
+    ],
+    "evidence_titles": [
+      "Therapeutic Potential of Winged Bean (",
+      "Integrative network pharmacology and molecular dynamics analysis of",
+      "Kaempferol exerts anti-colorectal cancer effects through its multi-target mediated glucose metabolism remodeling.",
+      "Endoplasmic Reticulum Stress-Mediated Apoptosis Induced by Kaempferol in Colorectal Cancer Cells.",
+      "O-GlcNAcylated Hsp47 as a predictive biomarker in colorectal cancer: Kaempferol targets OGT-collagen axis for therapeutic intervention."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 33 total hits, 5 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=45 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3060",
+    "condition": "C2_bridge_quality",
+    "description": "HDAC Inhibition may reduce Neurodegeneration via BDNF upregulation",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 4,
+    "past_pubmed_hits_le2023": 29,
+    "evidence_pmids": [
+      "40530721",
+      "40451396",
+      "39671543",
+      "39229034"
+    ],
+    "evidence_titles": [
+      "Histone Deacetylase Inhibition in Alzheimer's Disease: Molecular Mechanisms, Therapeutic Potential, and Future Perspectives.",
+      "HDAC inhibitors engage MITF and the disease-associated microglia signature to enhance amyloid β uptake.",
+      "Phase 2A Proof-of-Concept Double-Blind, Randomized, Placebo-Controlled Trial of Nicotinamide in Early Alzheimer Disease.",
+      "Histone deacetylase inhibition expands cellular proteostasis repertoires to enhance neuronal stress resilience."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 4 total hits, 4 fetched; 2 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=29 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3061",
+    "condition": "C2_bridge_quality",
+    "description": "Gefitinib may attenuate Breast Cancer via EGFR-MAPK-ERK suppression",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 39,
+    "past_pubmed_hits_le2023": 559,
+    "evidence_pmids": [
+      "41477979",
+      "41415560",
+      "41401147",
+      "41282959",
+      "41278399"
+    ],
+    "evidence_titles": [
+      "Tougu Xiaotong capsules inhibit lung cancer and gefitinib-resistant cells by blocking ERBB2/PI3K-AKT-mTOR signaling and triggering ferroptosis.",
+      "Mechanistic role of CD82 palmitoylation in augmenting antitumor drug sensitivity via apoptosis regulation.",
+      "Disruption of epidermal growth factor receptor signaling and cytoskeletal dynamics by mebendazole and gefitinib synergistically impairs paracrine cytokine signaling in non-small cell lung cancer and triple-negative breast cancer Cell lines.",
+      "Computational profiling of flavonoids against key breast cancer targets: an in-silico exploration.",
+      "RELAY+: Final Overall Survival With Ramucirumab Plus Gefitinib in Patients With Untreated"
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 39 total hits, 5 fetched; 4 supporting, 0 contradictory, 1 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=559 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3050",
+    "condition": "C2_alignment_precision",
+    "description": "PI3K Inhibition may reduce Tumor Angiogenesis via PI3K-AKT pathway",
+    "label_layer1": "not_investigated",
+    "label_layer2": "plausible_novel",
+    "total_pubmed_hits_2024_2025": 0,
+    "past_pubmed_hits_le2023": 7,
+    "evidence_pmids": [],
+    "evidence_titles": [],
+    "rationale_layer1": "No papers found in PubMed 2024-2025.",
+    "rationale_layer2": "Layer 1 = not_investigated, past hits=7 ≤ 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3039",
+    "condition": "C2_bridge_quality",
+    "description": "Curcumin may modulate Neuroinflammation via STAT3 and NF-kB signaling",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 154,
+    "past_pubmed_hits_le2023": 255,
+    "evidence_pmids": [
+      "41594549",
+      "41446880",
+      "41438694",
+      "41432971",
+      "41425625"
+    ],
+    "evidence_titles": [
+      "Advances in Bioactive Compounds from Plants and Their Applications in Alzheimer's Disease.",
+      "The role of neuro-supportive substances of natural origin in neurological conditions-A literature-based formulators' perspective.",
+      "Curcumin reprograms metabolic pathways and MAPK signaling to exert antidepressant effects.",
+      "Tetrahydrocurcumin for Major Depressive Disorder with Therapeutic Potential and Mechanistic Insights from Clinical and Preclinical Studies.",
+      "Plant food-derived antioxidant nutrients in neuroprotection against chemotherapy-induced neurotoxicity: from molecular mechanisms to clinical applications."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 154 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=255 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3034",
+    "condition": "C2_bridge_quality",
+    "description": "Berberine may ameliorate NAFLD via AMPK-mediated insulin sensitization",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 38,
+    "past_pubmed_hits_le2023": 85,
+    "evidence_pmids": [
+      "41305635",
+      "41089338",
+      "40949129",
+      "40932836",
+      "40892742"
+    ],
+    "evidence_titles": [
+      "The Influence of Berberine on Vascular Function Parameters, Among Them VEGF, in Individuals with MAFLD: A Double-Blind, Randomized, Placebo-Controlled Trial.",
+      "Berberine's impact on health: Comprehensive biological, pharmacological, and nutritional perspectives.",
+      "Biochemical changes associated with non-alcoholic fatty liver disease in response to berberine treatment: a systematic review and meta-analysis of clinical and preclinical research.",
+      "Identifying novel therapeutic targets for non-alcoholic fatty liver disease using bioinformatics approaches: from drug repositioning to traditional Chinese medicine.",
+      "Mechanism of Huanglian Wendan Decoction in ameliorating non-alcoholic fatty liver disease via modulating gut microbiota-mediated metabolic reprogramming and activating the LKB1/AMPK pathway."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 38 total hits, 5 fetched; 4 supporting, 0 contradictory, 1 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=85 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3036",
+    "condition": "C2_bridge_quality",
+    "description": "Quercetin may attenuate Parkinson's Disease via BACE1-neuroinflammation axis",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 67,
+    "past_pubmed_hits_le2023": 186,
+    "evidence_pmids": [
+      "41504091",
+      "41438691",
+      "41405732",
+      "41399798",
+      "41351658"
+    ],
+    "evidence_titles": [
+      "Targeting the",
+      "Neuroprotective potential of polyherbal formulation: Evidence from preliminary",
+      "Systematic Characterization of LUHMES Cell-Based Parkinson's Disease Models Reveals Potential Novel Drug Targets.",
+      "Decoding natural products for neuroprotection: Pathway networks and structural insights for drug development.",
+      "Senolytics as Modulators of Critical Signaling Pathways: a Promising Strategy to Combat Brain Aging and Neurodegenerative Disorders."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 67 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=186 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3051",
+    "condition": "C2_bridge_quality",
+    "description": "Dasatinib may reduce Alzheimer's Disease via BCL-2 and apoptosis modulation",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 18,
+    "past_pubmed_hits_le2023": 27,
+    "evidence_pmids": [
+      "41351658",
+      "41265341",
+      "41126823",
+      "40982213",
+      "40713864"
+    ],
+    "evidence_titles": [
+      "Senolytics as Modulators of Critical Signaling Pathways: a Promising Strategy to Combat Brain Aging and Neurodegenerative Disorders.",
+      "A deep representation learning algorithm on drug-target interaction to screen novel drug candidates for Alzheimer's disease.",
+      "Targeting senescent microglia in progressive multiple sclerosis: a geroscience-informed approach.",
+      "Advancing Alzheimer's disease treatment: A literature review on senolytic intervention.",
+      "A human neuron alzheimer's disease model reveals barriers to senolytic translatability."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 18 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=27 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3063",
+    "condition": "C2_bridge_quality",
+    "description": "Berberine may delay Cell Senescence via AMPK activation",
+    "label_layer1": "supported",
+    "label_layer2": "novel_supported",
+    "total_pubmed_hits_2024_2025": 4,
+    "past_pubmed_hits_le2023": 8,
+    "evidence_pmids": [
+      "40907726",
+      "40785041",
+      "39829230",
+      "39721027"
+    ],
+    "evidence_titles": [
+      "Dingxin recipe III ameliorates endothelial cell senescence in atherosclerosis by activating the FOXO3a/PINK1/Parkin axis.",
+      "Tianma Granules Alleviate AOM/DSS-Induced Colorectal Tumorigenesis by Inhibiting the Wnt/β-Catenin Pathway Activation.",
+      "Berberine Inhibited SASP-Related Inflammation through RXRα/PPARγ/NEDD4 Pathway in Atherosclerosis.",
+      "Berberine Derivative B68 Promotes Tumor Immune Clearance by Dual-Targeting BMI1 for Senescence Induction and CSN5 for PD-L1 Degradation."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 4 total hits, 4 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Layer 1 positive AND past hits=8 ≤ 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3033",
+    "condition": "C2_bridge_quality",
+    "description": "Imatinib may inhibit MAPK-ERK via STAT3 inhibition",
+    "label_layer1": "investigated_but_inconclusive",
+    "label_layer2": "plausible_novel",
+    "total_pubmed_hits_2024_2025": 2,
+    "past_pubmed_hits_le2023": 14,
+    "evidence_pmids": [
+      "41150770",
+      "39981588"
+    ],
+    "evidence_titles": [
+      "Molecular Mechanisms and Clinical Implications of",
+      "SHP2 inhibition and adjuvant therapy synergistically target KIT-mutant GISTs via ERK1/2-regulated GSK3β/cyclin D1 pathway."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 2 total hits, 2 fetched; 1 supporting, 0 contradictory, 0 inconclusive. Evidence exists but mixed.",
+    "rationale_layer2": "Layer 1 = investigated_but_inconclusive, past hits=14 ≤ 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3065",
+    "condition": "C2_bridge_quality",
+    "description": "VEGFR Inhibition may attenuate Glioblastoma via tumor angiogenesis suppression",
+    "label_layer1": "not_investigated",
+    "label_layer2": "plausible_novel",
+    "total_pubmed_hits_2024_2025": 0,
+    "past_pubmed_hits_le2023": 5,
+    "evidence_pmids": [],
+    "evidence_titles": [],
+    "rationale_layer1": "No papers found in PubMed 2024-2025.",
+    "rationale_layer2": "Layer 1 = not_investigated, past hits=5 ≤ 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  },
+  {
+    "id": "H3047",
+    "condition": "C2_combined",
+    "description": "Erlotinib may suppress Lung Cancer via EGFR-PI3K-AKT pathway",
+    "label_layer1": "supported",
+    "label_layer2": "known_fact",
+    "total_pubmed_hits_2024_2025": 238,
+    "past_pubmed_hits_le2023": 4405,
+    "evidence_pmids": [
+      "41948055",
+      "41462168",
+      "41418598",
+      "41405423",
+      "41364874"
+    ],
+    "evidence_titles": [
+      "Comprehensive study of imidazole-based hydrazones: From design, synthesis, and characterization to in vitro and in silico antiproliferative activity analysis.",
+      "Hepatotoxicity and efficacy associated with first- and new-generation EGFR-TKIs in patients with NSCLC: a systematic review and meta-analysis.",
+      "Dual topoisomerase IIα/EGFR-TK inhibitors: Synthesis, biological evaluation, and in silico studies of new thiadiazolo[3,2-a]pyrimidinone derivatives as potential anticancer agents.",
+      "Assessing Second-Line Treatment Strategies and Outcomes in Epidermal Growth Factor Receptor (EGFR) Oncogene-Driven Stage IV Non-Small Cell Lung Cancer, Following a First-Line EGFR-TKI Therapy.",
+      "Osimertinib Versus First-Generation Epidermal Growth Factor Receptor Tyrosine Kinase Inhibitors for Metastatic EGFR-Mutant Non-Small Cell Lung Cancer: A Target Trial Emulation Study of Real-World Survival and Safety Outcomes."
+    ],
+    "rationale_layer1": "PubMed 2024-2025: 238 total hits, 5 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "rationale_layer2": "Past (≤2023) hits=4405 > threshold 20.",
+    "labeler": "automated_pubmed_keyword_v2",
+    "labeling_date": "2026-04-14"
+  }
+]

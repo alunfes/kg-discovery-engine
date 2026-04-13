@@ -1,0 +1,497 @@
+{
+  "total_pool": 70,
+  "broad_ge_0_7": 45,
+  "strict_ge_0_8": 11,
+  "per_hypothesis": [
+    {
+      "id": "H3001",
+      "subject_id": "chem:drug:metformin",
+      "object_id": "bio:process:cholesterol_synthesis",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3002",
+      "subject_id": "chem:drug:rapamycin",
+      "object_id": "bio:pathway:mtor_signaling",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.8
+    },
+    {
+      "id": "H3003",
+      "subject_id": "chem:drug:rapamycin",
+      "object_id": "bio:disease:breast_cancer",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.8
+    },
+    {
+      "id": "H3004",
+      "subject_id": "chem:drug:sildenafil",
+      "object_id": "bio:pathway:ampk_pathway",
+      "bridge_confidence_broad": 0.3,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3005",
+      "subject_id": "chem:drug:sildenafil",
+      "object_id": "bio:pathway:pi3k_akt",
+      "bridge_confidence_broad": 0.3,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3006",
+      "subject_id": "chem:drug:sildenafil",
+      "object_id": "bio:pathway:autophagy",
+      "bridge_confidence_broad": 0.3,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3007",
+      "subject_id": "chem:drug:sildenafil",
+      "object_id": "bio:disease:heart_failure",
+      "bridge_confidence_broad": 0.3,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3008",
+      "subject_id": "chem:drug:sildenafil",
+      "object_id": "bio:pathway:neuroinflammation",
+      "bridge_confidence_broad": 0.3,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3009",
+      "subject_id": "chem:drug:aspirin",
+      "object_id": "bio:protein:tnf_alpha",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3010",
+      "subject_id": "chem:drug:aspirin",
+      "object_id": "bio:pathway:amyloid_cascade",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3011",
+      "subject_id": "chem:drug:hydroxychloroquine",
+      "object_id": "bio:pathway:mtor_signaling",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.8
+    },
+    {
+      "id": "H3012",
+      "subject_id": "chem:drug:hydroxychloroquine",
+      "object_id": "bio:pathway:pi3k_akt",
+      "bridge_confidence_broad": 0.3,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3013",
+      "subject_id": "chem:compound:quercetin",
+      "object_id": "bio:protein:app",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3014",
+      "subject_id": "chem:compound:quercetin",
+      "object_id": "bio:disease:alzheimers",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3015",
+      "subject_id": "chem:compound:berberine",
+      "object_id": "bio:disease:type2_diabetes",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3016",
+      "subject_id": "chem:compound:berberine",
+      "object_id": "bio:process:cholesterol_synthesis",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3017",
+      "subject_id": "chem:compound:resveratrol",
+      "object_id": "bio:pathway:mtor_signaling",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.8
+    },
+    {
+      "id": "H3018",
+      "subject_id": "chem:compound:resveratrol",
+      "object_id": "bio:protein:sirt1",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.8
+    },
+    {
+      "id": "H3019",
+      "subject_id": "chem:compound:resveratrol",
+      "object_id": "bio:process:cell_senescence",
+      "bridge_confidence_broad": 0.3,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3020",
+      "subject_id": "chem:mechanism:mtor_inhibition",
+      "object_id": "bio:pathway:ampk_pathway",
+      "bridge_confidence_broad": 0.3,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3021",
+      "subject_id": "chem:drug:metformin",
+      "object_id": "bio:disease:alzheimers",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3022",
+      "subject_id": "chem:drug:metformin",
+      "object_id": "bio:disease:nafld",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3023",
+      "subject_id": "chem:drug:metformin",
+      "object_id": "bio:process:oxidative_stress",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3024",
+      "subject_id": "chem:drug:rapamycin",
+      "object_id": "bio:disease:parkinsons",
+      "bridge_confidence_broad": 0.3,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3025",
+      "subject_id": "chem:drug:rapamycin",
+      "object_id": "bio:disease:huntingtons",
+      "bridge_confidence_broad": 0.3,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3026",
+      "subject_id": "chem:drug:rapamycin",
+      "object_id": "bio:process:cell_senescence",
+      "bridge_confidence_broad": 0.3,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3027",
+      "subject_id": "chem:drug:aspirin",
+      "object_id": "bio:disease:colon_cancer",
+      "bridge_confidence_broad": 0.3,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3028",
+      "subject_id": "chem:drug:aspirin",
+      "object_id": "bio:disease:alzheimers",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3029",
+      "subject_id": "chem:drug:bortezomib",
+      "object_id": "bio:disease:huntingtons",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.8
+    },
+    {
+      "id": "H3030",
+      "subject_id": "chem:drug:bortezomib",
+      "object_id": "bio:pathway:apoptosis",
+      "bridge_confidence_broad": 0.3,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3031",
+      "subject_id": "chem:drug:valproic_acid",
+      "object_id": "bio:disease:glioblastoma",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3032",
+      "subject_id": "chem:drug:valproic_acid",
+      "object_id": "bio:process:epigenetic_silencing",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3033",
+      "subject_id": "chem:drug:imatinib",
+      "object_id": "bio:pathway:mapk_erk",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3034",
+      "subject_id": "chem:compound:berberine",
+      "object_id": "bio:disease:nafld",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3035",
+      "subject_id": "chem:compound:berberine",
+      "object_id": "bio:disease:parkinsons",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3036",
+      "subject_id": "chem:compound:quercetin",
+      "object_id": "bio:disease:parkinsons",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3037",
+      "subject_id": "chem:compound:curcumin",
+      "object_id": "bio:disease:rheumatoid_arthritis",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3038",
+      "subject_id": "chem:compound:curcumin",
+      "object_id": "bio:disease:alzheimers",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3039",
+      "subject_id": "chem:compound:curcumin",
+      "object_id": "bio:pathway:neuroinflammation",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3040",
+      "subject_id": "chem:compound:kaempferol",
+      "object_id": "bio:disease:colon_cancer",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.8
+    },
+    {
+      "id": "H3041",
+      "subject_id": "chem:compound:coenzyme_q10",
+      "object_id": "bio:disease:parkinsons",
+      "bridge_confidence_broad": 0.3,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3042",
+      "subject_id": "chem:compound:nicotinamide_riboside",
+      "object_id": "bio:disease:alzheimers",
+      "bridge_confidence_broad": 0.3,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3043",
+      "subject_id": "chem:compound:nicotinamide_riboside",
+      "object_id": "bio:disease:nafld",
+      "bridge_confidence_broad": 0.3,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3044",
+      "subject_id": "chem:compound:resveratrol",
+      "object_id": "bio:disease:nafld",
+      "bridge_confidence_broad": 0.3,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3045",
+      "subject_id": "chem:drug:hydroxychloroquine",
+      "object_id": "bio:disease:alzheimers",
+      "bridge_confidence_broad": 0.3,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3046",
+      "subject_id": "chem:drug:sildenafil",
+      "object_id": "bio:disease:alzheimers",
+      "bridge_confidence_broad": 0.3,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3047",
+      "subject_id": "chem:drug:erlotinib",
+      "object_id": "bio:disease:lung_cancer",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3048",
+      "subject_id": "chem:compound:egcg",
+      "object_id": "bio:disease:multiple_myeloma",
+      "bridge_confidence_broad": 0.3,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3049",
+      "subject_id": "chem:mechanism:sirt1_activation",
+      "object_id": "bio:process:neurodegeneration",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.8
+    },
+    {
+      "id": "H3050",
+      "subject_id": "chem:mechanism:pi3k_inhibition",
+      "object_id": "bio:process:tumor_angiogenesis",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.8
+    },
+    {
+      "id": "H3051",
+      "subject_id": "chem:drug:dasatinib",
+      "object_id": "bio:disease:alzheimers",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3052",
+      "subject_id": "chem:drug:dasatinib",
+      "object_id": "bio:process:cell_senescence",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3053",
+      "subject_id": "chem:drug:lithium",
+      "object_id": "bio:disease:alzheimers",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.8
+    },
+    {
+      "id": "H3054",
+      "subject_id": "chem:drug:lithium",
+      "object_id": "bio:disease:huntingtons",
+      "bridge_confidence_broad": 0.3,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3055",
+      "subject_id": "chem:compound:egcg",
+      "object_id": "bio:disease:alzheimers",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3056",
+      "subject_id": "chem:compound:egcg",
+      "object_id": "bio:pathway:neuroinflammation",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3057",
+      "subject_id": "chem:compound:curcumin",
+      "object_id": "bio:disease:parkinsons",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3058",
+      "subject_id": "chem:compound:curcumin",
+      "object_id": "bio:disease:glioblastoma",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3059",
+      "subject_id": "chem:mechanism:hdac_inhibition",
+      "object_id": "bio:disease:glioblastoma",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3060",
+      "subject_id": "chem:mechanism:hdac_inhibition",
+      "object_id": "bio:process:neurodegeneration",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3061",
+      "subject_id": "chem:drug:gefitinib",
+      "object_id": "bio:disease:breast_cancer",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3062",
+      "subject_id": "chem:compound:berberine",
+      "object_id": "bio:disease:huntingtons",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3063",
+      "subject_id": "chem:compound:berberine",
+      "object_id": "bio:process:cell_senescence",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3064",
+      "subject_id": "chem:mechanism:bcl2_inhibition",
+      "object_id": "bio:disease:leukemia_cml",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3065",
+      "subject_id": "chem:mechanism:vegfr_inhibition",
+      "object_id": "bio:disease:glioblastoma",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3066",
+      "subject_id": "chem:compound:kaempferol",
+      "object_id": "bio:disease:breast_cancer",
+      "bridge_confidence_broad": 0.8,
+      "bridge_confidence_strict": 0.8
+    },
+    {
+      "id": "H3067",
+      "subject_id": "chem:compound:resveratrol",
+      "object_id": "bio:disease:parkinsons",
+      "bridge_confidence_broad": 0.3,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3068",
+      "subject_id": "chem:drug:sildenafil",
+      "object_id": "bio:disease:parkinsons",
+      "bridge_confidence_broad": 0.3,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3069",
+      "subject_id": "chem:drug:hydroxychloroquine",
+      "object_id": "bio:disease:glioblastoma",
+      "bridge_confidence_broad": 0.3,
+      "bridge_confidence_strict": 0.3
+    },
+    {
+      "id": "H3070",
+      "subject_id": "chem:compound:coenzyme_q10",
+      "object_id": "bio:disease:heart_failure",
+      "bridge_confidence_broad": 0.3,
+      "bridge_confidence_strict": 0.3
+    }
+  ]
+}

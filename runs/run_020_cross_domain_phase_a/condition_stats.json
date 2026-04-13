@@ -1,0 +1,122 @@
+{
+  "C2_baseline": {
+    "total": 30,
+    "threshold_used": 20,
+    "layer1_counts": {
+      "supported": 22,
+      "partially_supported": 3,
+      "contradicted": 0,
+      "investigated_but_inconclusive": 3,
+      "not_investigated": 2
+    },
+    "layer2_counts": {
+      "known_fact": 22,
+      "novel_supported": 4,
+      "plausible_novel": 4,
+      "implausible": 0
+    },
+    "investigated": 28,
+    "positive_l1": 25,
+    "investigability": 0.9333,
+    "novel_supported": 4,
+    "novel_supported_rate": 0.1429,
+    "known_fact_count": 22,
+    "known_fact_rate": 0.7333
+  },
+  "C2_bridge_quality": {
+    "total": 30,
+    "threshold_used": 20,
+    "layer1_counts": {
+      "supported": 23,
+      "partially_supported": 1,
+      "contradicted": 0,
+      "investigated_but_inconclusive": 3,
+      "not_investigated": 3
+    },
+    "layer2_counts": {
+      "known_fact": 19,
+      "novel_supported": 5,
+      "plausible_novel": 6,
+      "implausible": 0
+    },
+    "investigated": 27,
+    "positive_l1": 24,
+    "investigability": 0.9,
+    "novel_supported": 5,
+    "novel_supported_rate": 0.1852,
+    "known_fact_count": 19,
+    "known_fact_rate": 0.6333
+  },
+  "C2_alignment_precision": {
+    "total": 11,
+    "threshold_used": 20,
+    "layer1_counts": {
+      "supported": 8,
+      "partially_supported": 2,
+      "contradicted": 0,
+      "investigated_but_inconclusive": 0,
+      "not_investigated": 1
+    },
+    "layer2_counts": {
+      "known_fact": 7,
+      "novel_supported": 3,
+      "plausible_novel": 1,
+      "implausible": 0
+    },
+    "investigated": 10,
+    "positive_l1": 10,
+    "investigability": 0.9091,
+    "novel_supported": 3,
+    "novel_supported_rate": 0.3,
+    "known_fact_count": 7,
+    "known_fact_rate": 0.6364
+  },
+  "C2_novelty_ceiling": {
+    "total": 8,
+    "threshold_used": 20,
+    "layer1_counts": {
+      "supported": 7,
+      "partially_supported": 1,
+      "contradicted": 0,
+      "investigated_but_inconclusive": 0,
+      "not_investigated": 0
+    },
+    "layer2_counts": {
+      "known_fact": 8,
+      "novel_supported": 0,
+      "plausible_novel": 0,
+      "implausible": 0
+    },
+    "investigated": 8,
+    "positive_l1": 8,
+    "investigability": 1.0,
+    "novel_supported": 0,
+    "novel_supported_rate": 0.0,
+    "known_fact_count": 8,
+    "known_fact_rate": 1.0
+  },
+  "C2_combined": {
+    "total": 6,
+    "threshold_used": 20,
+    "layer1_counts": {
+      "supported": 5,
+      "partially_supported": 1,
+      "contradicted": 0,
+      "investigated_but_inconclusive": 0,
+      "not_investigated": 0
+    },
+    "layer2_counts": {
+      "known_fact": 6,
+      "novel_supported": 0,
+      "plausible_novel": 0,
+      "implausible": 0
+    },
+    "investigated": 6,
+    "positive_l1": 6,
+    "investigability": 1.0,
+    "novel_supported": 0,
+    "novel_supported_rate": 0.0,
+    "known_fact_count": 6,
+    "known_fact_rate": 1.0
+  }
+}

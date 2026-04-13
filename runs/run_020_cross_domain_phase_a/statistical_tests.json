@@ -1,0 +1,94 @@
+{
+  "C2_baseline": {
+    "condition": "C2_baseline",
+    "N": 30,
+    "investigability": 0.9333,
+    "investigated": 28,
+    "note": "baseline"
+  },
+  "C2_bridge_quality": {
+    "condition": "C2_bridge_quality",
+    "N": 30,
+    "investigability": 0.9,
+    "investigated": 27,
+    "vs_baseline": {
+      "baseline_investigability": 0.9333,
+      "baseline_N": 30,
+      "contingency": {
+        "a": 27,
+        "b": 3,
+        "c": 28,
+        "d": 2
+      },
+      "p_value_vs_baseline": 0.8234,
+      "test": "Fisher exact one-sided (cond > baseline)"
+    },
+    "passed_0.95": false
+  },
+  "C2_alignment_precision": {
+    "condition": "C2_alignment_precision",
+    "N": 11,
+    "investigability": 0.9091,
+    "investigated": 10,
+    "vs_baseline": {
+      "baseline_investigability": 0.9333,
+      "baseline_N": 30,
+      "contingency": {
+        "a": 10,
+        "b": 1,
+        "c": 28,
+        "d": 2
+      },
+      "p_value_vs_baseline": 0.8297,
+      "test": "Fisher exact one-sided (cond > baseline)"
+    },
+    "passed_0.95": false
+  },
+  "C2_novelty_ceiling": {
+    "condition": "C2_novelty_ceiling",
+    "N": 8,
+    "investigability": 1.0,
+    "investigated": 8,
+    "vs_baseline": {
+      "baseline_investigability": 0.9333,
+      "baseline_N": 30,
+      "contingency": {
+        "a": 8,
+        "b": 0,
+        "c": 28,
+        "d": 2
+      },
+      "p_value_vs_baseline": 0.6188,
+      "test": "Fisher exact one-sided (cond > baseline)"
+    },
+    "passed_0.95": true
+  },
+  "C2_combined": {
+    "condition": "C2_combined",
+    "N": 6,
+    "investigability": 1.0,
+    "investigated": 6,
+    "vs_baseline": {
+      "baseline_investigability": 0.9333,
+      "baseline_N": 30,
+      "contingency": {
+        "a": 6,
+        "b": 0,
+        "c": 28,
+        "d": 2
+      },
+      "p_value_vs_baseline": 0.6905,
+      "test": "Fisher exact one-sided (cond > baseline)"
+    },
+    "passed_0.95": true
+  },
+  "overall": {
+    "go_nogo": "NO-GO",
+    "bridge_quality_inv_ge_0.95": false,
+    "alignment_precision_inv_ge_0.95": false,
+    "any_primary_condition_passed": false,
+    "interpretation": "全条件で investigability ≤ 0.92 → align ではなく文献密度の構造的問題 → P2 優先度下げ",
+    "c1_reference_investigability": 0.971,
+    "c2_baseline_reference_investigability": 0.914
+  }
+}
