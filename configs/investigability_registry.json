@@ -24,9 +24,10 @@
     "SC_inv_replication": "C2 investigability >= 0.85 (run_017 was 0.920)"
   },
   "sensitivity_analysis": "known_fact threshold at 20/50/100/200 \u2014 exploratory only, does not change primary conclusion",
-  "kg_generation_commit": null,
-  "hypothesis_generation_commit": null,
-  "frozen": false,
+  "kg_generation_commit": "00534ebf74b499d10259a34c4a44f57843244e9e",
+  "hypothesis_generation_commit": "00534ebf74b499d10259a34c4a44f57843244e9e",
+  "frozen": true,
+  "frozen_at": "2026-04-14",
   "notes": [
     "This experiment is NOT intended to rescue SC-1r (novel_supported_rate FAIL in run_017).",
     "The sole purpose is to replicate SC-3r (investigability PASS, p=0.0007) with larger N.",
