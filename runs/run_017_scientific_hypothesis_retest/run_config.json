@@ -1,0 +1,36 @@
+{
+  "run_id": "run_017_scientific_hypothesis_retest",
+  "date": "2026-04-14T00:23:37Z",
+  "description": "Phase 3 re-test: C_rand v2 (blacklisted known pairs) + N=50 per method",
+  "seed": 42,
+  "rationale": "Phase 2 NO-GO was caused by C_rand v1 baseline bias: KG-path traversal included trivially-known pairs (HER2→breast_cancer etc.) giving C_rand precision=1.000. C2's 0.833 reflects genuine novelty. C_rand v2 uses truly random sampling with known-pair blacklist.",
+  "changes_from_v1": [
+    "C_rand redesigned: random pair sampling (no KG traversal)",
+    "Known-pair blacklist: KG 1-hop edges + trivially-known pairs",
+    "N increased: 20→50 per method",
+    "New endpoints: SC-1r through SC-4r (novel_supported_rate focus)",
+    "Two-layer labeling: Layer1=5-class, Layer2=known_fact/novel_supported/..."
+  ],
+  "methods": {
+    "C2_multi_op": {
+      "description": "Multi-op cross-domain pipeline (align→compose)",
+      "n": 50
+    },
+    "C1_compose": {
+      "description": "Single-op bio-only compose",
+      "n": 50
+    },
+    "C_rand_v2": {
+      "description": "Truly random cross-domain pairs; excludes KG 1-hop edges and trivially-known pairs",
+      "n": 50,
+      "blacklist_kg_edges": 35,
+      "blacklist_known_pairs": 34
+    }
+  },
+  "results": {
+    "C2_multi_op": 50,
+    "C1_compose": 50,
+    "C_rand_v2": 50,
+    "total": 150
+  }
+}
