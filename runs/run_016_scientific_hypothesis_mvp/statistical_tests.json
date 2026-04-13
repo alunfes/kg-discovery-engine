@@ -1,0 +1,100 @@
+{
+  "run_id": "run_016_scientific_hypothesis_mvp",
+  "test_date": "2026-04-13",
+  "label_summary": {
+    "C2": {
+      "total": 20,
+      "counts": {
+        "supported": 13,
+        "partially_supported": 2,
+        "contradicted": 0,
+        "investigated_but_inconclusive": 3,
+        "not_investigated": 2
+      },
+      "investigated": 18,
+      "positive": 15,
+      "precision_positive": 0.8333333333333334,
+      "investigability": 0.9,
+      "high_novelty_uninvestigated": 2,
+      "high_novelty_uninvestigated_rate": 0.1
+    },
+    "C1": {
+      "total": 20,
+      "counts": {
+        "supported": 17,
+        "partially_supported": 3,
+        "contradicted": 0,
+        "investigated_but_inconclusive": 0,
+        "not_investigated": 0
+      },
+      "investigated": 20,
+      "positive": 20,
+      "precision_positive": 1.0,
+      "investigability": 1.0,
+      "high_novelty_uninvestigated": 0,
+      "high_novelty_uninvestigated_rate": 0.0
+    },
+    "C_rand": {
+      "total": 20,
+      "counts": {
+        "supported": 15,
+        "partially_supported": 5,
+        "contradicted": 0,
+        "investigated_but_inconclusive": 0,
+        "not_investigated": 0
+      },
+      "investigated": 20,
+      "positive": 20,
+      "precision_positive": 1.0,
+      "investigability": 1.0,
+      "high_novelty_uninvestigated": 0,
+      "high_novelty_uninvestigated_rate": 0.0
+    }
+  },
+  "tests": {
+    "SC_1": {
+      "description": "precision_positive(C2) > precision_positive(C_rand)",
+      "test": "Fisher exact one-sided",
+      "alpha": 0.05,
+      "required": true,
+      "c2_precision": 0.8333333333333334,
+      "crand_precision": 1.0,
+      "contingency": {
+        "a": 15,
+        "b": 3,
+        "c": 20,
+        "d": 0
+      },
+      "p_value": 1.0,
+      "passed": false,
+      "note": "C2 precision=0.833 (+15/18) vs C_rand precision=1.000 (+20/20); p=1.0000"
+    },
+    "SC_2": {
+      "description": "investigability(C2) >= investigability(C_rand)",
+      "test": "Fisher exact one-sided + descriptive 95 CI",
+      "required": false,
+      "c2_investigability": 0.9,
+      "crand_investigability": 1.0,
+      "p_value": 1.0,
+      "passed": false,
+      "note": "C2=18/20 vs C_rand=20/20; p=1.0000"
+    },
+    "SC_3": {
+      "description": "high_novelty_uninvestigated_rate(C2) > C_rand",
+      "test": "Fisher exact one-sided",
+      "required": false,
+      "c2_rate": 0.1,
+      "crand_rate": 0.0,
+      "p_value": 0.24358974358974358,
+      "passed": false,
+      "note": "C2=2/20 vs C_rand=0/20; p=0.2436"
+    },
+    "overall": {
+      "go_nogo": "NO-GO",
+      "sc1_required": false,
+      "sc2_optional": false,
+      "sc3_optional": false,
+      "summary": "NO-GO | SC-1(req)=FAIL | SC-2=FAIL | SC-3=FAIL"
+    }
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "run_id": "run_017_scientific_hypothesis_retest",
+  "test_date": "2026-04-14",
+  "label_summary": {
+    "C2": {
+      "total": 50,
+      "layer1_counts": {
+        "supported": 38,
+        "partially_supported": 3,
+        "contradicted": 0,
+        "investigated_but_inconclusive": 5,
+        "not_investigated": 4
+      },
+      "layer2_counts": {
+        "known_fact": 37,
+        "novel_supported": 6,
+        "plausible_novel": 7,
+        "implausible": 0
+      },
+      "investigated": 46,
+      "positive_l1": 41,
+      "precision_l1": 0.8913043478260869,
+      "investigability": 0.92,
+      "novel_supported": 6,
+      "novel_supported_rate": 0.13043478260869565,
+      "plausible_novelty_rate": 0.26,
+      "known_fact_count": 37,
+      "known_fact_rate": 0.74,
+      "implausible": 0
+    },
+    "C1": {
+      "total": 50,
+      "layer1_counts": {
+        "supported": 43,
+        "partially_supported": 5,
+        "contradicted": 0,
+        "investigated_but_inconclusive": 1,
+        "not_investigated": 1
+      },
+      "layer2_counts": {
+        "known_fact": 46,
+        "novel_supported": 4,
+        "plausible_novel": 0,
+        "implausible": 0
+      },
+      "investigated": 49,
+      "positive_l1": 48,
+      "precision_l1": 0.9795918367346939,
+      "investigability": 0.98,
+      "novel_supported": 4,
+      "novel_supported_rate": 0.08163265306122448,
+      "plausible_novelty_rate": 0.08,
+      "known_fact_count": 46,
+      "known_fact_rate": 0.92,
+      "implausible": 0
+    },
+    "C_rand_v2": {
+      "total": 50,
+      "layer1_counts": {
+        "supported": 22,
+        "partially_supported": 5,
+        "contradicted": 0,
+        "investigated_but_inconclusive": 5,
+        "not_investigated": 18
+      },
+      "layer2_counts": {
+        "known_fact": 21,
+        "novel_supported": 7,
+        "plausible_novel": 22,
+        "implausible": 0
+      },
+      "investigated": 32,
+      "positive_l1": 27,
+      "precision_l1": 0.84375,
+      "investigability": 0.64,
+      "novel_supported": 7,
+      "novel_supported_rate": 0.21875,
+      "plausible_novelty_rate": 0.58,
+      "known_fact_count": 21,
+      "known_fact_rate": 0.42,
+      "implausible": 0
+    }
+  },
+  "tests": {
+    "SC_1r": {
+      "name": "SC-1r",
+      "description": "novel_supported_rate(C2) > novel_supported_rate(C_rand_v2)",
+      "test": "Fisher exact one-sided",
+      "alpha": 0.05,
+      "primary": true,
+      "c2_rate": 0.13043478260869565,
+      "crand_rate": 0.21875,
+      "contingency": {
+        "a": 6,
+        "b": 40,
+        "c": 7,
+        "d": 25
+      },
+      "p_value": 0.9087568711940343,
+      "passed": false,
+      "note": "C2 novel_supported=6/46 vs C_rand_v2 novel_supported=7/32; p=0.9088"
+    },
+    "SC_2r": {
+      "name": "SC-2r",
+      "description": "plausible_novelty_rate(C2) > plausible_novelty_rate(C_rand_v2)",
+      "test": "Fisher exact one-sided",
+      "primary": false,
+      "c2_rate": 0.26,
+      "crand_rate": 0.58,
+      "contingency": {
+        "a": 13,
+        "b": 37,
+        "c": 29,
+        "d": 21
+      },
+      "p_value": 0.9997498035964845,
+      "passed": false,
+      "note": "C2=13/50 vs C_rand_v2=29/50; p=0.9997"
+    },
+    "SC_3r": {
+      "name": "SC-3r",
+      "description": "investigability(C2) >= investigability(C_rand_v2)",
+      "test": "Fisher exact one-sided + descriptive",
+      "primary": false,
+      "c2_rate": 0.92,
+      "crand_rate": 0.64,
+      "p_value": 0.0006566869444542299,
+      "passed": true,
+      "note": "C2=46/50 vs C_rand_v2=32/50; p=0.0007"
+    },
+    "SC_4r": {
+      "name": "SC-4r",
+      "description": "known_fact_rate(C2) < known_fact_rate(C_rand_v2) [exploratory]",
+      "test": "Fisher exact one-sided (C_rand_v2 > C2 direction)",
+      "primary": false,
+      "c2_rate": 0.74,
+      "crand_rate": 0.42,
+      "contingency": {
+        "a": 37,
+        "b": 13,
+        "c": 21,
+        "d": 29
+      },
+      "p_value": 0.9997498035964845,
+      "passed": false,
+      "note": "C2 known_fact=37/50 vs C_rand_v2 known_fact=21/50; p=0.9997"
+    },
+    "overall": {
+      "go_nogo": "NO-GO",
+      "sc1r_primary": false,
+      "sc2r_optional": false,
+      "sc3r_optional": true,
+      "sc4r_exploratory": false,
+      "summary": "NO-GO | SC-1r(primary)=FAIL | SC-2r=FAIL | SC-3r=PASS | SC-4r=FAIL"
+    }
+  }
+}

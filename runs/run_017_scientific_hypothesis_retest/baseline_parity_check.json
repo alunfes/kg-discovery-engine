@@ -1,0 +1,37 @@
+{
+  "C2": {
+    "method": "C2_multi_op",
+    "count": 50,
+    "avg_chain_length": 6.04,
+    "min_chain_length": 5,
+    "max_chain_length": 7,
+    "cross_domain_count": 50,
+    "cross_domain_ratio": 1.0
+  },
+  "C1": {
+    "method": "C1_compose",
+    "count": 50,
+    "avg_chain_length": 4.6,
+    "min_chain_length": 3,
+    "max_chain_length": 7,
+    "cross_domain_count": 0,
+    "cross_domain_ratio": 0.0
+  },
+  "C_rand_v2": {
+    "method": "C_rand_v2",
+    "count": 50,
+    "avg_chain_length": 3.0,
+    "min_chain_length": 3,
+    "max_chain_length": 3,
+    "cross_domain_count": 50,
+    "cross_domain_ratio": 1.0
+  },
+  "parity_ok": true,
+  "rationale": "v2: C_rand_v2 is truly random sampling (no KG-path traversal). Cross-domain ratio maintained. Known-fact pairs excluded via blacklist.",
+  "blacklist_size": {
+    "kg_direct_edges": 35,
+    "trivially_known": 34,
+    "c2_pairs_excluded": 50,
+    "total": 142
+  }
+}
