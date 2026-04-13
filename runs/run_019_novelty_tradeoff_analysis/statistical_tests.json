@@ -1,0 +1,26 @@
+{
+  "test1_novelty_high_vs_low": {
+    "description": "Investigability: novelty\u22650.6 vs novelty<0.4 (Fisher one-sided)",
+    "high_novelty_n": 142,
+    "high_novelty_investigated": 108,
+    "high_novelty_rate": 0.7606,
+    "low_novelty_n": 23,
+    "low_novelty_investigated": 22,
+    "low_novelty_rate": 0.9565,
+    "p_value_one_sided": 0.99738,
+    "direction": "low_group_more_investigable",
+    "significant_p05": false
+  },
+  "test2_c2_vs_crand_sweet_spot": {
+    "description": "Sweet spot occupancy: C2 vs C_rand (Fisher one-sided)",
+    "c2_sweet_spot": 64,
+    "c2_not_sweet_spot": 6,
+    "c2_sweet_spot_rate": 0.9143,
+    "crand_sweet_spot": 42,
+    "crand_not_sweet_spot": 28,
+    "crand_sweet_spot_rate": 0.6,
+    "p_value_one_sided": 1.1e-05,
+    "direction": "high_group_more_investigable",
+    "significant_p05": true
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "overall": {
+    "n_total": 210,
+    "n_high_novelty": 187,
+    "high_novelty_rate": 0.8905,
+    "n_sweet_spot": 152,
+    "sweet_spot_rate_of_total": 0.7238,
+    "investigability_in_high_novelty": 0.8128,
+    "sweet_spot_threshold_novelty": 0.4,
+    "sweet_spot_threshold_investigability": 0.9
+  },
+  "C1_compose": {
+    "n_total": 70,
+    "n_high_novelty": 47,
+    "high_novelty_rate": 0.6714,
+    "n_sweet_spot": 46,
+    "sweet_spot_rate_of_total": 0.6571,
+    "investigability_in_high_novelty": 0.9787,
+    "sweet_spot_threshold_novelty": 0.4,
+    "sweet_spot_threshold_investigability": 0.9
+  },
+  "C2_multi_op": {
+    "n_total": 70,
+    "n_high_novelty": 70,
+    "high_novelty_rate": 1.0,
+    "n_sweet_spot": 64,
+    "sweet_spot_rate_of_total": 0.9143,
+    "investigability_in_high_novelty": 0.9143,
+    "sweet_spot_threshold_novelty": 0.4,
+    "sweet_spot_threshold_investigability": 0.9
+  },
+  "C_rand_v2": {
+    "n_total": 70,
+    "n_high_novelty": 70,
+    "high_novelty_rate": 1.0,
+    "n_sweet_spot": 42,
+    "sweet_spot_rate_of_total": 0.6,
+    "investigability_in_high_novelty": 0.6,
+    "sweet_spot_threshold_novelty": 0.4,
+    "sweet_spot_threshold_investigability": 0.9
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "run_id": "run_019_novelty_tradeoff_analysis",
+  "date": "2026-04-13T22:51:23Z",
+  "description": "P3: Novelty-investigability tradeoff analysis on run_018 N=210",
+  "seed": 42,
+  "source_run": "run_018_investigability_replication",
+  "n_total": 210,
+  "novelty_weights": {
+    "path_length": 0.3,
+    "cross_domain": 0.3,
+    "popularity": 0.4
+  },
+  "sweet_spot_thresholds": {
+    "investigability": 0.9,
+    "novelty": 0.4
+  },
+  "note_entity_popularity": "entity_popularity_score uses existing past_pubmed_hits_le2023 from Layer 2 data (combined subject+object hits in \u22642023 corpus). This avoids redundant API calls and directly captures hypothesis-level prior literature density."
+}
