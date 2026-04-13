@@ -1,0 +1,37 @@
+{
+  "experiment_id": "investigability_v2",
+  "primary_hypothesis": "H1_inv: KG multi-op generates more investigable hypotheses than random/single-op",
+  "primary_endpoint": "investigability_rate: investigated / total",
+  "statistical_test": "Fisher's exact test, one-sided, p < 0.05",
+  "methods": {
+    "C2_multi_op": {
+      "description": "align \u2192 union \u2192 compose (biology + chemistry KG)",
+      "n": 70
+    },
+    "C1_single_op": {
+      "description": "compose only (biology KG)",
+      "n": 70
+    },
+    "C_rand_v2": {
+      "description": "randomized baseline v2 (known-fact excluded)",
+      "n": 70
+    }
+  },
+  "total_hypotheses": 210,
+  "success_criteria": {
+    "SC_inv_primary": "C2 investigability > C_rand_v2 investigability, Fisher p < 0.05",
+    "SC_inv_secondary": "C2 investigability > C1 investigability, Fisher p < 0.10",
+    "SC_inv_replication": "C2 investigability >= 0.85 (run_017 was 0.920)"
+  },
+  "sensitivity_analysis": "known_fact threshold at 20/50/100/200 \u2014 exploratory only, does not change primary conclusion",
+  "kg_generation_commit": null,
+  "hypothesis_generation_commit": null,
+  "frozen": false,
+  "notes": [
+    "This experiment is NOT intended to rescue SC-1r (novel_supported_rate FAIL in run_017).",
+    "The sole purpose is to replicate SC-3r (investigability PASS, p=0.0007) with larger N.",
+    "SC-1r was definitively FAIL in run_017 and is not re-tested here.",
+    "If SC_inv_primary FAIL, investigability hypothesis is rejected. No further phases.",
+    "Pre-registered before any data collection to prevent HARKing from run_017 SC-3r result."
+  ]
+}
