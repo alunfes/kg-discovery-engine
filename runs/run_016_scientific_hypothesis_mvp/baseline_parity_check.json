@@ -1,0 +1,25 @@
+{
+  "C2_multi_op": {
+    "method": "C2_multi_op",
+    "count": 20,
+    "avg_chain_length": 5.0,
+    "min_chain_length": 5,
+    "max_chain_length": 5
+  },
+  "C1_compose": {
+    "method": "C1_compose",
+    "count": 20,
+    "avg_chain_length": 5.0,
+    "min_chain_length": 5,
+    "max_chain_length": 5
+  },
+  "C_rand": {
+    "method": "C_rand",
+    "count": 20,
+    "avg_chain_length": 4.5,
+    "min_chain_length": 3,
+    "max_chain_length": 5
+  },
+  "parity_feasible": true,
+  "note": "C_rand samples with same chain length distribution as C2. Relation composition differs by design (cross-domain vs random)."
+}

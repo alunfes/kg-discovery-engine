@@ -1,0 +1,2533 @@
+{
+  "run_id": "run_016_scientific_hypothesis_mvp",
+  "retrieval_date": "2026-04-13",
+  "validation_period": {
+    "start": "2024/01/01",
+    "end": "2025/12/31"
+  },
+  "method": "PubMed_E-utilities_esearch_efetch",
+  "per_hypothesis": {
+    "H0014": {
+      "hypothesis_id": "H0014",
+      "search_query": "\"metformin\" AND \"cholesterol biosynthesis\"",
+      "subject_term": "metformin",
+      "object_term": "cholesterol biosynthesis",
+      "total_hits": 3,
+      "pmids_fetched": [
+        "40097416",
+        "39775614",
+        "38798180"
+      ],
+      "papers": [
+        {
+          "pmid": "40097416",
+          "title": "High glucose levels promote glycolysis and cholesterol synthesis via ERRα and suppress the autophagy-lysosomal pathway in endometrial cancer.",
+          "abstract_snippet": "Endometrial cancer (EC) patients with Diabetes Mellitus (DM) always have a poor prognosis. Estrogen-related receptor α (ERRα) is known as the metabolic-related prognostic factor for EC. However, the mechanism linking glycolipid metabolism dysfunction mediated by ERRα to poor prognosis of EC with DM is still unclear. In vitro, high-glucose (HG) leve",
+          "year": "2025"
+        },
+        {
+          "pmid": "39775614",
+          "title": "Repurposing of Metabolic Drugs Metformin and Simvastatin as an Emerging Class of Cancer Therapeutics.",
+          "abstract_snippet": "Metabolic alterations are commonly associated with various cancers and are recognized as contributing factors to cancer progression, invasion, and metastasis. Drug repurposing, a strategy in drug discovery, utilizes existing knowledge to recommend established drugs for new indications based on clinical data or biological evidence. This approach is ",
+          "year": "2025"
+        },
+        {
+          "pmid": "38798180",
+          "title": "Early life interventions metformin and trodusquemine metabolically reprogram the developing mouse liver through transcriptomic alterations.",
+          "abstract_snippet": "Recent studies have demonstrated the remarkable potential of early life intervention strategies at influencing the course of postnatal development, thereby offering exciting possibilities for enhancing longevity and improving overall health. Metformin (MF), an FDA-approved medication for type II diabetes mellitus, has recently gained attention for ",
+          "year": "2024"
+        }
+      ],
+      "api_error": null
+    },
+    "H0018": {
+      "hypothesis_id": "H0018",
+      "search_query": "\"rapamycin\" AND \"mTOR signaling\"",
+      "subject_term": "rapamycin",
+      "object_term": "mTOR signaling",
+      "total_hits": 865,
+      "pmids_fetched": [
+        "41839601",
+        "41656814",
+        "41561043",
+        "41521996",
+        "41516092"
+      ],
+      "papers": [
+        {
+          "pmid": "41839601",
+          "title": "[Protective mechanism of electroacupuncture on gastric mucosa in rats with chronic atrophic gastritis based on PI3K/AKT/mTOR signaling pathway].",
+          "abstract_snippet": "To observe the effect of electroacupuncture (EA) on phosphatidylinositol 3-kinase (PI3K)/protein kinase B (AKT)/mammalian target of rapamycin (mTOR) signaling pathway in rats with chronic atrophic gastritis (CAG) and explore the protective mechanism of EA on gastric mucosa in CAG rats.",
+          "year": "2026"
+        },
+        {
+          "pmid": "41656814",
+          "title": "[Retinal protective effects of zinc",
+          "abstract_snippet": "Glaucoma is pathologically characterized by the progressive loss of retinal ganglion cells (RGCs). Currently, effective strategies for protection of RGCs in glaucoma remain lacking, and nanomaterials represent promising drug-delivery carriers. This study aims to investigate the effects of zinc-loaded magnesium oxide nanoparticles (MgO-Zn²⁺ nanopart",
+          "year": "2025"
+        },
+        {
+          "pmid": "41561043",
+          "title": "",
+          "abstract_snippet": "This study aimed to evaluate the efficacy of",
+          "year": "2025"
+        },
+        {
+          "pmid": "41521996",
+          "title": "Therapeutic effects of Melittin acupoint injection on rheumatoid arthritis through autophagy activation and PI3K/AKT/mTOR pathway inhibition.",
+          "abstract_snippet": "Rheumatoid arthritis (RA) is a chronic inflammatory autoimmune disease that leads to cartilage degradation and bone destruction, significantly impacting daily life. Melittin acupoint injection (MAI) is a promising traditional Chinese medicine treatment, but its molecular mechanisms are not fully understood. This study aimed to investigate the thera",
+          "year": "2026"
+        },
+        {
+          "pmid": "41516092",
+          "title": "Targeting the MAPK Pathway in Cancer.",
+          "abstract_snippet": "The mitogen-activated protein kinase (MAPK) signaling cascade is fundamental in regulating cellular proliferation and differentiation, cell survival and cell death via apoptosis. Disruption of the MAPK signaling cascade at any point can lead to the evasion of apoptosis and unchecked cell growth and proliferation, leading to oncogenesis. This narrat",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H0019": {
+      "hypothesis_id": "H0019",
+      "search_query": "\"rapamycin\" AND \"breast cancer\"",
+      "subject_term": "rapamycin",
+      "object_term": "breast cancer",
+      "total_hits": 166,
+      "pmids_fetched": [
+        "41640662",
+        "41509976",
+        "41502518",
+        "41502508",
+        "41456140"
+      ],
+      "papers": [
+        {
+          "pmid": "41640662",
+          "title": "Investigating the Effects of Morin and Aminoimidazole Carboxamide Ribonucleotide on the AMPK/mTOR/ULK1 Signaling Pathway in Breast Cancer Cell Line (MCF-7).",
+          "abstract_snippet": "Breast cancer, one of the most prevalent cancers, remains the leading cause of mortality worldwide. Dysregulation of autophagy and apoptosis regulators is closely associated with cancer progression. AMP-activated protein kinase (AMPK) plays a critical role in tumorigenesis by regulating these processes. This study aimed to investigate the anticance",
+          "year": "2025"
+        },
+        {
+          "pmid": "41509976",
+          "title": "Bioinspired membrane-fusogenic nanomicelles for synergistic chemotherapy, photodynamic therapy, and gas therapy of breast cancer.",
+          "abstract_snippet": "Breast cancer remains the most prevalent malignancy globally, posing significant therapeutic challenges. Although nanodelivery systems offer promising strategies for breast cancer therapy, their clinical translation is hindered by critical limitations, including suboptimal biocompatibility, rapid immune clearance, poor targeting specificity, ineffi",
+          "year": "2026"
+        },
+        {
+          "pmid": "41502518",
+          "title": "miR-512-3p/RPS6KA2 Axis Regulates Cisplatin Resistance in Ovarian Cancer via Autophagy and Ferroptosis.",
+          "abstract_snippet": "Ribosomal protein S6 kinase A2 (RPS6KA2) has been identified as a potential prognostic biomarker in several cancers, including breast cancer, glioblastoma, and prostate cancer. However, its functional significance in ovarian cancer is not well characterized. This study was designed to explore the therapeutic relevance of modulating RPS6KA2 in the c",
+          "year": "2025"
+        },
+        {
+          "pmid": "41502508",
+          "title": "ZMIZ2/MCM3 Axis Participates in Triple-Negative Breast Cancer Progression.",
+          "abstract_snippet": "Triple-negative breast cancer (TNBC) is highly aggressive and lacks an effective targeted therapy. This study aimed to elucidate the functions and possible mechanisms of action of zinc finger miz-type containing 2 (ZMIZ2) and minichromosome maintenance complex component 3 (MCM3) in TNBC progression.",
+          "year": "2025"
+        },
+        {
+          "pmid": "41456140",
+          "title": "Multi-target prediction to Detect the Anti-cancerous Potential of Sida cordifolia in Treating Breast Cancer.",
+          "abstract_snippet": "Breast cancer arises from the uncontrolled proliferation of breast cells, leading to tumour. Sida cordifolia, commonly known as Bala, an herbaceous plant widely used in traditional medicine, particularly in Ayurveda, due to its numerous medicinal properties. This study investigates the multi-target therapeutic mechanisms of S. cordifolia against br",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H0023": {
+      "hypothesis_id": "H0023",
+      "search_query": "\"sildenafil\" AND \"AMPK pathway\"",
+      "subject_term": "sildenafil",
+      "object_term": "AMPK pathway",
+      "total_hits": 0,
+      "pmids_fetched": [],
+      "papers": [],
+      "api_error": null
+    },
+    "H0024": {
+      "hypothesis_id": "H0024",
+      "search_query": "\"sildenafil\" AND \"PI3K AKT\"",
+      "subject_term": "sildenafil",
+      "object_term": "PI3K AKT",
+      "total_hits": 4,
+      "pmids_fetched": [
+        "41469822",
+        "40385484",
+        "39226294",
+        "39027562"
+      ],
+      "papers": [
+        {
+          "pmid": "41469822",
+          "title": "Sildenafil reduced neuroinflammation and improved white matter injury in a rat model of term neonatal hypoxic-ischemic encephalopathy.",
+          "abstract_snippet": "Neonatal hypoxic-ischemic encephalopathy (HIE) can cause lifelong neurological impairments. In its tertiary phase, ongoing neuroinflammation creates a toxic environment that promotes neuronal and oligodendrocyte loss. Sildenafil has shown neuroprotective effects in adult models by reducing inflammation and supporting oligodendrocyte survival, but i",
+          "year": "2025"
+        },
+        {
+          "pmid": "40385484",
+          "title": "Bioactive compound combinations from",
+          "abstract_snippet": "Hypoxia-induced pulmonary vascular remodeling is central to the development of high-altitude pulmonary hypertension (HAPH).",
+          "year": "2025"
+        },
+        {
+          "pmid": "39226294",
+          "title": "Nesfatin-1 regulates the phenotype transition of cavernous smooth muscle cells by activating PI3K/AKT/mTOR signaling pathway to improve diabetic erectile dysfunction.",
+          "abstract_snippet": "This study aims to explore the impact of Nesfatin-1 on type 2 diabetic erectile dysfunction (T2DMED) and its underlying mechanism in regulating the phenotypic switching of corpus cavernosum smooth muscle cells (CCSMCs).",
+          "year": "2024"
+        },
+        {
+          "pmid": "39027562",
+          "title": "Nesfatin-1 regulates the phenotype transition of cavernous smooth muscle cells by activating PI3K/AKT/mTOR signaling pathway to improve diabetic erectile dysfunction.",
+          "abstract_snippet": "This study aims to explore the impact of Nesfatin-1 on type 2 diabetic erectile dysfunction (T2DMED) and its underlying mechanism in regulating the phenotypic switching of corpus cavernosum smooth muscle cells (CCSMCs).",
+          "year": "2024"
+        }
+      ],
+      "api_error": null
+    },
+    "H0025": {
+      "hypothesis_id": "H0025",
+      "search_query": "\"sildenafil\" AND \"autophagy\"",
+      "subject_term": "sildenafil",
+      "object_term": "autophagy",
+      "total_hits": 1,
+      "pmids_fetched": [
+        "41005622"
+      ],
+      "papers": [
+        {
+          "pmid": "41005622",
+          "title": "Chronic inhibition of cGMP-specific phosphodiesterase 5 attenuates myocardial hypertrophy by promoting mitophagy in cardiomyocytes.",
+          "abstract_snippet": "Cardiac hypertrophy is a pathological adaptive response to chronic hemodynamic stress or injury, which may progress irreversibly to heart failure if left untreated. The objective of the study was to investigate whether inhibition of phosphodiesterase 5 can induce mitophagy to alleviate pathological cardiac hypertrophy. Sildenafil (Sif) effectively ",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H0026": {
+      "hypothesis_id": "H0026",
+      "search_query": "\"sildenafil\" AND \"heart failure\"",
+      "subject_term": "sildenafil",
+      "object_term": "heart failure",
+      "total_hits": 36,
+      "pmids_fetched": [
+        "41304908",
+        "41258850",
+        "41094728",
+        "41054690",
+        "41005622"
+      ],
+      "papers": [
+        {
+          "pmid": "41304908",
+          "title": "Efficacy and Safety of Sildenafil in Combination with Dapagliflozin Versus Dapagliflozin Monotherapy in the Management of Heart Failure with Pulmonary Arterial Hypertension: A Randomized Controlled Trial.",
+          "abstract_snippet": "",
+          "year": "2025"
+        },
+        {
+          "pmid": "41258850",
+          "title": "Hemocompatibility Outcomes With Pharmacological Therapy Following LVAD Implantation: Insights From the ARIES-HM3 Trial.",
+          "abstract_snippet": "The ARIES-HM3 (Antiplatelet Removal and Hemocompatibility Events With the HeartMate 3 Pump) trial demonstrated safety and decreased bleeding in eliminating aspirin from the antithrombotic regimen of patients implanted with a HM3 left ventricular assist device (LVAD). Whether pharmacologic therapies impact hemocompatibility-related adverse events (H",
+          "year": "2026"
+        },
+        {
+          "pmid": "41094728",
+          "title": "Tartaric acid pellets as a core for extended release of sildenafil citrate: development via solid dispersion and factorial design.",
+          "abstract_snippet": "Pulmonary arterial hypertension (PAH) is a progressive disorder characterized by elevated pulmonary arterial pressure, causing vascular remodeling and eventual right heart failure. Sildenafil citrate (SC), a selective phosphodiesterase-5 inhibitor, used in PAH management; however, its clinical utility is limited by poor aqueous solubility and low o",
+          "year": "2025"
+        },
+        {
+          "pmid": "41054690",
+          "title": "The Role of Phosphodiesterase-5 Enzyme Inhibitors and Prostacyclin Analogs in Reactive Pulmonary Vasculopathy in Systolic Heart Failure: A Narrative Review.",
+          "abstract_snippet": "Reactive pulmonary vasculopathy, the precapillary component of pulmonary hypertension due to left heart disease, is characterized by mean pulmonary arterial pressure >25 mmHg, pulmonary capillary wedge pressure >15 mmHg, transpulmonary gradient ≥12 mmHg, and pulmonary vascular resistance ≥3 Wood units. This condition complicates systolic heart fail",
+          "year": "2025"
+        },
+        {
+          "pmid": "41005622",
+          "title": "Chronic inhibition of cGMP-specific phosphodiesterase 5 attenuates myocardial hypertrophy by promoting mitophagy in cardiomyocytes.",
+          "abstract_snippet": "Cardiac hypertrophy is a pathological adaptive response to chronic hemodynamic stress or injury, which may progress irreversibly to heart failure if left untreated. The objective of the study was to investigate whether inhibition of phosphodiesterase 5 can induce mitophagy to alleviate pathological cardiac hypertrophy. Sildenafil (Sif) effectively ",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H0027": {
+      "hypothesis_id": "H0027",
+      "search_query": "\"sildenafil\" AND \"neuroinflammation\"",
+      "subject_term": "sildenafil",
+      "object_term": "neuroinflammation",
+      "total_hits": 7,
+      "pmids_fetched": [
+        "41469822",
+        "41161293",
+        "39451238",
+        "39425458",
+        "39158758"
+      ],
+      "papers": [
+        {
+          "pmid": "41469822",
+          "title": "Sildenafil reduced neuroinflammation and improved white matter injury in a rat model of term neonatal hypoxic-ischemic encephalopathy.",
+          "abstract_snippet": "Neonatal hypoxic-ischemic encephalopathy (HIE) can cause lifelong neurological impairments. In its tertiary phase, ongoing neuroinflammation creates a toxic environment that promotes neuronal and oligodendrocyte loss. Sildenafil has shown neuroprotective effects in adult models by reducing inflammation and supporting oligodendrocyte survival, but i",
+          "year": "2025"
+        },
+        {
+          "pmid": "41161293",
+          "title": "Therapeutic innovation through drug repurposing: A multidimensional approach toward treating Parkinson's disease.",
+          "abstract_snippet": "Parkinson's disease (PD) is the second most prevalent neurodegenerative disorder after Alzheimer's disease, primarily affecting the aging population. Despite the introduction of levodopa in the 1960s and significant progress in managing PD symptoms, no treatment has yet demonstrated neuroprotective efficacy. The complexity and multifactorial nature",
+          "year": "2025"
+        },
+        {
+          "pmid": "39451238",
+          "title": "The Emerging Role of Phosphodiesterase 5 Inhibition in Neurological Disorders: The State of the Art.",
+          "abstract_snippet": "Growing evidence suggests that neuroinflammation is not just a consequence of neurodegeneration in pathologies such as Alzheimer's disease, Parkinson's disease, Huntington's disease or Amyotrophic lateral sclerosis, but it is rather a determinant factor, which plays a pivotal role in the onset and progression of these disorders. Neuroinflammation c",
+          "year": "2024"
+        },
+        {
+          "pmid": "39425458",
+          "title": "Multimodal action of phosphodiesterase 5 inhibitors against neurodegenerative disorders: An update review.",
+          "abstract_snippet": "Phosphodiesterase type 5 (PDE5) is an enzyme primarily found in the smooth muscle of the corpus cavernosum and also highly expressed in the substantia nigra, cerebellum, caudate, hippocampal regions and cerebellar purkinje cells, responsible for selectively breaking down cyclic guanosine monophosphate (cGMP) into 5'-GMP and regulate intracellular c",
+          "year": "2024"
+        },
+        {
+          "pmid": "39158758",
+          "title": "The Antidepressant- and Anxiolytic-Like Effects of the Phosphodiesterase Type-5 Inhibitor Tadalafil are Associated with the Modulation of the Gut-Brain Axis During CNS Autoimmunity.",
+          "abstract_snippet": "Multiple Sclerosis (MS) is a debilitating disease that severely affects the central nervous system (CNS). Apart from neurological symptoms, it is also characterized by neuropsychiatric comorbidities, such as anxiety and depression. Phosphodiesterase-5 inhibitors (PDE5Is) such as Sildenafil and Tadalafil have been shown to possess antidepressant-lik",
+          "year": "2024"
+        }
+      ],
+      "api_error": null
+    },
+    "H0033": {
+      "hypothesis_id": "H0033",
+      "search_query": "\"aspirin\" AND \"TNF-alpha\"",
+      "subject_term": "aspirin",
+      "object_term": "TNF-alpha",
+      "total_hits": 59,
+      "pmids_fetched": [
+        "41407245",
+        "41393721",
+        "41242519",
+        "41197926",
+        "41192834"
+      ],
+      "papers": [
+        {
+          "pmid": "41407245",
+          "title": "Targeting trophoblast cell mitochondrial dysfunction in preeclampsia via drug repurposing.",
+          "abstract_snippet": "Preeclampsia is a multifactorial pregnancy disorder characterized by the new onset of hypertension and organ damage. Mitochondrial dysfunction is central to preeclampsia pathogenesis leading to placental dysfunction and oxidative stress. This study aims to elucidate the mechanisms of mitochondrial dysfunction in first-trimester trophoblast cells an",
+          "year": "2026"
+        },
+        {
+          "pmid": "41393721",
+          "title": "Evaluation of the Anti-inflammatory Effects of Ticagrelor and Prasugrel as Add-On Therapy to Aspirin in Diabetic Patients Post-percutaneous Coronary Intervention.",
+          "abstract_snippet": "Background Diabetes mellitus increases the incidence and severity of acute coronary syndromes (ACS). Dual antiplatelet therapy, combining aspirin and P2Y12 (purinergic 2Y type 12) receptor antagonists, is the cornerstone of therapy post-percutaneous coronary intervention (PCI) in diabetic patients. Beyond their antithrombotic effects, P2Y12 inhibit",
+          "year": "2025"
+        },
+        {
+          "pmid": "41242519",
+          "title": "Paeoniflorin attenuates ASA-induced enteropathy in simulated high-altitude hypoxia in rats by regulating intestinal inflammation, intestinal barrier, and intestinal flora.",
+          "abstract_snippet": "This study aimed to investigate whether high-altitude hypoxia exacerbates non-steroidal anti-inflammatory drug (NSAID)-induced small intestinal injury and to evaluate the protective effects of Paeoniflorin (PF).",
+          "year": "2026"
+        },
+        {
+          "pmid": "41197926",
+          "title": "Modulatory effects of lannea welwitschia on cadmium-induced reproductive and biochemical dysregulation via steroidogenic enzyme regulation in female rats.",
+          "abstract_snippet": "Cadmium chloride (CdCl",
+          "year": "2026"
+        },
+        {
+          "pmid": "41192834",
+          "title": "Immunomodulatory Effects of Ticagrelor in Myocardial Infarction: Shifting the Cytokine Balance Toward an Anti-Inflammatory Profile.",
+          "abstract_snippet": "Myocardial infarction (MI) triggers a systemic inflammatory response that influences cardiac recovery. Pharmacological therapies, including aspirin, β-blockers, Angiotensin-Converting Enzyme (ACE) inhibitors, statins, and P2Y12 inhibitors such as Ticagrelor, may have additional immunomodulatory effects beyond their primary cardiovascular benefits. ",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H0034": {
+      "hypothesis_id": "H0034",
+      "search_query": "\"aspirin\" AND \"amyloid cascade\"",
+      "subject_term": "aspirin",
+      "object_term": "amyloid cascade",
+      "total_hits": 1,
+      "pmids_fetched": [
+        "39141762"
+      ],
+      "papers": [],
+      "api_error": null
+    },
+    "H0037": {
+      "hypothesis_id": "H0037",
+      "search_query": "\"hydroxychloroquine\" AND \"mTOR signaling\"",
+      "subject_term": "hydroxychloroquine",
+      "object_term": "mTOR signaling",
+      "total_hits": 4,
+      "pmids_fetched": [
+        "41504063",
+        "40897974",
+        "40619511",
+        "38812314"
+      ],
+      "papers": [
+        {
+          "pmid": "41504063",
+          "title": "The Dual Role of Autophagy in Lung Cancer: From Molecular Mechanisms to Metabolic Regulation and Targeted Therapy Strategies.",
+          "abstract_snippet": "Lung cancer remains the leading cause of cancer-related mortality worldwide, with five-year survival rates below 20%, underscoring the importance of understanding key biological processes like autophagy in this disease. Autophagy, a lysosome-mediated degradation and recycling pathway, exerts context-dependent effects in lung cancer, functioning as ",
+          "year": "2025"
+        },
+        {
+          "pmid": "40897974",
+          "title": "Targeting dormant tumor cells to prevent recurrent breast cancer: a randomized phase 2 trial.",
+          "abstract_snippet": "Breast cancer recurrence may arise from dormant disseminated tumor cells (DTCs) that persist in bone marrow and other sites. Clinically, DTCs are independently associated with breast cancer recurrence and death. Preclinical studies in mouse models identified autophagy and mammalian target of rapamycin (mTOR) signaling as critical mechanisms of tumo",
+          "year": "2025"
+        },
+        {
+          "pmid": "40619511",
+          "title": "Hydroxychloroquine improves manifestation of PE rats under oxidative stress by regulating the PI3K/AKT/mTOR signaling pathway to inhibit autophagy.",
+          "abstract_snippet": "Preeclampsia is currently thought to be characterized by placental oxidative stress damage. Hydroxychloroquine is known to have antioxidant effects, but there are fewer studies on hydroxychloroquine in oxidative stress in preeclampsia. The main objective of this study was to investigate the effects of hydroxychloroquine on oxidative stress injury i",
+          "year": "2025"
+        },
+        {
+          "pmid": "38812314",
+          "title": "Ibrutinib Contributes to Atrial Arrhythmia through the Autophagic Degradation of Connexins by Inhibiting the PI3K-AKT-mTOR Signaling Pathway.",
+          "abstract_snippet": "Ibrutinib could increase the risk of atrial fibrillation (AF) in chronic lymphocytic leukemia (CLL) patients. However, the precise mechanism underlying ibrutinib-induced AF remains incompletely elucidated.",
+          "year": "2024"
+        }
+      ],
+      "api_error": null
+    },
+    "H0038": {
+      "hypothesis_id": "H0038",
+      "search_query": "\"hydroxychloroquine\" AND \"PI3K AKT\"",
+      "subject_term": "hydroxychloroquine",
+      "object_term": "PI3K AKT",
+      "total_hits": 12,
+      "pmids_fetched": [
+        "41504063",
+        "41076144",
+        "40869940",
+        "40619511",
+        "40153325"
+      ],
+      "papers": [
+        {
+          "pmid": "41504063",
+          "title": "The Dual Role of Autophagy in Lung Cancer: From Molecular Mechanisms to Metabolic Regulation and Targeted Therapy Strategies.",
+          "abstract_snippet": "Lung cancer remains the leading cause of cancer-related mortality worldwide, with five-year survival rates below 20%, underscoring the importance of understanding key biological processes like autophagy in this disease. Autophagy, a lysosome-mediated degradation and recycling pathway, exerts context-dependent effects in lung cancer, functioning as ",
+          "year": "2025"
+        },
+        {
+          "pmid": "41076144",
+          "title": "Artemisinin-hydroxychloroquine combination from traditional antimalarial medicine attenuates pulmonary fibrosis via PI3K/AKT/GSK3β-mediated inhibition of epithelial-mesenchymal transition.",
+          "abstract_snippet": "Artemisinin and hydroxychloroquine, derived respectively from Artemisia annua L. (Qinghao) and Cinchona calisaya Wedd., have been widely used for centuries to treat malaria and inflammatory disorders. In addition to their antimalarial activity, these compounds exhibit multifunctionality, including anti-inflammatory, antifibrotic, and immunomodulato",
+          "year": "2026"
+        },
+        {
+          "pmid": "40869940",
+          "title": "Autophagy and PXR Crosstalk in the Regulation of Cancer Drug Metabolism and Resistance According to Gene Mutational Status in Colorectal Cancer.",
+          "abstract_snippet": "",
+          "year": "2025"
+        },
+        {
+          "pmid": "40619511",
+          "title": "Hydroxychloroquine improves manifestation of PE rats under oxidative stress by regulating the PI3K/AKT/mTOR signaling pathway to inhibit autophagy.",
+          "abstract_snippet": "Preeclampsia is currently thought to be characterized by placental oxidative stress damage. Hydroxychloroquine is known to have antioxidant effects, but there are fewer studies on hydroxychloroquine in oxidative stress in preeclampsia. The main objective of this study was to investigate the effects of hydroxychloroquine on oxidative stress injury i",
+          "year": "2025"
+        },
+        {
+          "pmid": "40153325",
+          "title": "Hydroxychloroquine inhibits the PI3K/AKT pathway in synovial fibroblasts of rheumatoid arthritis and alleviates collagen-induced arthritis in mice.",
+          "abstract_snippet": "To investigate the effects of hydroxychloroquine (HCQ) in rheumatoid arthritis (RA), particularly on fibroblast-like synoviocytes (FLS).",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H0043": {
+      "hypothesis_id": "H0043",
+      "search_query": "\"quercetin\" AND \"amyloid precursor protein\"",
+      "subject_term": "quercetin",
+      "object_term": "amyloid precursor protein",
+      "total_hits": 13,
+      "pmids_fetched": [
+        "41383949",
+        "41262070",
+        "40899340",
+        "40478444",
+        "40341631"
+      ],
+      "papers": [
+        {
+          "pmid": "41383949",
+          "title": "Downregulation of forkhead box O1 (FOXO1) acetylation ameliorates cognitive dysfunction by inhibiting endoplasmic reticulum stress-regulated neuronal apoptosis in APP/PS1 transgenic mice.",
+          "abstract_snippet": "Alzheimer's disease (AD) is a neurodegenerative disorder that affects the central nervous system. Silent information regulator sirtuin 1 (SIRT1) may deacetylate and suppress forkhead box O (FOXO) activities to promote neuronal survival. FOXO1 is involved in the regulation of metabolism, senescence, stress response, and apoptosis. Moreover, endoplas",
+          "year": "2025"
+        },
+        {
+          "pmid": "41262070",
+          "title": "Integrative Network Analysis of Antioxidant Nutrients Targeting 7-Ketocholesterol-Induced Lipotoxicity via Sterol Metabolism and Organelle Protection Pathways.",
+          "abstract_snippet": "7-Ketocholesterol (7-KC), a cytotoxic oxysterol, contributes to atherosclerosis, neurodegeneration, and metabolic disorders by promoting oxidative stress, inflammation, and dysfunction of organelles including mitochondria, peroxisomes, lysosomes, and the endoplasmic reticulum, ultimately leading to cell death. Nutritional biomedicine offers potenti",
+          "year": "2026"
+        },
+        {
+          "pmid": "40899340",
+          "title": "The Therapeutic Potential of Flavonols in Alzheimer's Disease: Inhibiting Amyloid-β, Oxidative Stress, and Neuroinflammation.",
+          "abstract_snippet": "Alzheimer's disease (AD), a progressive neurodegenerative disorder characterized by amyloid-β (Aβ) aggregation, oxidative stress, and neuroinflammation, remains a significant global health challenge. This study investigates the therapeutic potential of flavonols-quercetin, kaempferol, myricetin, and fisetin-in targeting Aβ aggregation and mitigatin",
+          "year": "2025"
+        },
+        {
+          "pmid": "40478444",
+          "title": "Evaluating computational and experimental approaches in early-stage Alzheimer's drug discovery: a systematic review.",
+          "abstract_snippet": "Alzheimer's disease (AD) represents a significant global health challenge due to its complex pathophysiology and limited therapeutic options. Traditional drug discovery methods have had limited success, highlighting the need for innovative strategies. This systematic review evaluates the role of molecular docking, virtual screening, and molecular d",
+          "year": "2025"
+        },
+        {
+          "pmid": "40341631",
+          "title": "Evaluation of the Neurotherapeutic Effect of Quercetin on Neuronal miR-124 and β-Site Amyloid Precursor Protein Cleaving Enzyme 1 (BACE1) in an Experimental Alzheimer's Disease Model.",
+          "abstract_snippet": "Alzheimer's disease (AD) is the most common cause of dementia, a neurodegenerative disorder that progress overtime, which is best known for mood swings and loss of cognitive, behavioral and functional abilities. Quercetin is one of the most consumed flavonoids in the diet and has neuroprotective, anti-inflammatory and antioxidant effects. The purpo",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H0044": {
+      "hypothesis_id": "H0044",
+      "search_query": "\"quercetin\" AND \"Alzheimer\"",
+      "subject_term": "quercetin",
+      "object_term": "Alzheimer",
+      "total_hits": 203,
+      "pmids_fetched": [
+        "41515408",
+        "41502755",
+        "41479381",
+        "41475761",
+        "41450541"
+      ],
+      "papers": [
+        {
+          "pmid": "41515408",
+          "title": "D-Penicillamine/Dihydroquercetin Dual-Loaded Metal-Organic Framework as a Microenvironment Copper Regulator for Enhancing the Therapeutic Efficacy of Polyphenolic Antioxidant in Alzheimer's Disease.",
+          "abstract_snippet": "Polyphenols like dihydroquercetin, rutin, and rifampicin show promise for Alzheimer's disease (AD) therapy due to their ability to inhibit amyloid-β (Aβ) aggregation and reduce reactive oxygen species (ROS), garnering significant recent interest. However, their efficacy is substantially diminished because excess metal ions present in amyloid plaque",
+          "year": "2025"
+        },
+        {
+          "pmid": "41502755",
+          "title": "Repurposed Arylidene-hydrazinyl-1,3-thiazoles as Multitarget Anti-Alzheimer's Agents via Combined Computational and Experimental Studies.",
+          "abstract_snippet": "In quest of new and potent multitarget therapeutics for Alzheimer's disease (AD), a series of recently synthesized arylidene-hydrazinyl-thiazoles were repurposed as multitarget directed anti-AD agents. In total, 14 compounds were tested for their inhibitory activities against the key enzymes acetylcholinesterase (AChE), β-secretase 1 (BACE1), and b",
+          "year": "2025"
+        },
+        {
+          "pmid": "41479381",
+          "title": "Therapeutic Applications of Natural Flavonoids Against Alzheimer's Disease-like Pathology: Special Focus on PI3K/Akt and Nrf2 Signaling Pathways.",
+          "abstract_snippet": "The PI3K/AKT and Nrf2 signaling systems are essential for neurogenesis, synaptic plasticity, and cellular survival, and their dysregulation has been linked to the progression of Alzheimer's disease (AD). Due to its complex pathophysiology, currently approved therapeutic agents only provide symptomatic relief and are often associated with serious si",
+          "year": "2025"
+        },
+        {
+          "pmid": "41475761",
+          "title": "Chitosan/selenium nanoparticles Pickering emulsion prolong quercetin retention time to ameliorates cognitive disorder: Focus on restoring the metabolic disorder and gut microbiota.",
+          "abstract_snippet": "Gut microbiota influence brain inflammation and cognitive impairment by regulating lipid metabolism. The therapeutic efficacy of quercetin (Que) in Alzheimer's disease (AD) treatment is significantly limited by its poor water solubility and short residence time in vivo. Herein, Chitosan (CS) modified selenium nanoparticles was used to prepare a hig",
+          "year": "2026"
+        },
+        {
+          "pmid": "41450541",
+          "title": "Exploring the Mahuang Fuzi Xixin Decoction's mechanism for treating Alzheimer's disease using molecular docking and network pharmacology.",
+          "abstract_snippet": "Explore the potential mechanism of Mahuang Fuzi Xixin Decoction (MFXD) in the treatment of Alzheimer's disease (AD) using network pharmacology, molecular docking approaches, and test its efficacy by",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H0047": {
+      "hypothesis_id": "H0047",
+      "search_query": "\"berberine\" AND \"type 2 diabetes\"",
+      "subject_term": "berberine",
+      "object_term": "type 2 diabetes",
+      "total_hits": 62,
+      "pmids_fetched": [
+        "41799384",
+        "41505913",
+        "41476996",
+        "41471379",
+        "41459531"
+      ],
+      "papers": [
+        {
+          "pmid": "41799384",
+          "title": "Pharmacological advances in multi-targeted strategies for type 2 diabetes mellitus: a systematic perspective based on traditional Chinese medicine.",
+          "abstract_snippet": "Type 2 diabetes mellitus (T2DM) is a complex systemic metabolic disease driven by insulin resistance, β-cell dysfunction, chronic low-grade inflammation, oxidative stress, and neuro-immune dysregulation. It frequently progresses to multi-organ complications affecting the kidneys, retina, heart, and central nervous system. This review synthesizes me",
+          "year": "2025"
+        },
+        {
+          "pmid": "41505913",
+          "title": "Jiangtang Tiaozhi formula improves obesity and insulin resistance by inhibiting skeletal muscle inflammation and pyroptosis in diet-induced obese mice.",
+          "abstract_snippet": "The global prevalence of obesity continues to rise annually. Jiangtang Tiaozhi (JTTZ) formula, a traditional Chinese medicine formula, is clinically utilized for treating obesity and type 2 diabetes due to its therapeutic efficacy. However, the underlying mechanisms of JTTZ formula for improving obesity and insulin resistance (IR) remain unclear.",
+          "year": "2026"
+        },
+        {
+          "pmid": "41476996",
+          "title": "Mechanism of Jianpixiaoke Recipe in Treating Type 2 Diabetes Based on Network Pharmacology and Molecular Docking.",
+          "abstract_snippet": "Using network pharmacology and molecular docking technology to analyze the potential mechanism of the Jianpixiaoke recipe (JPXK recipe) in the treatment of type 2 diabetes mellitus (T2DM).",
+          "year": "2025"
+        },
+        {
+          "pmid": "41471379",
+          "title": "Berberine: A Rising Star in the Management of Type 2 Diabetes-Novel Insights into Its Anti-Inflammatory, Metabolic, and Epigenetic Mechanisms.",
+          "abstract_snippet": "Type 2 diabetes mellitus (T2DM) is a widespread metabolic disorder characterized by insulin resistance and pancreatic β-cell dysfunction, posing a substantial global health challenge. This review systematically summarizes the therapeutic potential of berberine, a natural isoquinoline alkaloid, in the management of T2DM. Berberine's pharmacological ",
+          "year": "2025"
+        },
+        {
+          "pmid": "41459531",
+          "title": "Targeting the TLR4 axis with microbiota-oriented interventions and innovations in diabetes therapy: a narrative review.",
+          "abstract_snippet": "The gut microbiota-Toll-like receptor 4(TLR4)-nuclear factor kappa B(NF-κB) signaling is a key controller of low-grade chronic inflammation and insulin resistance in type 1 (T1DM) and type 2 diabetes mellitus (T2DM). While TLR4-mediated inflammation contributes to both T1DM and T2DM, the bulk of microbiota-targeted interventions have been studied i",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H0048": {
+      "hypothesis_id": "H0048",
+      "search_query": "\"berberine\" AND \"cholesterol biosynthesis\"",
+      "subject_term": "berberine",
+      "object_term": "cholesterol biosynthesis",
+      "total_hits": 1,
+      "pmids_fetched": [
+        "39909237"
+      ],
+      "papers": [
+        {
+          "pmid": "39909237",
+          "title": "Mechanistic insights into alkaloid-based inhibition of squalene epoxidase: A combined in silico and experimental approach for targeting cholesterol biosynthesis.",
+          "abstract_snippet": "Squalene epoxidase (SQLE) is a key enzyme in the cholesterol biosynthesis pathway and an attractive therapeutic target for hypercholesterolemia and antifungal treatment. In this study, we investigated the inhibitory potential of six alkaloids-berberine, evodiamine, harmine, reserpine, matrine, and sanguinarine-against SQLE using a combined in silic",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H0051": {
+      "hypothesis_id": "H0051",
+      "search_query": "\"resveratrol\" AND \"mTOR signaling\"",
+      "subject_term": "resveratrol",
+      "object_term": "mTOR signaling",
+      "total_hits": 18,
+      "pmids_fetched": [
+        "41795275",
+        "41373947",
+        "41359100",
+        "41261618",
+        "41155356"
+      ],
+      "papers": [
+        {
+          "pmid": "41795275",
+          "title": "Effects of resveratrol in a chronic stress model of layer chicks: insights from transcriptomics, metabolomics, and network pharmacology.",
+          "abstract_snippet": "Chronic stress induces neuroinflammation, hypothalamic dysfunction, and behavioral abnormalities, contributing to depressive-like states. The function of resveratrol (RES), a natural polyphenolic compound with neuroprotective and antidepressant properties, remains underexplored in avian models. This study evaluated the effects of RES on chronic unp",
+          "year": "2025"
+        },
+        {
+          "pmid": "41373947",
+          "title": "Bioactive Nutritional Components Within the Planetary Health Diet for Preventing Sarcopenic Obesity and Diabetic Sarcopenia: A Systematic Review.",
+          "abstract_snippet": "Sarcopenic obesity (SO) and diabetic sarcopenia (DS) represent overlapping metabolic-musculoskeletal disorders characterized by the coexistence of excessive adiposity, insulin resistance, and progressive muscle wasting. The Planetary Health Diet (PHD), proposed by the EAT-Lancet Commission, emphasizes plant-forward, nutrient-dense, and environmenta",
+          "year": "2025"
+        },
+        {
+          "pmid": "41359100",
+          "title": "Phytochemicals and nanoformulation strategies for rheumatoid arthritis: mechanistic insights, therapeutic advances, and translational challenges.",
+          "abstract_snippet": "Rheumatoid arthritis (RA) is a chronic, progressive autoimmune disease characterized by persistent joint inflammation, cartilage degradation, and systemic complications. Phytochemicals such as curcumin, resveratrol, phenolic acids, flavonoids, lignans, and organosulfur compounds have demonstrated significant disease-modifying potential through modu",
+          "year": "2026"
+        },
+        {
+          "pmid": "41261618",
+          "title": "Mendelian randomization reveals the causal links between miRNAs and rheumatoid arthritis.",
+          "abstract_snippet": "Rheumatoid arthritis (RA) is a chronic autoimmune disease characterized by persistent joint inflammation and progressive structural damage, with early diagnosis remaining a significant clinical challenge. Circulating microRNAs (miRNAs) have emerged as promising biomarkers for disease diagnosis, prognosis, and therapeutic response due to their criti",
+          "year": "2025"
+        },
+        {
+          "pmid": "41155356",
+          "title": "Genetic and Pathogenic Overlaps Between Autism Spectrum Disorder and Alzheimer's Disease: Evolutionary Features and Opportunities for Drug Repurposing.",
+          "abstract_snippet": "Autism spectrum disorder (ASD) and Alzheimer's disease (AD) are neurodevelopmental and neurodegenerative disorders, respectively. While exome sequencing is routinely employed during the early stages of ASD diagnosis, it rarely influences therapeutic strategies. To address this gap, we have reconstructed and analyzed the gene networks linking autism",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H0053": {
+      "hypothesis_id": "H0053",
+      "search_query": "\"resveratrol\" AND \"SIRT1\"",
+      "subject_term": "resveratrol",
+      "object_term": "SIRT1",
+      "total_hits": 239,
+      "pmids_fetched": [
+        "41573560",
+        "41470875",
+        "41446880",
+        "41416347",
+        "41399758"
+      ],
+      "papers": [
+        {
+          "pmid": "41573560",
+          "title": "Bioactives and exercise synergize to modulate AMPK and inflammation.",
+          "abstract_snippet": "AMP-activated protein kinase (AMPK) regulates energy homeostasis and immune responses, making it a key target for immunometabolic disorders like obesity, insulin resistance, and neurodegenerative diseases. This review explores the synergistic effects of plant-derived bioactives (e.g., quercetin, resveratrol, curcumin) and exercise on AMPK signaling",
+          "year": "2025"
+        },
+        {
+          "pmid": "41470875",
+          "title": "Mediterranean Diet, Polyphenols, and Neuroprotection: Mechanistic Insights into Resveratrol and Oleuropein.",
+          "abstract_snippet": "",
+          "year": "2025"
+        },
+        {
+          "pmid": "41446880",
+          "title": "The role of neuro-supportive substances of natural origin in neurological conditions-A literature-based formulators' perspective.",
+          "abstract_snippet": "Products of natural origin are seldom tested up to a point of full acceptance, mainly due to a lack of financial viability for commercialization. Yet many come with a rich history of use and proof of concept testing. We investigated literature regarding the possible role and function of the best known of these nutraceuticals in relationship to thre",
+          "year": "2025"
+        },
+        {
+          "pmid": "41416347",
+          "title": "Targeting SIRT1: A Potential Strategy for Combating Severe COVID-19.",
+          "abstract_snippet": "Sirtuin 1 (SIRT1) is a crucial regulator of cellular processes, including inflammation, metabolism, and stress responses, playing a significant role in the body's defense mechanisms. During SARS-CoV-2 infection, SIRT1 plays a crucial role in modulating the immune response. This protein helps to enhance the antiviral response through deacetylating k",
+          "year": "2025"
+        },
+        {
+          "pmid": "41399758",
+          "title": "Dihydro-R demonstrates innate immunity against Adenovirus-7 by suppressing the NF-κB/JAK-STAT pathway in a SIRT1-dependent manner.",
+          "abstract_snippet": "Severe adenovirus infections pose significant health challenges, particularly in immunocompromised individuals. This study characterizes the antiviral activity of dihydro-resveratrol (Dihydro-R) against adenovirus type 7 and reveals a SIRT1-dependent mechanism. Our study reveals that Dihydro-R effectively inhibits adenoviral replication across mult",
+          "year": "2026"
+        }
+      ],
+      "api_error": null
+    },
+    "H0054": {
+      "hypothesis_id": "H0054",
+      "search_query": "\"resveratrol\" AND \"cell senescence\"",
+      "subject_term": "resveratrol",
+      "object_term": "cell senescence",
+      "total_hits": 12,
+      "pmids_fetched": [
+        "41383484",
+        "41158311",
+        "39438391",
+        "39192424",
+        "39171818"
+      ],
+      "papers": [
+        {
+          "pmid": "41383484",
+          "title": "Resveratrol attenuates pulmonary fibrosis by inhibiting alveolar epithelial senescence via targeting SASP-related proteins: an integrated bioinformatics-experimental study.",
+          "abstract_snippet": "Pulmonary fibrosis (PF) is a progressive and fatal interstitial lung disease with limited treatment options. Premature senescence of alveolar epithelial type II cells (AT2 cells) plays a critical role in PF pathogenesis. This study aimed to identify natural compounds targeting senescence-related pathways for PF treatment.",
+          "year": "2025"
+        },
+        {
+          "pmid": "41158311",
+          "title": "Cellular senescence in cancer: Unveiling dual roles, tumor microenvironment dynamics and therapeutic innovations (Review).",
+          "abstract_snippet": "Cellular senescence exerts context-dependent effects in cancer, functioning as both a tumor suppressor and promoter. Tumor suppression occurs through p53/p16-mediated cell cycle arrest, whereas tumor promotion is driven by the senescence-associated secretory phenotype (SASP), which reshapes the tumor microenvironment. SASP, comprising inflammatory ",
+          "year": "2025"
+        },
+        {
+          "pmid": "39438391",
+          "title": "Divergent regulation of long non-coding RNAs H19 and PURPL affects cell senescence in human dermal fibroblasts.",
+          "abstract_snippet": "Cellular senescence is a permanent cell growth arrest that occurs in response to various intrinsic and extrinsic stimuli and is associated with cellular and molecular changes. Long non-coding RNAs (lncRNAs) are key regulators of cellular senescence by affecting the expression of many important genes involved in senescence-associated pathways and pr",
+          "year": "2025"
+        },
+        {
+          "pmid": "39192424",
+          "title": "[Inhibition Effect of Resveratrol on Spontaneous Senescence of Human Bone Marrow Derived Mesenchymal Stem Cells].",
+          "abstract_snippet": "To explore whether Resveratrol (RSV) can inhibit the spontaneous senescence of human bone marrow-derived mesenchymal stem cells (MSC).",
+          "year": "2024"
+        },
+        {
+          "pmid": "39171818",
+          "title": "Retraction: Resveratrol attenuates inflammation environment-induced nucleus pulposus cell senescence in vitro.",
+          "abstract_snippet": "",
+          "year": "2024"
+        }
+      ],
+      "api_error": null
+    },
+    "H0063": {
+      "hypothesis_id": "H0063",
+      "search_query": "\"mTOR inhibition\" AND \"AMPK pathway\"",
+      "subject_term": "mTOR inhibition",
+      "object_term": "AMPK pathway",
+      "total_hits": 0,
+      "pmids_fetched": [],
+      "papers": [],
+      "api_error": null
+    },
+    "H1001": {
+      "hypothesis_id": "H1001",
+      "search_query": "\"BACE1\" AND \"Alzheimer\"",
+      "subject_term": "BACE1",
+      "object_term": "Alzheimer",
+      "total_hits": 468,
+      "pmids_fetched": [
+        "41599607",
+        "41595571",
+        "41502755",
+        "41488323",
+        "41482106"
+      ],
+      "papers": [
+        {
+          "pmid": "41599607",
+          "title": "",
+          "abstract_snippet": "",
+          "year": "2025"
+        },
+        {
+          "pmid": "41595571",
+          "title": "Exploratory Analysis of Autophagy-Lysosomal Pathway Proteins in Dermal Fibroblasts as Potential Peripheral Biomarkers for Alzheimer's Disease: A Pilot Study.",
+          "abstract_snippet": "",
+          "year": "2025"
+        },
+        {
+          "pmid": "41502755",
+          "title": "Repurposed Arylidene-hydrazinyl-1,3-thiazoles as Multitarget Anti-Alzheimer's Agents via Combined Computational and Experimental Studies.",
+          "abstract_snippet": "In quest of new and potent multitarget therapeutics for Alzheimer's disease (AD), a series of recently synthesized arylidene-hydrazinyl-thiazoles were repurposed as multitarget directed anti-AD agents. In total, 14 compounds were tested for their inhibitory activities against the key enzymes acetylcholinesterase (AChE), β-secretase 1 (BACE1), and b",
+          "year": "2025"
+        },
+        {
+          "pmid": "41488323",
+          "title": "Sigma receptors and mitochondria-associated ER membranes are converging therapeutic targets for Alzheimer's disease.",
+          "abstract_snippet": "Alzheimer's disease (AD) begins decades before clinical symptoms emerge. The \"amyloid hypothesis\" suggests that amyloid-",
+          "year": "2025"
+        },
+        {
+          "pmid": "41482106",
+          "title": "Demethyleneberberine attenuates combined cognitive and metabolic dysfunctions in an insulin-resistance-induced Alzheimer's disease rat model: Synthesis, in-silico and in-vivo insights.",
+          "abstract_snippet": "In this study, we evaluated the therapeutic potential of DMB, a berberine derivative known for its enhanced bioavailability and reduced toxicity. DMB was synthesized and administered orally at doses of 5 and 10 mg/kg in an in vivo rat model of insulin resistance-induced Alzheimer's disease (AD). This model was established using a combination of a h",
+          "year": "2026"
+        }
+      ],
+      "api_error": null
+    },
+    "H1002": {
+      "hypothesis_id": "H1002",
+      "search_query": "\"BACE1\" AND \"amyloid beta 42\"",
+      "subject_term": "BACE1",
+      "object_term": "amyloid beta 42",
+      "total_hits": 2,
+      "pmids_fetched": [
+        "39201455",
+        "38259291"
+      ],
+      "papers": [
+        {
+          "pmid": "39201455",
+          "title": "Hepatic Amyloid Beta-42-Metabolizing Proteins in Liver Steatosis and Metabolic Dysfunction-Associated Steatohepatitis.",
+          "abstract_snippet": "Amyloid beta (Aβ) plays a major role in the pathogenesis of Alzheimer's disease and, more recently, has been shown to protect against liver fibrosis. Therefore, we studied Aβ-42 levels and the expression of genes involved in the generation, degradation, and transport of Aβ proteins in liver samples from patients at different stages of metabolic dys",
+          "year": "2024"
+        },
+        {
+          "pmid": "38259291",
+          "title": "Neuroprotective effects and possible mechanisms of berberine in animal models of Alzheimer's disease: a systematic review and meta-analysis.",
+          "abstract_snippet": "",
+          "year": "2023"
+        }
+      ],
+      "api_error": null
+    },
+    "H1004": {
+      "hypothesis_id": "H1004",
+      "search_query": "\"HER2\" AND \"breast cancer\"",
+      "subject_term": "HER2",
+      "object_term": "breast cancer",
+      "total_hits": 6493,
+      "pmids_fetched": [
+        "41954342",
+        "41954341",
+        "41954340",
+        "41949942",
+        "41938274"
+      ],
+      "papers": [
+        {
+          "pmid": "41954342",
+          "title": "",
+          "abstract_snippet": "The management of hormone receptor-positive/HER2-negative (HR+/HER2-) metastatic breast cancer (MBC) relies on molecular testing to inform treatment decisions.",
+          "year": "2025"
+        },
+        {
+          "pmid": "41954341",
+          "title": "Standardizing the pathologic assessment of HER2-(ultra)low breast cancer: insights from a national Italian project.",
+          "abstract_snippet": "Novel therapies for HER2-(ultra)low breast cancer (BC) have changed the traditional binary classification of HER2 status into a multi-tiered system that captures the full spectrum of expression as determined by immunohistochemistry (IHC). Several pre-analytical and analytical variables can influence the accurate identification of HER2 expression wi",
+          "year": "2025"
+        },
+        {
+          "pmid": "41954340",
+          "title": "Next-generation sequencing methodologies to identify patients for targeted therapy: focus on HR+/HER2- metastatic breast cancer.",
+          "abstract_snippet": "Alterations in the phosphoinositide 3-kinase (PI3K)/AKT/PTEN signaling pathway are a well-recognized mechanism of resistance in hormone receptor-positive, HER2-negative metastatic breast cancer (HR+/HER2- mBC). These alterations are present in approximately half of patients with HR+/HER2- mBC. The major alterations in the pathway are somatic mutati",
+          "year": "2025"
+        },
+        {
+          "pmid": "41949942",
+          "title": "Contribution of the seric cytokeartin fragment 21.1 (cyf 21.1) as a tumor marker in a population of algerien women with breast cancer undergoing chemotherapy.",
+          "abstract_snippet": "In Algeria, breast cancer accounts for 37.8% of new cancer cases in women. It is an epithelial cell tumor in most cases. CA15-3 (carbohydrate antigen) is the marker of choice for therapeutic monitoring, although ASCO (the American Society of Clinical Oncology) does not recommend its routine use, preferring CYFRA21.1 (cytokeratin19 fragment) to asse",
+          "year": "2025"
+        },
+        {
+          "pmid": "41938274",
+          "title": "Capivasertib-Induced Refractory Hyperglycemia in a Nondiabetic Patient With Metastatic Breast Cancer.",
+          "abstract_snippet": "Selective AKT inhibitors such as capivasertib are approved to treat hormone receptor-positive, HER2-negative advanced breast cancer. Hyperglycemia is a known side effect of these agents; however, severe hyperglycemia is uncommon. We describe a patient without known history of diabetes who developed a rare presentation of refractory, severe hypergly",
+          "year": "2026"
+        }
+      ],
+      "api_error": null
+    },
+    "H1005": {
+      "hypothesis_id": "H1005",
+      "search_query": "\"TNF-alpha\" AND \"breast cancer\"",
+      "subject_term": "TNF-alpha",
+      "object_term": "breast cancer",
+      "total_hits": 309,
+      "pmids_fetched": [
+        "41640561",
+        "41596106",
+        "41577457",
+        "41523250",
+        "41512709"
+      ],
+      "papers": [
+        {
+          "pmid": "41640561",
+          "title": "Effects of ultrasound-guided nerve block combined with PCIA analgesia on postoperative pain, inflammatory response, hospital stay, and adverse reactions in breast cancer surgery.",
+          "abstract_snippet": "This study aimed to evaluate the effects of ultrasound-guided combined nerve block with patient-controlled intravenous analgesia (PCIA) on postoperative pain, inflammatory response, hospital stay, and adverse reactions in breast cancer surgery.",
+          "year": "2025"
+        },
+        {
+          "pmid": "41596106",
+          "title": "Regulation of Intestinal Butyrate Transporters by Oxidative and Inflammatory Status.",
+          "abstract_snippet": "Beneficial effects of the microbiota-derived metabolite butyrate at the colonic level are well established, particularly through its relevance in colorectal cancer (CRC) and inflammatory bowel disease (IBD), two major intestinal pathologies. Therefore, the mechanisms involved in butyrate transport across colonic epithelial cell membranes (uptake tr",
+          "year": "2025"
+        },
+        {
+          "pmid": "41577457",
+          "title": "Postoperative analgesia in breast cancer surgeries - anesthetic techniques and the role of cytokines.",
+          "abstract_snippet": "To examine the relationships between postoperative pain and anesthetic technique and analgesic use, to compare preoperative and postoperative serum cytokine levels, and to determine the influence of the anesthetic technique on these levels in patients undergoing breast cancer surgery.",
+          "year": "2025"
+        },
+        {
+          "pmid": "41523250",
+          "title": "A predictive model based on BRCA1/2, POLE, TP53, and MSH6 mutations for immunotherapy response in advanced endometrial cancer.",
+          "abstract_snippet": "To evaluate clinical, molecular, and immunological predictors of response to immunotherapy among patients with advanced endometrial cancer and to develop a combined biomarker model for predicting treatment outcomes.",
+          "year": "2025"
+        },
+        {
+          "pmid": "41512709",
+          "title": "ADAM and ADAMTS Proteases in Breast Cancer: Molecular Mechanisms and Therapeutic Implications.",
+          "abstract_snippet": "Breast cancer ranks as the second most significant cause of cancer-related mortality on a global scale, with its incidence demonstrating a continual upward trajectory. Investigating gene targets for cancer therapies has advanced through innovative methodologies focusing on genes and pathways driving cancer progression. A disintegrin and metalloprot",
+          "year": "2026"
+        }
+      ],
+      "api_error": null
+    },
+    "H1006": {
+      "hypothesis_id": "H1006",
+      "search_query": "\"mTOR signaling\" AND \"type 2 diabetes\"",
+      "subject_term": "mTOR signaling",
+      "object_term": "type 2 diabetes",
+      "total_hits": 46,
+      "pmids_fetched": [
+        "41705230",
+        "41406476",
+        "41393939",
+        "41338557",
+        "41293422"
+      ],
+      "papers": [
+        {
+          "pmid": "41705230",
+          "title": "Branched-chain amino acids and insulin resistance in type 2 diabetes: from metabolic dysregulation to therapeutic targets.",
+          "abstract_snippet": "Branched-chain amino acids (BCAAs) are a class of amino acids characterized by a branched aliphatic side chain, and they play critical physiological roles in humans, including protein synthesis, metabolic regulation, and immune system maintenance. Beyond serving as fundamental building blocks for protein biosynthesis, BCAAs and their metabolites al",
+          "year": "2025"
+        },
+        {
+          "pmid": "41406476",
+          "title": "Pathogenic Role of mTOR Signaling in Cardiometabolic Disease: Implications for Heart, Liver, and Kidney Dysfunction.",
+          "abstract_snippet": "Cardiometabolic diseases (CMDs), which include hypertension, atherosclerosis, chronic kidney disease, type 2 diabetes mellitus (T2DM), metabolic syndrome, and obesity, significantly affect the heart, liver, and kidneys. A key player in the pathogenesis of these diseases is the serine-threonine kinase enzyme mTOR (mammalian target of rapamycin), whi",
+          "year": "2025"
+        },
+        {
+          "pmid": "41393939",
+          "title": "Integrative effects of saffron and physical activity on endurance performance, quality of life, cognitive, emotional, and metabolic outcomes in age-related and neurodegenerative diseases.",
+          "abstract_snippet": "Age-related diseases, including cardiovascular disorders, type 2 diabetes, neurodegenerative conditions such as Alzheimer's and Parkinson's disease, and age-related eye diseases, represent leading causes of disability and mortality worldwide. Growing evidence highlights the therapeutic promise of non-pharmacological interventions, notably saffron (",
+          "year": "2025"
+        },
+        {
+          "pmid": "41338557",
+          "title": "[Effect of semaglutide on serum metabolomics in obese patients with type 2 diabetes mellitus complicated with metabolic-associated fatty liver disease].",
+          "abstract_snippet": "",
+          "year": "2025"
+        },
+        {
+          "pmid": "41293422",
+          "title": "Anti-diabetic effects of Dachaihu decoction combined with",
+          "abstract_snippet": "Numerous studies have demonstrated the therapeutic effects of the traditional Chinese medicinal fungus",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H1007": {
+      "hypothesis_id": "H1007",
+      "search_query": "\"mTOR signaling\" AND \"cholesterol biosynthesis\"",
+      "subject_term": "mTOR signaling",
+      "object_term": "cholesterol biosynthesis",
+      "total_hits": 4,
+      "pmids_fetched": [
+        "41550764",
+        "41458541",
+        "40417825",
+        "39803512"
+      ],
+      "papers": [
+        {
+          "pmid": "41550764",
+          "title": "NAT10 drives hepatocellular carcinoma progression through SQLE-mediated cholesterol biosynthesis and is targetable by remodelin.",
+          "abstract_snippet": "Hepatocellular carcinoma (HCC) is a highly aggressive malignancy characterized by a paucity of therapeutic options. An analysis of multi-omics datasets, including The Cancer Genome Atlas (TCGA), the International Cancer Genome Consortium (ICGC), and the National Omics Data Encyclopedia (NODE) database, revealed that NAT10 is significantly upregulat",
+          "year": "2026"
+        },
+        {
+          "pmid": "41458541",
+          "title": "Metabolic signatures in gastroenteropancreatic neuroendocrine neoplasms: unraveling diagnostic and prognostic insights.",
+          "abstract_snippet": "Gastroenteropancreatic neuroendocrine neoplasms (GEP-NENs) are a heterogeneous group of tumors characterized by diverse biological behaviors and variable clinical outcomes. Recent advances have highlighted the important role of metabolic reprogramming in tumorigenesis, progression, and therapeutic resistance in GEP-NENs. In this review, we synthesi",
+          "year": "2025"
+        },
+        {
+          "pmid": "40417825",
+          "title": "Myelin Lipid Composition in the Central Nervous System Is Regionally Distinct and Requires Mechanistic Target of Rapamycin Signaling.",
+          "abstract_snippet": "Cholesterol is highly enriched in the myelin sheath and is often dysregulated in neurodegenerative diseases affecting myelin integrity. Despite the prominence of promyelinating drugs targeting sterol synthesis and our increasing knowledge of oligodendrocyte heterogeneity, few studies have defined regional differences in lipid metabolism across the ",
+          "year": "2025"
+        },
+        {
+          "pmid": "39803512",
+          "title": "Noncanonical PI(4,5)P",
+          "abstract_snippet": "In p53-deficient cancers, targeting cholesterol metabolism has emerged as a promising therapeutic approach, given that p53 loss dysregulates sterol regulatory element-binding protein 2 (SREBP-2) pathways, thereby enhancing cholesterol biosynthesis. While cholesterol synthesis inhibitors such as statins have shown initial success, their efficacy is ",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H1008": {
+      "hypothesis_id": "H1008",
+      "search_query": "\"mTOR signaling\" AND \"breast cancer\"",
+      "subject_term": "mTOR signaling",
+      "object_term": "breast cancer",
+      "total_hits": 178,
+      "pmids_fetched": [
+        "41635545",
+        "41601331",
+        "41502518",
+        "41477979",
+        "41462905"
+      ],
+      "papers": [
+        {
+          "pmid": "41635545",
+          "title": "High expression of G3BP1 is associated with poor prognosis in breast invasive carcinoma.",
+          "abstract_snippet": "Breast invasive carcinoma (BRCA) is the most common type of cancer affecting women worldwide. Biomarkers such as estrogen receptor, progesterone receptor and HER2 are currently utilized in clinical practice for breast cancer diagnosis; yet their sensitivity and specificity remain limited. However, Ras-GTPase-activating protein SH3 domain-binding pr",
+          "year": "2026"
+        },
+        {
+          "pmid": "41601331",
+          "title": "Transcriptional Control of PI3K/AKT/mTOR by piRNA-651 in Breast Carcinoma.",
+          "abstract_snippet": "Breast cancer (BC) is among the most prevalent malignancies in women worldwide, yet early diagnosis is associated with a high survival rate. The proliferation of BC is linked to the overexpression of genes within the PI3K/AKT/mTOR signaling pathway. piR-651 has been reported to be effective in the proliferation and metastasis of BC. This research s",
+          "year": "2025"
+        },
+        {
+          "pmid": "41502518",
+          "title": "miR-512-3p/RPS6KA2 Axis Regulates Cisplatin Resistance in Ovarian Cancer via Autophagy and Ferroptosis.",
+          "abstract_snippet": "Ribosomal protein S6 kinase A2 (RPS6KA2) has been identified as a potential prognostic biomarker in several cancers, including breast cancer, glioblastoma, and prostate cancer. However, its functional significance in ovarian cancer is not well characterized. This study was designed to explore the therapeutic relevance of modulating RPS6KA2 in the c",
+          "year": "2025"
+        },
+        {
+          "pmid": "41477979",
+          "title": "Tougu Xiaotong capsules inhibit lung cancer and gefitinib-resistant cells by blocking ERBB2/PI3K-AKT-mTOR signaling and triggering ferroptosis.",
+          "abstract_snippet": "Tougu Xiaotong Capsule (TXC), a traditional formulation used for osteoarthritis, comprises Sarcandra glabra, Ligusticum chuanxiong, Paeonia lactiflora, and Morinda officinalis. Since these constituents exhibit antitumor activity, we hypothesized that TXC could combat drug resistance through multiple mechanisms, including ferroptosis and erythroblas",
+          "year": "2026"
+        },
+        {
+          "pmid": "41462905",
+          "title": "E-Cadherin Regulates HIF1-α In Vitro in Induced 3D Spheroid Models of Human Breast Cancer Through Both mTOR and Notch1 Signaling.",
+          "abstract_snippet": "",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H1009": {
+      "hypothesis_id": "H1009",
+      "search_query": "\"mTOR signaling\" AND \"protein aggregation\"",
+      "subject_term": "mTOR signaling",
+      "object_term": "protein aggregation",
+      "total_hits": 4,
+      "pmids_fetched": [
+        "41393939",
+        "39798875",
+        "39120751",
+        "38360671"
+      ],
+      "papers": [
+        {
+          "pmid": "41393939",
+          "title": "Integrative effects of saffron and physical activity on endurance performance, quality of life, cognitive, emotional, and metabolic outcomes in age-related and neurodegenerative diseases.",
+          "abstract_snippet": "Age-related diseases, including cardiovascular disorders, type 2 diabetes, neurodegenerative conditions such as Alzheimer's and Parkinson's disease, and age-related eye diseases, represent leading causes of disability and mortality worldwide. Growing evidence highlights the therapeutic promise of non-pharmacological interventions, notably saffron (",
+          "year": "2025"
+        },
+        {
+          "pmid": "39798875",
+          "title": "mTOR signaling controls protein aggregation during heat stress and cellular aging in a translation- and Hsf1-independent manner.",
+          "abstract_snippet": "The mechanistic target of rapamycin (mTOR) signaling pathway appears central to the aging process as genetic or pharmacological inhibition of mTOR extends lifespan in most eukaryotes tested. While the regulation of protein synthesis by mTOR has been studied in great detail, its impact on protein misfolding and aggregation during stress and aging is",
+          "year": "2025"
+        },
+        {
+          "pmid": "39120751",
+          "title": "Overexpression of long noncoding RNA DUXAP8 inhibits ER-phagy through activating AKT/mTOR signaling and contributes to preeclampsia.",
+          "abstract_snippet": "Preeclampsia (PE) is a life-threatening pregnancy-specific complication with controversial mechanisms and no effective treatment except delivery is available. Currently, increasing researchers suggested that PE shares pathophysiologic features with protein misfolding/aggregation disorders, such as Alzheimer disease (AD). Evidences have proposed def",
+          "year": "2024"
+        },
+        {
+          "pmid": "38360671",
+          "title": "In vitro modulation of mTOR and mGlur5 influence α-synuclein accumulation.",
+          "abstract_snippet": "One of the main hallmarks of Parkinson's disease (PD) is abnormal alpha-synuclein (α-syn) aggregation which forms the main component of intracellular Lewy body inclusions. This short report used preformed α-syn fibrils, as well as an A53T mutant α-syn adenovirus to mimic conditions of pathological protein aggregation in dopaminergic human derived S",
+          "year": "2024"
+        }
+      ],
+      "api_error": null
+    },
+    "H1012": {
+      "hypothesis_id": "H1012",
+      "search_query": "\"AMPK pathway\" AND \"LDL cholesterol\"",
+      "subject_term": "AMPK pathway",
+      "object_term": "LDL cholesterol",
+      "total_hits": 1,
+      "pmids_fetched": [
+        "38931268"
+      ],
+      "papers": [
+        {
+          "pmid": "38931268",
+          "title": "Bioactive Peptides from",
+          "abstract_snippet": "Obesity is acknowledged as a significant risk factor for cardiovascular disease, often accompanied by increased inflammation and diabetes. Bioactive peptides derived from marine animal proteins show promise as safe and effective anti-obesity agents by regulating adipocyte differentiation through the AMPK signaling pathway. Therefore, this study aim",
+          "year": "2024"
+        }
+      ],
+      "api_error": null
+    },
+    "H1014": {
+      "hypothesis_id": "H1014",
+      "search_query": "\"amyloid precursor protein\" AND \"amyloid aggregation\"",
+      "subject_term": "amyloid precursor protein",
+      "object_term": "amyloid aggregation",
+      "total_hits": 10,
+      "pmids_fetched": [
+        "40856133",
+        "40600550",
+        "40236233",
+        "39744521",
+        "39407708"
+      ],
+      "papers": [
+        {
+          "pmid": "40856133",
+          "title": "Cracking Amyloid Toxicity: Naringin Rescues Neuronal Cells in a Minimal Alzheimer's Model.",
+          "abstract_snippet": "Alzheimer's disease (AD) is a progressive neurodegenerative disorder characterized by cognitive decline, extracellular amyloid plaque accumulation, and neuronal dysfunction. The diphenylalanine (Phe-Phe) dipeptide, a core self-assembling motif of amyloid-β (Aβ) peptides, has recently gained attention as a simplified and cost-effective model for mim",
+          "year": "2025"
+        },
+        {
+          "pmid": "40600550",
+          "title": "Advancing Amyloid Aggregation Research: A Focus on Innovative Therapies, Molecular Modeling and Nano-Delivery Systems in Alzheimer's Disease.",
+          "abstract_snippet": "Alzheimer's disease (AD), the most common form of dementia, is a major global health issue. Its complex pathology, including amyloid-beta (Aβ) aggregation, leads to neuronal damage and cognitive decline. Since Aβ plays a major role in AD, therapies targeting its production, aggregation, and clearance are being actively explored. This review discuss",
+          "year": "2025"
+        },
+        {
+          "pmid": "40236233",
+          "title": "Circadian rhythms and the light-dark cycle interact to regulate amyloid plaque accumulation and tau phosphorylation in 5xFAD mice.",
+          "abstract_snippet": "Circadian disruption has long been appreciated as a downstream consequence of Alzheimer's Disease in humans. However, an upstream role for behavioral circadian disruption in regulating AD pathology remains an open question.",
+          "year": "2025"
+        },
+        {
+          "pmid": "39744521",
+          "title": "Apolipoprotein E dysfunction in Alzheimer's disease: a study on miRNA regulation, glial markers, and amyloid pathology.",
+          "abstract_snippet": "Apolipoprotein E (ApoE) plays a crucial role in lipid homeostasis, predominantly expressed in astrocytes and to a lesser extent in microglia within the central nervous system (CNS). While the",
+          "year": "2024"
+        },
+        {
+          "pmid": "39407708",
+          "title": "Exploring the Benzazoles Derivatives as Pharmacophores for AChE, BACE1, and as Anti-Aβ Aggregation to Find Multitarget Compounds against Alzheimer's Disease.",
+          "abstract_snippet": "Despite the great effort that has gone into developing new molecules as multitarget compounds to treat Alzheimer's disease (AD), none of these have been approved to treat this disease. Therefore, it will be interesting to determine whether benzazoles such as benzimidazole, benzoxazole, and benzothiazole, employed as pharmacophores, could act as mul",
+          "year": "2024"
+        }
+      ],
+      "api_error": null
+    },
+    "H1016": {
+      "hypothesis_id": "H1016",
+      "search_query": "\"tau\" AND \"Alzheimer\"",
+      "subject_term": "tau",
+      "object_term": "Alzheimer",
+      "total_hits": 7329,
+      "pmids_fetched": [
+        "41959743",
+        "41929929",
+        "41924560",
+        "41924004",
+        "41904014"
+      ],
+      "papers": [
+        {
+          "pmid": "41959743",
+          "title": "ACSL4 in Alzheimer's disease: Pathogenetic mechanisms and potential therapeutic targets.",
+          "abstract_snippet": "Iron metabolism plays a vital role in maintaining physiological homeostasis, and its dysregulation is implicated in a range of pathological consequences and illnesses, including Alzheimer's disease (AD). Prior studies have demonstrated that Tau protein and amyloid precursor protein are involved in iron homeostasis disorder. Ferroptosis, an iron-dep",
+          "year": "2026"
+        },
+        {
+          "pmid": "41929929",
+          "title": "MANF improves cognitive function and attenuates neuroinflammation in APP/PS1 transgenic mice through the TLR4/MYD88/NF-κB signaling pathway.",
+          "abstract_snippet": "Alzheimer's disease (AD) is the most prevalent neurodegenerative disorder, characterized by progressive cognitive decline, as well as pathological features such as β-amyloid (Aβ) plaque deposition, tau hyperphosphorylation, synaptic dysfunction, and neuronal loss. Growing evidence suggests that neuroinflammation, oxidative stress, and apoptosis pla",
+          "year": "2025"
+        },
+        {
+          "pmid": "41924560",
+          "title": "Mitochondrial connection to Alzheimer's disease and heart failure.",
+          "abstract_snippet": "The brain and heart are intricately linked, with dysfunction in one organ often affecting the other. Cardiovascular diseases (CVDs), particularly heart failure, impair cerebral blood flow, contributing to cognitive decline and increasing dementia risk. Conversely, Alzheimer's disease (AD), marked by amyloid-beta plaques and tau tangles, impacts car",
+          "year": "2025"
+        },
+        {
+          "pmid": "41924004",
+          "title": "Associations of Place-based Social Determinants of Health with Biomarkers of Alzheimer's Disease and Related Dementias.",
+          "abstract_snippet": "Relationships between place-based social determinants of health (SDoH) and Alzheimer's disease and related dementias biomarkers are emerging.",
+          "year": "2025"
+        },
+        {
+          "pmid": "41904014",
+          "title": "Tau-Cytoskeleton and their interaction with other neurodegenerative proteins.",
+          "abstract_snippet": "A wide range of neurological conditions known as Tauopathies are distinguished by a peculiar accumulation of Tau protein and its effect on the central nervous system (CNS) and beyond. In Tauopathies, Tau aggregation has a primary role in the neurodegenerative process. Clinically, individuals exhibit various symptoms, such as cognitive or behavioura",
+          "year": "2026"
+        }
+      ],
+      "api_error": null
+    },
+    "H1017": {
+      "hypothesis_id": "H1017",
+      "search_query": "\"BDNF\" AND \"Alzheimer\"",
+      "subject_term": "BDNF",
+      "object_term": "Alzheimer",
+      "total_hits": 514,
+      "pmids_fetched": [
+        "41778432",
+        "41624198",
+        "41602161",
+        "41594549",
+        "41562905"
+      ],
+      "papers": [
+        {
+          "pmid": "41778432",
+          "title": "Impact of Stroke History on Cognitive Function, White Matter Hyperintensities, and Circulating BDNF Levels.",
+          "abstract_snippet": "The present study aims to investigate the impact of stroke history on cognitive function, white matter hyperintensities (WMHs), and circulating brain-derived neurotrophic factor (BDNF) levels in brain lesion patients.",
+          "year": "2025"
+        },
+        {
+          "pmid": "41624198",
+          "title": "Unraveling the neuroprotective mechanisms of elephant black garlic extract against beta amyloid peptide-induced neurotoxicity.",
+          "abstract_snippet": "Chilean Elephant Black Garlic (",
+          "year": "2025"
+        },
+        {
+          "pmid": "41602161",
+          "title": "Small molecule FTO inhibitor MO-I-500 protects differentiated SH-SY5Y neuronal cells from oxidative stress.",
+          "abstract_snippet": "Oxidative stress is a central driver of brain aging, impairing cellular function and increasing susceptibility to neurodegenerative diseases. Recent studies suggest that the RNA demethylase FTO regulates N6-methyladenosine (m6A) RNA modification, a key pathway in modulating oxidative stress in the brain. However, the precise mechanisms underlying F",
+          "year": "2025"
+        },
+        {
+          "pmid": "41594549",
+          "title": "Advances in Bioactive Compounds from Plants and Their Applications in Alzheimer's Disease.",
+          "abstract_snippet": "Alzheimer's disease (AD), the leading cause of dementia worldwide, is characterized by progressive neuronal loss, amyloid-β (Aβ) aggregation, tau hyperphosphorylation, oxidative stress, neuroinflammation, cholinergic dysfunction, and gut-brain axis dysregulation. Despite advances in anti-amyloid therapeutics, current interventions provide only mode",
+          "year": "2025"
+        },
+        {
+          "pmid": "41562905",
+          "title": "Current State of the Neurotrophin-Based Pharmaceutics in the Treatment of Neurodegenerative Diseases and Neuroinflammation.",
+          "abstract_snippet": "The regulation of the synthesis of the nerve growth factor and other neurotrophins is one of the dynamically developing areas of pharmacotherapy of neurological and mental disorders. Despite a large number of studies of various ligands of neurotrophin receptors, only a few have reached clinical application and only for ocular diseases. The aim of t",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H1018": {
+      "hypothesis_id": "H1018",
+      "search_query": "\"BDNF\" AND \"Parkinson\"",
+      "subject_term": "BDNF",
+      "object_term": "Parkinson",
+      "total_hits": 198,
+      "pmids_fetched": [
+        "41595556",
+        "41562905",
+        "41516320",
+        "41441442",
+        "41428612"
+      ],
+      "papers": [
+        {
+          "pmid": "41595556",
+          "title": "Cellular and Molecular Mechanisms of Neuroprotection in Deep Brain Stimulation for Parkinson's Disease.",
+          "abstract_snippet": "Deep brain stimulation (DBS) is an established therapy for motor symptom management in Parkinson's disease (PD), yet emerging evidence suggests that its effects may extend beyond functional circuit modulation to include cellular and molecular mechanisms with potential neuroprotective significance. This review synthesizes current evidence on the neu",
+          "year": "2025"
+        },
+        {
+          "pmid": "41562905",
+          "title": "Current State of the Neurotrophin-Based Pharmaceutics in the Treatment of Neurodegenerative Diseases and Neuroinflammation.",
+          "abstract_snippet": "The regulation of the synthesis of the nerve growth factor and other neurotrophins is one of the dynamically developing areas of pharmacotherapy of neurological and mental disorders. Despite a large number of studies of various ligands of neurotrophin receptors, only a few have reached clinical application and only for ocular diseases. The aim of t",
+          "year": "2025"
+        },
+        {
+          "pmid": "41516320",
+          "title": "Modulation of Behavioral, Biochemical, Immunomodulatory, and Transcriptional Profiles by the Strain",
+          "abstract_snippet": "Since there is currently no cure for Parkinson's disease, pharmacobiotic approaches based on gut microbiota-capable of producing pharmacologically active compounds-are under development. In this study, we propose LfU21, derived from the strain",
+          "year": "2025"
+        },
+        {
+          "pmid": "41441442",
+          "title": "Yoga for Neurodegenerative Disorders: Therapeutic Effects, Mechanisms, and Applications in Alzheimer's and Parkinson's Disease.",
+          "abstract_snippet": "Neurodegenerative diseases (NDs) such as Alzheimer's disease (AD) and Parkinson's disease (PD) represent a growing global health concern with no definitive cure. Increasing evidence suggests that mind-body practices like yoga may offer neuroprotective benefits by modulating stress, neuroinflammation, and neuroplasticity. This narrative review explo",
+          "year": "2025"
+        },
+        {
+          "pmid": "41428612",
+          "title": "Chemokines and Motor Symptoms in First-Episode Psychosis: Are We Overlooking One of the Puzzle Pieces in Understanding the Neurological Immune Mechanisms behind Them?",
+          "abstract_snippet": "The role of chemokines in motor abnormalities (MAs) in first-episode psychosis (FEP) is underexplored. Investigating immune biomarker levels in FEP, their association with MAs, and their differences with individuals without FEP may reveal therapeutic targets.",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H1019": {
+      "hypothesis_id": "H1019",
+      "search_query": "\"BDNF\" AND \"Huntington\"",
+      "subject_term": "BDNF",
+      "object_term": "Huntington",
+      "total_hits": 58,
+      "pmids_fetched": [
+        "41471389",
+        "41452361",
+        "41339520",
+        "41277110",
+        "41266979"
+      ],
+      "papers": [
+        {
+          "pmid": "41471389",
+          "title": "Pridopidine, a Potent and Selective Therapeutic Sigma-1 Receptor (S1R) Agonist for Treating Neurodegenerative Diseases.",
+          "abstract_snippet": "Pridopidine is a highly selective sigma-1 receptor (S1R) agonist in clinical development for Huntington's disease (HD) and amyotrophic lateral sclerosis (ALS). The S1R is a ubiquitous chaperone protein enriched in the central nervous system and regulates multiple pathways critical for neuronal cell function and survival, including cellular stress r",
+          "year": "2025"
+        },
+        {
+          "pmid": "41452361",
+          "title": "Neuroprotection by canagliflozin in a Huntington's disease model: role of HIF-1α and PI3K/AKT signaling.",
+          "abstract_snippet": "Huntington's disease (HD) is a progressive neurodegenerative disorder characterized by motor, cognitive, and metabolic dysfunction, largely driven by mitochondrial impairment and defective energy metabolism. Altered signaling through hypoxia-inducible factor-1α (HIF-1α) and PI3K/AKT cascades contributes to neuronal vulnerability. Canagliflozin (Can",
+          "year": "2025"
+        },
+        {
+          "pmid": "41339520",
+          "title": "Inhba, Homer1 and Bdnf are major targets of transcriptomic dysregulation by neurodegenerative disease-associated excitotoxic NMDA receptor signaling.",
+          "abstract_snippet": "Synaptic activity-regulated gene expression supports neuroprotection, plasticity, and memory. The transcription factor CREB is central to these processes. It is activated by synaptic NMDA receptors but inactivated by excitotoxic extrasynaptic NMDAR (esNMDAR) signaling. Using primary hippocampal neurons, we modeled neurodegeneration and found that e",
+          "year": "2025"
+        },
+        {
+          "pmid": "41277110",
+          "title": "Autophagy and mitophagy at the synapse and beyond: implications for learning, memory and neurological disorders.",
+          "abstract_snippet": "The human brain is one of the most metabolically active tissues in the body, due in large part to the activity of trillions of synaptic connections. Under normal conditions, macroautophagy/autophagy at the synapse plays a crucial role in synaptic pruning and plasticity, which occurs physiologically in the absence of disease- or aging-related stress",
+          "year": "2026"
+        },
+        {
+          "pmid": "41266979",
+          "title": "Selective vulnerability of GABAergic neurons in chronic migraine.",
+          "abstract_snippet": "Migraine is the second leading cause of neurological disability and has a strong genetic component. Previous linkage studies have identified a candidate migraine susceptibility locus on chromosome Xq24-28, which harbors several GABA",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H1020": {
+      "hypothesis_id": "H1020",
+      "search_query": "\"VEGF\" AND \"glioblastoma\"",
+      "subject_term": "VEGF",
+      "object_term": "glioblastoma",
+      "total_hits": 105,
+      "pmids_fetched": [
+        "41516249",
+        "41516199",
+        "41476211",
+        "41366148",
+        "41317711"
+      ],
+      "papers": [
+        {
+          "pmid": "41516249",
+          "title": "The TRiC/CCT Complex at the Crossroads of Metabolism and Hypoxia in GBM: Implications for IDH-Dependent Therapeutic Targeting.",
+          "abstract_snippet": "Glioblastoma (GBM) is characterized by its unique molecular features, such as self-renewal and tumorigenicity of glioma stem cells that promote resistance, largely resulting in treatment failure. Among the molecular alterations significant to GBM biology and treatment, mutations in isocitrate dehydrogenase (IDH) have assumed particular relevance. I",
+          "year": "2025"
+        },
+        {
+          "pmid": "41516199",
+          "title": "Influence of the Cholinergic System on the Pathogenesis of Glioblastoma: Impact of the Neutrophil Granulocytes.",
+          "abstract_snippet": "Glioblastoma (GBM) is the most common malignant primary brain tumor in adults. Since numerous studies highlight the significance of cholinergic system components in tumor development, acetylcholine (ACh) and the differential activation of its receptors could play a crucial role in GBM progression. The aim of this study was to test this hypothesis b",
+          "year": "2025"
+        },
+        {
+          "pmid": "41476211",
+          "title": "Multimodality mapping of immunotherapy distribution as a predictive marker in glioma.",
+          "abstract_snippet": "Scarce T cell infiltration, immunosuppressive tumor-associated macrophages and ineffective drug delivery drive glioma progression and limit treatment efficacy. Mapping immunotherapy distribution by multimodality imaging might be a biomarker that could aid tumor monitoring and guide therapy development.",
+          "year": "2025"
+        },
+        {
+          "pmid": "41366148",
+          "title": "Immunotherapy and targeted therapy for high grade gliomas: current and future directions.",
+          "abstract_snippet": "High grade gliomas are aggressive intrinsic brain tumors with limited treatment options and a universally poor prognosis. In recent years, significant progress has been made in understanding the genetic and molecular underpinnings of high grade gliomas and their interactions with the tumor microenvironment, including vasculature, immune cells, neur",
+          "year": "2025"
+        },
+        {
+          "pmid": "41317711",
+          "title": "HIF-1α silencing downregulates SLC37A2, SLC37A3, and G6PC3 gene expression and impacts glioblastoma stemness features in 3D neurospheres.",
+          "abstract_snippet": "Glioblastoma (GBM), a highly aggressive brain tumor, exhibits a notable capacity for metabolic reprogramming, which may support tumor cell adaptation to the rapid growth and survival demands within the hypoxic solid tumor microenvironment (TME). Hypoxia has been implicated in promoting features associated with cancer stem cell (CSC) phenotypes and ",
+          "year": "2026"
+        }
+      ],
+      "api_error": null
+    },
+    "H1021": {
+      "hypothesis_id": "H1021",
+      "search_query": "\"EGFR\" AND \"colorectal cancer\"",
+      "subject_term": "EGFR",
+      "object_term": "colorectal cancer",
+      "total_hits": 618,
+      "pmids_fetched": [
+        "41868813",
+        "41716634",
+        "41675514",
+        "41646966",
+        "41646490"
+      ],
+      "papers": [
+        {
+          "pmid": "41868813",
+          "title": "Preoperative chemotherapy in colorectal peritoneal metastatic disease - a real-world observational cohort study.",
+          "abstract_snippet": "The effects of preoperative chemotherapy have been poorly studied in colorectal cancer with peritoneal metastases (CRC-PM). This study evaluated preoperative chemotherapy from the first multi-disciplinary team meeting (MDT) decision, focusing on the response rates, surgical outcomes, and survival.",
+          "year": "2026"
+        },
+        {
+          "pmid": "41716634",
+          "title": "MFAP2 promotes metastasis and drug resistance by regulating epithelial-to-mesenchymal transition through EGFR signaling pathway in colorectal cancer cells.",
+          "abstract_snippet": "Colorectal cancer (CRC) is a prevalent condition, with metastasis spread as the primary cause of mortality. However, MFAP2 function in CRC progression and its regulatory mechanisms in metastasis remain poorly understood. To investigate the status of MFAP2, an extensive analysis was conducted using multiple clinical databases and transcriptomic data",
+          "year": "2026"
+        },
+        {
+          "pmid": "41675514",
+          "title": "Inhibition of colorectal cancer progression through conformation-specific targeting of ADAM10 metalloprotease.",
+          "abstract_snippet": "Colorectal cancer (CRC) is the second leading cause of cancer-related deaths worldwide. Current first- and second-line therapies rely on oxaliplatin- or irinotecan-based combination chemotherapies combined with antibody-mediated inhibition of EGFR- or VEGF-dependent signaling, but these regimens are associated with significant side effects that lim",
+          "year": "2025"
+        },
+        {
+          "pmid": "41646966",
+          "title": "Anti-colorectal cancer effects of IRX4 and sensitivity studies to oxaliplatin.",
+          "abstract_snippet": "Colorectal cancer (CRC) remains one of the most lethal malignancies globally. Chemoresistance or reduced chemosensitivity is a key factor contributing to treatment failure in CRC, particularly in patients with advanced-stage disease. Iroquois homeobox protein 4 (IRX4), a transcription factor expressed in multiple tissues, has been demonstrated to b",
+          "year": "2025"
+        },
+        {
+          "pmid": "41646490",
+          "title": "Exploring the pathway: clinical utility and open challenges of targeting BRAF alterations in biliary tract cancers and gastrointestinal malignancies.",
+          "abstract_snippet": "The",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H1022": {
+      "hypothesis_id": "H1022",
+      "search_query": "\"p53\" AND \"multiple myeloma\"",
+      "subject_term": "p53",
+      "object_term": "multiple myeloma",
+      "total_hits": 56,
+      "pmids_fetched": [
+        "41437395",
+        "41315915",
+        "41045696",
+        "41020839",
+        "40946229"
+      ],
+      "papers": [
+        {
+          "pmid": "41437395",
+          "title": "Efficacy of melflufen in multiple myeloma with mutated or deleted TP53.",
+          "abstract_snippet": "Patients with multiple myeloma bearing a deletion of chromosome 17p (del(17p)), mutation of TP53, or both have poorer prognosis compared to patients without these aberrations. We investigated the activity and mechanism of melflufen (melphalan flufenamide) in myeloma models with wild type TP53 (TP53wt) and complete TP53 deletion (TP53",
+          "year": "2025"
+        },
+        {
+          "pmid": "41315915",
+          "title": "Multi-hit TP53 confers the poorest survival in multiple myeloma in the era of novel therapies.",
+          "abstract_snippet": "Multiple myeloma (MM) with high-risk (HR) genetic abnormalities has poor prognosis, despite the use of novel therapeutic agents. However, the individual contribution of specific HR genetic abnormalities or their co-occurrence to poor outcomes, especially in the era of novel agents, remains unclear. This study evaluated the impact of multi-hit TP53 ",
+          "year": "2025"
+        },
+        {
+          "pmid": "41045696",
+          "title": "Discovery of Y502-2304, a potent c-Myc G-quadruplex stabilizer for the treatment of multiple myeloma.",
+          "abstract_snippet": "c-Myc is a proto-oncogene that is frequently overexpressed in various cancers, including multiple myeloma (MM), and is associated with poor clinical outcomes. Due to the lack of well-defined small-molecule binding pockets, directly targeting c-Myc remains a formidable challenge. The G-quadruplex (G4) formed in the NHE III1 region of the c-Myc promo",
+          "year": "2026"
+        },
+        {
+          "pmid": "41020839",
+          "title": "The Anti-Tumor and Bortezomib-Sensitizing Effects of Apigenin in Multiple Myeloma.",
+          "abstract_snippet": "Multiple myeloma (MM) is a kind of plasma cell neoplasm, accounting for approximately 10% of hematologic malignancies, with a high mortality rate. Apigenin (APG), a flavonoid, has been reported to have antiviral, antibacterial, antioxidant, and anticancer properties. However, the impact of APG on MM and bortezomib (BTZ) sensitization has not been i",
+          "year": "2025"
+        },
+        {
+          "pmid": "40946229",
+          "title": "Hybrid Molecules of p53 Activators and Protoflavones to Target Multiple Myeloma.",
+          "abstract_snippet": "Multiple myeloma is a rare blood cancer that develops from abnormal plasma cells in the bone marrow. Treatment of multiple myeloma remains an enormous challenge. In this work, hybrid compounds are developed and studied for their potential use against multiple myeloma. The compounds are designed to act by a dual mechanism of action, activation of th",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H1023": {
+      "hypothesis_id": "H1023",
+      "search_query": "\"p53\" AND \"chronic myeloid leukemia\"",
+      "subject_term": "p53",
+      "object_term": "chronic myeloid leukemia",
+      "total_hits": 20,
+      "pmids_fetched": [
+        "41353321",
+        "41162917",
+        "41117883",
+        "40893386",
+        "40676443"
+      ],
+      "papers": [
+        {
+          "pmid": "41353321",
+          "title": "Targeting Musashi-2 to counteract senescence and resistance in chronic myeloid leukemia: enhancing the efficacy of imatinib therapy.",
+          "abstract_snippet": "Chronic myeloid leukemia (CML) is a myeloproliferative malignancy marked through the excessive proliferative growth of functional myeloid cells. Approximately 95% of CML patients harbor the BCR-ABL fusion gene (Philadelphia chromosome), key driver of leukemogenesis. Despite therapeutic advancements with tyrosine kinase inhibitors (TKIs) such as ima",
+          "year": "2025"
+        },
+        {
+          "pmid": "41162917",
+          "title": "Study of the association between HDAC8, SIRT1, and P53 gene expression with drug resistance in chronic myeloid leukemia patients.",
+          "abstract_snippet": "Chronic Myeloid Leukemia (CML) is characterized by the",
+          "year": "2025"
+        },
+        {
+          "pmid": "41117883",
+          "title": "TAM family kinases are potential candidate targets for therapeutic intervention in chronic myeloid leukemia.",
+          "abstract_snippet": "Chronic Myeloid Leukemia (CML) is a hematologic disorder depicted by BCR::ABL1 translocation; a constitutively active tyrosine kinase (TK) and a hallmark of CML. Kinase domain mutations and the activation of alternative signaling pathways lead to drug resistance in CML. TAM family kinases, including TYRO3 receptor tyrosine kinase (TYRO3-RTK), AXL r",
+          "year": "2025"
+        },
+        {
+          "pmid": "40893386",
+          "title": "Combination of WEE1 Inhibitor and Vitamin K2 Enhances Therapeutic Efficacy in Chronic Myeloid Leukemia.",
+          "abstract_snippet": "Chronic myeloid leukemia (CML) is a clonal malignancy propelled by the",
+          "year": "2025"
+        },
+        {
+          "pmid": "40676443",
+          "title": "Potential therapeutic targets in chronic myeloid leukemia.",
+          "abstract_snippet": "Chronic myeloid leukemia (CML) is driven by the BCR::ABL fusion oncoprotein, caused by a reciprocal translocation between chromosomes no. 9 and 22, leading to the formation of the Philadelphia chromosome having aberrant tyrosine kinase activity. Tyrosine kinase inhibitors (TKIs) revolutionized the CML treatment and helped patients to achieve a high",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H1024": {
+      "hypothesis_id": "H1024",
+      "search_query": "\"BCL2\" AND \"multiple myeloma\"",
+      "subject_term": "BCL2",
+      "object_term": "multiple myeloma",
+      "total_hits": 103,
+      "pmids_fetched": [
+        "41657780",
+        "41624733",
+        "41439242",
+        "41439211",
+        "41437818"
+      ],
+      "papers": [
+        {
+          "pmid": "41657780",
+          "title": "Novel therapeutic strategies targeting resistance mechanisms in hematologic malignancies: from BCL2 inhibition to immunomodulatory approaches.",
+          "abstract_snippet": "Hematologic malignancies, including chronic lymphocytic leukemia (CLL), acute myeloid leukemia (AML), non-Hodgkin lymphoma (NHL), and multiple myeloma (MM), are characterized by high relapse rates due to intrinsic and acquired drug resistance. Resistance mechanisms often involve dysregulation of apoptosis pathways, such as B-cell lymphoma 2 (BCL2) ",
+          "year": "2025"
+        },
+        {
+          "pmid": "41624733",
+          "title": "Plasmacytoma of the Cervix Possibly Caused by Neglected Pessary: A Case Report and Literature Review.",
+          "abstract_snippet": "Plasmacytoma is a rare plasma cell dyscrasia marked by localized monoclonal plasma cell proliferation, distinct from multiple myeloma by its lack of systemic symptoms. Extramedullary plasmacytoma (EMP), the rarest form, typically occurs in the upper respiratory tract. Cervical involvement is rare. Chronic inflammation may play a role in the develop",
+          "year": "2026"
+        },
+        {
+          "pmid": "41439242",
+          "title": "Expression and Clinical Significance of BCL2 Interacting Protein 3 Like (BNIP3L) in Serum of Patients with MM.",
+          "abstract_snippet": "BNIP3L regulates mitophagy and apoptosis, and its dysregulation is closely linked to the development and progression of cancers. Studies have shown that BNIP3L is valuable for assessing tumor progression and prognosis. This study aims to investigate the diagnostic and prognostic significance of serum BNIP3L levels in multiple myeloma (MM).",
+          "year": "2025"
+        },
+        {
+          "pmid": "41439211",
+          "title": "Treatment of Relapsed/Refractory t(11;14) Multiple Myeloma and High-Risk Myelodysplastic Syndrome With Venetoclax.",
+          "abstract_snippet": "Patients with multiple myeloma (MM) have an inherent risk for secondary myeloid malignancies. Innovative approaches to treatment are needed when these hematologic malignancies co-occur. Venetoclax (VEN), a BCL2 inhibitor, has been used in combination with Azacitidine in acute myeloid leukemia, in the trial setting in high-risk myelodysplastic syndr",
+          "year": "2025"
+        },
+        {
+          "pmid": "41437818",
+          "title": "Translocation t(11;14) and BCL2-inhibition in multiple myeloma.",
+          "abstract_snippet": "Multiple myeloma is an increasingly treatable disease with improved survival, yet characterized by multiple subclones that drive heterogeneity and variable clinical outcomes between patients. A biomarker driven approach can help tailor treatment and improve patient outcomes. Translocation t(11;14), a primary cytogenetic abnormality present in 15-20",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H1025": {
+      "hypothesis_id": "H1025",
+      "search_query": "\"BCL2\" AND \"chronic myeloid leukemia\"",
+      "subject_term": "BCL2",
+      "object_term": "chronic myeloid leukemia",
+      "total_hits": 32,
+      "pmids_fetched": [
+        "41523833",
+        "41471266",
+        "41418352",
+        "41085796",
+        "41008552"
+      ],
+      "papers": [
+        {
+          "pmid": "41523833",
+          "title": "Leukemia epidemiology in China: Burden, trends, and determinants in the 21st century.",
+          "abstract_snippet": "This comprehensive review integrates population-based registries, hospital databases and Global Burden of Disease data to describe the evolving leukemia burden in China from 2000 to 2022. The overall incidence has stabilized nationally, but the absolute number of cases continues to increase as the population ages. A bimodal age pattern persists, wi",
+          "year": "2025"
+        },
+        {
+          "pmid": "41471266",
+          "title": "BMP-7 Treatment Ameliorates PTEN-Akt Mediated Apoptosis and Adverse Cardiac Remodeling in Ponatinib-Induced Cardiotoxicity.",
+          "abstract_snippet": "",
+          "year": "2025"
+        },
+        {
+          "pmid": "41418352",
+          "title": "Targeting myeloid cell leukemia-1 protein to identify potential compounds for chronic myeloid leukemia treatment: Molecular docking and molecular dynamics simulation approaches.",
+          "abstract_snippet": "Myeloid cell leukemia-1 (Mcl-1), an anti-apoptotic member of the Bcl-2 family, is frequently overexpressed and amplified in chronic myeloid leukemia (CML) as well as in several other malignancies, contributing to tumor progression and therapeutic resistance. The present study employed a multi-step virtual screening approach to identify potential in",
+          "year": "2026"
+        },
+        {
+          "pmid": "41085796",
+          "title": "Zataria multiflora extract enhances imatinib-induced cytotoxicity in chronic myeloid leukemia and multiple myeloma cells.",
+          "abstract_snippet": "Zataria multiflora (ZM) is a medicinal plant with widespread antitumor effects. Tyrosine kinase inhibitors (TKIs) are considered the mainstay treatment in blood cancers; however, eventual resistance to TKIs poses a significant challenge in this area. The present study aimed to assess the synergistic effects of ZM extract (ZME) along with imatinib, ",
+          "year": "2025"
+        },
+        {
+          "pmid": "41008552",
+          "title": "Targeting Integrin α2 to Overcome Imatinib Resistance in Chronic Myeloid Leukemia Cells.",
+          "abstract_snippet": "Chronic myeloid leukemia (CML) is a blood disorder caused by a genetic alteration that creates the",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H2001": {
+      "hypothesis_id": "H2001",
+      "search_query": "\"HER2\" AND \"breast cancer\"",
+      "subject_term": "HER2",
+      "object_term": "breast cancer",
+      "total_hits": 6493,
+      "pmids_fetched": [
+        "41954342",
+        "41954341",
+        "41954340",
+        "41949942",
+        "41938274"
+      ],
+      "papers": [
+        {
+          "pmid": "41954342",
+          "title": "",
+          "abstract_snippet": "The management of hormone receptor-positive/HER2-negative (HR+/HER2-) metastatic breast cancer (MBC) relies on molecular testing to inform treatment decisions.",
+          "year": "2025"
+        },
+        {
+          "pmid": "41954341",
+          "title": "Standardizing the pathologic assessment of HER2-(ultra)low breast cancer: insights from a national Italian project.",
+          "abstract_snippet": "Novel therapies for HER2-(ultra)low breast cancer (BC) have changed the traditional binary classification of HER2 status into a multi-tiered system that captures the full spectrum of expression as determined by immunohistochemistry (IHC). Several pre-analytical and analytical variables can influence the accurate identification of HER2 expression wi",
+          "year": "2025"
+        },
+        {
+          "pmid": "41954340",
+          "title": "Next-generation sequencing methodologies to identify patients for targeted therapy: focus on HR+/HER2- metastatic breast cancer.",
+          "abstract_snippet": "Alterations in the phosphoinositide 3-kinase (PI3K)/AKT/PTEN signaling pathway are a well-recognized mechanism of resistance in hormone receptor-positive, HER2-negative metastatic breast cancer (HR+/HER2- mBC). These alterations are present in approximately half of patients with HR+/HER2- mBC. The major alterations in the pathway are somatic mutati",
+          "year": "2025"
+        },
+        {
+          "pmid": "41949942",
+          "title": "Contribution of the seric cytokeartin fragment 21.1 (cyf 21.1) as a tumor marker in a population of algerien women with breast cancer undergoing chemotherapy.",
+          "abstract_snippet": "In Algeria, breast cancer accounts for 37.8% of new cancer cases in women. It is an epithelial cell tumor in most cases. CA15-3 (carbohydrate antigen) is the marker of choice for therapeutic monitoring, although ASCO (the American Society of Clinical Oncology) does not recommend its routine use, preferring CYFRA21.1 (cytokeratin19 fragment) to asse",
+          "year": "2025"
+        },
+        {
+          "pmid": "41938274",
+          "title": "Capivasertib-Induced Refractory Hyperglycemia in a Nondiabetic Patient With Metastatic Breast Cancer.",
+          "abstract_snippet": "Selective AKT inhibitors such as capivasertib are approved to treat hormone receptor-positive, HER2-negative advanced breast cancer. Hyperglycemia is a known side effect of these agents; however, severe hyperglycemia is uncommon. We describe a patient without known history of diabetes who developed a rare presentation of refractory, severe hypergly",
+          "year": "2026"
+        }
+      ],
+      "api_error": null
+    },
+    "H2002": {
+      "hypothesis_id": "H2002",
+      "search_query": "\"obesity\" AND \"NAFLD\"",
+      "subject_term": "obesity",
+      "object_term": "NAFLD",
+      "total_hits": 1312,
+      "pmids_fetched": [
+        "41788585",
+        "41788172",
+        "41695796",
+        "41648960",
+        "41648778"
+      ],
+      "papers": [
+        {
+          "pmid": "41788585",
+          "title": "Mechanistic insights into the regulation of glucose‒lipid metabolism by the bioactive constituents of ginseng.",
+          "abstract_snippet": "",
+          "year": "2026"
+        },
+        {
+          "pmid": "41788172",
+          "title": "Integration proteomics analysis to identify AMPK as key target pathways of TCM formula for high fat diet induced obesity in mice.",
+          "abstract_snippet": "Livsooth Authentic Herbal Formula (LAH) is a novel Chinese herbal medicine that has been previously shown to prevent non-alcoholic fatty liver disease (NAFLD). However, its efficacy in treating obesity and its underlying mechanisms remain unclear. This study uniquely investigates the therapeutic effects of LAH on high-fat diet (HFD)-induced obese m",
+          "year": "2026"
+        },
+        {
+          "pmid": "41695796",
+          "title": "Demystifying the role of postbiotics in inflammation mediated metabolic disorders: an updated review.",
+          "abstract_snippet": "Postbiotics, the metabolic byproducts of probiotic bacteria, have emerged as promising therapeutic agents for managing inflammation-mediated metabolic disorders. Postbiotics offer greater stability and standardization compared to probiotics, as they do not rely on live bacteria for their effects. These bioactive compounds including organic acids, p",
+          "year": "2026"
+        },
+        {
+          "pmid": "41648960",
+          "title": "Screening for non-alcoholic fatty liver disease (NAFLD) among adults in Puducherry, India: A community-based cross-sectional study.",
+          "abstract_snippet": "Background & objectives Non-alcoholic fatty liver disease (NAFLD) is an emerging public health issue and affects 20-30 per cent of the general population globally and 9-53 per cent in India. We aimed to estimate the prevalence of NAFLD and associated risk factors among adults at high risk for NAFLD (≥30 yr) in Puducherry. Methods A community-based ",
+          "year": "2025"
+        },
+        {
+          "pmid": "41648778",
+          "title": "The association between triglyceride glucose-waist-to-height ratio and non-alcoholic fatty liver disease in adults aged over 60 in the United States: a cross-sectional study.",
+          "abstract_snippet": "To identify the optimal surrogate indicator for the initial public health screening of non-alcoholic fatty liver disease (NAFLD) among U.S. adults aged 60 years and above, by systematically comparing the predictive performance of a novel index-the triglyceride glucose-waist-to-height ratio (TyGWHtR)-against 15 other conventional obesity, metabolic,",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H2003": {
+      "hypothesis_id": "H2003",
+      "search_query": "\"JAK inhibition\" AND \"rheumatoid arthritis\"",
+      "subject_term": "JAK inhibition",
+      "object_term": "rheumatoid arthritis",
+      "total_hits": 23,
+      "pmids_fetched": [
+        "41668767",
+        "41515559",
+        "41301504",
+        "41194923",
+        "41185894"
+      ],
+      "papers": [
+        {
+          "pmid": "41668767",
+          "title": "Multi-omics identification of immune-related biomarkers predicting tofacitinib response in rheumatoid arthritis.",
+          "abstract_snippet": "Rheumatoid arthritis (RA) is a prototypical autoimmune disease characterized by chronic inflammation and immune dysregulation. Although Janus kinase (JAK) inhibitors such as tofacitinib have expanded therapeutic options, treatment responses remain heterogeneous and reliable predictors of efficacy are lacking.",
+          "year": "2025"
+        },
+        {
+          "pmid": "41515559",
+          "title": "Longitudinal Comparison of Calprotectin and C-Reactive Protein in Rheumatoid Arthritis: Real-World Evidence Across Three Targeted Therapies.",
+          "abstract_snippet": "",
+          "year": "2025"
+        },
+        {
+          "pmid": "41301504",
+          "title": "The Type I Interferon Axis in Systemic Autoimmune Diseases: From Molecular Pathways to Targeted Therapy.",
+          "abstract_snippet": "Type I interferons (IFN-I) are pivotal effectors of innate immunity and constitute a central axis of host defense against pathogens. Sensing of exogenous or endogenous nucleic acids by pattern-recognition receptors-exemplified by Toll-like receptors-triggers transcriptional induction of IFN-I. Engagement of the heterodimeric IFN-I receptor on nucle",
+          "year": "2025"
+        },
+        {
+          "pmid": "41194923",
+          "title": "The effect of baricitinib on pSTAT3 levels in IL-6- or IL-15-stimulated PBMCs isolated from patients with SLE.",
+          "abstract_snippet": "Systemic lupus erythematosus (SLE) is a systemic autoimmune disease marked by multi-organ inflammation. Its pathogenesis involves profound T-cell dysfunction, autoreactive B-cell activation, impaired CD8",
+          "year": "2025"
+        },
+        {
+          "pmid": "41185894",
+          "title": "Rheumatoid Arthritis-Associated Interstitial Pneumonia Refractory to Initial Therapy: Successful Control Through Combined Anti-Inflammatory, Antifibrotic and JAK-STAT-Targeted Treatment.",
+          "abstract_snippet": "Connective tissue disease (CTD)-associated interstitial lung disease (ILD) accounts for a significant proportion of ILD cases, with rheumatoid arthritis (RA) being one of the most common underlying disorders. Although immunosuppressive therapy plays a central role in CTD-ILD, its efficacy is limited in fibrotic ILDs, particularly those with a usual",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H2004": {
+      "hypothesis_id": "H2004",
+      "search_query": "\"amyloid aggregation\" AND \"Alzheimer\"",
+      "subject_term": "amyloid aggregation",
+      "object_term": "Alzheimer",
+      "total_hits": 180,
+      "pmids_fetched": [
+        "41474988",
+        "41471351",
+        "41470875",
+        "41442122",
+        "41428168"
+      ],
+      "papers": [
+        {
+          "pmid": "41474988",
+          "title": "Papaverine-Derived Dual-Active Modulator Ameliorates Alzheimer's Disease Pathology in Aged APP/PSEN1 Transgenic Mice.",
+          "abstract_snippet": "Alzheimer's disease (AD) therapeutics remain a challenge due to their complex pathology and multifactorial toxicity. Advanced stages of AD are marked by rapid cognitive decline, driven by amyloid plaques, neurofibrillary tangles, neuroinflammation, synaptic dysfunction, and neuronal loss. We report the design of dual-active, prodrug-like multifunct",
+          "year": "2026"
+        },
+        {
+          "pmid": "41471351",
+          "title": "1-Azinyl-1'-Alkenylferrocenes with Anticholinesterase, Antioxidant, and Antiaggregating Activities as Multifunctional Agents for Potential Treatment of Alzheimer's Disease.",
+          "abstract_snippet": "",
+          "year": "2025"
+        },
+        {
+          "pmid": "41470875",
+          "title": "Mediterranean Diet, Polyphenols, and Neuroprotection: Mechanistic Insights into Resveratrol and Oleuropein.",
+          "abstract_snippet": "",
+          "year": "2025"
+        },
+        {
+          "pmid": "41442122",
+          "title": "Molecular Mechanism of Beta-Amyloid Aggregation Inhibition by KLVFF.",
+          "abstract_snippet": "The accumulation of β-amyloid (Aβ) oligomers is a critical hallmark for different neurodegenerative conditions, including Alzheimer's disease. The short peptide KLVFF, derived from the central hydrophobic domain of Aβ, binds to Aβ oligomers and interferes with Aβ aggregation. However, the underlying molecular mechanism of action of this peptide rem",
+          "year": "2026"
+        },
+        {
+          "pmid": "41428168",
+          "title": "Cross-seeding of IAPP and Aβ42: A review of the molecular link between type 2 diabetes and Alzheimer's disease.",
+          "abstract_snippet": "Alzheimer’s Disease (AD) and Type 2 Diabetes Mellitus (T2DM) are interconnected conditions, both marked by the aggregation of amyloidogenic proteins: amyloid-β 42 (Aβ42) in AD and islet amyloid polypeptide (IAPP) in T2DM. Emerging evidence suggests that IAPP can cross the blood–brain barrier and interact with Aβ42, forming heterocomplexes that prom",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H2005": {
+      "hypothesis_id": "H2005",
+      "search_query": "\"BACE1\" AND \"amyloid cascade\"",
+      "subject_term": "BACE1",
+      "object_term": "amyloid cascade",
+      "total_hits": 12,
+      "pmids_fetched": [
+        "41154195",
+        "40993924",
+        "40362488",
+        "40208466",
+        "39858593"
+      ],
+      "papers": [
+        {
+          "pmid": "41154195",
+          "title": "Therapeutic Advances in Targeting the Amyloid-β Pathway for Alzheimer's Disease.",
+          "abstract_snippet": "Alzheimer's disease (AD) is the most common cause of dementia, characterized by progressive cognitive decline and neuropathological hallmarks, including amyloid-β (Aβ) plaques, neurofibrillary tangles (NFTs), and neurodegeneration. Since the amyloid cascade hypothesis was proposed, Aβ has remained a central therapeutic target, with interventions ai",
+          "year": "2025"
+        },
+        {
+          "pmid": "40993924",
+          "title": "Benzimidazole Derivatives in Alzheimer's Therapy: Exploring Multi-Target Pathways.",
+          "abstract_snippet": "Alzheimer's disease (AD) is a leading cause of dementia worldwide and continues to be one of the most frequently diagnosed neurodegenerative disorders in adults aged 65 and older. While much progress has been made in exploring AD pathophysiology, there remains no current cure, and symptomatic treatment is the current standard at best. As life expec",
+          "year": "2025"
+        },
+        {
+          "pmid": "40362488",
+          "title": "Alzheimer's Is a Multiform Disease of Sustained Neuronal Integrated Stress Response Driven by the C99 Fragment Generated Independently of AβPP; Proteolytic Production of Aβ Is Suppressed in AD-Affected Neurons: Evolution of a Theory.",
+          "abstract_snippet": "The present",
+          "year": "2025"
+        },
+        {
+          "pmid": "40208466",
+          "title": "Convolidine as potent BACE1 inhibitor for Alzheimer's disease; in-silico coupled with in-vitro assessment.",
+          "abstract_snippet": "Alzheimer's Disease is a chronic progressive neurodegenerative disorder characterized by impaired intellect and cognitive functions. Beta-site amyloid precursor protein cleaving enzyme 1 (BACE1) plays a pivotal role in the pathogenesis of Alzheimer's disease (AD) by initiating the amyloid cascade. Despite significant clinical efforts, most BACE1 in",
+          "year": "2025"
+        },
+        {
+          "pmid": "39858593",
+          "title": "Production of Amyloid-β in the Aβ-Protein-Precursor Proteolytic Pathway Is Discontinued or Severely Suppressed in Alzheimer's Disease-Affected Neurons: Contesting the 'Obvious'.",
+          "abstract_snippet": "A notion of the continuous production of amyloid-β (Aβ) via the proteolysis of Aβ-protein-precursor (AβPP) in Alzheimer's disease (AD)-affected neurons constitutes both a cornerstone and an article of faith in the Alzheimer's research field. The present Perspective challenges this assumption. It analyses the relevant empirical data and reaches an u",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H2006": {
+      "hypothesis_id": "H2006",
+      "search_query": "\"bortezomib\" AND \"apoptosis\"",
+      "subject_term": "bortezomib",
+      "object_term": "apoptosis",
+      "total_hits": 173,
+      "pmids_fetched": [
+        "41468107",
+        "41458974",
+        "41437070",
+        "41373771",
+        "41353268"
+      ],
+      "papers": [
+        {
+          "pmid": "41468107",
+          "title": "Immune-Suppressed, Not Immune-Cold: HMOX1-CD14-Immunoproteasome Axis and Structure-Guided Combination Pharmacotherapies in Isocitrate Dehydrogenase-Mutant Glioblastoma.",
+          "abstract_snippet": "Glioblastoma (GBM) remains one of the most aggressive human malignancies, and its biological diversity is largely shaped by the isocitrate dehydrogenase (IDH) mutation status. Although apoptosis, autophagy, and ferroptosis have each been implicated in GBM pathophysiology, their coordinated regulation through the immunoproteasome (i-PSM) axis has no",
+          "year": "2026"
+        },
+        {
+          "pmid": "41458974",
+          "title": "Targeting lipogenesis promotes the synergistic effect of the selective HDAC6 inhibitor ITF3756 with bortezomib in colon cancer cells.",
+          "abstract_snippet": "Selective histone deacetylase (HDAC) inhibition has recently emerged as a promising strategy for antitumor targeted therapy. HDAC6 is a member of the HDAC family that mainly deacetylates non-histone proteins, regulating multiple cellular functions, including lipogenesis. HDAC6 is associated with the development and progression of colorectal cancer ",
+          "year": "2025"
+        },
+        {
+          "pmid": "41437070",
+          "title": "Darunavir analog precursors target mitochondrial metabolism in multiple myeloma and CLL.",
+          "abstract_snippet": "Multiple myeloma (MM) and chronic lymphocytic leukemia (CLL) are hematological malignancies with poor prognosis due to drug resistance, with no effective therapies. Drug resistance occurs from alterations in microenvironment and metabolism. Impaired mitochondrial metabolism underlies drug resistance in MM and CLL, and drugs targeting mitochondrial ",
+          "year": "2025"
+        },
+        {
+          "pmid": "41373771",
+          "title": "Amphiphilic Poly(N-vinylpyrrolidone) Biocomposites with Bortezomib and DR5-Selective TRAIL Variants: A Promising Approach to Pancreatic Cancer Treatment.",
+          "abstract_snippet": "A promising strategy for pancreatic cancer therapy involves developing nanocarriers capable of simultaneously delivering various antitumor substances with diverse physicochemical properties, often resulting in synergistic effects. In the present work, novel biocomposites were developed using amphiphilic N-vinylpyrrolidone polymer incorporating bort",
+          "year": "2025"
+        },
+        {
+          "pmid": "41353268",
+          "title": "TRIP13 alters mitochondrial function and promotes bortezomib resistance in multiple myeloma.",
+          "abstract_snippet": "Bortezomib (BTZ) resistance remains a major therapeutic challenge in multiple myeloma (MM). This study investigates the role of thyroid hormone receptor interactor 13 (TRIP13) in MM progression and BTZ resistance. Analysis of public datasets and clinical bone marrow samples revealed that TRIP13 is significantly upregulated in MM and that its expres",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H2007": {
+      "hypothesis_id": "H2007",
+      "search_query": "\"COX-2\" AND \"PI3K AKT\"",
+      "subject_term": "COX-2",
+      "object_term": "PI3K AKT",
+      "total_hits": 110,
+      "pmids_fetched": [
+        "41585176",
+        "41539761",
+        "41523760",
+        "41478011",
+        "41471188"
+      ],
+      "papers": [
+        {
+          "pmid": "41585176",
+          "title": "Nuclear factor erythroid 2-related factor 2/heme oxygenase-1 activation by nattokinase reduces pro-inflammatory and matrix-degrading mediators in human gingival fibroblasts.",
+          "abstract_snippet": "Particulate matter (PM) exposure is associated with inflammation and extracellular matrix degradation in periodontal tissues. Cyclooxygenase-2 (COX-2), prostaglandin E",
+          "year": "2026"
+        },
+        {
+          "pmid": "41539761",
+          "title": "Nanogel-encapsulated Rosa roxburghii Tratt fruit polyphenols ameliorated ulcerative colitis by regulating gut microbiota and PI3K/Akt and NF-κB pathways.",
+          "abstract_snippet": "Rosa roxburghii Tratt fruit polyphenols (RP) possess antioxidant, anti-inflammatory, and immunomodulatory properties, showing potential for ulcerative colitis (UC) treatment. However, their efficacy is limited by bioavailability and targeting efficiency. To address this, RP were encapsulated into acylated chitosan-crosslinked carboxymethyl konjac g",
+          "year": "2026"
+        },
+        {
+          "pmid": "41523760",
+          "title": "PI3K/AKT/GSK3β regulatory axis in bone mesenchymal stem cells initiates diabetic myocardial infarction",
+          "abstract_snippet": "We aimed to identify the key proteins of miR-142-3p that regulate ferroptosis and ultimately control the downstream effectors of cardiomyocyte growth.",
+          "year": "2025"
+        },
+        {
+          "pmid": "41478011",
+          "title": "Medicinal chemistry perspective on quinazoline derivatives: Sustainable synthetic routes, anticancer evaluation, and SAR analysis.",
+          "abstract_snippet": "Cancer remains a leading cause of global mortality, demanding safer and more effective therapies. Quinazoline and its derivatives have gained significant interest due to their versatile biological activity and ability to modulate multiple oncogenic pathways. Among these, EGFR and VEGFR are the primary targets, with many quinazoline derivatives show",
+          "year": "2026"
+        },
+        {
+          "pmid": "41471188",
+          "title": "Oral Microbiota and Carcinogenesis: Exploring the Systemic Impact of Oral Pathogens.",
+          "abstract_snippet": "For decades, cancer risk has been explained mainly by local factors. However, emerging evidence shows that the oral microbiome acts as a systemic modifier of oncogenesis well beyond the head and neck. This review synthesizes clinical and mechanistic data linking dysbiotic oral communities, especially",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H2008": {
+      "hypothesis_id": "H2008",
+      "search_query": "\"trastuzumab\" AND \"breast cancer\"",
+      "subject_term": "trastuzumab",
+      "object_term": "breast cancer",
+      "total_hits": 1501,
+      "pmids_fetched": [
+        "41859478",
+        "41706804",
+        "41671466",
+        "41647698",
+        "41635409"
+      ],
+      "papers": [
+        {
+          "pmid": "41859478",
+          "title": "Healthcare costs and health outcomes analysis of neoadjuvant Trastuzumab therapy for human epidermal growth factor receptor 2 (HER2) positive breast cancer.",
+          "abstract_snippet": "Globally, the incidence of breast cancer continues to rise; however, mortality rates are declining due to the growing effectiveness of targeted therapies and treatments. Overexpression of human epidermal growth factor receptor 2 (",
+          "year": "2026"
+        },
+        {
+          "pmid": "41706804",
+          "title": "Letter to the editor--Neoadjuvant trastuzumab deruxtecan alone or followed by paclitaxel, trastuzumab, and pertuzumab for high-risk HER2-positive early breast cancer.",
+          "abstract_snippet": "",
+          "year": "2025"
+        },
+        {
+          "pmid": "41671466",
+          "title": "Ovarian Function Suppression in HR-Positive, HER2-Positive Breast Cancer: An Exploratory Analysis of the HERA Trial.",
+          "abstract_snippet": "Data on the effectiveness of ovarian function suppression (OFS) in premenopausal patients with hormone receptor (HR)-positive, HER2-positive breast cancer are sparse. We investigated the prognostic impact of incorporating OFS in premenopausal women with HER-positive, HR-positive breast cancer, drawing on data from the HERceptin Adjuvant (HERA) tria",
+          "year": "2025"
+        },
+        {
+          "pmid": "41647698",
+          "title": "Health care policies, drug costs, and time toxicities in biologics for HER2-positive breast cancer: cost minimization analysis of direct and indirect costs.",
+          "abstract_snippet": "Trastuzumab and pertuzumab, available as subcutaneous (s.c.) or intravenous (i.v.), are established treatments in human epidermal growth factor receptor 2 (HER2)-positive breast cancer. Subcutaneous formulations are costlier but offer benefits such as reduced administration time, patient convenience, and decreased reliance on hospital resources. Po",
+          "year": "2025"
+        },
+        {
+          "pmid": "41635409",
+          "title": "Case Report: Personalized management of HER2-positive breast cancer with advanced nodal disease during pregnancy: a clinical case and review.",
+          "abstract_snippet": "Pregnancy-associated breast cancer (PrBC) poses complex challenges in diagnosis and treatment, particularly when associated with biologically aggressive subtypes and extensive nodal involvement. Management must be individualized, integrating oncologic urgency, fetal safety, and limited validated evidence in this unique setting.",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H2009": {
+      "hypothesis_id": "H2009",
+      "search_query": "\"PPAR activation\" AND \"type 2 diabetes\"",
+      "subject_term": "PPAR activation",
+      "object_term": "type 2 diabetes",
+      "total_hits": 2,
+      "pmids_fetched": [
+        "40914537",
+        "39437175"
+      ],
+      "papers": [
+        {
+          "pmid": "40914537",
+          "title": "A scoping review on the possible immunometabolic properties of the furan fatty acid metabolite 3-carboxy-4-methyl-5-propyl-2-furanpropionic acid.",
+          "abstract_snippet": "Circulating levels of 3-carboxy-4-methyl-5-propyl-2-furanpropionic acid (CMPF), a metabolite derived from dietary furan fatty acids primarily found in marine food sources, have long been recognized as biomarkers for fish intake. However, elevated CMPF levels are also observed in patients with type 2 diabetes or chronic kidney disease and in healthy",
+          "year": "2025"
+        },
+        {
+          "pmid": "39437175",
+          "title": "Dual PPAR-α/γ enhances beta cell identity, preserving islet structure in HF-fed mice.",
+          "abstract_snippet": "The pancreas suffers from lipotoxicity, which threatens the survival of pancreatic islets. Dual peroxisome proliferator-activated receptor-alpha/gamma (PPAR-α/γ) agonism is a promising method for treating type 2 diabetes mellitus (T2DM). This study evaluated the effects of single PPAR-α and PPAR-γ or their combined activation on pancreatic islet re",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H2010": {
+      "hypothesis_id": "H2010",
+      "search_query": "\"ubiquitin proteasome\" AND \"protein aggregation\"",
+      "subject_term": "ubiquitin proteasome",
+      "object_term": "protein aggregation",
+      "total_hits": 39,
+      "pmids_fetched": [
+        "41904003",
+        "41877687",
+        "41467440",
+        "41462623",
+        "41415890"
+      ],
+      "papers": [
+        {
+          "pmid": "41904003",
+          "title": "Molecular chaperones mediated proteostasis depletion: A cause of neurodegeneration?",
+          "abstract_snippet": "Protein homeostasis is a critical aspect of cellular homeostasis as proteins are one of the most diverse biomolecules, responsible for multiple molecular and cellular functions. Protein quality control machinery is essential for maintaining integrity of cellular proteome via regulating its synthesis, structure, function, and degradation. Molecular ",
+          "year": "2026"
+        },
+        {
+          "pmid": "41877687",
+          "title": "Unfolded proteins and aggregates: The role of proteostasis in pseudoexfoliation pathology.",
+          "abstract_snippet": "Proteostasis impairment is central to cellular dysfunction in protein aggregation disorders such as Alzheimer disease, Parkinson disease, and age-related macular degeneration. Pseudoexfoliation (PEX), a systemic age-related disorder and a leading cause of secondary glaucoma, is increasingly recognized as a protein aggregation disease. It is charact",
+          "year": "2025"
+        },
+        {
+          "pmid": "41467440",
+          "title": "Error-prone translation as a driver of proteostasis collapse and neurodegeneration.",
+          "abstract_snippet": "Error-prone translation, resulting in inaccuracies in protein synthesis, is increasingly recognized as a critical contributor to proteostasis disruption and the pathogenesis of age-related neurological disorders. In recent years, numerous studies have elucidated that stochastic errors during mRNA translation may act as a molecular \"tipping point\" i",
+          "year": "2025"
+        },
+        {
+          "pmid": "41462623",
+          "title": "Antioxidant Natural Compounds Integrated with Targeted Protein Degradation: A Multi-Modal Strategy for Alzheimer's Disease Therapy.",
+          "abstract_snippet": "Alzheimer's disease (AD) Alzheimer's disease (AD) is a progressive neurodegenerative disorder marked by protein aggregation, oxidative stress, mitochondrial dysfunction, and chronic neuroinflammation, leading to cognitive decline. Current therapies remain largely symptomatic, highlighting the need for multi-target therapeutic strategies. Recent adv",
+          "year": "2025"
+        },
+        {
+          "pmid": "41415890",
+          "title": "The ubiquitin-proteasome system in Alzheimer's disease: mechanism of action and current status of treatment.",
+          "abstract_snippet": "Alzheimer's disease (AD) is one of the most common neurodegenerative disorders; current therapies can neither cure AD nor prevent its progression. The pathological hallmark of AD is the excessive deposition of abnormal proteins in the brain, primarily including β-amyloid (Aβ) and phosphorylated Tau proteins. The ubiquitin-proteasome system (UPS), a",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H2011": {
+      "hypothesis_id": "H2011",
+      "search_query": "\"apoptosis\" AND \"chronic myeloid leukemia\"",
+      "subject_term": "apoptosis",
+      "object_term": "chronic myeloid leukemia",
+      "total_hits": 149,
+      "pmids_fetched": [
+        "41508239",
+        "41502514",
+        "41471266",
+        "41423144",
+        "41386671"
+      ],
+      "papers": [
+        {
+          "pmid": "41508239",
+          "title": "[Total flavonoids from Sarcandra glabra promote apoptosis in leukemia K562 cells via sphingolipid metabolism and PI3K/Akt signaling pathway based on cellular metabolomics].",
+          "abstract_snippet": "This study investigated the mechanism by which total flavonoids from Sarcandra glabra promote apoptosis in leukemia K562 cells using cellular metabolomics. The following groups were set up in this study: a blank control group, a dimethyl sulfoxide(DMSO) control group, and low-, medium-, and high-dose S. glabra total flavonoid groups(25, 50, and 100",
+          "year": "2025"
+        },
+        {
+          "pmid": "41502514",
+          "title": "Biological Features of KLC2 Mutations in Chronic Myeloid Leukemia and Their Contribution to Inducing Drug Resistance.",
+          "abstract_snippet": "Breakpoint Cluster Region-Abelson (BCR::ABL1) fusion protein is essential in the pathogenesis of chronic myeloid leukemia (CML); however, the chronic-to-blast phase transformation remains elusive. We identified novel kinesin light chain 2 (",
+          "year": "2025"
+        },
+        {
+          "pmid": "41471266",
+          "title": "BMP-7 Treatment Ameliorates PTEN-Akt Mediated Apoptosis and Adverse Cardiac Remodeling in Ponatinib-Induced Cardiotoxicity.",
+          "abstract_snippet": "",
+          "year": "2025"
+        },
+        {
+          "pmid": "41423144",
+          "title": "p38 MAPK-mediated suppression of Nrf2-MPC2 axis drives metabolic reprogramming which confers imatinib resistance in blast crisis phase of chronic myeloid leukemia.",
+          "abstract_snippet": "Metabolic reprogramming is a hallmark of cancer and its role in tumour drug resistance is emerging. This study explored its role in resistance to tyrosine kinase inhibitors (TKIs) in the blast crisis (BC) phase of chronic myeloid leukemia (CML), which occurs despite inactivation of the oncogenic Bcr-Abl by TKIs. We previously reported that this Bcr",
+          "year": "2026"
+        },
+        {
+          "pmid": "41386671",
+          "title": "Disarming the Hsp70-Bim Alliance: Small-Molecule and Peptidic Disruptors of a Chaperone-Apoptotic Switch in Cancer.",
+          "abstract_snippet": "Heat-shock protein 70 (Hsp70) is a ubiquitous stress chaperone whose over-expression confers treatment resistance in many cancers. Recent structural and mechanistic work has uncovered an unexpected survival circuit: the proapoptotic BH3-only protein Bim binds a nucleotide-sensitive groove on the Hsp70 nucleotide-binding domain, sequestering itself ",
+          "year": "2026"
+        }
+      ],
+      "api_error": null
+    },
+    "H2012": {
+      "hypothesis_id": "H2012",
+      "search_query": "\"VEGFR\" AND \"tumor angiogenesis\"",
+      "subject_term": "VEGFR",
+      "object_term": "tumor angiogenesis",
+      "total_hits": 52,
+      "pmids_fetched": [
+        "41471364",
+        "41223134",
+        "41151331",
+        "41050088",
+        "40906092"
+      ],
+      "papers": [
+        {
+          "pmid": "41471364",
+          "title": "Discovery of Novel Piperidinyl-Based Benzoxazole Derivatives as Anticancer Agents Targeting VEGFR-2 and c-Met Kinases.",
+          "abstract_snippet": "",
+          "year": "2025"
+        },
+        {
+          "pmid": "41223134",
+          "title": "TACE Combined with Hepatic Arterial Infusion of Nivolumab for Inhibiting Tumor Angiogenesis in Hepatocellular Carcinoma.",
+          "abstract_snippet": "This study aims to explore the clinical efficacy of transarterial chemoembolization (TACE) combined with the immune checkpoint inhibitor nivolumab administered via hepatic arterial infusion (HAI) in inhibiting tumor angiogenesis in hepatocellular carcinoma (HCC).",
+          "year": "2025"
+        },
+        {
+          "pmid": "41151331",
+          "title": "The emerging role of Oxadiazole derivatives as VEGFR and EGFR inhibitors in Cancer therapy.",
+          "abstract_snippet": "Epidermal growth factor receptor (EGFR) and vascular endothelial growth factor receptor (VEGFR) play a key role in cell proliferation, angiogenesis, and cell migration. Both pathways are recognised as key mediators of tumor angiogenesis and metastasis. Drugs that target multiple cellular pathways are generally more effective than those that inhibit",
+          "year": "2025"
+        },
+        {
+          "pmid": "41050088",
+          "title": "Predictive Value of Serum VEGF Levels in Non-Small Cell Lung Cancer: A Review.",
+          "abstract_snippet": "Vascular endothelial growth factor (VEGF) and its receptors (VEGFRs) serve an essential role in tumor angiogenesis and have emerged as potential therapeutic targets in lung cancer. This review explores the significance of serum VEGF levels as a predictive biomarker in non-small cell lung cancer (NSCLC). The VEGF family, consisting of VEGFA, VEGFB, ",
+          "year": "2025"
+        },
+        {
+          "pmid": "40906092",
+          "title": "Ajuforrestin A Inhibits Tumor Proliferation and Migration by Targeting the STAT3/FAK Signaling Pathways and VEGFR-2.",
+          "abstract_snippet": "Natural products, characterized by their structural novelty, multi-target capabilities, and favorable toxicity profiles, represent a prominent reservoir for the discovery of innovative anticancer therapeutics. In the current investigation, we identified ajuforrestin A, a diterpenoid compound extracted from",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H2013": {
+      "hypothesis_id": "H2013",
+      "search_query": "\"mTOR inhibition\" AND \"heart failure\"",
+      "subject_term": "mTOR inhibition",
+      "object_term": "heart failure",
+      "total_hits": 3,
+      "pmids_fetched": [
+        "40131211",
+        "38567527",
+        "37979443"
+      ],
+      "papers": [
+        {
+          "pmid": "40131211",
+          "title": "Crocin ameliorates hypertension-induced cardiac hypertrophy and apoptosis by activating AMPKα signalling.",
+          "abstract_snippet": "Cardiac hypertrophy is a critical contributor to heart failure. Therapies that effectively manage cardiac hypertrophy are still inadequate. Crocin is a natural component of saffron, and its beneficial properties have been previously documented. This study aimed to investigate the role of crocin in cardiac hypertrophy and apoptosis and its related m",
+          "year": "2025"
+        },
+        {
+          "pmid": "38567527",
+          "title": "mTOR Inhibition Prolongs Survival and Has Beneficial Effects on Heart Function After Onset of Lamin A/C Gene Mutation Cardiomyopathy in Mice.",
+          "abstract_snippet": "Mutations in",
+          "year": "2024"
+        },
+        {
+          "pmid": "37979443",
+          "title": "β-hydroxybutyrate administered at reperfusion reduces infarct size and preserves cardiac function by improving mitochondrial function through autophagy in male mice.",
+          "abstract_snippet": "Ischemia/reperfusion (I/R) injury after revascularization contributes ∼50% of infarct size and causes heart failure, for which no established clinical treatment exists. β-hydroxybutyrate (β-OHB), which serves as both an energy source and a signaling molecule, has recently been reported to be cardioprotective when administered immediately before I/R",
+          "year": "2024"
+        }
+      ],
+      "api_error": null
+    },
+    "H2014": {
+      "hypothesis_id": "H2014",
+      "search_query": "\"memantine\" AND \"NMDA receptor\"",
+      "subject_term": "memantine",
+      "object_term": "NMDA receptor",
+      "total_hits": 98,
+      "pmids_fetched": [
+        "41531659",
+        "41452429",
+        "41446876",
+        "41404461",
+        "41399730"
+      ],
+      "papers": [
+        {
+          "pmid": "41531659",
+          "title": "Memantine, A NMDA Receptor Inhibitor Attenuate Lipopolysaccharide-Induced Lung Inflammation and Oxidative Damage in Mice.",
+          "abstract_snippet": "The anti-oxidative and anti-inflammatory effect of memantine (an N-methyl-D-aspartate receptor inhibitor) has been shown. Therefore, the present study aimed to evaluate the preventive effects of memantine against lipopolysaccharide (LPS)-induced sub-acute lung injury in mice.",
+          "year": "2025"
+        },
+        {
+          "pmid": "41452429",
+          "title": "An overview of gene and cell therapy approaches for Alzheimer's disease.",
+          "abstract_snippet": "Alzheimer's disease (AD), acknowledged as the leading cause of dementia, is defined by the accumulation of amyloid plaques and neurofibrillary tangles (NFTs) in the brain. This condition presents a significant challenge to global health due to its complex and multifaceted characteristics. Pharmacological treatments for AD mainly focus on relieving ",
+          "year": "2025"
+        },
+        {
+          "pmid": "41446876",
+          "title": "Applications of Endovascular Brain-Computer Interface in Patients with Alzheimer's Disease.",
+          "abstract_snippet": "Alzheimer's disease (AD) is a prevalent neurodegenerative disorder affecting the elderly, leading to important impairments in cognitive function and the ability to live independently. This results in substantial disability and places an increasing burden on families and society. Currently, the therapeutic approaches adopted in clinical practice pre",
+          "year": "2025"
+        },
+        {
+          "pmid": "41404461",
+          "title": "Network meta-analysis of the efficacy of pharmacological treatments for post-stroke cognitive impairment and vascular cognitive impairment.",
+          "abstract_snippet": "Based on recent reviews, vascular cognitive impairment (VCI) encompasses a spectrum of cognitive deficits caused by cerebrovascular disease and its risk factors, ranging from mild cognitive impairment to dementia, and often coexists with neurodegenerative conditions like Alzheimer's disease. VCI is categorized into four clinical-imaging subtypes, i",
+          "year": "2025"
+        },
+        {
+          "pmid": "41399730",
+          "title": "MAPT mutation-induced behavioral variant frontotemporal dementia in an Asian patient: a multimodal biomarker case report resolving diagnostic challenges with Alzheimer's disease.",
+          "abstract_snippet": "The clinical phenotypic overlap between frontotemporal dementia (FTD) and Alzheimer's disease (AD) frequently leads to misdiagnosis, while biomarkers (e.g., Aβ-PET) and genetic testing provide critical differential diagnostic evidence. Although MAPT gene mutations represent common genetic etiologies of FTD, their occurrence in Asian populations rem",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H2015": {
+      "hypothesis_id": "H2015",
+      "search_query": "\"kaempferol\" AND \"BACE1\"",
+      "subject_term": "kaempferol",
+      "object_term": "BACE1",
+      "total_hits": 10,
+      "pmids_fetched": [
+        "41421404",
+        "41384075",
+        "40899340",
+        "40483633",
+        "40420219"
+      ],
+      "papers": [
+        {
+          "pmid": "41421404",
+          "title": "Neuroprotective effects of Prosopis cineraria L. ameliorate Alzheimer's disease manifestations.",
+          "abstract_snippet": "Prosopis cineraria is traditionally used to enhance cognitive function and manage mental disorders. Its stem bark is valued in ethnomedicine, but its potential anti-Alzheimer's disease (AD) effects are scientifically unexplored.",
+          "year": "2026"
+        },
+        {
+          "pmid": "41384075",
+          "title": "Dual inhibition of acetylcholinesterase and β-secretase by metabolites from",
+          "abstract_snippet": "Targeting acetylcholinesterase (AChE) and β-secretase (BACE-1) enzymes is a promising multifaceted approach for treating neurological disorders. In our study, the chemical investigation of",
+          "year": "2025"
+        },
+        {
+          "pmid": "40899340",
+          "title": "The Therapeutic Potential of Flavonols in Alzheimer's Disease: Inhibiting Amyloid-β, Oxidative Stress, and Neuroinflammation.",
+          "abstract_snippet": "Alzheimer's disease (AD), a progressive neurodegenerative disorder characterized by amyloid-β (Aβ) aggregation, oxidative stress, and neuroinflammation, remains a significant global health challenge. This study investigates the therapeutic potential of flavonols-quercetin, kaempferol, myricetin, and fisetin-in targeting Aβ aggregation and mitigatin",
+          "year": "2025"
+        },
+        {
+          "pmid": "40483633",
+          "title": "Exploration of Asparagus racemosus Willd for Alzheimer's Disease Through Integrated Metabolomics and Network Pharmacology Analyses Targeting BACE1 Protein.",
+          "abstract_snippet": "Asparagus racemosus Willd, an Ayurvedic medicine, is known for its antioxidant, antiviral, immune-boosting, and neuro-nutraceutical benefits, particularly in female health. However, its metabolites, mechanisms of action, and target proteins are yet to be fully understood. The present study aimed to identify the metabolite constitution and metabolit",
+          "year": "2025"
+        },
+        {
+          "pmid": "40420219",
+          "title": "Targeted Neuroprotection in Sporadic Alzheimer's Disease: UPLC-ESI-MS/MS Profiling and Bilosome-Mediated Delivery of Crateva magna and Its Endophytic Fungal Extracts.",
+          "abstract_snippet": "Crateva magna (Cm) was utilized as a folkloric medicine against neurological disorders.",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H2016": {
+      "hypothesis_id": "H2016",
+      "search_query": "\"GSK3B\" AND \"phospho-tau\"",
+      "subject_term": "GSK3B",
+      "object_term": "phospho-tau",
+      "total_hits": 4,
+      "pmids_fetched": [
+        "40770094",
+        "39755746",
+        "38370802",
+        "38143280"
+      ],
+      "papers": [
+        {
+          "pmid": "40770094",
+          "title": "Lithium deficiency and the onset of Alzheimer's disease.",
+          "abstract_snippet": "The earliest molecular changes in Alzheimer's disease (AD) are poorly understood",
+          "year": "2025"
+        },
+        {
+          "pmid": "39755746",
+          "title": "Reversal of neuronal tau pathology via adiponectin receptor activation.",
+          "abstract_snippet": "Changes in brain mitochondrial metabolism are coincident with functional decline; however, direct links between the two have not been established. Here, we show that mitochondrial targeting via the adiponectin receptor activator AdipoRon (AR) clears neurofibrillary tangles (NFTs) and rescues neuronal tauopathy-associated defects. AR reduced levels ",
+          "year": "2025"
+        },
+        {
+          "pmid": "38370802",
+          "title": "Reversal of neuronal tau pathology, metabolic dysfunction, and electrophysiological defects via adiponectin pathway-dependent AMPK activation.",
+          "abstract_snippet": "Changes in brain mitochondrial metabolism are coincident with functional decline; however, direct links between the two have not been established. Here, we show that mitochondrial targeting via the adiponectin receptor activator AdipoRon (AR) clears neurofibrillary tangles (NFTs) and rescues neuronal tauopathy-associated defects. AR reduced levels ",
+          "year": "2024"
+        },
+        {
+          "pmid": "38143280",
+          "title": "Amelioration of Amyloid-β Induced Alzheimer's Disease by Bacopa monnieri through Modulation of Mitochondrial Dysfunction and GSK-3β/Wnt/β-Catenin Signaling.",
+          "abstract_snippet": "Alzheimer's disease (AD) is the most prevalent dementia, affecting a large number of populations. Despite being under scrutiny for decades, an effective therapeutic option is still not available.",
+          "year": "2024"
+        }
+      ],
+      "api_error": null
+    },
+    "H2017": {
+      "hypothesis_id": "H2017",
+      "search_query": "\"amyloid precursor protein\" AND \"amyloid aggregation\"",
+      "subject_term": "amyloid precursor protein",
+      "object_term": "amyloid aggregation",
+      "total_hits": 10,
+      "pmids_fetched": [
+        "40856133",
+        "40600550",
+        "40236233",
+        "39744521",
+        "39407708"
+      ],
+      "papers": [
+        {
+          "pmid": "40856133",
+          "title": "Cracking Amyloid Toxicity: Naringin Rescues Neuronal Cells in a Minimal Alzheimer's Model.",
+          "abstract_snippet": "Alzheimer's disease (AD) is a progressive neurodegenerative disorder characterized by cognitive decline, extracellular amyloid plaque accumulation, and neuronal dysfunction. The diphenylalanine (Phe-Phe) dipeptide, a core self-assembling motif of amyloid-β (Aβ) peptides, has recently gained attention as a simplified and cost-effective model for mim",
+          "year": "2025"
+        },
+        {
+          "pmid": "40600550",
+          "title": "Advancing Amyloid Aggregation Research: A Focus on Innovative Therapies, Molecular Modeling and Nano-Delivery Systems in Alzheimer's Disease.",
+          "abstract_snippet": "Alzheimer's disease (AD), the most common form of dementia, is a major global health issue. Its complex pathology, including amyloid-beta (Aβ) aggregation, leads to neuronal damage and cognitive decline. Since Aβ plays a major role in AD, therapies targeting its production, aggregation, and clearance are being actively explored. This review discuss",
+          "year": "2025"
+        },
+        {
+          "pmid": "40236233",
+          "title": "Circadian rhythms and the light-dark cycle interact to regulate amyloid plaque accumulation and tau phosphorylation in 5xFAD mice.",
+          "abstract_snippet": "Circadian disruption has long been appreciated as a downstream consequence of Alzheimer's Disease in humans. However, an upstream role for behavioral circadian disruption in regulating AD pathology remains an open question.",
+          "year": "2025"
+        },
+        {
+          "pmid": "39744521",
+          "title": "Apolipoprotein E dysfunction in Alzheimer's disease: a study on miRNA regulation, glial markers, and amyloid pathology.",
+          "abstract_snippet": "Apolipoprotein E (ApoE) plays a crucial role in lipid homeostasis, predominantly expressed in astrocytes and to a lesser extent in microglia within the central nervous system (CNS). While the",
+          "year": "2024"
+        },
+        {
+          "pmid": "39407708",
+          "title": "Exploring the Benzazoles Derivatives as Pharmacophores for AChE, BACE1, and as Anti-Aβ Aggregation to Find Multitarget Compounds against Alzheimer's Disease.",
+          "abstract_snippet": "Despite the great effort that has gone into developing new molecules as multitarget compounds to treat Alzheimer's disease (AD), none of these have been approved to treat this disease. Therefore, it will be interesting to determine whether benzazoles such as benzimidazole, benzoxazole, and benzothiazole, employed as pharmacophores, could act as mul",
+          "year": "2024"
+        }
+      ],
+      "api_error": null
+    },
+    "H2018": {
+      "hypothesis_id": "H2018",
+      "search_query": "\"HDAC inhibition\" AND \"colorectal cancer\"",
+      "subject_term": "HDAC inhibition",
+      "object_term": "colorectal cancer",
+      "total_hits": 12,
+      "pmids_fetched": [
+        "41458974",
+        "41438381",
+        "41422274",
+        "40467895",
+        "40463142"
+      ],
+      "papers": [
+        {
+          "pmid": "41458974",
+          "title": "Targeting lipogenesis promotes the synergistic effect of the selective HDAC6 inhibitor ITF3756 with bortezomib in colon cancer cells.",
+          "abstract_snippet": "Selective histone deacetylase (HDAC) inhibition has recently emerged as a promising strategy for antitumor targeted therapy. HDAC6 is a member of the HDAC family that mainly deacetylates non-histone proteins, regulating multiple cellular functions, including lipogenesis. HDAC6 is associated with the development and progression of colorectal cancer ",
+          "year": "2025"
+        },
+        {
+          "pmid": "41438381",
+          "title": "Spatial microbiome-metabolic crosstalk drives CD8",
+          "abstract_snippet": "The spatial organization of intratumoral microbiota and its metabolic impact on immunotherapy response in colorectal cancer (CRC) is unclear, limiting targeted interventions.",
+          "year": "2025"
+        },
+        {
+          "pmid": "41422274",
+          "title": "Application of edible fungi in gut microbiota regulation.",
+          "abstract_snippet": "The human gut microbiota serves as a critical hub for host metabolic and immune regulation. Disruption of its homeostasis is closely associated with diseases such as Inflammatory Bowel Disease (IBD), metabolic syndrome, and colorectal cancer. Modern dietary and environmental factors are known to exacerbate this dysbiosis, highlighting the need for ",
+          "year": "2025"
+        },
+        {
+          "pmid": "40467895",
+          "title": "The hydroxamate based HDAC inhibitor WMJ-J-09 induces colorectal cancer cell death by targeting tubulin and downregulating survivin.",
+          "abstract_snippet": "Aberrant expression of histone deacetylases (HDACs) is associated with cancer drug resistance and tumor progression. While considerable studies and effort have been devoted to developing novel HDAC inhibitors in cancer therapy, hydroxamate-based HDAC inhibitors have gained growing interest for their broad-spectrum anti-tumor properties. We develope",
+          "year": "2025"
+        },
+        {
+          "pmid": "40463142",
+          "title": "Short chain fatty acids regulate the chromatin landscape and distinct gene expression changes in human colorectal cancer cells.",
+          "abstract_snippet": "Short chain fatty acids (SCFAs) are small metabolites that are produced through the activity of microbes and have important roles in human physiology. These metabolites have varied mechanisms in interacting with the host, of which one such mode is decorating the chromatin landscape. We previously detected specific histone modifications in the mouse",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H2019": {
+      "hypothesis_id": "H2019",
+      "search_query": "\"coenzyme Q10\" AND \"type 2 diabetes\"",
+      "subject_term": "coenzyme Q10",
+      "object_term": "type 2 diabetes",
+      "total_hits": 11,
+      "pmids_fetched": [
+        "41275978",
+        "40444167",
+        "40422758",
+        "40125440",
+        "39904656"
+      ],
+      "papers": [
+        {
+          "pmid": "41275978",
+          "title": "Coenzyme Q10 ameliorates obesity by promoting white adipose tissue browning and preserving mitochondrial dynamics in ovariectomized rats fed a high-fat diet.",
+          "abstract_snippet": "Estrogen deficiency caused by menopause leads to obesity in women. In obesity, excessive visceral fat accumulation induces a chronic, low-grade inflammatory response, thereby increasing the risk of cardiovascular disease, insulin resistance, and type 2 diabetes mellitus. Browning of white adipose tissue (WAT) has emerged as a promising strategy to ",
+          "year": "2026"
+        },
+        {
+          "pmid": "40444167",
+          "title": "Biochemical, histological, and immunohistochemical study on the therapeutic effects and mechanism of coenzyme Q",
+          "abstract_snippet": "Type 2 diabetes mellitus (T2DM) is a metabolic disorder characterized by β-cell dysfunction, insulin resistance, and elevated blood sugar levels. Several studies have explored the therapeutic potential of coenzyme Q",
+          "year": "2025"
+        },
+        {
+          "pmid": "40422758",
+          "title": "Coenzyme Q10 Enhances Resilience of Mitochondrial-like Membranes Against Amyloidogenic Peptides.",
+          "abstract_snippet": "Mitochondria possess a double-membrane envelope which is susceptible to insult by pathogenic intracellular aggregates of amyloid-forming peptides, such as the amyloid-beta (1-42) (Aβ42) peptide and the human islet amyloid polypeptide (hIAPP). The molecular composition of membranes plays a pivotal role in regulating peptide aggregation and cytotoxic",
+          "year": "2025"
+        },
+        {
+          "pmid": "40125440",
+          "title": "Aptamer Functionalized Liposomes Co-Loaded with Exenatide-4 and Coenzyme Q10 Ameliorate Type 2 Diabetes Mellitus by Improving Pancreatic β Cell Function.",
+          "abstract_snippet": "Oxidative stress has been shown to disrupt β-cell function and promote the development of type 2 diabetes mellitus (T2DM). Exenatide-4 (Ext-4) is a widely used anti-glycemic drug but cannot restore pancreatic β-cells' structure and function. Coenzyme Q10 (CoQ10) has great antioxidant activities but shows suboptimal therapeutic effects because of it",
+          "year": "2025"
+        },
+        {
+          "pmid": "39904656",
+          "title": "Effects of Coenzyme Q10 Supplementation on Metabolic Indicators in Patients with Type 2 Diabetes: A Systematic Review and Meta-Analysis.",
+          "abstract_snippet": "Coenzyme Q10 (CoQ10) is a naturally occurring antioxidant that has been suggested to have beneficial effects on lipid profiles and blood pressure. This systematic review and meta-analysis aim to evaluate the effects of CoQ10 supplementation on these parameters in patients with Type 2 Diabetes (T2D).",
+          "year": "2025"
+        }
+      ],
+      "api_error": null
+    },
+    "H2020": {
+      "hypothesis_id": "H2020",
+      "search_query": "\"amyloid precursor protein\" AND \"amyloid aggregation\"",
+      "subject_term": "amyloid precursor protein",
+      "object_term": "amyloid aggregation",
+      "total_hits": 10,
+      "pmids_fetched": [
+        "40856133",
+        "40600550",
+        "40236233",
+        "39744521",
+        "39407708"
+      ],
+      "papers": [
+        {
+          "pmid": "40856133",
+          "title": "Cracking Amyloid Toxicity: Naringin Rescues Neuronal Cells in a Minimal Alzheimer's Model.",
+          "abstract_snippet": "Alzheimer's disease (AD) is a progressive neurodegenerative disorder characterized by cognitive decline, extracellular amyloid plaque accumulation, and neuronal dysfunction. The diphenylalanine (Phe-Phe) dipeptide, a core self-assembling motif of amyloid-β (Aβ) peptides, has recently gained attention as a simplified and cost-effective model for mim",
+          "year": "2025"
+        },
+        {
+          "pmid": "40600550",
+          "title": "Advancing Amyloid Aggregation Research: A Focus on Innovative Therapies, Molecular Modeling and Nano-Delivery Systems in Alzheimer's Disease.",
+          "abstract_snippet": "Alzheimer's disease (AD), the most common form of dementia, is a major global health issue. Its complex pathology, including amyloid-beta (Aβ) aggregation, leads to neuronal damage and cognitive decline. Since Aβ plays a major role in AD, therapies targeting its production, aggregation, and clearance are being actively explored. This review discuss",
+          "year": "2025"
+        },
+        {
+          "pmid": "40236233",
+          "title": "Circadian rhythms and the light-dark cycle interact to regulate amyloid plaque accumulation and tau phosphorylation in 5xFAD mice.",
+          "abstract_snippet": "Circadian disruption has long been appreciated as a downstream consequence of Alzheimer's Disease in humans. However, an upstream role for behavioral circadian disruption in regulating AD pathology remains an open question.",
+          "year": "2025"
+        },
+        {
+          "pmid": "39744521",
+          "title": "Apolipoprotein E dysfunction in Alzheimer's disease: a study on miRNA regulation, glial markers, and amyloid pathology.",
+          "abstract_snippet": "Apolipoprotein E (ApoE) plays a crucial role in lipid homeostasis, predominantly expressed in astrocytes and to a lesser extent in microglia within the central nervous system (CNS). While the",
+          "year": "2024"
+        },
+        {
+          "pmid": "39407708",
+          "title": "Exploring the Benzazoles Derivatives as Pharmacophores for AChE, BACE1, and as Anti-Aβ Aggregation to Find Multitarget Compounds against Alzheimer's Disease.",
+          "abstract_snippet": "Despite the great effort that has gone into developing new molecules as multitarget compounds to treat Alzheimer's disease (AD), none of these have been approved to treat this disease. Therefore, it will be interesting to determine whether benzazoles such as benzimidazole, benzoxazole, and benzothiazole, employed as pharmacophores, could act as mul",
+          "year": "2024"
+        }
+      ],
+      "api_error": null
+    }
+  }
+}

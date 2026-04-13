@@ -1,0 +1,398 @@
+{
+  "run_id": "run_016_scientific_hypothesis_mvp",
+  "method": "C_rand",
+  "description": "random path baseline matching C2 chain length distribution",
+  "count": 20,
+  "hypotheses": [
+    {
+      "id": "H2001",
+      "subject_id": "bio:protein:her2",
+      "subject_label": "HER2 Receptor",
+      "relation": "randomly_related_to",
+      "object_id": "bio:disease:breast_cancer",
+      "object_label": "Breast Cancer",
+      "description": "HER2 Receptor randomly linked to Breast Cancer via path: bio:protein:her2 -> drives -> bio:pathway:pi3k_akt -> promotes -> bio:disease:breast_cancer",
+      "provenance": [
+        "bio:protein:her2",
+        "drives",
+        "bio:pathway:pi3k_akt",
+        "promotes",
+        "bio:disease:breast_cancer"
+      ],
+      "method": "C_rand",
+      "operator": "random",
+      "source_kg_name": "bio_chem_combined",
+      "chain_length": 5
+    },
+    {
+      "id": "H2002",
+      "subject_id": "bio:disease:obesity",
+      "subject_label": "Obesity",
+      "relation": "randomly_related_to",
+      "object_id": "bio:disease:nafld",
+      "object_label": "Non-Alcoholic Fatty Liver Disease",
+      "description": "Obesity randomly linked to Non-Alcoholic Fatty Liver Disease via path: bio:disease:obesity -> promotes -> bio:disease:nafld",
+      "provenance": [
+        "bio:disease:obesity",
+        "promotes",
+        "bio:disease:nafld"
+      ],
+      "method": "C_rand",
+      "operator": "random",
+      "source_kg_name": "bio_chem_combined",
+      "chain_length": 3
+    },
+    {
+      "id": "H2003",
+      "subject_id": "chem:mechanism:jak_inhibition",
+      "subject_label": "JAK Kinase Inhibition",
+      "relation": "randomly_related_to",
+      "object_id": "bio:disease:rheumatoid_arthritis",
+      "object_label": "Rheumatoid Arthritis",
+      "description": "JAK Kinase Inhibition randomly linked to Rheumatoid Arthritis via path: chem:mechanism:jak_inhibition -> inhibits -> bio:pathway:jak_stat -> promotes -> bio:disease:rheumatoid_arthritis",
+      "provenance": [
+        "chem:mechanism:jak_inhibition",
+        "inhibits",
+        "bio:pathway:jak_stat",
+        "promotes",
+        "bio:disease:rheumatoid_arthritis"
+      ],
+      "method": "C_rand",
+      "operator": "random",
+      "source_kg_name": "bio_chem_combined",
+      "chain_length": 5
+    },
+    {
+      "id": "H2004",
+      "subject_id": "bio:process:beta_amyloid_aggregation",
+      "subject_label": "Beta-Amyloid Aggregation",
+      "relation": "randomly_related_to",
+      "object_id": "bio:disease:alzheimers",
+      "object_label": "Alzheimer's Disease",
+      "description": "Beta-Amyloid Aggregation randomly linked to Alzheimer's Disease via path: bio:process:beta_amyloid_aggregation -> drives -> bio:disease:alzheimers",
+      "provenance": [
+        "bio:process:beta_amyloid_aggregation",
+        "drives",
+        "bio:disease:alzheimers"
+      ],
+      "method": "C_rand",
+      "operator": "random",
+      "source_kg_name": "bio_chem_combined",
+      "chain_length": 3
+    },
+    {
+      "id": "H2005",
+      "subject_id": "chem:target:bace1_enzyme",
+      "subject_label": "BACE1 Enzyme Target",
+      "relation": "randomly_related_to",
+      "object_id": "bio:pathway:amyloid_cascade",
+      "object_label": "Amyloid Cascade Pathway",
+      "description": "BACE1 Enzyme Target randomly linked to Amyloid Cascade Pathway via path: chem:target:bace1_enzyme -> is_target_of -> bio:protein:bace1 -> drives -> bio:pathway:amyloid_cascade",
+      "provenance": [
+        "chem:target:bace1_enzyme",
+        "is_target_of",
+        "bio:protein:bace1",
+        "drives",
+        "bio:pathway:amyloid_cascade"
+      ],
+      "method": "C_rand",
+      "operator": "random",
+      "source_kg_name": "bio_chem_combined",
+      "chain_length": 5
+    },
+    {
+      "id": "H2006",
+      "subject_id": "chem:drug:bortezomib",
+      "subject_label": "Bortezomib",
+      "relation": "randomly_related_to",
+      "object_id": "bio:pathway:apoptosis",
+      "object_label": "Intrinsic Apoptosis Pathway",
+      "description": "Bortezomib randomly linked to Intrinsic Apoptosis Pathway via path: chem:drug:bortezomib -> produces -> chem:mechanism:proteasome_inhibition -> activates -> bio:pathway:apoptosis",
+      "provenance": [
+        "chem:drug:bortezomib",
+        "produces",
+        "chem:mechanism:proteasome_inhibition",
+        "activates",
+        "bio:pathway:apoptosis"
+      ],
+      "method": "C_rand",
+      "operator": "random",
+      "source_kg_name": "bio_chem_combined",
+      "chain_length": 5
+    },
+    {
+      "id": "H2007",
+      "subject_id": "chem:target:cox2_enzyme",
+      "subject_label": "COX-2 Enzyme Target",
+      "relation": "randomly_related_to",
+      "object_id": "bio:pathway:pi3k_akt",
+      "object_label": "PI3K-AKT Signaling Pathway",
+      "description": "COX-2 Enzyme Target randomly linked to PI3K-AKT Signaling Pathway via path: chem:target:cox2_enzyme -> is_target_of -> bio:protein:tnf_alpha -> activates -> bio:pathway:pi3k_akt",
+      "provenance": [
+        "chem:target:cox2_enzyme",
+        "is_target_of",
+        "bio:protein:tnf_alpha",
+        "activates",
+        "bio:pathway:pi3k_akt"
+      ],
+      "method": "C_rand",
+      "operator": "random",
+      "source_kg_name": "bio_chem_combined",
+      "chain_length": 5
+    },
+    {
+      "id": "H2008",
+      "subject_id": "chem:drug:trastuzumab",
+      "subject_label": "Trastuzumab",
+      "relation": "randomly_related_to",
+      "object_id": "bio:disease:breast_cancer",
+      "object_label": "Breast Cancer",
+      "description": "Trastuzumab randomly linked to Breast Cancer via path: chem:drug:trastuzumab -> treats -> bio:disease:breast_cancer",
+      "provenance": [
+        "chem:drug:trastuzumab",
+        "treats",
+        "bio:disease:breast_cancer"
+      ],
+      "method": "C_rand",
+      "operator": "random",
+      "source_kg_name": "bio_chem_combined",
+      "chain_length": 3
+    },
+    {
+      "id": "H2009",
+      "subject_id": "chem:mechanism:ppar_activation",
+      "subject_label": "PPAR-gamma Activation",
+      "relation": "randomly_related_to",
+      "object_id": "bio:disease:type2_diabetes",
+      "object_label": "Type 2 Diabetes",
+      "description": "PPAR-gamma Activation randomly linked to Type 2 Diabetes via path: chem:mechanism:ppar_activation -> reduces -> bio:process:insulin_resistance -> causes -> bio:disease:type2_diabetes",
+      "provenance": [
+        "chem:mechanism:ppar_activation",
+        "reduces",
+        "bio:process:insulin_resistance",
+        "causes",
+        "bio:disease:type2_diabetes"
+      ],
+      "method": "C_rand",
+      "operator": "random",
+      "source_kg_name": "bio_chem_combined",
+      "chain_length": 5
+    },
+    {
+      "id": "H2010",
+      "subject_id": "bio:pathway:ubiquitin_proteasome",
+      "subject_label": "Ubiquitin-Proteasome Pathway",
+      "relation": "randomly_related_to",
+      "object_id": "bio:process:protein_aggregation",
+      "object_label": "Pathological Protein Aggregation",
+      "description": "Ubiquitin-Proteasome Pathway randomly linked to Pathological Protein Aggregation via path: bio:pathway:ubiquitin_proteasome -> degrades -> bio:process:protein_aggregation",
+      "provenance": [
+        "bio:pathway:ubiquitin_proteasome",
+        "degrades",
+        "bio:process:protein_aggregation"
+      ],
+      "method": "C_rand",
+      "operator": "random",
+      "source_kg_name": "bio_chem_combined",
+      "chain_length": 3
+    },
+    {
+      "id": "H2011",
+      "subject_id": "bio:pathway:apoptosis",
+      "subject_label": "Intrinsic Apoptosis Pathway",
+      "relation": "randomly_related_to",
+      "object_id": "bio:disease:leukemia_cml",
+      "object_label": "Chronic Myeloid Leukemia",
+      "description": "Intrinsic Apoptosis Pathway randomly linked to Chronic Myeloid Leukemia via path: bio:pathway:apoptosis -> suppresses -> bio:disease:leukemia_cml",
+      "provenance": [
+        "bio:pathway:apoptosis",
+        "suppresses",
+        "bio:disease:leukemia_cml"
+      ],
+      "method": "C_rand",
+      "operator": "random",
+      "source_kg_name": "bio_chem_combined",
+      "chain_length": 3
+    },
+    {
+      "id": "H2012",
+      "subject_id": "chem:target:vegfr_target",
+      "subject_label": "VEGF Receptor Drug Target",
+      "relation": "randomly_related_to",
+      "object_id": "bio:process:tumor_angiogenesis",
+      "object_label": "Tumor Angiogenesis",
+      "description": "VEGF Receptor Drug Target randomly linked to Tumor Angiogenesis via path: chem:target:vegfr_target -> is_target_of -> bio:protein:vegf -> drives -> bio:process:tumor_angiogenesis",
+      "provenance": [
+        "chem:target:vegfr_target",
+        "is_target_of",
+        "bio:protein:vegf",
+        "drives",
+        "bio:process:tumor_angiogenesis"
+      ],
+      "method": "C_rand",
+      "operator": "random",
+      "source_kg_name": "bio_chem_combined",
+      "chain_length": 5
+    },
+    {
+      "id": "H2013",
+      "subject_id": "chem:mechanism:mtor_inhibition",
+      "subject_label": "mTOR Inhibition Mechanism",
+      "relation": "randomly_related_to",
+      "object_id": "bio:disease:heart_failure",
+      "object_label": "Heart Failure",
+      "description": "mTOR Inhibition Mechanism randomly linked to Heart Failure via path: chem:mechanism:mtor_inhibition -> inhibits -> bio:pathway:mtor_signaling -> promotes -> bio:disease:heart_failure",
+      "provenance": [
+        "chem:mechanism:mtor_inhibition",
+        "inhibits",
+        "bio:pathway:mtor_signaling",
+        "promotes",
+        "bio:disease:heart_failure"
+      ],
+      "method": "C_rand",
+      "operator": "random",
+      "source_kg_name": "bio_chem_combined",
+      "chain_length": 5
+    },
+    {
+      "id": "H2014",
+      "subject_id": "chem:drug:memantine",
+      "subject_label": "Memantine",
+      "relation": "randomly_related_to",
+      "object_id": "bio:receptor:nmda_receptor",
+      "object_label": "NMDA Glutamate Receptor",
+      "description": "Memantine randomly linked to NMDA Glutamate Receptor via path: chem:drug:memantine -> produces -> chem:mechanism:nmda_antagonism -> protects -> bio:receptor:nmda_receptor",
+      "provenance": [
+        "chem:drug:memantine",
+        "produces",
+        "chem:mechanism:nmda_antagonism",
+        "protects",
+        "bio:receptor:nmda_receptor"
+      ],
+      "method": "C_rand",
+      "operator": "random",
+      "source_kg_name": "bio_chem_combined",
+      "chain_length": 5
+    },
+    {
+      "id": "H2015",
+      "subject_id": "chem:compound:kaempferol",
+      "subject_label": "Kaempferol",
+      "relation": "randomly_related_to",
+      "object_id": "bio:protein:bace1",
+      "object_label": "BACE1 Protease",
+      "description": "Kaempferol randomly linked to BACE1 Protease via path: chem:compound:kaempferol -> inhibits -> chem:target:bace1_enzyme -> is_target_of -> bio:protein:bace1",
+      "provenance": [
+        "chem:compound:kaempferol",
+        "inhibits",
+        "chem:target:bace1_enzyme",
+        "is_target_of",
+        "bio:protein:bace1"
+      ],
+      "method": "C_rand",
+      "operator": "random",
+      "source_kg_name": "bio_chem_combined",
+      "chain_length": 5
+    },
+    {
+      "id": "H2016",
+      "subject_id": "bio:protein:gsk3b",
+      "subject_label": "Glycogen Synthase Kinase 3 Beta",
+      "relation": "randomly_related_to",
+      "object_id": "bio:biomarker:tau_protein",
+      "object_label": "Phospho-Tau Biomarker",
+      "description": "Glycogen Synthase Kinase 3 Beta randomly linked to Phospho-Tau Biomarker via path: bio:protein:gsk3b -> phosphorylates -> bio:protein:tau -> forms -> bio:biomarker:tau_protein",
+      "provenance": [
+        "bio:protein:gsk3b",
+        "phosphorylates",
+        "bio:protein:tau",
+        "forms",
+        "bio:biomarker:tau_protein"
+      ],
+      "method": "C_rand",
+      "operator": "random",
+      "source_kg_name": "bio_chem_combined",
+      "chain_length": 5
+    },
+    {
+      "id": "H2017",
+      "subject_id": "bio:protein:app",
+      "subject_label": "Amyloid Precursor Protein",
+      "relation": "randomly_related_to",
+      "object_id": "bio:process:beta_amyloid_aggregation",
+      "object_label": "Beta-Amyloid Aggregation",
+      "description": "Amyloid Precursor Protein randomly linked to Beta-Amyloid Aggregation via path: bio:protein:app -> cleaved_to_produce -> bio:biomarker:amyloid_beta42 -> causes -> bio:process:beta_amyloid_aggregation",
+      "provenance": [
+        "bio:protein:app",
+        "cleaved_to_produce",
+        "bio:biomarker:amyloid_beta42",
+        "causes",
+        "bio:process:beta_amyloid_aggregation"
+      ],
+      "method": "C_rand",
+      "operator": "random",
+      "source_kg_name": "bio_chem_combined",
+      "chain_length": 5
+    },
+    {
+      "id": "H2018",
+      "subject_id": "chem:mechanism:hdac_inhibition",
+      "subject_label": "Histone Deacetylase Inhibition",
+      "relation": "randomly_related_to",
+      "object_id": "bio:disease:colon_cancer",
+      "object_label": "Colorectal Cancer",
+      "description": "Histone Deacetylase Inhibition randomly linked to Colorectal Cancer via path: chem:mechanism:hdac_inhibition -> reverses -> bio:process:epigenetic_silencing -> promotes -> bio:disease:colon_cancer",
+      "provenance": [
+        "chem:mechanism:hdac_inhibition",
+        "reverses",
+        "bio:process:epigenetic_silencing",
+        "promotes",
+        "bio:disease:colon_cancer"
+      ],
+      "method": "C_rand",
+      "operator": "random",
+      "source_kg_name": "bio_chem_combined",
+      "chain_length": 5
+    },
+    {
+      "id": "H2019",
+      "subject_id": "chem:compound:coenzyme_q10",
+      "subject_label": "Coenzyme Q10 (Ubiquinone)",
+      "relation": "randomly_related_to",
+      "object_id": "bio:disease:type2_diabetes",
+      "object_label": "Type 2 Diabetes",
+      "description": "Coenzyme Q10 (Ubiquinone) randomly linked to Type 2 Diabetes via path: chem:compound:coenzyme_q10 -> activates -> chem:mechanism:ampk_activation -> inhibits -> bio:disease:type2_diabetes",
+      "provenance": [
+        "chem:compound:coenzyme_q10",
+        "activates",
+        "chem:mechanism:ampk_activation",
+        "inhibits",
+        "bio:disease:type2_diabetes"
+      ],
+      "method": "C_rand",
+      "operator": "random",
+      "source_kg_name": "bio_chem_combined",
+      "chain_length": 5
+    },
+    {
+      "id": "H2020",
+      "subject_id": "bio:protein:app",
+      "subject_label": "Amyloid Precursor Protein",
+      "relation": "randomly_related_to",
+      "object_id": "bio:process:beta_amyloid_aggregation",
+      "object_label": "Beta-Amyloid Aggregation",
+      "description": "Amyloid Precursor Protein randomly linked to Beta-Amyloid Aggregation via path: bio:protein:app -> cleaved_to_produce -> bio:biomarker:amyloid_beta42 -> causes -> bio:process:beta_amyloid_aggregation",
+      "provenance": [
+        "bio:protein:app",
+        "cleaved_to_produce",
+        "bio:biomarker:amyloid_beta42",
+        "causes",
+        "bio:process:beta_amyloid_aggregation"
+      ],
+      "method": "C_rand",
+      "operator": "random",
+      "source_kg_name": "bio_chem_combined",
+      "chain_length": 5
+    }
+  ]
+}
