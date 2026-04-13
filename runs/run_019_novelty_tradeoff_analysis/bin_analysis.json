@@ -1,0 +1,130 @@
+{
+  "overall": [
+    {
+      "bin": "0.0-0.2",
+      "n": 2,
+      "investigated": 2,
+      "investigability_rate": 1.0
+    },
+    {
+      "bin": "0.2-0.4",
+      "n": 21,
+      "investigated": 20,
+      "investigability_rate": 0.9524
+    },
+    {
+      "bin": "0.4-0.6",
+      "n": 45,
+      "investigated": 44,
+      "investigability_rate": 0.9778
+    },
+    {
+      "bin": "0.6-0.8",
+      "n": 75,
+      "investigated": 63,
+      "investigability_rate": 0.84
+    },
+    {
+      "bin": "0.8-1.0",
+      "n": 67,
+      "investigated": 45,
+      "investigability_rate": 0.6716
+    }
+  ],
+  "C1_compose": [
+    {
+      "bin": "0.0-0.2",
+      "n": 2,
+      "investigated": 2,
+      "investigability_rate": 1.0
+    },
+    {
+      "bin": "0.2-0.4",
+      "n": 21,
+      "investigated": 20,
+      "investigability_rate": 0.9524
+    },
+    {
+      "bin": "0.4-0.6",
+      "n": 43,
+      "investigated": 42,
+      "investigability_rate": 0.9767
+    },
+    {
+      "bin": "0.6-0.8",
+      "n": 4,
+      "investigated": 4,
+      "investigability_rate": 1.0
+    },
+    {
+      "bin": "0.8-1.0",
+      "n": 0,
+      "investigated": 0,
+      "investigability_rate": null
+    }
+  ],
+  "C2_multi_op": [
+    {
+      "bin": "0.0-0.2",
+      "n": 0,
+      "investigated": 0,
+      "investigability_rate": null
+    },
+    {
+      "bin": "0.2-0.4",
+      "n": 0,
+      "investigated": 0,
+      "investigability_rate": null
+    },
+    {
+      "bin": "0.4-0.6",
+      "n": 0,
+      "investigated": 0,
+      "investigability_rate": null
+    },
+    {
+      "bin": "0.6-0.8",
+      "n": 25,
+      "investigated": 25,
+      "investigability_rate": 1.0
+    },
+    {
+      "bin": "0.8-1.0",
+      "n": 45,
+      "investigated": 39,
+      "investigability_rate": 0.8667
+    }
+  ],
+  "C_rand_v2": [
+    {
+      "bin": "0.0-0.2",
+      "n": 0,
+      "investigated": 0,
+      "investigability_rate": null
+    },
+    {
+      "bin": "0.2-0.4",
+      "n": 0,
+      "investigated": 0,
+      "investigability_rate": null
+    },
+    {
+      "bin": "0.4-0.6",
+      "n": 2,
+      "investigated": 2,
+      "investigability_rate": 1.0
+    },
+    {
+      "bin": "0.6-0.8",
+      "n": 46,
+      "investigated": 34,
+      "investigability_rate": 0.7391
+    },
+    {
+      "bin": "0.8-1.0",
+      "n": 22,
+      "investigated": 6,
+      "investigability_rate": 0.2727
+    }
+  ]
+}
