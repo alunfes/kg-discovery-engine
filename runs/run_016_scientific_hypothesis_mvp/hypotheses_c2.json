@@ -1,0 +1,368 @@
+{
+  "run_id": "run_016_scientific_hypothesis_mvp",
+  "method": "C2_multi_op",
+  "description": "align → compose cross-domain (biology × chemistry)",
+  "count": 20,
+  "hypotheses": [
+    {
+      "id": "H0014",
+      "subject_id": "chem:drug:metformin",
+      "relation": "transitively_related_to",
+      "object_id": "bio:process:cholesterol_synthesis",
+      "description": "Metformin may transitively_related_to Cholesterol Biosynthesis via path: chem:drug:metformin -> activates -> bio:pathway:ampk_pathway -> inhibits -> bio:process:cholesterol_synthesis",
+      "provenance": [
+        "chem:drug:metformin",
+        "activates",
+        "bio:pathway:ampk_pathway",
+        "inhibits",
+        "bio:process:cholesterol_synthesis"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_combined",
+      "method": "C2_multi_op",
+      "chain_length": 5
+    },
+    {
+      "id": "H0018",
+      "subject_id": "chem:drug:rapamycin",
+      "relation": "transitively_related_to",
+      "object_id": "bio:pathway:mtor_signaling",
+      "description": "Rapamycin may transitively_related_to mTOR Signaling Pathway via path: chem:drug:rapamycin -> produces -> chem:mechanism:mtor_inhibition -> inhibits -> bio:pathway:mtor_signaling",
+      "provenance": [
+        "chem:drug:rapamycin",
+        "produces",
+        "chem:mechanism:mtor_inhibition",
+        "inhibits",
+        "bio:pathway:mtor_signaling"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_combined",
+      "method": "C2_multi_op",
+      "chain_length": 5
+    },
+    {
+      "id": "H0019",
+      "subject_id": "chem:drug:rapamycin",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:breast_cancer",
+      "description": "Rapamycin may transitively_related_to Breast Cancer via path: chem:drug:rapamycin -> inhibits -> bio:pathway:pi3k_akt -> promotes -> bio:disease:breast_cancer",
+      "provenance": [
+        "chem:drug:rapamycin",
+        "inhibits",
+        "bio:pathway:pi3k_akt",
+        "promotes",
+        "bio:disease:breast_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_combined",
+      "method": "C2_multi_op",
+      "chain_length": 5
+    },
+    {
+      "id": "H0023",
+      "subject_id": "chem:drug:sildenafil",
+      "relation": "transitively_related_to",
+      "object_id": "bio:pathway:ampk_pathway",
+      "description": "Sildenafil may transitively_related_to AMPK Metabolic Pathway via path: chem:drug:sildenafil -> inhibits -> bio:pathway:mtor_signaling -> regulates -> bio:pathway:ampk_pathway",
+      "provenance": [
+        "chem:drug:sildenafil",
+        "inhibits",
+        "bio:pathway:mtor_signaling",
+        "regulates",
+        "bio:pathway:ampk_pathway"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_combined",
+      "method": "C2_multi_op",
+      "chain_length": 5
+    },
+    {
+      "id": "H0024",
+      "subject_id": "chem:drug:sildenafil",
+      "relation": "transitively_related_to",
+      "object_id": "bio:pathway:pi3k_akt",
+      "description": "Sildenafil may transitively_related_to PI3K-AKT Signaling Pathway via path: chem:drug:sildenafil -> inhibits -> bio:pathway:mtor_signaling -> regulates -> bio:pathway:pi3k_akt",
+      "provenance": [
+        "chem:drug:sildenafil",
+        "inhibits",
+        "bio:pathway:mtor_signaling",
+        "regulates",
+        "bio:pathway:pi3k_akt"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_combined",
+      "method": "C2_multi_op",
+      "chain_length": 5
+    },
+    {
+      "id": "H0025",
+      "subject_id": "chem:drug:sildenafil",
+      "relation": "transitively_related_to",
+      "object_id": "bio:pathway:autophagy",
+      "description": "Sildenafil may transitively_related_to Autophagy Pathway via path: chem:drug:sildenafil -> inhibits -> bio:pathway:mtor_signaling -> inhibits -> bio:pathway:autophagy",
+      "provenance": [
+        "chem:drug:sildenafil",
+        "inhibits",
+        "bio:pathway:mtor_signaling",
+        "inhibits",
+        "bio:pathway:autophagy"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_combined",
+      "method": "C2_multi_op",
+      "chain_length": 5
+    },
+    {
+      "id": "H0026",
+      "subject_id": "chem:drug:sildenafil",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:heart_failure",
+      "description": "Sildenafil may transitively_related_to Heart Failure via path: chem:drug:sildenafil -> inhibits -> bio:pathway:mtor_signaling -> promotes -> bio:disease:heart_failure",
+      "provenance": [
+        "chem:drug:sildenafil",
+        "inhibits",
+        "bio:pathway:mtor_signaling",
+        "promotes",
+        "bio:disease:heart_failure"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_combined",
+      "method": "C2_multi_op",
+      "chain_length": 5
+    },
+    {
+      "id": "H0027",
+      "subject_id": "chem:drug:sildenafil",
+      "relation": "transitively_related_to",
+      "object_id": "bio:pathway:neuroinflammation",
+      "description": "Sildenafil may transitively_related_to Neuroinflammation Pathway via path: chem:drug:sildenafil -> produces -> chem:mechanism:pde5_inhibition -> modulates -> bio:pathway:neuroinflammation",
+      "provenance": [
+        "chem:drug:sildenafil",
+        "produces",
+        "chem:mechanism:pde5_inhibition",
+        "modulates",
+        "bio:pathway:neuroinflammation"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_combined",
+      "method": "C2_multi_op",
+      "chain_length": 5
+    },
+    {
+      "id": "H0033",
+      "subject_id": "chem:drug:aspirin",
+      "relation": "transitively_related_to",
+      "object_id": "bio:protein:tnf_alpha",
+      "description": "Aspirin may transitively_related_to TNF-alpha Cytokine via path: chem:drug:aspirin -> produces -> chem:mechanism:cox_inhibition -> reduces -> bio:protein:tnf_alpha",
+      "provenance": [
+        "chem:drug:aspirin",
+        "produces",
+        "chem:mechanism:cox_inhibition",
+        "reduces",
+        "bio:protein:tnf_alpha"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_combined",
+      "method": "C2_multi_op",
+      "chain_length": 5
+    },
+    {
+      "id": "H0034",
+      "subject_id": "chem:drug:aspirin",
+      "relation": "transitively_related_to",
+      "object_id": "bio:pathway:amyloid_cascade",
+      "description": "Aspirin may transitively_related_to Amyloid Cascade Pathway via path: chem:drug:aspirin -> produces -> chem:mechanism:cox_inhibition -> inhibits -> bio:pathway:amyloid_cascade",
+      "provenance": [
+        "chem:drug:aspirin",
+        "produces",
+        "chem:mechanism:cox_inhibition",
+        "inhibits",
+        "bio:pathway:amyloid_cascade"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_combined",
+      "method": "C2_multi_op",
+      "chain_length": 5
+    },
+    {
+      "id": "H0037",
+      "subject_id": "chem:drug:hydroxychloroquine",
+      "relation": "transitively_related_to",
+      "object_id": "bio:pathway:mtor_signaling",
+      "description": "Hydroxychloroquine may transitively_related_to mTOR Signaling Pathway via path: chem:drug:hydroxychloroquine -> inhibits -> chem:target:mtor_kinase -> is_target_of -> bio:pathway:mtor_signaling",
+      "provenance": [
+        "chem:drug:hydroxychloroquine",
+        "inhibits",
+        "chem:target:mtor_kinase",
+        "is_target_of",
+        "bio:pathway:mtor_signaling"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_combined",
+      "method": "C2_multi_op",
+      "chain_length": 5
+    },
+    {
+      "id": "H0038",
+      "subject_id": "chem:drug:hydroxychloroquine",
+      "relation": "transitively_related_to",
+      "object_id": "bio:pathway:pi3k_akt",
+      "description": "Hydroxychloroquine may transitively_related_to PI3K-AKT Signaling Pathway via path: chem:drug:hydroxychloroquine -> inhibits -> bio:protein:tnf_alpha -> activates -> bio:pathway:pi3k_akt",
+      "provenance": [
+        "chem:drug:hydroxychloroquine",
+        "inhibits",
+        "bio:protein:tnf_alpha",
+        "activates",
+        "bio:pathway:pi3k_akt"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_combined",
+      "method": "C2_multi_op",
+      "chain_length": 5
+    },
+    {
+      "id": "H0043",
+      "subject_id": "chem:compound:quercetin",
+      "relation": "transitively_related_to",
+      "object_id": "bio:protein:app",
+      "description": "Quercetin may transitively_related_to Amyloid Precursor Protein via path: chem:compound:quercetin -> may_inhibit -> bio:protein:bace1 -> cleaves -> bio:protein:app",
+      "provenance": [
+        "chem:compound:quercetin",
+        "may_inhibit",
+        "bio:protein:bace1",
+        "cleaves",
+        "bio:protein:app"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_combined",
+      "method": "C2_multi_op",
+      "chain_length": 5
+    },
+    {
+      "id": "H0044",
+      "subject_id": "chem:compound:quercetin",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:alzheimers",
+      "description": "Quercetin may transitively_related_to Alzheimer's Disease via path: chem:compound:quercetin -> reduces -> bio:pathway:amyloid_cascade -> causes -> bio:disease:alzheimers",
+      "provenance": [
+        "chem:compound:quercetin",
+        "reduces",
+        "bio:pathway:amyloid_cascade",
+        "causes",
+        "bio:disease:alzheimers"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_combined",
+      "method": "C2_multi_op",
+      "chain_length": 5
+    },
+    {
+      "id": "H0047",
+      "subject_id": "chem:compound:berberine",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:type2_diabetes",
+      "description": "Berberine may transitively_related_to Type 2 Diabetes via path: chem:compound:berberine -> produces -> chem:mechanism:ampk_activation -> inhibits -> bio:disease:type2_diabetes",
+      "provenance": [
+        "chem:compound:berberine",
+        "produces",
+        "chem:mechanism:ampk_activation",
+        "inhibits",
+        "bio:disease:type2_diabetes"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_combined",
+      "method": "C2_multi_op",
+      "chain_length": 5
+    },
+    {
+      "id": "H0048",
+      "subject_id": "chem:compound:berberine",
+      "relation": "transitively_related_to",
+      "object_id": "bio:process:cholesterol_synthesis",
+      "description": "Berberine may transitively_related_to Cholesterol Biosynthesis via path: chem:compound:berberine -> activates -> bio:pathway:ampk_pathway -> inhibits -> bio:process:cholesterol_synthesis",
+      "provenance": [
+        "chem:compound:berberine",
+        "activates",
+        "bio:pathway:ampk_pathway",
+        "inhibits",
+        "bio:process:cholesterol_synthesis"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_combined",
+      "method": "C2_multi_op",
+      "chain_length": 5
+    },
+    {
+      "id": "H0051",
+      "subject_id": "chem:compound:resveratrol",
+      "relation": "transitively_related_to",
+      "object_id": "bio:pathway:mtor_signaling",
+      "description": "Resveratrol may transitively_related_to mTOR Signaling Pathway via path: chem:compound:resveratrol -> inhibits -> chem:target:mtor_kinase -> is_target_of -> bio:pathway:mtor_signaling",
+      "provenance": [
+        "chem:compound:resveratrol",
+        "inhibits",
+        "chem:target:mtor_kinase",
+        "is_target_of",
+        "bio:pathway:mtor_signaling"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_combined",
+      "method": "C2_multi_op",
+      "chain_length": 5
+    },
+    {
+      "id": "H0053",
+      "subject_id": "chem:compound:resveratrol",
+      "relation": "transitively_related_to",
+      "object_id": "bio:protein:sirt1",
+      "description": "Resveratrol may transitively_related_to Sirtuin-1 Deacetylase via path: chem:compound:resveratrol -> produces -> chem:mechanism:sirt1_activation -> activates -> bio:protein:sirt1",
+      "provenance": [
+        "chem:compound:resveratrol",
+        "produces",
+        "chem:mechanism:sirt1_activation",
+        "activates",
+        "bio:protein:sirt1"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_combined",
+      "method": "C2_multi_op",
+      "chain_length": 5
+    },
+    {
+      "id": "H0054",
+      "subject_id": "chem:compound:resveratrol",
+      "relation": "transitively_related_to",
+      "object_id": "bio:process:cell_senescence",
+      "description": "Resveratrol may transitively_related_to Cellular Senescence via path: chem:compound:resveratrol -> produces -> chem:mechanism:sirt1_activation -> reduces -> bio:process:cell_senescence",
+      "provenance": [
+        "chem:compound:resveratrol",
+        "produces",
+        "chem:mechanism:sirt1_activation",
+        "reduces",
+        "bio:process:cell_senescence"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_combined",
+      "method": "C2_multi_op",
+      "chain_length": 5
+    },
+    {
+      "id": "H0063",
+      "subject_id": "chem:mechanism:mtor_inhibition",
+      "relation": "transitively_related_to",
+      "object_id": "bio:pathway:ampk_pathway",
+      "description": "mTOR Inhibition Mechanism may transitively_related_to AMPK Metabolic Pathway via path: chem:mechanism:mtor_inhibition -> inhibits -> bio:pathway:mtor_signaling -> regulates -> bio:pathway:ampk_pathway",
+      "provenance": [
+        "chem:mechanism:mtor_inhibition",
+        "inhibits",
+        "bio:pathway:mtor_signaling",
+        "regulates",
+        "bio:pathway:ampk_pathway"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_combined",
+      "method": "C2_multi_op",
+      "chain_length": 5
+    }
+  ]
+}

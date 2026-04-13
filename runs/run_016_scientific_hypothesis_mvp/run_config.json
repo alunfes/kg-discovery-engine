@@ -1,0 +1,67 @@
+{
+  "run_id": "run_016_scientific_hypothesis_mvp",
+  "date": "2026-04-13T00:00:00Z",
+  "description": "MVP Step 1: 200-node Biology x Chemistry KG construction + 60-hypothesis generation",
+  "seed": 42,
+  "kg_source": "src/scientific_hypothesis/bio_chem_kg_full.json",
+  "kg_build_script": "src/scientific_hypothesis/build_full_kg.py",
+  "hypothesis_script": "src/scientific_hypothesis/generate_hypotheses.py",
+  "kg_stats": {
+    "node_count": 200,
+    "biology_nodes": 120,
+    "chemistry_nodes": 80,
+    "edge_count": 325,
+    "cross_domain_edges": 126,
+    "cross_domain_ratio": 0.388
+  },
+  "methods": {
+    "C2_multi_op": {
+      "description": "align → union → compose cross-domain (biology KG + chemistry KG)",
+      "operators": ["align", "union", "compose_cross_domain"],
+      "align_threshold": 0.3,
+      "compose_max_depth": 5,
+      "target_hypotheses": 20
+    },
+    "C1_compose": {
+      "description": "compose-only on biology KG (single-op baseline)",
+      "operators": ["compose"],
+      "compose_max_depth": 6,
+      "target_hypotheses": 20
+    },
+    "C_rand": {
+      "description": "random path baseline matching C2 chain length distribution",
+      "operators": ["random_path"],
+      "target_hypotheses": 20
+    }
+  },
+  "results": {
+    "C2_multi_op": 20,
+    "C1_compose": 20,
+    "C_rand": 20,
+    "total": 60
+  },
+  "output_files": {
+    "hypotheses_c2": "runs/run_016_scientific_hypothesis_mvp/hypotheses_c2.json",
+    "hypotheses_c1": "runs/run_016_scientific_hypothesis_mvp/hypotheses_c1.json",
+    "hypotheses_crand": "runs/run_016_scientific_hypothesis_mvp/hypotheses_crand.json",
+    "kg_stats": "runs/run_016_scientific_hypothesis_mvp/kg_stats.json",
+    "baseline_parity": "runs/run_016_scientific_hypothesis_mvp/baseline_parity_check.json"
+  },
+  "go_no_go": {
+    "verdict": "GO",
+    "criteria": {
+      "node_count_ge_200": {"result": true, "value": 200},
+      "cross_domain_ratio_ge_15pct": {"result": true, "value": "38.8%"},
+      "c2_hypotheses_ge_20": {"result": true, "value": 20},
+      "c1_hypotheses_ge_20": {"result": true, "value": 20},
+      "crand_hypotheses_ge_20": {"result": true, "value": 20},
+      "baseline_parity_feasible": {"result": true}
+    }
+  },
+  "next_steps": [
+    "Pre-register 10 hypotheses from C2 in configs/scientific_hypothesis_registry.json",
+    "Fetch PubMed validation corpus (2024-2025) for the registered hypotheses",
+    "Label hypotheses against validation corpus",
+    "Compute SC-1 (precision_positive C2 > C_rand) and SC-3 (high_novelty rate)"
+  ]
+}

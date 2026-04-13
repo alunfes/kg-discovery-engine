@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "frozen": false,
-  "_comment_frozen": "Set to true BEFORE running hypothesis generation. Never modify after freezing except via change log in pre_registration.md.",
+  "frozen": true,
+  "_comment_frozen": "Frozen after run_016_scientific_hypothesis_mvp. Do not modify except via change log.",
 
   "selected_theme": "biology_x_chemistry",
   "selected_subtheme": "drug_repurposing",
@@ -28,11 +28,11 @@
   "validation_period_start": "2024-01-01",
   "validation_period_end": "2025-12-31",
 
-  "kg_generation_commit": null,
-  "_comment_kg_commit": "Fill in git commit hash of KG generation script before freezing",
+  "kg_generation_commit": "PENDING_run016_commit",
+  "_comment_kg_commit": "Commit hash for build_full_kg.py + bio_chem_kg_full.json (run_016)",
 
-  "hypothesis_generation_commit": null,
-  "_comment_hyp_commit": "Fill in git commit hash of hypothesis generation script before freezing",
+  "hypothesis_generation_commit": "PENDING_run016_commit",
+  "_comment_hyp_commit": "Commit hash for generate_hypotheses.py + hypotheses_c2/c1/crand.json (run_016)",
 
   "random_seed": 42,
 

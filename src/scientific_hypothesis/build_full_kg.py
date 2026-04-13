@@ -1,0 +1,919 @@
+"""Build the full 200-node biology × chemistry KG for drug repurposing MVP.
+
+Extends bio_chem_kg_seed.json (25 nodes) with curated entities from public sources:
+  - Biology: DrugBank target annotations, UniProt human proteins, KEGG pathways
+  - Chemistry: DrugBank approved drugs, natural compound databases
+
+All data is hardcoded (no external API calls) for deterministic reproducibility.
+Output: src/scientific_hypothesis/bio_chem_kg_full.json
+
+Usage:
+    cd /path/to/kg-discovery-engine
+    python -m src.scientific_hypothesis.build_full_kg
+"""
+
+from __future__ import annotations
+
+import json
+import os
+import sys
+from typing import Any
+
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", ".."))
+
+SEED_JSON = os.path.join(os.path.dirname(__file__), "bio_chem_kg_seed.json")
+OUTPUT_JSON = os.path.join(os.path.dirname(__file__), "bio_chem_kg_full.json")
+
+
+# ---------------------------------------------------------------------------
+# New biology nodes (108 nodes → total 120 biology including 12 from seed)
+# ---------------------------------------------------------------------------
+
+_NEW_BIO_NODES: list[dict[str, Any]] = [
+    # ── Diseases (16 new → total 20) ──────────────────────────────────────
+    {"id": "bio:disease:colon_cancer", "label": "Colorectal Cancer", "domain": "biology",
+     "attributes": {"type": "disease", "icd10": "C18"}},
+    {"id": "bio:disease:lung_cancer", "label": "Non-Small Cell Lung Cancer", "domain": "biology",
+     "attributes": {"type": "disease", "icd10": "C34"}},
+    {"id": "bio:disease:prostate_cancer", "label": "Prostate Cancer", "domain": "biology",
+     "attributes": {"type": "disease", "icd10": "C61"}},
+    {"id": "bio:disease:glioblastoma", "label": "Glioblastoma Multiforme", "domain": "biology",
+     "attributes": {"type": "disease", "icd10": "C71"}},
+    {"id": "bio:disease:multiple_myeloma", "label": "Multiple Myeloma", "domain": "biology",
+     "attributes": {"type": "disease", "icd10": "C90"}},
+    {"id": "bio:disease:leukemia_cml", "label": "Chronic Myeloid Leukemia", "domain": "biology",
+     "attributes": {"type": "disease", "icd10": "C92.1"}},
+    {"id": "bio:disease:als", "label": "Amyotrophic Lateral Sclerosis", "domain": "biology",
+     "attributes": {"type": "disease", "icd10": "G12.21"}},
+    {"id": "bio:disease:huntingtons", "label": "Huntington's Disease", "domain": "biology",
+     "attributes": {"type": "disease", "icd10": "G10"}},
+    {"id": "bio:disease:rheumatoid_arthritis", "label": "Rheumatoid Arthritis", "domain": "biology",
+     "attributes": {"type": "disease", "icd10": "M05"}},
+    {"id": "bio:disease:lupus", "label": "Systemic Lupus Erythematosus", "domain": "biology",
+     "attributes": {"type": "disease", "icd10": "M32"}},
+    {"id": "bio:disease:obesity", "label": "Obesity", "domain": "biology",
+     "attributes": {"type": "disease", "icd10": "E66"}},
+    {"id": "bio:disease:atherosclerosis", "label": "Atherosclerosis", "domain": "biology",
+     "attributes": {"type": "disease", "icd10": "I70"}},
+    {"id": "bio:disease:heart_failure", "label": "Heart Failure", "domain": "biology",
+     "attributes": {"type": "disease", "icd10": "I50"}},
+    {"id": "bio:disease:nafld", "label": "Non-Alcoholic Fatty Liver Disease", "domain": "biology",
+     "attributes": {"type": "disease", "icd10": "K76.0"}},
+    {"id": "bio:disease:psoriasis", "label": "Psoriasis", "domain": "biology",
+     "attributes": {"type": "disease", "icd10": "L40"}},
+    {"id": "bio:disease:inflammatory_bowel_disease", "label": "Inflammatory Bowel Disease",
+     "domain": "biology", "attributes": {"type": "disease", "icd10": "K51"}},
+
+    # ── Proteins / Enzymes (26 new → total 30) ───────────────────────────
+    {"id": "bio:protein:app", "label": "Amyloid Precursor Protein", "domain": "biology",
+     "attributes": {"type": "protein", "uniprot": "P05067"}},
+    {"id": "bio:protein:tau", "label": "Tau Microtubule Protein", "domain": "biology",
+     "attributes": {"type": "protein", "uniprot": "P10636"}},
+    {"id": "bio:protein:bdnf", "label": "Brain-Derived Neurotrophic Factor", "domain": "biology",
+     "attributes": {"type": "protein", "uniprot": "P23560"}},
+    {"id": "bio:protein:vegf", "label": "Vascular Endothelial Growth Factor", "domain": "biology",
+     "attributes": {"type": "protein", "uniprot": "P15692"}},
+    {"id": "bio:protein:egfr", "label": "Epidermal Growth Factor Receptor", "domain": "biology",
+     "attributes": {"type": "protein", "uniprot": "P00533"}},
+    {"id": "bio:protein:p53", "label": "Tumor Suppressor Protein p53", "domain": "biology",
+     "attributes": {"type": "protein", "uniprot": "P04637"}},
+    {"id": "bio:protein:bcl2", "label": "B-cell Lymphoma 2 Protein", "domain": "biology",
+     "attributes": {"type": "protein", "uniprot": "P10415"}},
+    {"id": "bio:protein:il6", "label": "Interleukin-6", "domain": "biology",
+     "attributes": {"type": "protein", "uniprot": "P05231"}},
+    {"id": "bio:protein:il1b", "label": "Interleukin-1 Beta", "domain": "biology",
+     "attributes": {"type": "protein", "uniprot": "P01584"}},
+    {"id": "bio:protein:nfkb", "label": "NF-kB Transcription Factor", "domain": "biology",
+     "attributes": {"type": "protein", "uniprot": "P19838"}},
+    {"id": "bio:protein:foxo3", "label": "FOXO3 Transcription Factor", "domain": "biology",
+     "attributes": {"type": "protein", "uniprot": "O43524"}},
+    {"id": "bio:protein:sirt1", "label": "Sirtuin-1 Deacetylase", "domain": "biology",
+     "attributes": {"type": "protein", "uniprot": "Q96EB6"}},
+    {"id": "bio:protein:pten", "label": "PTEN Phosphatase", "domain": "biology",
+     "attributes": {"type": "protein", "uniprot": "P60484"}},
+    {"id": "bio:protein:ras", "label": "RAS GTPase", "domain": "biology",
+     "attributes": {"type": "protein", "uniprot": "P01116"}},
+    {"id": "bio:protein:brca1", "label": "BRCA1 DNA Repair Protein", "domain": "biology",
+     "attributes": {"type": "protein", "uniprot": "P38398"}},
+    {"id": "bio:protein:jak2", "label": "Janus Kinase 2", "domain": "biology",
+     "attributes": {"type": "protein", "uniprot": "O60674"}},
+    {"id": "bio:protein:stat3", "label": "Signal Transducer STAT3", "domain": "biology",
+     "attributes": {"type": "protein", "uniprot": "P40763"}},
+    {"id": "bio:protein:akt1", "label": "AKT Serine/Threonine Kinase", "domain": "biology",
+     "attributes": {"type": "protein", "uniprot": "P31749"}},
+    {"id": "bio:protein:gsk3b", "label": "Glycogen Synthase Kinase 3 Beta", "domain": "biology",
+     "attributes": {"type": "protein", "uniprot": "P49841"}},
+    {"id": "bio:protein:cdk5", "label": "Cyclin-Dependent Kinase 5", "domain": "biology",
+     "attributes": {"type": "protein", "uniprot": "Q00535"}},
+    {"id": "bio:protein:lrrk2", "label": "Leucine-Rich Repeat Kinase 2", "domain": "biology",
+     "attributes": {"type": "protein", "uniprot": "Q5S007"}},
+    {"id": "bio:protein:tdp43", "label": "TDP-43 RNA-Binding Protein", "domain": "biology",
+     "attributes": {"type": "protein", "uniprot": "Q13148"}},
+    {"id": "bio:protein:sod1", "label": "Superoxide Dismutase 1", "domain": "biology",
+     "attributes": {"type": "protein", "uniprot": "P00441"}},
+    {"id": "bio:protein:mapk1", "label": "Mitogen-Activated Protein Kinase 1", "domain": "biology",
+     "attributes": {"type": "protein", "uniprot": "P28482"}},
+    {"id": "bio:protein:igf1r", "label": "IGF-1 Receptor", "domain": "biology",
+     "attributes": {"type": "protein", "uniprot": "P08069"}},
+    {"id": "bio:protein:hif1a", "label": "Hypoxia-Inducible Factor 1-alpha", "domain": "biology",
+     "attributes": {"type": "protein", "uniprot": "Q16665"}},
+
+    # ── Genes (15 new) ────────────────────────────────────────────────────
+    {"id": "bio:gene:apoe4", "label": "APOE4 Risk Gene", "domain": "biology",
+     "attributes": {"type": "gene", "hgnc": "APOE", "allele": "epsilon4"}},
+    {"id": "bio:gene:snca", "label": "SNCA Alpha-Synuclein Gene", "domain": "biology",
+     "attributes": {"type": "gene", "hgnc": "SNCA"}},
+    {"id": "bio:gene:tp53", "label": "TP53 Tumor Suppressor Gene", "domain": "biology",
+     "attributes": {"type": "gene", "hgnc": "TP53"}},
+    {"id": "bio:gene:myc", "label": "MYC Proto-Oncogene", "domain": "biology",
+     "attributes": {"type": "gene", "hgnc": "MYC"}},
+    {"id": "bio:gene:kras", "label": "KRAS Oncogene", "domain": "biology",
+     "attributes": {"type": "gene", "hgnc": "KRAS"}},
+    {"id": "bio:gene:vegfa", "label": "VEGFA Angiogenesis Gene", "domain": "biology",
+     "attributes": {"type": "gene", "hgnc": "VEGFA"}},
+    {"id": "bio:gene:tert", "label": "TERT Telomerase Gene", "domain": "biology",
+     "attributes": {"type": "gene", "hgnc": "TERT"}},
+    {"id": "bio:gene:fus", "label": "FUS RNA-Binding Gene", "domain": "biology",
+     "attributes": {"type": "gene", "hgnc": "FUS"}},
+    {"id": "bio:gene:atm", "label": "ATM DNA Damage Response Gene", "domain": "biology",
+     "attributes": {"type": "gene", "hgnc": "ATM"}},
+    {"id": "bio:gene:cdkn2a", "label": "CDKN2A Tumor Suppressor Gene", "domain": "biology",
+     "attributes": {"type": "gene", "hgnc": "CDKN2A"}},
+    {"id": "bio:gene:rb1", "label": "RB1 Retinoblastoma Gene", "domain": "biology",
+     "attributes": {"type": "gene", "hgnc": "RB1"}},
+    {"id": "bio:gene:bcr_abl", "label": "BCR-ABL Fusion Gene", "domain": "biology",
+     "attributes": {"type": "gene", "hgnc": "BCR-ABL1"}},
+    {"id": "bio:gene:idh1", "label": "IDH1 Metabolic Gene", "domain": "biology",
+     "attributes": {"type": "gene", "hgnc": "IDH1"}},
+    {"id": "bio:gene:park2", "label": "PARK2 Parkin Gene", "domain": "biology",
+     "attributes": {"type": "gene", "hgnc": "PRKN"}},
+    {"id": "bio:gene:pten_gene", "label": "PTEN Tumor Suppressor Gene", "domain": "biology",
+     "attributes": {"type": "gene", "hgnc": "PTEN"}},
+
+    # ── Pathways (16 new → total 20) ─────────────────────────────────────
+    {"id": "bio:pathway:wnt_signaling", "label": "Wnt Signaling Pathway", "domain": "biology",
+     "attributes": {"type": "pathway", "source": "KEGG", "kegg_id": "hsa04310"}},
+    {"id": "bio:pathway:notch_signaling", "label": "Notch Signaling Pathway", "domain": "biology",
+     "attributes": {"type": "pathway", "source": "KEGG", "kegg_id": "hsa04330"}},
+    {"id": "bio:pathway:hedgehog_signaling", "label": "Hedgehog Signaling Pathway",
+     "domain": "biology", "attributes": {"type": "pathway", "source": "KEGG", "kegg_id": "hsa04340"}},
+    {"id": "bio:pathway:mapk_erk", "label": "MAPK/ERK Signaling Pathway", "domain": "biology",
+     "attributes": {"type": "pathway", "source": "KEGG", "kegg_id": "hsa04010"}},
+    {"id": "bio:pathway:jak_stat", "label": "JAK-STAT Signaling Pathway", "domain": "biology",
+     "attributes": {"type": "pathway", "source": "KEGG", "kegg_id": "hsa04630"}},
+    {"id": "bio:pathway:nfkb_pathway", "label": "NF-kB Signaling Pathway", "domain": "biology",
+     "attributes": {"type": "pathway", "source": "KEGG", "kegg_id": "hsa04064"}},
+    {"id": "bio:pathway:apoptosis", "label": "Intrinsic Apoptosis Pathway", "domain": "biology",
+     "attributes": {"type": "pathway", "source": "KEGG", "kegg_id": "hsa04210"}},
+    {"id": "bio:pathway:autophagy", "label": "Autophagy Pathway", "domain": "biology",
+     "attributes": {"type": "pathway", "source": "KEGG", "kegg_id": "hsa04140"}},
+    {"id": "bio:pathway:cell_cycle", "label": "Cell Cycle Pathway", "domain": "biology",
+     "attributes": {"type": "pathway", "source": "KEGG", "kegg_id": "hsa04110"}},
+    {"id": "bio:pathway:dna_damage_response", "label": "DNA Damage Response Pathway",
+     "domain": "biology", "attributes": {"type": "pathway", "source": "KEGG", "kegg_id": "hsa03430"}},
+    {"id": "bio:pathway:oxidative_stress", "label": "Oxidative Stress Response Pathway",
+     "domain": "biology", "attributes": {"type": "pathway", "source": "KEGG"}},
+    {"id": "bio:pathway:insulin_signaling", "label": "Insulin Signaling Pathway",
+     "domain": "biology", "attributes": {"type": "pathway", "source": "KEGG", "kegg_id": "hsa04910"}},
+    {"id": "bio:pathway:tau_phosphorylation", "label": "Tau Phosphorylation Pathway",
+     "domain": "biology", "attributes": {"type": "pathway", "source": "KEGG"}},
+    {"id": "bio:pathway:neuroinflammation", "label": "Neuroinflammation Pathway",
+     "domain": "biology", "attributes": {"type": "pathway", "source": "KEGG"}},
+    {"id": "bio:pathway:angiogenesis", "label": "Angiogenesis Signaling Pathway",
+     "domain": "biology", "attributes": {"type": "pathway", "source": "KEGG", "kegg_id": "hsa04066"}},
+    {"id": "bio:pathway:ubiquitin_proteasome", "label": "Ubiquitin-Proteasome Pathway",
+     "domain": "biology", "attributes": {"type": "pathway", "source": "KEGG", "kegg_id": "hsa04120"}},
+
+    # ── Receptors (10 new) ────────────────────────────────────────────────
+    {"id": "bio:receptor:nmda_receptor", "label": "NMDA Glutamate Receptor", "domain": "biology",
+     "attributes": {"type": "receptor", "uniprot": "Q05586"}},
+    {"id": "bio:receptor:dopamine_d2", "label": "Dopamine D2 Receptor", "domain": "biology",
+     "attributes": {"type": "receptor", "uniprot": "P14416"}},
+    {"id": "bio:receptor:adenosine_a2a", "label": "Adenosine A2A Receptor", "domain": "biology",
+     "attributes": {"type": "receptor", "uniprot": "P29274"}},
+    {"id": "bio:receptor:ppar_gamma", "label": "PPAR-gamma Nuclear Receptor", "domain": "biology",
+     "attributes": {"type": "receptor", "uniprot": "P37231"}},
+    {"id": "bio:receptor:ar", "label": "Androgen Receptor", "domain": "biology",
+     "attributes": {"type": "receptor", "uniprot": "P10275"}},
+    {"id": "bio:receptor:er_alpha", "label": "Estrogen Receptor Alpha", "domain": "biology",
+     "attributes": {"type": "receptor", "uniprot": "P03372"}},
+    {"id": "bio:receptor:tgfb_receptor", "label": "TGF-beta Receptor", "domain": "biology",
+     "attributes": {"type": "receptor", "uniprot": "P36897"}},
+    {"id": "bio:receptor:tlr4", "label": "Toll-Like Receptor 4", "domain": "biology",
+     "attributes": {"type": "receptor", "uniprot": "O00206"}},
+    {"id": "bio:receptor:glucocorticoid_receptor", "label": "Glucocorticoid Receptor",
+     "domain": "biology", "attributes": {"type": "receptor", "uniprot": "P04150"}},
+    {"id": "bio:receptor:igf1_receptor", "label": "IGF-1 Receptor", "domain": "biology",
+     "attributes": {"type": "receptor", "uniprot": "P08069", "note": "alias igf1r"}},
+
+    # ── Biological Processes (20 new) ─────────────────────────────────────
+    {"id": "bio:process:beta_amyloid_aggregation", "label": "Beta-Amyloid Aggregation",
+     "domain": "biology", "attributes": {"type": "process"}},
+    {"id": "bio:process:tau_hyperphosphorylation", "label": "Tau Hyperphosphorylation",
+     "domain": "biology", "attributes": {"type": "process"}},
+    {"id": "bio:process:dopamine_synthesis", "label": "Dopamine Biosynthesis",
+     "domain": "biology", "attributes": {"type": "process"}},
+    {"id": "bio:process:insulin_resistance", "label": "Insulin Resistance",
+     "domain": "biology", "attributes": {"type": "process"}},
+    {"id": "bio:process:lipid_peroxidation", "label": "Lipid Peroxidation",
+     "domain": "biology", "attributes": {"type": "process"}},
+    {"id": "bio:process:protein_aggregation", "label": "Pathological Protein Aggregation",
+     "domain": "biology", "attributes": {"type": "process"}},
+    {"id": "bio:process:mitophagy", "label": "Mitophagy", "domain": "biology",
+     "attributes": {"type": "process"}},
+    {"id": "bio:process:synaptic_plasticity", "label": "Synaptic Plasticity",
+     "domain": "biology", "attributes": {"type": "process"}},
+    {"id": "bio:process:inflammatory_cytokine_release", "label": "Inflammatory Cytokine Release",
+     "domain": "biology", "attributes": {"type": "process"}},
+    {"id": "bio:process:tumor_angiogenesis", "label": "Tumor Angiogenesis",
+     "domain": "biology", "attributes": {"type": "process"}},
+    {"id": "bio:process:cell_senescence", "label": "Cellular Senescence",
+     "domain": "biology", "attributes": {"type": "process"}},
+    {"id": "bio:process:dna_repair", "label": "DNA Repair", "domain": "biology",
+     "attributes": {"type": "process"}},
+    {"id": "bio:process:cholesterol_synthesis", "label": "Cholesterol Biosynthesis",
+     "domain": "biology", "attributes": {"type": "process"}},
+    {"id": "bio:process:glucose_metabolism", "label": "Glucose Metabolism",
+     "domain": "biology", "attributes": {"type": "process"}},
+    {"id": "bio:process:ros_production", "label": "Reactive Oxygen Species Production",
+     "domain": "biology", "attributes": {"type": "process"}},
+    {"id": "bio:process:telomere_shortening", "label": "Telomere Shortening",
+     "domain": "biology", "attributes": {"type": "process"}},
+    {"id": "bio:process:neurodegeneration", "label": "Neurodegeneration",
+     "domain": "biology", "attributes": {"type": "process"}},
+    {"id": "bio:process:immune_activation", "label": "Immune System Activation",
+     "domain": "biology", "attributes": {"type": "process"}},
+    {"id": "bio:process:mitochondrial_dysfunction", "label": "Mitochondrial Dysfunction",
+     "domain": "biology", "attributes": {"type": "process"}},
+    {"id": "bio:process:epigenetic_silencing", "label": "Epigenetic Gene Silencing",
+     "domain": "biology", "attributes": {"type": "process"}},
+
+    # ── Biomarkers (5 new) ────────────────────────────────────────────────
+    {"id": "bio:biomarker:amyloid_beta42", "label": "Amyloid-Beta 42 Peptide",
+     "domain": "biology", "attributes": {"type": "biomarker"}},
+    {"id": "bio:biomarker:tau_protein", "label": "Phospho-Tau Biomarker",
+     "domain": "biology", "attributes": {"type": "biomarker"}},
+    {"id": "bio:biomarker:crp", "label": "C-Reactive Protein", "domain": "biology",
+     "attributes": {"type": "biomarker", "uniprot": "P02741"}},
+    {"id": "bio:biomarker:ldl_cholesterol", "label": "LDL Cholesterol", "domain": "biology",
+     "attributes": {"type": "biomarker"}},
+    {"id": "bio:biomarker:hba1c", "label": "Glycated Hemoglobin HbA1c", "domain": "biology",
+     "attributes": {"type": "biomarker"}},
+]
+
+
+# ---------------------------------------------------------------------------
+# New chemistry nodes (67 nodes → total 80 chemistry including 13 from seed)
+# ---------------------------------------------------------------------------
+
+_NEW_CHEM_NODES: list[dict[str, Any]] = [
+    # ── Approved drugs (25 new → total 30) ───────────────────────────────
+    {"id": "chem:drug:atorvastatin", "label": "Atorvastatin", "domain": "chemistry",
+     "attributes": {"type": "drug", "drugbank": "DB01076", "approved_for": "Hypercholesterolemia"}},
+    {"id": "chem:drug:ibuprofen", "label": "Ibuprofen", "domain": "chemistry",
+     "attributes": {"type": "drug", "drugbank": "DB01050", "approved_for": "Pain/Inflammation"}},
+    {"id": "chem:drug:lithium_carbonate", "label": "Lithium Carbonate", "domain": "chemistry",
+     "attributes": {"type": "drug", "drugbank": "DB00356", "approved_for": "Bipolar Disorder"}},
+    {"id": "chem:drug:nilotinib", "label": "Nilotinib", "domain": "chemistry",
+     "attributes": {"type": "drug", "drugbank": "DB04868", "approved_for": "CML"}},
+    {"id": "chem:drug:imatinib", "label": "Imatinib", "domain": "chemistry",
+     "attributes": {"type": "drug", "drugbank": "DB00619", "approved_for": "CML/GIST"}},
+    {"id": "chem:drug:tamoxifen", "label": "Tamoxifen", "domain": "chemistry",
+     "attributes": {"type": "drug", "drugbank": "DB00675", "approved_for": "Breast Cancer"}},
+    {"id": "chem:drug:valproic_acid", "label": "Valproic Acid", "domain": "chemistry",
+     "attributes": {"type": "drug", "drugbank": "DB00313", "approved_for": "Epilepsy/Bipolar"}},
+    {"id": "chem:drug:thalidomide", "label": "Thalidomide", "domain": "chemistry",
+     "attributes": {"type": "drug", "drugbank": "DB01041", "approved_for": "Multiple Myeloma"}},
+    {"id": "chem:drug:doxycycline", "label": "Doxycycline", "domain": "chemistry",
+     "attributes": {"type": "drug", "drugbank": "DB00254", "approved_for": "Bacterial Infections"}},
+    {"id": "chem:drug:finasteride", "label": "Finasteride", "domain": "chemistry",
+     "attributes": {"type": "drug", "drugbank": "DB00355", "approved_for": "BPH/Prostate"}},
+    {"id": "chem:drug:pioglitazone", "label": "Pioglitazone", "domain": "chemistry",
+     "attributes": {"type": "drug", "drugbank": "DB01132", "approved_for": "Type 2 Diabetes"}},
+    {"id": "chem:drug:donepezil", "label": "Donepezil", "domain": "chemistry",
+     "attributes": {"type": "drug", "drugbank": "DB00843", "approved_for": "Alzheimer's"}},
+    {"id": "chem:drug:levodopa", "label": "Levodopa", "domain": "chemistry",
+     "attributes": {"type": "drug", "drugbank": "DB01235", "approved_for": "Parkinson's"}},
+    {"id": "chem:drug:selegiline", "label": "Selegiline", "domain": "chemistry",
+     "attributes": {"type": "drug", "drugbank": "DB01037", "approved_for": "Parkinson's"}},
+    {"id": "chem:drug:memantine", "label": "Memantine", "domain": "chemistry",
+     "attributes": {"type": "drug", "drugbank": "DB01043", "approved_for": "Alzheimer's"}},
+    {"id": "chem:drug:celecoxib", "label": "Celecoxib", "domain": "chemistry",
+     "attributes": {"type": "drug", "drugbank": "DB00482", "approved_for": "Arthritis/Pain"}},
+    {"id": "chem:drug:rosiglitazone", "label": "Rosiglitazone", "domain": "chemistry",
+     "attributes": {"type": "drug", "drugbank": "DB00412", "approved_for": "Type 2 Diabetes"}},
+    {"id": "chem:drug:trastuzumab", "label": "Trastuzumab", "domain": "chemistry",
+     "attributes": {"type": "drug", "drugbank": "DB00072", "approved_for": "HER2+ Breast Cancer"}},
+    {"id": "chem:drug:everolimus", "label": "Everolimus", "domain": "chemistry",
+     "attributes": {"type": "drug", "drugbank": "DB01590", "approved_for": "Cancer/Transplant"}},
+    {"id": "chem:drug:erlotinib", "label": "Erlotinib", "domain": "chemistry",
+     "attributes": {"type": "drug", "drugbank": "DB00530", "approved_for": "NSCLC"}},
+    {"id": "chem:drug:sorafenib", "label": "Sorafenib", "domain": "chemistry",
+     "attributes": {"type": "drug", "drugbank": "DB00398", "approved_for": "Liver/Kidney Cancer"}},
+    {"id": "chem:drug:bortezomib", "label": "Bortezomib", "domain": "chemistry",
+     "attributes": {"type": "drug", "drugbank": "DB00188", "approved_for": "Multiple Myeloma"}},
+    {"id": "chem:drug:lenalidomide", "label": "Lenalidomide", "domain": "chemistry",
+     "attributes": {"type": "drug", "drugbank": "DB00480", "approved_for": "Multiple Myeloma"}},
+    {"id": "chem:drug:venetoclax", "label": "Venetoclax", "domain": "chemistry",
+     "attributes": {"type": "drug", "drugbank": "DB11581", "approved_for": "CLL/AML"}},
+    {"id": "chem:drug:ruxolitinib", "label": "Ruxolitinib", "domain": "chemistry",
+     "attributes": {"type": "drug", "drugbank": "DB08877", "approved_for": "Myelofibrosis/PV"}},
+
+    # ── Natural compounds (12 new → total 15) ─────────────────────────────
+    {"id": "chem:compound:curcumin", "label": "Curcumin", "domain": "chemistry",
+     "attributes": {"type": "compound", "cas": "458-37-7", "class": "polyphenol"}},
+    {"id": "chem:compound:epigallocatechin", "label": "Epigallocatechin Gallate (EGCG)",
+     "domain": "chemistry", "attributes": {"type": "compound", "cas": "989-51-5", "class": "catechin"}},
+    {"id": "chem:compound:sulforaphane", "label": "Sulforaphane", "domain": "chemistry",
+     "attributes": {"type": "compound", "cas": "4478-93-7", "class": "isothiocyanate"}},
+    {"id": "chem:compound:alpha_lipoic_acid", "label": "Alpha-Lipoic Acid", "domain": "chemistry",
+     "attributes": {"type": "compound", "cas": "1077-28-7", "class": "antioxidant"}},
+    {"id": "chem:compound:coenzyme_q10", "label": "Coenzyme Q10 (Ubiquinone)",
+     "domain": "chemistry", "attributes": {"type": "compound", "cas": "303-98-0", "class": "quinone"}},
+    {"id": "chem:compound:nicotinamide_riboside", "label": "Nicotinamide Riboside",
+     "domain": "chemistry", "attributes": {"type": "compound", "cas": "1341-23-7", "class": "NAD+ precursor"}},
+    {"id": "chem:compound:fisetin", "label": "Fisetin", "domain": "chemistry",
+     "attributes": {"type": "compound", "cas": "528-48-3", "class": "flavonoid"}},
+    {"id": "chem:compound:spermidine", "label": "Spermidine", "domain": "chemistry",
+     "attributes": {"type": "compound", "cas": "334-50-9", "class": "polyamine"}},
+    {"id": "chem:compound:pterostilbene", "label": "Pterostilbene", "domain": "chemistry",
+     "attributes": {"type": "compound", "cas": "537-42-8", "class": "stilbenoid"}},
+    {"id": "chem:compound:apigenin", "label": "Apigenin", "domain": "chemistry",
+     "attributes": {"type": "compound", "cas": "520-36-5", "class": "flavone"}},
+    {"id": "chem:compound:luteolin", "label": "Luteolin", "domain": "chemistry",
+     "attributes": {"type": "compound", "cas": "491-70-3", "class": "flavone"}},
+    {"id": "chem:compound:kaempferol", "label": "Kaempferol", "domain": "chemistry",
+     "attributes": {"type": "compound", "cas": "520-18-3", "class": "flavonol"}},
+
+    # ── Mechanisms (12 new → total 15) ────────────────────────────────────
+    {"id": "chem:mechanism:hmg_coa_inhibition", "label": "HMG-CoA Reductase Inhibition",
+     "domain": "chemistry", "attributes": {"type": "mechanism"}},
+    {"id": "chem:mechanism:hdac_inhibition", "label": "Histone Deacetylase Inhibition",
+     "domain": "chemistry", "attributes": {"type": "mechanism"}},
+    {"id": "chem:mechanism:proteasome_inhibition", "label": "Proteasome Inhibition",
+     "domain": "chemistry", "attributes": {"type": "mechanism"}},
+    {"id": "chem:mechanism:jak_inhibition", "label": "JAK Kinase Inhibition",
+     "domain": "chemistry", "attributes": {"type": "mechanism"}},
+    {"id": "chem:mechanism:tyrosine_kinase_inhibition", "label": "Tyrosine Kinase Inhibition",
+     "domain": "chemistry", "attributes": {"type": "mechanism"}},
+    {"id": "chem:mechanism:pde5_inhibition", "label": "PDE5 Phosphodiesterase Inhibition",
+     "domain": "chemistry", "attributes": {"type": "mechanism"}},
+    {"id": "chem:mechanism:nmda_antagonism", "label": "NMDA Receptor Antagonism",
+     "domain": "chemistry", "attributes": {"type": "mechanism"}},
+    {"id": "chem:mechanism:ache_inhibition", "label": "Acetylcholinesterase Inhibition",
+     "domain": "chemistry", "attributes": {"type": "mechanism"}},
+    {"id": "chem:mechanism:ppar_activation", "label": "PPAR-gamma Activation",
+     "domain": "chemistry", "attributes": {"type": "mechanism"}},
+    {"id": "chem:mechanism:nrf2_activation", "label": "Nrf2 Pathway Activation",
+     "domain": "chemistry", "attributes": {"type": "mechanism"}},
+    {"id": "chem:mechanism:sirt1_activation", "label": "Sirtuin-1 Activation",
+     "domain": "chemistry", "attributes": {"type": "mechanism"}},
+    {"id": "chem:mechanism:wnt_inhibition", "label": "Wnt Pathway Inhibition",
+     "domain": "chemistry", "attributes": {"type": "mechanism"}},
+
+    # ── Drug targets (8 new → total 10) ──────────────────────────────────
+    {"id": "chem:target:hmg_coa_reductase", "label": "HMG-CoA Reductase Target",
+     "domain": "chemistry", "attributes": {"type": "target",
+     "note": "cross-domain anchor with bio:process:cholesterol_synthesis"}},
+    {"id": "chem:target:cox2_enzyme", "label": "COX-2 Enzyme Target", "domain": "chemistry",
+     "attributes": {"type": "target",
+     "note": "cross-domain anchor with bio:protein:tnf_alpha via inflammation"}},
+    {"id": "chem:target:her2_receptor_target", "label": "HER2 Receptor Drug Target",
+     "domain": "chemistry", "attributes": {"type": "target",
+     "note": "cross-domain anchor with bio:protein:her2"}},
+    {"id": "chem:target:bcr_abl_kinase", "label": "BCR-ABL Kinase Target",
+     "domain": "chemistry", "attributes": {"type": "target",
+     "note": "cross-domain anchor with bio:gene:bcr_abl"}},
+    {"id": "chem:target:vegfr_target", "label": "VEGF Receptor Drug Target",
+     "domain": "chemistry", "attributes": {"type": "target",
+     "note": "cross-domain anchor with bio:protein:vegf"}},
+    {"id": "chem:target:proteasome_target", "label": "26S Proteasome Target",
+     "domain": "chemistry", "attributes": {"type": "target",
+     "note": "cross-domain anchor with bio:pathway:ubiquitin_proteasome"}},
+    {"id": "chem:target:hdac_target", "label": "HDAC Enzyme Target",
+     "domain": "chemistry", "attributes": {"type": "target",
+     "note": "cross-domain anchor with bio:process:epigenetic_silencing"}},
+    {"id": "chem:target:jak2_kinase_target", "label": "JAK2 Kinase Drug Target",
+     "domain": "chemistry", "attributes": {"type": "target",
+     "note": "cross-domain anchor with bio:protein:jak2"}},
+
+    # ── Side effects (5 new) ──────────────────────────────────────────────
+    {"id": "chem:side_effect:hepatotoxicity", "label": "Hepatotoxicity Side Effect",
+     "domain": "chemistry", "attributes": {"type": "side_effect"}},
+    {"id": "chem:side_effect:nephrotoxicity", "label": "Nephrotoxicity Side Effect",
+     "domain": "chemistry", "attributes": {"type": "side_effect"}},
+    {"id": "chem:side_effect:cardiotoxicity", "label": "Cardiotoxicity Side Effect",
+     "domain": "chemistry", "attributes": {"type": "side_effect"}},
+    {"id": "chem:side_effect:neurotoxicity", "label": "Neurotoxicity Side Effect",
+     "domain": "chemistry", "attributes": {"type": "side_effect"}},
+    {"id": "chem:side_effect:myelosuppression", "label": "Myelosuppression Side Effect",
+     "domain": "chemistry", "attributes": {"type": "side_effect"}},
+
+    # ── Drug classes (5 new) ──────────────────────────────────────────────
+    {"id": "chem:drug_class:biguanide", "label": "Biguanide Drug Class",
+     "domain": "chemistry", "attributes": {"type": "drug_class"}},
+    {"id": "chem:drug_class:statin", "label": "Statin Drug Class",
+     "domain": "chemistry", "attributes": {"type": "drug_class"}},
+    {"id": "chem:drug_class:nsaid", "label": "NSAID Drug Class",
+     "domain": "chemistry", "attributes": {"type": "drug_class"}},
+    {"id": "chem:drug_class:tki", "label": "Tyrosine Kinase Inhibitor Class",
+     "domain": "chemistry", "attributes": {"type": "drug_class"}},
+    {"id": "chem:drug_class:ppar_agonist", "label": "PPAR Agonist Drug Class",
+     "domain": "chemistry", "attributes": {"type": "drug_class"}},
+]
+
+
+# ---------------------------------------------------------------------------
+# New edges — biology intra-domain
+# ---------------------------------------------------------------------------
+
+_NEW_BIO_EDGES: list[dict[str, Any]] = [
+    # Disease ← Protein / Gene
+    {"source_id": "bio:protein:app", "relation": "cleaved_to_produce", "target_id": "bio:biomarker:amyloid_beta42", "weight": 0.95},
+    {"source_id": "bio:protein:bace1", "relation": "cleaves", "target_id": "bio:protein:app", "weight": 0.9},
+    {"source_id": "bio:biomarker:amyloid_beta42", "relation": "causes", "target_id": "bio:process:beta_amyloid_aggregation", "weight": 0.9},
+    {"source_id": "bio:process:beta_amyloid_aggregation", "relation": "drives", "target_id": "bio:disease:alzheimers", "weight": 0.85},
+    {"source_id": "bio:protein:tau", "relation": "undergoes", "target_id": "bio:process:tau_hyperphosphorylation", "weight": 0.85},
+    {"source_id": "bio:process:tau_hyperphosphorylation", "relation": "drives", "target_id": "bio:disease:alzheimers", "weight": 0.8},
+    {"source_id": "bio:protein:gsk3b", "relation": "phosphorylates", "target_id": "bio:protein:tau", "weight": 0.85},
+    {"source_id": "bio:protein:cdk5", "relation": "phosphorylates", "target_id": "bio:protein:tau", "weight": 0.8},
+    {"source_id": "bio:gene:apoe4", "relation": "increases_risk_of", "target_id": "bio:disease:alzheimers", "weight": 0.9},
+    {"source_id": "bio:gene:apoe4", "relation": "promotes", "target_id": "bio:process:beta_amyloid_aggregation", "weight": 0.75},
+    {"source_id": "bio:protein:alpha_syn", "relation": "undergoes", "target_id": "bio:process:protein_aggregation", "weight": 0.9},
+    {"source_id": "bio:protein:lrrk2", "relation": "drives", "target_id": "bio:disease:parkinsons", "weight": 0.8},
+    {"source_id": "bio:gene:snca", "relation": "encodes", "target_id": "bio:protein:alpha_syn", "weight": 1.0},
+    {"source_id": "bio:gene:park2", "relation": "regulates", "target_id": "bio:process:mitophagy", "weight": 0.8},
+    {"source_id": "bio:process:mitophagy", "relation": "protects_against", "target_id": "bio:disease:parkinsons", "weight": 0.7},
+    {"source_id": "bio:protein:egfr", "relation": "activates", "target_id": "bio:pathway:mapk_erk", "weight": 0.9},
+    {"source_id": "bio:protein:egfr", "relation": "drives", "target_id": "bio:disease:lung_cancer", "weight": 0.85},
+    {"source_id": "bio:gene:kras", "relation": "activates", "target_id": "bio:pathway:mapk_erk", "weight": 0.9},
+    {"source_id": "bio:gene:kras", "relation": "promotes", "target_id": "bio:disease:colon_cancer", "weight": 0.8},
+    {"source_id": "bio:gene:kras", "relation": "promotes", "target_id": "bio:disease:lung_cancer", "weight": 0.8},
+    {"source_id": "bio:gene:bcr_abl", "relation": "drives", "target_id": "bio:disease:leukemia_cml", "weight": 0.95},
+    {"source_id": "bio:protein:p53", "relation": "suppresses", "target_id": "bio:pathway:cell_cycle", "weight": 0.85},
+    {"source_id": "bio:gene:tp53", "relation": "encodes", "target_id": "bio:protein:p53", "weight": 1.0},
+    {"source_id": "bio:protein:p53", "relation": "activates", "target_id": "bio:pathway:apoptosis", "weight": 0.85},
+    {"source_id": "bio:protein:bcl2", "relation": "inhibits", "target_id": "bio:pathway:apoptosis", "weight": 0.9},
+    {"source_id": "bio:pathway:apoptosis", "relation": "suppresses", "target_id": "bio:disease:multiple_myeloma", "weight": 0.7},
+    {"source_id": "bio:pathway:apoptosis", "relation": "suppresses", "target_id": "bio:disease:leukemia_cml", "weight": 0.7},
+    {"source_id": "bio:protein:vegf", "relation": "drives", "target_id": "bio:process:tumor_angiogenesis", "weight": 0.9},
+    {"source_id": "bio:gene:vegfa", "relation": "encodes", "target_id": "bio:protein:vegf", "weight": 1.0},
+    {"source_id": "bio:protein:hif1a", "relation": "activates", "target_id": "bio:gene:vegfa", "weight": 0.85},
+    {"source_id": "bio:process:tumor_angiogenesis", "relation": "promotes", "target_id": "bio:disease:glioblastoma", "weight": 0.8},
+    {"source_id": "bio:protein:il6", "relation": "activates", "target_id": "bio:pathway:jak_stat", "weight": 0.9},
+    {"source_id": "bio:protein:il6", "relation": "promotes", "target_id": "bio:disease:rheumatoid_arthritis", "weight": 0.85},
+    {"source_id": "bio:protein:il1b", "relation": "promotes", "target_id": "bio:process:inflammatory_cytokine_release", "weight": 0.85},
+    {"source_id": "bio:protein:nfkb", "relation": "drives", "target_id": "bio:pathway:nfkb_pathway", "weight": 0.9},
+    {"source_id": "bio:pathway:nfkb_pathway", "relation": "promotes", "target_id": "bio:disease:inflammatory_bowel_disease", "weight": 0.75},
+    {"source_id": "bio:pathway:nfkb_pathway", "relation": "promotes", "target_id": "bio:disease:rheumatoid_arthritis", "weight": 0.75},
+    {"source_id": "bio:receptor:tlr4", "relation": "activates", "target_id": "bio:pathway:nfkb_pathway", "weight": 0.85},
+    {"source_id": "bio:pathway:jak_stat", "relation": "promotes", "target_id": "bio:disease:rheumatoid_arthritis", "weight": 0.7},
+    {"source_id": "bio:protein:jak2", "relation": "activates", "target_id": "bio:protein:stat3", "weight": 0.9},
+    {"source_id": "bio:protein:stat3", "relation": "promotes", "target_id": "bio:disease:leukemia_cml", "weight": 0.75},
+    {"source_id": "bio:protein:ras", "relation": "activates", "target_id": "bio:pathway:mapk_erk", "weight": 0.9},
+    {"source_id": "bio:pathway:mapk_erk", "relation": "promotes", "target_id": "bio:disease:colon_cancer", "weight": 0.75},
+    {"source_id": "bio:protein:akt1", "relation": "activates", "target_id": "bio:pathway:mtor_signaling", "weight": 0.85},
+    {"source_id": "bio:protein:pten", "relation": "inhibits", "target_id": "bio:pathway:pi3k_akt", "weight": 0.9},
+    {"source_id": "bio:gene:pten_gene", "relation": "encodes", "target_id": "bio:protein:pten", "weight": 1.0},
+    {"source_id": "bio:protein:sirt1", "relation": "activates", "target_id": "bio:protein:foxo3", "weight": 0.8},
+    {"source_id": "bio:protein:foxo3", "relation": "promotes", "target_id": "bio:pathway:autophagy", "weight": 0.75},
+    {"source_id": "bio:pathway:autophagy", "relation": "reduces", "target_id": "bio:process:protein_aggregation", "weight": 0.8},
+    {"source_id": "bio:pathway:mtor_signaling", "relation": "inhibits", "target_id": "bio:pathway:autophagy", "weight": 0.85},
+    {"source_id": "bio:pathway:ubiquitin_proteasome", "relation": "degrades", "target_id": "bio:process:protein_aggregation", "weight": 0.8},
+    {"source_id": "bio:protein:tdp43", "relation": "associated_with", "target_id": "bio:disease:als", "weight": 0.9},
+    {"source_id": "bio:protein:sod1", "relation": "associated_with", "target_id": "bio:disease:als", "weight": 0.85},
+    {"source_id": "bio:gene:fus", "relation": "associated_with", "target_id": "bio:disease:als", "weight": 0.8},
+    {"source_id": "bio:process:ros_production", "relation": "damages", "target_id": "bio:protein:sod1", "weight": 0.7},
+    {"source_id": "bio:process:mitochondrial_dysfunction", "relation": "causes", "target_id": "bio:process:ros_production", "weight": 0.85},
+    {"source_id": "bio:process:ros_production", "relation": "promotes", "target_id": "bio:disease:parkinsons", "weight": 0.7},
+    {"source_id": "bio:protein:brca1", "relation": "repairs", "target_id": "bio:process:dna_repair", "weight": 0.9},
+    {"source_id": "bio:gene:atm", "relation": "activates", "target_id": "bio:pathway:dna_damage_response", "weight": 0.9},
+    {"source_id": "bio:process:dna_repair", "relation": "suppresses", "target_id": "bio:disease:breast_cancer", "weight": 0.8},
+    {"source_id": "bio:receptor:er_alpha", "relation": "promotes", "target_id": "bio:disease:breast_cancer", "weight": 0.85},
+    {"source_id": "bio:receptor:ar", "relation": "drives", "target_id": "bio:disease:prostate_cancer", "weight": 0.9},
+    {"source_id": "bio:pathway:wnt_signaling", "relation": "promotes", "target_id": "bio:disease:colon_cancer", "weight": 0.85},
+    {"source_id": "bio:pathway:hedgehog_signaling", "relation": "promotes", "target_id": "bio:disease:glioblastoma", "weight": 0.8},
+    {"source_id": "bio:gene:myc", "relation": "activates", "target_id": "bio:pathway:cell_cycle", "weight": 0.85},
+    {"source_id": "bio:gene:myc", "relation": "promotes", "target_id": "bio:disease:multiple_myeloma", "weight": 0.75},
+    {"source_id": "bio:process:insulin_resistance", "relation": "causes", "target_id": "bio:disease:type2_diabetes", "weight": 0.9},
+    {"source_id": "bio:pathway:insulin_signaling", "relation": "regulates", "target_id": "bio:process:glucose_metabolism", "weight": 0.9},
+    {"source_id": "bio:pathway:insulin_signaling", "relation": "impaired_in", "target_id": "bio:process:insulin_resistance", "weight": 0.85},
+    {"source_id": "bio:process:glucose_metabolism", "relation": "regulates", "target_id": "bio:biomarker:hba1c", "weight": 0.85},
+    {"source_id": "bio:process:cholesterol_synthesis", "relation": "elevates", "target_id": "bio:biomarker:ldl_cholesterol", "weight": 0.9},
+    {"source_id": "bio:biomarker:ldl_cholesterol", "relation": "promotes", "target_id": "bio:disease:atherosclerosis", "weight": 0.85},
+    {"source_id": "bio:biomarker:crp", "relation": "indicates", "target_id": "bio:disease:rheumatoid_arthritis", "weight": 0.75},
+    {"source_id": "bio:process:cell_senescence", "relation": "promotes", "target_id": "bio:disease:atherosclerosis", "weight": 0.7},
+    {"source_id": "bio:pathway:oxidative_stress", "relation": "drives", "target_id": "bio:process:lipid_peroxidation", "weight": 0.8},
+    {"source_id": "bio:process:lipid_peroxidation", "relation": "promotes", "target_id": "bio:disease:nafld", "weight": 0.75},
+    {"source_id": "bio:receptor:ppar_gamma", "relation": "regulates", "target_id": "bio:pathway:insulin_signaling", "weight": 0.8},
+    {"source_id": "bio:receptor:ppar_gamma", "relation": "reduces", "target_id": "bio:process:insulin_resistance", "weight": 0.8},
+    {"source_id": "bio:receptor:nmda_receptor", "relation": "mediates", "target_id": "bio:process:synaptic_plasticity", "weight": 0.85},
+    {"source_id": "bio:receptor:dopamine_d2", "relation": "regulates", "target_id": "bio:process:dopamine_synthesis", "weight": 0.85},
+    {"source_id": "bio:receptor:adenosine_a2a", "relation": "modulates", "target_id": "bio:receptor:dopamine_d2", "weight": 0.7},
+    {"source_id": "bio:pathway:neuroinflammation", "relation": "drives", "target_id": "bio:process:neurodegeneration", "weight": 0.85},
+    {"source_id": "bio:process:neurodegeneration", "relation": "promotes", "target_id": "bio:disease:alzheimers", "weight": 0.8},
+    {"source_id": "bio:process:neurodegeneration", "relation": "promotes", "target_id": "bio:disease:parkinsons", "weight": 0.8},
+    {"source_id": "bio:process:neurodegeneration", "relation": "promotes", "target_id": "bio:disease:huntingtons", "weight": 0.75},
+    {"source_id": "bio:protein:bdnf", "relation": "suppresses", "target_id": "bio:process:neurodegeneration", "weight": 0.8},
+    {"source_id": "bio:pathway:tau_phosphorylation", "relation": "promotes", "target_id": "bio:process:tau_hyperphosphorylation", "weight": 0.9},
+    {"source_id": "bio:gene:tert", "relation": "prevents", "target_id": "bio:process:telomere_shortening", "weight": 0.9},
+    {"source_id": "bio:process:telomere_shortening", "relation": "promotes", "target_id": "bio:process:cell_senescence", "weight": 0.8},
+    {"source_id": "bio:pathway:angiogenesis", "relation": "requires", "target_id": "bio:protein:vegf", "weight": 0.9},
+    {"source_id": "bio:process:immune_activation", "relation": "promotes", "target_id": "bio:disease:lupus", "weight": 0.8},
+    {"source_id": "bio:process:immune_activation", "relation": "promotes", "target_id": "bio:disease:psoriasis", "weight": 0.75},
+    {"source_id": "bio:receptor:glucocorticoid_receptor", "relation": "suppresses", "target_id": "bio:process:immune_activation", "weight": 0.8},
+    {"source_id": "bio:receptor:tgfb_receptor", "relation": "activates", "target_id": "bio:process:epigenetic_silencing", "weight": 0.75},
+    {"source_id": "bio:pathway:notch_signaling", "relation": "promotes", "target_id": "bio:disease:leukemia_cml", "weight": 0.7},
+    {"source_id": "bio:pathway:dna_damage_response", "relation": "activates", "target_id": "bio:pathway:apoptosis", "weight": 0.8},
+    {"source_id": "bio:gene:cdkn2a", "relation": "inhibits", "target_id": "bio:pathway:cell_cycle", "weight": 0.9},
+    {"source_id": "bio:gene:rb1", "relation": "suppresses", "target_id": "bio:pathway:cell_cycle", "weight": 0.9},
+    {"source_id": "bio:gene:idh1", "relation": "associated_with", "target_id": "bio:disease:glioblastoma", "weight": 0.8},
+    {"source_id": "bio:process:epigenetic_silencing", "relation": "promotes", "target_id": "bio:disease:colon_cancer", "weight": 0.65},
+    {"source_id": "bio:protein:mapk1", "relation": "activates", "target_id": "bio:pathway:mapk_erk", "weight": 0.9},
+    {"source_id": "bio:receptor:igf1_receptor", "relation": "activates", "target_id": "bio:pathway:pi3k_akt", "weight": 0.85},
+    {"source_id": "bio:protein:igf1r", "relation": "activates", "target_id": "bio:pathway:mtor_signaling", "weight": 0.8},
+    {"source_id": "bio:pathway:ampk_pathway", "relation": "inhibits", "target_id": "bio:process:cholesterol_synthesis", "weight": 0.75},
+    {"source_id": "bio:disease:obesity", "relation": "promotes", "target_id": "bio:process:insulin_resistance", "weight": 0.85},
+    {"source_id": "bio:disease:obesity", "relation": "promotes", "target_id": "bio:disease:type2_diabetes", "weight": 0.8},
+    {"source_id": "bio:disease:obesity", "relation": "promotes", "target_id": "bio:disease:nafld", "weight": 0.8},
+]
+
+
+# ---------------------------------------------------------------------------
+# New edges — chemistry intra-domain
+# ---------------------------------------------------------------------------
+
+_NEW_CHEM_EDGES: list[dict[str, Any]] = [
+    # Drug → Mechanism
+    {"source_id": "chem:drug:atorvastatin", "relation": "produces", "target_id": "chem:mechanism:hmg_coa_inhibition", "weight": 0.95},
+    {"source_id": "chem:drug:ibuprofen", "relation": "produces", "target_id": "chem:mechanism:cox_inhibition", "weight": 0.9},
+    {"source_id": "chem:drug:celecoxib", "relation": "produces", "target_id": "chem:mechanism:cox_inhibition", "weight": 0.9},
+    {"source_id": "chem:drug:nilotinib", "relation": "produces", "target_id": "chem:mechanism:tyrosine_kinase_inhibition", "weight": 0.95},
+    {"source_id": "chem:drug:imatinib", "relation": "produces", "target_id": "chem:mechanism:tyrosine_kinase_inhibition", "weight": 0.95},
+    {"source_id": "chem:drug:erlotinib", "relation": "produces", "target_id": "chem:mechanism:tyrosine_kinase_inhibition", "weight": 0.95},
+    {"source_id": "chem:drug:sorafenib", "relation": "produces", "target_id": "chem:mechanism:tyrosine_kinase_inhibition", "weight": 0.9},
+    {"source_id": "chem:drug:valproic_acid", "relation": "produces", "target_id": "chem:mechanism:hdac_inhibition", "weight": 0.8},
+    {"source_id": "chem:drug:bortezomib", "relation": "produces", "target_id": "chem:mechanism:proteasome_inhibition", "weight": 0.95},
+    {"source_id": "chem:drug:ruxolitinib", "relation": "produces", "target_id": "chem:mechanism:jak_inhibition", "weight": 0.95},
+    {"source_id": "chem:drug:sildenafil", "relation": "produces", "target_id": "chem:mechanism:pde5_inhibition", "weight": 0.95},
+    {"source_id": "chem:drug:memantine", "relation": "produces", "target_id": "chem:mechanism:nmda_antagonism", "weight": 0.9},
+    {"source_id": "chem:drug:donepezil", "relation": "produces", "target_id": "chem:mechanism:ache_inhibition", "weight": 0.95},
+    {"source_id": "chem:drug:pioglitazone", "relation": "produces", "target_id": "chem:mechanism:ppar_activation", "weight": 0.9},
+    {"source_id": "chem:drug:rosiglitazone", "relation": "produces", "target_id": "chem:mechanism:ppar_activation", "weight": 0.9},
+    {"source_id": "chem:drug:everolimus", "relation": "produces", "target_id": "chem:mechanism:mtor_inhibition", "weight": 0.95},
+    {"source_id": "chem:drug:thalidomide", "relation": "produces", "target_id": "chem:mechanism:wnt_inhibition", "weight": 0.75},
+    {"source_id": "chem:drug:lenalidomide", "relation": "produces", "target_id": "chem:mechanism:wnt_inhibition", "weight": 0.7},
+
+    # Compound → Mechanism
+    {"source_id": "chem:compound:curcumin", "relation": "produces", "target_id": "chem:mechanism:nrf2_activation", "weight": 0.8},
+    {"source_id": "chem:compound:curcumin", "relation": "produces", "target_id": "chem:mechanism:wnt_inhibition", "weight": 0.7},
+    {"source_id": "chem:compound:epigallocatechin", "relation": "produces", "target_id": "chem:mechanism:nrf2_activation", "weight": 0.75},
+    {"source_id": "chem:compound:sulforaphane", "relation": "produces", "target_id": "chem:mechanism:nrf2_activation", "weight": 0.9},
+    {"source_id": "chem:compound:nicotinamide_riboside", "relation": "produces", "target_id": "chem:mechanism:sirt1_activation", "weight": 0.85},
+    {"source_id": "chem:compound:resveratrol", "relation": "produces", "target_id": "chem:mechanism:sirt1_activation", "weight": 0.8},
+    {"source_id": "chem:compound:pterostilbene", "relation": "produces", "target_id": "chem:mechanism:sirt1_activation", "weight": 0.75},
+    {"source_id": "chem:compound:fisetin", "relation": "inhibits", "target_id": "chem:mechanism:wnt_inhibition", "weight": 0.65},
+    {"source_id": "chem:compound:spermidine", "relation": "activates", "target_id": "chem:mechanism:ampk_activation", "weight": 0.75},
+    {"source_id": "chem:compound:alpha_lipoic_acid", "relation": "produces", "target_id": "chem:mechanism:nrf2_activation", "weight": 0.8},
+    {"source_id": "chem:compound:coenzyme_q10", "relation": "activates", "target_id": "chem:mechanism:ampk_activation", "weight": 0.65},
+    {"source_id": "chem:compound:apigenin", "relation": "produces", "target_id": "chem:mechanism:wnt_inhibition", "weight": 0.6},
+    {"source_id": "chem:compound:luteolin", "relation": "produces", "target_id": "chem:mechanism:nrf2_activation", "weight": 0.7},
+    {"source_id": "chem:compound:kaempferol", "relation": "inhibits", "target_id": "chem:target:bace1_enzyme", "weight": 0.65},
+
+    # Drug → Target
+    {"source_id": "chem:drug:atorvastatin", "relation": "inhibits", "target_id": "chem:target:hmg_coa_reductase", "weight": 0.95},
+    {"source_id": "chem:drug:celecoxib", "relation": "inhibits", "target_id": "chem:target:cox2_enzyme", "weight": 0.9},
+    {"source_id": "chem:drug:ibuprofen", "relation": "inhibits", "target_id": "chem:target:cox2_enzyme", "weight": 0.85},
+    {"source_id": "chem:drug:aspirin", "relation": "inhibits", "target_id": "chem:target:cox2_enzyme", "weight": 0.85},
+    {"source_id": "chem:drug:trastuzumab", "relation": "inhibits", "target_id": "chem:target:her2_receptor_target", "weight": 0.95},
+    {"source_id": "chem:drug:nilotinib", "relation": "inhibits", "target_id": "chem:target:bcr_abl_kinase", "weight": 0.95},
+    {"source_id": "chem:drug:imatinib", "relation": "inhibits", "target_id": "chem:target:bcr_abl_kinase", "weight": 0.95},
+    {"source_id": "chem:drug:sorafenib", "relation": "inhibits", "target_id": "chem:target:vegfr_target", "weight": 0.9},
+    {"source_id": "chem:drug:erlotinib", "relation": "inhibits", "target_id": "chem:target:her2_receptor_target", "weight": 0.8},
+    {"source_id": "chem:drug:bortezomib", "relation": "inhibits", "target_id": "chem:target:proteasome_target", "weight": 0.95},
+    {"source_id": "chem:drug:valproic_acid", "relation": "inhibits", "target_id": "chem:target:hdac_target", "weight": 0.8},
+    {"source_id": "chem:drug:ruxolitinib", "relation": "inhibits", "target_id": "chem:target:jak2_kinase_target", "weight": 0.95},
+
+    # Mechanism → Target
+    {"source_id": "chem:mechanism:hmg_coa_inhibition", "relation": "targets", "target_id": "chem:target:hmg_coa_reductase", "weight": 0.95},
+    {"source_id": "chem:mechanism:tyrosine_kinase_inhibition", "relation": "targets", "target_id": "chem:target:bcr_abl_kinase", "weight": 0.85},
+    {"source_id": "chem:mechanism:tyrosine_kinase_inhibition", "relation": "targets", "target_id": "chem:target:her2_receptor_target", "weight": 0.8},
+    {"source_id": "chem:mechanism:tyrosine_kinase_inhibition", "relation": "targets", "target_id": "chem:target:vegfr_target", "weight": 0.8},
+    {"source_id": "chem:mechanism:hdac_inhibition", "relation": "targets", "target_id": "chem:target:hdac_target", "weight": 0.9},
+    {"source_id": "chem:mechanism:proteasome_inhibition", "relation": "targets", "target_id": "chem:target:proteasome_target", "weight": 0.95},
+    {"source_id": "chem:mechanism:jak_inhibition", "relation": "targets", "target_id": "chem:target:jak2_kinase_target", "weight": 0.9},
+
+    # Drug → Drug class
+    {"source_id": "chem:drug:metformin", "relation": "belongs_to", "target_id": "chem:drug_class:biguanide", "weight": 1.0},
+    {"source_id": "chem:drug:atorvastatin", "relation": "belongs_to", "target_id": "chem:drug_class:statin", "weight": 1.0},
+    {"source_id": "chem:drug:ibuprofen", "relation": "belongs_to", "target_id": "chem:drug_class:nsaid", "weight": 1.0},
+    {"source_id": "chem:drug:aspirin", "relation": "belongs_to", "target_id": "chem:drug_class:nsaid", "weight": 1.0},
+    {"source_id": "chem:drug:celecoxib", "relation": "belongs_to", "target_id": "chem:drug_class:nsaid", "weight": 1.0},
+    {"source_id": "chem:drug:nilotinib", "relation": "belongs_to", "target_id": "chem:drug_class:tki", "weight": 1.0},
+    {"source_id": "chem:drug:imatinib", "relation": "belongs_to", "target_id": "chem:drug_class:tki", "weight": 1.0},
+    {"source_id": "chem:drug:erlotinib", "relation": "belongs_to", "target_id": "chem:drug_class:tki", "weight": 1.0},
+    {"source_id": "chem:drug:pioglitazone", "relation": "belongs_to", "target_id": "chem:drug_class:ppar_agonist", "weight": 1.0},
+    {"source_id": "chem:drug:rosiglitazone", "relation": "belongs_to", "target_id": "chem:drug_class:ppar_agonist", "weight": 1.0},
+
+    # Drug → Side effects
+    {"source_id": "chem:drug:atorvastatin", "relation": "may_cause", "target_id": "chem:side_effect:hepatotoxicity", "weight": 0.4},
+    {"source_id": "chem:drug:imatinib", "relation": "may_cause", "target_id": "chem:side_effect:cardiotoxicity", "weight": 0.5},
+    {"source_id": "chem:drug:bortezomib", "relation": "may_cause", "target_id": "chem:side_effect:neurotoxicity", "weight": 0.6},
+    {"source_id": "chem:drug:bortezomib", "relation": "may_cause", "target_id": "chem:side_effect:myelosuppression", "weight": 0.65},
+    {"source_id": "chem:drug:sorafenib", "relation": "may_cause", "target_id": "chem:side_effect:hepatotoxicity", "weight": 0.45},
+    {"source_id": "chem:drug:venetoclax", "relation": "may_cause", "target_id": "chem:side_effect:myelosuppression", "weight": 0.7},
+
+    # Drug → Side effects (nephrotoxicity)
+    {"source_id": "chem:drug:sorafenib", "relation": "may_cause", "target_id": "chem:side_effect:nephrotoxicity", "weight": 0.4},
+
+    # Mechanism similarity / analog
+    {"source_id": "chem:mechanism:sirt1_activation", "relation": "activates", "target_id": "chem:mechanism:ampk_activation", "weight": 0.6},
+    {"source_id": "chem:mechanism:nrf2_activation", "relation": "reduces", "target_id": "chem:mechanism:cox_inhibition", "weight": 0.5},
+]
+
+
+# ---------------------------------------------------------------------------
+# Cross-domain edges (biology ↔ chemistry)
+# ---------------------------------------------------------------------------
+
+_CROSS_DOMAIN_EDGES: list[dict[str, Any]] = [
+    # Drugs treat / repurpose diseases
+    {"source_id": "chem:drug:imatinib", "relation": "treats", "target_id": "bio:disease:leukemia_cml", "weight": 0.98},
+    {"source_id": "chem:drug:nilotinib", "relation": "treats", "target_id": "bio:disease:leukemia_cml", "weight": 0.95},
+    {"source_id": "chem:drug:nilotinib", "relation": "may_treat", "target_id": "bio:disease:parkinsons", "weight": 0.55},
+    {"source_id": "chem:drug:imatinib", "relation": "may_treat", "target_id": "bio:disease:parkinsons", "weight": 0.5},
+    {"source_id": "chem:drug:trastuzumab", "relation": "treats", "target_id": "bio:disease:breast_cancer", "weight": 0.95},
+    {"source_id": "chem:drug:tamoxifen", "relation": "treats", "target_id": "bio:disease:breast_cancer", "weight": 0.9},
+    {"source_id": "chem:drug:erlotinib", "relation": "treats", "target_id": "bio:disease:lung_cancer", "weight": 0.9},
+    {"source_id": "chem:drug:bortezomib", "relation": "treats", "target_id": "bio:disease:multiple_myeloma", "weight": 0.95},
+    {"source_id": "chem:drug:lenalidomide", "relation": "treats", "target_id": "bio:disease:multiple_myeloma", "weight": 0.9},
+    {"source_id": "chem:drug:thalidomide", "relation": "treats", "target_id": "bio:disease:multiple_myeloma", "weight": 0.85},
+    {"source_id": "chem:drug:donepezil", "relation": "treats", "target_id": "bio:disease:alzheimers", "weight": 0.8},
+    {"source_id": "chem:drug:memantine", "relation": "treats", "target_id": "bio:disease:alzheimers", "weight": 0.8},
+    {"source_id": "chem:drug:levodopa", "relation": "treats", "target_id": "bio:disease:parkinsons", "weight": 0.9},
+    {"source_id": "chem:drug:selegiline", "relation": "treats", "target_id": "bio:disease:parkinsons", "weight": 0.8},
+    {"source_id": "chem:drug:pioglitazone", "relation": "treats", "target_id": "bio:disease:type2_diabetes", "weight": 0.85},
+    {"source_id": "chem:drug:rosiglitazone", "relation": "treats", "target_id": "bio:disease:type2_diabetes", "weight": 0.85},
+    {"source_id": "chem:drug:ruxolitinib", "relation": "may_treat", "target_id": "bio:disease:rheumatoid_arthritis", "weight": 0.6},
+    {"source_id": "chem:drug:venetoclax", "relation": "treats", "target_id": "bio:disease:leukemia_cml", "weight": 0.85},
+    {"source_id": "chem:drug:atorvastatin", "relation": "treats", "target_id": "bio:disease:atherosclerosis", "weight": 0.9},
+    {"source_id": "chem:drug:atorvastatin", "relation": "may_reduce_risk_of", "target_id": "bio:disease:alzheimers", "weight": 0.5},
+    {"source_id": "chem:drug:celecoxib", "relation": "may_reduce_risk_of", "target_id": "bio:disease:colon_cancer", "weight": 0.55},
+    {"source_id": "chem:drug:ibuprofen", "relation": "may_reduce_risk_of", "target_id": "bio:disease:alzheimers", "weight": 0.45},
+    {"source_id": "chem:drug:finasteride", "relation": "treats", "target_id": "bio:disease:prostate_cancer", "weight": 0.7},
+    {"source_id": "chem:drug:lithium_carbonate", "relation": "may_treat", "target_id": "bio:disease:alzheimers", "weight": 0.5},
+    {"source_id": "chem:drug:lithium_carbonate", "relation": "inhibits", "target_id": "bio:protein:gsk3b", "weight": 0.85},
+    {"source_id": "chem:drug:valproic_acid", "relation": "may_treat", "target_id": "bio:disease:glioblastoma", "weight": 0.45},
+    {"source_id": "chem:drug:sorafenib", "relation": "inhibits", "target_id": "bio:protein:vegf", "weight": 0.75},
+    {"source_id": "chem:drug:sorafenib", "relation": "may_treat", "target_id": "bio:disease:glioblastoma", "weight": 0.5},
+    {"source_id": "chem:drug:everolimus", "relation": "treats", "target_id": "bio:disease:breast_cancer", "weight": 0.8},
+    {"source_id": "chem:drug:doxycycline", "relation": "may_treat", "target_id": "bio:disease:rheumatoid_arthritis", "weight": 0.4},
+    {"source_id": "chem:drug:pioglitazone", "relation": "may_reduce_risk_of", "target_id": "bio:disease:alzheimers", "weight": 0.5},
+
+    # Drug / mechanism → protein / pathway (cross-domain mechanistic)
+    {"source_id": "chem:drug:trastuzumab", "relation": "inhibits", "target_id": "bio:protein:her2", "weight": 0.95},
+    {"source_id": "chem:drug:everolimus", "relation": "inhibits", "target_id": "bio:pathway:mtor_signaling", "weight": 0.9},
+    {"source_id": "chem:drug:erlotinib", "relation": "inhibits", "target_id": "bio:protein:egfr", "weight": 0.95},
+    {"source_id": "chem:drug:ruxolitinib", "relation": "inhibits", "target_id": "bio:protein:jak2", "weight": 0.95},
+    {"source_id": "chem:drug:venetoclax", "relation": "inhibits", "target_id": "bio:protein:bcl2", "weight": 0.95},
+    {"source_id": "chem:drug:atorvastatin", "relation": "inhibits", "target_id": "bio:process:cholesterol_synthesis", "weight": 0.9},
+    {"source_id": "chem:drug:celecoxib", "relation": "inhibits", "target_id": "bio:pathway:nfkb_pathway", "weight": 0.65},
+    {"source_id": "chem:drug:celecoxib", "relation": "inhibits", "target_id": "bio:pathway:wnt_signaling", "weight": 0.6},
+    {"source_id": "chem:drug:doxycycline", "relation": "inhibits", "target_id": "bio:pathway:neuroinflammation", "weight": 0.55},
+    {"source_id": "chem:drug:pioglitazone", "relation": "activates", "target_id": "bio:receptor:ppar_gamma", "weight": 0.9},
+    {"source_id": "chem:drug:pioglitazone", "relation": "reduces", "target_id": "bio:process:insulin_resistance", "weight": 0.85},
+    {"source_id": "chem:drug:rosiglitazone", "relation": "activates", "target_id": "bio:receptor:ppar_gamma", "weight": 0.9},
+    {"source_id": "chem:drug:donepezil", "relation": "enhances", "target_id": "bio:process:synaptic_plasticity", "weight": 0.7},
+    {"source_id": "chem:drug:memantine", "relation": "blocks", "target_id": "bio:receptor:nmda_receptor", "weight": 0.85},
+    {"source_id": "chem:drug:levodopa", "relation": "restores", "target_id": "bio:process:dopamine_synthesis", "weight": 0.85},
+    {"source_id": "chem:drug:selegiline", "relation": "protects", "target_id": "bio:receptor:dopamine_d2", "weight": 0.7},
+    {"source_id": "chem:drug:finasteride", "relation": "inhibits", "target_id": "bio:receptor:ar", "weight": 0.85},
+    {"source_id": "chem:drug:tamoxifen", "relation": "inhibits", "target_id": "bio:receptor:er_alpha", "weight": 0.9},
+    {"source_id": "chem:drug:thalidomide", "relation": "inhibits", "target_id": "bio:protein:tnf_alpha", "weight": 0.8},
+    {"source_id": "chem:drug:lenalidomide", "relation": "inhibits", "target_id": "bio:protein:tnf_alpha", "weight": 0.75},
+    {"source_id": "chem:drug:bortezomib", "relation": "inhibits", "target_id": "bio:pathway:ubiquitin_proteasome", "weight": 0.9},
+    {"source_id": "chem:drug:bortezomib", "relation": "activates", "target_id": "bio:pathway:apoptosis", "weight": 0.8},
+    {"source_id": "chem:drug:valproic_acid", "relation": "reduces", "target_id": "bio:process:epigenetic_silencing", "weight": 0.7},
+    {"source_id": "chem:drug:valproic_acid", "relation": "activates", "target_id": "bio:pathway:apoptosis", "weight": 0.65},
+    {"source_id": "chem:drug:lithium_carbonate", "relation": "activates", "target_id": "bio:pathway:wnt_signaling", "weight": 0.7},
+    {"source_id": "chem:drug:lithium_carbonate", "relation": "reduces", "target_id": "bio:process:tau_hyperphosphorylation", "weight": 0.65},
+
+    # Bio disease connections (fixing isolated nodes)
+    {"source_id": "bio:pathway:mtor_signaling", "relation": "promotes", "target_id": "bio:disease:heart_failure", "weight": 0.65},
+    {"source_id": "bio:protein:tau", "relation": "forms", "target_id": "bio:biomarker:tau_protein", "weight": 0.95},
+
+    # Compound → biology cross-domain
+    {"source_id": "chem:compound:curcumin", "relation": "inhibits", "target_id": "bio:pathway:nfkb_pathway", "weight": 0.75},
+    {"source_id": "chem:compound:curcumin", "relation": "may_treat", "target_id": "bio:disease:alzheimers", "weight": 0.5},
+    {"source_id": "chem:compound:curcumin", "relation": "inhibits", "target_id": "bio:protein:nfkb", "weight": 0.7},
+    {"source_id": "chem:compound:epigallocatechin", "relation": "inhibits", "target_id": "bio:process:beta_amyloid_aggregation", "weight": 0.6},
+    {"source_id": "chem:compound:epigallocatechin", "relation": "activates", "target_id": "bio:pathway:ampk_pathway", "weight": 0.65},
+    {"source_id": "chem:compound:sulforaphane", "relation": "activates", "target_id": "bio:pathway:oxidative_stress", "weight": -0.5},
+    {"source_id": "chem:compound:sulforaphane", "relation": "may_treat", "target_id": "bio:disease:colon_cancer", "weight": 0.55},
+    {"source_id": "chem:compound:nicotinamide_riboside", "relation": "activates", "target_id": "bio:protein:sirt1", "weight": 0.85},
+    {"source_id": "chem:compound:nicotinamide_riboside", "relation": "may_reduce_risk_of", "target_id": "bio:disease:alzheimers", "weight": 0.5},
+    {"source_id": "chem:compound:fisetin", "relation": "inhibits", "target_id": "bio:process:cell_senescence", "weight": 0.7},
+    {"source_id": "chem:compound:spermidine", "relation": "activates", "target_id": "bio:pathway:autophagy", "weight": 0.8},
+    {"source_id": "chem:compound:spermidine", "relation": "may_reduce_risk_of", "target_id": "bio:disease:alzheimers", "weight": 0.5},
+    {"source_id": "chem:compound:alpha_lipoic_acid", "relation": "reduces", "target_id": "bio:process:ros_production", "weight": 0.75},
+    {"source_id": "chem:compound:coenzyme_q10", "relation": "reduces", "target_id": "bio:process:mitochondrial_dysfunction", "weight": 0.75},
+    {"source_id": "chem:compound:coenzyme_q10", "relation": "may_reduce_risk_of", "target_id": "bio:disease:parkinsons", "weight": 0.45},
+    {"source_id": "chem:compound:luteolin", "relation": "inhibits", "target_id": "bio:pathway:neuroinflammation", "weight": 0.65},
+    {"source_id": "chem:compound:kaempferol", "relation": "inhibits", "target_id": "bio:protein:bace1", "weight": 0.6},
+    {"source_id": "chem:compound:apigenin", "relation": "inhibits", "target_id": "bio:protein:stat3", "weight": 0.65},
+    {"source_id": "chem:compound:pterostilbene", "relation": "activates", "target_id": "bio:protein:sirt1", "weight": 0.7},
+
+    # Mechanism → biology cross-domain
+    {"source_id": "chem:mechanism:hmg_coa_inhibition", "relation": "inhibits", "target_id": "bio:process:cholesterol_synthesis", "weight": 0.95},
+    {"source_id": "chem:mechanism:hmg_coa_inhibition", "relation": "reduces", "target_id": "bio:biomarker:ldl_cholesterol", "weight": 0.9},
+    {"source_id": "chem:mechanism:hdac_inhibition", "relation": "reverses", "target_id": "bio:process:epigenetic_silencing", "weight": 0.8},
+    {"source_id": "chem:mechanism:proteasome_inhibition", "relation": "inhibits", "target_id": "bio:pathway:ubiquitin_proteasome", "weight": 0.9},
+    {"source_id": "chem:mechanism:proteasome_inhibition", "relation": "activates", "target_id": "bio:pathway:apoptosis", "weight": 0.75},
+    {"source_id": "chem:mechanism:jak_inhibition", "relation": "inhibits", "target_id": "bio:protein:jak2", "weight": 0.9},
+    {"source_id": "chem:mechanism:jak_inhibition", "relation": "inhibits", "target_id": "bio:pathway:jak_stat", "weight": 0.9},
+    {"source_id": "chem:mechanism:tyrosine_kinase_inhibition", "relation": "inhibits", "target_id": "bio:gene:bcr_abl", "weight": 0.85},
+    {"source_id": "chem:mechanism:tyrosine_kinase_inhibition", "relation": "inhibits", "target_id": "bio:protein:egfr", "weight": 0.85},
+    {"source_id": "chem:mechanism:pde5_inhibition", "relation": "modulates", "target_id": "bio:pathway:neuroinflammation", "weight": 0.55},
+    {"source_id": "chem:mechanism:nmda_antagonism", "relation": "protects", "target_id": "bio:receptor:nmda_receptor", "weight": 0.8},
+    {"source_id": "chem:mechanism:ache_inhibition", "relation": "enhances", "target_id": "bio:process:synaptic_plasticity", "weight": 0.75},
+    {"source_id": "chem:mechanism:ppar_activation", "relation": "activates", "target_id": "bio:receptor:ppar_gamma", "weight": 0.9},
+    {"source_id": "chem:mechanism:ppar_activation", "relation": "reduces", "target_id": "bio:process:insulin_resistance", "weight": 0.8},
+    {"source_id": "chem:mechanism:nrf2_activation", "relation": "reduces", "target_id": "bio:process:ros_production", "weight": 0.8},
+    {"source_id": "chem:mechanism:nrf2_activation", "relation": "reduces", "target_id": "bio:pathway:oxidative_stress", "weight": 0.75},
+    {"source_id": "chem:mechanism:sirt1_activation", "relation": "activates", "target_id": "bio:protein:sirt1", "weight": 0.9},
+    {"source_id": "chem:mechanism:sirt1_activation", "relation": "reduces", "target_id": "bio:process:cell_senescence", "weight": 0.7},
+    {"source_id": "chem:mechanism:wnt_inhibition", "relation": "inhibits", "target_id": "bio:pathway:wnt_signaling", "weight": 0.9},
+    {"source_id": "chem:mechanism:wnt_inhibition", "relation": "reduces", "target_id": "bio:disease:colon_cancer", "weight": 0.6},
+
+    # Targets → biology (cross-domain anchors)
+    {"source_id": "chem:target:hmg_coa_reductase", "relation": "is_target_of", "target_id": "bio:process:cholesterol_synthesis", "weight": 1.0},
+    {"source_id": "chem:target:cox2_enzyme", "relation": "is_target_of", "target_id": "bio:protein:tnf_alpha", "weight": 0.7},
+    {"source_id": "chem:target:her2_receptor_target", "relation": "is_target_of", "target_id": "bio:protein:her2", "weight": 1.0},
+    {"source_id": "chem:target:bcr_abl_kinase", "relation": "is_target_of", "target_id": "bio:gene:bcr_abl", "weight": 1.0},
+    {"source_id": "chem:target:vegfr_target", "relation": "is_target_of", "target_id": "bio:protein:vegf", "weight": 0.9},
+    {"source_id": "chem:target:proteasome_target", "relation": "is_target_of", "target_id": "bio:pathway:ubiquitin_proteasome", "weight": 1.0},
+    {"source_id": "chem:target:hdac_target", "relation": "is_target_of", "target_id": "bio:process:epigenetic_silencing", "weight": 0.9},
+    {"source_id": "chem:target:jak2_kinase_target", "relation": "is_target_of", "target_id": "bio:protein:jak2", "weight": 1.0},
+]
+
+
+# ---------------------------------------------------------------------------
+# Build
+# ---------------------------------------------------------------------------
+
+def _load_seed(path: str) -> dict[str, Any]:
+    """Load the seed KG JSON."""
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def _build_full_kg_data(seed: dict[str, Any]) -> dict[str, Any]:
+    """Merge seed with new nodes/edges and return the full KG dict."""
+    all_nodes: list[dict[str, Any]] = list(seed["nodes"])
+    existing_ids: set[str] = {n["id"] for n in all_nodes}
+
+    for node in _NEW_BIO_NODES + _NEW_CHEM_NODES:
+        if node["id"] not in existing_ids:
+            all_nodes.append(node)
+            existing_ids.add(node["id"])
+
+    # Validate no duplicate IDs
+    ids = [n["id"] for n in all_nodes]
+    assert len(ids) == len(set(ids)), "Duplicate node IDs found"
+
+    all_edges: list[dict[str, Any]] = list(seed["edges"])
+    edge_keys: set[tuple[str, str, str]] = {
+        (e["source_id"], e["relation"], e["target_id"]) for e in all_edges
+    }
+
+    for edge in _NEW_BIO_EDGES + _NEW_CHEM_EDGES + _CROSS_DOMAIN_EDGES:
+        key = (edge["source_id"], edge["relation"], edge["target_id"])
+        if key in edge_keys:
+            continue
+        if edge["source_id"] not in existing_ids:
+            print(f"  [SKIP] Unknown source: {edge['source_id']}")
+            continue
+        if edge["target_id"] not in existing_ids:
+            print(f"  [SKIP] Unknown target: {edge['target_id']}")
+            continue
+        all_edges.append(edge)
+        edge_keys.add(key)
+
+    bio_nodes = [n for n in all_nodes if n["domain"] == "biology"]
+    chem_nodes = [n for n in all_nodes if n["domain"] == "chemistry"]
+
+    cross_edges = [
+        e for e in all_edges
+        if _node_domain(e["source_id"]) != _node_domain(e["target_id"])
+    ]
+
+    metadata = {
+        "description": "Full 200-node Biology × Chemistry KG for drug repurposing MVP",
+        "version": "2.0",
+        "node_count": len(all_nodes),
+        "biology_nodes": len(bio_nodes),
+        "chemistry_nodes": len(chem_nodes),
+        "edge_count": len(all_edges),
+        "cross_domain_edge_count": len(cross_edges),
+        "cross_domain_edge_ratio": round(len(cross_edges) / len(all_edges), 3) if all_edges else 0,
+        "domains": ["biology", "chemistry"],
+        "entity_types": {
+            "biology": ["disease", "protein", "gene", "pathway", "receptor", "process", "biomarker"],
+            "chemistry": ["drug", "compound", "mechanism", "target", "side_effect", "drug_class"],
+        },
+        "sources": [
+            "DrugBank public annotations (drugbank.ca)",
+            "UniProt human proteome (uniprot.org)",
+            "KEGG PATHWAY database (genome.jp/kegg)",
+            "PubMed drug repurposing literature",
+        ],
+        "seed_version": seed["metadata"]["version"],
+    }
+
+    return {"metadata": metadata, "nodes": all_nodes, "edges": all_edges}
+
+
+def _node_domain(node_id: str) -> str:
+    """Infer domain from node ID prefix."""
+    if node_id.startswith("bio:"):
+        return "biology"
+    if node_id.startswith("chem:"):
+        return "chemistry"
+    return "unknown"
+
+
+def validate_kg(kg_data: dict[str, Any]) -> dict[str, Any]:
+    """Validate KG structure and return stats.
+
+    Checks:
+    - No isolated nodes (nodes with no edges)
+    - Cross-domain edge ratio >= 15%
+    - Node count >= 200
+    """
+    nodes = {n["id"] for n in kg_data["nodes"]}
+    edges = kg_data["edges"]
+
+    # Find nodes that appear in at least one edge
+    connected = set()
+    for e in edges:
+        connected.add(e["source_id"])
+        connected.add(e["target_id"])
+
+    isolated = nodes - connected
+    cross_edges = [
+        e for e in edges
+        if _node_domain(e["source_id"]) != _node_domain(e["target_id"])
+    ]
+    cross_ratio = len(cross_edges) / len(edges) if edges else 0
+
+    stats = {
+        "node_count": len(nodes),
+        "edge_count": len(edges),
+        "isolated_nodes": list(isolated),
+        "isolated_count": len(isolated),
+        "cross_domain_edges": len(cross_edges),
+        "cross_domain_ratio": round(cross_ratio, 3),
+        "checks": {
+            "node_count_ge_200": len(nodes) >= 200,
+            "no_isolated_nodes": len(isolated) == 0,
+            "cross_domain_ratio_ge_15pct": cross_ratio >= 0.15,
+        },
+    }
+    return stats
+
+
+def main() -> None:
+    """Build the full 200-node KG and save to JSON."""
+    print("=== Building Full KG (200 nodes) ===")
+    seed = _load_seed(SEED_JSON)
+    print(f"  Seed: {seed['metadata']['node_count']} nodes, {seed['metadata']['edge_count']} edges")
+
+    print("  Merging new nodes and edges...")
+    kg_data = _build_full_kg_data(seed)
+    stats = validate_kg(kg_data)
+
+    print(f"\n  Nodes: {stats['node_count']}")
+    print(f"  Edges: {stats['edge_count']}")
+    print(f"  Isolated nodes: {stats['isolated_count']}")
+    if stats["isolated_nodes"]:
+        for n in stats["isolated_nodes"]:
+            print(f"    - {n}")
+    print(f"  Cross-domain edges: {stats['cross_domain_edges']} ({stats['cross_domain_ratio']:.1%})")
+    print("\n  Validation checks:")
+    for check, result in stats["checks"].items():
+        status = "PASS" if result else "FAIL"
+        print(f"    [{status}] {check}")
+
+    with open(OUTPUT_JSON, "w", encoding="utf-8") as f:
+        json.dump(kg_data, f, indent=2, ensure_ascii=False)
+    print(f"\n  Saved: {OUTPUT_JSON}")
+
+    # Save validation stats alongside
+    stats_path = os.path.join(os.path.dirname(OUTPUT_JSON), "bio_chem_kg_full_stats.json")
+    with open(stats_path, "w", encoding="utf-8") as f:
+        json.dump(stats, f, indent=2, ensure_ascii=False)
+    print(f"  Saved: {stats_path}")
+
+
+if __name__ == "__main__":
+    main()

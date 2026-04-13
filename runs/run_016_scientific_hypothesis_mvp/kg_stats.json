@@ -1,0 +1,32 @@
+{
+  "run_id": "run_016_scientific_hypothesis_mvp",
+  "kg_source": "/Users/alun/claude-dev/kg-discovery-engine/.claude/worktrees/sharp-mccarthy/src/scientific_hypothesis/bio_chem_kg_full.json",
+  "node_count": 200,
+  "edge_count": 325,
+  "biology_nodes": 120,
+  "chemistry_nodes": 80,
+  "bio_edges": 119,
+  "chem_edges": 80,
+  "cross_domain_edges": 126,
+  "cross_domain_ratio": 0.388,
+  "entity_type_distribution": {
+    "protein": 30,
+    "drug": 30,
+    "disease": 20,
+    "pathway": 20,
+    "process": 20,
+    "compound": 15,
+    "mechanism": 15,
+    "gene": 15,
+    "target": 10,
+    "receptor": 10,
+    "biomarker": 5,
+    "side_effect": 5,
+    "drug_class": 5
+  },
+  "checks": {
+    "node_count_ge_200": true,
+    "cross_domain_ratio_ge_15pct": true,
+    "align_produces_pairs": true
+  }
+}

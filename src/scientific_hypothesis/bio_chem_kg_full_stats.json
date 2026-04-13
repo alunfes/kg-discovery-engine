@@ -1,0 +1,13 @@
+{
+  "node_count": 200,
+  "edge_count": 325,
+  "isolated_nodes": [],
+  "isolated_count": 0,
+  "cross_domain_edges": 126,
+  "cross_domain_ratio": 0.388,
+  "checks": {
+    "node_count_ge_200": true,
+    "no_isolated_nodes": true,
+    "cross_domain_ratio_ge_15pct": true
+  }
+}

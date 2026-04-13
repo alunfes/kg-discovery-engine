@@ -1,0 +1,368 @@
+{
+  "run_id": "run_016_scientific_hypothesis_mvp",
+  "method": "C1_compose",
+  "description": "compose-only on biology KG (single-op baseline)",
+  "count": 20,
+  "hypotheses": [
+    {
+      "id": "H1001",
+      "subject_id": "bio:protein:bace1",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:alzheimers",
+      "description": "BACE1 Protease may transitively_related_to Alzheimer's Disease via path: bio:protein:bace1 -> drives -> bio:pathway:amyloid_cascade -> causes -> bio:disease:alzheimers",
+      "provenance": [
+        "bio:protein:bace1",
+        "drives",
+        "bio:pathway:amyloid_cascade",
+        "causes",
+        "bio:disease:alzheimers"
+      ],
+      "operator": "compose",
+      "source_kg_name": "biology",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H1002",
+      "subject_id": "bio:protein:bace1",
+      "relation": "transitively_related_to",
+      "object_id": "bio:biomarker:amyloid_beta42",
+      "description": "BACE1 Protease may transitively_related_to Amyloid-Beta 42 Peptide via path: bio:protein:bace1 -> cleaves -> bio:protein:app -> cleaved_to_produce -> bio:biomarker:amyloid_beta42",
+      "provenance": [
+        "bio:protein:bace1",
+        "cleaves",
+        "bio:protein:app",
+        "cleaved_to_produce",
+        "bio:biomarker:amyloid_beta42"
+      ],
+      "operator": "compose",
+      "source_kg_name": "biology",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H1004",
+      "subject_id": "bio:protein:her2",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:breast_cancer",
+      "description": "HER2 Receptor may transitively_related_to Breast Cancer via path: bio:protein:her2 -> drives -> bio:pathway:pi3k_akt -> promotes -> bio:disease:breast_cancer",
+      "provenance": [
+        "bio:protein:her2",
+        "drives",
+        "bio:pathway:pi3k_akt",
+        "promotes",
+        "bio:disease:breast_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "biology",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H1005",
+      "subject_id": "bio:protein:tnf_alpha",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:breast_cancer",
+      "description": "TNF-alpha Cytokine may transitively_related_to Breast Cancer via path: bio:protein:tnf_alpha -> activates -> bio:pathway:pi3k_akt -> promotes -> bio:disease:breast_cancer",
+      "provenance": [
+        "bio:protein:tnf_alpha",
+        "activates",
+        "bio:pathway:pi3k_akt",
+        "promotes",
+        "bio:disease:breast_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "biology",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H1006",
+      "subject_id": "bio:pathway:mtor_signaling",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:type2_diabetes",
+      "description": "mTOR Signaling Pathway may transitively_related_to Type 2 Diabetes via path: bio:pathway:mtor_signaling -> regulates -> bio:pathway:ampk_pathway -> inhibits -> bio:disease:type2_diabetes",
+      "provenance": [
+        "bio:pathway:mtor_signaling",
+        "regulates",
+        "bio:pathway:ampk_pathway",
+        "inhibits",
+        "bio:disease:type2_diabetes"
+      ],
+      "operator": "compose",
+      "source_kg_name": "biology",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H1007",
+      "subject_id": "bio:pathway:mtor_signaling",
+      "relation": "transitively_related_to",
+      "object_id": "bio:process:cholesterol_synthesis",
+      "description": "mTOR Signaling Pathway may transitively_related_to Cholesterol Biosynthesis via path: bio:pathway:mtor_signaling -> regulates -> bio:pathway:ampk_pathway -> inhibits -> bio:process:cholesterol_synthesis",
+      "provenance": [
+        "bio:pathway:mtor_signaling",
+        "regulates",
+        "bio:pathway:ampk_pathway",
+        "inhibits",
+        "bio:process:cholesterol_synthesis"
+      ],
+      "operator": "compose",
+      "source_kg_name": "biology",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H1008",
+      "subject_id": "bio:pathway:mtor_signaling",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:breast_cancer",
+      "description": "mTOR Signaling Pathway may transitively_related_to Breast Cancer via path: bio:pathway:mtor_signaling -> regulates -> bio:pathway:pi3k_akt -> promotes -> bio:disease:breast_cancer",
+      "provenance": [
+        "bio:pathway:mtor_signaling",
+        "regulates",
+        "bio:pathway:pi3k_akt",
+        "promotes",
+        "bio:disease:breast_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "biology",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H1009",
+      "subject_id": "bio:pathway:mtor_signaling",
+      "relation": "transitively_related_to",
+      "object_id": "bio:process:protein_aggregation",
+      "description": "mTOR Signaling Pathway may transitively_related_to Pathological Protein Aggregation via path: bio:pathway:mtor_signaling -> inhibits -> bio:pathway:autophagy -> reduces -> bio:process:protein_aggregation",
+      "provenance": [
+        "bio:pathway:mtor_signaling",
+        "inhibits",
+        "bio:pathway:autophagy",
+        "reduces",
+        "bio:process:protein_aggregation"
+      ],
+      "operator": "compose",
+      "source_kg_name": "biology",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H1012",
+      "subject_id": "bio:pathway:ampk_pathway",
+      "relation": "transitively_related_to",
+      "object_id": "bio:biomarker:ldl_cholesterol",
+      "description": "AMPK Metabolic Pathway may transitively_related_to LDL Cholesterol via path: bio:pathway:ampk_pathway -> inhibits -> bio:process:cholesterol_synthesis -> elevates -> bio:biomarker:ldl_cholesterol",
+      "provenance": [
+        "bio:pathway:ampk_pathway",
+        "inhibits",
+        "bio:process:cholesterol_synthesis",
+        "elevates",
+        "bio:biomarker:ldl_cholesterol"
+      ],
+      "operator": "compose",
+      "source_kg_name": "biology",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H1014",
+      "subject_id": "bio:protein:app",
+      "relation": "transitively_related_to",
+      "object_id": "bio:process:beta_amyloid_aggregation",
+      "description": "Amyloid Precursor Protein may transitively_related_to Beta-Amyloid Aggregation via path: bio:protein:app -> cleaved_to_produce -> bio:biomarker:amyloid_beta42 -> causes -> bio:process:beta_amyloid_aggregation",
+      "provenance": [
+        "bio:protein:app",
+        "cleaved_to_produce",
+        "bio:biomarker:amyloid_beta42",
+        "causes",
+        "bio:process:beta_amyloid_aggregation"
+      ],
+      "operator": "compose",
+      "source_kg_name": "biology",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H1016",
+      "subject_id": "bio:protein:tau",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:alzheimers",
+      "description": "Tau Microtubule Protein may transitively_related_to Alzheimer's Disease via path: bio:protein:tau -> undergoes -> bio:process:tau_hyperphosphorylation -> drives -> bio:disease:alzheimers",
+      "provenance": [
+        "bio:protein:tau",
+        "undergoes",
+        "bio:process:tau_hyperphosphorylation",
+        "drives",
+        "bio:disease:alzheimers"
+      ],
+      "operator": "compose",
+      "source_kg_name": "biology",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H1017",
+      "subject_id": "bio:protein:bdnf",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:alzheimers",
+      "description": "Brain-Derived Neurotrophic Factor may transitively_related_to Alzheimer's Disease via path: bio:protein:bdnf -> suppresses -> bio:process:neurodegeneration -> promotes -> bio:disease:alzheimers",
+      "provenance": [
+        "bio:protein:bdnf",
+        "suppresses",
+        "bio:process:neurodegeneration",
+        "promotes",
+        "bio:disease:alzheimers"
+      ],
+      "operator": "compose",
+      "source_kg_name": "biology",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H1018",
+      "subject_id": "bio:protein:bdnf",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:parkinsons",
+      "description": "Brain-Derived Neurotrophic Factor may transitively_related_to Parkinson's Disease via path: bio:protein:bdnf -> suppresses -> bio:process:neurodegeneration -> promotes -> bio:disease:parkinsons",
+      "provenance": [
+        "bio:protein:bdnf",
+        "suppresses",
+        "bio:process:neurodegeneration",
+        "promotes",
+        "bio:disease:parkinsons"
+      ],
+      "operator": "compose",
+      "source_kg_name": "biology",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H1019",
+      "subject_id": "bio:protein:bdnf",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:huntingtons",
+      "description": "Brain-Derived Neurotrophic Factor may transitively_related_to Huntington's Disease via path: bio:protein:bdnf -> suppresses -> bio:process:neurodegeneration -> promotes -> bio:disease:huntingtons",
+      "provenance": [
+        "bio:protein:bdnf",
+        "suppresses",
+        "bio:process:neurodegeneration",
+        "promotes",
+        "bio:disease:huntingtons"
+      ],
+      "operator": "compose",
+      "source_kg_name": "biology",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H1020",
+      "subject_id": "bio:protein:vegf",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:glioblastoma",
+      "description": "Vascular Endothelial Growth Factor may transitively_related_to Glioblastoma Multiforme via path: bio:protein:vegf -> drives -> bio:process:tumor_angiogenesis -> promotes -> bio:disease:glioblastoma",
+      "provenance": [
+        "bio:protein:vegf",
+        "drives",
+        "bio:process:tumor_angiogenesis",
+        "promotes",
+        "bio:disease:glioblastoma"
+      ],
+      "operator": "compose",
+      "source_kg_name": "biology",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H1021",
+      "subject_id": "bio:protein:egfr",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:colon_cancer",
+      "description": "Epidermal Growth Factor Receptor may transitively_related_to Colorectal Cancer via path: bio:protein:egfr -> activates -> bio:pathway:mapk_erk -> promotes -> bio:disease:colon_cancer",
+      "provenance": [
+        "bio:protein:egfr",
+        "activates",
+        "bio:pathway:mapk_erk",
+        "promotes",
+        "bio:disease:colon_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "biology",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H1022",
+      "subject_id": "bio:protein:p53",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:multiple_myeloma",
+      "description": "Tumor Suppressor Protein p53 may transitively_related_to Multiple Myeloma via path: bio:protein:p53 -> activates -> bio:pathway:apoptosis -> suppresses -> bio:disease:multiple_myeloma",
+      "provenance": [
+        "bio:protein:p53",
+        "activates",
+        "bio:pathway:apoptosis",
+        "suppresses",
+        "bio:disease:multiple_myeloma"
+      ],
+      "operator": "compose",
+      "source_kg_name": "biology",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H1023",
+      "subject_id": "bio:protein:p53",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:leukemia_cml",
+      "description": "Tumor Suppressor Protein p53 may transitively_related_to Chronic Myeloid Leukemia via path: bio:protein:p53 -> activates -> bio:pathway:apoptosis -> suppresses -> bio:disease:leukemia_cml",
+      "provenance": [
+        "bio:protein:p53",
+        "activates",
+        "bio:pathway:apoptosis",
+        "suppresses",
+        "bio:disease:leukemia_cml"
+      ],
+      "operator": "compose",
+      "source_kg_name": "biology",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H1024",
+      "subject_id": "bio:protein:bcl2",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:multiple_myeloma",
+      "description": "B-cell Lymphoma 2 Protein may transitively_related_to Multiple Myeloma via path: bio:protein:bcl2 -> inhibits -> bio:pathway:apoptosis -> suppresses -> bio:disease:multiple_myeloma",
+      "provenance": [
+        "bio:protein:bcl2",
+        "inhibits",
+        "bio:pathway:apoptosis",
+        "suppresses",
+        "bio:disease:multiple_myeloma"
+      ],
+      "operator": "compose",
+      "source_kg_name": "biology",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H1025",
+      "subject_id": "bio:protein:bcl2",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:leukemia_cml",
+      "description": "B-cell Lymphoma 2 Protein may transitively_related_to Chronic Myeloid Leukemia via path: bio:protein:bcl2 -> inhibits -> bio:pathway:apoptosis -> suppresses -> bio:disease:leukemia_cml",
+      "provenance": [
+        "bio:protein:bcl2",
+        "inhibits",
+        "bio:pathway:apoptosis",
+        "suppresses",
+        "bio:disease:leukemia_cml"
+      ],
+      "operator": "compose",
+      "source_kg_name": "biology",
+      "method": "C1_compose",
+      "chain_length": 5
+    }
+  ]
+}
