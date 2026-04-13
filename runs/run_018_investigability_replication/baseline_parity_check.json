@@ -1,0 +1,29 @@
+{
+  "C2": {
+    "method": "C2_multi_op",
+    "count": 70,
+    "avg_chain_length": 6.2,
+    "min_chain_length": 5,
+    "max_chain_length": 9,
+    "cross_domain_count": 70,
+    "cross_domain_ratio": 1.0
+  },
+  "C1": {
+    "method": "C1_compose",
+    "count": 70,
+    "avg_chain_length": 4.71,
+    "min_chain_length": 3,
+    "max_chain_length": 7,
+    "cross_domain_count": 0,
+    "cross_domain_ratio": 0.0
+  },
+  "C_rand_v2": {
+    "method": "C_rand_v2",
+    "count": 70,
+    "avg_chain_length": 3.0,
+    "min_chain_length": 3,
+    "max_chain_length": 3,
+    "cross_domain_count": 70,
+    "cross_domain_ratio": 1.0
+  }
+}

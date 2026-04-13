@@ -1,0 +1,1387 @@
+{
+  "run_id": "run_018_investigability_replication",
+  "method": "C1_compose",
+  "count": 70,
+  "hypotheses": [
+    {
+      "id": "H4001",
+      "subject_id": "bio:protein:bace1",
+      "subject_label": "BACE1 Protease",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:alzheimers",
+      "object_label": "Alzheimer's Disease",
+      "description": "BACE1 Protease may cause Alzheimer's Disease via Amyloid Cascade",
+      "provenance": [
+        "bio:protein:bace1",
+        "drives",
+        "bio:pathway:amyloid_cascade",
+        "causes",
+        "bio:disease:alzheimers"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4002",
+      "subject_id": "bio:protein:bace1",
+      "subject_label": "BACE1 Protease",
+      "relation": "transitively_related_to",
+      "object_id": "bio:biomarker:amyloid_beta42",
+      "object_label": "Amyloid-beta 42",
+      "description": "BACE1 may elevate Amyloid-beta 42 via Amyloid Cascade",
+      "provenance": [
+        "bio:protein:bace1",
+        "drives",
+        "bio:pathway:amyloid_cascade",
+        "produces",
+        "bio:biomarker:amyloid_beta42"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4003",
+      "subject_id": "bio:protein:her2",
+      "subject_label": "HER2 Receptor",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:breast_cancer",
+      "object_label": "Breast Cancer",
+      "description": "HER2 may promote Breast Cancer via PI3K-AKT pathway",
+      "provenance": [
+        "bio:protein:her2",
+        "drives",
+        "bio:pathway:pi3k_akt",
+        "promotes",
+        "bio:disease:breast_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4004",
+      "subject_id": "bio:protein:tnf_alpha",
+      "subject_label": "TNF-alpha",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:breast_cancer",
+      "object_label": "Breast Cancer",
+      "description": "TNF-alpha may promote Breast Cancer via PI3K-AKT pathway",
+      "provenance": [
+        "bio:protein:tnf_alpha",
+        "activates",
+        "bio:pathway:pi3k_akt",
+        "promotes",
+        "bio:disease:breast_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4005",
+      "subject_id": "bio:pathway:mtor_signaling",
+      "subject_label": "mTOR Signaling",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:type2_diabetes",
+      "object_label": "Type 2 Diabetes",
+      "description": "mTOR Signaling may drive Type 2 Diabetes via AMPK pathway suppression",
+      "provenance": [
+        "bio:pathway:mtor_signaling",
+        "inhibits",
+        "bio:pathway:ampk_pathway",
+        "inhibits",
+        "bio:disease:type2_diabetes"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4006",
+      "subject_id": "bio:pathway:mtor_signaling",
+      "subject_label": "mTOR Signaling",
+      "relation": "transitively_related_to",
+      "object_id": "bio:process:cholesterol_synthesis",
+      "object_label": "Cholesterol Biosynthesis",
+      "description": "mTOR Signaling may activate Cholesterol Biosynthesis",
+      "provenance": [
+        "bio:pathway:mtor_signaling",
+        "activates",
+        "bio:process:cholesterol_synthesis"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 3
+    },
+    {
+      "id": "H4007",
+      "subject_id": "bio:pathway:mtor_signaling",
+      "subject_label": "mTOR Signaling",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:breast_cancer",
+      "object_label": "Breast Cancer",
+      "description": "mTOR Signaling may promote Breast Cancer",
+      "provenance": [
+        "bio:pathway:mtor_signaling",
+        "promotes",
+        "bio:disease:breast_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 3
+    },
+    {
+      "id": "H4008",
+      "subject_id": "bio:pathway:mtor_signaling",
+      "subject_label": "mTOR Signaling",
+      "relation": "transitively_related_to",
+      "object_id": "bio:process:protein_aggregation",
+      "object_label": "Protein Aggregation",
+      "description": "mTOR Signaling may exacerbate Protein Aggregation via autophagy suppression",
+      "provenance": [
+        "bio:pathway:mtor_signaling",
+        "inhibits",
+        "bio:pathway:autophagy",
+        "impairs_clearance_of",
+        "bio:process:protein_aggregation"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4009",
+      "subject_id": "bio:pathway:ampk_pathway",
+      "subject_label": "AMPK Pathway",
+      "relation": "transitively_related_to",
+      "object_id": "bio:biomarker:ldl_cholesterol",
+      "object_label": "LDL Cholesterol",
+      "description": "AMPK Pathway may reduce LDL Cholesterol via cholesterol synthesis inhibition",
+      "provenance": [
+        "bio:pathway:ampk_pathway",
+        "inhibits",
+        "bio:process:cholesterol_synthesis",
+        "reduces",
+        "bio:biomarker:ldl_cholesterol"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4010",
+      "subject_id": "bio:protein:app",
+      "subject_label": "Amyloid Precursor Protein",
+      "relation": "transitively_related_to",
+      "object_id": "bio:process:beta_amyloid_aggregation",
+      "object_label": "Beta-Amyloid Aggregation",
+      "description": "APP may drive Beta-Amyloid Aggregation via amyloid-beta 42 production",
+      "provenance": [
+        "bio:protein:app",
+        "cleaved_to",
+        "bio:biomarker:amyloid_beta42",
+        "aggregates_as",
+        "bio:process:beta_amyloid_aggregation"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4011",
+      "subject_id": "bio:protein:tau",
+      "subject_label": "Tau Protein",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:alzheimers",
+      "object_label": "Alzheimer's Disease",
+      "description": "Tau Protein may cause Alzheimer's Disease via tau hyperphosphorylation",
+      "provenance": [
+        "bio:protein:tau",
+        "hyperphosphorylated_via",
+        "bio:process:tau_hyperphosphorylation",
+        "causes",
+        "bio:disease:alzheimers"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4012",
+      "subject_id": "bio:protein:bdnf",
+      "subject_label": "BDNF",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:alzheimers",
+      "object_label": "Alzheimer's Disease",
+      "description": "BDNF deficiency may worsen Alzheimer's Disease via neurodegeneration",
+      "provenance": [
+        "bio:protein:bdnf",
+        "protects_against",
+        "bio:process:neurodegeneration",
+        "drives",
+        "bio:disease:alzheimers"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4013",
+      "subject_id": "bio:protein:bdnf",
+      "subject_label": "BDNF",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:parkinsons",
+      "object_label": "Parkinson's Disease",
+      "description": "BDNF deficiency may worsen Parkinson's Disease via neurodegeneration",
+      "provenance": [
+        "bio:protein:bdnf",
+        "protects_against",
+        "bio:process:neurodegeneration",
+        "drives",
+        "bio:disease:parkinsons"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4014",
+      "subject_id": "bio:protein:bdnf",
+      "subject_label": "BDNF",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:huntingtons",
+      "object_label": "Huntington's Disease",
+      "description": "BDNF deficiency may worsen Huntington's Disease via neurodegeneration",
+      "provenance": [
+        "bio:protein:bdnf",
+        "protects_against",
+        "bio:process:neurodegeneration",
+        "drives",
+        "bio:disease:huntingtons"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4015",
+      "subject_id": "bio:protein:vegf",
+      "subject_label": "VEGF",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:glioblastoma",
+      "object_label": "Glioblastoma",
+      "description": "VEGF may promote Glioblastoma via tumor angiogenesis",
+      "provenance": [
+        "bio:protein:vegf",
+        "drives",
+        "bio:process:tumor_angiogenesis",
+        "promotes",
+        "bio:disease:glioblastoma"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4016",
+      "subject_id": "bio:protein:egfr",
+      "subject_label": "EGFR",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:colon_cancer",
+      "object_label": "Colorectal Cancer",
+      "description": "EGFR may promote Colorectal Cancer via MAPK-ERK pathway",
+      "provenance": [
+        "bio:protein:egfr",
+        "activates",
+        "bio:pathway:mapk_erk",
+        "promotes",
+        "bio:disease:colon_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4017",
+      "subject_id": "bio:protein:p53",
+      "subject_label": "p53 Tumor Suppressor",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:multiple_myeloma",
+      "object_label": "Multiple Myeloma",
+      "description": "p53 may suppress Multiple Myeloma via apoptosis regulation",
+      "provenance": [
+        "bio:protein:p53",
+        "regulates",
+        "bio:pathway:apoptosis",
+        "suppresses",
+        "bio:disease:multiple_myeloma"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4018",
+      "subject_id": "bio:protein:p53",
+      "subject_label": "p53 Tumor Suppressor",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:leukemia_cml",
+      "object_label": "CML Leukemia",
+      "description": "p53 may suppress CML Leukemia via apoptosis regulation",
+      "provenance": [
+        "bio:protein:p53",
+        "regulates",
+        "bio:pathway:apoptosis",
+        "suppresses",
+        "bio:disease:leukemia_cml"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4019",
+      "subject_id": "bio:protein:bcl2",
+      "subject_label": "BCL-2",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:multiple_myeloma",
+      "object_label": "Multiple Myeloma",
+      "description": "BCL-2 may promote Multiple Myeloma via apoptosis inhibition",
+      "provenance": [
+        "bio:protein:bcl2",
+        "inhibits",
+        "bio:pathway:apoptosis",
+        "promotes",
+        "bio:disease:multiple_myeloma"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4020",
+      "subject_id": "bio:protein:bcl2",
+      "subject_label": "BCL-2",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:leukemia_cml",
+      "object_label": "CML Leukemia",
+      "description": "BCL-2 may promote CML Leukemia via apoptosis inhibition",
+      "provenance": [
+        "bio:protein:bcl2",
+        "inhibits",
+        "bio:pathway:apoptosis",
+        "promotes",
+        "bio:disease:leukemia_cml"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4021",
+      "subject_id": "bio:pathway:autophagy",
+      "subject_label": "Autophagy Pathway",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:alzheimers",
+      "object_label": "Alzheimer's Disease",
+      "description": "Autophagy dysfunction may worsen Alzheimer's Disease via protein aggregation",
+      "provenance": [
+        "bio:pathway:autophagy",
+        "clears",
+        "bio:process:protein_aggregation",
+        "drives",
+        "bio:disease:alzheimers"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4022",
+      "subject_id": "bio:pathway:autophagy",
+      "subject_label": "Autophagy Pathway",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:parkinsons",
+      "object_label": "Parkinson's Disease",
+      "description": "Autophagy dysfunction may worsen Parkinson's Disease via alpha-synuclein clearance",
+      "provenance": [
+        "bio:pathway:autophagy",
+        "clears",
+        "bio:protein:alpha_syn",
+        "aggregates_in",
+        "bio:disease:parkinsons"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4023",
+      "subject_id": "bio:pathway:neuroinflammation",
+      "subject_label": "Neuroinflammation",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:alzheimers",
+      "object_label": "Alzheimer's Disease",
+      "description": "Neuroinflammation may exacerbate Alzheimer's Disease via TNF-alpha activation",
+      "provenance": [
+        "bio:pathway:neuroinflammation",
+        "activates",
+        "bio:protein:tnf_alpha",
+        "exacerbates",
+        "bio:disease:alzheimers"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4024",
+      "subject_id": "bio:pathway:neuroinflammation",
+      "subject_label": "Neuroinflammation",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:parkinsons",
+      "object_label": "Parkinson's Disease",
+      "description": "Neuroinflammation may drive Parkinson's Disease via neurodegeneration",
+      "provenance": [
+        "bio:pathway:neuroinflammation",
+        "promotes",
+        "bio:process:neurodegeneration",
+        "drives",
+        "bio:disease:parkinsons"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4025",
+      "subject_id": "bio:pathway:apoptosis",
+      "subject_label": "Apoptosis Pathway",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:huntingtons",
+      "object_label": "Huntington's Disease",
+      "description": "Apoptosis pathway may drive Huntington's Disease via neurodegeneration",
+      "provenance": [
+        "bio:pathway:apoptosis",
+        "mediates",
+        "bio:process:neurodegeneration",
+        "drives",
+        "bio:disease:huntingtons"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4026",
+      "subject_id": "bio:pathway:jak_stat",
+      "subject_label": "JAK-STAT",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:rheumatoid_arthritis",
+      "object_label": "Rheumatoid Arthritis",
+      "description": "JAK-STAT pathway may promote Rheumatoid Arthritis via TNF-alpha",
+      "provenance": [
+        "bio:pathway:jak_stat",
+        "activates",
+        "bio:protein:tnf_alpha",
+        "promotes",
+        "bio:disease:rheumatoid_arthritis"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4027",
+      "subject_id": "bio:pathway:mapk_erk",
+      "subject_label": "MAPK-ERK",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:colon_cancer",
+      "object_label": "Colorectal Cancer",
+      "description": "MAPK-ERK may support Colorectal Cancer via tumor angiogenesis",
+      "provenance": [
+        "bio:pathway:mapk_erk",
+        "promotes",
+        "bio:process:tumor_angiogenesis",
+        "supports",
+        "bio:disease:colon_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4028",
+      "subject_id": "bio:pathway:wnt_signaling",
+      "subject_label": "Wnt Signaling",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:colon_cancer",
+      "object_label": "Colorectal Cancer",
+      "description": "Wnt Signaling may drive Colorectal Cancer via cell senescence evasion",
+      "provenance": [
+        "bio:pathway:wnt_signaling",
+        "promotes",
+        "bio:process:cell_senescence",
+        "drives",
+        "bio:disease:colon_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4029",
+      "subject_id": "bio:pathway:pi3k_akt",
+      "subject_label": "PI3K-AKT",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:breast_cancer",
+      "object_label": "Breast Cancer",
+      "description": "PI3K-AKT pathway may promote Breast Cancer",
+      "provenance": [
+        "bio:pathway:pi3k_akt",
+        "promotes",
+        "bio:disease:breast_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 3
+    },
+    {
+      "id": "H4030",
+      "subject_id": "bio:pathway:hedgehog_signaling",
+      "subject_label": "Hedgehog Signaling",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:prostate_cancer",
+      "object_label": "Prostate Cancer",
+      "description": "Hedgehog Signaling may support Prostate Cancer via tumor angiogenesis",
+      "provenance": [
+        "bio:pathway:hedgehog_signaling",
+        "promotes",
+        "bio:process:tumor_angiogenesis",
+        "supports",
+        "bio:disease:prostate_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4031",
+      "subject_id": "bio:protein:nfkb",
+      "subject_label": "NF-kB",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:rheumatoid_arthritis",
+      "object_label": "Rheumatoid Arthritis",
+      "description": "NF-kB may drive Rheumatoid Arthritis via NF-kB signaling",
+      "provenance": [
+        "bio:protein:nfkb",
+        "activates",
+        "bio:pathway:nfkb_signaling",
+        "drives",
+        "bio:disease:rheumatoid_arthritis"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4032",
+      "subject_id": "bio:protein:stat3",
+      "subject_label": "STAT3",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:breast_cancer",
+      "object_label": "Breast Cancer",
+      "description": "STAT3 may promote Breast Cancer via PI3K-AKT pathway",
+      "provenance": [
+        "bio:protein:stat3",
+        "activates",
+        "bio:pathway:pi3k_akt",
+        "promotes",
+        "bio:disease:breast_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4033",
+      "subject_id": "bio:protein:stat3",
+      "subject_label": "STAT3",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:lung_cancer",
+      "object_label": "Lung Cancer",
+      "description": "STAT3 may promote Lung Cancer via MAPK-ERK pathway",
+      "provenance": [
+        "bio:protein:stat3",
+        "activates",
+        "bio:pathway:mapk_erk",
+        "promotes",
+        "bio:disease:lung_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4034",
+      "subject_id": "bio:protein:cdk4",
+      "subject_label": "CDK4",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:breast_cancer",
+      "object_label": "Breast Cancer",
+      "description": "CDK4 may promote Breast Cancer via PI3K-AKT pathway",
+      "provenance": [
+        "bio:protein:cdk4",
+        "drives",
+        "bio:pathway:pi3k_akt",
+        "promotes",
+        "bio:disease:breast_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4035",
+      "subject_id": "bio:protein:pten",
+      "subject_label": "PTEN",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:prostate_cancer",
+      "object_label": "Prostate Cancer",
+      "description": "PTEN may regulate Prostate Cancer via PI3K-AKT suppression",
+      "provenance": [
+        "bio:protein:pten",
+        "suppresses",
+        "bio:pathway:pi3k_akt",
+        "regulates",
+        "bio:disease:prostate_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4036",
+      "subject_id": "bio:protein:nrf2",
+      "subject_label": "NRF2",
+      "relation": "transitively_related_to",
+      "object_id": "bio:process:oxidative_stress",
+      "object_label": "Oxidative Stress",
+      "description": "NRF2 may reduce Oxidative Stress",
+      "provenance": [
+        "bio:protein:nrf2",
+        "reduces",
+        "bio:process:oxidative_stress"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 3
+    },
+    {
+      "id": "H4037",
+      "subject_id": "bio:protein:gsk3b",
+      "subject_label": "GSK3-beta",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:alzheimers",
+      "object_label": "Alzheimer's Disease",
+      "description": "GSK3-beta may drive Alzheimer's Disease via tau hyperphosphorylation",
+      "provenance": [
+        "bio:protein:gsk3b",
+        "phosphorylates",
+        "bio:protein:tau",
+        "causes",
+        "bio:process:tau_hyperphosphorylation",
+        "drives",
+        "bio:disease:alzheimers"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 7
+    },
+    {
+      "id": "H4038",
+      "subject_id": "bio:protein:hdac1",
+      "subject_label": "HDAC1",
+      "relation": "transitively_related_to",
+      "object_id": "bio:process:epigenetic_silencing",
+      "object_label": "Epigenetic Silencing",
+      "description": "HDAC1 may mediate Epigenetic Silencing",
+      "provenance": [
+        "bio:protein:hdac1",
+        "mediates",
+        "bio:process:epigenetic_silencing"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 3
+    },
+    {
+      "id": "H4039",
+      "subject_id": "bio:process:oxidative_stress",
+      "subject_label": "Oxidative Stress",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:parkinsons",
+      "object_label": "Parkinson's Disease",
+      "description": "Oxidative Stress may cause Parkinson's Disease via neurodegeneration",
+      "provenance": [
+        "bio:process:oxidative_stress",
+        "drives",
+        "bio:process:neurodegeneration",
+        "causes",
+        "bio:disease:parkinsons"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4040",
+      "subject_id": "bio:process:oxidative_stress",
+      "subject_label": "Oxidative Stress",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:heart_failure",
+      "object_label": "Heart Failure",
+      "description": "Oxidative Stress may impair Heart Failure via mitophagy disruption",
+      "provenance": [
+        "bio:process:oxidative_stress",
+        "damages",
+        "bio:process:mitophagy",
+        "impairs",
+        "bio:disease:heart_failure"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4041",
+      "subject_id": "bio:process:neurodegeneration",
+      "subject_label": "Neurodegeneration",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:alzheimers",
+      "object_label": "Alzheimer's Disease",
+      "description": "Neurodegeneration may cause Alzheimer's Disease",
+      "provenance": [
+        "bio:process:neurodegeneration",
+        "causes",
+        "bio:disease:alzheimers"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 3
+    },
+    {
+      "id": "H4042",
+      "subject_id": "bio:process:neurodegeneration",
+      "subject_label": "Neurodegeneration",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:huntingtons",
+      "object_label": "Huntington's Disease",
+      "description": "Neurodegeneration may mediate Huntington's Disease",
+      "provenance": [
+        "bio:process:neurodegeneration",
+        "mediates",
+        "bio:disease:huntingtons"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 3
+    },
+    {
+      "id": "H4043",
+      "subject_id": "bio:process:cell_senescence",
+      "subject_label": "Cell Senescence",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:heart_failure",
+      "object_label": "Heart Failure",
+      "description": "Cell Senescence may worsen Heart Failure via oxidative stress",
+      "provenance": [
+        "bio:process:cell_senescence",
+        "promotes",
+        "bio:process:oxidative_stress",
+        "damages",
+        "bio:disease:heart_failure"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4044",
+      "subject_id": "bio:process:tumor_angiogenesis",
+      "subject_label": "Tumor Angiogenesis",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:glioblastoma",
+      "object_label": "Glioblastoma",
+      "description": "Tumor Angiogenesis may promote Glioblastoma",
+      "provenance": [
+        "bio:process:tumor_angiogenesis",
+        "promotes",
+        "bio:disease:glioblastoma"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 3
+    },
+    {
+      "id": "H4045",
+      "subject_id": "bio:process:insulin_resistance",
+      "subject_label": "Insulin Resistance",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:nafld",
+      "object_label": "NAFLD",
+      "description": "Insulin Resistance may cause NAFLD",
+      "provenance": [
+        "bio:process:insulin_resistance",
+        "causes",
+        "bio:disease:nafld"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 3
+    },
+    {
+      "id": "H4046",
+      "subject_id": "bio:pathway:p53_pathway",
+      "subject_label": "p53 Pathway",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:lung_cancer",
+      "object_label": "Lung Cancer",
+      "description": "p53 Pathway may suppress Lung Cancer",
+      "provenance": [
+        "bio:pathway:p53_pathway",
+        "suppresses",
+        "bio:disease:lung_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 3
+    },
+    {
+      "id": "H4047",
+      "subject_id": "bio:pathway:nfkb_signaling",
+      "subject_label": "NF-kB Signaling",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:rheumatoid_arthritis",
+      "object_label": "Rheumatoid Arthritis",
+      "description": "NF-kB Signaling may activate Rheumatoid Arthritis via JAK-STAT",
+      "provenance": [
+        "bio:pathway:nfkb_signaling",
+        "promotes",
+        "bio:pathway:jak_stat",
+        "activates",
+        "bio:disease:rheumatoid_arthritis"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4048",
+      "subject_id": "bio:pathway:ubiquitin_proteasome",
+      "subject_label": "Ubiquitin-Proteasome",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:huntingtons",
+      "object_label": "Huntington's Disease",
+      "description": "Ubiquitin-Proteasome dysfunction may drive Huntington's Disease",
+      "provenance": [
+        "bio:pathway:ubiquitin_proteasome",
+        "impaired_in",
+        "bio:process:protein_aggregation",
+        "drives",
+        "bio:disease:huntingtons"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4049",
+      "subject_id": "bio:pathway:pi3k_akt",
+      "subject_label": "PI3K-AKT",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:prostate_cancer",
+      "object_label": "Prostate Cancer",
+      "description": "PI3K-AKT pathway may promote Prostate Cancer",
+      "provenance": [
+        "bio:pathway:pi3k_akt",
+        "promotes",
+        "bio:disease:prostate_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 3
+    },
+    {
+      "id": "H4050",
+      "subject_id": "bio:protein:ampk_alpha",
+      "subject_label": "AMPK-alpha",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:type2_diabetes",
+      "object_label": "Type 2 Diabetes",
+      "description": "AMPK-alpha may protect against Type 2 Diabetes via AMPK pathway",
+      "provenance": [
+        "bio:protein:ampk_alpha",
+        "activates",
+        "bio:pathway:ampk_pathway",
+        "inhibits",
+        "bio:disease:type2_diabetes"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4051",
+      "subject_id": "bio:protein:ampk_alpha",
+      "subject_label": "AMPK-alpha",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:nafld",
+      "object_label": "NAFLD",
+      "description": "AMPK-alpha may ameliorate NAFLD via AMPK-insulin resistance axis",
+      "provenance": [
+        "bio:protein:ampk_alpha",
+        "activates",
+        "bio:pathway:ampk_pathway",
+        "reduces",
+        "bio:process:insulin_resistance",
+        "ameliorates",
+        "bio:disease:nafld"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 7
+    },
+    {
+      "id": "H4052",
+      "subject_id": "bio:protein:sirt1",
+      "subject_label": "SIRT1",
+      "relation": "transitively_related_to",
+      "object_id": "bio:process:cell_senescence",
+      "object_label": "Cell Senescence",
+      "description": "SIRT1 may delay Cell Senescence via p53 deacetylation",
+      "provenance": [
+        "bio:protein:sirt1",
+        "deacetylates",
+        "bio:protein:p53",
+        "delays",
+        "bio:process:cell_senescence"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4053",
+      "subject_id": "bio:protein:nrf2",
+      "subject_label": "NRF2",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:alzheimers",
+      "object_label": "Alzheimer's Disease",
+      "description": "NRF2 may attenuate Alzheimer's Disease via oxidative stress reduction",
+      "provenance": [
+        "bio:protein:nrf2",
+        "reduces",
+        "bio:process:oxidative_stress",
+        "attenuates",
+        "bio:disease:alzheimers"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4054",
+      "subject_id": "bio:protein:nrf2",
+      "subject_label": "NRF2",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:parkinsons",
+      "object_label": "Parkinson's Disease",
+      "description": "NRF2 may protect against Parkinson's Disease via oxidative stress reduction",
+      "provenance": [
+        "bio:protein:nrf2",
+        "reduces",
+        "bio:process:oxidative_stress",
+        "protects",
+        "bio:disease:parkinsons"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4055",
+      "subject_id": "bio:pathway:mapk_erk",
+      "subject_label": "MAPK-ERK",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:prostate_cancer",
+      "object_label": "Prostate Cancer",
+      "description": "MAPK-ERK may support Prostate Cancer via tumor angiogenesis",
+      "provenance": [
+        "bio:pathway:mapk_erk",
+        "promotes",
+        "bio:process:tumor_angiogenesis",
+        "supports",
+        "bio:disease:prostate_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4056",
+      "subject_id": "bio:pathway:mapk_erk",
+      "subject_label": "MAPK-ERK",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:lung_cancer",
+      "object_label": "Lung Cancer",
+      "description": "MAPK-ERK pathway may promote Lung Cancer",
+      "provenance": [
+        "bio:pathway:mapk_erk",
+        "promotes",
+        "bio:disease:lung_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 3
+    },
+    {
+      "id": "H4057",
+      "subject_id": "bio:pathway:jak_stat",
+      "subject_label": "JAK-STAT",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:lung_cancer",
+      "object_label": "Lung Cancer",
+      "description": "JAK-STAT may promote Lung Cancer via STAT3 activation",
+      "provenance": [
+        "bio:pathway:jak_stat",
+        "activates",
+        "bio:protein:stat3",
+        "promotes",
+        "bio:disease:lung_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4058",
+      "subject_id": "bio:pathway:hedgehog_signaling",
+      "subject_label": "Hedgehog Signaling",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:breast_cancer",
+      "object_label": "Breast Cancer",
+      "description": "Hedgehog Signaling may promote Breast Cancer via PI3K-AKT",
+      "provenance": [
+        "bio:pathway:hedgehog_signaling",
+        "activates",
+        "bio:pathway:pi3k_akt",
+        "promotes",
+        "bio:disease:breast_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4059",
+      "subject_id": "bio:protein:hdac1",
+      "subject_label": "HDAC1",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:glioblastoma",
+      "object_label": "Glioblastoma",
+      "description": "HDAC1 may support Glioblastoma via epigenetic silencing of p53 pathway",
+      "provenance": [
+        "bio:protein:hdac1",
+        "mediates",
+        "bio:process:epigenetic_silencing",
+        "silences",
+        "bio:pathway:p53_pathway",
+        "supports",
+        "bio:disease:glioblastoma"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 7
+    },
+    {
+      "id": "H4060",
+      "subject_id": "bio:protein:gsk3b",
+      "subject_label": "GSK3-beta",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:type2_diabetes",
+      "object_label": "Type 2 Diabetes",
+      "description": "GSK3-beta may promote Type 2 Diabetes via AMPK pathway inhibition",
+      "provenance": [
+        "bio:protein:gsk3b",
+        "inhibits",
+        "bio:pathway:ampk_pathway",
+        "promotes",
+        "bio:disease:type2_diabetes"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4061",
+      "subject_id": "bio:process:mitophagy",
+      "subject_label": "Mitophagy",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:parkinsons",
+      "object_label": "Parkinson's Disease",
+      "description": "Mitophagy dysfunction may worsen Parkinson's Disease via oxidative stress",
+      "provenance": [
+        "bio:process:mitophagy",
+        "clears",
+        "bio:process:oxidative_stress",
+        "protects_against",
+        "bio:disease:parkinsons"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4062",
+      "subject_id": "bio:process:mitophagy",
+      "subject_label": "Mitophagy",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:heart_failure",
+      "object_label": "Heart Failure",
+      "description": "Mitophagy may protect against Heart Failure via senescent cell clearance",
+      "provenance": [
+        "bio:process:mitophagy",
+        "maintains",
+        "bio:process:cell_senescence",
+        "reduces",
+        "bio:disease:heart_failure"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4063",
+      "subject_id": "bio:pathway:ubiquitin_proteasome",
+      "subject_label": "Ubiquitin-Proteasome",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:alzheimers",
+      "object_label": "Alzheimer's Disease",
+      "description": "Ubiquitin-Proteasome dysfunction may drive Alzheimer's Disease",
+      "provenance": [
+        "bio:pathway:ubiquitin_proteasome",
+        "impaired_in",
+        "bio:process:protein_aggregation",
+        "drives",
+        "bio:disease:alzheimers"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4064",
+      "subject_id": "bio:pathway:p53_pathway",
+      "subject_label": "p53 Pathway",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:prostate_cancer",
+      "object_label": "Prostate Cancer",
+      "description": "p53 Pathway may suppress Prostate Cancer",
+      "provenance": [
+        "bio:pathway:p53_pathway",
+        "suppresses",
+        "bio:disease:prostate_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 3
+    },
+    {
+      "id": "H4065",
+      "subject_id": "bio:protein:cdk4",
+      "subject_label": "CDK4",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:prostate_cancer",
+      "object_label": "Prostate Cancer",
+      "description": "CDK4 may promote Prostate Cancer",
+      "provenance": [
+        "bio:protein:cdk4",
+        "promotes",
+        "bio:disease:prostate_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 3
+    },
+    {
+      "id": "H4066",
+      "subject_id": "bio:protein:pten",
+      "subject_label": "PTEN",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:breast_cancer",
+      "object_label": "Breast Cancer",
+      "description": "PTEN may suppress Breast Cancer via PI3K-AKT inhibition",
+      "provenance": [
+        "bio:protein:pten",
+        "suppresses",
+        "bio:pathway:pi3k_akt",
+        "inhibits",
+        "bio:disease:breast_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4067",
+      "subject_id": "bio:protein:stat3",
+      "subject_label": "STAT3",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:glioblastoma",
+      "object_label": "Glioblastoma",
+      "description": "STAT3 may promote Glioblastoma via JAK-STAT activation",
+      "provenance": [
+        "bio:protein:stat3",
+        "activates",
+        "bio:pathway:jak_stat",
+        "promotes",
+        "bio:disease:glioblastoma"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4068",
+      "subject_id": "bio:process:epigenetic_silencing",
+      "subject_label": "Epigenetic Silencing",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:lung_cancer",
+      "object_label": "Lung Cancer",
+      "description": "Epigenetic Silencing may promote Lung Cancer via PTEN silencing",
+      "provenance": [
+        "bio:process:epigenetic_silencing",
+        "silences",
+        "bio:protein:pten",
+        "activates",
+        "bio:pathway:pi3k_akt",
+        "promotes",
+        "bio:disease:lung_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 7
+    },
+    {
+      "id": "H4069",
+      "subject_id": "bio:pathway:wnt_signaling",
+      "subject_label": "Wnt Signaling",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:prostate_cancer",
+      "object_label": "Prostate Cancer",
+      "description": "Wnt Signaling may promote Prostate Cancer via CDK4 activation",
+      "provenance": [
+        "bio:pathway:wnt_signaling",
+        "activates",
+        "bio:protein:cdk4",
+        "promotes",
+        "bio:disease:prostate_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    },
+    {
+      "id": "H4070",
+      "subject_id": "bio:process:tau_hyperphosphorylation",
+      "subject_label": "Tau Hyperphosphorylation",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:parkinsons",
+      "object_label": "Parkinson's Disease",
+      "description": "Tau Hyperphosphorylation may worsen Parkinson's Disease via protein aggregation",
+      "provenance": [
+        "bio:process:tau_hyperphosphorylation",
+        "drives",
+        "bio:process:protein_aggregation",
+        "worsens",
+        "bio:disease:parkinsons"
+      ],
+      "operator": "compose",
+      "source_kg_name": "bio_chem_extended",
+      "method": "C1_compose",
+      "chain_length": 5
+    }
+  ]
+}
