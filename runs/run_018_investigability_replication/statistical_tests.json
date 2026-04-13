@@ -1,0 +1,57 @@
+{
+  "SC_inv_primary": {
+    "name": "SC_inv_primary",
+    "description": "investigability(C2) > investigability(C_rand_v2)",
+    "test": "Fisher exact one-sided",
+    "alpha": 0.05,
+    "primary": true,
+    "c2_rate": 0.9142857142857143,
+    "crand_rate": 0.6,
+    "contingency": {
+      "a": 64,
+      "b": 6,
+      "c": 42,
+      "d": 28
+    },
+    "p_value": 1.0587084066286275e-05,
+    "passed": true,
+    "note": "C2 investigated=64/70 vs C_rand_v2 investigated=42/70; p=0.0000"
+  },
+  "SC_inv_secondary": {
+    "name": "SC_inv_secondary",
+    "description": "investigability(C2) > investigability(C1)",
+    "test": "Fisher exact one-sided",
+    "alpha": 0.1,
+    "primary": false,
+    "c2_rate": 0.9142857142857143,
+    "c1_rate": 0.9714285714285714,
+    "contingency": {
+      "a": 64,
+      "b": 6,
+      "c": 68,
+      "d": 2
+    },
+    "p_value": 0.9687331195358735,
+    "passed": false,
+    "note": "C2 investigated=64/70 vs C1 investigated=68/70; p=0.9687"
+  },
+  "SC_inv_replication": {
+    "name": "SC_inv_replication",
+    "description": "C2 investigability_rate >= 0.85 (run_017 was 0.920)",
+    "test": "Descriptive threshold check",
+    "primary": false,
+    "c2_rate": 0.9142857142857143,
+    "threshold": 0.85,
+    "run_017_rate": 0.92,
+    "passed": true,
+    "note": "C2 investigability = 0.914; threshold = 0.85; run_017 = 0.920"
+  },
+  "overall": {
+    "go_nogo": "GO",
+    "sc_inv_primary": true,
+    "sc_inv_secondary": false,
+    "sc_inv_replication": true,
+    "summary": "GO | SC_inv_primary(p<0.05)=PASS | SC_inv_secondary(p<0.10)=FAIL | SC_inv_replication(>=0.85)=PASS"
+  },
+  "note": "SC-1r (novel_supported_rate) is NOT tested in this experiment. SC-1r was definitively FAIL in run_017. This experiment replicates SC-3r (investigability) only."
+}

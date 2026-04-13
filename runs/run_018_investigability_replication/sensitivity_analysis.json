@@ -1,0 +1,63 @@
+{
+  "thresholds_tested": [
+    20,
+    50,
+    100,
+    200
+  ],
+  "by_threshold": {
+    "20": {
+      "threshold": 20,
+      "C2_investigability": 0.9142857142857143,
+      "C1_investigability": 0.9714285714285714,
+      "Crand_investigability": 0.6,
+      "C2_novel_supported_rate": 0.171875,
+      "C2_known_fact_rate": 0.7,
+      "Crand_known_fact_rate": 0.3,
+      "SC_inv_primary_p": 1.0587084066286275e-05,
+      "SC_inv_primary_pass": true,
+      "SC_inv_secondary_p": 0.9687331195358735,
+      "SC_inv_secondary_pass": false
+    },
+    "50": {
+      "threshold": 50,
+      "C2_investigability": 0.9142857142857143,
+      "C1_investigability": 0.9714285714285714,
+      "Crand_investigability": 0.6,
+      "C2_novel_supported_rate": 0.328125,
+      "C2_known_fact_rate": 0.5285714285714286,
+      "Crand_known_fact_rate": 0.2,
+      "SC_inv_primary_p": 1.0587084066286275e-05,
+      "SC_inv_primary_pass": true,
+      "SC_inv_secondary_p": 0.9687331195358735,
+      "SC_inv_secondary_pass": false
+    },
+    "100": {
+      "threshold": 100,
+      "C2_investigability": 0.9142857142857143,
+      "C1_investigability": 0.9714285714285714,
+      "Crand_investigability": 0.6,
+      "C2_novel_supported_rate": 0.421875,
+      "C2_known_fact_rate": 0.44285714285714284,
+      "Crand_known_fact_rate": 0.15714285714285714,
+      "SC_inv_primary_p": 1.0587084066286275e-05,
+      "SC_inv_primary_pass": true,
+      "SC_inv_secondary_p": 0.9687331195358735,
+      "SC_inv_secondary_pass": false
+    },
+    "200": {
+      "threshold": 200,
+      "C2_investigability": 0.9142857142857143,
+      "C1_investigability": 0.9714285714285714,
+      "Crand_investigability": 0.6,
+      "C2_novel_supported_rate": 0.53125,
+      "C2_known_fact_rate": 0.34285714285714286,
+      "Crand_known_fact_rate": 0.1,
+      "SC_inv_primary_p": 1.0587084066286275e-05,
+      "SC_inv_primary_pass": true,
+      "SC_inv_secondary_p": 0.9687331195358735,
+      "SC_inv_secondary_pass": false
+    }
+  },
+  "exploratory_note": "Sensitivity analysis only. Primary analysis uses threshold=20. These results do NOT change the primary conclusion. SC-1r (novel_supported_rate) is not the primary endpoint."
+}

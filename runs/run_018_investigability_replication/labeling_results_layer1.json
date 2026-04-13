@@ -1,0 +1,1682 @@
+[
+  {
+    "id": "H3001",
+    "method": "C2_multi_op",
+    "description": "Metformin may inhibit Cholesterol Biosynthesis via AMPK Pathway activation",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 3 total hits, 3 fetched; 2 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 3
+  },
+  {
+    "id": "H3002",
+    "method": "C2_multi_op",
+    "description": "Rapamycin may modulate mTOR Signaling via mTOR Kinase inhibition",
+    "label_layer1": "partially_supported",
+    "rationale_layer1": "PubMed 2024-2025: 865 total hits, 5 fetched; 1 supporting, 0 contradictory, 0 inconclusive. Moderate positive signals.",
+    "total_pubmed_hits_2024_2025": 865
+  },
+  {
+    "id": "H3003",
+    "method": "C2_multi_op",
+    "description": "Rapamycin may reduce Breast Cancer risk via mTOR pathway suppression",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 166 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 166
+  },
+  {
+    "id": "H3004",
+    "method": "C2_multi_op",
+    "description": "Sildenafil may activate AMPK Pathway via PDE5 Inhibition",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H3005",
+    "method": "C2_multi_op",
+    "description": "Sildenafil may modulate PI3K-AKT via PDE5 Inhibition",
+    "label_layer1": "partially_supported",
+    "rationale_layer1": "PubMed 2024-2025: 4 total hits, 4 fetched; 1 supporting, 0 contradictory, 0 inconclusive. Moderate positive signals.",
+    "total_pubmed_hits_2024_2025": 4
+  },
+  {
+    "id": "H3006",
+    "method": "C2_multi_op",
+    "description": "Sildenafil may activate Autophagy Pathway via PDE5 Inhibition",
+    "label_layer1": "investigated_but_inconclusive",
+    "rationale_layer1": "PubMed 2024-2025: 1 total hits, 1 fetched; 1 supporting, 0 contradictory, 0 inconclusive. Evidence exists but mixed.",
+    "total_pubmed_hits_2024_2025": 1
+  },
+  {
+    "id": "H3007",
+    "method": "C2_multi_op",
+    "description": "Sildenafil may improve Heart Failure via PDE5 Inhibition",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 36 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 36
+  },
+  {
+    "id": "H3008",
+    "method": "C2_multi_op",
+    "description": "Sildenafil may reduce Neuroinflammation via PDE5 Inhibition",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 7 total hits, 5 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 7
+  },
+  {
+    "id": "H3009",
+    "method": "C2_multi_op",
+    "description": "Aspirin may reduce TNF-alpha levels via COX Inhibition",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 59 total hits, 5 fetched; 2 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 59
+  },
+  {
+    "id": "H3010",
+    "method": "C2_multi_op",
+    "description": "Aspirin may attenuate Amyloid Cascade via COX Inhibition",
+    "label_layer1": "investigated_but_inconclusive",
+    "rationale_layer1": "PubMed 2024-2025: 1 total hits, 0 fetched; 0 supporting, 0 contradictory, 0 inconclusive. Papers found; abstracts unavailable.",
+    "total_pubmed_hits_2024_2025": 1
+  },
+  {
+    "id": "H3011",
+    "method": "C2_multi_op",
+    "description": "Hydroxychloroquine may modulate mTOR Signaling via mTOR Kinase",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 4 total hits, 4 fetched; 2 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 4
+  },
+  {
+    "id": "H3012",
+    "method": "C2_multi_op",
+    "description": "Hydroxychloroquine may suppress PI3K-AKT via mTOR Kinase",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 12 total hits, 5 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 12
+  },
+  {
+    "id": "H3013",
+    "method": "C2_multi_op",
+    "description": "Quercetin may reduce APP cleavage via BACE1 Enzyme inhibition",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 13 total hits, 5 fetched; 2 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 13
+  },
+  {
+    "id": "H3014",
+    "method": "C2_multi_op",
+    "description": "Quercetin may attenuate Alzheimer's Disease via BACE1 and Amyloid Cascade",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 203 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 203
+  },
+  {
+    "id": "H3015",
+    "method": "C2_multi_op",
+    "description": "Berberine may improve Type 2 Diabetes via AMPK activation and insulin sensitization",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 62 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 62
+  },
+  {
+    "id": "H3016",
+    "method": "C2_multi_op",
+    "description": "Berberine may inhibit Cholesterol Biosynthesis via AMPK Activation",
+    "label_layer1": "investigated_but_inconclusive",
+    "rationale_layer1": "PubMed 2024-2025: 1 total hits, 1 fetched; 1 supporting, 0 contradictory, 0 inconclusive. Evidence exists but mixed.",
+    "total_pubmed_hits_2024_2025": 1
+  },
+  {
+    "id": "H3017",
+    "method": "C2_multi_op",
+    "description": "Resveratrol may regulate mTOR Signaling via mTOR Kinase inhibition",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 18 total hits, 5 fetched; 2 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 18
+  },
+  {
+    "id": "H3018",
+    "method": "C2_multi_op",
+    "description": "Resveratrol may activate SIRT1 via SIRT1 Activation mechanism",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 239 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 239
+  },
+  {
+    "id": "H3019",
+    "method": "C2_multi_op",
+    "description": "Resveratrol may delay Cell Senescence via SIRT1 Activation",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 12 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 12
+  },
+  {
+    "id": "H3020",
+    "method": "C2_multi_op",
+    "description": "mTOR Inhibition may activate AMPK Pathway via mTOR-AMPK crosstalk",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H3021",
+    "method": "C2_multi_op",
+    "description": "Metformin may attenuate Alzheimer's Disease via AMPK-mediated neuroinflammation reduction",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 136 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 136
+  },
+  {
+    "id": "H3022",
+    "method": "C2_multi_op",
+    "description": "Metformin may ameliorate NAFLD via AMPK-mediated insulin sensitization",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 54 total hits, 5 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 54
+  },
+  {
+    "id": "H3023",
+    "method": "C2_multi_op",
+    "description": "Metformin may reduce Oxidative Stress via AMPK-NRF2 axis",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 575 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 575
+  },
+  {
+    "id": "H3024",
+    "method": "C2_multi_op",
+    "description": "Rapamycin may protect against Parkinson's Disease via mTOR-autophagy axis",
+    "label_layer1": "investigated_but_inconclusive",
+    "rationale_layer1": "PubMed 2024-2025: 65 total hits, 0 fetched; 0 supporting, 0 contradictory, 0 inconclusive. Papers found; abstracts unavailable.",
+    "total_pubmed_hits_2024_2025": 65
+  },
+  {
+    "id": "H3025",
+    "method": "C2_multi_op",
+    "description": "Rapamycin may attenuate Huntington's Disease via protein aggregation clearance",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 15 total hits, 5 fetched; 2 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 15
+  },
+  {
+    "id": "H3026",
+    "method": "C2_multi_op",
+    "description": "Rapamycin may delay Cell Senescence via mTOR Kinase inhibition",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 29 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 29
+  },
+  {
+    "id": "H3027",
+    "method": "C2_multi_op",
+    "description": "Aspirin may reduce Colorectal Cancer risk via COX-2 and Wnt pathway",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 112 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 112
+  },
+  {
+    "id": "H3028",
+    "method": "C2_multi_op",
+    "description": "Aspirin may attenuate Alzheimer's Disease via COX-mediated neuroinflammation",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 45 total hits, 5 fetched; 2 supporting, 0 contradictory, 1 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 45
+  },
+  {
+    "id": "H3029",
+    "method": "C2_multi_op",
+    "description": "Bortezomib may affect Huntington's Disease via ubiquitin-proteasome disruption",
+    "label_layer1": "partially_supported",
+    "rationale_layer1": "PubMed 2024-2025: 1 total hits, 1 fetched; 0 supporting, 0 contradictory, 0 inconclusive. Some evidence found; labelled conservatively.",
+    "total_pubmed_hits_2024_2025": 1
+  },
+  {
+    "id": "H3030",
+    "method": "C2_multi_op",
+    "description": "Bortezomib may activate Apoptosis Pathway via proteasome inhibition",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 173 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 173
+  },
+  {
+    "id": "H3031",
+    "method": "C2_multi_op",
+    "description": "Valproic Acid may suppress Glioblastoma via HDAC inhibition and p53 pathway",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 18 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 18
+  },
+  {
+    "id": "H3032",
+    "method": "C2_multi_op",
+    "description": "Valproic Acid may reverse Epigenetic Silencing via HDAC inhibition",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H3033",
+    "method": "C2_multi_op",
+    "description": "Imatinib may inhibit MAPK-ERK via STAT3 inhibition",
+    "label_layer1": "investigated_but_inconclusive",
+    "rationale_layer1": "PubMed 2024-2025: 2 total hits, 2 fetched; 1 supporting, 0 contradictory, 0 inconclusive. Evidence exists but mixed.",
+    "total_pubmed_hits_2024_2025": 2
+  },
+  {
+    "id": "H3034",
+    "method": "C2_multi_op",
+    "description": "Berberine may ameliorate NAFLD via AMPK-mediated insulin sensitization",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 38 total hits, 5 fetched; 4 supporting, 0 contradictory, 1 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 38
+  },
+  {
+    "id": "H3035",
+    "method": "C2_multi_op",
+    "description": "Berberine may attenuate Parkinson's Disease via AMPK-oxidative stress reduction",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 23 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 23
+  },
+  {
+    "id": "H3036",
+    "method": "C2_multi_op",
+    "description": "Quercetin may attenuate Parkinson's Disease via BACE1-neuroinflammation axis",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 67 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 67
+  },
+  {
+    "id": "H3037",
+    "method": "C2_multi_op",
+    "description": "Curcumin may suppress Rheumatoid Arthritis via STAT3-NF-kB pathway",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 57 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 57
+  },
+  {
+    "id": "H3038",
+    "method": "C2_multi_op",
+    "description": "Curcumin may attenuate Alzheimer's Disease via STAT3-neuroinflammation",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 203 total hits, 5 fetched; 2 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 203
+  },
+  {
+    "id": "H3039",
+    "method": "C2_multi_op",
+    "description": "Curcumin may modulate Neuroinflammation via STAT3 and NF-kB signaling",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 154 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 154
+  },
+  {
+    "id": "H3040",
+    "method": "C2_multi_op",
+    "description": "Kaempferol may attenuate Colorectal Cancer via PI3K-AKT suppression",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 33 total hits, 5 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 33
+  },
+  {
+    "id": "H3041",
+    "method": "C2_multi_op",
+    "description": "Coenzyme Q10 may attenuate Parkinson's Disease via oxidative stress reduction",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 17 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 17
+  },
+  {
+    "id": "H3042",
+    "method": "C2_multi_op",
+    "description": "Nicotinamide Riboside may attenuate Alzheimer's Disease via SIRT1-neurodegeneration axis",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 14 total hits, 5 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 14
+  },
+  {
+    "id": "H3043",
+    "method": "C2_multi_op",
+    "description": "Nicotinamide Riboside may ameliorate NAFLD via SIRT1-insulin resistance axis",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 3 total hits, 3 fetched; 2 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 3
+  },
+  {
+    "id": "H3044",
+    "method": "C2_multi_op",
+    "description": "Resveratrol may ameliorate NAFLD via SIRT1-insulin resistance axis",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 31 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 31
+  },
+  {
+    "id": "H3045",
+    "method": "C2_multi_op",
+    "description": "Hydroxychloroquine may affect Alzheimer's Disease via mTOR-autophagy axis",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 3 total hits, 3 fetched; 2 supporting, 0 contradictory, 1 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 3
+  },
+  {
+    "id": "H3046",
+    "method": "C2_multi_op",
+    "description": "Sildenafil may attenuate Alzheimer's Disease via PDE5-neuroinflammation axis",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 18 total hits, 5 fetched; 4 supporting, 0 contradictory, 1 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 18
+  },
+  {
+    "id": "H3047",
+    "method": "C2_multi_op",
+    "description": "Erlotinib may suppress Lung Cancer via EGFR-PI3K-AKT pathway",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 238 total hits, 5 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 238
+  },
+  {
+    "id": "H3048",
+    "method": "C2_multi_op",
+    "description": "EGCG may suppress Multiple Myeloma via PI3K inhibition and apoptosis",
+    "label_layer1": "investigated_but_inconclusive",
+    "rationale_layer1": "PubMed 2024-2025: 2 total hits, 2 fetched; 1 supporting, 0 contradictory, 0 inconclusive. Evidence exists but mixed.",
+    "total_pubmed_hits_2024_2025": 2
+  },
+  {
+    "id": "H3049",
+    "method": "C2_multi_op",
+    "description": "SIRT1 Activation may reduce Neurodegeneration via SIRT1 protein activity",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 4 total hits, 4 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 4
+  },
+  {
+    "id": "H3050",
+    "method": "C2_multi_op",
+    "description": "PI3K Inhibition may reduce Tumor Angiogenesis via PI3K-AKT pathway",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H3051",
+    "method": "C2_multi_op",
+    "description": "Dasatinib may reduce Alzheimer's Disease via BCL-2 and apoptosis modulation",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 18 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 18
+  },
+  {
+    "id": "H3052",
+    "method": "C2_multi_op",
+    "description": "Dasatinib may clear senescent cells via BCL-2 inhibition",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 21 total hits, 5 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 21
+  },
+  {
+    "id": "H3053",
+    "method": "C2_multi_op",
+    "description": "Lithium may attenuate Alzheimer's Disease via Wnt pathway and tau reduction",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 7 total hits, 5 fetched; 4 supporting, 0 contradictory, 1 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 7
+  },
+  {
+    "id": "H3054",
+    "method": "C2_multi_op",
+    "description": "Lithium may attenuate Huntington's Disease via autophagy-mediated aggregation clearance",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H3055",
+    "method": "C2_multi_op",
+    "description": "EGCG may attenuate Alzheimer's Disease via BACE1 inhibition",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 42 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 42
+  },
+  {
+    "id": "H3056",
+    "method": "C2_multi_op",
+    "description": "EGCG may reduce Neuroinflammation via NRF2-NF-kB axis",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 25 total hits, 5 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 25
+  },
+  {
+    "id": "H3057",
+    "method": "C2_multi_op",
+    "description": "Curcumin may attenuate Parkinson's Disease via STAT3-oxidative stress",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 83 total hits, 5 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 83
+  },
+  {
+    "id": "H3058",
+    "method": "C2_multi_op",
+    "description": "Curcumin may suppress Glioblastoma via STAT3-PI3K-AKT axis",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 41 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 41
+  },
+  {
+    "id": "H3059",
+    "method": "C2_multi_op",
+    "description": "HDAC Inhibition may suppress Glioblastoma via epigenetic de-repression of p53",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 10 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 10
+  },
+  {
+    "id": "H3060",
+    "method": "C2_multi_op",
+    "description": "HDAC Inhibition may reduce Neurodegeneration via BDNF upregulation",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 4 total hits, 4 fetched; 2 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 4
+  },
+  {
+    "id": "H3061",
+    "method": "C2_multi_op",
+    "description": "Gefitinib may attenuate Breast Cancer via EGFR-MAPK-ERK suppression",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 39 total hits, 5 fetched; 4 supporting, 0 contradictory, 1 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 39
+  },
+  {
+    "id": "H3062",
+    "method": "C2_multi_op",
+    "description": "Berberine may attenuate Huntington's Disease via AMPK-autophagy axis",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 6 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 6
+  },
+  {
+    "id": "H3063",
+    "method": "C2_multi_op",
+    "description": "Berberine may delay Cell Senescence via AMPK activation",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 4 total hits, 4 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 4
+  },
+  {
+    "id": "H3064",
+    "method": "C2_multi_op",
+    "description": "BCL-2 Inhibition may suppress CML Leukemia via apoptosis activation",
+    "label_layer1": "investigated_but_inconclusive",
+    "rationale_layer1": "PubMed 2024-2025: 1 total hits, 1 fetched; 1 supporting, 0 contradictory, 0 inconclusive. Evidence exists but mixed.",
+    "total_pubmed_hits_2024_2025": 1
+  },
+  {
+    "id": "H3065",
+    "method": "C2_multi_op",
+    "description": "VEGFR Inhibition may attenuate Glioblastoma via tumor angiogenesis suppression",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H3066",
+    "method": "C2_multi_op",
+    "description": "Kaempferol may attenuate Breast Cancer via PI3K-AKT suppression",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 38 total hits, 5 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 38
+  },
+  {
+    "id": "H3067",
+    "method": "C2_multi_op",
+    "description": "Resveratrol may attenuate Parkinson's Disease via SIRT1-oxidative stress axis",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 59 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 59
+  },
+  {
+    "id": "H3068",
+    "method": "C2_multi_op",
+    "description": "Sildenafil may attenuate Parkinson's Disease via PDE5-neuroinflammation axis",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 4 total hits, 4 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 4
+  },
+  {
+    "id": "H3069",
+    "method": "C2_multi_op",
+    "description": "Hydroxychloroquine may attenuate Glioblastoma via mTOR-PI3K-AKT suppression",
+    "label_layer1": "partially_supported",
+    "rationale_layer1": "PubMed 2024-2025: 1 total hits, 1 fetched; 0 supporting, 0 contradictory, 0 inconclusive. Some evidence found; labelled conservatively.",
+    "total_pubmed_hits_2024_2025": 1
+  },
+  {
+    "id": "H3070",
+    "method": "C2_multi_op",
+    "description": "Coenzyme Q10 may improve Heart Failure via oxidative stress and mitophagy",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 24 total hits, 5 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 24
+  },
+  {
+    "id": "H4001",
+    "method": "C1_compose",
+    "description": "BACE1 Protease may cause Alzheimer's Disease via Amyloid Cascade",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 468 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 468
+  },
+  {
+    "id": "H4002",
+    "method": "C1_compose",
+    "description": "BACE1 may elevate Amyloid-beta 42 via Amyloid Cascade",
+    "label_layer1": "partially_supported",
+    "rationale_layer1": "PubMed 2024-2025: 2 total hits, 2 fetched; 0 supporting, 0 contradictory, 0 inconclusive. Some evidence found; labelled conservatively.",
+    "total_pubmed_hits_2024_2025": 2
+  },
+  {
+    "id": "H4003",
+    "method": "C1_compose",
+    "description": "HER2 may promote Breast Cancer via PI3K-AKT pathway",
+    "label_layer1": "investigated_but_inconclusive",
+    "rationale_layer1": "PubMed 2024-2025: 6493 total hits, 0 fetched; 0 supporting, 0 contradictory, 0 inconclusive. Papers found; abstracts unavailable.",
+    "total_pubmed_hits_2024_2025": 6493
+  },
+  {
+    "id": "H4004",
+    "method": "C1_compose",
+    "description": "TNF-alpha may promote Breast Cancer via PI3K-AKT pathway",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 309 total hits, 5 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 309
+  },
+  {
+    "id": "H4005",
+    "method": "C1_compose",
+    "description": "mTOR Signaling may drive Type 2 Diabetes via AMPK pathway suppression",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 46 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 46
+  },
+  {
+    "id": "H4006",
+    "method": "C1_compose",
+    "description": "mTOR Signaling may activate Cholesterol Biosynthesis",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 4 total hits, 4 fetched; 2 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 4
+  },
+  {
+    "id": "H4007",
+    "method": "C1_compose",
+    "description": "mTOR Signaling may promote Breast Cancer",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 178 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 178
+  },
+  {
+    "id": "H4008",
+    "method": "C1_compose",
+    "description": "mTOR Signaling may exacerbate Protein Aggregation via autophagy suppression",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 4 total hits, 4 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 4
+  },
+  {
+    "id": "H4009",
+    "method": "C1_compose",
+    "description": "AMPK Pathway may reduce LDL Cholesterol via cholesterol synthesis inhibition",
+    "label_layer1": "partially_supported",
+    "rationale_layer1": "PubMed 2024-2025: 1 total hits, 1 fetched; 0 supporting, 0 contradictory, 0 inconclusive. Some evidence found; labelled conservatively.",
+    "total_pubmed_hits_2024_2025": 1
+  },
+  {
+    "id": "H4010",
+    "method": "C1_compose",
+    "description": "APP may drive Beta-Amyloid Aggregation via amyloid-beta 42 production",
+    "label_layer1": "partially_supported",
+    "rationale_layer1": "PubMed 2024-2025: 10 total hits, 5 fetched; 1 supporting, 0 contradictory, 0 inconclusive. Moderate positive signals.",
+    "total_pubmed_hits_2024_2025": 10
+  },
+  {
+    "id": "H4011",
+    "method": "C1_compose",
+    "description": "Tau Protein may cause Alzheimer's Disease via tau hyperphosphorylation",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 1298 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 1298
+  },
+  {
+    "id": "H4012",
+    "method": "C1_compose",
+    "description": "BDNF deficiency may worsen Alzheimer's Disease via neurodegeneration",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 514 total hits, 5 fetched; 2 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 514
+  },
+  {
+    "id": "H4013",
+    "method": "C1_compose",
+    "description": "BDNF deficiency may worsen Parkinson's Disease via neurodegeneration",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 198 total hits, 5 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 198
+  },
+  {
+    "id": "H4014",
+    "method": "C1_compose",
+    "description": "BDNF deficiency may worsen Huntington's Disease via neurodegeneration",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 58 total hits, 5 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 58
+  },
+  {
+    "id": "H4015",
+    "method": "C1_compose",
+    "description": "VEGF may promote Glioblastoma via tumor angiogenesis",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 105 total hits, 5 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 105
+  },
+  {
+    "id": "H4016",
+    "method": "C1_compose",
+    "description": "EGFR may promote Colorectal Cancer via MAPK-ERK pathway",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 618 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 618
+  },
+  {
+    "id": "H4017",
+    "method": "C1_compose",
+    "description": "p53 may suppress Multiple Myeloma via apoptosis regulation",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 56 total hits, 5 fetched; 4 supporting, 0 contradictory, 1 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 56
+  },
+  {
+    "id": "H4018",
+    "method": "C1_compose",
+    "description": "p53 may suppress CML Leukemia via apoptosis regulation",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 20 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 20
+  },
+  {
+    "id": "H4019",
+    "method": "C1_compose",
+    "description": "BCL-2 may promote Multiple Myeloma via apoptosis inhibition",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 103 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 103
+  },
+  {
+    "id": "H4020",
+    "method": "C1_compose",
+    "description": "BCL-2 may promote CML Leukemia via apoptosis inhibition",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 32 total hits, 5 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 32
+  },
+  {
+    "id": "H4021",
+    "method": "C1_compose",
+    "description": "Autophagy dysfunction may worsen Alzheimer's Disease via protein aggregation",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 955 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 955
+  },
+  {
+    "id": "H4022",
+    "method": "C1_compose",
+    "description": "Autophagy dysfunction may worsen Parkinson's Disease via alpha-synuclein clearance",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H4023",
+    "method": "C1_compose",
+    "description": "Neuroinflammation may exacerbate Alzheimer's Disease via TNF-alpha activation",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 4369 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 4369
+  },
+  {
+    "id": "H4024",
+    "method": "C1_compose",
+    "description": "Neuroinflammation may drive Parkinson's Disease via neurodegeneration",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 2044 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 2044
+  },
+  {
+    "id": "H4025",
+    "method": "C1_compose",
+    "description": "Apoptosis pathway may drive Huntington's Disease via neurodegeneration",
+    "label_layer1": "partially_supported",
+    "rationale_layer1": "PubMed 2024-2025: 119 total hits, 5 fetched; 1 supporting, 0 contradictory, 0 inconclusive. Moderate positive signals.",
+    "total_pubmed_hits_2024_2025": 119
+  },
+  {
+    "id": "H4026",
+    "method": "C1_compose",
+    "description": "JAK-STAT pathway may promote Rheumatoid Arthritis via TNF-alpha",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 123 total hits, 5 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 123
+  },
+  {
+    "id": "H4027",
+    "method": "C1_compose",
+    "description": "MAPK-ERK may support Colorectal Cancer via tumor angiogenesis",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 34 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 34
+  },
+  {
+    "id": "H4028",
+    "method": "C1_compose",
+    "description": "Wnt Signaling may drive Colorectal Cancer via cell senescence evasion",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 356 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 356
+  },
+  {
+    "id": "H4029",
+    "method": "C1_compose",
+    "description": "PI3K-AKT pathway may promote Breast Cancer",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 812 total hits, 5 fetched; 4 supporting, 0 contradictory, 1 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 812
+  },
+  {
+    "id": "H4030",
+    "method": "C1_compose",
+    "description": "Hedgehog Signaling may support Prostate Cancer via tumor angiogenesis",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 11 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 11
+  },
+  {
+    "id": "H4031",
+    "method": "C1_compose",
+    "description": "NF-kB may drive Rheumatoid Arthritis via NF-kB signaling",
+    "label_layer1": "partially_supported",
+    "rationale_layer1": "PubMed 2024-2025: 25 total hits, 5 fetched; 1 supporting, 0 contradictory, 0 inconclusive. Moderate positive signals.",
+    "total_pubmed_hits_2024_2025": 25
+  },
+  {
+    "id": "H4032",
+    "method": "C1_compose",
+    "description": "STAT3 may promote Breast Cancer via PI3K-AKT pathway",
+    "label_layer1": "investigated_but_inconclusive",
+    "rationale_layer1": "PubMed 2024-2025: 423 total hits, 0 fetched; 0 supporting, 0 contradictory, 0 inconclusive. Papers found; abstracts unavailable.",
+    "total_pubmed_hits_2024_2025": 423
+  },
+  {
+    "id": "H4033",
+    "method": "C1_compose",
+    "description": "STAT3 may promote Lung Cancer via MAPK-ERK pathway",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 323 total hits, 5 fetched; 2 supporting, 0 contradictory, 1 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 323
+  },
+  {
+    "id": "H4034",
+    "method": "C1_compose",
+    "description": "CDK4 may promote Breast Cancer via PI3K-AKT pathway",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 1124 total hits, 5 fetched; 4 supporting, 0 contradictory, 1 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 1124
+  },
+  {
+    "id": "H4035",
+    "method": "C1_compose",
+    "description": "PTEN may regulate Prostate Cancer via PI3K-AKT suppression",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 250 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 250
+  },
+  {
+    "id": "H4036",
+    "method": "C1_compose",
+    "description": "NRF2 may reduce Oxidative Stress",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 6189 total hits, 5 fetched; 2 supporting, 0 contradictory, 1 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 6189
+  },
+  {
+    "id": "H4037",
+    "method": "C1_compose",
+    "description": "GSK3-beta may drive Alzheimer's Disease via tau hyperphosphorylation",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 12 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 12
+  },
+  {
+    "id": "H4038",
+    "method": "C1_compose",
+    "description": "HDAC1 may mediate Epigenetic Silencing",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 4 total hits, 4 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 4
+  },
+  {
+    "id": "H4039",
+    "method": "C1_compose",
+    "description": "Oxidative Stress may cause Parkinson's Disease via neurodegeneration",
+    "label_layer1": "investigated_but_inconclusive",
+    "rationale_layer1": "PubMed 2024-2025: 1774 total hits, 0 fetched; 0 supporting, 0 contradictory, 0 inconclusive. Papers found; abstracts unavailable.",
+    "total_pubmed_hits_2024_2025": 1774
+  },
+  {
+    "id": "H4040",
+    "method": "C1_compose",
+    "description": "Oxidative Stress may impair Heart Failure via mitophagy disruption",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 1179 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 1179
+  },
+  {
+    "id": "H4041",
+    "method": "C1_compose",
+    "description": "Neurodegeneration may cause Alzheimer's Disease",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 5391 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 5391
+  },
+  {
+    "id": "H4042",
+    "method": "C1_compose",
+    "description": "Neurodegeneration may mediate Huntington's Disease",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 521 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 521
+  },
+  {
+    "id": "H4043",
+    "method": "C1_compose",
+    "description": "Cell Senescence may worsen Heart Failure via oxidative stress",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 15 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 15
+  },
+  {
+    "id": "H4044",
+    "method": "C1_compose",
+    "description": "Tumor Angiogenesis may promote Glioblastoma",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 29 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 29
+  },
+  {
+    "id": "H4045",
+    "method": "C1_compose",
+    "description": "Insulin Resistance may cause NAFLD",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 709 total hits, 5 fetched; 3 supporting, 0 contradictory, 1 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 709
+  },
+  {
+    "id": "H4046",
+    "method": "C1_compose",
+    "description": "p53 Pathway may suppress Lung Cancer",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 28 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 28
+  },
+  {
+    "id": "H4047",
+    "method": "C1_compose",
+    "description": "NF-kB Signaling may activate Rheumatoid Arthritis via JAK-STAT",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 5 total hits, 5 fetched; 2 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 5
+  },
+  {
+    "id": "H4048",
+    "method": "C1_compose",
+    "description": "Ubiquitin-Proteasome dysfunction may drive Huntington's Disease",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 19 total hits, 5 fetched; 2 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 19
+  },
+  {
+    "id": "H4049",
+    "method": "C1_compose",
+    "description": "PI3K-AKT pathway may promote Prostate Cancer",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 235 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 235
+  },
+  {
+    "id": "H4050",
+    "method": "C1_compose",
+    "description": "AMPK-alpha may protect against Type 2 Diabetes via AMPK pathway",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 4 total hits, 4 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 4
+  },
+  {
+    "id": "H4051",
+    "method": "C1_compose",
+    "description": "AMPK-alpha may ameliorate NAFLD via AMPK-insulin resistance axis",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 4 total hits, 4 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 4
+  },
+  {
+    "id": "H4052",
+    "method": "C1_compose",
+    "description": "SIRT1 may delay Cell Senescence via p53 deacetylation",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 64 total hits, 5 fetched; 3 supporting, 0 contradictory, 1 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 64
+  },
+  {
+    "id": "H4053",
+    "method": "C1_compose",
+    "description": "NRF2 may attenuate Alzheimer's Disease via oxidative stress reduction",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 385 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 385
+  },
+  {
+    "id": "H4054",
+    "method": "C1_compose",
+    "description": "NRF2 may protect against Parkinson's Disease via oxidative stress reduction",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 306 total hits, 5 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 306
+  },
+  {
+    "id": "H4055",
+    "method": "C1_compose",
+    "description": "MAPK-ERK may support Prostate Cancer via tumor angiogenesis",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 11 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 11
+  },
+  {
+    "id": "H4056",
+    "method": "C1_compose",
+    "description": "MAPK-ERK pathway may promote Lung Cancer",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 44 total hits, 5 fetched; 3 supporting, 0 contradictory, 1 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 44
+  },
+  {
+    "id": "H4057",
+    "method": "C1_compose",
+    "description": "JAK-STAT may promote Lung Cancer via STAT3 activation",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 71 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 71
+  },
+  {
+    "id": "H4058",
+    "method": "C1_compose",
+    "description": "Hedgehog Signaling may promote Breast Cancer via PI3K-AKT",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 24 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 24
+  },
+  {
+    "id": "H4059",
+    "method": "C1_compose",
+    "description": "HDAC1 may support Glioblastoma via epigenetic silencing of p53 pathway",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H4060",
+    "method": "C1_compose",
+    "description": "GSK3-beta may promote Type 2 Diabetes via AMPK pathway inhibition",
+    "label_layer1": "investigated_but_inconclusive",
+    "rationale_layer1": "PubMed 2024-2025: 2 total hits, 2 fetched; 1 supporting, 0 contradictory, 0 inconclusive. Evidence exists but mixed.",
+    "total_pubmed_hits_2024_2025": 2
+  },
+  {
+    "id": "H4061",
+    "method": "C1_compose",
+    "description": "Mitophagy dysfunction may worsen Parkinson's Disease via oxidative stress",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 303 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 303
+  },
+  {
+    "id": "H4062",
+    "method": "C1_compose",
+    "description": "Mitophagy may protect against Heart Failure via senescent cell clearance",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 142 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 142
+  },
+  {
+    "id": "H4063",
+    "method": "C1_compose",
+    "description": "Ubiquitin-Proteasome dysfunction may drive Alzheimer's Disease",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 90 total hits, 5 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 90
+  },
+  {
+    "id": "H4064",
+    "method": "C1_compose",
+    "description": "p53 Pathway may suppress Prostate Cancer",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 8 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 8
+  },
+  {
+    "id": "H4065",
+    "method": "C1_compose",
+    "description": "CDK4 may promote Prostate Cancer",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 37 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 37
+  },
+  {
+    "id": "H4066",
+    "method": "C1_compose",
+    "description": "PTEN may suppress Breast Cancer via PI3K-AKT inhibition",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 308 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 308
+  },
+  {
+    "id": "H4067",
+    "method": "C1_compose",
+    "description": "STAT3 may promote Glioblastoma via JAK-STAT activation",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 160 total hits, 5 fetched; 5 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 160
+  },
+  {
+    "id": "H4068",
+    "method": "C1_compose",
+    "description": "Epigenetic Silencing may promote Lung Cancer via PTEN silencing",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 7 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 7
+  },
+  {
+    "id": "H4069",
+    "method": "C1_compose",
+    "description": "Wnt Signaling may promote Prostate Cancer via CDK4 activation",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 49 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 49
+  },
+  {
+    "id": "H4070",
+    "method": "C1_compose",
+    "description": "Tau Hyperphosphorylation may worsen Parkinson's Disease via protein aggregation",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 18 total hits, 5 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 18
+  },
+  {
+    "id": "H5001",
+    "method": "C_rand_v2",
+    "description": "NMDA Antagonism randomly paired with Protein Aggregation (no KG path — truly random cross-domain control)",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H5002",
+    "method": "C_rand_v2",
+    "description": "Berberine randomly paired with LDL Cholesterol (no KG path — truly random cross-domain control)",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 8 total hits, 5 fetched; 2 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 8
+  },
+  {
+    "id": "H5003",
+    "method": "C_rand_v2",
+    "description": "Neurodegeneration randomly paired with Aspirin (no KG path — truly random cross-domain control)",
+    "label_layer1": "partially_supported",
+    "rationale_layer1": "PubMed 2024-2025: 3 total hits, 3 fetched; 1 supporting, 0 contradictory, 0 inconclusive. Moderate positive signals.",
+    "total_pubmed_hits_2024_2025": 3
+  },
+  {
+    "id": "H5004",
+    "method": "C_rand_v2",
+    "description": "EGCG randomly paired with Tumor Angiogenesis (no KG path — truly random cross-domain control)",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H5005",
+    "method": "C_rand_v2",
+    "description": "AMPK Activation randomly paired with CML Leukemia (no KG path — truly random cross-domain control)",
+    "label_layer1": "investigated_but_inconclusive",
+    "rationale_layer1": "PubMed 2024-2025: 1 total hits, 1 fetched; 1 supporting, 0 contradictory, 0 inconclusive. Evidence exists but mixed.",
+    "total_pubmed_hits_2024_2025": 1
+  },
+  {
+    "id": "H5006",
+    "method": "C_rand_v2",
+    "description": "Ubiquitin-Proteasome randomly paired with HDAC Inhibition (no KG path — truly random cross-domain control)",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H5007",
+    "method": "C_rand_v2",
+    "description": "COX-2 Enzyme randomly paired with Lung Cancer (no KG path — truly random cross-domain control)",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 32 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 32
+  },
+  {
+    "id": "H5008",
+    "method": "C_rand_v2",
+    "description": "Insulin Resistance randomly paired with BCL-2 Target (no KG path — truly random cross-domain control)",
+    "label_layer1": "investigated_but_inconclusive",
+    "rationale_layer1": "PubMed 2024-2025: 2 total hits, 2 fetched; 1 supporting, 0 contradictory, 0 inconclusive. Evidence exists but mixed.",
+    "total_pubmed_hits_2024_2025": 2
+  },
+  {
+    "id": "H5009",
+    "method": "C_rand_v2",
+    "description": "Imatinib randomly paired with LDL Cholesterol (no KG path — truly random cross-domain control)",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H5010",
+    "method": "C_rand_v2",
+    "description": "Prostate Cancer randomly paired with NMDA Antagonism (no KG path — truly random cross-domain control)",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H5011",
+    "method": "C_rand_v2",
+    "description": "STAT3 randomly paired with Tamoxifen (no KG path — truly random cross-domain control)",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 15 total hits, 5 fetched; 2 supporting, 0 contradictory, 1 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 15
+  },
+  {
+    "id": "H5012",
+    "method": "C_rand_v2",
+    "description": "NF-kB randomly paired with Dasatinib (no KG path — truly random cross-domain control)",
+    "label_layer1": "investigated_but_inconclusive",
+    "rationale_layer1": "PubMed 2024-2025: 2 total hits, 2 fetched; 1 supporting, 0 contradictory, 0 inconclusive. Evidence exists but mixed.",
+    "total_pubmed_hits_2024_2025": 2
+  },
+  {
+    "id": "H5013",
+    "method": "C_rand_v2",
+    "description": "Proteasome Complex randomly paired with TNF-alpha (no KG path — truly random cross-domain control)",
+    "label_layer1": "investigated_but_inconclusive",
+    "rationale_layer1": "PubMed 2024-2025: 47 total hits, 5 fetched; 0 supporting, 0 contradictory, 1 inconclusive. Evidence exists but mixed.",
+    "total_pubmed_hits_2024_2025": 47
+  },
+  {
+    "id": "H5014",
+    "method": "C_rand_v2",
+    "description": "Cell Senescence randomly paired with Berberine (no KG path — truly random cross-domain control)",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 4 total hits, 4 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 4
+  },
+  {
+    "id": "H5015",
+    "method": "C_rand_v2",
+    "description": "Lung Cancer randomly paired with Metformin (no KG path — truly random cross-domain control)",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 71 total hits, 5 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 71
+  },
+  {
+    "id": "H5016",
+    "method": "C_rand_v2",
+    "description": "Mitophagy randomly paired with Aspirin (no KG path — truly random cross-domain control)",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H5017",
+    "method": "C_rand_v2",
+    "description": "HDAC Inhibition randomly paired with mTOR Signaling (no KG path — truly random cross-domain control)",
+    "label_layer1": "partially_supported",
+    "rationale_layer1": "PubMed 2024-2025: 1 total hits, 1 fetched; 0 supporting, 0 contradictory, 0 inconclusive. Some evidence found; labelled conservatively.",
+    "total_pubmed_hits_2024_2025": 1
+  },
+  {
+    "id": "H5018",
+    "method": "C_rand_v2",
+    "description": "Epigenetic Silencing randomly paired with Berberine (no KG path — truly random cross-domain control)",
+    "label_layer1": "partially_supported",
+    "rationale_layer1": "PubMed 2024-2025: 1 total hits, 1 fetched; 0 supporting, 0 contradictory, 0 inconclusive. Some evidence found; labelled conservatively.",
+    "total_pubmed_hits_2024_2025": 1
+  },
+  {
+    "id": "H5019",
+    "method": "C_rand_v2",
+    "description": "Dasatinib randomly paired with JAK-STAT (no KG path — truly random cross-domain control)",
+    "label_layer1": "partially_supported",
+    "rationale_layer1": "PubMed 2024-2025: 3 total hits, 3 fetched; 0 supporting, 0 contradictory, 0 inconclusive. Some evidence found; labelled conservatively.",
+    "total_pubmed_hits_2024_2025": 3
+  },
+  {
+    "id": "H5020",
+    "method": "C_rand_v2",
+    "description": "Valproic Acid randomly paired with NF-kB (no KG path — truly random cross-domain control)",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 3 total hits, 3 fetched; 2 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 3
+  },
+  {
+    "id": "H5021",
+    "method": "C_rand_v2",
+    "description": "Kaempferol randomly paired with Cholesterol Biosynthesis (no KG path — truly random cross-domain control)",
+    "label_layer1": "partially_supported",
+    "rationale_layer1": "PubMed 2024-2025: 1 total hits, 1 fetched; 0 supporting, 0 contradictory, 0 inconclusive. Some evidence found; labelled conservatively.",
+    "total_pubmed_hits_2024_2025": 1
+  },
+  {
+    "id": "H5022",
+    "method": "C_rand_v2",
+    "description": "AMPK Pathway randomly paired with Dasatinib (no KG path — truly random cross-domain control)",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H5023",
+    "method": "C_rand_v2",
+    "description": "p53 Pathway randomly paired with Memantine (no KG path — truly random cross-domain control)",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H5024",
+    "method": "C_rand_v2",
+    "description": "Gefitinib randomly paired with AMPK-alpha (no KG path — truly random cross-domain control)",
+    "label_layer1": "investigated_but_inconclusive",
+    "rationale_layer1": "PubMed 2024-2025: 1 total hits, 1 fetched; 1 supporting, 0 contradictory, 0 inconclusive. Evidence exists but mixed.",
+    "total_pubmed_hits_2024_2025": 1
+  },
+  {
+    "id": "H5025",
+    "method": "C_rand_v2",
+    "description": "COX Inhibition randomly paired with BCL-2 (no KG path — truly random cross-domain control)",
+    "label_layer1": "partially_supported",
+    "rationale_layer1": "PubMed 2024-2025: 1 total hits, 1 fetched; 0 supporting, 0 contradictory, 0 inconclusive. Some evidence found; labelled conservatively.",
+    "total_pubmed_hits_2024_2025": 1
+  },
+  {
+    "id": "H5026",
+    "method": "C_rand_v2",
+    "description": "VEGFR Target randomly paired with AMPK-alpha (no KG path — truly random cross-domain control)",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H5027",
+    "method": "C_rand_v2",
+    "description": "Coenzyme Q10 randomly paired with Colorectal Cancer (no KG path — truly random cross-domain control)",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 4 total hits, 4 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 4
+  },
+  {
+    "id": "H5028",
+    "method": "C_rand_v2",
+    "description": "CDK4 randomly paired with mTOR Kinase (no KG path — truly random cross-domain control)",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 126 total hits, 5 fetched; 2 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 126
+  },
+  {
+    "id": "H5029",
+    "method": "C_rand_v2",
+    "description": "HDAC Inhibition randomly paired with Obesity (no KG path — truly random cross-domain control)",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H5030",
+    "method": "C_rand_v2",
+    "description": "Trastuzumab randomly paired with Neuroinflammation (no KG path — truly random cross-domain control)",
+    "label_layer1": "partially_supported",
+    "rationale_layer1": "PubMed 2024-2025: 1 total hits, 1 fetched; 0 supporting, 0 contradictory, 0 inconclusive. Some evidence found; labelled conservatively.",
+    "total_pubmed_hits_2024_2025": 1
+  },
+  {
+    "id": "H5031",
+    "method": "C_rand_v2",
+    "description": "mTOR Kinase randomly paired with EGFR (no KG path — truly random cross-domain control)",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 369 total hits, 5 fetched; 2 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 369
+  },
+  {
+    "id": "H5032",
+    "method": "C_rand_v2",
+    "description": "Beta-Amyloid Aggregation randomly paired with HDAC Inhibition (no KG path — truly random cross-domain control)",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H5033",
+    "method": "C_rand_v2",
+    "description": "PDE5 Inhibition randomly paired with Alzheimer's Disease (no KG path — truly random cross-domain control)",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 5 total hits, 5 fetched; 4 supporting, 0 contradictory, 1 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 5
+  },
+  {
+    "id": "H5034",
+    "method": "C_rand_v2",
+    "description": "mTOR Kinase randomly paired with Type 2 Diabetes (no KG path — truly random cross-domain control)",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 165 total hits, 5 fetched; 2 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 165
+  },
+  {
+    "id": "H5035",
+    "method": "C_rand_v2",
+    "description": "Insulin Resistance randomly paired with PPAR Activation (no KG path — truly random cross-domain control)",
+    "label_layer1": "investigated_but_inconclusive",
+    "rationale_layer1": "PubMed 2024-2025: 2 total hits, 2 fetched; 1 supporting, 0 contradictory, 0 inconclusive. Evidence exists but mixed.",
+    "total_pubmed_hits_2024_2025": 2
+  },
+  {
+    "id": "H5036",
+    "method": "C_rand_v2",
+    "description": "Phospho-tau randomly paired with Proteasome Inhibition (no KG path — truly random cross-domain control)",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H5037",
+    "method": "C_rand_v2",
+    "description": "Wnt Signaling randomly paired with Rapamycin (no KG path — truly random cross-domain control)",
+    "label_layer1": "investigated_but_inconclusive",
+    "rationale_layer1": "PubMed 2024-2025: 23 total hits, 5 fetched; 0 supporting, 0 contradictory, 1 inconclusive. Evidence exists but mixed.",
+    "total_pubmed_hits_2024_2025": 23
+  },
+  {
+    "id": "H5038",
+    "method": "C_rand_v2",
+    "description": "Imatinib randomly paired with PI3K-AKT (no KG path — truly random cross-domain control)",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 19 total hits, 5 fetched; 2 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 19
+  },
+  {
+    "id": "H5039",
+    "method": "C_rand_v2",
+    "description": "MAPK-ERK randomly paired with Hydroxychloroquine (no KG path — truly random cross-domain control)",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H5040",
+    "method": "C_rand_v2",
+    "description": "GSK3-beta randomly paired with Coenzyme Q10 (no KG path — truly random cross-domain control)",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H5041",
+    "method": "C_rand_v2",
+    "description": "Gefitinib randomly paired with SIRT1 (no KG path — truly random cross-domain control)",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H5042",
+    "method": "C_rand_v2",
+    "description": "Huntington's Disease randomly paired with Memantine (no KG path — truly random cross-domain control)",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 6 total hits, 5 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 6
+  },
+  {
+    "id": "H5043",
+    "method": "C_rand_v2",
+    "description": "Amyloid-beta 42 randomly paired with Kaempferol (no KG path — truly random cross-domain control)",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H5044",
+    "method": "C_rand_v2",
+    "description": "Nicotinamide Riboside randomly paired with Amyloid Cascade (no KG path — truly random cross-domain control)",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H5045",
+    "method": "C_rand_v2",
+    "description": "Nicotinamide Riboside randomly paired with Huntington's Disease (no KG path — truly random cross-domain control)",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H5046",
+    "method": "C_rand_v2",
+    "description": "TNF-alpha randomly paired with STAT3 Inhibition (no KG path — truly random cross-domain control)",
+    "label_layer1": "partially_supported",
+    "rationale_layer1": "PubMed 2024-2025: 5 total hits, 5 fetched; 1 supporting, 0 contradictory, 0 inconclusive. Moderate positive signals.",
+    "total_pubmed_hits_2024_2025": 5
+  },
+  {
+    "id": "H5047",
+    "method": "C_rand_v2",
+    "description": "JAK-STAT randomly paired with mTOR Kinase (no KG path — truly random cross-domain control)",
+    "label_layer1": "partially_supported",
+    "rationale_layer1": "PubMed 2024-2025: 205 total hits, 5 fetched; 1 supporting, 0 contradictory, 0 inconclusive. Moderate positive signals.",
+    "total_pubmed_hits_2024_2025": 205
+  },
+  {
+    "id": "H5048",
+    "method": "C_rand_v2",
+    "description": "Erlotinib randomly paired with Tumor Angiogenesis (no KG path — truly random cross-domain control)",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 4 total hits, 4 fetched; 3 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 4
+  },
+  {
+    "id": "H5049",
+    "method": "C_rand_v2",
+    "description": "EGFR Kinase randomly paired with NRF2 (no KG path — truly random cross-domain control)",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H5050",
+    "method": "C_rand_v2",
+    "description": "Protein Aggregation randomly paired with Lithium (no KG path — truly random cross-domain control)",
+    "label_layer1": "investigated_but_inconclusive",
+    "rationale_layer1": "PubMed 2024-2025: 1 total hits, 1 fetched; 1 supporting, 0 contradictory, 0 inconclusive. Evidence exists but mixed.",
+    "total_pubmed_hits_2024_2025": 1
+  },
+  {
+    "id": "H5051",
+    "method": "C_rand_v2",
+    "description": "Cell Senescence randomly paired with Coenzyme Q10 (no KG path — truly random cross-domain control)",
+    "label_layer1": "investigated_but_inconclusive",
+    "rationale_layer1": "PubMed 2024-2025: 2 total hits, 2 fetched; 1 supporting, 0 contradictory, 0 inconclusive. Evidence exists but mixed.",
+    "total_pubmed_hits_2024_2025": 2
+  },
+  {
+    "id": "H5052",
+    "method": "C_rand_v2",
+    "description": "VEGFR Inhibition randomly paired with Tau Protein (no KG path — truly random cross-domain control)",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H5053",
+    "method": "C_rand_v2",
+    "description": "Prostate Cancer randomly paired with Curcumin (no KG path — truly random cross-domain control)",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 46 total hits, 5 fetched; 4 supporting, 0 contradictory, 1 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 46
+  },
+  {
+    "id": "H5054",
+    "method": "C_rand_v2",
+    "description": "STAT3 Inhibition randomly paired with Obesity (no KG path — truly random cross-domain control)",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 3 total hits, 3 fetched; 2 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 3
+  },
+  {
+    "id": "H5055",
+    "method": "C_rand_v2",
+    "description": "Curcumin randomly paired with Heart Failure (no KG path — truly random cross-domain control)",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 13 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 13
+  },
+  {
+    "id": "H5056",
+    "method": "C_rand_v2",
+    "description": "Obesity randomly paired with HDAC Inhibition (no KG path — truly random cross-domain control)",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H5057",
+    "method": "C_rand_v2",
+    "description": "PDE5 Inhibition randomly paired with Breast Cancer (no KG path — truly random cross-domain control)",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H5058",
+    "method": "C_rand_v2",
+    "description": "Beta-Amyloid Aggregation randomly paired with SIRT1 Activation (no KG path — truly random cross-domain control)",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H5059",
+    "method": "C_rand_v2",
+    "description": "TNF-alpha randomly paired with VEGFR Inhibition (no KG path — truly random cross-domain control)",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H5060",
+    "method": "C_rand_v2",
+    "description": "Rheumatoid Arthritis randomly paired with EGFR Kinase (no KG path — truly random cross-domain control)",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H5061",
+    "method": "C_rand_v2",
+    "description": "Nicotinamide Riboside randomly paired with JAK-STAT (no KG path — truly random cross-domain control)",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H5062",
+    "method": "C_rand_v2",
+    "description": "PI3K Inhibition randomly paired with Insulin Resistance (no KG path — truly random cross-domain control)",
+    "label_layer1": "investigated_but_inconclusive",
+    "rationale_layer1": "PubMed 2024-2025: 2 total hits, 2 fetched; 1 supporting, 0 contradictory, 0 inconclusive. Evidence exists but mixed.",
+    "total_pubmed_hits_2024_2025": 2
+  },
+  {
+    "id": "H5063",
+    "method": "C_rand_v2",
+    "description": "mTOR Inhibition randomly paired with VEGF (no KG path — truly random cross-domain control)",
+    "label_layer1": "partially_supported",
+    "rationale_layer1": "PubMed 2024-2025: 5 total hits, 5 fetched; 0 supporting, 0 contradictory, 0 inconclusive. Some evidence found; labelled conservatively.",
+    "total_pubmed_hits_2024_2025": 5
+  },
+  {
+    "id": "H5064",
+    "method": "C_rand_v2",
+    "description": "Alpha-synuclein randomly paired with Coenzyme Q10 (no KG path — truly random cross-domain control)",
+    "label_layer1": "partially_supported",
+    "rationale_layer1": "PubMed 2024-2025: 3 total hits, 3 fetched; 1 supporting, 0 contradictory, 0 inconclusive. Moderate positive signals.",
+    "total_pubmed_hits_2024_2025": 3
+  },
+  {
+    "id": "H5065",
+    "method": "C_rand_v2",
+    "description": "Colorectal Cancer randomly paired with BCL-2 Inhibition (no KG path — truly random cross-domain control)",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H5066",
+    "method": "C_rand_v2",
+    "description": "Wnt Inhibition randomly paired with Wnt Signaling (no KG path — truly random cross-domain control)",
+    "label_layer1": "investigated_but_inconclusive",
+    "rationale_layer1": "PubMed 2024-2025: 30 total hits, 5 fetched; 0 supporting, 0 contradictory, 1 inconclusive. Evidence exists but mixed.",
+    "total_pubmed_hits_2024_2025": 30
+  },
+  {
+    "id": "H5067",
+    "method": "C_rand_v2",
+    "description": "Kaempferol randomly paired with Protein Aggregation (no KG path — truly random cross-domain control)",
+    "label_layer1": "not_investigated",
+    "rationale_layer1": "No papers found in PubMed 2024-2025 for this entity pair.",
+    "total_pubmed_hits_2024_2025": 0
+  },
+  {
+    "id": "H5068",
+    "method": "C_rand_v2",
+    "description": "Berberine randomly paired with Amyloid Precursor Protein (no KG path — truly random cross-domain control)",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 5 total hits, 5 fetched; 4 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 5
+  },
+  {
+    "id": "H5069",
+    "method": "C_rand_v2",
+    "description": "STAT3 randomly paired with Sildenafil (no KG path — truly random cross-domain control)",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 3 total hits, 3 fetched; 2 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 3
+  },
+  {
+    "id": "H5070",
+    "method": "C_rand_v2",
+    "description": "Sildenafil randomly paired with Neurodegeneration (no KG path — truly random cross-domain control)",
+    "label_layer1": "supported",
+    "rationale_layer1": "PubMed 2024-2025: 4 total hits, 4 fetched; 2 supporting, 0 contradictory, 0 inconclusive. Strong positive signals.",
+    "total_pubmed_hits_2024_2025": 4
+  }
+]

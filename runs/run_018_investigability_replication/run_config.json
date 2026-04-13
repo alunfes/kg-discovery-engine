@@ -1,0 +1,29 @@
+{
+  "run_id": "run_018_investigability_replication",
+  "date": "2026-04-14T07:02:44Z",
+  "description": "Investigability replication: N=70 per method (50 from run_017 + 20 new). Purpose: replicate SC-3r (investigability PASS, p=0.0007). NOT intended to rescue SC-1r.",
+  "seed": 42,
+  "n_per_method": 70,
+  "total": 210,
+  "pre_registration": "configs/investigability_registry.json",
+  "methods": {
+    "C2_multi_op": {
+      "description": "Multi-op cross-domain pipeline (align→compose)",
+      "n": 70,
+      "run_017_carry": 50,
+      "new_018": 20
+    },
+    "C1_compose": {
+      "description": "Single-op bio-only compose",
+      "n": 70,
+      "run_017_carry": 50,
+      "new_018": 20
+    },
+    "C_rand_v2": {
+      "description": "Truly random cross-domain pairs (blacklisted)",
+      "n": 70,
+      "run_017_carry": 50,
+      "new_018": 20
+    }
+  }
+}
