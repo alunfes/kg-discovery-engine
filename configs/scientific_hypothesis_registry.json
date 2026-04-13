@@ -1,0 +1,121 @@
+{
+  "schema_version": "1.0",
+  "frozen": false,
+  "_comment_frozen": "Set to true BEFORE running hypothesis generation. Never modify after freezing except via change log in pre_registration.md.",
+
+  "selected_theme": "biology_x_chemistry",
+  "selected_subtheme": "drug_repurposing",
+
+  "corpus_sources": [
+    {
+      "name": "PubMed_MEDLINE_bulk",
+      "description": "MEDLINE bulk export (static XML dump), filtered to biology/chemistry/pharmacology MeSH terms",
+      "access_method": "static_file",
+      "file_path": "data/corpus/past/pubmed_bulk_filtered.jsonl",
+      "md5sum": null,
+      "_comment_md5sum": "Fill in after corpus download, before freezing"
+    },
+    {
+      "name": "bioRxiv_static_dump",
+      "description": "bioRxiv preprints static JSON dump, categories: bioinformatics, pharmacology_toxicology, biochemistry",
+      "access_method": "static_file",
+      "file_path": "data/corpus/past/biorxiv_static.jsonl",
+      "md5sum": null
+    }
+  ],
+
+  "training_period_end": "2023-12-31",
+  "validation_period_start": "2024-01-01",
+  "validation_period_end": "2025-12-31",
+
+  "kg_generation_commit": null,
+  "_comment_kg_commit": "Fill in git commit hash of KG generation script before freezing",
+
+  "hypothesis_generation_commit": null,
+  "_comment_hyp_commit": "Fill in git commit hash of hypothesis generation script before freezing",
+
+  "random_seed": 42,
+
+  "operator_set": {
+    "C2_multi_op": ["align", "union", "compose", "difference"],
+    "C1_compose": ["compose"],
+    "C1_diff": ["difference"],
+    "C_rand": ["random_path"]
+  },
+
+  "baseline_types": ["C1_compose", "C1_diff", "C_rand"],
+
+  "max_hypotheses_per_method": 50,
+  "mvp_hypotheses_per_method": 20,
+
+  "compose_params": {
+    "max_depth": 3,
+    "max_per_source": 10,
+    "filter_relations": [],
+    "guard_consecutive_repeat": true,
+    "min_strong_ratio": 0.4,
+    "filter_generic_intermediates": true
+  },
+
+  "novelty_scoring_rule": {
+    "source": "src/eval/scorer.py::_score_novelty",
+    "thresholds": {
+      "cross_domain_new_edge": 1.0,
+      "same_domain_new_edge": 0.8,
+      "reframed": 0.5,
+      "near_equivalent": 0.2,
+      "already_exists": 0.0
+    },
+    "high_novelty_threshold": 0.7
+  },
+
+  "support_labeling_rule": {
+    "source": "docs/scientific_hypothesis/labeling_protocol.md",
+    "labels": [
+      "supported",
+      "partially_supported",
+      "contradicted",
+      "investigated_but_inconclusive",
+      "not_investigated"
+    ],
+    "primary_labeler": null,
+    "_comment_labeler": "Fill in before labeling starts",
+    "double_review_sample_rate": 0.20,
+    "adjudication_rule": "conservative_downgrade"
+  },
+
+  "success_criteria": {
+    "SC_1": {
+      "description": "precision_positive(C2) > precision_positive(C_rand)",
+      "test": "Fisher's exact test, one-sided",
+      "alpha": 0.05,
+      "required": true
+    },
+    "SC_2": {
+      "description": "investigability(C2) >= investigability(C_rand)",
+      "test": "descriptive + 95% CI",
+      "required": false
+    },
+    "SC_3": {
+      "description": "high_novelty_uninvestigated_rate(C2) > high_novelty_uninvestigated_rate(C_rand)",
+      "test": "Fisher's exact test, one-sided",
+      "alpha": 0.05,
+      "required": false
+    }
+  },
+
+  "output_paths": {
+    "hypothesis_candidates": "runs/run_sci_{NNN}_{YYYYMMDD}/output_candidates.json",
+    "labels": "runs/run_sci_{NNN}_{YYYYMMDD}/labels.json",
+    "analysis_results": "runs/run_sci_{NNN}_{YYYYMMDD}/analysis_results.json",
+    "review_memo": "runs/run_sci_{NNN}_{YYYYMMDD}/review_memo.md"
+  },
+
+  "exclusion_rules": [
+    "duplicate_subject_relation_object_across_methods__keep_C2",
+    "already_exists_in_past_kg__novelty_zero",
+    "unparseable_hypothesis__null_subject_or_object"
+  ],
+
+  "created_at": "2026-04-13"
+}
