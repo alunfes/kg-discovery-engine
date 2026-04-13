@@ -1,0 +1,44 @@
+{
+  "multi_op": {
+    "method": "multi_op",
+    "count": 3,
+    "avg_chain_length": 5.0,
+    "min_chain_length": 5,
+    "max_chain_length": 5,
+    "top_5_relation_ratios": {
+      "aligned_to": 0.5,
+      "regulates": 0.167,
+      "targets": 0.167,
+      "inhibits": 0.167
+    }
+  },
+  "single_op": {
+    "method": "single_op",
+    "count": 5,
+    "avg_chain_length": 5.0,
+    "min_chain_length": 5,
+    "max_chain_length": 5,
+    "top_5_relation_ratios": {
+      "promotes": 0.3,
+      "drives": 0.2,
+      "regulates": 0.2,
+      "causes": 0.1,
+      "activates": 0.1
+    }
+  },
+  "random": {
+    "method": "random",
+    "count": 2,
+    "avg_chain_length": 5.0,
+    "min_chain_length": 5,
+    "max_chain_length": 5,
+    "top_5_relation_ratios": {
+      "drives": 0.5,
+      "is_target_of": 0.25,
+      "causes": 0.25
+    }
+  },
+  "parity_feasible": true,
+  "parity_note": "Chain length can be matched by sampling random with same distribution. Relation type composition will differ by design (cross-domain vs intra-domain).",
+  "go": true
+}

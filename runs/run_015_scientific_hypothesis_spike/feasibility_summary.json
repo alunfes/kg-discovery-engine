@@ -1,0 +1,252 @@
+{
+  "run_id": "run_015_scientific_hypothesis_spike",
+  "date": "2026-04-13T14:10:36.358226Z",
+  "past_corpus": {
+    "query": "(\"drug repurposing\"[tiab] OR \"drug repositioning\"[tiab]) AND (\"enzyme\"[tiab] OR \"catalyst\"[tiab] OR \"pathway\"[tiab] OR \"metabolic\"[tiab] OR \"inhibit\"[tiab])",
+    "date_range": {
+      "from": "1900/01/01",
+      "to": "2023/12/31"
+    },
+    "total_count": 1762,
+    "sample_pmids": [
+      "39474132",
+      "38275586",
+      "38274128",
+      "38273827",
+      "38261805"
+    ],
+    "sample_titles": [
+      {
+        "pmid": "39474132",
+        "title": "In silico drug repurposing using molecular docking and dynamics to target the protein interaction between the SARS-CoV-2 S-glycoprotein and the ACE2 receptor.",
+        "pubdate": "2023",
+        "source": "F1000Res"
+      },
+      {
+        "pmid": "38275586",
+        "title": "Ezetimibe Induces Paraptosis through Niemann-Pick C1-like 1 Inhibition of Mammalian-Target-of-Rapamycin Signaling in Hepatocellular Carcinoma Cells.",
+        "pubdate": "2023 Dec 19",
+        "source": "Genes (Basel)"
+      },
+      {
+        "pmid": "38274128",
+        "title": "Exploring gene-drug interactions for personalized treatment of post-traumatic stress disorder.",
+        "pubdate": "2023",
+        "source": "Front Comput Neurosci"
+      },
+      {
+        "pmid": "38273827",
+        "title": "Antifungal activity of the repurposed drug disulfiram against Cryptococcus neoformans.",
+        "pubdate": "2023",
+        "source": "Front Pharmacol"
+      },
+      {
+        "pmid": "38261805",
+        "title": "A multidimensional platform of patient-derived tumors identifies drug susceptibilities for clinical lenvatinib resistance.",
+        "pubdate": "2024 Jan",
+        "source": "Acta Pharm Sin B"
+      }
+    ],
+    "go_threshold": 1000,
+    "go": true
+  },
+  "validation_corpus": {
+    "query": "(\"drug repurposing\"[tiab] OR \"drug repositioning\"[tiab]) AND (\"Alzheimer\"[tiab] OR \"Parkinson\"[tiab] OR \"diabetes\"[tiab] OR \"cancer\"[tiab] OR \"mTOR\"[tiab] OR \"AMPK\"[tiab] OR \"BACE1\"[tiab])",
+    "date_range": {
+      "from": "2024/01/01",
+      "to": "2025/12/31"
+    },
+    "total_count": 1266,
+    "sample_pmids": [
+      "41938594",
+      "41674567",
+      "41657774",
+      "41641362",
+      "41641000",
+      "41614823",
+      "41614590",
+      "41601982",
+      "41601623",
+      "41599145"
+    ],
+    "sample_titles": [
+      {
+        "pmid": "41938594",
+        "title": "Node2Vec-DGI-EL: a hierarchical graph representation learning model for ingredient-disease association prediction.",
+        "pubdate": "2026",
+        "source": "Bioinform Adv"
+      },
+      {
+        "pmid": "41674567",
+        "title": "Leveraging genetic data for female breast cancer prevention and therapy: Perspectives from Mendelian randomization.",
+        "pubdate": "2025 Sep",
+        "source": "IMetaOmics"
+      },
+      {
+        "pmid": "41657774",
+        "title": "Integrative multi-omics and experimental analyses implicate PTK2 as a lorazepam-associated biomarker and potential therapeutic target in ovarian cancer.",
+        "pubdate": "2025",
+        "source": "Front Pharmacol"
+      },
+      {
+        "pmid": "41641362",
+        "title": "Single-Cell Lineage Trajectory Defines Cyclin-Dependent Kinase Inhibitor-Sensitive Cells-of-Origin in Esophageal Squamous Cell Carcinoma.",
+        "pubdate": "2026",
+        "source": "Gastro Hep Adv"
+      },
+      {
+        "pmid": "41641000",
+        "title": "Mechanisms to medicines: navigating drug repurposing strategies in Alzheimer's disease.",
+        "pubdate": "2025",
+        "source": "Front Aging Neurosci"
+      },
+      {
+        "pmid": "41614823",
+        "title": "Novel Synthetic Steroid Derivatives: Target Prediction and Biological Evaluation of Antiandrogenic Activity.",
+        "pubdate": "2025 Dec 17",
+        "source": "Curr Issues Mol Biol"
+      },
+      {
+        "pmid": "41614590",
+        "title": "Beyond cardiovascular health: The pharmacotherapeutic potential of statins in oncology.",
+        "pubdate": "2025 Dec",
+        "source": "Semin Cancer Biol"
+      },
+      {
+        "pmid": "41601982",
+        "title": "Editorial: Genomic discoveries and pharmaceutical development in urologic tumors - volume II.",
+        "pubdate": "2025",
+        "source": "Front Pharmacol"
+      },
+      {
+        "pmid": "41601623",
+        "title": "Integrated multi-omics and single-cell analysis identify SERPINE1 as a key mediator of the inflammatory tumor microenvironment in PDAC.",
+        "pubdate": "2025",
+        "source": "Front Immunol"
+      },
+      {
+        "pmid": "41599145",
+        "title": "Sitagliptin Potentiates the Anticancer Activity of Doxorubicin Through ROS-Driven Apoptosis and MMP/TIMP Regulation in HeLa Cells.",
+        "pubdate": "2025 Dec 26",
+        "source": "Pharmaceutics"
+      }
+    ],
+    "go_threshold": 30,
+    "go": true
+  },
+  "hypothesis_generation": {
+    "multi_op_count": 3,
+    "single_op_count": 5,
+    "random_count": 2
+  },
+  "labeling": {
+    "hypotheses_labeled": 8,
+    "elapsed_seconds": 0.0,
+    "est_seconds_per_hypothesis": 0.0,
+    "label_distribution": {
+      "supported": 7,
+      "partially_supported": 1
+    },
+    "est_60_hypotheses_minutes": 0.0,
+    "est_2h_capacity": 1643482384,
+    "go_threshold_10_hypotheses_under_2h": true,
+    "note": "Labeling time for automated pre-annotation is <1s. Manual researcher time estimated at 5-10min/hypothesis.",
+    "manual_est_10_hypotheses_minutes": "50-100 minutes",
+    "manual_go": true
+  },
+  "baseline_parity": {
+    "multi_op": {
+      "method": "multi_op",
+      "count": 3,
+      "avg_chain_length": 5.0,
+      "min_chain_length": 5,
+      "max_chain_length": 5,
+      "top_5_relation_ratios": {
+        "aligned_to": 0.5,
+        "regulates": 0.167,
+        "targets": 0.167,
+        "inhibits": 0.167
+      }
+    },
+    "single_op": {
+      "method": "single_op",
+      "count": 5,
+      "avg_chain_length": 5.0,
+      "min_chain_length": 5,
+      "max_chain_length": 5,
+      "top_5_relation_ratios": {
+        "promotes": 0.3,
+        "drives": 0.2,
+        "regulates": 0.2,
+        "causes": 0.1,
+        "activates": 0.1
+      }
+    },
+    "random": {
+      "method": "random",
+      "count": 2,
+      "avg_chain_length": 5.0,
+      "min_chain_length": 5,
+      "max_chain_length": 5,
+      "top_5_relation_ratios": {
+        "drives": 0.5,
+        "is_target_of": 0.25,
+        "causes": 0.25
+      }
+    },
+    "parity_feasible": true,
+    "parity_note": "Chain length can be matched by sampling random with same distribution. Relation type composition will differ by design (cross-domain vs intra-domain).",
+    "go": true
+  },
+  "scalability": {
+    "seed_nodes": 25,
+    "target_nodes": 200,
+    "scale_factor": 8,
+    "manual_curation_estimate": {
+      "min_per_node_manual": 5,
+      "max_per_node_manual": 12,
+      "total_hours_min": 16.7,
+      "total_hours_max": 40.0
+    },
+    "structured_source_estimate": {
+      "sources": [
+        "DrugBank XML (public)",
+        "UniProt flat files",
+        "KEGG PATHWAY API"
+      ],
+      "approach": "Parse structured exports and template-map to KGNode/KGEdge schema",
+      "total_hours": 4.0,
+      "note": "DrugBank XML alone has >14k approved drug entries; filter to repurposing candidates in ~2h"
+    },
+    "go_threshold_hours": 72,
+    "go": true,
+    "preferred_approach": "structured_source"
+  },
+  "verdict": {
+    "criteria": {
+      "past_corpus_1000_papers": {
+        "result": true,
+        "value": 1762
+      },
+      "200_node_kg_under_3_days": {
+        "result": true,
+        "value": "4.0h estimated"
+      },
+      "validation_corpus_30_papers": {
+        "result": true,
+        "value": 1266
+      },
+      "10_hypothesis_labeling_under_2h": {
+        "result": true,
+        "value": "~50-100min manual"
+      },
+      "baseline_parity_feasible": {
+        "result": true
+      }
+    },
+    "verdict": "GO",
+    "all_criteria_met": true,
+    "fallback_if_no_go": "DeFi × behavioral finance — lower signal confidence but avoids manual KG curation bottleneck",
+    "recommendation": "Proceed to Phase 1 (KG construction from DrugBank + UniProt public exports). Use template-based extraction to reach 200 nodes in ~4h. Pre-register 10 drug repurposing hypotheses before 2024 literature review."
+  }
+}

@@ -1,0 +1,340 @@
+{
+  "run_id": "run_015_scientific_hypothesis_spike",
+  "date": "2026-04-13T14:10:36.353468Z",
+  "multi_op_count": 3,
+  "single_op_count": 5,
+  "random_count": 2,
+  "selected_for_dry_run": 8,
+  "multi_op_hypotheses": [
+    {
+      "id": "H0005",
+      "subject_id": "bio:pathway:mtor_signaling",
+      "relation": "transitively_related_to",
+      "object_id": "chem:mechanism:ampk_activation",
+      "description": "mTOR Signaling Pathway may transitively_related_to AMPK Activation Mechanism via path: bio:pathway:mtor_signaling -> regulates -> bio:pathway:ampk_pathway -> aligned_to -> chem:mechanism:ampk_activation",
+      "provenance": [
+        "bio:pathway:mtor_signaling",
+        "regulates",
+        "bio:pathway:ampk_pathway",
+        "aligned_to",
+        "chem:mechanism:ampk_activation"
+      ],
+      "operator": "compose",
+      "source_kg_name": "aligned_bio_chem",
+      "method": "multi_op",
+      "chain_length": 5
+    },
+    {
+      "id": "H0007",
+      "subject_id": "bio:pathway:mtor_signaling",
+      "relation": "transitively_related_to",
+      "object_id": "chem:target:mtor_kinase",
+      "description": "mTOR Signaling Pathway may transitively_related_to mTOR Kinase Target via path: bio:pathway:mtor_signaling -> aligned_to -> chem:mechanism:mtor_inhibition -> targets -> chem:target:mtor_kinase",
+      "provenance": [
+        "bio:pathway:mtor_signaling",
+        "aligned_to",
+        "chem:mechanism:mtor_inhibition",
+        "targets",
+        "chem:target:mtor_kinase"
+      ],
+      "operator": "compose",
+      "source_kg_name": "aligned_bio_chem",
+      "method": "multi_op",
+      "chain_length": 5
+    },
+    {
+      "id": "H0008",
+      "subject_id": "bio:pathway:ampk_pathway",
+      "relation": "transitively_related_to",
+      "object_id": "chem:target:mtor_kinase",
+      "description": "AMPK Metabolic Pathway may transitively_related_to mTOR Kinase Target via path: bio:pathway:ampk_pathway -> aligned_to -> chem:mechanism:ampk_activation -> inhibits -> chem:target:mtor_kinase",
+      "provenance": [
+        "bio:pathway:ampk_pathway",
+        "aligned_to",
+        "chem:mechanism:ampk_activation",
+        "inhibits",
+        "chem:target:mtor_kinase"
+      ],
+      "operator": "compose",
+      "source_kg_name": "aligned_bio_chem",
+      "method": "multi_op",
+      "chain_length": 5
+    }
+  ],
+  "single_op_hypotheses": [
+    {
+      "id": "H1001",
+      "subject_id": "bio:protein:bace1",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:alzheimers",
+      "description": "BACE1 Protease may transitively_related_to Alzheimer's Disease via path: bio:protein:bace1 -> drives -> bio:pathway:amyloid_cascade -> causes -> bio:disease:alzheimers",
+      "provenance": [
+        "bio:protein:bace1",
+        "drives",
+        "bio:pathway:amyloid_cascade",
+        "causes",
+        "bio:disease:alzheimers"
+      ],
+      "operator": "compose",
+      "source_kg_name": "biology",
+      "method": "single_op",
+      "chain_length": 5
+    },
+    {
+      "id": "H1002",
+      "subject_id": "bio:protein:her2",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:breast_cancer",
+      "description": "HER2 Receptor may transitively_related_to Breast Cancer via path: bio:protein:her2 -> drives -> bio:pathway:pi3k_akt -> promotes -> bio:disease:breast_cancer",
+      "provenance": [
+        "bio:protein:her2",
+        "drives",
+        "bio:pathway:pi3k_akt",
+        "promotes",
+        "bio:disease:breast_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "biology",
+      "method": "single_op",
+      "chain_length": 5
+    },
+    {
+      "id": "H1003",
+      "subject_id": "bio:protein:tnf_alpha",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:breast_cancer",
+      "description": "TNF-alpha Cytokine may transitively_related_to Breast Cancer via path: bio:protein:tnf_alpha -> activates -> bio:pathway:pi3k_akt -> promotes -> bio:disease:breast_cancer",
+      "provenance": [
+        "bio:protein:tnf_alpha",
+        "activates",
+        "bio:pathway:pi3k_akt",
+        "promotes",
+        "bio:disease:breast_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "biology",
+      "method": "single_op",
+      "chain_length": 5
+    },
+    {
+      "id": "H1004",
+      "subject_id": "bio:pathway:mtor_signaling",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:type2_diabetes",
+      "description": "mTOR Signaling Pathway may transitively_related_to Type 2 Diabetes via path: bio:pathway:mtor_signaling -> regulates -> bio:pathway:ampk_pathway -> inhibits -> bio:disease:type2_diabetes",
+      "provenance": [
+        "bio:pathway:mtor_signaling",
+        "regulates",
+        "bio:pathway:ampk_pathway",
+        "inhibits",
+        "bio:disease:type2_diabetes"
+      ],
+      "operator": "compose",
+      "source_kg_name": "biology",
+      "method": "single_op",
+      "chain_length": 5
+    },
+    {
+      "id": "H1005",
+      "subject_id": "bio:pathway:mtor_signaling",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:breast_cancer",
+      "description": "mTOR Signaling Pathway may transitively_related_to Breast Cancer via path: bio:pathway:mtor_signaling -> regulates -> bio:pathway:pi3k_akt -> promotes -> bio:disease:breast_cancer",
+      "provenance": [
+        "bio:pathway:mtor_signaling",
+        "regulates",
+        "bio:pathway:pi3k_akt",
+        "promotes",
+        "bio:disease:breast_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "biology",
+      "method": "single_op",
+      "chain_length": 5
+    }
+  ],
+  "random_hypotheses": [
+    {
+      "id": "H2001",
+      "subject_id": "chem:target:bace1_enzyme",
+      "subject_label": "BACE1 Enzyme Target",
+      "relation": "randomly_related_to",
+      "object_id": "bio:pathway:amyloid_cascade",
+      "object_label": "Amyloid Cascade Pathway",
+      "description": "BACE1 Enzyme Target randomly linked to Amyloid Cascade Pathway via path: chem:target:bace1_enzyme -> is_target_of -> bio:protein:bace1 -> drives -> bio:pathway:amyloid_cascade",
+      "provenance": [
+        "chem:target:bace1_enzyme",
+        "is_target_of",
+        "bio:protein:bace1",
+        "drives",
+        "bio:pathway:amyloid_cascade"
+      ],
+      "method": "random",
+      "chain_length": 5
+    },
+    {
+      "id": "H2002",
+      "subject_id": "bio:protein:bace1",
+      "subject_label": "BACE1 Protease",
+      "relation": "randomly_related_to",
+      "object_id": "bio:disease:alzheimers",
+      "object_label": "Alzheimer's Disease",
+      "description": "BACE1 Protease randomly linked to Alzheimer's Disease via path: bio:protein:bace1 -> drives -> bio:pathway:amyloid_cascade -> causes -> bio:disease:alzheimers",
+      "provenance": [
+        "bio:protein:bace1",
+        "drives",
+        "bio:pathway:amyloid_cascade",
+        "causes",
+        "bio:disease:alzheimers"
+      ],
+      "method": "random",
+      "chain_length": 5
+    }
+  ],
+  "dry_run_selection": [
+    {
+      "id": "H0008",
+      "subject_id": "bio:pathway:ampk_pathway",
+      "relation": "transitively_related_to",
+      "object_id": "chem:target:mtor_kinase",
+      "description": "AMPK Metabolic Pathway may transitively_related_to mTOR Kinase Target via path: bio:pathway:ampk_pathway -> aligned_to -> chem:mechanism:ampk_activation -> inhibits -> chem:target:mtor_kinase",
+      "provenance": [
+        "bio:pathway:ampk_pathway",
+        "aligned_to",
+        "chem:mechanism:ampk_activation",
+        "inhibits",
+        "chem:target:mtor_kinase"
+      ],
+      "operator": "compose",
+      "source_kg_name": "aligned_bio_chem",
+      "method": "multi_op",
+      "chain_length": 5
+    },
+    {
+      "id": "H0005",
+      "subject_id": "bio:pathway:mtor_signaling",
+      "relation": "transitively_related_to",
+      "object_id": "chem:mechanism:ampk_activation",
+      "description": "mTOR Signaling Pathway may transitively_related_to AMPK Activation Mechanism via path: bio:pathway:mtor_signaling -> regulates -> bio:pathway:ampk_pathway -> aligned_to -> chem:mechanism:ampk_activation",
+      "provenance": [
+        "bio:pathway:mtor_signaling",
+        "regulates",
+        "bio:pathway:ampk_pathway",
+        "aligned_to",
+        "chem:mechanism:ampk_activation"
+      ],
+      "operator": "compose",
+      "source_kg_name": "aligned_bio_chem",
+      "method": "multi_op",
+      "chain_length": 5
+    },
+    {
+      "id": "H0007",
+      "subject_id": "bio:pathway:mtor_signaling",
+      "relation": "transitively_related_to",
+      "object_id": "chem:target:mtor_kinase",
+      "description": "mTOR Signaling Pathway may transitively_related_to mTOR Kinase Target via path: bio:pathway:mtor_signaling -> aligned_to -> chem:mechanism:mtor_inhibition -> targets -> chem:target:mtor_kinase",
+      "provenance": [
+        "bio:pathway:mtor_signaling",
+        "aligned_to",
+        "chem:mechanism:mtor_inhibition",
+        "targets",
+        "chem:target:mtor_kinase"
+      ],
+      "operator": "compose",
+      "source_kg_name": "aligned_bio_chem",
+      "method": "multi_op",
+      "chain_length": 5
+    },
+    {
+      "id": "H1003",
+      "subject_id": "bio:protein:tnf_alpha",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:breast_cancer",
+      "description": "TNF-alpha Cytokine may transitively_related_to Breast Cancer via path: bio:protein:tnf_alpha -> activates -> bio:pathway:pi3k_akt -> promotes -> bio:disease:breast_cancer",
+      "provenance": [
+        "bio:protein:tnf_alpha",
+        "activates",
+        "bio:pathway:pi3k_akt",
+        "promotes",
+        "bio:disease:breast_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "biology",
+      "method": "single_op",
+      "chain_length": 5
+    },
+    {
+      "id": "H1002",
+      "subject_id": "bio:protein:her2",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:breast_cancer",
+      "description": "HER2 Receptor may transitively_related_to Breast Cancer via path: bio:protein:her2 -> drives -> bio:pathway:pi3k_akt -> promotes -> bio:disease:breast_cancer",
+      "provenance": [
+        "bio:protein:her2",
+        "drives",
+        "bio:pathway:pi3k_akt",
+        "promotes",
+        "bio:disease:breast_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "biology",
+      "method": "single_op",
+      "chain_length": 5
+    },
+    {
+      "id": "H1001",
+      "subject_id": "bio:protein:bace1",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:alzheimers",
+      "description": "BACE1 Protease may transitively_related_to Alzheimer's Disease via path: bio:protein:bace1 -> drives -> bio:pathway:amyloid_cascade -> causes -> bio:disease:alzheimers",
+      "provenance": [
+        "bio:protein:bace1",
+        "drives",
+        "bio:pathway:amyloid_cascade",
+        "causes",
+        "bio:disease:alzheimers"
+      ],
+      "operator": "compose",
+      "source_kg_name": "biology",
+      "method": "single_op",
+      "chain_length": 5
+    },
+    {
+      "id": "H2001",
+      "subject_id": "chem:target:bace1_enzyme",
+      "subject_label": "BACE1 Enzyme Target",
+      "relation": "randomly_related_to",
+      "object_id": "bio:pathway:amyloid_cascade",
+      "object_label": "Amyloid Cascade Pathway",
+      "description": "BACE1 Enzyme Target randomly linked to Amyloid Cascade Pathway via path: chem:target:bace1_enzyme -> is_target_of -> bio:protein:bace1 -> drives -> bio:pathway:amyloid_cascade",
+      "provenance": [
+        "chem:target:bace1_enzyme",
+        "is_target_of",
+        "bio:protein:bace1",
+        "drives",
+        "bio:pathway:amyloid_cascade"
+      ],
+      "method": "random",
+      "chain_length": 5
+    },
+    {
+      "id": "H2002",
+      "subject_id": "bio:protein:bace1",
+      "subject_label": "BACE1 Protease",
+      "relation": "randomly_related_to",
+      "object_id": "bio:disease:alzheimers",
+      "object_label": "Alzheimer's Disease",
+      "description": "BACE1 Protease randomly linked to Alzheimer's Disease via path: bio:protein:bace1 -> drives -> bio:pathway:amyloid_cascade -> causes -> bio:disease:alzheimers",
+      "provenance": [
+        "bio:protein:bace1",
+        "drives",
+        "bio:pathway:amyloid_cascade",
+        "causes",
+        "bio:disease:alzheimers"
+      ],
+      "method": "random",
+      "chain_length": 5
+    }
+  ]
+}

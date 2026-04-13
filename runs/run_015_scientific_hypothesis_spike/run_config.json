@@ -1,0 +1,23 @@
+{
+  "run_id": "run_015_scientific_hypothesis_spike",
+  "date": "2026-04-13T14:10:29.912964Z",
+  "seed": 42,
+  "seed_json": "/Users/alun/claude-dev/kg-discovery-engine/src/scientific_hypothesis/bio_chem_kg_seed.json",
+  "past_corpus_cutoff": "2023-12-31",
+  "validation_period": {
+    "from": "2024-01-01",
+    "to": "2025-12-31"
+  },
+  "go_no_go_thresholds": {
+    "past_corpus_papers": 1000,
+    "validation_papers": 30,
+    "kg_200_nodes_days": 3,
+    "labeling_10_hyp_hours": 2
+  },
+  "methods": [
+    "multi_op",
+    "single_op",
+    "random"
+  ],
+  "target_hypotheses": 10
+}

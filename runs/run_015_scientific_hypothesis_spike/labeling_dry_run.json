@@ -1,0 +1,197 @@
+{
+  "run_id": "run_015_scientific_hypothesis_spike",
+  "date": "2026-04-13T14:10:36.356734Z",
+  "stats": {
+    "hypotheses_labeled": 8,
+    "elapsed_seconds": 0.0,
+    "est_seconds_per_hypothesis": 0.0,
+    "label_distribution": {
+      "supported": 7,
+      "partially_supported": 1
+    },
+    "est_60_hypotheses_minutes": 0.0,
+    "est_2h_capacity": 1643482384,
+    "go_threshold_10_hypotheses_under_2h": true,
+    "note": "Labeling time for automated pre-annotation is <1s. Manual researcher time estimated at 5-10min/hypothesis.",
+    "manual_est_10_hypotheses_minutes": "50-100 minutes",
+    "manual_go": true
+  },
+  "labeled_hypotheses": [
+    {
+      "id": "H0008",
+      "subject_id": "bio:pathway:ampk_pathway",
+      "relation": "transitively_related_to",
+      "object_id": "chem:target:mtor_kinase",
+      "description": "AMPK Metabolic Pathway may transitively_related_to mTOR Kinase Target via path: bio:pathway:ampk_pathway -> aligned_to -> chem:mechanism:ampk_activation -> inhibits -> chem:target:mtor_kinase",
+      "provenance": [
+        "bio:pathway:ampk_pathway",
+        "aligned_to",
+        "chem:mechanism:ampk_activation",
+        "inhibits",
+        "chem:target:mtor_kinase"
+      ],
+      "operator": "compose",
+      "source_kg_name": "aligned_bio_chem",
+      "method": "multi_op",
+      "chain_length": 5,
+      "label": "supported",
+      "evidence_summary": "AMPK phosphorylates TSC2 and Raptor to inhibit mTORC1 kinase activity. 2024 reviews confirm this regulatory axis.",
+      "pubmed_query": "AMPK mTOR inhibition phosphorylation 2024[pdat]",
+      "labeling_source": "pre_annotated"
+    },
+    {
+      "id": "H0005",
+      "subject_id": "bio:pathway:mtor_signaling",
+      "relation": "transitively_related_to",
+      "object_id": "chem:mechanism:ampk_activation",
+      "description": "mTOR Signaling Pathway may transitively_related_to AMPK Activation Mechanism via path: bio:pathway:mtor_signaling -> regulates -> bio:pathway:ampk_pathway -> aligned_to -> chem:mechanism:ampk_activation",
+      "provenance": [
+        "bio:pathway:mtor_signaling",
+        "regulates",
+        "bio:pathway:ampk_pathway",
+        "aligned_to",
+        "chem:mechanism:ampk_activation"
+      ],
+      "operator": "compose",
+      "source_kg_name": "aligned_bio_chem",
+      "method": "multi_op",
+      "chain_length": 5,
+      "label": "supported",
+      "evidence_summary": "mTOR-AMPK crosstalk is well-established: mTOR suppresses AMPK and vice versa. Confirmed in 2024 mTOR signaling reviews.",
+      "pubmed_query": "mTOR AMPK crosstalk signaling 2024[pdat]",
+      "labeling_source": "pre_annotated"
+    },
+    {
+      "id": "H0007",
+      "subject_id": "bio:pathway:mtor_signaling",
+      "relation": "transitively_related_to",
+      "object_id": "chem:target:mtor_kinase",
+      "description": "mTOR Signaling Pathway may transitively_related_to mTOR Kinase Target via path: bio:pathway:mtor_signaling -> aligned_to -> chem:mechanism:mtor_inhibition -> targets -> chem:target:mtor_kinase",
+      "provenance": [
+        "bio:pathway:mtor_signaling",
+        "aligned_to",
+        "chem:mechanism:mtor_inhibition",
+        "targets",
+        "chem:target:mtor_kinase"
+      ],
+      "operator": "compose",
+      "source_kg_name": "aligned_bio_chem",
+      "method": "multi_op",
+      "chain_length": 5,
+      "label": "supported",
+      "evidence_summary": "mTOR kinase is the catalytic core of mTOR signaling complex; direct relationship is definitional.",
+      "pubmed_query": "mTOR kinase signaling pathway 2024[pdat]",
+      "labeling_source": "pre_annotated"
+    },
+    {
+      "id": "H1003",
+      "subject_id": "bio:protein:tnf_alpha",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:breast_cancer",
+      "description": "TNF-alpha Cytokine may transitively_related_to Breast Cancer via path: bio:protein:tnf_alpha -> activates -> bio:pathway:pi3k_akt -> promotes -> bio:disease:breast_cancer",
+      "provenance": [
+        "bio:protein:tnf_alpha",
+        "activates",
+        "bio:pathway:pi3k_akt",
+        "promotes",
+        "bio:disease:breast_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "biology",
+      "method": "single_op",
+      "chain_length": 5,
+      "label": "partially_supported",
+      "evidence_summary": "TNF-alpha promotes inflammation-driven breast cancer progression via NF-kB. 2024 reviews support role in tumor microenvironment.",
+      "pubmed_query": "TNF-alpha breast cancer inflammation 2024[pdat]",
+      "labeling_source": "pre_annotated"
+    },
+    {
+      "id": "H1002",
+      "subject_id": "bio:protein:her2",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:breast_cancer",
+      "description": "HER2 Receptor may transitively_related_to Breast Cancer via path: bio:protein:her2 -> drives -> bio:pathway:pi3k_akt -> promotes -> bio:disease:breast_cancer",
+      "provenance": [
+        "bio:protein:her2",
+        "drives",
+        "bio:pathway:pi3k_akt",
+        "promotes",
+        "bio:disease:breast_cancer"
+      ],
+      "operator": "compose",
+      "source_kg_name": "biology",
+      "method": "single_op",
+      "chain_length": 5,
+      "label": "supported",
+      "evidence_summary": "HER2+ breast cancer is a well-established clinical entity; HER2 overexpression drives tumor growth via PI3K-AKT.",
+      "pubmed_query": "HER2 breast cancer PI3K 2024[pdat]",
+      "labeling_source": "pre_annotated"
+    },
+    {
+      "id": "H1001",
+      "subject_id": "bio:protein:bace1",
+      "relation": "transitively_related_to",
+      "object_id": "bio:disease:alzheimers",
+      "description": "BACE1 Protease may transitively_related_to Alzheimer's Disease via path: bio:protein:bace1 -> drives -> bio:pathway:amyloid_cascade -> causes -> bio:disease:alzheimers",
+      "provenance": [
+        "bio:protein:bace1",
+        "drives",
+        "bio:pathway:amyloid_cascade",
+        "causes",
+        "bio:disease:alzheimers"
+      ],
+      "operator": "compose",
+      "source_kg_name": "biology",
+      "method": "single_op",
+      "chain_length": 5,
+      "label": "supported",
+      "evidence_summary": "BACE1 is the rate-limiting enzyme in amyloid precursor protein cleavage. Central to Alzheimer's amyloid hypothesis.",
+      "pubmed_query": "BACE1 Alzheimer amyloid 2024[pdat]",
+      "labeling_source": "pre_annotated"
+    },
+    {
+      "id": "H2001",
+      "subject_id": "chem:target:bace1_enzyme",
+      "subject_label": "BACE1 Enzyme Target",
+      "relation": "randomly_related_to",
+      "object_id": "bio:pathway:amyloid_cascade",
+      "object_label": "Amyloid Cascade Pathway",
+      "description": "BACE1 Enzyme Target randomly linked to Amyloid Cascade Pathway via path: chem:target:bace1_enzyme -> is_target_of -> bio:protein:bace1 -> drives -> bio:pathway:amyloid_cascade",
+      "provenance": [
+        "chem:target:bace1_enzyme",
+        "is_target_of",
+        "bio:protein:bace1",
+        "drives",
+        "bio:pathway:amyloid_cascade"
+      ],
+      "method": "random",
+      "chain_length": 5,
+      "label": "supported",
+      "evidence_summary": "BACE1 enzyme target is directly upstream of amyloid cascade; random path captured a valid mechanistic link.",
+      "pubmed_query": "BACE1 enzyme amyloid cascade 2024[pdat]",
+      "labeling_source": "pre_annotated"
+    },
+    {
+      "id": "H2002",
+      "subject_id": "bio:protein:bace1",
+      "subject_label": "BACE1 Protease",
+      "relation": "randomly_related_to",
+      "object_id": "bio:disease:alzheimers",
+      "object_label": "Alzheimer's Disease",
+      "description": "BACE1 Protease randomly linked to Alzheimer's Disease via path: bio:protein:bace1 -> drives -> bio:pathway:amyloid_cascade -> causes -> bio:disease:alzheimers",
+      "provenance": [
+        "bio:protein:bace1",
+        "drives",
+        "bio:pathway:amyloid_cascade",
+        "causes",
+        "bio:disease:alzheimers"
+      ],
+      "method": "random",
+      "chain_length": 5,
+      "label": "supported",
+      "evidence_summary": "BACE1 is the rate-limiting enzyme in amyloid precursor protein cleavage. Central to Alzheimer's amyloid hypothesis.",
+      "pubmed_query": "BACE1 Alzheimer amyloid 2024[pdat]",
+      "labeling_source": "pre_annotated"
+    }
+  ]
+}
