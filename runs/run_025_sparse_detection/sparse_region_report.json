@@ -1,0 +1,1222 @@
+{
+  "summary": {
+    "total_nodes": 200,
+    "total_edges": 325,
+    "avg_degree": 3.25,
+    "sparse_nodes_count": 131,
+    "sparse_ratio": 0.655,
+    "sparse_bridges_count": 69,
+    "threshold": 3
+  },
+  "sparse_nodes": [
+    {
+      "node_id": "bio:disease:huntingtons",
+      "degree": 1,
+      "local_density": 5.0
+    },
+    {
+      "node_id": "bio:disease:lupus",
+      "degree": 1,
+      "local_density": 3.0
+    },
+    {
+      "node_id": "bio:disease:heart_failure",
+      "degree": 1,
+      "local_density": 11.0
+    },
+    {
+      "node_id": "bio:disease:psoriasis",
+      "degree": 1,
+      "local_density": 3.0
+    },
+    {
+      "node_id": "bio:disease:inflammatory_bowel_disease",
+      "degree": 1,
+      "local_density": 6.0
+    },
+    {
+      "node_id": "bio:protein:bdnf",
+      "degree": 1,
+      "local_density": 5.0
+    },
+    {
+      "node_id": "bio:protein:il1b",
+      "degree": 1,
+      "local_density": 1.0
+    },
+    {
+      "node_id": "bio:protein:ras",
+      "degree": 1,
+      "local_density": 5.0
+    },
+    {
+      "node_id": "bio:protein:brca1",
+      "degree": 1,
+      "local_density": 2.0
+    },
+    {
+      "node_id": "bio:protein:akt1",
+      "degree": 1,
+      "local_density": 11.0
+    },
+    {
+      "node_id": "bio:protein:cdk5",
+      "degree": 1,
+      "local_density": 4.0
+    },
+    {
+      "node_id": "bio:protein:lrrk2",
+      "degree": 1,
+      "local_density": 11.0
+    },
+    {
+      "node_id": "bio:protein:tdp43",
+      "degree": 1,
+      "local_density": 3.0
+    },
+    {
+      "node_id": "bio:protein:mapk1",
+      "degree": 1,
+      "local_density": 5.0
+    },
+    {
+      "node_id": "bio:protein:igf1r",
+      "degree": 1,
+      "local_density": 11.0
+    },
+    {
+      "node_id": "bio:protein:hif1a",
+      "degree": 1,
+      "local_density": 2.0
+    },
+    {
+      "node_id": "bio:gene:snca",
+      "degree": 1,
+      "local_density": 3.0
+    },
+    {
+      "node_id": "bio:gene:tp53",
+      "degree": 1,
+      "local_density": 3.0
+    },
+    {
+      "node_id": "bio:gene:tert",
+      "degree": 1,
+      "local_density": 2.0
+    },
+    {
+      "node_id": "bio:gene:fus",
+      "degree": 1,
+      "local_density": 3.0
+    },
+    {
+      "node_id": "bio:gene:atm",
+      "degree": 1,
+      "local_density": 2.0
+    },
+    {
+      "node_id": "bio:gene:cdkn2a",
+      "degree": 1,
+      "local_density": 4.0
+    },
+    {
+      "node_id": "bio:gene:rb1",
+      "degree": 1,
+      "local_density": 4.0
+    },
+    {
+      "node_id": "bio:gene:idh1",
+      "degree": 1,
+      "local_density": 5.0
+    },
+    {
+      "node_id": "bio:gene:park2",
+      "degree": 1,
+      "local_density": 2.0
+    },
+    {
+      "node_id": "bio:gene:pten_gene",
+      "degree": 1,
+      "local_density": 2.0
+    },
+    {
+      "node_id": "bio:pathway:notch_signaling",
+      "degree": 1,
+      "local_density": 7.0
+    },
+    {
+      "node_id": "bio:pathway:hedgehog_signaling",
+      "degree": 1,
+      "local_density": 5.0
+    },
+    {
+      "node_id": "bio:pathway:tau_phosphorylation",
+      "degree": 1,
+      "local_density": 4.0
+    },
+    {
+      "node_id": "bio:pathway:angiogenesis",
+      "degree": 1,
+      "local_density": 5.0
+    },
+    {
+      "node_id": "bio:receptor:adenosine_a2a",
+      "degree": 1,
+      "local_density": 3.0
+    },
+    {
+      "node_id": "bio:receptor:tgfb_receptor",
+      "degree": 1,
+      "local_density": 5.0
+    },
+    {
+      "node_id": "bio:receptor:tlr4",
+      "degree": 1,
+      "local_density": 6.0
+    },
+    {
+      "node_id": "bio:receptor:glucocorticoid_receptor",
+      "degree": 1,
+      "local_density": 3.0
+    },
+    {
+      "node_id": "bio:receptor:igf1_receptor",
+      "degree": 1,
+      "local_density": 7.0
+    },
+    {
+      "node_id": "bio:process:inflammatory_cytokine_release",
+      "degree": 1,
+      "local_density": 1.0
+    },
+    {
+      "node_id": "bio:biomarker:tau_protein",
+      "degree": 1,
+      "local_density": 4.0
+    },
+    {
+      "node_id": "bio:biomarker:crp",
+      "degree": 1,
+      "local_density": 6.0
+    },
+    {
+      "node_id": "bio:biomarker:hba1c",
+      "degree": 1,
+      "local_density": 2.0
+    },
+    {
+      "node_id": "chem:side_effect:nephrotoxicity",
+      "degree": 1,
+      "local_density": 6.0
+    },
+    {
+      "node_id": "chem:side_effect:cardiotoxicity",
+      "degree": 1,
+      "local_density": 6.0
+    },
+    {
+      "node_id": "chem:side_effect:neurotoxicity",
+      "degree": 1,
+      "local_density": 7.0
+    },
+    {
+      "node_id": "chem:drug_class:biguanide",
+      "degree": 1,
+      "local_density": 5.0
+    },
+    {
+      "node_id": "chem:drug_class:statin",
+      "degree": 1,
+      "local_density": 7.0
+    },
+    {
+      "node_id": "bio:disease:prostate_cancer",
+      "degree": 2,
+      "local_density": 2.0
+    },
+    {
+      "node_id": "bio:disease:nafld",
+      "degree": 2,
+      "local_density": 2.5
+    },
+    {
+      "node_id": "bio:protein:app",
+      "degree": 2,
+      "local_density": 3.5
+    },
+    {
+      "node_id": "bio:protein:bcl2",
+      "degree": 2,
+      "local_density": 5.5
+    },
+    {
+      "node_id": "bio:protein:il6",
+      "degree": 2,
+      "local_density": 4.5
+    },
+    {
+      "node_id": "bio:protein:nfkb",
+      "degree": 2,
+      "local_density": 5.5
+    },
+    {
+      "node_id": "bio:protein:foxo3",
+      "degree": 2,
+      "local_density": 4.0
+    },
+    {
+      "node_id": "bio:protein:pten",
+      "degree": 2,
+      "local_density": 4.0
+    },
+    {
+      "node_id": "bio:protein:gsk3b",
+      "degree": 2,
+      "local_density": 4.0
+    },
+    {
+      "node_id": "bio:protein:sod1",
+      "degree": 2,
+      "local_density": 4.0
+    },
+    {
+      "node_id": "bio:gene:apoe4",
+      "degree": 2,
+      "local_density": 11.5
+    },
+    {
+      "node_id": "bio:gene:myc",
+      "degree": 2,
+      "local_density": 4.5
+    },
+    {
+      "node_id": "bio:gene:vegfa",
+      "degree": 2,
+      "local_density": 3.0
+    },
+    {
+      "node_id": "bio:pathway:dna_damage_response",
+      "degree": 2,
+      "local_density": 4.5
+    },
+    {
+      "node_id": "bio:receptor:ar",
+      "degree": 2,
+      "local_density": 2.0
+    },
+    {
+      "node_id": "bio:receptor:er_alpha",
+      "degree": 2,
+      "local_density": 5.0
+    },
+    {
+      "node_id": "bio:process:dopamine_synthesis",
+      "degree": 2,
+      "local_density": 2.5
+    },
+    {
+      "node_id": "bio:process:lipid_peroxidation",
+      "degree": 2,
+      "local_density": 2.5
+    },
+    {
+      "node_id": "bio:process:mitophagy",
+      "degree": 2,
+      "local_density": 6.0
+    },
+    {
+      "node_id": "bio:process:tumor_angiogenesis",
+      "degree": 2,
+      "local_density": 5.0
+    },
+    {
+      "node_id": "bio:process:dna_repair",
+      "degree": 2,
+      "local_density": 4.5
+    },
+    {
+      "node_id": "bio:process:glucose_metabolism",
+      "degree": 2,
+      "local_density": 2.0
+    },
+    {
+      "node_id": "bio:process:telomere_shortening",
+      "degree": 2,
+      "local_density": 2.5
+    },
+    {
+      "node_id": "bio:process:mitochondrial_dysfunction",
+      "degree": 2,
+      "local_density": 4.0
+    },
+    {
+      "node_id": "bio:biomarker:amyloid_beta42",
+      "degree": 2,
+      "local_density": 3.0
+    },
+    {
+      "node_id": "chem:drug:tamoxifen",
+      "degree": 2,
+      "local_density": 5.0
+    },
+    {
+      "node_id": "chem:drug:doxycycline",
+      "degree": 2,
+      "local_density": 5.0
+    },
+    {
+      "node_id": "chem:drug:finasteride",
+      "degree": 2,
+      "local_density": 2.0
+    },
+    {
+      "node_id": "chem:drug:levodopa",
+      "degree": 2,
+      "local_density": 6.5
+    },
+    {
+      "node_id": "chem:drug:selegiline",
+      "degree": 2,
+      "local_density": 7.0
+    },
+    {
+      "node_id": "chem:compound:alpha_lipoic_acid",
+      "degree": 2,
+      "local_density": 6.5
+    },
+    {
+      "node_id": "chem:compound:fisetin",
+      "degree": 2,
+      "local_density": 5.5
+    },
+    {
+      "node_id": "chem:compound:pterostilbene",
+      "degree": 2,
+      "local_density": 5.0
+    },
+    {
+      "node_id": "chem:compound:apigenin",
+      "degree": 2,
+      "local_density": 5.0
+    },
+    {
+      "node_id": "chem:compound:luteolin",
+      "degree": 2,
+      "local_density": 6.0
+    },
+    {
+      "node_id": "chem:compound:kaempferol",
+      "degree": 2,
+      "local_density": 4.0
+    },
+    {
+      "node_id": "chem:mechanism:pde5_inhibition",
+      "degree": 2,
+      "local_density": 4.0
+    },
+    {
+      "node_id": "chem:mechanism:nmda_antagonism",
+      "degree": 2,
+      "local_density": 3.0
+    },
+    {
+      "node_id": "chem:mechanism:ache_inhibition",
+      "degree": 2,
+      "local_density": 3.0
+    },
+    {
+      "node_id": "chem:side_effect:hepatotoxicity",
+      "degree": 2,
+      "local_density": 6.5
+    },
+    {
+      "node_id": "chem:side_effect:myelosuppression",
+      "degree": 2,
+      "local_density": 5.0
+    },
+    {
+      "node_id": "chem:drug_class:ppar_agonist",
+      "degree": 2,
+      "local_density": 5.0
+    },
+    {
+      "node_id": "bio:protein:alpha_syn",
+      "degree": 3,
+      "local_density": 5.0
+    },
+    {
+      "node_id": "bio:protein:her2",
+      "degree": 3,
+      "local_density": 4.67
+    },
+    {
+      "node_id": "chem:drug:rapamycin",
+      "degree": 3,
+      "local_density": 10.0
+    },
+    {
+      "node_id": "chem:drug:hydroxychloroquine",
+      "degree": 3,
+      "local_density": 6.67
+    },
+    {
+      "node_id": "chem:compound:quercetin",
+      "degree": 3,
+      "local_density": 4.0
+    },
+    {
+      "node_id": "chem:compound:berberine",
+      "degree": 3,
+      "local_density": 11.33
+    },
+    {
+      "node_id": "chem:compound:resveratrol",
+      "degree": 3,
+      "local_density": 7.67
+    },
+    {
+      "node_id": "chem:target:bace1_enzyme",
+      "degree": 3,
+      "local_density": 3.33
+    },
+    {
+      "node_id": "bio:disease:lung_cancer",
+      "degree": 3,
+      "local_density": 4.0
+    },
+    {
+      "node_id": "bio:disease:als",
+      "degree": 3,
+      "local_density": 1.33
+    },
+    {
+      "node_id": "bio:disease:obesity",
+      "degree": 3,
+      "local_density": 5.0
+    },
+    {
+      "node_id": "bio:disease:atherosclerosis",
+      "degree": 3,
+      "local_density": 4.67
+    },
+    {
+      "node_id": "bio:protein:p53",
+      "degree": 3,
+      "local_density": 4.33
+    },
+    {
+      "node_id": "bio:protein:stat3",
+      "degree": 3,
+      "local_density": 4.33
+    },
+    {
+      "node_id": "bio:gene:kras",
+      "degree": 3,
+      "local_density": 5.0
+    },
+    {
+      "node_id": "bio:gene:bcr_abl",
+      "degree": 3,
+      "local_density": 6.67
+    },
+    {
+      "node_id": "bio:pathway:jak_stat",
+      "degree": 3,
+      "local_density": 4.0
+    },
+    {
+      "node_id": "bio:pathway:oxidative_stress",
+      "degree": 3,
+      "local_density": 4.33
+    },
+    {
+      "node_id": "bio:pathway:insulin_signaling",
+      "degree": 3,
+      "local_density": 4.33
+    },
+    {
+      "node_id": "bio:receptor:nmda_receptor",
+      "degree": 3,
+      "local_density": 2.67
+    },
+    {
+      "node_id": "bio:receptor:dopamine_d2",
+      "degree": 3,
+      "local_density": 1.67
+    },
+    {
+      "node_id": "bio:process:protein_aggregation",
+      "degree": 3,
+      "local_density": 3.67
+    },
+    {
+      "node_id": "bio:process:synaptic_plasticity",
+      "degree": 3,
+      "local_density": 2.67
+    },
+    {
+      "node_id": "bio:process:immune_activation",
+      "degree": 3,
+      "local_density": 1.0
+    },
+    {
+      "node_id": "bio:biomarker:ldl_cholesterol",
+      "degree": 3,
+      "local_density": 4.0
+    },
+    {
+      "node_id": "chem:drug:thalidomide",
+      "degree": 3,
+      "local_density": 6.0
+    },
+    {
+      "node_id": "chem:drug:donepezil",
+      "degree": 3,
+      "local_density": 8.0
+    },
+    {
+      "node_id": "chem:drug:memantine",
+      "degree": 3,
+      "local_density": 8.0
+    },
+    {
+      "node_id": "chem:drug:trastuzumab",
+      "degree": 3,
+      "local_density": 5.0
+    },
+    {
+      "node_id": "chem:drug:everolimus",
+      "degree": 3,
+      "local_density": 7.67
+    },
+    {
+      "node_id": "chem:drug:lenalidomide",
+      "degree": 3,
+      "local_density": 6.0
+    },
+    {
+      "node_id": "chem:drug:venetoclax",
+      "degree": 3,
+      "local_density": 3.67
+    },
+    {
+      "node_id": "chem:compound:epigallocatechin",
+      "degree": 3,
+      "local_density": 6.33
+    },
+    {
+      "node_id": "chem:compound:sulforaphane",
+      "degree": 3,
+      "local_density": 6.0
+    },
+    {
+      "node_id": "chem:compound:coenzyme_q10",
+      "degree": 3,
+      "local_density": 7.0
+    },
+    {
+      "node_id": "chem:compound:nicotinamide_riboside",
+      "degree": 3,
+      "local_density": 9.67
+    },
+    {
+      "node_id": "chem:compound:spermidine",
+      "degree": 3,
+      "local_density": 10.33
+    },
+    {
+      "node_id": "chem:mechanism:hdac_inhibition",
+      "degree": 3,
+      "local_density": 4.33
+    },
+    {
+      "node_id": "chem:target:hmg_coa_reductase",
+      "degree": 3,
+      "local_density": 5.33
+    },
+    {
+      "node_id": "chem:target:vegfr_target",
+      "degree": 3,
+      "local_density": 6.67
+    },
+    {
+      "node_id": "chem:target:proteasome_target",
+      "degree": 3,
+      "local_density": 5.0
+    },
+    {
+      "node_id": "chem:target:hdac_target",
+      "degree": 3,
+      "local_density": 4.33
+    },
+    {
+      "node_id": "chem:target:jak2_kinase_target",
+      "degree": 3,
+      "local_density": 4.0
+    },
+    {
+      "node_id": "chem:drug_class:nsaid",
+      "degree": 3,
+      "local_density": 4.67
+    },
+    {
+      "node_id": "chem:drug_class:tki",
+      "degree": 3,
+      "local_density": 5.33
+    }
+  ],
+  "sparse_bridges": [
+    {
+      "source": "chem:drug:finasteride",
+      "target": "bio:disease:prostate_cancer",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 2,
+      "target_degree": 2
+    },
+    {
+      "source": "chem:drug:levodopa",
+      "target": "bio:process:dopamine_synthesis",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 2,
+      "target_degree": 2
+    },
+    {
+      "source": "chem:drug:finasteride",
+      "target": "bio:receptor:ar",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 2,
+      "target_degree": 2
+    },
+    {
+      "source": "chem:drug:tamoxifen",
+      "target": "bio:receptor:er_alpha",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 2,
+      "target_degree": 2
+    },
+    {
+      "source": "chem:drug:venetoclax",
+      "target": "bio:protein:bcl2",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 2
+    },
+    {
+      "source": "chem:drug:selegiline",
+      "target": "bio:receptor:dopamine_d2",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 2,
+      "target_degree": 3
+    },
+    {
+      "source": "chem:compound:coenzyme_q10",
+      "target": "bio:process:mitochondrial_dysfunction",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 2
+    },
+    {
+      "source": "chem:compound:apigenin",
+      "target": "bio:protein:stat3",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 2,
+      "target_degree": 3
+    },
+    {
+      "source": "chem:mechanism:nmda_antagonism",
+      "target": "bio:receptor:nmda_receptor",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 2,
+      "target_degree": 3
+    },
+    {
+      "source": "chem:mechanism:ache_inhibition",
+      "target": "bio:process:synaptic_plasticity",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 2,
+      "target_degree": 3
+    },
+    {
+      "source": "chem:drug:lithium_carbonate",
+      "target": "bio:protein:gsk3b",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 4,
+      "target_degree": 2
+    },
+    {
+      "source": "chem:drug:trastuzumab",
+      "target": "bio:protein:her2",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 3
+    },
+    {
+      "source": "chem:drug:doxycycline",
+      "target": "bio:pathway:neuroinflammation",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 2,
+      "target_degree": 4
+    },
+    {
+      "source": "chem:drug:donepezil",
+      "target": "bio:process:synaptic_plasticity",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 3
+    },
+    {
+      "source": "chem:drug:memantine",
+      "target": "bio:receptor:nmda_receptor",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 3
+    },
+    {
+      "source": "chem:compound:sulforaphane",
+      "target": "bio:pathway:oxidative_stress",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 3
+    },
+    {
+      "source": "chem:compound:fisetin",
+      "target": "bio:process:cell_senescence",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 2,
+      "target_degree": 4
+    },
+    {
+      "source": "chem:compound:luteolin",
+      "target": "bio:pathway:neuroinflammation",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 2,
+      "target_degree": 4
+    },
+    {
+      "source": "chem:compound:pterostilbene",
+      "target": "bio:protein:sirt1",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 2,
+      "target_degree": 4
+    },
+    {
+      "source": "chem:mechanism:pde5_inhibition",
+      "target": "bio:pathway:neuroinflammation",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 2,
+      "target_degree": 4
+    },
+    {
+      "source": "chem:compound:quercetin",
+      "target": "bio:pathway:amyloid_cascade",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 4
+    },
+    {
+      "source": "chem:compound:curcumin",
+      "target": "bio:protein:nfkb",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 5,
+      "target_degree": 2
+    },
+    {
+      "source": "chem:compound:epigallocatechin",
+      "target": "bio:process:beta_amyloid_aggregation",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 4
+    },
+    {
+      "source": "chem:compound:nicotinamide_riboside",
+      "target": "bio:protein:sirt1",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 4
+    },
+    {
+      "source": "chem:compound:spermidine",
+      "target": "bio:pathway:autophagy",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 4
+    },
+    {
+      "source": "chem:compound:alpha_lipoic_acid",
+      "target": "bio:process:ros_production",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 2,
+      "target_degree": 5
+    },
+    {
+      "source": "chem:compound:kaempferol",
+      "target": "bio:protein:bace1",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 2,
+      "target_degree": 5
+    },
+    {
+      "source": "chem:mechanism:hmg_coa_inhibition",
+      "target": "bio:biomarker:ldl_cholesterol",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 4,
+      "target_degree": 3
+    },
+    {
+      "source": "chem:mechanism:jak_inhibition",
+      "target": "bio:pathway:jak_stat",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 4,
+      "target_degree": 3
+    },
+    {
+      "source": "chem:target:her2_receptor_target",
+      "target": "bio:protein:her2",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 4,
+      "target_degree": 3
+    },
+    {
+      "source": "chem:target:bcr_abl_kinase",
+      "target": "bio:gene:bcr_abl",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 4,
+      "target_degree": 3
+    },
+    {
+      "source": "chem:target:proteasome_target",
+      "target": "bio:pathway:ubiquitin_proteasome",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 4
+    },
+    {
+      "source": "chem:target:jak2_kinase_target",
+      "target": "bio:protein:jak2",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 4
+    },
+    {
+      "source": "chem:target:bace1_enzyme",
+      "target": "bio:protein:bace1",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 5
+    },
+    {
+      "source": "chem:compound:quercetin",
+      "target": "bio:protein:bace1",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 5
+    },
+    {
+      "source": "chem:drug:erlotinib",
+      "target": "bio:disease:lung_cancer",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 5,
+      "target_degree": 3
+    },
+    {
+      "source": "chem:drug:lenalidomide",
+      "target": "bio:disease:multiple_myeloma",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 5
+    },
+    {
+      "source": "chem:drug:thalidomide",
+      "target": "bio:disease:multiple_myeloma",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 5
+    },
+    {
+      "source": "chem:drug:doxycycline",
+      "target": "bio:disease:rheumatoid_arthritis",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 2,
+      "target_degree": 6
+    },
+    {
+      "source": "chem:mechanism:hdac_inhibition",
+      "target": "bio:process:epigenetic_silencing",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 5
+    },
+    {
+      "source": "chem:target:hmg_coa_reductase",
+      "target": "bio:process:cholesterol_synthesis",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 5
+    },
+    {
+      "source": "chem:target:vegfr_target",
+      "target": "bio:protein:vegf",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 5
+    },
+    {
+      "source": "chem:target:hdac_target",
+      "target": "bio:process:epigenetic_silencing",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 5
+    },
+    {
+      "source": "chem:drug:hydroxychloroquine",
+      "target": "bio:protein:tnf_alpha",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 6
+    },
+    {
+      "source": "chem:drug:thalidomide",
+      "target": "bio:protein:tnf_alpha",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 6
+    },
+    {
+      "source": "chem:drug:lenalidomide",
+      "target": "bio:protein:tnf_alpha",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 6
+    },
+    {
+      "source": "chem:drug:rapamycin",
+      "target": "bio:pathway:pi3k_akt",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 7
+    },
+    {
+      "source": "chem:compound:berberine",
+      "target": "bio:pathway:ampk_pathway",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 7
+    },
+    {
+      "source": "chem:drug:tamoxifen",
+      "target": "bio:disease:breast_cancer",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 2,
+      "target_degree": 8
+    },
+    {
+      "source": "chem:drug:venetoclax",
+      "target": "bio:disease:leukemia_cml",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 7
+    },
+    {
+      "source": "chem:drug:atorvastatin",
+      "target": "bio:disease:atherosclerosis",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 7,
+      "target_degree": 3
+    },
+    {
+      "source": "chem:compound:epigallocatechin",
+      "target": "bio:pathway:ampk_pathway",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 7
+    },
+    {
+      "source": "chem:compound:sulforaphane",
+      "target": "bio:disease:colon_cancer",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 7
+    },
+    {
+      "source": "chem:drug:hydroxychloroquine",
+      "target": "bio:disease:breast_cancer",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 8
+    },
+    {
+      "source": "chem:drug:trastuzumab",
+      "target": "bio:disease:breast_cancer",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 8
+    },
+    {
+      "source": "chem:drug:everolimus",
+      "target": "bio:disease:breast_cancer",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 8
+    },
+    {
+      "source": "chem:mechanism:nrf2_activation",
+      "target": "bio:pathway:oxidative_stress",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 8,
+      "target_degree": 3
+    },
+    {
+      "source": "chem:mechanism:tyrosine_kinase_inhibition",
+      "target": "bio:gene:bcr_abl",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 9,
+      "target_degree": 3
+    },
+    {
+      "source": "chem:drug:levodopa",
+      "target": "bio:disease:parkinsons",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 2,
+      "target_degree": 11
+    },
+    {
+      "source": "chem:drug:selegiline",
+      "target": "bio:disease:parkinsons",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 2,
+      "target_degree": 11
+    },
+    {
+      "source": "chem:compound:resveratrol",
+      "target": "bio:disease:parkinsons",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 11
+    },
+    {
+      "source": "chem:drug:everolimus",
+      "target": "bio:pathway:mtor_signaling",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 11
+    },
+    {
+      "source": "chem:compound:coenzyme_q10",
+      "target": "bio:disease:parkinsons",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 11
+    },
+    {
+      "source": "chem:drug:rapamycin",
+      "target": "bio:disease:alzheimers",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 19
+    },
+    {
+      "source": "chem:compound:berberine",
+      "target": "bio:disease:alzheimers",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 19
+    },
+    {
+      "source": "chem:drug:donepezil",
+      "target": "bio:disease:alzheimers",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 19
+    },
+    {
+      "source": "chem:drug:memantine",
+      "target": "bio:disease:alzheimers",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 19
+    },
+    {
+      "source": "chem:compound:nicotinamide_riboside",
+      "target": "bio:disease:alzheimers",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 19
+    },
+    {
+      "source": "chem:compound:spermidine",
+      "target": "bio:disease:alzheimers",
+      "source_domain": "chemistry",
+      "target_domain": "biology",
+      "source_degree": 3,
+      "target_degree": 19
+    }
+  ]
+}

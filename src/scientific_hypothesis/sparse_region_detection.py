@@ -16,6 +16,13 @@ def load_kg(path: str) -> dict:
         return json.load(f)
 
 
+def _edge_endpoints(edge: dict) -> tuple[str, str]:
+    """Return (source_id, target_id) for an edge, handling schema variants."""
+    src = edge.get("source_id", edge.get("source", edge.get("src", "")))
+    tgt = edge.get("target_id", edge.get("target", edge.get("tgt", "")))
+    return src, tgt
+
+
 def compute_node_degree(kg: dict) -> dict:
     """Compute degree for each node in KG.
 
@@ -34,8 +41,7 @@ def compute_node_degree(kg: dict) -> dict:
         degrees[node_id] = 0
 
     for edge in edges:
-        src = edge.get("source", edge.get("src", ""))
-        tgt = edge.get("target", edge.get("tgt", ""))
+        src, tgt = _edge_endpoints(edge)
         if src in degrees:
             degrees[src] += 1
         if tgt in degrees:
@@ -86,8 +92,7 @@ def find_sparse_bridges(kg: dict) -> list:
 
     sparse_bridges = []
     for edge in edges:
-        src = edge.get("source", edge.get("src", ""))
-        tgt = edge.get("target", edge.get("tgt", ""))
+        src, tgt = _edge_endpoints(edge)
         src_domain = node_domain.get(src, "unknown")
         tgt_domain = node_domain.get(tgt, "unknown")
 
@@ -107,6 +112,38 @@ def find_sparse_bridges(kg: dict) -> list:
     return sorted(sparse_bridges, key=lambda x: x["source_degree"] + x["target_degree"])
 
 
+def compute_local_density(kg: dict, degrees: dict | None = None) -> dict:
+    """Compute average degree of 1-hop neighbors for each node.
+
+    Args:
+        kg: KG data dictionary with 'nodes' and 'edges' keys.
+        degrees: Pre-computed degree dict; computed internally if None.
+
+    Returns:
+        Dictionary mapping node_id to its local neighborhood density (float).
+    """
+    if degrees is None:
+        degrees = compute_node_degree(kg)
+
+    edges = kg.get("edges", [])
+    neighbors: dict[str, list[str]] = {nid: [] for nid in degrees}
+    for edge in edges:
+        src, tgt = _edge_endpoints(edge)
+        if src in neighbors:
+            neighbors[src].append(tgt)
+        if tgt in neighbors:
+            neighbors[tgt].append(src)
+
+    local_density: dict[str, float] = {}
+    for nid in degrees:
+        hood = neighbors[nid]
+        if not hood:
+            local_density[nid] = 0.0
+        else:
+            local_density[nid] = sum(degrees.get(n, 0) for n in hood) / len(hood)
+    return local_density
+
+
 def generate_report(kg: dict, output_dir: str) -> dict:
     """Generate sparse region report and save to output directory.
 
@@ -119,17 +156,28 @@ def generate_report(kg: dict, output_dir: str) -> dict:
     """
     Path(output_dir).mkdir(parents=True, exist_ok=True)
 
+    degrees = compute_node_degree(kg)
+    local_density = compute_local_density(kg, degrees)
     sparse_nodes = find_sparse_nodes(kg)
     sparse_bridges = find_sparse_bridges(kg)
-    degrees = compute_node_degree(kg)
     total_nodes = len(degrees)
+
+    degree_values = list(degrees.values())
+    avg_degree = sum(degree_values) / len(degree_values) if degree_values else 0.0
+
+    # Enrich sparse_nodes with local_density
+    for entry in sparse_nodes:
+        entry["local_density"] = round(local_density.get(entry["node_id"], 0.0), 2)
 
     report = {
         "summary": {
             "total_nodes": total_nodes,
+            "total_edges": len(kg.get("edges", [])),
+            "avg_degree": round(avg_degree, 2),
             "sparse_nodes_count": len(sparse_nodes),
-            "sparse_ratio": len(sparse_nodes) / total_nodes if total_nodes > 0 else 0.0,
+            "sparse_ratio": round(len(sparse_nodes) / total_nodes, 4) if total_nodes > 0 else 0.0,
             "sparse_bridges_count": len(sparse_bridges),
+            "threshold": 3,
         },
         "sparse_nodes": sparse_nodes,
         "sparse_bridges": sparse_bridges,
@@ -145,4 +193,4 @@ def generate_report(kg: dict, output_dir: str) -> dict:
 if __name__ == "__main__":
     kg = load_kg("src/scientific_hypothesis/bio_chem_kg_full.json")
     report = generate_report(kg, "runs/run_025_sparse_detection")
-    print(json.dumps(report, indent=2))
+    print(json.dumps(report["summary"], indent=2))

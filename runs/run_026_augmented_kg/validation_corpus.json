@@ -1,0 +1,552 @@
+{
+  "run_id": "run_026_augmented_kg",
+  "validation_window": "2024/01/01 to 2025/12/31",
+  "past_window": "1900/01/01 to 2023/12/31",
+  "count": 68,
+  "hypotheses": [
+    {
+      "id": "H3009",
+      "description": "Aspirin may reduce TNF-alpha levels via COX Inhibition",
+      "subject_id": "chem:drug:aspirin",
+      "object_id": "bio:protein:tnf_alpha",
+      "validation_count_2024_2025": 56,
+      "validation_count_past": 463
+    },
+    {
+      "id": "H3027",
+      "description": "Aspirin may reduce Colorectal Cancer risk via COX-2 and Wnt pathway",
+      "subject_id": "chem:drug:aspirin",
+      "object_id": "bio:disease:colon_cancer",
+      "validation_count_2024_2025": 109,
+      "validation_count_past": 1285
+    },
+    {
+      "id": "H3028",
+      "description": "Aspirin may attenuate Alzheimer's Disease via COX-mediated neuroinflammation",
+      "subject_id": "chem:drug:aspirin",
+      "object_id": "bio:disease:alzheimers",
+      "validation_count_2024_2025": 21,
+      "validation_count_past": 177
+    },
+    {
+      "id": "H3003",
+      "description": "Rapamycin may reduce Breast Cancer risk via mTOR pathway suppression",
+      "subject_id": "chem:drug:rapamycin",
+      "object_id": "bio:disease:breast_cancer",
+      "validation_count_2024_2025": 141,
+      "validation_count_past": 1490
+    },
+    {
+      "id": "H3024",
+      "description": "Rapamycin may protect against Parkinson's Disease via mTOR-autophagy axis",
+      "subject_id": "chem:drug:rapamycin",
+      "object_id": "bio:disease:parkinsons",
+      "validation_count_2024_2025": 44,
+      "validation_count_past": 361
+    },
+    {
+      "id": "H3025",
+      "description": "Rapamycin may attenuate Huntington's Disease via protein aggregation clearance",
+      "subject_id": "chem:drug:rapamycin",
+      "object_id": "bio:disease:huntingtons",
+      "validation_count_2024_2025": 6,
+      "validation_count_past": 79
+    },
+    {
+      "id": "H3021",
+      "description": "Metformin may attenuate Alzheimer's Disease via AMPK-mediated neuroinflammation reduction",
+      "subject_id": "chem:drug:metformin",
+      "object_id": "bio:disease:alzheimers",
+      "validation_count_2024_2025": 110,
+      "validation_count_past": 344
+    },
+    {
+      "id": "H3023",
+      "description": "Metformin may reduce Oxidative Stress via AMPK-NRF2 axis",
+      "subject_id": "chem:drug:metformin",
+      "object_id": "bio:process:oxidative_stress",
+      "validation_count_2024_2025": 0,
+      "validation_count_past": 0
+    },
+    {
+      "id": "H3_AUG_003",
+      "description": "Metformin may reduce Neuroinflammation via AMPK Pathway activation",
+      "subject_id": "chem:drug:metformin",
+      "object_id": "bio:pathway:neuroinflammation",
+      "validation_count_2024_2025": 80,
+      "validation_count_past": 190
+    },
+    {
+      "id": "H3_AUG_007",
+      "description": "Metformin may enhance Autophagy via AMPK-ULK1 axis",
+      "subject_id": "chem:drug:metformin",
+      "object_id": "bio:pathway:autophagy",
+      "validation_count_2024_2025": 182,
+      "validation_count_past": 806
+    },
+    {
+      "id": "H3014",
+      "description": "Quercetin may attenuate Alzheimer's Disease via BACE1 and Amyloid Cascade",
+      "subject_id": "chem:compound:quercetin",
+      "object_id": "bio:disease:alzheimers",
+      "validation_count_2024_2025": 168,
+      "validation_count_past": 535
+    },
+    {
+      "id": "H3036",
+      "description": "Quercetin may attenuate Parkinson's Disease via BACE1-neuroinflammation axis",
+      "subject_id": "chem:compound:quercetin",
+      "object_id": "bio:disease:parkinsons",
+      "validation_count_2024_2025": 51,
+      "validation_count_past": 204
+    },
+    {
+      "id": "H3037",
+      "description": "Curcumin may suppress Rheumatoid Arthritis via STAT3-NF-kB pathway",
+      "subject_id": "chem:compound:curcumin",
+      "object_id": "bio:disease:rheumatoid_arthritis",
+      "validation_count_2024_2025": 57,
+      "validation_count_past": 201
+    },
+    {
+      "id": "H3038",
+      "description": "Curcumin may attenuate Alzheimer's Disease via STAT3-neuroinflammation",
+      "subject_id": "chem:compound:curcumin",
+      "object_id": "bio:disease:alzheimers",
+      "validation_count_2024_2025": 173,
+      "validation_count_past": 1012
+    },
+    {
+      "id": "H3039",
+      "description": "Curcumin may modulate Neuroinflammation via STAT3 and NF-kB signaling",
+      "subject_id": "chem:compound:curcumin",
+      "object_id": "bio:pathway:neuroinflammation",
+      "validation_count_2024_2025": 150,
+      "validation_count_past": 412
+    },
+    {
+      "id": "H3057",
+      "description": "Curcumin may attenuate Parkinson's Disease via STAT3-oxidative stress",
+      "subject_id": "chem:compound:curcumin",
+      "object_id": "bio:disease:parkinsons",
+      "validation_count_2024_2025": 68,
+      "validation_count_past": 332
+    },
+    {
+      "id": "H3013",
+      "description": "Quercetin may reduce APP cleavage via BACE1 Enzyme inhibition",
+      "subject_id": "chem:compound:quercetin",
+      "object_id": "bio:protein:app",
+      "validation_count_2024_2025": 7,
+      "validation_count_past": 21
+    },
+    {
+      "id": "H3031",
+      "description": "Valproic Acid may suppress Glioblastoma via HDAC inhibition and p53 pathway",
+      "subject_id": "chem:drug:valproic_acid",
+      "object_id": "bio:disease:glioblastoma",
+      "validation_count_2024_2025": 17,
+      "validation_count_past": 137
+    },
+    {
+      "id": "H3_AUG_012",
+      "description": "Valproic Acid may suppress Glioblastoma via HDAC Inhibition and Epigenetic Reactivation",
+      "subject_id": "chem:drug:valproic_acid",
+      "object_id": "bio:disease:glioblastoma",
+      "validation_count_2024_2025": 17,
+      "validation_count_past": 137
+    },
+    {
+      "id": "H3044",
+      "description": "Resveratrol may ameliorate NAFLD via SIRT1-insulin resistance axis",
+      "subject_id": "chem:compound:resveratrol",
+      "object_id": "bio:disease:nafld",
+      "validation_count_2024_2025": 31,
+      "validation_count_past": 184
+    },
+    {
+      "id": "H3067",
+      "description": "Resveratrol may attenuate Parkinson's Disease via SIRT1-oxidative stress axis",
+      "subject_id": "chem:compound:resveratrol",
+      "object_id": "bio:disease:parkinsons",
+      "validation_count_2024_2025": 53,
+      "validation_count_past": 245
+    },
+    {
+      "id": "H3_AUG_011",
+      "description": "Resveratrol may enhance Autophagy via SIRT1-AMPK axis",
+      "subject_id": "chem:compound:resveratrol",
+      "object_id": "bio:pathway:autophagy",
+      "validation_count_2024_2025": 163,
+      "validation_count_past": 868
+    },
+    {
+      "id": "H3018",
+      "description": "Resveratrol may activate SIRT1 via SIRT1 Activation mechanism",
+      "subject_id": "chem:compound:resveratrol",
+      "object_id": "bio:protein:sirt1",
+      "validation_count_2024_2025": 13,
+      "validation_count_past": 133
+    },
+    {
+      "id": "H3002",
+      "description": "Rapamycin may modulate mTOR Signaling via mTOR Kinase inhibition",
+      "subject_id": "chem:drug:rapamycin",
+      "object_id": "bio:pathway:mtor_signaling",
+      "validation_count_2024_2025": 480,
+      "validation_count_past": 2950
+    },
+    {
+      "id": "H3029",
+      "description": "Bortezomib may affect Huntington's Disease via ubiquitin-proteasome disruption",
+      "subject_id": "chem:drug:bortezomib",
+      "object_id": "bio:disease:huntingtons",
+      "validation_count_2024_2025": 0,
+      "validation_count_past": 2
+    },
+    {
+      "id": "H3030",
+      "description": "Bortezomib may activate Apoptosis Pathway via proteasome inhibition",
+      "subject_id": "chem:drug:bortezomib",
+      "object_id": "bio:pathway:apoptosis",
+      "validation_count_2024_2025": 163,
+      "validation_count_past": 2054
+    },
+    {
+      "id": "H3011",
+      "description": "Hydroxychloroquine may modulate mTOR Signaling via mTOR Kinase",
+      "subject_id": "chem:drug:hydroxychloroquine",
+      "object_id": "bio:pathway:mtor_signaling",
+      "validation_count_2024_2025": 2,
+      "validation_count_past": 12
+    },
+    {
+      "id": "H3012",
+      "description": "Hydroxychloroquine may suppress PI3K-AKT via mTOR Kinase",
+      "subject_id": "chem:drug:hydroxychloroquine",
+      "object_id": "bio:pathway:pi3k_akt",
+      "validation_count_2024_2025": 1,
+      "validation_count_past": 3
+    },
+    {
+      "id": "H3045",
+      "description": "Hydroxychloroquine may affect Alzheimer's Disease via mTOR-autophagy axis",
+      "subject_id": "chem:drug:hydroxychloroquine",
+      "object_id": "bio:disease:alzheimers",
+      "validation_count_2024_2025": 2,
+      "validation_count_past": 20
+    },
+    {
+      "id": "H3069",
+      "description": "Hydroxychloroquine may attenuate Glioblastoma via mTOR-PI3K-AKT suppression",
+      "subject_id": "chem:drug:hydroxychloroquine",
+      "object_id": "bio:disease:glioblastoma",
+      "validation_count_2024_2025": 1,
+      "validation_count_past": 16
+    },
+    {
+      "id": "H3005",
+      "description": "Sildenafil may modulate PI3K-AKT via PDE5 Inhibition",
+      "subject_id": "chem:drug:sildenafil",
+      "object_id": "bio:pathway:pi3k_akt",
+      "validation_count_2024_2025": 0,
+      "validation_count_past": 4
+    },
+    {
+      "id": "H3006",
+      "description": "Sildenafil may activate Autophagy Pathway via PDE5 Inhibition",
+      "subject_id": "chem:drug:sildenafil",
+      "object_id": "bio:pathway:autophagy",
+      "validation_count_2024_2025": 1,
+      "validation_count_past": 25
+    },
+    {
+      "id": "H3007",
+      "description": "Sildenafil may improve Heart Failure via PDE5 Inhibition",
+      "subject_id": "chem:drug:sildenafil",
+      "object_id": "bio:disease:heart_failure",
+      "validation_count_2024_2025": 32,
+      "validation_count_past": 441
+    },
+    {
+      "id": "H3008",
+      "description": "Sildenafil may reduce Neuroinflammation via PDE5 Inhibition",
+      "subject_id": "chem:drug:sildenafil",
+      "object_id": "bio:pathway:neuroinflammation",
+      "validation_count_2024_2025": 7,
+      "validation_count_past": 32
+    },
+    {
+      "id": "H3061",
+      "description": "Gefitinib may attenuate Breast Cancer via EGFR-MAPK-ERK suppression",
+      "subject_id": "chem:drug:gefitinib",
+      "object_id": "bio:disease:breast_cancer",
+      "validation_count_2024_2025": 37,
+      "validation_count_past": 510
+    },
+    {
+      "id": "H3047",
+      "description": "Erlotinib may suppress Lung Cancer via EGFR-PI3K-AKT pathway",
+      "subject_id": "chem:drug:erlotinib",
+      "object_id": "bio:disease:lung_cancer",
+      "validation_count_2024_2025": 232,
+      "validation_count_past": 4265
+    },
+    {
+      "id": "H3040",
+      "description": "Kaempferol may attenuate Colorectal Cancer via PI3K-AKT suppression",
+      "subject_id": "chem:compound:kaempferol",
+      "object_id": "bio:disease:colon_cancer",
+      "validation_count_2024_2025": 33,
+      "validation_count_past": 77
+    },
+    {
+      "id": "H3066",
+      "description": "Kaempferol may attenuate Breast Cancer via PI3K-AKT suppression",
+      "subject_id": "chem:compound:kaempferol",
+      "object_id": "bio:disease:breast_cancer",
+      "validation_count_2024_2025": 38,
+      "validation_count_past": 205
+    },
+    {
+      "id": "H3015",
+      "description": "Berberine may improve Type 2 Diabetes via AMPK activation and insulin sensitization",
+      "subject_id": "chem:compound:berberine",
+      "object_id": "bio:disease:type2_diabetes",
+      "validation_count_2024_2025": 60,
+      "validation_count_past": 281
+    },
+    {
+      "id": "H3034",
+      "description": "Berberine may ameliorate NAFLD via AMPK-mediated insulin sensitization",
+      "subject_id": "chem:compound:berberine",
+      "object_id": "bio:disease:nafld",
+      "validation_count_2024_2025": 38,
+      "validation_count_past": 121
+    },
+    {
+      "id": "H3035",
+      "description": "Berberine may attenuate Parkinson's Disease via AMPK-oxidative stress reduction",
+      "subject_id": "chem:compound:berberine",
+      "object_id": "bio:disease:parkinsons",
+      "validation_count_2024_2025": 16,
+      "validation_count_past": 53
+    },
+    {
+      "id": "H3062",
+      "description": "Berberine may attenuate Huntington's Disease via AMPK-autophagy axis",
+      "subject_id": "chem:compound:berberine",
+      "object_id": "bio:disease:huntingtons",
+      "validation_count_2024_2025": 4,
+      "validation_count_past": 14
+    },
+    {
+      "id": "H3048",
+      "description": "EGCG may suppress Multiple Myeloma via PI3K inhibition and apoptosis",
+      "subject_id": "chem:compound:egcg",
+      "object_id": "bio:disease:multiple_myeloma",
+      "validation_count_2024_2025": 2,
+      "validation_count_past": 7
+    },
+    {
+      "id": "H3055",
+      "description": "EGCG may attenuate Alzheimer's Disease via BACE1 inhibition",
+      "subject_id": "chem:compound:egcg",
+      "object_id": "bio:disease:alzheimers",
+      "validation_count_2024_2025": 24,
+      "validation_count_past": 114
+    },
+    {
+      "id": "H3056",
+      "description": "EGCG may reduce Neuroinflammation via NRF2-NF-kB axis",
+      "subject_id": "chem:compound:egcg",
+      "object_id": "bio:pathway:neuroinflammation",
+      "validation_count_2024_2025": 19,
+      "validation_count_past": 57
+    },
+    {
+      "id": "H3053",
+      "description": "Lithium may attenuate Alzheimer's Disease via Wnt pathway and tau reduction",
+      "subject_id": "chem:drug:lithium",
+      "object_id": "bio:disease:alzheimers",
+      "validation_count_2024_2025": 7,
+      "validation_count_past": 61
+    },
+    {
+      "id": "H3054",
+      "description": "Lithium may attenuate Huntington's Disease via autophagy-mediated aggregation clearance",
+      "subject_id": "chem:drug:lithium",
+      "object_id": "bio:disease:huntingtons",
+      "validation_count_2024_2025": 0,
+      "validation_count_past": 5
+    },
+    {
+      "id": "H3041",
+      "description": "Coenzyme Q10 may attenuate Parkinson's Disease via oxidative stress reduction",
+      "subject_id": "chem:compound:coenzyme_q10",
+      "object_id": "bio:disease:parkinsons",
+      "validation_count_2024_2025": 14,
+      "validation_count_past": 170
+    },
+    {
+      "id": "H3070",
+      "description": "Coenzyme Q10 may improve Heart Failure via oxidative stress and mitophagy",
+      "subject_id": "chem:compound:coenzyme_q10",
+      "object_id": "bio:disease:heart_failure",
+      "validation_count_2024_2025": 22,
+      "validation_count_past": 257
+    },
+    {
+      "id": "H3051",
+      "description": "Dasatinib may reduce Alzheimer's Disease via BCL-2 and apoptosis modulation",
+      "subject_id": "chem:drug:dasatinib",
+      "object_id": "bio:disease:alzheimers",
+      "validation_count_2024_2025": 17,
+      "validation_count_past": 37
+    },
+    {
+      "id": "H3052",
+      "description": "Dasatinib may clear senescent cells via BCL-2 inhibition",
+      "subject_id": "chem:drug:dasatinib",
+      "object_id": "bio:process:cell_senescence",
+      "validation_count_2024_2025": 109,
+      "validation_count_past": 202
+    },
+    {
+      "id": "H3033",
+      "description": "Imatinib may inhibit MAPK-ERK via STAT3 inhibition",
+      "subject_id": "chem:drug:imatinib",
+      "object_id": "bio:pathway:mapk_erk",
+      "validation_count_2024_2025": 1,
+      "validation_count_past": 2
+    },
+    {
+      "id": "H3022",
+      "description": "Metformin may ameliorate NAFLD via AMPK-mediated insulin sensitization",
+      "subject_id": "chem:drug:metformin",
+      "object_id": "bio:disease:nafld",
+      "validation_count_2024_2025": 53,
+      "validation_count_past": 461
+    },
+    {
+      "id": "H3058",
+      "description": "Curcumin may suppress Glioblastoma via STAT3-PI3K-AKT axis",
+      "subject_id": "chem:compound:curcumin",
+      "object_id": "bio:disease:glioblastoma",
+      "validation_count_2024_2025": 40,
+      "validation_count_past": 244
+    },
+    {
+      "id": "H3017",
+      "description": "Resveratrol may regulate mTOR Signaling via mTOR Kinase inhibition",
+      "subject_id": "chem:compound:resveratrol",
+      "object_id": "bio:pathway:mtor_signaling",
+      "validation_count_2024_2025": 7,
+      "validation_count_past": 50
+    },
+    {
+      "id": "H3_AUG_009",
+      "description": "Rapamycin may suppress Tumor Angiogenesis via mTOR-PI3K-AKT pathway",
+      "subject_id": "chem:drug:rapamycin",
+      "object_id": "bio:process:tumor_angiogenesis",
+      "validation_count_2024_2025": 2,
+      "validation_count_past": 115
+    },
+    {
+      "id": "H3046",
+      "description": "Sildenafil may attenuate Alzheimer's Disease via PDE5-neuroinflammation axis",
+      "subject_id": "chem:drug:sildenafil",
+      "object_id": "bio:disease:alzheimers",
+      "validation_count_2024_2025": 14,
+      "validation_count_past": 57
+    },
+    {
+      "id": "H3068",
+      "description": "Sildenafil may attenuate Parkinson's Disease via PDE5-neuroinflammation axis",
+      "subject_id": "chem:drug:sildenafil",
+      "object_id": "bio:disease:parkinsons",
+      "validation_count_2024_2025": 4,
+      "validation_count_past": 28
+    },
+    {
+      "id": "H3_AUG_001",
+      "description": "Sildenafil may attenuate Neuroinflammation via PDE5 Inhibition and AMPK Pathway",
+      "subject_id": "chem:drug:sildenafil",
+      "object_id": "bio:pathway:neuroinflammation",
+      "validation_count_2024_2025": 7,
+      "validation_count_past": 32
+    },
+    {
+      "id": "H3_AUG_002",
+      "description": "Sildenafil may enhance Autophagy via PDE5-AMPK axis",
+      "subject_id": "chem:drug:sildenafil",
+      "object_id": "bio:pathway:autophagy",
+      "validation_count_2024_2025": 1,
+      "validation_count_past": 25
+    },
+    {
+      "id": "H3_AUG_010",
+      "description": "Sildenafil may reduce Oxidative Stress via PDE5-AMPK-NRF2 axis",
+      "subject_id": "chem:drug:sildenafil",
+      "object_id": "bio:pathway:oxidative_stress",
+      "validation_count_2024_2025": 30,
+      "validation_count_past": 258
+    },
+    {
+      "id": "H3_AUG_004",
+      "description": "Berberine may reduce Neuroinflammation via AMPK-mediated anti-inflammatory signaling",
+      "subject_id": "chem:compound:berberine",
+      "object_id": "bio:pathway:neuroinflammation",
+      "validation_count_2024_2025": 50,
+      "validation_count_past": 112
+    },
+    {
+      "id": "H3_AUG_008",
+      "description": "Berberine may reduce Oxidative Stress via AMPK-NRF2 pathway",
+      "subject_id": "chem:compound:berberine",
+      "object_id": "bio:pathway:oxidative_stress",
+      "validation_count_2024_2025": 224,
+      "validation_count_past": 683
+    },
+    {
+      "id": "H3001",
+      "description": "Metformin may inhibit Cholesterol Biosynthesis via AMPK Pathway activation",
+      "subject_id": "chem:drug:metformin",
+      "object_id": "bio:process:cholesterol_synthesis",
+      "validation_count_2024_2025": 2,
+      "validation_count_past": 15
+    },
+    {
+      "id": "H3016",
+      "description": "Berberine may inhibit Cholesterol Biosynthesis via AMPK Activation",
+      "subject_id": "chem:compound:berberine",
+      "object_id": "bio:process:cholesterol_synthesis",
+      "validation_count_2024_2025": 1,
+      "validation_count_past": 4
+    },
+    {
+      "id": "H3019",
+      "description": "Resveratrol may delay Cell Senescence via SIRT1 Activation",
+      "subject_id": "chem:compound:resveratrol",
+      "object_id": "bio:process:cell_senescence",
+      "validation_count_2024_2025": 39,
+      "validation_count_past": 144
+    },
+    {
+      "id": "H3026",
+      "description": "Rapamycin may delay Cell Senescence via mTOR Kinase inhibition",
+      "subject_id": "chem:drug:rapamycin",
+      "object_id": "bio:process:cell_senescence",
+      "validation_count_2024_2025": 77,
+      "validation_count_past": 332
+    },
+    {
+      "id": "H3063",
+      "description": "Berberine may delay Cell Senescence via AMPK activation",
+      "subject_id": "chem:compound:berberine",
+      "object_id": "bio:process:cell_senescence",
+      "validation_count_2024_2025": 3,
+      "validation_count_past": 20
+    }
+  ]
+}
