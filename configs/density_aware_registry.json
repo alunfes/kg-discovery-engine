@@ -1,0 +1,83 @@
+{
+  "run_id": "run_022_density_aware_selection",
+  "registered_date": "2026-04-14",
+  "frozen": true,
+  "description": "Pre-registration for density-aware pair selection experiment. Frozen before data collection. Modifications after registration are prohibited.",
+  "background": "run_021 found H_ceiling supported: log_min_density is the strongest predictor of investigability (|r|=0.461). C1-C2 gap concentrated in low-density group (0.197). H_density_select tests whether density filtering eliminates this gap.",
+  "hypotheses": {
+    "H_density_select": {
+      "claim": "Introducing density-aware cross-domain pair selection makes C2 investigability statistically equivalent to C1 investigability",
+      "rationale": "run_021 shows C2's investigability deficit is driven by low-density pairs. Filtering them out should restore parity.",
+      "expected_outcome": "Fisher two-sided p > 0.05 AND |rate_c2_da - rate_c1| <= 0.02"
+    },
+    "H_matched_parity": {
+      "claim": "Under matched density conditions, C2_density_aware and C1 show no statistically significant difference in investigability",
+      "rationale": "run_021 matched comparison showed gap=0 in den_mid and den_high cells. C2_density_aware removes den_low pairs, so all comparisons should be in high-density regime.",
+      "expected_outcome": "All reportable cells: gap <= 0.03"
+    }
+  },
+  "conditions": {
+    "C2_density_aware": {
+      "n": 70,
+      "description": "Density-aware multi-op pipeline (align->compose_cross_domain, then min_density >= threshold filter)",
+      "threshold_source": "run_021 Q2_median from quartile_analysis.json",
+      "threshold_value": 8105.5,
+      "pipeline": "align(bio_kg, chem_kg, threshold=0.3) -> compose_cross_domain(combined_kg, max_depth=5) -> filter(min_density >= threshold) -> top_70_by_path_length",
+      "new_generation": true
+    },
+    "C1_baseline": {
+      "n": 70,
+      "description": "Single-op compose on biology KG only — reused from run_018",
+      "source": "run_018_investigability_replication/hypotheses_c1.json",
+      "new_generation": false
+    },
+    "C_rand_v2": {
+      "n": 70,
+      "description": "Truly random cross-domain baseline — reused from run_018",
+      "source": "run_018_investigability_replication/hypotheses_crand_v2.json",
+      "new_generation": false
+    }
+  },
+  "success_criteria": {
+    "SC_ds_primary": {
+      "name": "C2_density_aware parity with C1",
+      "description": "C2_density_aware investigability is statistically equivalent to C1 investigability",
+      "test": "Fisher exact two-sided",
+      "alpha": 0.05,
+      "delta_threshold": 0.02,
+      "pass_condition": "p > 0.05 AND |rate_c2_da - rate_c1| <= 0.02",
+      "primary": true
+    },
+    "SC_ds_improvement": {
+      "name": "C2_density_aware improves over C2_baseline",
+      "description": "C2_density_aware investigability exceeds run_018 C2 rate (0.914)",
+      "baseline_run": "run_018",
+      "baseline_rate": 0.914,
+      "pass_condition": "rate_c2_da > 0.914",
+      "primary": false
+    },
+    "SC_ds_random": {
+      "name": "C2_density_aware exceeds random baseline",
+      "description": "C2_density_aware investigability > C_rand_v2 investigability",
+      "test": "Fisher exact one-sided",
+      "alpha": 0.05,
+      "pass_condition": "p < 0.05",
+      "primary": false
+    }
+  },
+  "matched_comparison": {
+    "strategy": "density-only bins (3 tertiles: den_low/den_mid/den_high)",
+    "parity_threshold": 0.03,
+    "h_matched_parity_pass_condition": "all reportable cells: gap <= 0.03"
+  },
+  "validation": {
+    "method": "PubMed E-utilities (urllib only)",
+    "validation_window": "2024-2025",
+    "past_corpus_end": "2023-12-31",
+    "known_fact_threshold": 20,
+    "rate_limit_sec": 1.1,
+    "new_validation_only": "C2_density_aware (70 hypotheses)",
+    "reuse_from_run_018": ["C1_baseline", "C_rand_v2"]
+  },
+  "seed": 42
+}

@@ -1,0 +1,18 @@
+{
+  "threshold": 8105.5,
+  "source": "run_021/quartile_analysis.json",
+  "metric": "min_density (= min(subject_density, object_density))",
+  "rationale": "Q2_median: the boundary between low-density (low investigability) and mid-density quartile",
+  "q1": 3255.0,
+  "q2_median": 8105.5,
+  "q3": 22743.0,
+  "registration": "configs/density_aware_registry.json (frozen=true)",
+  "filter_stats": {
+    "raw_candidates": 287,
+    "below_threshold": 171,
+    "unknown_density": 0,
+    "passed_filter": 116,
+    "selected": 70,
+    "threshold": 8105.5
+  }
+}

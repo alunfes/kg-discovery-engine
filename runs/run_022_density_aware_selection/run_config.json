@@ -1,0 +1,41 @@
+{
+  "run_id": "run_022_density_aware_selection",
+  "date": "2026-04-14T10:57:20Z",
+  "description": "Density-aware pair selection: C2_density_aware (min_density >= 8105.5) vs C1_baseline and C_rand_v2 (reused from run_018)",
+  "seed": 42,
+  "density_threshold": 8105.5,
+  "threshold_source": "run_021 Q2_median",
+  "n_per_method": 70,
+  "total": 210,
+  "pre_registration": "configs/density_aware_registry.json",
+  "source_runs": [
+    "run_018_investigability_replication",
+    "run_021_density_ceiling"
+  ],
+  "methods": {
+    "C2_density_aware": {
+      "description": "Multi-op density-filtered pipeline",
+      "n": 70,
+      "new_generation": true
+    },
+    "C1_compose": {
+      "description": "Single-op bio-only (reused from run_018)",
+      "n": 70,
+      "new_generation": false
+    },
+    "C_rand_v2": {
+      "description": "Random baseline (reused from run_018)",
+      "n": 70,
+      "new_generation": false
+    }
+  },
+  "results_summary": {
+    "C2_density_aware_investigability": 0.9714,
+    "C1_investigability": 0.9714,
+    "C_rand_v2_investigability": 0.6,
+    "SC_ds_primary": "PASS",
+    "SC_ds_improvement": "PASS",
+    "SC_ds_random": "PASS",
+    "overall": "GO"
+  }
+}
