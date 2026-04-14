@@ -1,0 +1,97 @@
+{
+  "R1_baseline": {
+    "ranking": "R1_baseline",
+    "n": 140,
+    "investigability_rate": 0.8643,
+    "failure_rate": 0.1357,
+    "investigated_count": 121,
+    "evidence": {
+      "mean_e_score_min": 1.448,
+      "median_e_score_min": 1.5094,
+      "pct_zero_evidence": 0.1643
+    },
+    "novelty": {
+      "mean_cross_domain_ratio": 0.5
+    },
+    "diversity": {
+      "unique_endpoint_pairs": 127,
+      "diversity_rate": 0.9071
+    }
+  },
+  "R2_evidence_only": {
+    "ranking": "R2_evidence_only",
+    "n": 140,
+    "investigability_rate": 0.9143,
+    "failure_rate": 0.0857,
+    "investigated_count": 128,
+    "evidence": {
+      "mean_e_score_min": 2.309,
+      "median_e_score_min": 2.208,
+      "pct_zero_evidence": 0.0
+    },
+    "novelty": {
+      "mean_cross_domain_ratio": 0.4309
+    },
+    "diversity": {
+      "unique_endpoint_pairs": 126,
+      "diversity_rate": 0.9
+    }
+  },
+  "R3_struct_evidence": {
+    "ranking": "R3_struct_evidence",
+    "n": 140,
+    "investigability_rate": 0.8929,
+    "failure_rate": 0.1071,
+    "investigated_count": 125,
+    "evidence": {
+      "mean_e_score_min": 1.8727,
+      "median_e_score_min": 1.8323,
+      "pct_zero_evidence": 0.0
+    },
+    "novelty": {
+      "mean_cross_domain_ratio": 0.5
+    },
+    "diversity": {
+      "unique_endpoint_pairs": 134,
+      "diversity_rate": 0.9571
+    }
+  },
+  "R4_full_hybrid": {
+    "ranking": "R4_full_hybrid",
+    "n": 140,
+    "investigability_rate": 0.8929,
+    "failure_rate": 0.1071,
+    "investigated_count": 125,
+    "evidence": {
+      "mean_e_score_min": 1.8699,
+      "median_e_score_min": 1.8323,
+      "pct_zero_evidence": 0.0
+    },
+    "novelty": {
+      "mean_cross_domain_ratio": 0.5
+    },
+    "diversity": {
+      "unique_endpoint_pairs": 135,
+      "diversity_rate": 0.9643
+    }
+  },
+  "R5_conservative": {
+    "ranking": "R5_conservative",
+    "n": 140,
+    "investigability_rate": 0.9,
+    "failure_rate": 0.1,
+    "investigated_count": 126,
+    "evidence": {
+      "mean_e_score_min": 1.9479,
+      "median_e_score_min": 1.9517,
+      "pct_zero_evidence": 0.0
+    },
+    "novelty": {
+      "mean_cross_domain_ratio": 0.4893
+    },
+    "diversity": {
+      "unique_endpoint_pairs": 132,
+      "diversity_rate": 0.9429
+    }
+  }
+}

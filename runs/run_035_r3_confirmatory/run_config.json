@@ -1,0 +1,30 @@
+{
+  "run_id": "run_035_r3_confirmatory",
+  "timestamp": "2026-04-14T11:56:51.229542",
+  "phase": "P4-confirmatory",
+  "seed": 42,
+  "top_pool": 400,
+  "top_k": 140,
+  "max_depth": 5,
+  "rate_limit_s": 1.1,
+  "evidence_window": "1900/01/01 – 2023/12/31",
+  "validation_window": "2024/01/01 – 2025/12/31",
+  "kg_path": "/Users/alun/claude-dev/kg-discovery-engine/.claude/worktrees/trusting-goldwasser/src/scientific_hypothesis/../../src/scientific_hypothesis/bio_chem_kg_full.json",
+  "rankings": [
+    "R1_baseline",
+    "R2_evidence_only",
+    "R3_struct_evidence",
+    "R4_full_hybrid",
+    "R5_conservative"
+  ],
+  "primary_comparison": "R3_struct_evidence vs R1_baseline",
+  "power_target": "80% at h=0.207, α=0.05 → N≈130",
+  "decision": {
+    "outcome": "underpowered",
+    "verdict": "R3 same direction but underpowered: Δ=+0.0286, p=0.5836 ≥ 0.05",
+    "r3_delta": 0.0286,
+    "r3_p_value": 0.58361,
+    "r3_cohens_h": 0.0877,
+    "r3_significant": false
+  }
+}

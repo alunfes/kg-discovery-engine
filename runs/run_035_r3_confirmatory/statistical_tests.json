@@ -1,0 +1,38 @@
+[
+  {
+    "ranking": "R2_evidence_only",
+    "investigability_rate": 0.9143,
+    "baseline_investigability_rate": 0.8643,
+    "delta": 0.05,
+    "cohens_h": 0.1603,
+    "p_value": 0.252883,
+    "significant_p05": false
+  },
+  {
+    "ranking": "R3_struct_evidence",
+    "investigability_rate": 0.8929,
+    "baseline_investigability_rate": 0.8643,
+    "delta": 0.0286,
+    "cohens_h": 0.0877,
+    "p_value": 0.58361,
+    "significant_p05": false
+  },
+  {
+    "ranking": "R4_full_hybrid",
+    "investigability_rate": 0.8929,
+    "baseline_investigability_rate": 0.8643,
+    "delta": 0.0286,
+    "cohens_h": 0.0877,
+    "p_value": 0.58361,
+    "significant_p05": false
+  },
+  {
+    "ranking": "R5_conservative",
+    "investigability_rate": 0.9,
+    "baseline_investigability_rate": 0.8643,
+    "delta": 0.0357,
+    "cohens_h": 0.111,
+    "p_value": 0.458916,
+    "significant_p05": false
+  }
+]
