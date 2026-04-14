@@ -1,0 +1,56 @@
+[
+  {
+    "comparison": "T1_vs_B2",
+    "test_inv_rate": 0.9429,
+    "base_inv_rate": 0.9429,
+    "delta": 0.0,
+    "cohens_h": 0.0,
+    "p_value": 1.0,
+    "significant_p05": false
+  },
+  {
+    "comparison": "T1_vs_B1",
+    "test_inv_rate": 0.9429,
+    "base_inv_rate": 0.8857,
+    "delta": 0.0572,
+    "cohens_h": 0.2072,
+    "p_value": 0.365965,
+    "significant_p05": false
+  },
+  {
+    "comparison": "B2_vs_B1",
+    "test_inv_rate": 0.9429,
+    "base_inv_rate": 0.8857,
+    "delta": 0.0572,
+    "cohens_h": 0.2072,
+    "p_value": 0.365965,
+    "significant_p05": false
+  },
+  {
+    "comparison": "T2_vs_B2",
+    "test_inv_rate": 0.9286,
+    "base_inv_rate": 0.9429,
+    "delta": -0.0143,
+    "cohens_h": -0.0584,
+    "p_value": 1.0,
+    "significant_p05": false
+  },
+  {
+    "comparison": "T2_vs_B1",
+    "test_inv_rate": 0.9286,
+    "base_inv_rate": 0.8857,
+    "delta": 0.0429,
+    "cohens_h": 0.1488,
+    "p_value": 0.56193,
+    "significant_p05": false
+  },
+  {
+    "comparison": "T2_vs_T1",
+    "test_inv_rate": 0.9286,
+    "base_inv_rate": 0.9429,
+    "delta": -0.0143,
+    "cohens_h": -0.0584,
+    "p_value": 1.0,
+    "significant_p05": false
+  }
+]

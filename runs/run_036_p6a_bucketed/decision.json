@@ -1,0 +1,25 @@
+{
+  "outcome": "structure_confirmed_novelty_fail",
+  "verdict": "T1 > B1 but T1 ≤ B2 — bucketing beats naive baseline but can't match evidence ranking; structural exclusion real but R3 already compensates via evidence weighting [WARNING: novelty_retention=0.808 < 0.90]",
+  "t1_inv": 0.9429,
+  "b1_inv": 0.8857,
+  "b2_inv": 0.9429,
+  "delta_T1_B2": 0.0,
+  "delta_T1_B1": 0.0572,
+  "delta_B2_B1": 0.0572,
+  "novelty_retention": 0.808,
+  "novelty_ok": false,
+  "long_path_gain_T1_vs_B2": 0.5,
+  "t2_decision": {
+    "outcome": "weak_success",
+    "verdict": "T2 > B1 AND T2 ≈ B2 — 2-bucket matches standard with novelty OK",
+    "t2_inv": 0.9286,
+    "b1_inv": 0.8857,
+    "b2_inv": 0.9429,
+    "delta_T2_B2": -0.0143,
+    "delta_T2_B1": 0.0429,
+    "novelty_retention": 0.9048,
+    "novelty_ok": true,
+    "long_path_gain_T2_vs_B2": 0.2857
+  }
+}
