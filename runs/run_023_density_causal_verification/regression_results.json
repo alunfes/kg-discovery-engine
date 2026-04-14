@@ -1,0 +1,150 @@
+{
+  "n_observations": 140,
+  "density_only_model": {
+    "beta": [
+      0.584379,
+      0.089786
+    ],
+    "se": [
+      0.128798,
+      0.031898
+    ],
+    "t_stat": [
+      4.5372,
+      2.8147
+    ],
+    "p_value": [
+      1.2e-05,
+      0.005596
+    ],
+    "r_squared": 0.054295,
+    "adj_r_squared": 0.047442,
+    "n": 140,
+    "k": 2,
+    "ss_res": 7.133321,
+    "ss_tot": 7.542857,
+    "feature_names": [
+      "intercept",
+      "log_density"
+    ]
+  },
+  "model_A": {
+    "beta": [
+      0.62664,
+      0.084269,
+      -0.040467
+    ],
+    "se": [
+      0.135033,
+      0.032328,
+      0.038948
+    ],
+    "t_stat": [
+      4.6406,
+      2.6067,
+      -1.039
+    ],
+    "p_value": [
+      8e-06,
+      0.010155,
+      0.300631
+    ],
+    "r_squared": 0.061688,
+    "adj_r_squared": 0.04799,
+    "n": 140,
+    "k": 3,
+    "ss_res": 7.077551,
+    "ss_tot": 7.542857,
+    "feature_names": [
+      "intercept",
+      "log_density",
+      "model_C2"
+    ]
+  },
+  "model_B": {
+    "beta": [
+      1.028269,
+      -0.013892,
+      -0.947939,
+      0.228076
+    ],
+    "se": [
+      0.16989,
+      0.041032,
+      0.251638,
+      0.062546
+    ],
+    "t_stat": [
+      6.0526,
+      -0.3386,
+      -3.7671,
+      3.6466
+    ],
+    "p_value": [
+      0.0,
+      0.735458,
+      0.000245,
+      0.000377
+    ],
+    "r_squared": 0.14526,
+    "adj_r_squared": 0.126406,
+    "n": 140,
+    "k": 4,
+    "ss_res": 6.447179,
+    "ss_tot": 7.542857,
+    "feature_names": [
+      "intercept",
+      "log_density",
+      "model_C2",
+      "log_density:model_C2"
+    ]
+  },
+  "model_C": {
+    "beta": [
+      0.419311,
+      0.132659,
+      0.810577,
+      -0.188062
+    ],
+    "se": [
+      0.225902,
+      0.06518,
+      0.385942,
+      0.096736
+    ],
+    "t_stat": [
+      1.8562,
+      2.0353,
+      2.1003,
+      -1.9441
+    ],
+    "p_value": [
+      0.065594,
+      0.043766,
+      0.037553,
+      0.05395
+    ],
+    "r_squared": 0.088756,
+    "adj_r_squared": 0.068655,
+    "n": 140,
+    "k": 4,
+    "ss_res": 6.873381,
+    "ss_tot": 7.542857,
+    "feature_names": [
+      "intercept",
+      "log_density",
+      "above_threshold",
+      "log_density:above_threshold"
+    ]
+  },
+  "r2_decomposition": {
+    "r2_density_only": 0.054295,
+    "r2_model_A": 0.061688,
+    "r2_model_B": 0.14526,
+    "r2_model_C": 0.088756,
+    "incremental_r2_model_beyond_density": 0.007393,
+    "incremental_r2_interaction": 0.083572,
+    "pct_variance_explained_by_density": 88.0,
+    "pct_incremental_model_effect": 12.0
+  }
+}

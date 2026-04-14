@@ -1,0 +1,2802 @@
+[
+  {
+    "hypothesis_id": "H3001",
+    "score": 1,
+    "model": "C2",
+    "density": 7877,
+    "log_density": 3.8964,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H3002",
+    "score": 1,
+    "model": "C2",
+    "density": 12066,
+    "log_density": 4.0816,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H3003",
+    "score": 1,
+    "model": "C2",
+    "density": 40253,
+    "log_density": 4.6048,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H3004",
+    "score": 0,
+    "model": "C2",
+    "density": 1876,
+    "log_density": 3.2735,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H3005",
+    "score": 1,
+    "model": "C2",
+    "density": 8709,
+    "log_density": 3.94,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H3006",
+    "score": 1,
+    "model": "C2",
+    "density": 8709,
+    "log_density": 3.94,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H3007",
+    "score": 1,
+    "model": "C2",
+    "density": 8709,
+    "log_density": 3.94,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H3008",
+    "score": 1,
+    "model": "C2",
+    "density": 8709,
+    "log_density": 3.94,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H3009",
+    "score": 1,
+    "model": "C2",
+    "density": 74851,
+    "log_density": 4.8742,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H3010",
+    "score": 1,
+    "model": "C2",
+    "density": 883,
+    "log_density": 2.9465,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H3011",
+    "score": 1,
+    "model": "C2",
+    "density": 10723,
+    "log_density": 4.0304,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H3012",
+    "score": 1,
+    "model": "C2",
+    "density": 10723,
+    "log_density": 4.0304,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H3013",
+    "score": 1,
+    "model": "C2",
+    "density": 18466,
+    "log_density": 4.2664,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H3014",
+    "score": 1,
+    "model": "C2",
+    "density": 27397,
+    "log_density": 4.4377,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H3015",
+    "score": 1,
+    "model": "C2",
+    "density": 8085,
+    "log_density": 3.9077,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H3016",
+    "score": 1,
+    "model": "C2",
+    "density": 7877,
+    "log_density": 3.8964,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H3017",
+    "score": 1,
+    "model": "C2",
+    "density": 12066,
+    "log_density": 4.0816,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H3018",
+    "score": 1,
+    "model": "C2",
+    "density": 13679,
+    "log_density": 4.1361,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H3019",
+    "score": 1,
+    "model": "C2",
+    "density": 4594,
+    "log_density": 3.6623,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H3020",
+    "score": 0,
+    "model": "C2",
+    "density": 1876,
+    "log_density": 3.2735,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H3021",
+    "score": 1,
+    "model": "C2",
+    "density": 30821,
+    "log_density": 4.4889,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H3022",
+    "score": 1,
+    "model": "C2",
+    "density": 26686,
+    "log_density": 4.4263,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H3023",
+    "score": 1,
+    "model": "C2",
+    "density": 30821,
+    "log_density": 4.4889,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H3024",
+    "score": 1,
+    "model": "C2",
+    "density": 40253,
+    "log_density": 4.6048,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H3025",
+    "score": 1,
+    "model": "C2",
+    "density": 36687,
+    "log_density": 4.5645,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H3026",
+    "score": 1,
+    "model": "C2",
+    "density": 4594,
+    "log_density": 3.6623,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H3027",
+    "score": 1,
+    "model": "C2",
+    "density": 74851,
+    "log_density": 4.8742,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H3028",
+    "score": 1,
+    "model": "C2",
+    "density": 74851,
+    "log_density": 4.8742,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H3029",
+    "score": 1,
+    "model": "C2",
+    "density": 11258,
+    "log_density": 4.0515,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H3030",
+    "score": 1,
+    "model": "C2",
+    "density": 11258,
+    "log_density": 4.0515,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H3031",
+    "score": 1,
+    "model": "C2",
+    "density": 18071,
+    "log_density": 4.257,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H3032",
+    "score": 0,
+    "model": "C2",
+    "density": 3255,
+    "log_density": 3.5127,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H3033",
+    "score": 1,
+    "model": "C2",
+    "density": 4311,
+    "log_density": 3.6347,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H3034",
+    "score": 1,
+    "model": "C2",
+    "density": 8085,
+    "log_density": 3.9077,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H3035",
+    "score": 1,
+    "model": "C2",
+    "density": 8085,
+    "log_density": 3.9077,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H3036",
+    "score": 1,
+    "model": "C2",
+    "density": 27397,
+    "log_density": 4.4377,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H3037",
+    "score": 1,
+    "model": "C2",
+    "density": 22743,
+    "log_density": 4.3569,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H3038",
+    "score": 1,
+    "model": "C2",
+    "density": 22743,
+    "log_density": 4.3569,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H3039",
+    "score": 1,
+    "model": "C2",
+    "density": 22743,
+    "log_density": 4.3569,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H3040",
+    "score": 1,
+    "model": "C2",
+    "density": 8126,
+    "log_density": 3.9099,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H3041",
+    "score": 1,
+    "model": "C2",
+    "density": 5640,
+    "log_density": 3.7514,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H3042",
+    "score": 1,
+    "model": "C2",
+    "density": 646,
+    "log_density": 2.8109,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H3043",
+    "score": 1,
+    "model": "C2",
+    "density": 646,
+    "log_density": 2.8109,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H3044",
+    "score": 1,
+    "model": "C2",
+    "density": 17750,
+    "log_density": 4.2492,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H3045",
+    "score": 1,
+    "model": "C2",
+    "density": 10723,
+    "log_density": 4.0304,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H3046",
+    "score": 1,
+    "model": "C2",
+    "density": 8709,
+    "log_density": 3.94,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H3047",
+    "score": 1,
+    "model": "C2",
+    "density": 8177,
+    "log_density": 3.9126,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H3048",
+    "score": 1,
+    "model": "C2",
+    "density": 7635,
+    "log_density": 3.8829,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H3049",
+    "score": 1,
+    "model": "C2",
+    "density": 636,
+    "log_density": 2.8041,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H3050",
+    "score": 0,
+    "model": "C2",
+    "density": 968,
+    "log_density": 2.9863,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H3051",
+    "score": 1,
+    "model": "C2",
+    "density": 4753,
+    "log_density": 3.6771,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H3052",
+    "score": 1,
+    "model": "C2",
+    "density": 4594,
+    "log_density": 3.6623,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H3053",
+    "score": 1,
+    "model": "C2",
+    "density": 5920,
+    "log_density": 3.7724,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H3054",
+    "score": 0,
+    "model": "C2",
+    "density": 5920,
+    "log_density": 3.7724,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H3055",
+    "score": 1,
+    "model": "C2",
+    "density": 7635,
+    "log_density": 3.8829,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H3056",
+    "score": 1,
+    "model": "C2",
+    "density": 7635,
+    "log_density": 3.8829,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H3057",
+    "score": 1,
+    "model": "C2",
+    "density": 22743,
+    "log_density": 4.3569,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H3058",
+    "score": 1,
+    "model": "C2",
+    "density": 22743,
+    "log_density": 4.3569,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H3059",
+    "score": 1,
+    "model": "C2",
+    "density": 1520,
+    "log_density": 3.1821,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H3060",
+    "score": 1,
+    "model": "C2",
+    "density": 1520,
+    "log_density": 3.1821,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H3061",
+    "score": 1,
+    "model": "C2",
+    "density": 8636,
+    "log_density": 3.9364,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H3062",
+    "score": 1,
+    "model": "C2",
+    "density": 8085,
+    "log_density": 3.9077,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H3063",
+    "score": 1,
+    "model": "C2",
+    "density": 4594,
+    "log_density": 3.6623,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H3064",
+    "score": 1,
+    "model": "C2",
+    "density": 244,
+    "log_density": 2.3892,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H3065",
+    "score": 0,
+    "model": "C2",
+    "density": 96,
+    "log_density": 1.9868,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H3066",
+    "score": 1,
+    "model": "C2",
+    "density": 8126,
+    "log_density": 3.9099,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H3067",
+    "score": 1,
+    "model": "C2",
+    "density": 17750,
+    "log_density": 4.2492,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H3068",
+    "score": 1,
+    "model": "C2",
+    "density": 8709,
+    "log_density": 3.94,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H3069",
+    "score": 1,
+    "model": "C2",
+    "density": 10723,
+    "log_density": 4.0304,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H3070",
+    "score": 1,
+    "model": "C2",
+    "density": 5640,
+    "log_density": 3.7514,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H4001",
+    "score": 1,
+    "model": "C1",
+    "density": 4882,
+    "log_density": 3.6887,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H4002",
+    "score": 1,
+    "model": "C1",
+    "density": 658,
+    "log_density": 2.8189,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H4003",
+    "score": 1,
+    "model": "C1",
+    "density": 41673,
+    "log_density": 4.6199,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H4004",
+    "score": 1,
+    "model": "C1",
+    "density": 169380,
+    "log_density": 5.2289,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H4005",
+    "score": 1,
+    "model": "C1",
+    "density": 12066,
+    "log_density": 4.0816,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H4006",
+    "score": 1,
+    "model": "C1",
+    "density": 7877,
+    "log_density": 3.8964,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H4007",
+    "score": 1,
+    "model": "C1",
+    "density": 12066,
+    "log_density": 4.0816,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H4008",
+    "score": 1,
+    "model": "C1",
+    "density": 12066,
+    "log_density": 4.0816,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H4009",
+    "score": 1,
+    "model": "C1",
+    "density": 1876,
+    "log_density": 3.2735,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H4010",
+    "score": 1,
+    "model": "C1",
+    "density": 1640,
+    "log_density": 3.2151,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H4011",
+    "score": 1,
+    "model": "C1",
+    "density": 7739,
+    "log_density": 3.8887,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H4012",
+    "score": 1,
+    "model": "C1",
+    "density": 27616,
+    "log_density": 4.4412,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H4013",
+    "score": 1,
+    "model": "C1",
+    "density": 27616,
+    "log_density": 4.4412,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H4014",
+    "score": 1,
+    "model": "C1",
+    "density": 27616,
+    "log_density": 4.4412,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H4015",
+    "score": 1,
+    "model": "C1",
+    "density": 54706,
+    "log_density": 4.738,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H4016",
+    "score": 1,
+    "model": "C1",
+    "density": 86587,
+    "log_density": 4.9375,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H4017",
+    "score": 1,
+    "model": "C1",
+    "density": 62113,
+    "log_density": 4.7932,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H4018",
+    "score": 1,
+    "model": "C1",
+    "density": 15488,
+    "log_density": 4.19,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H4019",
+    "score": 1,
+    "model": "C1",
+    "density": 62113,
+    "log_density": 4.7932,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H4020",
+    "score": 1,
+    "model": "C1",
+    "density": 15488,
+    "log_density": 4.19,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H4021",
+    "score": 1,
+    "model": "C1",
+    "density": 81713,
+    "log_density": 4.9123,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H4022",
+    "score": 0,
+    "model": "C1",
+    "density": 81713,
+    "log_density": 4.9123,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H4023",
+    "score": 1,
+    "model": "C1",
+    "density": 40741,
+    "log_density": 4.61,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H4024",
+    "score": 1,
+    "model": "C1",
+    "density": 40741,
+    "log_density": 4.61,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H4025",
+    "score": 1,
+    "model": "C1",
+    "density": 36687,
+    "log_density": 4.5645,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H4026",
+    "score": 1,
+    "model": "C1",
+    "density": 11153,
+    "log_density": 4.0474,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H4027",
+    "score": 1,
+    "model": "C1",
+    "density": 4311,
+    "log_density": 3.6347,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H4028",
+    "score": 1,
+    "model": "C1",
+    "density": 28182,
+    "log_density": 4.45,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H4029",
+    "score": 1,
+    "model": "C1",
+    "density": 42314,
+    "log_density": 4.6265,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H4030",
+    "score": 1,
+    "model": "C1",
+    "density": 4923,
+    "log_density": 3.6923,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H4031",
+    "score": 1,
+    "model": "C1",
+    "density": 7497,
+    "log_density": 3.8749,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H4032",
+    "score": 1,
+    "model": "C1",
+    "density": 35829,
+    "log_density": 4.5542,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H4033",
+    "score": 1,
+    "model": "C1",
+    "density": 35829,
+    "log_density": 4.5542,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H4034",
+    "score": 1,
+    "model": "C1",
+    "density": 10844,
+    "log_density": 4.0352,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H4035",
+    "score": 1,
+    "model": "C1",
+    "density": 23924,
+    "log_density": 4.3789,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H4036",
+    "score": 1,
+    "model": "C1",
+    "density": 28641,
+    "log_density": 4.457,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H4037",
+    "score": 1,
+    "model": "C1",
+    "density": 488,
+    "log_density": 2.6893,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H4038",
+    "score": 1,
+    "model": "C1",
+    "density": 3255,
+    "log_density": 3.5127,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H4039",
+    "score": 1,
+    "model": "C1",
+    "density": 160691,
+    "log_density": 5.206,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H4040",
+    "score": 1,
+    "model": "C1",
+    "density": 268368,
+    "log_density": 5.4287,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H4041",
+    "score": 1,
+    "model": "C1",
+    "density": 63199,
+    "log_density": 4.8007,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H4042",
+    "score": 1,
+    "model": "C1",
+    "density": 36687,
+    "log_density": 4.5645,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H4043",
+    "score": 1,
+    "model": "C1",
+    "density": 4594,
+    "log_density": 3.6623,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H4044",
+    "score": 1,
+    "model": "C1",
+    "density": 10701,
+    "log_density": 4.0295,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H4045",
+    "score": 1,
+    "model": "C1",
+    "density": 26686,
+    "log_density": 4.4263,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H4046",
+    "score": 1,
+    "model": "C1",
+    "density": 3587,
+    "log_density": 3.5549,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H4047",
+    "score": 1,
+    "model": "C1",
+    "density": 848,
+    "log_density": 2.9289,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H4048",
+    "score": 1,
+    "model": "C1",
+    "density": 11761,
+    "log_density": 4.0705,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H4049",
+    "score": 1,
+    "model": "C1",
+    "density": 42314,
+    "log_density": 4.6265,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H4050",
+    "score": 1,
+    "model": "C1",
+    "density": 425,
+    "log_density": 2.6294,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H4051",
+    "score": 1,
+    "model": "C1",
+    "density": 425,
+    "log_density": 2.6294,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H4052",
+    "score": 1,
+    "model": "C1",
+    "density": 4594,
+    "log_density": 3.6623,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H4053",
+    "score": 1,
+    "model": "C1",
+    "density": 28641,
+    "log_density": 4.457,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H4054",
+    "score": 1,
+    "model": "C1",
+    "density": 28641,
+    "log_density": 4.457,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H4055",
+    "score": 1,
+    "model": "C1",
+    "density": 4311,
+    "log_density": 3.6347,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H4056",
+    "score": 1,
+    "model": "C1",
+    "density": 4311,
+    "log_density": 3.6347,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H4057",
+    "score": 1,
+    "model": "C1",
+    "density": 11153,
+    "log_density": 4.0474,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H4058",
+    "score": 1,
+    "model": "C1",
+    "density": 4923,
+    "log_density": 3.6923,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H4059",
+    "score": 0,
+    "model": "C1",
+    "density": 4590,
+    "log_density": 3.6619,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H4060",
+    "score": 1,
+    "model": "C1",
+    "density": 488,
+    "log_density": 2.6893,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H4061",
+    "score": 1,
+    "model": "C1",
+    "density": 9012,
+    "log_density": 3.9549,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H4062",
+    "score": 1,
+    "model": "C1",
+    "density": 9012,
+    "log_density": 3.9549,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H4063",
+    "score": 1,
+    "model": "C1",
+    "density": 11761,
+    "log_density": 4.0705,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H4064",
+    "score": 1,
+    "model": "C1",
+    "density": 3587,
+    "log_density": 3.5549,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H4065",
+    "score": 1,
+    "model": "C1",
+    "density": 10844,
+    "log_density": 4.0352,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H4066",
+    "score": 1,
+    "model": "C1",
+    "density": 23924,
+    "log_density": 4.3789,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H4067",
+    "score": 1,
+    "model": "C1",
+    "density": 35829,
+    "log_density": 4.5542,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H4068",
+    "score": 1,
+    "model": "C1",
+    "density": 3255,
+    "log_density": 3.5127,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H4069",
+    "score": 1,
+    "model": "C1",
+    "density": 28182,
+    "log_density": 4.45,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H4070",
+    "score": 1,
+    "model": "C1",
+    "density": 3085,
+    "log_density": 3.4894,
+    "condition": "baseline",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5001",
+    "score": 0,
+    "model": "C_rand",
+    "density": 146,
+    "log_density": 2.1673,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5002",
+    "score": 1,
+    "model": "C_rand",
+    "density": 8085,
+    "log_density": 3.9077,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H5003",
+    "score": 1,
+    "model": "C_rand",
+    "density": 63199,
+    "log_density": 4.8007,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H5004",
+    "score": 0,
+    "model": "C_rand",
+    "density": 7635,
+    "log_density": 3.8829,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H5005",
+    "score": 1,
+    "model": "C_rand",
+    "density": 3997,
+    "log_density": 3.6018,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5006",
+    "score": 0,
+    "model": "C_rand",
+    "density": 1520,
+    "log_density": 3.1821,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5007",
+    "score": 1,
+    "model": "C_rand",
+    "density": 36552,
+    "log_density": 4.5629,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H5008",
+    "score": 1,
+    "model": "C_rand",
+    "density": 6471,
+    "log_density": 3.811,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H5009",
+    "score": 0,
+    "model": "C_rand",
+    "density": 17966,
+    "log_density": 4.2545,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H5010",
+    "score": 0,
+    "model": "C_rand",
+    "density": 146,
+    "log_density": 2.1673,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5011",
+    "score": 1,
+    "model": "C_rand",
+    "density": 30711,
+    "log_density": 4.4873,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H5012",
+    "score": 1,
+    "model": "C_rand",
+    "density": 4753,
+    "log_density": 3.6771,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H5013",
+    "score": 1,
+    "model": "C_rand",
+    "density": 46570,
+    "log_density": 4.6681,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H5014",
+    "score": 1,
+    "model": "C_rand",
+    "density": 4594,
+    "log_density": 3.6623,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5015",
+    "score": 1,
+    "model": "C_rand",
+    "density": 30821,
+    "log_density": 4.4889,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H5016",
+    "score": 0,
+    "model": "C_rand",
+    "density": 9012,
+    "log_density": 3.9549,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H5017",
+    "score": 1,
+    "model": "C_rand",
+    "density": 1520,
+    "log_density": 3.1821,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5018",
+    "score": 1,
+    "model": "C_rand",
+    "density": 3255,
+    "log_density": 3.5127,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5019",
+    "score": 1,
+    "model": "C_rand",
+    "density": 4753,
+    "log_density": 3.6771,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H5020",
+    "score": 1,
+    "model": "C_rand",
+    "density": 7497,
+    "log_density": 3.8749,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H5021",
+    "score": 1,
+    "model": "C_rand",
+    "density": 7877,
+    "log_density": 3.8964,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H5022",
+    "score": 0,
+    "model": "C_rand",
+    "density": 1876,
+    "log_density": 3.2735,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5023",
+    "score": 0,
+    "model": "C_rand",
+    "density": 3587,
+    "log_density": 3.5549,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5024",
+    "score": 1,
+    "model": "C_rand",
+    "density": 425,
+    "log_density": 2.6294,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5025",
+    "score": 1,
+    "model": "C_rand",
+    "density": 821,
+    "log_density": 2.9149,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5026",
+    "score": 0,
+    "model": "C_rand",
+    "density": 425,
+    "log_density": 2.6294,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5027",
+    "score": 1,
+    "model": "C_rand",
+    "density": 5640,
+    "log_density": 3.7514,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H5028",
+    "score": 1,
+    "model": "C_rand",
+    "density": 10844,
+    "log_density": 4.0352,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H5029",
+    "score": 0,
+    "model": "C_rand",
+    "density": 1520,
+    "log_density": 3.1821,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5030",
+    "score": 1,
+    "model": "C_rand",
+    "density": 14963,
+    "log_density": 4.175,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H5031",
+    "score": 1,
+    "model": "C_rand",
+    "density": 50575,
+    "log_density": 4.7039,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H5032",
+    "score": 0,
+    "model": "C_rand",
+    "density": 1520,
+    "log_density": 3.1821,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5033",
+    "score": 1,
+    "model": "C_rand",
+    "density": 284,
+    "log_density": 2.4548,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5034",
+    "score": 1,
+    "model": "C_rand",
+    "density": 50575,
+    "log_density": 4.7039,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H5035",
+    "score": 1,
+    "model": "C_rand",
+    "density": 236,
+    "log_density": 2.3747,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5036",
+    "score": 0,
+    "model": "C_rand",
+    "density": 949,
+    "log_density": 2.9777,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5037",
+    "score": 1,
+    "model": "C_rand",
+    "density": 28182,
+    "log_density": 4.45,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H5038",
+    "score": 1,
+    "model": "C_rand",
+    "density": 17966,
+    "log_density": 4.2545,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H5039",
+    "score": 0,
+    "model": "C_rand",
+    "density": 4311,
+    "log_density": 3.6347,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5040",
+    "score": 0,
+    "model": "C_rand",
+    "density": 488,
+    "log_density": 2.6893,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5041",
+    "score": 0,
+    "model": "C_rand",
+    "density": 8636,
+    "log_density": 3.9364,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H5042",
+    "score": 1,
+    "model": "C_rand",
+    "density": 4563,
+    "log_density": 3.6593,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5043",
+    "score": 0,
+    "model": "C_rand",
+    "density": 658,
+    "log_density": 2.8189,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5044",
+    "score": 0,
+    "model": "C_rand",
+    "density": 646,
+    "log_density": 2.8109,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5045",
+    "score": 0,
+    "model": "C_rand",
+    "density": 646,
+    "log_density": 2.8109,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5046",
+    "score": 1,
+    "model": "C_rand",
+    "density": 624,
+    "log_density": 2.7959,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5047",
+    "score": 1,
+    "model": "C_rand",
+    "density": 11153,
+    "log_density": 4.0474,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H5048",
+    "score": 1,
+    "model": "C_rand",
+    "density": 8177,
+    "log_density": 3.9126,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H5049",
+    "score": 0,
+    "model": "C_rand",
+    "density": 1078,
+    "log_density": 3.033,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5050",
+    "score": 1,
+    "model": "C_rand",
+    "density": 5920,
+    "log_density": 3.7724,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H5051",
+    "score": 1,
+    "model": "C_rand",
+    "density": 4594,
+    "log_density": 3.6623,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5052",
+    "score": 0,
+    "model": "C_rand",
+    "density": 96,
+    "log_density": 1.9868,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5053",
+    "score": 1,
+    "model": "C_rand",
+    "density": 22743,
+    "log_density": 4.3569,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H5054",
+    "score": 1,
+    "model": "C_rand",
+    "density": 624,
+    "log_density": 2.7959,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5055",
+    "score": 1,
+    "model": "C_rand",
+    "density": 22743,
+    "log_density": 4.3569,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H5056",
+    "score": 0,
+    "model": "C_rand",
+    "density": 1520,
+    "log_density": 3.1821,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5057",
+    "score": 0,
+    "model": "C_rand",
+    "density": 284,
+    "log_density": 2.4548,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5058",
+    "score": 0,
+    "model": "C_rand",
+    "density": 636,
+    "log_density": 2.8041,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5059",
+    "score": 0,
+    "model": "C_rand",
+    "density": 96,
+    "log_density": 1.9868,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5060",
+    "score": 0,
+    "model": "C_rand",
+    "density": 1078,
+    "log_density": 3.033,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5061",
+    "score": 0,
+    "model": "C_rand",
+    "density": 646,
+    "log_density": 2.8109,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5062",
+    "score": 1,
+    "model": "C_rand",
+    "density": 968,
+    "log_density": 2.9863,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5063",
+    "score": 1,
+    "model": "C_rand",
+    "density": 2130,
+    "log_density": 3.3286,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5064",
+    "score": 1,
+    "model": "C_rand",
+    "density": 5640,
+    "log_density": 3.7514,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H5065",
+    "score": 0,
+    "model": "C_rand",
+    "density": 244,
+    "log_density": 2.3892,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5066",
+    "score": 1,
+    "model": "C_rand",
+    "density": 235,
+    "log_density": 2.3729,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q1"
+  },
+  {
+    "hypothesis_id": "H5067",
+    "score": 0,
+    "model": "C_rand",
+    "density": 8126,
+    "log_density": 3.9099,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H5068",
+    "score": 1,
+    "model": "C_rand",
+    "density": 8085,
+    "log_density": 3.9077,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H5069",
+    "score": 1,
+    "model": "C_rand",
+    "density": 8709,
+    "log_density": 3.94,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H5070",
+    "score": 1,
+    "model": "C_rand",
+    "density": 8709,
+    "log_density": 3.94,
+    "condition": "random",
+    "source": "run_018",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H6001",
+    "score": 1,
+    "model": "C2_da",
+    "density": 12066,
+    "log_density": 4.0816,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H6002",
+    "score": 1,
+    "model": "C2_da",
+    "density": 40253,
+    "log_density": 4.6048,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H6003",
+    "score": 1,
+    "model": "C2_da",
+    "density": 8709,
+    "log_density": 3.94,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H6004",
+    "score": 1,
+    "model": "C2_da",
+    "density": 8709,
+    "log_density": 3.94,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H6005",
+    "score": 1,
+    "model": "C2_da",
+    "density": 8709,
+    "log_density": 3.94,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H6006",
+    "score": 1,
+    "model": "C2_da",
+    "density": 8709,
+    "log_density": 3.94,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H6007",
+    "score": 1,
+    "model": "C2_da",
+    "density": 74851,
+    "log_density": 4.8742,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H6008",
+    "score": 1,
+    "model": "C2_da",
+    "density": 10723,
+    "log_density": 4.0304,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H6009",
+    "score": 1,
+    "model": "C2_da",
+    "density": 10723,
+    "log_density": 4.0304,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H6010",
+    "score": 1,
+    "model": "C2_da",
+    "density": 18466,
+    "log_density": 4.2664,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H6011",
+    "score": 1,
+    "model": "C2_da",
+    "density": 27397,
+    "log_density": 4.4377,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H6012",
+    "score": 1,
+    "model": "C2_da",
+    "density": 12066,
+    "log_density": 4.0816,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H6013",
+    "score": 1,
+    "model": "C2_da",
+    "density": 13679,
+    "log_density": 4.1361,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H6014",
+    "score": 1,
+    "model": "C2_da",
+    "density": 50575,
+    "log_density": 4.7039,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H6015",
+    "score": 1,
+    "model": "C2_da",
+    "density": 42314,
+    "log_density": 4.6265,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H6016",
+    "score": 1,
+    "model": "C2_da",
+    "density": 50575,
+    "log_density": 4.7039,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H6017",
+    "score": 1,
+    "model": "C2_da",
+    "density": 50575,
+    "log_density": 4.7039,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H6018",
+    "score": 1,
+    "model": "C2_da",
+    "density": 11513,
+    "log_density": 4.0612,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H6019",
+    "score": 1,
+    "model": "C2_da",
+    "density": 17954,
+    "log_density": 4.2542,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H6020",
+    "score": 1,
+    "model": "C2_da",
+    "density": 17966,
+    "log_density": 4.2545,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H6021",
+    "score": 1,
+    "model": "C2_da",
+    "density": 17966,
+    "log_density": 4.2545,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H6022",
+    "score": 1,
+    "model": "C2_da",
+    "density": 18071,
+    "log_density": 4.257,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H6023",
+    "score": 1,
+    "model": "C2_da",
+    "density": 18071,
+    "log_density": 4.257,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H6024",
+    "score": 1,
+    "model": "C2_da",
+    "density": 15488,
+    "log_density": 4.19,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H6025",
+    "score": 1,
+    "model": "C2_da",
+    "density": 12982,
+    "log_density": 4.1134,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H6026",
+    "score": 1,
+    "model": "C2_da",
+    "density": 12982,
+    "log_density": 4.1134,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H6027",
+    "score": 1,
+    "model": "C2_da",
+    "density": 12982,
+    "log_density": 4.1134,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H6028",
+    "score": 1,
+    "model": "C2_da",
+    "density": 20634,
+    "log_density": 4.3146,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H6029",
+    "score": 1,
+    "model": "C2_da",
+    "density": 8171,
+    "log_density": 3.9123,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H6030",
+    "score": 1,
+    "model": "C2_da",
+    "density": 8171,
+    "log_density": 3.9123,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H6031",
+    "score": 1,
+    "model": "C2_da",
+    "density": 8171,
+    "log_density": 3.9123,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H6032",
+    "score": 1,
+    "model": "C2_da",
+    "density": 14963,
+    "log_density": 4.175,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H6033",
+    "score": 1,
+    "model": "C2_da",
+    "density": 9080,
+    "log_density": 3.9581,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H6034",
+    "score": 1,
+    "model": "C2_da",
+    "density": 9080,
+    "log_density": 3.9581,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H6035",
+    "score": 1,
+    "model": "C2_da",
+    "density": 9080,
+    "log_density": 3.9581,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H6036",
+    "score": 1,
+    "model": "C2_da",
+    "density": 9080,
+    "log_density": 3.9581,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H6037",
+    "score": 1,
+    "model": "C2_da",
+    "density": 8177,
+    "log_density": 3.9126,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H6038",
+    "score": 1,
+    "model": "C2_da",
+    "density": 8177,
+    "log_density": 3.9126,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H6039",
+    "score": 1,
+    "model": "C2_da",
+    "density": 12191,
+    "log_density": 4.0861,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H6040",
+    "score": 1,
+    "model": "C2_da",
+    "density": 12191,
+    "log_density": 4.0861,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H6041",
+    "score": 1,
+    "model": "C2_da",
+    "density": 10701,
+    "log_density": 4.0295,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H6042",
+    "score": 1,
+    "model": "C2_da",
+    "density": 11258,
+    "log_density": 4.0515,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H6043",
+    "score": 1,
+    "model": "C2_da",
+    "density": 11258,
+    "log_density": 4.0515,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H6044",
+    "score": 1,
+    "model": "C2_da",
+    "density": 22743,
+    "log_density": 4.3569,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H6045",
+    "score": 1,
+    "model": "C2_da",
+    "density": 22743,
+    "log_density": 4.3569,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H6046",
+    "score": 1,
+    "model": "C2_da",
+    "density": 22743,
+    "log_density": 4.3569,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H6047",
+    "score": 1,
+    "model": "C2_da",
+    "density": 22743,
+    "log_density": 4.3569,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H6048",
+    "score": 1,
+    "model": "C2_da",
+    "density": 22743,
+    "log_density": 4.3569,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H6049",
+    "score": 1,
+    "model": "C2_da",
+    "density": 22743,
+    "log_density": 4.3569,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H6050",
+    "score": 1,
+    "model": "C2_da",
+    "density": 9659,
+    "log_density": 3.985,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H6051",
+    "score": 1,
+    "model": "C2_da",
+    "density": 9659,
+    "log_density": 3.985,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H6052",
+    "score": 1,
+    "model": "C2_da",
+    "density": 9659,
+    "log_density": 3.985,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H6053",
+    "score": 1,
+    "model": "C2_da",
+    "density": 9659,
+    "log_density": 3.985,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H6054",
+    "score": 1,
+    "model": "C2_da",
+    "density": 11477,
+    "log_density": 4.0599,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H6055",
+    "score": 1,
+    "model": "C2_da",
+    "density": 11477,
+    "log_density": 4.0599,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H6056",
+    "score": 1,
+    "model": "C2_da",
+    "density": 8126,
+    "log_density": 3.9099,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H6057",
+    "score": 1,
+    "model": "C2_da",
+    "density": 8544,
+    "log_density": 3.9317,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H6058",
+    "score": 1,
+    "model": "C2_da",
+    "density": 36552,
+    "log_density": 4.5629,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H6059",
+    "score": 1,
+    "model": "C2_da",
+    "density": 14512,
+    "log_density": 4.1618,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H6060",
+    "score": 1,
+    "model": "C2_da",
+    "density": 9185,
+    "log_density": 3.9631,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H6061",
+    "score": 1,
+    "model": "C2_da",
+    "density": 12066,
+    "log_density": 4.0816,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q3"
+  },
+  {
+    "hypothesis_id": "H6062",
+    "score": 1,
+    "model": "C2_da",
+    "density": 30821,
+    "log_density": 4.4889,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H6063",
+    "score": 1,
+    "model": "C2_da",
+    "density": 40253,
+    "log_density": 4.6048,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H6064",
+    "score": 1,
+    "model": "C2_da",
+    "density": 40253,
+    "log_density": 4.6048,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H6065",
+    "score": 1,
+    "model": "C2_da",
+    "density": 8709,
+    "log_density": 3.94,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H6066",
+    "score": 1,
+    "model": "C2_da",
+    "density": 8709,
+    "log_density": 3.94,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H6067",
+    "score": 1,
+    "model": "C2_da",
+    "density": 8709,
+    "log_density": 3.94,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H6068",
+    "score": 1,
+    "model": "C2_da",
+    "density": 8709,
+    "log_density": 3.94,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q2"
+  },
+  {
+    "hypothesis_id": "H6069",
+    "score": 1,
+    "model": "C2_da",
+    "density": 42314,
+    "log_density": 4.6265,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q4"
+  },
+  {
+    "hypothesis_id": "H6070",
+    "score": 1,
+    "model": "C2_da",
+    "density": 74851,
+    "log_density": 4.8742,
+    "condition": "density_filtered",
+    "source": "run_022",
+    "density_bin": "Q4"
+  }
+]

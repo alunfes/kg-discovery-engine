@@ -1,0 +1,24 @@
+{
+  "run_id": "run_023_density_causal_verification",
+  "date": "2026-04-14",
+  "purpose": "Causal verification: density vs model as primary predictor of investigability",
+  "data_sources": [
+    "runs/run_021_density_ceiling/density_scores.json (run_018 enriched)",
+    "runs/run_022_density_aware_selection/labeling_results.json (via zen-lamarr branch)",
+    "runs/run_022_density_aware_selection/hypotheses_c2_density_aware.json"
+  ],
+  "methods": [
+    "OLS regression (standard library Gaussian elimination)",
+    "Fisher exact test (two-sided)",
+    "Density quartile matching",
+    "Piecewise regression",
+    "ROC threshold analysis (Youden's J)"
+  ],
+  "seed": 42,
+  "models_compared": [
+    "C1_compose",
+    "C2_multi_op",
+    "C2_density_aware"
+  ],
+  "key_question": "Is model performance difference (C1 vs C2) explained by density, or does model have independent effect?"
+}

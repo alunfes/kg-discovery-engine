@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>Investigability by Density Bin</title>
+<style>body{font-family:sans-serif;margin:20px}canvas{border:1px solid #ccc}</style>
+</head>
+<body>
+<h2>Investigability by Density Quartile: C1 vs C2 (run_018 baseline)</h2>
+<canvas id="c" width="700" height="400"></canvas>
+<script>
+const c1=[0.9474, 1.0, 1.0, 0.96], c2=[0.7059, 0.9643, 1.0, 1.0], labels=["Q1 (lowest)", "Q2", "Q3", "Q4 (highest)"];
+const cvs=document.getElementById('c');
+const ctx=cvs.getContext('2d');
+const W=700,H=400,PAD=60,BAR_W=60,GAP=20;
+
+// Axes
+ctx.strokeStyle='#333'; ctx.lineWidth=2;
+ctx.beginPath(); ctx.moveTo(PAD,20); ctx.lineTo(PAD,H-PAD); ctx.lineTo(W-20,H-PAD); ctx.stroke();
+
+// Y ticks
+ctx.strokeStyle='#eee'; ctx.lineWidth=1;
+ctx.fillStyle='#333'; ctx.font='11px sans-serif'; ctx.textAlign='right';
+for(let y=0; y<=1.0; y+=0.2){
+  const cy=H-PAD - y*(H-PAD-20);
+  ctx.beginPath(); ctx.moveTo(PAD,cy); ctx.lineTo(W-20,cy); ctx.stroke();
+  ctx.fillText(y.toFixed(1),PAD-5,cy+4);
+}
+
+// Y axis label
+ctx.save(); ctx.translate(12,H/2); ctx.rotate(-Math.PI/2);
+ctx.textAlign='center'; ctx.font='12px sans-serif';
+ctx.fillText('Investigability',0,0); ctx.restore();
+
+// Bars
+const group_w = 2*BAR_W+GAP+30;
+for(let i=0;i<4;i++){
+  const gx = PAD+30 + i*group_w;
+  // C1
+  const h1 = c1[i]*(H-PAD-20);
+  ctx.fillStyle='rgba(34,102,204,0.7)';
+  ctx.fillRect(gx, H-PAD-h1, BAR_W, h1);
+  ctx.strokeStyle='#2266cc'; ctx.lineWidth=1.5;
+  ctx.strokeRect(gx, H-PAD-h1, BAR_W, h1);
+  // C2
+  const h2 = c2[i]*(H-PAD-20);
+  ctx.fillStyle='rgba(204,34,34,0.7)';
+  ctx.fillRect(gx+BAR_W+GAP, H-PAD-h2, BAR_W, h2);
+  ctx.strokeStyle='#cc2222'; ctx.lineWidth=1.5;
+  ctx.strokeRect(gx+BAR_W+GAP, H-PAD-h2, BAR_W, h2);
+  // Values
+  ctx.fillStyle='#333'; ctx.textAlign='center'; ctx.font='10px sans-serif';
+  ctx.fillText(c1[i].toFixed(3), gx+BAR_W/2, H-PAD-h1-4);
+  ctx.fillText(c2[i].toFixed(3), gx+BAR_W+GAP+BAR_W/2, H-PAD-h2-4);
+  // X label
+  ctx.fillText(labels[i], gx+BAR_W+GAP/2, H-PAD+20);
+}
+
+// Legend
+ctx.fillStyle='rgba(34,102,204,0.7)'; ctx.fillRect(W-160,30,14,14);
+ctx.fillStyle='#333'; ctx.textAlign='left'; ctx.fillText('C1 baseline',W-142,41);
+ctx.fillStyle='rgba(204,34,34,0.7)'; ctx.fillRect(W-160,54,14,14);
+ctx.fillStyle='#333'; ctx.fillText('C2 baseline',W-142,65);
+</script>
+</body></html>

@@ -1,0 +1,55 @@
+{
+  "method": "quartile_matching_fisher_exact",
+  "bins": {
+    "Q1": {
+      "n_c1": 17,
+      "n_c2": 17,
+      "c1_investigated": 16,
+      "c2_investigated": 12,
+      "c1_investigability": 0.9412,
+      "c2_investigability": 0.7059,
+      "delta": -0.2353,
+      "fisher_p": 0.174841
+    },
+    "Q2": {
+      "n_c1": 9,
+      "n_c2": 9,
+      "c1_investigated": 9,
+      "c2_investigated": 9,
+      "c1_investigability": 1.0,
+      "c2_investigability": 1.0,
+      "delta": 0.0,
+      "fisher_p": 1.0
+    },
+    "Q3": {
+      "n_c1": 17,
+      "n_c2": 17,
+      "c1_investigated": 17,
+      "c2_investigated": 17,
+      "c1_investigability": 1.0,
+      "c2_investigability": 1.0,
+      "delta": 0.0,
+      "fisher_p": 1.0
+    },
+    "Q4": {
+      "n_c1": 8,
+      "n_c2": 8,
+      "c1_investigated": 8,
+      "c2_investigated": 8,
+      "c1_investigability": 1.0,
+      "c2_investigability": 1.0,
+      "delta": 0.0,
+      "fisher_p": 1.0
+    }
+  },
+  "overall": {
+    "n_c1": 51,
+    "n_c2": 51,
+    "c1_investigated": 50,
+    "c2_investigated": 46,
+    "c1_investigability": 0.9804,
+    "c2_investigability": 0.902,
+    "delta": -0.0784,
+    "fisher_p": 0.204689
+  }
+}

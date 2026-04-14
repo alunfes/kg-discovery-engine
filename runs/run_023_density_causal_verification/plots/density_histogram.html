@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>Density Distribution</title>
+<style>body{font-family:sans-serif;margin:20px}canvas{border:1px solid #ccc}</style>
+</head>
+<body>
+<h2>log₁₀(min_density+1) Distribution: C1 vs C2 vs C2_da</h2>
+<canvas id="c" width="800" height="400"></canvas>
+<script>
+const centers=[2.723, 2.909, 3.096, 3.283, 3.469, 3.656, 3.842, 4.029, 4.216, 4.402, 4.589, 4.776, 4.962, 5.149, 5.335];
+const c1=[4, 2, 0, 2, 5, 9, 3, 12, 2, 11, 10, 4, 3, 2, 1];
+const c2=[1, 0, 1, 0, 4, 1, 4, 1, 6, 15, 16, 5, 10, 3, 3];
+const c2da=[20, 7, 10, 5, 2, 6, 7, 0, 1, 1, 4, 2, 3, 0, 2];
+const cvs=document.getElementById('c');
+const ctx=cvs.getContext('2d');
+const W=800,H=400,PAD=60;
+const n=centers.length;
+const max_count=Math.max(...c1,...c2,...c2da);
+const bar_w=(W-2*PAD)/n;
+
+ctx.strokeStyle='#eee'; ctx.lineWidth=1;
+for(let y=0;y<=max_count;y+=5){
+  const cy=H-PAD-y*(H-2*PAD)/max_count;
+  ctx.beginPath();ctx.moveTo(PAD,cy);ctx.lineTo(W-PAD,cy);ctx.stroke();
+  ctx.fillStyle='#666';ctx.textAlign='right';ctx.font='10px sans-serif';
+  ctx.fillText(y,PAD-5,cy+4);
+}
+
+ctx.strokeStyle='#333';ctx.lineWidth=2;
+ctx.beginPath();ctx.moveTo(PAD,PAD);ctx.lineTo(PAD,H-PAD);ctx.lineTo(W-PAD,H-PAD);ctx.stroke();
+
+for(let i=0;i<n;i++){
+  const x=PAD+i*bar_w;
+  const bw=bar_w/3-1;
+  // C1
+  const h1=c1[i]*(H-2*PAD)/max_count;
+  ctx.fillStyle='rgba(34,102,204,0.5)';ctx.fillRect(x,H-PAD-h1,bw,h1);
+  // C2
+  const h2=c2[i]*(H-2*PAD)/max_count;
+  ctx.fillStyle='rgba(204,34,34,0.5)';ctx.fillRect(x+bw,H-PAD-h2,bw,h2);
+  // C2_da
+  const h3=c2da[i]*(H-2*PAD)/max_count;
+  ctx.fillStyle='rgba(34,170,68,0.5)';ctx.fillRect(x+2*bw,H-PAD-h3,bw,h3);
+  // X label every 3
+  if(i%3===0){
+    ctx.fillStyle='#555';ctx.textAlign='center';ctx.font='9px sans-serif';
+    ctx.fillText(centers[i].toFixed(1),x+bar_w/2,H-PAD+13);
+  }
+}
+
+ctx.fillStyle='#333';ctx.textAlign='center';ctx.font='12px sans-serif';
+ctx.fillText('log₁₀(min_density+1)',W/2,H-5);
+
+// Legend
+const leg=[['C1 (N=70)','rgba(34,102,204,0.7)'],['C2 (N=70)','rgba(204,34,34,0.7)'],['C2_da (N=70)','rgba(34,170,68,0.7)']];
+let lx=W-PAD-220,ly=PAD;
+for(const [lbl,col] of leg){
+  ctx.fillStyle=col;ctx.fillRect(lx,ly,14,14);
+  ctx.fillStyle='#333';ctx.textAlign='left';ctx.font='12px sans-serif';
+  ctx.fillText(lbl,lx+18,ly+11);ly+=22;
+}
+</script>
+</body></html>

@@ -1,0 +1,110 @@
+{
+  "n_thresholds_evaluated": 61,
+  "best_delta_threshold": {
+    "threshold": 3587,
+    "log_threshold": 3.5549,
+    "n_below": 23,
+    "n_above": 117,
+    "inv_below": 0.7826,
+    "inv_above": 0.9744,
+    "delta": 0.1918
+  },
+  "best_youden_threshold": {
+    "threshold": 7497,
+    "sensitivity": 0.7197,
+    "specificity": 0.875,
+    "youden_j": 0.5947
+  },
+  "top_10_by_delta": [
+    {
+      "threshold": 3587,
+      "log_threshold": 3.5549,
+      "n_below": 23,
+      "n_above": 117,
+      "inv_below": 0.7826,
+      "inv_above": 0.9744,
+      "delta": 0.1918
+    },
+    {
+      "threshold": 4594,
+      "log_threshold": 3.6623,
+      "n_below": 30,
+      "n_above": 110,
+      "inv_below": 0.8,
+      "inv_above": 0.9818,
+      "delta": 0.1818
+    },
+    {
+      "threshold": 3085,
+      "log_threshold": 3.4894,
+      "n_below": 19,
+      "n_above": 121,
+      "inv_below": 0.7895,
+      "inv_above": 0.9669,
+      "delta": 0.1775
+    },
+    {
+      "threshold": 4311,
+      "log_threshold": 3.6347,
+      "n_below": 25,
+      "n_above": 115,
+      "inv_below": 0.8,
+      "inv_above": 0.9739,
+      "delta": 0.1739
+    },
+    {
+      "threshold": 3255,
+      "log_threshold": 3.5127,
+      "n_below": 20,
+      "n_above": 120,
+      "inv_below": 0.8,
+      "inv_above": 0.9667,
+      "delta": 0.1667
+    },
+    {
+      "threshold": 7497,
+      "log_threshold": 3.8749,
+      "n_below": 44,
+      "n_above": 96,
+      "inv_below": 0.8409,
+      "inv_above": 0.9896,
+      "delta": 0.1487
+    },
+    {
+      "threshold": 4753,
+      "log_threshold": 3.6771,
+      "n_below": 36,
+      "n_above": 104,
+      "inv_below": 0.8333,
+      "inv_above": 0.9808,
+      "delta": 0.1474
+    },
+    {
+      "threshold": 4590,
+      "log_threshold": 3.6619,
+      "n_below": 29,
+      "n_above": 111,
+      "inv_below": 0.8276,
+      "inv_above": 0.973,
+      "delta": 0.1454
+    },
+    {
+      "threshold": 7635,
+      "log_threshold": 3.8829,
+      "n_below": 45,
+      "n_above": 95,
+      "inv_below": 0.8444,
+      "inv_above": 0.9895,
+      "delta": 0.145
+    },
+    {
+      "threshold": 4882,
+      "log_threshold": 3.6887,
+      "n_below": 37,
+      "n_above": 103,
+      "inv_below": 0.8378,
+      "inv_above": 0.9806,
+      "delta": 0.1427
+    }
+  ]
+}
