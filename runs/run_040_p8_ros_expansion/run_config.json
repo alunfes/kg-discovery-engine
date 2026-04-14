@@ -1,0 +1,83 @@
+{
+  "run_id": "run_040_p8_ros_expansion",
+  "timestamp": "2026-04-15T06:39:41.879522",
+  "phase": "P8",
+  "seed": 42,
+  "top_k": 70,
+  "max_depth": 5,
+  "rate_limit_s": 1.1,
+  "conditions": [
+    "C_P7_FULL",
+    "C_ROS_CORE",
+    "C_ROS_ENZYMES",
+    "C_ROS_REGULATORS",
+    "C_ROS_ALL",
+    "C_ROS_ALL_NO_CORE"
+  ],
+  "condition_keep": {
+    "C_P7_FULL": [
+      "chem:metabolite:nad_plus",
+      "chem:metabolite:glutathione",
+      "chem:metabolite:ceramide",
+      "chem:metabolite:prostaglandin_e2",
+      "chem:metabolite:nitric_oxide",
+      "chem:metabolite:camp",
+      "chem:metabolite:reactive_oxygen_species",
+      "chem:metabolite:beta_hydroxybutyrate",
+      "chem:metabolite:kynurenine",
+      "chem:metabolite:lactate"
+    ],
+    "C_ROS_CORE": [
+      "chem:metabolite:reactive_oxygen_species",
+      "chem:metabolite:glutathione"
+    ],
+    "C_ROS_ENZYMES": [
+      "chem:metabolite:reactive_oxygen_species",
+      "chem:metabolite:glutathione",
+      "chem:metabolite:superoxide_dismutase",
+      "chem:metabolite:catalase"
+    ],
+    "C_ROS_REGULATORS": [
+      "chem:metabolite:reactive_oxygen_species",
+      "chem:metabolite:glutathione",
+      "chem:metabolite:heme_oxygenase_1",
+      "chem:metabolite:nrf2"
+    ],
+    "C_ROS_ALL": [
+      "chem:metabolite:reactive_oxygen_species",
+      "chem:metabolite:glutathione",
+      "chem:metabolite:superoxide_dismutase",
+      "chem:metabolite:catalase",
+      "chem:metabolite:heme_oxygenase_1",
+      "chem:metabolite:nrf2",
+      "chem:metabolite:malondialdehyde"
+    ],
+    "C_ROS_ALL_NO_CORE": [
+      "chem:metabolite:superoxide_dismutase",
+      "chem:metabolite:catalase",
+      "chem:metabolite:heme_oxygenase_1",
+      "chem:metabolite:nrf2",
+      "chem:metabolite:malondialdehyde"
+    ]
+  },
+  "t3_quotas": {
+    "L2": 35,
+    "L3": 20,
+    "L4+": 15
+  },
+  "evidence_window": "1900/01/01 – 2023/12/31",
+  "validation_window": "2024/01/01 – 2025/12/31",
+  "p8_verdict": "DESIGN_PRINCIPLE",
+  "h_p8_1": true,
+  "h_p8_2": true,
+  "h_p8_3": true,
+  "h_p8_4": true,
+  "outcomes": {
+    "C_P7_FULL": "STRONG_SUCCESS",
+    "C_ROS_CORE": "STRONG_SUCCESS",
+    "C_ROS_ENZYMES": "STRONG_SUCCESS",
+    "C_ROS_REGULATORS": "STRONG_SUCCESS",
+    "C_ROS_ALL": "STRONG_SUCCESS",
+    "C_ROS_ALL_NO_CORE": "STRONG_SUCCESS"
+  }
+}
