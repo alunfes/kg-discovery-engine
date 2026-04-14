@@ -111,9 +111,47 @@ density-aware pair selection が成功した場合、以下の成果が得られ
 
 ---
 
+---
+
+## 次フェーズ案（run_023 確定後）
+
+### P2-A: low-density regime の失敗機構の特定
+
+Q1 における C2 の investigability 低下 (delta=-0.235) の具体的原因を分析する。
+
+**問い:**
+- なぜ low-density cross-domain ペアで investigability が落ちるのか
+- 文献が少ないこと自体が原因なのか（エビデンス不在）、それとも仮説の質が下がるのか（KG が貧弱な繋ぎ方をする）
+
+**アプローチ:**
+- Q1 の C2 仮説を個別に精査し、investigability=0 の原因をカテゴリ分類
+- 「文献なし」 vs 「文献はあるが仮説が無効」 の比率を計測
+
+---
+
+### P2-B: density-aware selection を discovery engine の標準設計に昇格（推奨）
+
+density-aware pair selection は「C2 救済策」ではなく、**探索系評価における selection design law の発見**として位置付ける。
+
+**実装方針:**
+- `min_density` threshold (~7500–8100) を compose パイプラインの標準パラメータにする
+- applicability boundary の定量化: 「KG が有効な domain pair の条件」を `min_density ≥ threshold` として形式化
+- 新しいドメインペアへの適用可能性を事前に判断できるスコアリングを設計
+
+**意義:**
+- 単なる「フィルタ追加」ではなく、KG Discovery Engine の適用条件を定義する設計原則
+- 別ドメイン展開時のデフォルト設計として採用可能
+- 「density が十分な条件でのみ KG を使う」という知見の実装形態
+
+**優先度: P2-B を推奨** — P2-A よりも直接的な設計インパクトがあり、次フェーズの基盤になる。
+
+---
+
 ## 参照文書
 
 - `docs/scientific_hypothesis/final_interpretation_v2.md` — 検証系列の総括
 - `docs/scientific_hypothesis/density_ceiling_results.md` — run_021 詳細結果
+- `docs/scientific_hypothesis/density_causal_conclusion.md` — run_023 因果検証結論
 - `runs/run_021_density_ceiling/quartile_analysis.json` — density 四分位データ
 - `runs/run_021_density_ceiling/matched_comparison.json` — matched comparison 結果
+- `runs/run_023_density_causal_verification/regression_results.json` — 回帰分析結果

@@ -98,18 +98,55 @@ threshold=7497, sensitivity=0.7197, specificity=0.875, Youden J=0.5947
 
 ## Final Claim
 
-**A: Model performance difference is primarily explained by density.**
+**"Overall performance difference is primarily explained by density mismatch, not general model capability; the remaining model-specific weakness is localized to the lowest-density regime."**
 
-### Bias Structure
+---
 
-C1 (compose-only) と C2 (multi-op pipeline) の investigability 差 (C1=0.971, C2=0.914) は、
-モデル能力の差ではなく **density サンプリングバイアス** によって生じている可能性が
-高い。
+### Strong conclusion
+
+観測された C1-C2 全体ギャップの主因は density mismatch (sampling bias)。
+
+- density-only R² が full model の 88% を説明 (0.0543 / 0.0617)
+- density を固定すると model 主効果は非有意 (β=-0.0405, p=0.30)
+- density-matched Fisher test でも delta=-0.0784, p=0.20 (非有意)
 
 C2 pipeline は diversity を優先するため low-density ペアを選びやすく、
 low-density 仮説は PubMed 文献量が少なく "investigated" と判定されにくい。
 density filter (≥8105.5) で C2 を再サンプリングすると investigability が 0.914→0.971 に上昇し、
 C1 と parity (Δ=0, p=1.0) に達した (run_022)。
 
-この構造は **selection bias (density mismatch)** であり、
-モデル能力差の証拠ではない。
+---
+
+### Qualified conclusion
+
+C2 の一般的な能力劣位は支持されない。
+ただし lowest-density regime (Q1) では interaction が残る (β=0.228, p=0.0004)。
+
+| 四分位 | C1 inv. | C2 inv. | delta |
+|--------|---------|---------|-------|
+| Q1 | 0.9412 | 0.7059 | -0.2353 |
+| Q2 | 1.0 | 1.0 | 0.0 |
+| Q3 | 1.0 | 1.0 | 0.0 |
+| Q4 | 1.0 | 1.0 | 0.0 |
+
+Q1 のみ interaction が有意に残るが、Q2/Q3/Q4 では parity を達成。
+
+---
+
+### Operational implication
+
+今後の比較評価は density control なしでは解釈不能。
+特に multi-op / diversity-driven selection は low-density 偏りを起こしやすいため、
+density-aware pair selection を標準設計に含めるべき。
+
+- min_density threshold (~7500–8100) を compose パイプラインの標準パラメータとする
+- applicability boundary の定量化: 「KG が有効な domain pair の条件」を明示
+- これは「C2 救済」ではなく、**探索系評価における selection design law の発見**
+
+---
+
+### 避けるべき解釈
+
+- ❌ 「C2 は完全に C1 と同等」— Q1 での interaction 残差を無視する
+- ❌ 「model difference は存在しない」— low-density regime での局所的差異を否定する
+- ❌ 「density だけで 100% 説明できる」— R² 全体は 6% 程度であり、他因子も存在する

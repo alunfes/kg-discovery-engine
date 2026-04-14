@@ -111,13 +111,48 @@ run_001 から run_021 に至る検証系列全体を一本化した最終解釈
 
 ---
 
+### 段階 5: Density causal verification（run_023）
+
+**目的:** C1-C2 gap の原因が density mismatch (sampling bias) であることを回帰・因果的に検証
+
+**回帰分析 (OLS, N=140):**
+
+| Feature | β | p | 有意 |
+|---------|---|---|------|
+| log_density | 0.0843 | 0.010 | YES |
+| model_C2 | -0.0405 | 0.301 | NO |
+
+- density-only R²=0.0543 は full model R²=0.0617 の 88% を説明
+- density を固定すると model 主効果は非有意
+
+**Interaction 分析:**
+
+- C2 は low-density 域 (Q1) でのみ脆弱: β=0.228, p=0.0004
+- Q1: C1=0.941 vs C2=0.706 (delta=-0.235)
+- Q2/Q3/Q4: parity (delta≈0)
+
+**Matched test:**
+
+- density control 後 delta=-0.0784, p=0.20 (非有意)
+
+**結論:** C1-C2 gap は density-selection artifact。ただし lowest-density regime (Q1) では C2 に残差的弱さが残る。
+
+**主な教訓:**
+- model capability の差という解釈は否定される
+- 残差は「C2が弱い」ではなく「low-density では評価が成立しない」という構造問題
+- 評価設計における selection design law として一般化できる
+
+---
+
 ## 現時点で支持される主張
 
 | 主張 | 根拠 |
 |------|------|
 | KG multi-op は random baseline より investigable な仮説を生成する | SC-3r PASS (p=0.0007)、N=70で再現 |
-| investigability の上限は operator quality ではなく文献密度の非対称性で決まる | run_021: log_min_density |r|=0.461、matched comparison |
+| investigability の上限は operator quality ではなく文献密度の非対称性で決まる | run_021: log_min_density \|r\|=0.461、matched comparison |
 | density-balanced な cross-domain ペアでは C2 は C1 と同等の investigability を達成する | den_mid/den_high で gap ≈ 0 |
+| C1-C2 の観測された performance gap は density mismatch が主因であり、model capability の差ではない | run_023: density β有意 (p=0.01)、model β非有意 (p=0.30)、R²分解88% |
+| ただし lowest-density regime (Q1) では C2 に残差的弱さがある | run_023: Q1 interaction β=0.228, p=0.0004、Q1 delta=-0.235 |
 
 ---
 

@@ -70,3 +70,22 @@ P1 Phase A の結論を踏まえ、次の研究問いを以下のように切り
 1. **density ceiling 分析 (run_021)**: 各仮説に density metrics を付与し、investigability との相関を分析する → `docs/scientific_hypothesis/density_ceiling_hypothesis.md`
 2. **matched comparison**: novelty × density でマッチングした部分集合での C1 vs C2 比較 → `docs/scientific_hypothesis/matched_comparison_plan.md`
 3. **P2 保留**: align 精度分析は将来の別ドメイン実験まで持ち越し
+
+---
+
+## P1 Final Closing Statement
+
+**Date**: 2026-04-14 (run_023 完了後)
+
+> **"P1 Closed: Observed C1–C2 gap is primarily a density-selection artifact, with residual weakness confined to the lowest-density regime."**
+
+run_022 (density-aware selection) および run_023 (causal verification) により、以下が確定した:
+
+- C1-C2 の observational gap は density mismatch が主因 (density β有意 p=0.01、model β非有意 p=0.30、R²分解 88%)
+- C2 の一般的能力劣位は否定される
+- 残差的弱さは Q1 (lowest-density) に限局 (interaction β=0.228, p=0.0004)
+- density control 後の matched test では非有意 (p=0.20)
+
+結論の形が確定した。「完全に終わった」ではなく「C2 の弱さの構造が特定された」として閉じる。
+
+次フェーズ (P2) の優先候補: density-aware selection を discovery engine の標準設計に昇格 (P2-B)
