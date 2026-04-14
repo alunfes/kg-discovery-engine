@@ -235,3 +235,31 @@ Justification:
 The density ceiling finding from run_021/run_023 establishes that min_density is a necessary (though not sufficient) condition for investigability. The six policies in this catalog represent the design space of responses to that constraint, from ignoring it entirely (Uniform) to enforcing it strictly (HardThreshold) to balancing it against diversity and novelty objectives (TwoMode, DiversityGuarded, QuantileConstrained, SoftWeighting).
 
 The `TwoModePolicy` is recommended as the production default for P2 experiments. Its explicit budget structure makes it easy to audit, reproduce, and explain — critical properties for a scientific hypothesis generation pipeline. Policy parameters should be re-derived from empirical data whenever the candidate pool composition changes substantially.
+
+---
+
+## Policy Insertion Point
+
+Selection policies apply **after candidate generation and before evaluation**:
+
+```
+KG Operators → [Candidate Pool] → DensityPolicy.select(pool, n=70, seed=42) → Evaluator
+```
+
+Required fields per candidate: `min_density`, `log_min_density`  
+Required in `run_config.json`: `selection_policy` + `policy_params`
+
+---
+
+## Selection vs KG Responsibility
+
+A critical design boundary separates what selection policy can control from what is constrained by KG structure. Conflating these leads to misattributed failures and wasted optimization effort.
+
+| 問題 | 責任 | 対処 |
+|------|------|------|
+| density mismatch | Selection policy | density filter/weighting |
+| sparse neighborhood | KG structure | P3 densification |
+| missing bridges | KG structure | P3 augmentation |
+| diversity-driven low-quality | Selection policy | diversity guardrails |
+
+**Key implication**: 50% of Q1 failures are `sparse_neighborhood` type — these are KG data quality issues, not selection policy failures. Selection policy can exclude or limit budget to these candidates, but cannot remediate the underlying structural deficit. That is the mandate of P3 (KG Optimization).

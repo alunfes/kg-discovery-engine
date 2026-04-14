@@ -85,3 +85,40 @@ This separation is operationally necessary. A single policy cannot simultaneousl
 1. **Tau_floor calibration**: 3,500 was set conservatively. A run with tau_floor=7,500 (hard_threshold equivalent) would test whether the additional ~2pp investigability gain is worth the novelty cost.
 2. **C2 structural advantage above Q1**: run_023 showed an interaction term (C2 performs better at high density). This advantage has not been cleanly measured. P3 is designed to address this.
 3. **KG enrichment as alternative**: The sparse_neighborhood category (50% of failures) is untreatable by selection policy. KG enrichment (adding low-density entities) would be the only fix. This is a data pipeline decision, not a model decision.
+
+---
+
+## Optimization Target Has Shifted
+
+P2-B marks a fundamental reorientation of where improvement effort should be directed:
+
+**Before P2-B**: Optimization target = model/operator capability  
+**After P2-B**: Optimization target = (KG structure + selection policy)
+
+The operator pipeline is not the bottleneck. Density explains 88% of the investigability variance (run_023, R²=0.88). Improving operators without addressing KG structure and selection policy will yield marginal gains at best.
+
+### Density as Structural Accessibility Proxy
+
+Density is **not** a proxy for hypothesis difficulty. It is a proxy for **structural accessibility** — the degree to which the surrounding KG neighborhood supports literature-based evaluation.
+
+- High density = high structural accessibility = evaluable by literature search
+- Low density = low structural accessibility = KG coverage gap, not hypothesis quality gap
+- A low-density hypothesis may be scientifically valuable; it is simply not evaluable with the current KG
+
+This reframing is operationally important: it shifts the question from "how do we generate better hypotheses?" to "how do we build a KG that supports evaluation of a wider class of hypotheses?"
+
+### Two-Axis Improvement Framework
+
+Future improvements operate along two orthogonal axes:
+
+1. **KG infrastructure** (P3 mandate):
+   - Densification of sparse_neighborhood regions
+   - Bridge augmentation for cross-domain gaps
+   - Entity coverage expansion (PubMed, DrugBank, UniProt)
+
+2. **Selection design** (ongoing):
+   - Policy tuning per mode (production / research / benchmark)
+   - Tau calibration against updated empirical data
+   - Diversity-quality trade-off management
+
+These axes are independent: selection policy improvements do not substitute for KG improvements, and vice versa.
