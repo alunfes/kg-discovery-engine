@@ -1,0 +1,54 @@
+{
+  "run_id": "run_036_p6a_bucketed",
+  "timestamp": "2026-04-14T12:38:34.822082",
+  "phase": "P6-A",
+  "seed": 42,
+  "total_candidates": 715,
+  "top_k": 70,
+  "max_depth": 5,
+  "rate_limit_s": 1.1,
+  "bucket_quotas_T1": {
+    "L2": 35,
+    "L3": 25,
+    "L4+": 10
+  },
+  "bucket_quotas_T2": {
+    "L2": 50,
+    "L3": 20,
+    "L4+": 0
+  },
+  "conditions": {
+    "B1": "global top-70, R1_baseline",
+    "B2": "global top-70, R3_struct_evidence",
+    "T1": "bucketed top-70, R2_evidence_only (pre-registered: L2=35,L3=25,L4+=10)",
+    "T2": "bucketed top-70, R2_evidence_only (post-hoc: L2=50,L3=20,L4+=0)"
+  },
+  "evidence_window": "1900/01/01 – 2023/12/31",
+  "validation_window": "2024/01/01 – 2025/12/31",
+  "kg_path": "/Users/alun/claude-dev/kg-discovery-engine/.claude/worktrees/trusting-goldwasser/src/scientific_hypothesis/../../src/scientific_hypothesis/bio_chem_kg_full.json",
+  "decision": {
+    "outcome": "structure_confirmed_novelty_fail",
+    "verdict": "T1 > B1 but T1 ≤ B2 — bucketing beats naive baseline but can't match evidence ranking; structural exclusion real but R3 already compensates via evidence weighting [WARNING: novelty_retention=0.808 < 0.90]",
+    "t1_inv": 0.9429,
+    "b1_inv": 0.8857,
+    "b2_inv": 0.9429,
+    "delta_T1_B2": 0.0,
+    "delta_T1_B1": 0.0572,
+    "delta_B2_B1": 0.0572,
+    "novelty_retention": 0.808,
+    "novelty_ok": false,
+    "long_path_gain_T1_vs_B2": 0.5,
+    "t2_decision": {
+      "outcome": "weak_success",
+      "verdict": "T2 > B1 AND T2 ≈ B2 — 2-bucket matches standard with novelty OK",
+      "t2_inv": 0.9286,
+      "b1_inv": 0.8857,
+      "b2_inv": 0.9429,
+      "delta_T2_B2": -0.0143,
+      "delta_T2_B1": 0.0429,
+      "novelty_retention": 0.9048,
+      "novelty_ok": true,
+      "long_path_gain_T2_vs_B2": 0.2857
+    }
+  }
+}
