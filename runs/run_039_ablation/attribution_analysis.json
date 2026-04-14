@@ -1,0 +1,124 @@
+{
+  "per_family": {
+    "C_NO_NAD": {
+      "unique_endpoint_pairs": {
+        "full": 959,
+        "ablated": 872,
+        "none": 472,
+        "contribution": 87,
+        "share_of_total": 0.179
+      },
+      "mean_cdr_l3": {
+        "full": 0.6192,
+        "ablated": 0.5848,
+        "none": 0.3333,
+        "contribution": 0.0344,
+        "share_of_total": 0.12
+      },
+      "mean_cdr_l4p": {
+        "full": 0.6525,
+        "ablated": 0.6294,
+        "none": 0.233,
+        "contribution": 0.0231,
+        "share_of_total": 0.055
+      },
+      "n_multi_cross_l3": {
+        "full": 190,
+        "ablated": 152,
+        "none": 0,
+        "contribution": 38,
+        "share_of_total": 0.2
+      },
+      "T3_investigability": {
+        "full": 0.9857,
+        "ablated": 0.9857,
+        "none": 0.9429,
+        "contribution": 0.0,
+        "share_of_total": 0.0
+      }
+    },
+    "C_NO_ROS": {
+      "unique_endpoint_pairs": {
+        "full": 959,
+        "ablated": 796,
+        "none": 472,
+        "contribution": 163,
+        "share_of_total": 0.335
+      },
+      "mean_cdr_l3": {
+        "full": 0.6192,
+        "ablated": 0.5359,
+        "none": 0.3333,
+        "contribution": 0.0833,
+        "share_of_total": 0.291
+      },
+      "mean_cdr_l4p": {
+        "full": 0.6525,
+        "ablated": 0.5623,
+        "none": 0.233,
+        "contribution": 0.0902,
+        "share_of_total": 0.215
+      },
+      "n_multi_cross_l3": {
+        "full": 190,
+        "ablated": 110,
+        "none": 0,
+        "contribution": 80,
+        "share_of_total": 0.421
+      },
+      "T3_investigability": {
+        "full": 0.9857,
+        "ablated": 0.9286,
+        "none": 0.9429,
+        "contribution": 0.0571,
+        "share_of_total": 1.334
+      }
+    },
+    "C_NO_CER": {
+      "unique_endpoint_pairs": {
+        "full": 959,
+        "ablated": 899,
+        "none": 472,
+        "contribution": 60,
+        "share_of_total": 0.123
+      },
+      "mean_cdr_l3": {
+        "full": 0.6192,
+        "ablated": 0.6059,
+        "none": 0.3333,
+        "contribution": 0.0133,
+        "share_of_total": 0.047
+      },
+      "mean_cdr_l4p": {
+        "full": 0.6525,
+        "ablated": 0.6403,
+        "none": 0.233,
+        "contribution": 0.0122,
+        "share_of_total": 0.029
+      },
+      "n_multi_cross_l3": {
+        "full": 190,
+        "ablated": 175,
+        "none": 0,
+        "contribution": 15,
+        "share_of_total": 0.079
+      },
+      "T3_investigability": {
+        "full": 0.9857,
+        "ablated": 0.9857,
+        "none": 0.9429,
+        "contribution": 0.0,
+        "share_of_total": 0.0
+      }
+    }
+  },
+  "inv_shares_by_family": {
+    "C_NO_NAD": 0.0,
+    "C_NO_ROS": 1.334,
+    "C_NO_CER": 0.0
+  },
+  "max_inv_share": 1.334,
+  "dominant_family": "C_NO_ROS",
+  "distribution_finding": "CONCENTRATED",
+  "h_distributed_confirmed": false
+}
