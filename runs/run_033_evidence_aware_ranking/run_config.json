@@ -1,0 +1,28 @@
+{
+  "run_id": "run_033_evidence_aware_ranking",
+  "timestamp": "2026-04-14T07:01:58.939715",
+  "phase": "P4",
+  "seed": 42,
+  "top_pool": 200,
+  "top_k": 70,
+  "max_depth": 5,
+  "rate_limit_s": 1.1,
+  "pubmed_evidence_window": "1900/01/01 – 2023/12/31",
+  "pubmed_validation_window": "2024/01/01 – 2025/12/31",
+  "kg_path": "/Users/alun/claude-dev/kg-discovery-engine/src/scientific_hypothesis/../../src/scientific_hypothesis/bio_chem_kg_full.json",
+  "rankings": [
+    "R1_baseline",
+    "R2_evidence_only",
+    "R3_struct_evidence",
+    "R4_full_hybrid",
+    "R5_conservative"
+  ],
+  "interpretation": {
+    "r1_baseline_inv": 0.8857,
+    "best_ranking": "R2_evidence_only",
+    "best_inv": 0.9429,
+    "delta_vs_baseline": 0.0572,
+    "decision": "A",
+    "conclusion": "evidence-aware ranking significantly improves investigability"
+  }
+}

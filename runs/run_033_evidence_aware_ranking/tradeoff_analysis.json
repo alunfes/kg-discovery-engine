@@ -1,0 +1,2858 @@
+{
+  "evidence_split": {
+    "R1_baseline": {
+      "median_e_score_min": 1.6811,
+      "high_evidence_n": 35,
+      "low_evidence_n": 35,
+      "high_evidence_inv_rate": 0.9143,
+      "low_evidence_inv_rate": 0.8571,
+      "delta_high_minus_low": 0.0571
+    },
+    "R2_evidence_only": {
+      "median_e_score_min": 2.3766,
+      "high_evidence_n": 35,
+      "low_evidence_n": 35,
+      "high_evidence_inv_rate": 0.9714,
+      "low_evidence_inv_rate": 0.9143,
+      "delta_high_minus_low": 0.0571
+    },
+    "R3_struct_evidence": {
+      "median_e_score_min": 2.3766,
+      "high_evidence_n": 35,
+      "low_evidence_n": 35,
+      "high_evidence_inv_rate": 0.9714,
+      "low_evidence_inv_rate": 0.9143,
+      "delta_high_minus_low": 0.0571
+    },
+    "R4_full_hybrid": {
+      "median_e_score_min": 2.3766,
+      "high_evidence_n": 35,
+      "low_evidence_n": 35,
+      "high_evidence_inv_rate": 0.9714,
+      "low_evidence_inv_rate": 0.8857,
+      "delta_high_minus_low": 0.0857
+    },
+    "R5_conservative": {
+      "median_e_score_min": 2.1903,
+      "high_evidence_n": 36,
+      "low_evidence_n": 34,
+      "high_evidence_inv_rate": 0.9722,
+      "low_evidence_inv_rate": 0.8235,
+      "delta_high_minus_low": 0.1487
+    }
+  },
+  "novelty_retention_r2_vs_r4": {
+    "R2_evidence_only": {
+      "mean_cross_domain_ratio": 0.5,
+      "pct_fully_cross_domain": 0.0,
+      "n": 70
+    },
+    "R4_full_hybrid": {
+      "mean_cross_domain_ratio": 0.5,
+      "pct_fully_cross_domain": 0.0,
+      "n": 70
+    }
+  },
+  "scatter_data": [
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 2.958086,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:atorvastatin",
+      "object_id": "bio:process:cholesterol_synthesis"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 2.176091,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:nilotinib",
+      "object_id": "bio:gene:bcr_abl"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 2.737193,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:imatinib",
+      "object_id": "bio:gene:bcr_abl"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 3.619824,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:trastuzumab",
+      "object_id": "bio:protein:her2"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 0.778151,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:bortezomib",
+      "object_id": "bio:pathway:ubiquitin_proteasome"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 2.482874,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:ruxolitinib",
+      "object_id": "bio:protein:jak2"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 0.90309,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:hmg_coa_inhibition",
+      "object_id": "bio:process:cholesterol_synthesis"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 1.041393,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:proteasome_inhibition",
+      "object_id": "bio:pathway:ubiquitin_proteasome"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 2.868644,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:bcr_abl_kinase",
+      "object_id": "bio:disease:leukemia_cml"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 0.477121,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:atorvastatin",
+      "object_id": "bio:process:cholesterol_synthesis"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 1.963788,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:mtor_inhibition",
+      "object_id": "bio:pathway:mtor_signaling"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 3.495822,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:bace1_enzyme",
+      "object_id": "bio:protein:app"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 1.672098,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:bace1_enzyme",
+      "object_id": "bio:pathway:amyloid_cascade"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 1.579784,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:jak_inhibition",
+      "object_id": "bio:protein:jak2"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 2.730782,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:hmg_coa_reductase",
+      "object_id": "bio:biomarker:ldl_cholesterol"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 3.473779,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:jak2_kinase_target",
+      "object_id": "bio:protein:stat3"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 0.0,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:rapamycin",
+      "object_id": "bio:pathway:mtor_signaling"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 0.30103,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:atorvastatin",
+      "object_id": "bio:biomarker:ldl_cholesterol"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 0.0,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:everolimus",
+      "object_id": "bio:pathway:mtor_signaling"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 1.690196,
+      "cross_domain_ratio": 0.5,
+      "investigated": 0,
+      "subject_id": "chem:drug:erlotinib",
+      "object_id": "bio:pathway:mapk_erk"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 2.764923,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:bortezomib",
+      "object_id": "bio:pathway:ubiquitin_proteasome"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 3.151982,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:venetoclax",
+      "object_id": "bio:pathway:apoptosis"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 2.934498,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:ruxolitinib",
+      "object_id": "bio:protein:stat3"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 2.071882,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:ruxolitinib",
+      "object_id": "bio:pathway:jak_stat"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 1.963788,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:ruxolitinib",
+      "object_id": "bio:protein:jak2"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 0.477121,
+      "cross_domain_ratio": 0.5,
+      "investigated": 0,
+      "subject_id": "chem:mechanism:hmg_coa_inhibition",
+      "object_id": "bio:biomarker:ldl_cholesterol"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 2.235528,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:mtor_kinase",
+      "object_id": "bio:pathway:autophagy"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 0.778151,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:tyrosine_kinase_inhibition",
+      "object_id": "bio:gene:bcr_abl"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 2.252853,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:atorvastatin",
+      "object_id": "bio:biomarker:ldl_cholesterol"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 1.0,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:pioglitazone",
+      "object_id": "bio:receptor:ppar_gamma"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 1.230449,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:rosiglitazone",
+      "object_id": "bio:receptor:ppar_gamma"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 0.0,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:sorafenib",
+      "object_id": "bio:protein:vegf"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 0.0,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:hdac_inhibition",
+      "object_id": "bio:process:epigenetic_silencing"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 1.963788,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:jak_inhibition",
+      "object_id": "bio:protein:stat3"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 0.0,
+      "cross_domain_ratio": 0.5,
+      "investigated": 0,
+      "subject_id": "chem:target:vegfr_target",
+      "object_id": "bio:process:tumor_angiogenesis"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 1.462398,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:nilotinib",
+      "object_id": "bio:protein:egfr"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 1.462398,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:nilotinib",
+      "object_id": "bio:gene:bcr_abl"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 1.939519,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:imatinib",
+      "object_id": "bio:protein:egfr"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 1.80618,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:imatinib",
+      "object_id": "bio:gene:bcr_abl"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 3.714833,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:erlotinib",
+      "object_id": "bio:disease:lung_cancer"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 1.556303,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:erlotinib",
+      "object_id": "bio:protein:egfr"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 1.556303,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:erlotinib",
+      "object_id": "bio:gene:bcr_abl"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 1.80618,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:tyrosine_kinase_inhibition",
+      "object_id": "bio:disease:leukemia_cml"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 2.367356,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:erlotinib",
+      "object_id": "bio:protein:her2"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 1.146128,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:tyrosine_kinase_inhibition",
+      "object_id": "bio:protein:her2"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 2.176091,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:her2_receptor_target",
+      "object_id": "bio:pathway:pi3k_akt"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 1.041393,
+      "cross_domain_ratio": 0.5,
+      "investigated": 0,
+      "subject_id": "chem:target:proteasome_target",
+      "object_id": "bio:process:protein_aggregation"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 2.434569,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:metformin",
+      "object_id": "bio:pathway:ampk_pathway"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 0.0,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:mtor_inhibition",
+      "object_id": "bio:pathway:autophagy"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 0.0,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:tamoxifen",
+      "object_id": "bio:disease:breast_cancer"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 2.1959,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:finasteride",
+      "object_id": "bio:disease:prostate_cancer"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 0.0,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:pioglitazone",
+      "object_id": "bio:disease:type2_diabetes"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 2.491362,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:everolimus",
+      "object_id": "bio:pathway:autophagy"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 1.278754,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:sorafenib",
+      "object_id": "bio:protein:egfr"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 1.278754,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:sorafenib",
+      "object_id": "bio:gene:bcr_abl"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 1.041393,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:nicotinamide_riboside",
+      "object_id": "bio:protein:sirt1"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 0.30103,
+      "cross_domain_ratio": 0.5,
+      "investigated": 0,
+      "subject_id": "chem:mechanism:hmg_coa_inhibition",
+      "object_id": "bio:disease:atherosclerosis"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 1.690196,
+      "cross_domain_ratio": 0.5,
+      "investigated": 0,
+      "subject_id": "chem:mechanism:tyrosine_kinase_inhibition",
+      "object_id": "bio:pathway:mapk_erk"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 2.257679,
+      "cross_domain_ratio": 0.5,
+      "investigated": 0,
+      "subject_id": "chem:mechanism:wnt_inhibition",
+      "object_id": "bio:disease:colon_cancer"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 2.176091,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:trastuzumab",
+      "object_id": "bio:pathway:pi3k_akt"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 1.60206,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:quercetin",
+      "object_id": "bio:protein:bace1"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 1.113943,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:lithium_carbonate",
+      "object_id": "bio:protein:tau"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 3.074085,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:memantine",
+      "object_id": "bio:process:synaptic_plasticity"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 2.143015,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:tyrosine_kinase_inhibition",
+      "object_id": "bio:disease:lung_cancer"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 2.374748,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:resveratrol",
+      "object_id": "bio:protein:sirt1"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 0.0,
+      "cross_domain_ratio": 0.5,
+      "investigated": 0,
+      "subject_id": "chem:drug:valproic_acid",
+      "object_id": "bio:process:epigenetic_silencing"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 0.0,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:pioglitazone",
+      "object_id": "bio:process:insulin_resistance"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 2.38739,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:pioglitazone",
+      "object_id": "bio:pathway:insulin_signaling"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 1.0,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:pioglitazone",
+      "object_id": "bio:process:insulin_resistance"
+    },
+    {
+      "ranking": "R1_baseline",
+      "e_score_min": 1.041393,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:memantine",
+      "object_id": "bio:receptor:nmda_receptor"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 3.714833,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:erlotinib",
+      "object_id": "bio:disease:lung_cancer"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 3.619824,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:trastuzumab",
+      "object_id": "bio:protein:her2"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 3.495822,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:bace1_enzyme",
+      "object_id": "bio:protein:app"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 3.473779,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:jak2_kinase_target",
+      "object_id": "bio:protein:stat3"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 3.370698,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:bortezomib",
+      "object_id": "bio:disease:multiple_myeloma"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 3.188084,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:bortezomib",
+      "object_id": "bio:disease:leukemia_cml"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 3.151982,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:venetoclax",
+      "object_id": "bio:pathway:apoptosis"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 3.149219,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:nrf2_activation",
+      "object_id": "bio:process:lipid_peroxidation"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 3.074085,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:memantine",
+      "object_id": "bio:process:synaptic_plasticity"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.958086,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:atorvastatin",
+      "object_id": "bio:process:cholesterol_synthesis"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.956649,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:sorafenib",
+      "object_id": "bio:process:tumor_angiogenesis"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.941014,
+      "cross_domain_ratio": 0.5,
+      "investigated": 0,
+      "subject_id": "chem:drug:valproic_acid",
+      "object_id": "bio:disease:leukemia_cml"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.941014,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:valproic_acid",
+      "object_id": "bio:disease:multiple_myeloma"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.934498,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:ruxolitinib",
+      "object_id": "bio:protein:stat3"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.922725,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:proteasome_inhibition",
+      "object_id": "bio:disease:leukemia_cml"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.922725,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:proteasome_inhibition",
+      "object_id": "bio:disease:multiple_myeloma"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.910624,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:bortezomib",
+      "object_id": "bio:pathway:apoptosis"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.868644,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:bcr_abl_kinase",
+      "object_id": "bio:disease:leukemia_cml"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.764923,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:bortezomib",
+      "object_id": "bio:pathway:ubiquitin_proteasome"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.737193,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:imatinib",
+      "object_id": "bio:gene:bcr_abl"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.736397,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:thalidomide",
+      "object_id": "bio:pathway:pi3k_akt"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.730782,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:hmg_coa_reductase",
+      "object_id": "bio:biomarker:ldl_cholesterol"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.523746,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:coenzyme_q10",
+      "object_id": "bio:process:ros_production"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.511883,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:metformin",
+      "object_id": "bio:disease:type2_diabetes"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.491362,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:everolimus",
+      "object_id": "bio:pathway:autophagy"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.482874,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:ruxolitinib",
+      "object_id": "bio:protein:jak2"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.471292,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:rapamycin",
+      "object_id": "bio:disease:breast_cancer"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.439333,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:sirt1_activation",
+      "object_id": "bio:protein:foxo3"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.434569,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:metformin",
+      "object_id": "bio:pathway:ampk_pathway"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.40654,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:bortezomib",
+      "object_id": "bio:process:protein_aggregation"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.40654,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:proteasome_inhibition",
+      "object_id": "bio:process:protein_aggregation"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.394452,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:spermidine",
+      "object_id": "bio:process:protein_aggregation"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.38739,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:pioglitazone",
+      "object_id": "bio:pathway:insulin_signaling"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.38739,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:rosiglitazone",
+      "object_id": "bio:pathway:insulin_signaling"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.378398,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:everolimus",
+      "object_id": "bio:pathway:pi3k_akt"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.374748,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:resveratrol",
+      "object_id": "bio:protein:sirt1"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.367356,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:erlotinib",
+      "object_id": "bio:protein:her2"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.313867,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:everolimus",
+      "object_id": "bio:disease:alzheimers"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.257679,
+      "cross_domain_ratio": 0.5,
+      "investigated": 0,
+      "subject_id": "chem:mechanism:wnt_inhibition",
+      "object_id": "bio:disease:colon_cancer"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.252853,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:atorvastatin",
+      "object_id": "bio:biomarker:ldl_cholesterol"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.235528,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:mtor_kinase",
+      "object_id": "bio:pathway:autophagy"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.235528,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:mtor_kinase",
+      "object_id": "bio:pathway:pi3k_akt"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.235528,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:mtor_kinase",
+      "object_id": "bio:disease:alzheimers"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.220108,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:sulforaphane",
+      "object_id": "bio:pathway:oxidative_stress"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.1959,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:finasteride",
+      "object_id": "bio:disease:prostate_cancer"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.190332,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:metformin",
+      "object_id": "bio:disease:type2_diabetes"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.190332,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:ampk_activation",
+      "object_id": "bio:disease:type2_diabetes"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.176091,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:nilotinib",
+      "object_id": "bio:gene:bcr_abl"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.176091,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:her2_receptor_target",
+      "object_id": "bio:pathway:pi3k_akt"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.176091,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:trastuzumab",
+      "object_id": "bio:pathway:pi3k_akt"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.173186,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:curcumin",
+      "object_id": "bio:pathway:nfkb_pathway"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.143015,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:tyrosine_kinase_inhibition",
+      "object_id": "bio:disease:lung_cancer"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.123852,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:sulforaphane",
+      "object_id": "bio:process:ros_production"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.123852,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:nrf2_activation",
+      "object_id": "bio:disease:parkinsons"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.123852,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:nrf2_activation",
+      "object_id": "bio:protein:sod1"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.093422,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:hydroxychloroquine",
+      "object_id": "bio:pathway:pi3k_akt"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.071882,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:ruxolitinib",
+      "object_id": "bio:pathway:jak_stat"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.071882,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:jak_inhibition",
+      "object_id": "bio:disease:rheumatoid_arthritis"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 2.049218,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:luteolin",
+      "object_id": "bio:process:neurodegeneration"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 1.963788,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:mtor_inhibition",
+      "object_id": "bio:pathway:mtor_signaling"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 1.963788,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:ruxolitinib",
+      "object_id": "bio:protein:jak2"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 1.963788,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:jak_inhibition",
+      "object_id": "bio:protein:stat3"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 1.963788,
+      "cross_domain_ratio": 0.5,
+      "investigated": 0,
+      "subject_id": "chem:target:mtor_kinase",
+      "object_id": "bio:disease:heart_failure"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 1.963788,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:everolimus",
+      "object_id": "bio:disease:heart_failure"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 1.939519,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:imatinib",
+      "object_id": "bio:protein:egfr"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 1.863323,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:nicotinamide_riboside",
+      "object_id": "bio:protein:foxo3"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 1.857332,
+      "cross_domain_ratio": 0.5,
+      "investigated": 0,
+      "subject_id": "chem:mechanism:nmda_antagonism",
+      "object_id": "bio:process:synaptic_plasticity"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 1.845098,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:berberine",
+      "object_id": "bio:pathway:ampk_pathway"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 1.845098,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:berberine",
+      "object_id": "bio:disease:type2_diabetes"
+    },
+    {
+      "ranking": "R2_evidence_only",
+      "e_score_min": 1.819544,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:ppar_activation",
+      "object_id": "bio:pathway:insulin_signaling"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 3.714833,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:erlotinib",
+      "object_id": "bio:disease:lung_cancer"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 3.619824,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:trastuzumab",
+      "object_id": "bio:protein:her2"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 3.495822,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:bace1_enzyme",
+      "object_id": "bio:protein:app"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 3.473779,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:jak2_kinase_target",
+      "object_id": "bio:protein:stat3"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 3.370698,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:bortezomib",
+      "object_id": "bio:disease:multiple_myeloma"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 3.188084,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:bortezomib",
+      "object_id": "bio:disease:leukemia_cml"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 3.151982,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:venetoclax",
+      "object_id": "bio:pathway:apoptosis"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 3.149219,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:nrf2_activation",
+      "object_id": "bio:process:lipid_peroxidation"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 3.074085,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:memantine",
+      "object_id": "bio:process:synaptic_plasticity"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.958086,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:atorvastatin",
+      "object_id": "bio:process:cholesterol_synthesis"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.956649,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:sorafenib",
+      "object_id": "bio:process:tumor_angiogenesis"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.941014,
+      "cross_domain_ratio": 0.5,
+      "investigated": 0,
+      "subject_id": "chem:drug:valproic_acid",
+      "object_id": "bio:disease:leukemia_cml"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.941014,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:valproic_acid",
+      "object_id": "bio:disease:multiple_myeloma"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.934498,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:ruxolitinib",
+      "object_id": "bio:protein:stat3"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.922725,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:proteasome_inhibition",
+      "object_id": "bio:disease:leukemia_cml"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.922725,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:proteasome_inhibition",
+      "object_id": "bio:disease:multiple_myeloma"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.910624,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:bortezomib",
+      "object_id": "bio:pathway:apoptosis"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.868644,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:bcr_abl_kinase",
+      "object_id": "bio:disease:leukemia_cml"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.764923,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:bortezomib",
+      "object_id": "bio:pathway:ubiquitin_proteasome"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.737193,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:imatinib",
+      "object_id": "bio:gene:bcr_abl"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.736397,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:thalidomide",
+      "object_id": "bio:pathway:pi3k_akt"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.730782,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:hmg_coa_reductase",
+      "object_id": "bio:biomarker:ldl_cholesterol"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.523746,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:coenzyme_q10",
+      "object_id": "bio:process:ros_production"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.511883,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:metformin",
+      "object_id": "bio:disease:type2_diabetes"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.491362,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:everolimus",
+      "object_id": "bio:pathway:autophagy"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.482874,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:ruxolitinib",
+      "object_id": "bio:protein:jak2"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.471292,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:rapamycin",
+      "object_id": "bio:disease:breast_cancer"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.439333,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:sirt1_activation",
+      "object_id": "bio:protein:foxo3"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.434569,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:metformin",
+      "object_id": "bio:pathway:ampk_pathway"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.40654,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:bortezomib",
+      "object_id": "bio:process:protein_aggregation"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.40654,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:proteasome_inhibition",
+      "object_id": "bio:process:protein_aggregation"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.394452,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:spermidine",
+      "object_id": "bio:process:protein_aggregation"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.38739,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:pioglitazone",
+      "object_id": "bio:pathway:insulin_signaling"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.38739,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:rosiglitazone",
+      "object_id": "bio:pathway:insulin_signaling"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.378398,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:everolimus",
+      "object_id": "bio:pathway:pi3k_akt"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.374748,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:resveratrol",
+      "object_id": "bio:protein:sirt1"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.367356,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:erlotinib",
+      "object_id": "bio:protein:her2"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.313867,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:everolimus",
+      "object_id": "bio:disease:alzheimers"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.257679,
+      "cross_domain_ratio": 0.5,
+      "investigated": 0,
+      "subject_id": "chem:mechanism:wnt_inhibition",
+      "object_id": "bio:disease:colon_cancer"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.252853,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:atorvastatin",
+      "object_id": "bio:biomarker:ldl_cholesterol"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.235528,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:mtor_kinase",
+      "object_id": "bio:pathway:autophagy"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.235528,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:mtor_kinase",
+      "object_id": "bio:pathway:pi3k_akt"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.235528,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:mtor_kinase",
+      "object_id": "bio:disease:alzheimers"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.220108,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:sulforaphane",
+      "object_id": "bio:pathway:oxidative_stress"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.1959,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:finasteride",
+      "object_id": "bio:disease:prostate_cancer"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.190332,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:metformin",
+      "object_id": "bio:disease:type2_diabetes"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.190332,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:ampk_activation",
+      "object_id": "bio:disease:type2_diabetes"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.176091,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:nilotinib",
+      "object_id": "bio:gene:bcr_abl"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.176091,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:her2_receptor_target",
+      "object_id": "bio:pathway:pi3k_akt"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.176091,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:trastuzumab",
+      "object_id": "bio:pathway:pi3k_akt"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.173186,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:curcumin",
+      "object_id": "bio:pathway:nfkb_pathway"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.143015,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:tyrosine_kinase_inhibition",
+      "object_id": "bio:disease:lung_cancer"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.123852,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:sulforaphane",
+      "object_id": "bio:process:ros_production"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.123852,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:nrf2_activation",
+      "object_id": "bio:disease:parkinsons"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.123852,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:nrf2_activation",
+      "object_id": "bio:protein:sod1"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.093422,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:hydroxychloroquine",
+      "object_id": "bio:pathway:pi3k_akt"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.071882,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:ruxolitinib",
+      "object_id": "bio:pathway:jak_stat"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.071882,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:jak_inhibition",
+      "object_id": "bio:disease:rheumatoid_arthritis"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 2.049218,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:luteolin",
+      "object_id": "bio:process:neurodegeneration"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 1.963788,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:mtor_inhibition",
+      "object_id": "bio:pathway:mtor_signaling"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 1.963788,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:ruxolitinib",
+      "object_id": "bio:protein:jak2"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 1.963788,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:jak_inhibition",
+      "object_id": "bio:protein:stat3"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 1.963788,
+      "cross_domain_ratio": 0.5,
+      "investigated": 0,
+      "subject_id": "chem:target:mtor_kinase",
+      "object_id": "bio:disease:heart_failure"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 1.963788,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:everolimus",
+      "object_id": "bio:disease:heart_failure"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 1.939519,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:imatinib",
+      "object_id": "bio:protein:egfr"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 1.863323,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:nicotinamide_riboside",
+      "object_id": "bio:protein:foxo3"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 1.857332,
+      "cross_domain_ratio": 0.5,
+      "investigated": 0,
+      "subject_id": "chem:mechanism:nmda_antagonism",
+      "object_id": "bio:process:synaptic_plasticity"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 1.845098,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:berberine",
+      "object_id": "bio:pathway:ampk_pathway"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 1.845098,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:berberine",
+      "object_id": "bio:disease:type2_diabetes"
+    },
+    {
+      "ranking": "R3_struct_evidence",
+      "e_score_min": 1.819544,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:ppar_activation",
+      "object_id": "bio:pathway:insulin_signaling"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 3.714833,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:erlotinib",
+      "object_id": "bio:disease:lung_cancer"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 3.619824,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:trastuzumab",
+      "object_id": "bio:protein:her2"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 3.495822,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:bace1_enzyme",
+      "object_id": "bio:protein:app"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 3.473779,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:jak2_kinase_target",
+      "object_id": "bio:protein:stat3"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 3.370698,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:bortezomib",
+      "object_id": "bio:disease:multiple_myeloma"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 3.151982,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:venetoclax",
+      "object_id": "bio:pathway:apoptosis"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 3.149219,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:nrf2_activation",
+      "object_id": "bio:process:lipid_peroxidation"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 3.188084,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:bortezomib",
+      "object_id": "bio:disease:leukemia_cml"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 3.074085,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:memantine",
+      "object_id": "bio:process:synaptic_plasticity"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.941014,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:valproic_acid",
+      "object_id": "bio:disease:multiple_myeloma"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.934498,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:ruxolitinib",
+      "object_id": "bio:protein:stat3"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.956649,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:sorafenib",
+      "object_id": "bio:process:tumor_angiogenesis"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.922725,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:proteasome_inhibition",
+      "object_id": "bio:disease:multiple_myeloma"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.868644,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:bcr_abl_kinase",
+      "object_id": "bio:disease:leukemia_cml"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.941014,
+      "cross_domain_ratio": 0.5,
+      "investigated": 0,
+      "subject_id": "chem:drug:valproic_acid",
+      "object_id": "bio:disease:leukemia_cml"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.958086,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:atorvastatin",
+      "object_id": "bio:process:cholesterol_synthesis"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.922725,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:proteasome_inhibition",
+      "object_id": "bio:disease:leukemia_cml"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.910624,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:bortezomib",
+      "object_id": "bio:pathway:apoptosis"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.764923,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:bortezomib",
+      "object_id": "bio:pathway:ubiquitin_proteasome"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.730782,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:hmg_coa_reductase",
+      "object_id": "bio:biomarker:ldl_cholesterol"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.737193,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:imatinib",
+      "object_id": "bio:gene:bcr_abl"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.736397,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:thalidomide",
+      "object_id": "bio:pathway:pi3k_akt"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.367356,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:erlotinib",
+      "object_id": "bio:protein:her2"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.491362,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:everolimus",
+      "object_id": "bio:pathway:autophagy"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.482874,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:ruxolitinib",
+      "object_id": "bio:protein:jak2"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.523746,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:coenzyme_q10",
+      "object_id": "bio:process:ros_production"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.511883,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:metformin",
+      "object_id": "bio:disease:type2_diabetes"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.38739,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:rosiglitazone",
+      "object_id": "bio:pathway:insulin_signaling"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.471292,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:rapamycin",
+      "object_id": "bio:disease:breast_cancer"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.38739,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:pioglitazone",
+      "object_id": "bio:pathway:insulin_signaling"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.439333,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:sirt1_activation",
+      "object_id": "bio:protein:foxo3"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.434569,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:metformin",
+      "object_id": "bio:pathway:ampk_pathway"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.143015,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:tyrosine_kinase_inhibition",
+      "object_id": "bio:disease:lung_cancer"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.176091,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:her2_receptor_target",
+      "object_id": "bio:pathway:pi3k_akt"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.394452,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:spermidine",
+      "object_id": "bio:process:protein_aggregation"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.40654,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:proteasome_inhibition",
+      "object_id": "bio:process:protein_aggregation"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.1959,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:finasteride",
+      "object_id": "bio:disease:prostate_cancer"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.176091,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:trastuzumab",
+      "object_id": "bio:pathway:pi3k_akt"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.40654,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:bortezomib",
+      "object_id": "bio:process:protein_aggregation"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.374748,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:resveratrol",
+      "object_id": "bio:protein:sirt1"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.235528,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:mtor_kinase",
+      "object_id": "bio:pathway:autophagy"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.378398,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:everolimus",
+      "object_id": "bio:pathway:pi3k_akt"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.257679,
+      "cross_domain_ratio": 0.5,
+      "investigated": 0,
+      "subject_id": "chem:mechanism:wnt_inhibition",
+      "object_id": "bio:disease:colon_cancer"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.220108,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:sulforaphane",
+      "object_id": "bio:pathway:oxidative_stress"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.313867,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:everolimus",
+      "object_id": "bio:disease:alzheimers"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.252853,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:atorvastatin",
+      "object_id": "bio:biomarker:ldl_cholesterol"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.049218,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:luteolin",
+      "object_id": "bio:process:neurodegeneration"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.176091,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:nilotinib",
+      "object_id": "bio:gene:bcr_abl"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.235528,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:mtor_kinase",
+      "object_id": "bio:pathway:pi3k_akt"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.235528,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:mtor_kinase",
+      "object_id": "bio:disease:alzheimers"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.190332,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:ampk_activation",
+      "object_id": "bio:disease:type2_diabetes"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 1.963788,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:jak_inhibition",
+      "object_id": "bio:protein:stat3"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.190332,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:metformin",
+      "object_id": "bio:disease:type2_diabetes"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.173186,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:curcumin",
+      "object_id": "bio:pathway:nfkb_pathway"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.123852,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:nrf2_activation",
+      "object_id": "bio:disease:parkinsons"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.093422,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:hydroxychloroquine",
+      "object_id": "bio:pathway:pi3k_akt"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.123852,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:nrf2_activation",
+      "object_id": "bio:protein:sod1"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.123852,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:sulforaphane",
+      "object_id": "bio:process:ros_production"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.071882,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:jak_inhibition",
+      "object_id": "bio:disease:rheumatoid_arthritis"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 1.80618,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:tyrosine_kinase_inhibition",
+      "object_id": "bio:disease:leukemia_cml"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 2.071882,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:ruxolitinib",
+      "object_id": "bio:pathway:jak_stat"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 1.857332,
+      "cross_domain_ratio": 0.5,
+      "investigated": 0,
+      "subject_id": "chem:mechanism:nmda_antagonism",
+      "object_id": "bio:process:synaptic_plasticity"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 1.963788,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:everolimus",
+      "object_id": "bio:disease:heart_failure"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 1.69897,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:doxycycline",
+      "object_id": "bio:process:neurodegeneration"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 1.963788,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:mtor_inhibition",
+      "object_id": "bio:pathway:mtor_signaling"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 1.963788,
+      "cross_domain_ratio": 0.5,
+      "investigated": 0,
+      "subject_id": "chem:target:mtor_kinase",
+      "object_id": "bio:disease:heart_failure"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 1.690196,
+      "cross_domain_ratio": 0.5,
+      "investigated": 0,
+      "subject_id": "chem:drug:erlotinib",
+      "object_id": "bio:pathway:mapk_erk"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 1.963788,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:ruxolitinib",
+      "object_id": "bio:protein:jak2"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 1.939519,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:imatinib",
+      "object_id": "bio:protein:egfr"
+    },
+    {
+      "ranking": "R4_full_hybrid",
+      "e_score_min": 1.672098,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:bace1_enzyme",
+      "object_id": "bio:pathway:amyloid_cascade"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.958086,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:atorvastatin",
+      "object_id": "bio:process:cholesterol_synthesis"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.176091,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:nilotinib",
+      "object_id": "bio:gene:bcr_abl"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.737193,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:imatinib",
+      "object_id": "bio:gene:bcr_abl"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 3.619824,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:trastuzumab",
+      "object_id": "bio:protein:her2"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.482874,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:ruxolitinib",
+      "object_id": "bio:protein:jak2"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.868644,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:bcr_abl_kinase",
+      "object_id": "bio:disease:leukemia_cml"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 1.963788,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:mtor_inhibition",
+      "object_id": "bio:pathway:mtor_signaling"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 3.495822,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:bace1_enzyme",
+      "object_id": "bio:protein:app"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 1.672098,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:bace1_enzyme",
+      "object_id": "bio:pathway:amyloid_cascade"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 1.579784,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:jak_inhibition",
+      "object_id": "bio:protein:jak2"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.730782,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:hmg_coa_reductase",
+      "object_id": "bio:biomarker:ldl_cholesterol"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 3.473779,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:jak2_kinase_target",
+      "object_id": "bio:protein:stat3"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 1.690196,
+      "cross_domain_ratio": 0.5,
+      "investigated": 0,
+      "subject_id": "chem:drug:erlotinib",
+      "object_id": "bio:pathway:mapk_erk"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.764923,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:bortezomib",
+      "object_id": "bio:pathway:ubiquitin_proteasome"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 3.151982,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:venetoclax",
+      "object_id": "bio:pathway:apoptosis"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.934498,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:ruxolitinib",
+      "object_id": "bio:protein:stat3"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.071882,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:ruxolitinib",
+      "object_id": "bio:pathway:jak_stat"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 1.963788,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:ruxolitinib",
+      "object_id": "bio:protein:jak2"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.235528,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:mtor_kinase",
+      "object_id": "bio:pathway:autophagy"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.252853,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:atorvastatin",
+      "object_id": "bio:biomarker:ldl_cholesterol"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 1.963788,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:jak_inhibition",
+      "object_id": "bio:protein:stat3"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 1.462398,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:nilotinib",
+      "object_id": "bio:protein:egfr"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 1.462398,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:nilotinib",
+      "object_id": "bio:gene:bcr_abl"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 1.939519,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:imatinib",
+      "object_id": "bio:protein:egfr"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 1.80618,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:imatinib",
+      "object_id": "bio:gene:bcr_abl"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 3.714833,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:erlotinib",
+      "object_id": "bio:disease:lung_cancer"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 1.556303,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:erlotinib",
+      "object_id": "bio:protein:egfr"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 1.556303,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:erlotinib",
+      "object_id": "bio:gene:bcr_abl"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 1.80618,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:tyrosine_kinase_inhibition",
+      "object_id": "bio:disease:leukemia_cml"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.367356,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:erlotinib",
+      "object_id": "bio:protein:her2"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.176091,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:her2_receptor_target",
+      "object_id": "bio:pathway:pi3k_akt"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.434569,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:metformin",
+      "object_id": "bio:pathway:ampk_pathway"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.1959,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:finasteride",
+      "object_id": "bio:disease:prostate_cancer"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.491362,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:everolimus",
+      "object_id": "bio:pathway:autophagy"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 1.278754,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:sorafenib",
+      "object_id": "bio:protein:egfr"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 1.278754,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:sorafenib",
+      "object_id": "bio:gene:bcr_abl"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 1.690196,
+      "cross_domain_ratio": 0.5,
+      "investigated": 0,
+      "subject_id": "chem:mechanism:tyrosine_kinase_inhibition",
+      "object_id": "bio:pathway:mapk_erk"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.257679,
+      "cross_domain_ratio": 0.5,
+      "investigated": 0,
+      "subject_id": "chem:mechanism:wnt_inhibition",
+      "object_id": "bio:disease:colon_cancer"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.176091,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:trastuzumab",
+      "object_id": "bio:pathway:pi3k_akt"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 1.60206,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:quercetin",
+      "object_id": "bio:protein:bace1"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 3.074085,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:memantine",
+      "object_id": "bio:process:synaptic_plasticity"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.143015,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:tyrosine_kinase_inhibition",
+      "object_id": "bio:disease:lung_cancer"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.374748,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:resveratrol",
+      "object_id": "bio:protein:sirt1"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.38739,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:pioglitazone",
+      "object_id": "bio:pathway:insulin_signaling"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.38739,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:rosiglitazone",
+      "object_id": "bio:pathway:insulin_signaling"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.40654,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:bortezomib",
+      "object_id": "bio:process:protein_aggregation"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.123852,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:sulforaphane",
+      "object_id": "bio:process:ros_production"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.40654,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:proteasome_inhibition",
+      "object_id": "bio:process:protein_aggregation"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 1.819544,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:ppar_activation",
+      "object_id": "bio:pathway:insulin_signaling"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.439333,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:sirt1_activation",
+      "object_id": "bio:protein:foxo3"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.910624,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:bortezomib",
+      "object_id": "bio:pathway:apoptosis"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.235528,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:target:mtor_kinase",
+      "object_id": "bio:pathway:pi3k_akt"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 1.643453,
+      "cross_domain_ratio": 0.5,
+      "investigated": 0,
+      "subject_id": "chem:target:mtor_kinase",
+      "object_id": "bio:pathway:ampk_pathway"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.190332,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:metformin",
+      "object_id": "bio:disease:type2_diabetes"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 1.845098,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:berberine",
+      "object_id": "bio:pathway:ampk_pathway"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.190332,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:ampk_activation",
+      "object_id": "bio:disease:type2_diabetes"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 1.863323,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:nicotinamide_riboside",
+      "object_id": "bio:protein:foxo3"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 1.857332,
+      "cross_domain_ratio": 0.5,
+      "investigated": 0,
+      "subject_id": "chem:mechanism:nmda_antagonism",
+      "object_id": "bio:process:synaptic_plasticity"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.511883,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:metformin",
+      "object_id": "bio:disease:type2_diabetes"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.956649,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:sorafenib",
+      "object_id": "bio:process:tumor_angiogenesis"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.220108,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:sulforaphane",
+      "object_id": "bio:pathway:oxidative_stress"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 1.963788,
+      "cross_domain_ratio": 0.5,
+      "investigated": 0,
+      "subject_id": "chem:target:mtor_kinase",
+      "object_id": "bio:disease:heart_failure"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 1.643453,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:curcumin",
+      "object_id": "bio:process:ros_production"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.394452,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:spermidine",
+      "object_id": "bio:process:protein_aggregation"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.523746,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:coenzyme_q10",
+      "object_id": "bio:process:ros_production"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.378398,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:everolimus",
+      "object_id": "bio:pathway:pi3k_akt"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 1.643453,
+      "cross_domain_ratio": 0.5,
+      "investigated": 0,
+      "subject_id": "chem:drug:everolimus",
+      "object_id": "bio:pathway:ampk_pathway"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.173186,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:compound:curcumin",
+      "object_id": "bio:pathway:nfkb_pathway"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 2.071882,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:mechanism:jak_inhibition",
+      "object_id": "bio:disease:rheumatoid_arthritis"
+    },
+    {
+      "ranking": "R5_conservative",
+      "e_score_min": 1.462398,
+      "cross_domain_ratio": 0.5,
+      "investigated": 1,
+      "subject_id": "chem:drug:aspirin",
+      "object_id": "bio:protein:tnf_alpha"
+    }
+  ]
+}
