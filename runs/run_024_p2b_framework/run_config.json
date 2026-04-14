@@ -1,0 +1,53 @@
+{
+  "run_id": "run_024_p2b_framework",
+  "date": "2026-04-14",
+  "phase": "P2-B",
+  "description": "Density-Aware Selection Framework: density-response curve, policy design, failure mapping, simulation",
+  "workstreams": [
+    "WS1: Density-Response Curve (curve fitting, operating zone)",
+    "WS2: Selection Policy Design (6 policies, abstract base class)",
+    "WS3: Low-Density Failure Map (quartile analysis, failure taxonomy)",
+    "WS4: Policy Simulation (1000-iteration bootstrap, 4 scenarios)",
+    "WS5: Standardization (3 default configs, integration notes, final decisions)"
+  ],
+  "data_sources": [
+    "runs/run_021_density_ceiling/density_scores.json (N=140, C1+C2)"
+  ],
+  "scripts": [
+    "src/scientific_hypothesis/density_response_analysis.py",
+    "src/scientific_hypothesis/selection_policies.py",
+    "src/scientific_hypothesis/policy_simulation.py"
+  ],
+  "seed": 42,
+  "simulation_iterations": 1000,
+  "population_n": 140,
+  "selection_n": 70,
+  "c1_reference_investigability": 0.971,
+  "key_findings": {
+    "density_response_shape": "saturating (y = 1 - exp(-0.710 * log_density))",
+    "best_model_aic": "saturating (AIC=58.10)",
+    "operating_zone_095": {"log_density": 4.219, "min_density": 16572},
+    "q1_boundary_c1c2": 4594,
+    "c2_q1_failure_rate": 0.3846,
+    "c1_q1_failure_rate": 0.0588,
+    "primary_failure_category": "sparse_neighborhood (50%)",
+    "standard_policy": "diversity_guarded",
+    "research_policy": "quantile_constrained"
+  },
+  "final_decisions": {
+    "A_standard_policy": "diversity_guarded (tau_floor=3500, diversity_weight=0.5)",
+    "B_low_density_control": "Hard floor tau_floor=3500; greedy spread implicitly caps Q1 at ~4%",
+    "C_mode_separation": "YES: production=diversity_guarded, research=quantile_constrained, benchmark=hard_threshold",
+    "D_next_theme": "P3: density-controlled true capability measurement (C2 vs C1 under matched density)"
+  },
+  "outputs": [
+    "runs/run_024_p2b_framework/density_response_curve.json",
+    "runs/run_024_p2b_framework/low_density_failure_map.json",
+    "runs/run_024_p2b_framework/simulation_results.json",
+    "runs/run_024_p2b_framework/plots/density_response.html",
+    "runs/run_024_p2b_framework/plots/policy_comparison.html",
+    "configs/density_policy_default.json",
+    "configs/density_policy_explore.json",
+    "configs/density_policy_stable.json"
+  ]
+}

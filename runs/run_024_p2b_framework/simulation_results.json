@@ -1,0 +1,118 @@
+{
+  "simulation_config": {
+    "n_population": 140,
+    "n_select": 70,
+    "n_iterations": 1000,
+    "seed": 42,
+    "c1_reference": 0.971,
+    "q1_boundary": 4594.0,
+    "q2_boundary": 10723.0
+  },
+  "policy_results": {
+    "uniform": {
+      "mean_investigability": 0.942443,
+      "std_investigability": 0.020375,
+      "p5_investigability": 0.914286,
+      "p95_investigability": 0.971429,
+      "mean_delta_vs_c1": -0.028557,
+      "mean_low_density_exposure": 0.215329,
+      "mean_novelty_retention": 0.492171,
+      "p_meet_095": 0.349,
+      "p_meet_c1": 0.14
+    },
+    "hard_threshold": {
+      "mean_investigability": 0.989429,
+      "std_investigability": 0.006266,
+      "p5_investigability": 0.985714,
+      "p95_investigability": 1.0,
+      "mean_delta_vs_c1": 0.018429,
+      "mean_low_density_exposure": 0.0,
+      "mean_novelty_retention": 0.252843,
+      "p_meet_095": 1.0,
+      "p_meet_c1": 1.0
+    },
+    "soft_weighting": {
+      "mean_investigability": 0.967043,
+      "std_investigability": 0.015471,
+      "p5_investigability": 0.942857,
+      "p95_investigability": 0.985714,
+      "mean_delta_vs_c1": -0.003957,
+      "mean_low_density_exposure": 0.073543,
+      "mean_novelty_retention": 0.335186,
+      "p_meet_095": 0.868,
+      "p_meet_c1": 0.594
+    },
+    "two_mode": {
+      "mean_investigability": 0.945071,
+      "std_investigability": 0.018654,
+      "p5_investigability": 0.914286,
+      "p95_investigability": 0.971429,
+      "mean_delta_vs_c1": -0.025929,
+      "mean_low_density_exposure": 0.200071,
+      "mean_novelty_retention": 0.477471,
+      "p_meet_095": 0.391,
+      "p_meet_c1": 0.156
+    },
+    "quantile_constrained": {
+      "mean_investigability": 0.9362,
+      "std_investigability": 0.017916,
+      "p5_investigability": 0.914286,
+      "p95_investigability": 0.971429,
+      "mean_delta_vs_c1": -0.0348,
+      "mean_low_density_exposure": 0.242857,
+      "mean_novelty_retention": 0.5,
+      "p_meet_095": 0.215,
+      "p_meet_c1": 0.051
+    },
+    "diversity_guarded": {
+      "mean_investigability": 0.985471,
+      "std_investigability": 0.001847,
+      "p5_investigability": 0.985714,
+      "p95_investigability": 0.985714,
+      "mean_delta_vs_c1": 0.014471,
+      "mean_low_density_exposure": 0.043157,
+      "mean_novelty_retention": 0.387186,
+      "p_meet_095": 1.0,
+      "p_meet_c1": 1.0
+    }
+  },
+  "scenario_rankings": {
+    "stability_priority": [
+      "diversity_guarded",
+      "hard_threshold",
+      "soft_weighting",
+      "quantile_constrained",
+      "two_mode",
+      "uniform"
+    ],
+    "parity_priority": [
+      "soft_weighting",
+      "diversity_guarded",
+      "hard_threshold",
+      "two_mode",
+      "uniform",
+      "quantile_constrained"
+    ],
+    "balanced": [
+      "quantile_constrained",
+      "uniform",
+      "two_mode",
+      "diversity_guarded",
+      "soft_weighting",
+      "hard_threshold"
+    ],
+    "discovery_priority": [
+      "quantile_constrained",
+      "uniform",
+      "two_mode",
+      "diversity_guarded",
+      "soft_weighting",
+      "hard_threshold"
+    ]
+  },
+  "recommended_defaults": {
+    "production": "diversity_guarded",
+    "research": "quantile_constrained",
+    "rationale": "Production default 'diversity_guarded' chosen for lowest variance (std=0.0018), ensuring reliable investigability >= 0.986 at 5th percentile. Research default 'quantile_constrained' chosen for highest novelty retention (mean_novelty=0.500), maximizing exposure to structurally unusual hypotheses."
+  }
+}

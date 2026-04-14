@@ -1,0 +1,26 @@
+{
+  "policy": "hard_threshold",
+  "description": "Maximum stability: eliminates all low-density exposure, highest investigability",
+  "mode": "stable",
+  "params": {
+    "tau": 7500
+  },
+  "selection_rule": "Select only candidates where min_density >= tau; random sample from eligible pool",
+  "expected_metrics": {
+    "mean_investigability": 0.9894,
+    "std_investigability": 0.0063,
+    "p5_investigability": 0.9857,
+    "p95_investigability": 1.0000,
+    "mean_low_density_exposure": 0.0000,
+    "mean_novelty_retention": 0.2528,
+    "p_meet_095": 1.0,
+    "p_meet_c1_parity": 1.0
+  },
+  "rationale": "Zero low-density exposure. Investigability is near-ceiling (0.989). The cost is novelty: only 25.3% of selected hypotheses are from structurally unusual (low-density) territory. Use when reproducibility and investigability floor matter most, and novel discovery is secondary.",
+  "use_when": [
+    "Benchmark reproduction runs",
+    "Ablation studies requiring controlled investigability",
+    "High-confidence hypothesis sets for literature review",
+    "Evaluation mode where density confound must be eliminated entirely"
+  ]
+}

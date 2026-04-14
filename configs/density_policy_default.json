@@ -1,0 +1,27 @@
+{
+  "policy": "diversity_guarded",
+  "description": "Production default: high investigability with density spread guarantee",
+  "mode": "production",
+  "params": {
+    "tau_floor": 3500,
+    "diversity_weight": 0.5
+  },
+  "selection_rule": "Hard floor min_density >= tau_floor, then greedy maximize log-density spread among selected",
+  "expected_metrics": {
+    "mean_investigability": 0.9855,
+    "std_investigability": 0.0018,
+    "p5_investigability": 0.9857,
+    "p95_investigability": 0.9857,
+    "mean_low_density_exposure": 0.0432,
+    "mean_novelty_retention": 0.3872,
+    "p_meet_095": 1.0,
+    "p_meet_c1_parity": 1.0
+  },
+  "rationale": "Lowest variance (std=0.0018) and P(>=C1)=100% across 1000 bootstrap iterations. tau_floor=3500 eliminates sparse_neighborhood failures while retaining borderline-Q1 candidates for diversity. Greedy spread ensures representation across the full density range above the floor.",
+  "use_when": [
+    "Standard hypothesis evaluation runs",
+    "Reproducing published results",
+    "Comparing C1 vs C2 without density confound",
+    "Any run requiring stable, predictable investigability"
+  ]
+}

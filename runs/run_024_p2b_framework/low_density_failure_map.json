@@ -1,0 +1,145 @@
+{
+  "quartile_boundaries": {
+    "Q1_upper": 4594,
+    "Q2_upper": 10723,
+    "Q3_upper": 27616,
+    "Q4_min": 27616
+  },
+  "failure_by_quartile_method": {
+    "Q1": {
+      "C1": {
+        "total": 17,
+        "failures": 1,
+        "rate": 0.0588
+      },
+      "C2": {
+        "total": 13,
+        "failures": 5,
+        "rate": 0.3846
+      }
+    },
+    "Q2": {
+      "C1": {
+        "total": 11,
+        "failures": 0,
+        "rate": 0.0
+      },
+      "C2": {
+        "total": 28,
+        "failures": 1,
+        "rate": 0.0357
+      }
+    },
+    "Q3": {
+      "C1": {
+        "total": 14,
+        "failures": 0,
+        "rate": 0.0
+      },
+      "C2": {
+        "total": 21,
+        "failures": 0,
+        "rate": 0.0
+      }
+    },
+    "Q4": {
+      "C1": {
+        "total": 28,
+        "failures": 1,
+        "rate": 0.0357
+      },
+      "C2": {
+        "total": 8,
+        "failures": 0,
+        "rate": 0.0
+      }
+    }
+  },
+  "failure_categories": {
+    "sparse_neighborhood": {
+      "count": 4,
+      "examples": [
+        {
+          "id": "H3004",
+          "description": "Sildenafil may activate AMPK Pathway via PDE5 Inhibition",
+          "min_density": 1876,
+          "quartile": "Q1"
+        },
+        {
+          "id": "H3020",
+          "description": "mTOR Inhibition may activate AMPK Pathway via mTOR-AMPK crosstalk",
+          "min_density": 1876,
+          "quartile": "Q1"
+        },
+        {
+          "id": "H3050",
+          "description": "PI3K Inhibition may reduce Tumor Angiogenesis via PI3K-AKT pathway",
+          "min_density": 968,
+          "quartile": "Q1"
+        }
+      ]
+    },
+    "bridge_absent": {
+      "count": 1,
+      "examples": [
+        {
+          "id": "H3032",
+          "description": "Valproic Acid may reverse Epigenetic Silencing via HDAC inhibition",
+          "min_density": 3255,
+          "quartile": "Q1"
+        }
+      ]
+    },
+    "path_insufficient": {
+      "count": 2,
+      "examples": [
+        {
+          "id": "H4022",
+          "description": "Autophagy dysfunction may worsen Parkinson's Disease via alpha-synuclein clearance",
+          "min_density": 81713,
+          "quartile": "Q4"
+        },
+        {
+          "id": "H4059",
+          "description": "HDAC1 may support Glioblastoma via epigenetic silencing of p53 pathway",
+          "min_density": 4590,
+          "quartile": "Q1"
+        }
+      ]
+    },
+    "diversity_misselection": {
+      "count": 1,
+      "examples": [
+        {
+          "id": "H3054",
+          "description": "Lithium may attenuate Huntington's Disease via autophagy-mediated aggregation clearance",
+          "min_density": 5920,
+          "quartile": "Q2"
+        }
+      ]
+    }
+  },
+  "c1_vs_c2_failure_concentration": {
+    "Q1": {
+      "C1_rate": 0.0588,
+      "C2_rate": 0.3846,
+      "delta": 0.3258
+    },
+    "Q2": {
+      "C1_rate": 0.0,
+      "C2_rate": 0.0357,
+      "delta": 0.0357
+    },
+    "Q3": {
+      "C1_rate": 0.0,
+      "C2_rate": 0.0,
+      "delta": 0.0
+    },
+    "Q4": {
+      "C1_rate": 0.0357,
+      "C2_rate": 0.0,
+      "delta": -0.0357
+    }
+  },
+  "key_finding": "C2 failures concentrate in Q1 (lowest density). bridge_absent and diversity_misselection are primary C2 failure modes. C1 failures are rare and scattered, primarily path_insufficient in Q1."
+}
