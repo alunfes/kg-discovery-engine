@@ -1,0 +1,20 @@
+{
+  "run_id": "run_037_t2_ranker_comparison",
+  "timestamp": "2026-04-14T13:09:45.972980",
+  "phase": "P6-A (ranker verification)",
+  "seed": 42,
+  "total_candidates": 715,
+  "top_k": 70,
+  "bucket_quotas_T2": {
+    "L2": 50,
+    "L3": 20,
+    "L4+": 0
+  },
+  "conditions": {
+    "T2_R2": "T2 buckets, R2 within each bucket",
+    "T2_R3": "T2 buckets, R3 within each bucket (full-pool normalization)"
+  },
+  "pre_registered_prediction": "T2_R2 = T2_R3 (mathematical identity)",
+  "prediction_confirmed": true,
+  "decision": "Use R2 as default ranker for P7"
+}

@@ -1,0 +1,29 @@
+{
+  "timestamp": "2026-04-14T13:09:45.972980",
+  "T2_R2": {
+    "inv": {
+      "n": 70,
+      "investigability_rate": 0.9286,
+      "investigated_count": 65
+    },
+    "novelty": {
+      "mean_cross_domain_ratio": 0.4524,
+      "novelty_retention": 0.9048
+    }
+  },
+  "T2_R3": {
+    "inv": {
+      "n": 70,
+      "investigability_rate": 0.9286,
+      "investigated_count": 65
+    },
+    "novelty": {
+      "mean_cross_domain_ratio": 0.4524,
+      "novelty_retention": 0.9048
+    }
+  },
+  "selection_overlap_jaccard": 1.0,
+  "prediction_confirmed": true,
+  "b2_baseline_cross_domain_ratio": 0.5,
+  "decision": "Use R2 as default ranker for P7"
+}
