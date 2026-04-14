@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>WS4 Policy Comparison</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 20px; background: #f9f9f9; }
+  h1 { color: #2c3e50; }
+  h2 { color: #34495e; border-bottom: 2px solid #bdc3c7; padding-bottom: 4px; }
+  .section { background: #fff; border-radius: 8px; padding: 20px; margin-bottom: 30px;
+              box-shadow: 0 2px 6px rgba(0,0,0,0.1); max-width: 900px; }
+  canvas { display: block; margin: 0 auto; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { border: 1px solid #ccc; padding: 8px 12px; text-align: left; }
+  th { background: #2c3e50; color: #fff; }
+  tr:nth-child(even) { background: #f2f2f2; }
+  .legend { font-size: 13px; margin-top: 8px; }
+  .leg-item { display: inline-block; margin-right: 18px; }
+  .leg-box { display: inline-block; width: 14px; height: 14px; vertical-align: middle; margin-right: 4px; }
+</style>
+</head>
+<body>
+<h1>WS4 — Policy Simulation Results (P2B Framework)</h1>
+<p>Population: 140 records (C1+C2). Bootstrap iterations: 1000. Seed: 42. C1 reference: 0.971. Q1 boundary: 4594</p>
+
+<div class="section">
+  <h2>1. Mean Investigability by Policy</h2>
+  <canvas id="invChart" width="860" height="340"></canvas>
+  <div class="legend">
+    <span class="leg-item"><span class="leg-box" style="background:#2ecc71"></span>&ge; 0.95 (good)</span>
+    <span class="leg-item"><span class="leg-box" style="background:#f1c40f"></span>0.90–0.95 (acceptable)</span>
+    <span class="leg-item"><span class="leg-box" style="background:#e74c3c"></span>&lt; 0.90 (poor)</span>
+  </div>
+</div>
+
+<div class="section">
+  <h2>2. Novelty Retention by Policy</h2>
+  <canvas id="novChart" width="860" height="300"></canvas>
+</div>
+
+<div class="section">
+  <h2>3. Investigability vs Novelty Retention (Scatter)</h2>
+  <canvas id="scatterChart" width="860" height="460"></canvas>
+</div>
+
+<div class="section">
+  <h2>4. Scenario Rankings</h2>
+  <table>
+    <thead><tr><th>Stability Priority</th><th>Parity Priority</th><th>Balanced</th><th>Discovery Priority</th></tr></thead>
+    <tbody><tr><td>diversity_guarded</td><td>soft_weighting</td><td>quantile_constrained</td><td>quantile_constrained</td></tr><tr><td>hard_threshold</td><td>diversity_guarded</td><td>uniform</td><td>uniform</td></tr><tr><td>soft_weighting</td><td>hard_threshold</td><td>two_mode</td><td>two_mode</td></tr><tr><td>quantile_constrained</td><td>two_mode</td><td>diversity_guarded</td><td>diversity_guarded</td></tr><tr><td>two_mode</td><td>uniform</td><td>soft_weighting</td><td>soft_weighting</td></tr><tr><td>uniform</td><td>quantile_constrained</td><td>hard_threshold</td><td>hard_threshold</td></tr></tbody>
+  </table>
+</div>
+
+<script>
+// -----------------------------------------------------------------------
+// Chart 1: Mean Investigability (horizontal bar with error bars)
+// -----------------------------------------------------------------------
+(function() {
+  const canvas = document.getElementById('invChart');
+  const ctx = canvas.getContext('2d');
+  const labels = ["hard_threshold", "diversity_guarded", "soft_weighting", "two_mode", "uniform", "quantile_constrained"];
+  const means  = [0.989429, 0.985471, 0.967043, 0.945071, 0.942443, 0.9362];
+  const stds   = [0.006266, 0.001847, 0.015471, 0.018654, 0.020375, 0.017916];
+  const colors = ["#2ecc71", "#2ecc71", "#2ecc71", "#f1c40f", "#f1c40f", "#f1c40f"];
+  const C1_REF = 0.971;
+
+  const marginL = 180, marginR = 40, marginT = 20, marginB = 30;
+  const W = canvas.width - marginL - marginR;
+  const H = canvas.height - marginT - marginB;
+  const n = labels.length;
+  const barH = Math.floor(H / n) - 6;
+  const xMin = 0.7, xMax = 1.0;
+
+  function xScale(v) { return marginL + (v - xMin) / (xMax - xMin) * W; }
+
+  // grid
+  ctx.strokeStyle = '#ddd'; ctx.lineWidth = 1;
+  for (let t = 0; t <= 6; t++) {
+    const v = xMin + t * (xMax - xMin) / 6;
+    const x = xScale(v);
+    ctx.beginPath(); ctx.moveTo(x, marginT); ctx.lineTo(x, marginT + H); ctx.stroke();
+    ctx.fillStyle = '#888'; ctx.font = '11px Arial'; ctx.textAlign = 'center';
+    ctx.fillText(v.toFixed(2), x, marginT + H + 15);
+  }
+
+  // bars + error bars
+  for (let i = 0; i < n; i++) {
+    const y = marginT + i * (H / n) + 3;
+    const xStart = xScale(xMin);
+    const xEnd   = xScale(Math.max(xMin, Math.min(xMax, means[i])));
+
+    ctx.fillStyle = colors[i];
+    ctx.fillRect(xStart, y, xEnd - xStart, barH);
+
+    // error bar
+    const xMean = xScale(means[i]);
+    const xErr1 = xScale(Math.min(xMax, means[i] + stds[i]));
+    const xErr0 = xScale(Math.max(xMin, means[i] - stds[i]));
+    ctx.strokeStyle = '#333'; ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(xErr0, y + barH/2); ctx.lineTo(xErr1, y + barH/2); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(xErr0, y + barH/4); ctx.lineTo(xErr0, y + 3*barH/4); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(xErr1, y + barH/4); ctx.lineTo(xErr1, y + 3*barH/4); ctx.stroke();
+
+    // value label
+    ctx.fillStyle = '#333'; ctx.font = '11px Arial'; ctx.textAlign = 'left';
+    ctx.fillText(means[i].toFixed(4), xEnd + 4, y + barH/2 + 4);
+
+    // policy label
+    ctx.textAlign = 'right';
+    ctx.fillText(labels[i], marginL - 6, y + barH/2 + 4);
+  }
+
+  // C1 reference line
+  const xC1 = xScale(C1_REF);
+  ctx.strokeStyle = '#c0392b'; ctx.lineWidth = 2; ctx.setLineDash([6, 3]);
+  ctx.beginPath(); ctx.moveTo(xC1, marginT); ctx.lineTo(xC1, marginT + H); ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = '#c0392b'; ctx.font = 'bold 11px Arial'; ctx.textAlign = 'left';
+  ctx.fillText('C1=' + C1_REF, xC1 + 3, marginT + 14);
+})();
+
+// -----------------------------------------------------------------------
+// Chart 2: Novelty Retention (horizontal bar)
+// -----------------------------------------------------------------------
+(function() {
+  const canvas = document.getElementById('novChart');
+  const ctx = canvas.getContext('2d');
+  const labels = ["quantile_constrained", "uniform", "two_mode", "diversity_guarded", "soft_weighting", "hard_threshold"];
+  const vals   = [0.5, 0.492171, 0.477471, 0.387186, 0.335186, 0.252843];
+  const colors = ["#003f5c", "#2f6090", "#4584c8", "#7eb6d9", "#b3d4ec", "#ddeef9"];
+
+  const marginL = 180, marginR = 40, marginT = 20, marginB = 30;
+  const W = canvas.width - marginL - marginR;
+  const H = canvas.height - marginT - marginB;
+  const n = labels.length;
+  const barH = Math.floor(H / n) - 6;
+  const xMin = 0.0, xMax = 1.0;
+
+  function xScale(v) { return marginL + (v - xMin) / (xMax - xMin) * W; }
+
+  ctx.strokeStyle = '#ddd'; ctx.lineWidth = 1;
+  for (let t = 0; t <= 5; t++) {
+    const v = xMin + t * (xMax - xMin) / 5;
+    const x = xScale(v);
+    ctx.beginPath(); ctx.moveTo(x, marginT); ctx.lineTo(x, marginT + H); ctx.stroke();
+    ctx.fillStyle = '#888'; ctx.font = '11px Arial'; ctx.textAlign = 'center';
+    ctx.fillText(v.toFixed(1), x, marginT + H + 15);
+  }
+
+  for (let i = 0; i < n; i++) {
+    const y = marginT + i * (H / n) + 3;
+    const xStart = xScale(xMin);
+    const xEnd   = xScale(vals[i]);
+
+    ctx.fillStyle = colors[i];
+    ctx.fillRect(xStart, y, xEnd - xStart, barH);
+
+    ctx.fillStyle = '#333'; ctx.font = '11px Arial'; ctx.textAlign = 'left';
+    ctx.fillText(vals[i].toFixed(4), xEnd + 4, y + barH/2 + 4);
+
+    ctx.textAlign = 'right';
+    ctx.fillText(labels[i], marginL - 6, y + barH/2 + 4);
+  }
+})();
+
+// -----------------------------------------------------------------------
+// Chart 3: Scatter — Investigability vs Novelty
+// -----------------------------------------------------------------------
+(function() {
+  const canvas = document.getElementById('scatterChart');
+  const ctx = canvas.getContext('2d');
+  const xs = [0.492171, 0.252843, 0.335186, 0.477471, 0.5, 0.387186];
+  const ys = [0.942443, 0.989429, 0.967043, 0.945071, 0.9362, 0.985471];
+  const labels = ["uniform", "hard_threshold", "soft_weighting", "two_mode", "quantile_constrained", "diversity_guarded"];
+
+  const marginL = 60, marginR = 80, marginT = 60, marginB = 50;
+  const W = canvas.width - marginL - marginR;
+  const H = canvas.height - marginT - marginB;
+  const xMin = 0.0, xMax = 1.0, yMin = 0.7, yMax = 1.0;
+
+  function xS(v) { return marginL + (v - xMin) / (xMax - xMin) * W; }
+  function yS(v) { return marginT + H - (v - yMin) / (yMax - yMin) * H; }
+
+  // quadrant shading
+  const xMid = xS(0.5), yMid = yS(0.85);
+  ctx.globalAlpha = 0.07;
+  ctx.fillStyle = '#27ae60'; ctx.fillRect(xMid, marginT, W - (xMid - marginL), yMid - marginT);
+  ctx.fillStyle = '#3498db'; ctx.fillRect(marginL, marginT, xMid - marginL, yMid - marginT);
+  ctx.fillStyle = '#e67e22'; ctx.fillRect(xMid, yMid, W - (xMid - marginL), H - (yMid - marginT));
+  ctx.fillStyle = '#95a5a6'; ctx.fillRect(marginL, yMid, xMid - marginL, H - (yMid - marginT));
+  ctx.globalAlpha = 1.0;
+
+  // quadrant labels
+  ctx.fillStyle = '#27ae60'; ctx.font = 'bold 12px Arial'; ctx.textAlign = 'center';
+  ctx.fillText('IDEAL', xS(0.75), marginT + 22);
+  ctx.fillStyle = '#3498db';
+  ctx.fillText('Safe/Low novelty', xS(0.25), marginT + 22);
+  ctx.fillStyle = '#e67e22';
+  ctx.fillText('Risky high novelty', xS(0.75), yMid + 22);
+
+  // grid lines
+  ctx.strokeStyle = '#ddd'; ctx.lineWidth = 1;
+  for (let t = 0; t <= 5; t++) {
+    const x = xS(xMin + t * (xMax - xMin) / 5);
+    ctx.beginPath(); ctx.moveTo(x, marginT); ctx.lineTo(x, marginT + H); ctx.stroke();
+    ctx.fillStyle = '#888'; ctx.font = '11px Arial'; ctx.textAlign = 'center';
+    ctx.fillText((xMin + t * (xMax - xMin) / 5).toFixed(1), x, marginT + H + 16);
+  }
+  for (let t = 0; t <= 6; t++) {
+    const y = yS(yMin + t * (yMax - yMin) / 6);
+    ctx.beginPath(); ctx.moveTo(marginL, y); ctx.lineTo(marginL + W, y); ctx.stroke();
+    ctx.fillStyle = '#888'; ctx.font = '11px Arial'; ctx.textAlign = 'right';
+    ctx.fillText((yMin + t * (yMax - yMin) / 6).toFixed(2), marginL - 6, y + 4);
+  }
+
+  // axis labels
+  ctx.fillStyle = '#333'; ctx.font = 'bold 13px Arial';
+  ctx.textAlign = 'center';
+  ctx.fillText('Novelty Retention (x)', marginL + W / 2, marginT + H + 38);
+  ctx.save(); ctx.translate(16, marginT + H / 2); ctx.rotate(-Math.PI / 2);
+  ctx.fillText('Mean Investigability (y)', 0, 0); ctx.restore();
+
+  // points
+  const ptColors = ['#2c3e50','#e74c3c','#3498db','#2ecc71','#9b59b6','#e67e22'];
+  for (let i = 0; i < xs.length; i++) {
+    const cx = xS(xs[i]), cy = yS(ys[i]);
+    ctx.beginPath();
+    ctx.arc(cx, cy, 8, 0, 2 * Math.PI);
+    ctx.fillStyle = ptColors[i % ptColors.length];
+    ctx.fill();
+    ctx.strokeStyle = '#fff'; ctx.lineWidth = 1.5; ctx.stroke();
+
+    // label
+    ctx.fillStyle = '#2c3e50'; ctx.font = '11px Arial'; ctx.textAlign = 'left';
+    ctx.fillText(labels[i], cx + 10, cy + 4);
+  }
+
+  // C1 reference horizontal line
+  const yC1 = yS(0.971);
+  ctx.strokeStyle = '#c0392b'; ctx.lineWidth = 1.5; ctx.setLineDash([5,3]);
+  ctx.beginPath(); ctx.moveTo(marginL, yC1); ctx.lineTo(marginL + W, yC1); ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = '#c0392b'; ctx.font = '11px Arial'; ctx.textAlign = 'right';
+  ctx.fillText('C1=0.971', marginL + W, yC1 - 4);
+})();
+</script>
+</body>
+</html>

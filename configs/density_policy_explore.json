@@ -1,0 +1,27 @@
+{
+  "policy": "quantile_constrained",
+  "description": "Research/exploration mode: maximizes novelty retention via guaranteed density diversity",
+  "mode": "research",
+  "params": {
+    "n_quartiles": 4,
+    "samples_per_quartile": [18, 18, 17, 17]
+  },
+  "selection_rule": "Divide candidates into 4 density quartiles; sample approximately n/4 from each quartile",
+  "expected_metrics": {
+    "mean_investigability": 0.9362,
+    "std_investigability": 0.0179,
+    "p5_investigability": 0.9143,
+    "p95_investigability": 0.9714,
+    "mean_low_density_exposure": 0.2429,
+    "mean_novelty_retention": 0.5000,
+    "p_meet_095": 0.215,
+    "p_meet_c1_parity": 0.051
+  },
+  "rationale": "Highest novelty retention (0.500) among all policies. Explicitly budgets 25% Q1 exposure, accepting ~6pp investigability cost versus C1. Suitable for discovery runs where finding structurally unusual hypotheses matters more than matching evaluation benchmarks.",
+  "use_when": [
+    "Discovery-oriented experiments",
+    "KG coverage gap analysis",
+    "Generating diverse hypothesis sets for qualitative review",
+    "Research into low-density hypothesis value"
+  ]
+}
