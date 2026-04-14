@@ -1,0 +1,8 @@
+{
+  "outcome": "underpowered",
+  "verdict": "R3 same direction but underpowered: Δ=+0.0286, p=0.5836 ≥ 0.05",
+  "r3_delta": 0.0286,
+  "r3_p_value": 0.58361,
+  "r3_cohens_h": 0.0877,
+  "r3_significant": false
+}
