@@ -1,6 +1,6 @@
 # Project Handover — KG Discovery Engine
 
-*Last updated: 2026-04-14*
+*Last updated: 2026-04-15*
 
 ---
 
@@ -74,11 +74,29 @@ All future runs MUST declare `selection_policy` in `run_config.json`.
 
 ---
 
+## 論文図表 状態
+
+| 図 | ファイル | 状態 |
+|----|---------|------|
+| Fig 1 (C1 主図) | `docs/figures/fig2_c1_geometry_breakthrough.png` | **生成済み** (2026-04-15) |
+| Fig 2 (C2 主図) | `docs/figures/fig3_c2_domain_agnostic.png` | **生成済み** (2026-04-15) |
+| Fig 3 (C3 主図) | `docs/figures/fig1_p10a_comparison.png` | 既存 |
+| Table 1–3 | 本文 inline | 未執筆（データあり） |
+
+生成スクリプト:
+- `scripts/generate_c1_geometry_chart.py` — Fig 1
+- `scripts/generate_c2_domain_agnostic_chart.py` — Fig 2
+- `scripts/generate_p10a_comparison_chart.py` — Fig 3（既存）
+
+仕様書: `docs/paper/figure_table_list.md`, `docs/paper/paper_structure.md`
+
+---
+
 ## Next Action
 
-**Start P3-A**: sparse region detection from run_024 failure_map
+**論文本文執筆**: paper_skeleton.md を LaTeX に変換
 
-1. Run `src/scientific_hypothesis/sparse_region_detection.py` against `src/scientific_hypothesis/bio_chem_kg_full.json`
-2. Review `runs/run_025_sparse_detection/sparse_region_report.json`
-3. Cross-reference with `runs/run_024_p2b_framework/low_density_failure_map.json` to identify overlapping sparse nodes
-4. Design KG densification strategy based on sparse node map
+1. `docs/paper_skeleton.md` を元に LaTeX ソースを作成
+2. Fig 1〜3 を本文に埋め込む（Section 4.1, 4.2, 4.3）
+3. Table 1〜3 を inline で記述（データソース: `docs/paper/figure_table_list.md`）
+4. `docs/bibliography_todo.md` の引用を整理・追加
