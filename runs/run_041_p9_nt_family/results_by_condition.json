@@ -1,0 +1,230 @@
+{
+  "C_P7_FULL": {
+    "geometry": {
+      "unique_endpoint_pairs": 959,
+      "mean_cdr_l3": 0.6192,
+      "mean_cdr_l4p": 0.6525,
+      "n_multi_cross_l3": 190,
+      "n_multi_cross_l4p": 1044,
+      "h_p7_1_ok": true,
+      "h_p7_2_ok": true,
+      "h_p7_3_ok": true
+    },
+    "T3_investigability_rate": 0.9857,
+    "T3_investigated_count": 69,
+    "T3_novelty_retention": 1.319,
+    "T3_mean_cdr": 0.6595,
+    "T3_long_path_share": 0.5,
+    "T3_stratum": {
+      "L2": {
+        "n": 35,
+        "investigated": 34,
+        "investigability": 0.9714,
+        "mean_cdr": 0.5
+      },
+      "L3": {
+        "n": 20,
+        "investigated": 20,
+        "investigability": 1.0,
+        "mean_cdr": 0.8333
+      },
+      "L4+": {
+        "n": 15,
+        "investigated": 15,
+        "investigability": 1.0,
+        "mean_cdr": 0.8
+      }
+    },
+    "T3_outcome": "STRONG_SUCCESS",
+    "B2_investigability_rate": 0.9714,
+    "nt_path_counts": {
+      "dopamine": 0,
+      "serotonin": 0,
+      "gaba": 0,
+      "glutamate": 0,
+      "acetylcholine": 0
+    },
+    "nt_shares": {
+      "dopamine": 0.0,
+      "serotonin": 0.0,
+      "gaba": 0.0,
+      "glutamate": 0.0,
+      "acetylcholine": 0.0
+    },
+    "nt_family_gini": 0.0,
+    "new_disease_endpoint_count": 0,
+    "mean_endpoint_pubmed_count": 201.0,
+    "coverage_normalized_yield": 0.4241
+  },
+  "C_P6_NONE": {
+    "geometry": {
+      "unique_endpoint_pairs": 472,
+      "mean_cdr_l3": 0.3333,
+      "mean_cdr_l4p": 0.233,
+      "n_multi_cross_l3": 0,
+      "n_multi_cross_l4p": 0,
+      "h_p7_1_ok": true,
+      "h_p7_2_ok": false,
+      "h_p7_3_ok": false
+    },
+    "T3_investigability_rate": 0.9429,
+    "T3_investigated_count": 66,
+    "T3_novelty_retention": 0.7962,
+    "T3_mean_cdr": 0.3981,
+    "T3_long_path_share": 0.5,
+    "T3_stratum": {
+      "L2": {
+        "n": 35,
+        "investigated": 34,
+        "investigability": 0.9714,
+        "mean_cdr": 0.5
+      },
+      "L3": {
+        "n": 20,
+        "investigated": 17,
+        "investigability": 0.85,
+        "mean_cdr": 0.3333
+      },
+      "L4+": {
+        "n": 15,
+        "investigated": 15,
+        "investigability": 1.0,
+        "mean_cdr": 0.2467
+      }
+    },
+    "T3_outcome": "NULL",
+    "B2_investigability_rate": 0.9429,
+    "nt_path_counts": {
+      "dopamine": 0,
+      "serotonin": 0,
+      "gaba": 0,
+      "glutamate": 0,
+      "acetylcholine": 0
+    },
+    "nt_shares": {
+      "dopamine": 0.0,
+      "serotonin": 0.0,
+      "gaba": 0.0,
+      "glutamate": 0.0,
+      "acetylcholine": 0.0
+    },
+    "nt_family_gini": 0.0,
+    "new_disease_endpoint_count": 0,
+    "mean_endpoint_pubmed_count": 164.8,
+    "coverage_normalized_yield": 0.4205
+  },
+  "C_NT_ONLY": {
+    "geometry": {
+      "unique_endpoint_pairs": 714,
+      "mean_cdr_l3": 0.6053,
+      "mean_cdr_l4p": 0.6525,
+      "n_multi_cross_l3": 173,
+      "n_multi_cross_l4p": 651,
+      "h_p7_1_ok": true,
+      "h_p7_2_ok": true,
+      "h_p7_3_ok": true
+    },
+    "T3_investigability_rate": 0.8571,
+    "T3_investigated_count": 60,
+    "T3_novelty_retention": 1.342,
+    "T3_mean_cdr": 0.671,
+    "T3_long_path_share": 0.5,
+    "T3_stratum": {
+      "L2": {
+        "n": 35,
+        "investigated": 34,
+        "investigability": 0.9714,
+        "mean_cdr": 0.5
+      },
+      "L3": {
+        "n": 20,
+        "investigated": 19,
+        "investigability": 0.95,
+        "mean_cdr": 0.9333
+      },
+      "L4+": {
+        "n": 15,
+        "investigated": 7,
+        "investigability": 0.4667,
+        "mean_cdr": 0.72
+      }
+    },
+    "T3_outcome": "GEOMETRY_CONFIRMED",
+    "B2_investigability_rate": 0.9714,
+    "nt_path_counts": {
+      "dopamine": 18,
+      "serotonin": 0,
+      "gaba": 6,
+      "glutamate": 15,
+      "acetylcholine": 6
+    },
+    "nt_shares": {
+      "dopamine": 0.4,
+      "serotonin": 0.0,
+      "gaba": 0.133,
+      "glutamate": 0.333,
+      "acetylcholine": 0.133
+    },
+    "nt_family_gini": 0.4,
+    "new_disease_endpoint_count": 6,
+    "mean_endpoint_pubmed_count": 131.4,
+    "coverage_normalized_yield": 0.3985
+  },
+  "C_COMBINED": {
+    "geometry": {
+      "unique_endpoint_pairs": 1065,
+      "mean_cdr_l3": 0.8157,
+      "mean_cdr_l4p": 0.8577,
+      "n_multi_cross_l3": 665,
+      "n_multi_cross_l4p": 4877,
+      "h_p7_1_ok": true,
+      "h_p7_2_ok": true,
+      "h_p7_3_ok": true
+    },
+    "T3_investigability_rate": 0.9429,
+    "T3_investigated_count": 66,
+    "T3_novelty_retention": 1.3548,
+    "T3_mean_cdr": 0.6774,
+    "T3_long_path_share": 0.5,
+    "T3_stratum": {
+      "L2": {
+        "n": 35,
+        "investigated": 34,
+        "investigability": 0.9714,
+        "mean_cdr": 0.5
+      },
+      "L3": {
+        "n": 20,
+        "investigated": 19,
+        "investigability": 0.95,
+        "mean_cdr": 0.9333
+      },
+      "L4+": {
+        "n": 15,
+        "investigated": 13,
+        "investigability": 0.8667,
+        "mean_cdr": 0.75
+      }
+    },
+    "T3_outcome": "WEAK_SUCCESS",
+    "B2_investigability_rate": 0.9857,
+    "nt_path_counts": {
+      "dopamine": 10,
+      "serotonin": 0,
+      "gaba": 0,
+      "glutamate": 8,
+      "acetylcholine": 0
+    },
+    "nt_shares": {
+      "dopamine": 0.556,
+      "serotonin": 0.0,
+      "gaba": 0.0,
+      "glutamate": 0.444,
+      "acetylcholine": 0.0
+    },
+    "nt_family_gini": 0.6222,
+    "new_disease_endpoint_count": 1,
+    "mean_endpoint_pubmed_count": 193.2,
+    "coverage_normalized_yield": 0.4085
+  }
+}

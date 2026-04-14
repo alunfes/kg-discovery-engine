@@ -1,0 +1,35 @@
+{
+  "verdict": "GEOMETRY_ONLY",
+  "family_transfer_score": 0.8695,
+  "nt_only_inv": 0.8571,
+  "nt_only_outcome": "GEOMETRY_CONFIRMED",
+  "nt_only_novelty": 1.342,
+  "nt_family_gini": 0.4,
+  "p7_full_inv": 0.9857,
+  "p6_none_inv": 0.9429,
+  "combined_inv": 0.9429,
+  "nt_lift_over_baseline": -0.0858,
+  "combined_lift_over_p7": -0.0428,
+  "h_p9_strong_success": false,
+  "h_p9_combined_no_regression": false,
+  "h_p9_transfer_score_ge_095": false,
+  "h_p9_dispersion": false,
+  "investigability_ranking": [
+    [
+      "C_P7_FULL",
+      0.9857
+    ],
+    [
+      "C_P6_NONE",
+      0.9429
+    ],
+    [
+      "C_COMBINED",
+      0.9429
+    ],
+    [
+      "C_NT_ONLY",
+      0.8571
+    ]
+  ]
+}
