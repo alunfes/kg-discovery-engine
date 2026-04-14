@@ -1,0 +1,17 @@
+{
+  "run_id": "run_031_causal_validation",
+  "phase": "P3-A",
+  "date": "2026-04-14",
+  "seed": 42,
+  "tau_floor": 3500,
+  "target_n": 70,
+  "kg_original": "/Users/alun/claude-dev/kg-discovery-engine/.claude/worktrees/cool-haibt/src/scientific_hypothesis/../../src/scientific_hypothesis/bio_chem_kg_full.json",
+  "kg_augmented": "/Users/alun/claude-dev/kg-discovery-engine/.claude/worktrees/cool-haibt/src/scientific_hypothesis/../../src/scientific_hypothesis/bio_chem_kg_augmented.json",
+  "kg_orig_nodes": 200,
+  "kg_orig_edges": 325,
+  "kg_aug_edges": 335,
+  "aug_edges_added": 10,
+  "validation_window": "2024/01/01 - 2025/12/31",
+  "pubmed_rate_limit": 1.1,
+  "run021_baseline_failure_rate": 0.3846
+}

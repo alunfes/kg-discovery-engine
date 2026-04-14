@@ -1,0 +1,11 @@
+{
+  "common_pairs_count": 70,
+  "a_failure_count": 6,
+  "a_below_floor_failures": 2,
+  "retained_now_solvable_count": 0,
+  "retained_now_solvable": [],
+  "new_hypotheses_in_c_count": 0,
+  "new_c_successes_count": 0,
+  "aug_edge_contributed_cases": 0,
+  "interpretation": "retained_now_solvable: pairs in both A and C where A failed but C succeeded. aug_edge_contributed: at least one augmented edge lies on the C path."
+}
