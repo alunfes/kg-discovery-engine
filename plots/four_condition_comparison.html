@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>run_031: Four-Condition Comparison</title>
+<style>
+  body { font-family: sans-serif; max-width: 900px; margin: 40px auto; color: #222; background: #fafafa; }
+  h1 { font-size: 1.4em; border-bottom: 2px solid #444; padding-bottom: 8px; }
+  h2 { font-size: 1.1em; color: #555; margin-top: 32px; }
+  .subtitle { color: #666; font-size: 0.9em; margin-bottom: 24px; }
+  .chart-wrap { display: flex; gap: 32px; flex-wrap: wrap; margin: 24px 0; }
+  .chart { flex: 1; min-width: 280px; }
+  svg text { font-family: sans-serif; }
+  .decision { background: #f0f4ff; border-left: 4px solid #4466cc; padding: 12px 16px; margin: 24px 0; border-radius: 4px; }
+  .decision strong { color: #2244aa; }
+  table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 0.9em; }
+  th { background: #e8e8e8; padding: 8px 12px; text-align: left; }
+  td { padding: 7px 12px; border-bottom: 1px solid #ddd; }
+  tr:nth-child(even) td { background: #f5f5f5; }
+  .note { color: #888; font-size: 0.82em; font-style: italic; margin-top: 6px; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.78em; font-weight: bold; }
+  .ns { background: #eee; color: #666; }
+  .pos { background: #e0f0e0; color: #2a7a2a; }
+</style>
+</head>
+<body>
+<h1>run_031: 4-Condition Causal Isolation — P3-A</h1>
+<p class="subtitle">2026-04-14 · seed=42 · tau_floor=3500 · PubMed 2024-2025 · N=70 per condition</p>
+
+<h2>Investigability Rate by Condition</h2>
+<svg width="820" height="260" viewBox="0 0 820 260">
+  <!-- background -->
+  <rect x="0" y="0" width="820" height="260" fill="#fff" rx="6"/>
+
+  <!-- gridlines -->
+  <line x1="70" y1="30" x2="70" y2="210" stroke="#ddd" stroke-width="1"/>
+  <line x1="70" y1="210" x2="790" y2="210" stroke="#ddd" stroke-width="1"/>
+  <!-- y-axis labels -->
+  <text x="60" y="214" font-size="11" text-anchor="end" fill="#888">0.80</text>
+  <text x="60" y="170" font-size="11" text-anchor="end" fill="#888">0.85</text>
+  <text x="60" y="126" font-size="11" text-anchor="end" fill="#888">0.90</text>
+  <text x="60" y="82"  font-size="11" text-anchor="end" fill="#888">0.95</text>
+  <text x="60" y="38"  font-size="11" text-anchor="end" fill="#888">1.00</text>
+  <!-- gridlines h -->
+  <line x1="70" y1="210" x2="790" y2="210" stroke="#eee" stroke-width="1"/>
+  <line x1="70" y1="170" x2="790" y2="170" stroke="#eee" stroke-width="1"/>
+  <line x1="70" y1="126" x2="790" y2="126" stroke="#eee" stroke-width="1"/>
+  <line x1="70" y1="82"  x2="790" y2="82"  stroke="#eee" stroke-width="1"/>
+  <line x1="70" y1="38"  x2="790" y2="38"  stroke="#eee" stroke-width="1"/>
+
+  <!--
+    IR: A=0.914, B=0.923, C=0.914, D=0.923, C1_orig=0.857, C1_aug=0.857
+    Scale: y=210 → IR=0.80, y=38 → IR=1.00  (range 0.20 → 172px)
+    bar_top = 210 - (IR - 0.80) / 0.20 * 172
+    A:  0.914 → 210 - 0.114/0.20*172 = 210 - 98.0 = 112
+    B:  0.923 → 210 - 0.123/0.20*172 = 210 - 105.8 = 104.2
+    C:  0.914 → 112
+    D:  0.923 → 104.2
+    C1o: 0.857 → 210 - 0.057/0.20*172 = 210 - 49.0 = 161
+    C1a: 0.857 → 161
+    bar width=80, gap=20
+    x positions: 90, 190, 310, 410, 530, 630
+  -->
+
+  <!-- Condition A -->
+  <rect x="90"  y="112"  width="80" height="98" fill="#4a90d9"/>
+  <text x="130" y="108" font-size="11" text-anchor="middle" fill="#333">0.914</text>
+  <text x="130" y="228" font-size="11" text-anchor="middle" fill="#555">A</text>
+  <text x="130" y="240" font-size="10" text-anchor="middle" fill="#888">Orig+No floor</text>
+
+  <!-- Condition B -->
+  <rect x="190" y="104"  width="80" height="106" fill="#4a90d9" opacity="0.7"/>
+  <text x="230" y="100" font-size="11" text-anchor="middle" fill="#333">0.923</text>
+  <text x="230" y="228" font-size="11" text-anchor="middle" fill="#555">B</text>
+  <text x="230" y="240" font-size="10" text-anchor="middle" fill="#888">Orig+Floor</text>
+
+  <!-- separator -->
+  <line x1="302" y1="30" x2="302" y2="215" stroke="#ccc" stroke-dasharray="4,3" stroke-width="1"/>
+
+  <!-- Condition C -->
+  <rect x="310" y="112"  width="80" height="98" fill="#e07b3a"/>
+  <text x="350" y="108" font-size="11" text-anchor="middle" fill="#333">0.914</text>
+  <text x="350" y="228" font-size="11" text-anchor="middle" fill="#555">C</text>
+  <text x="350" y="240" font-size="10" text-anchor="middle" fill="#888">Aug+No floor</text>
+
+  <!-- Condition D -->
+  <rect x="410" y="104"  width="80" height="106" fill="#e07b3a" opacity="0.7"/>
+  <text x="450" y="100" font-size="11" text-anchor="middle" fill="#333">0.923</text>
+  <text x="450" y="228" font-size="11" text-anchor="middle" fill="#555">D</text>
+  <text x="450" y="240" font-size="10" text-anchor="middle" fill="#888">Aug+Floor</text>
+
+  <!-- separator -->
+  <line x1="522" y1="30" x2="522" y2="215" stroke="#ccc" stroke-dasharray="4,3" stroke-width="1"/>
+
+  <!-- C1 original -->
+  <rect x="530" y="161"  width="80" height="49" fill="#888"/>
+  <text x="570" y="157" font-size="11" text-anchor="middle" fill="#333">0.857</text>
+  <text x="570" y="228" font-size="11" text-anchor="middle" fill="#555">C1_orig</text>
+  <text x="570" y="240" font-size="10" text-anchor="middle" fill="#888">Orig single-op</text>
+
+  <!-- C1 augmented -->
+  <rect x="630" y="161"  width="80" height="49" fill="#aaa"/>
+  <text x="670" y="157" font-size="11" text-anchor="middle" fill="#333">0.857</text>
+  <text x="670" y="228" font-size="11" text-anchor="middle" fill="#555">C1_aug</text>
+  <text x="670" y="240" font-size="10" text-anchor="middle" fill="#888">Aug single-op</text>
+
+  <!-- legend -->
+  <rect x="72" y="10" width="12" height="12" fill="#4a90d9"/>
+  <text x="88" y="21" font-size="10" fill="#555">Original KG</text>
+  <rect x="152" y="10" width="12" height="12" fill="#e07b3a"/>
+  <text x="168" y="21" font-size="10" fill="#555">Augmented KG</text>
+  <rect x="242" y="10" width="12" height="12" fill="#888"/>
+  <text x="258" y="21" font-size="10" fill="#555">C1 baseline</text>
+
+  <!-- y-axis title -->
+  <text transform="rotate(-90,18,130)" x="0" y="0" font-size="11" fill="#666" text-anchor="middle">Investigability Rate</text>
+</svg>
+
+<p class="note">A=C (identical hypothesis pools; augmented KG top-70 = original KG top-70 under shortest-path selection)</p>
+
+<h2>Attribution Decomposition</h2>
+<svg width="500" height="180" viewBox="0 0 500 180">
+  <rect x="0" y="0" width="500" height="180" fill="#fff" rx="6"/>
+  <!-- zero line at x=180 -->
+  <line x1="180" y1="20" x2="180" y2="160" stroke="#999" stroke-width="1.5"/>
+  <!-- grid -->
+  <line x1="230" y1="20" x2="230" y2="160" stroke="#eee"/>
+  <line x1="280" y1="20" x2="280" y2="160" stroke="#eee"/>
+  <line x1="130" y1="20" x2="130" y2="160" stroke="#eee"/>
+  <!-- axis labels -->
+  <text x="130" y="170" font-size="10" text-anchor="middle" fill="#888">-0.05</text>
+  <text x="180" y="170" font-size="10" text-anchor="middle" fill="#888">0.00</text>
+  <text x="230" y="170" font-size="10" text-anchor="middle" fill="#888">+0.05</text>
+  <text x="280" y="170" font-size="10" text-anchor="middle" fill="#888">+0.10</text>
+
+  <!-- Filter effect: +0.009 → 9px right of 180 = 189 -->
+  <text x="170" y="50" font-size="11" text-anchor="end" fill="#444">Filter (B−A)</text>
+  <rect x="180" y="38" width="9" height="18" fill="#4a90d9" rx="2"/>
+  <text x="193" y="51" font-size="10" fill="#333">+0.009</text>
+
+  <!-- Aug effect: 0.000 -->
+  <text x="170" y="90" font-size="11" text-anchor="end" fill="#444">Aug (C−A)</text>
+  <rect x="178" y="78" width="2" height="18" fill="#e07b3a" rx="1"/>
+  <text x="185" y="91" font-size="10" fill="#888">0.000</text>
+
+  <!-- Interaction: 0.000 -->
+  <text x="170" y="130" font-size="11" text-anchor="end" fill="#444">Interaction</text>
+  <rect x="178" y="118" width="2" height="18" fill="#9b59b6" rx="1"/>
+  <text x="185" y="131" font-size="10" fill="#888">0.000</text>
+</svg>
+
+<h2>Summary Table</h2>
+<table>
+  <tr>
+    <th>Condition</th><th>N</th><th>Excluded</th><th>Inv Rate</th><th>Fail Rate</th><th>Fisher p</th><th>Cohen h</th>
+  </tr>
+  <tr><td>A: Orig + No floor</td><td>70</td><td>0</td><td>0.914</td><td>0.086</td><td>—</td><td>—</td></tr>
+  <tr><td>B: Orig + Floor</td><td>52</td><td>18</td><td>0.923</td><td>0.077</td><td>1.000 <span class="badge ns">ns</span></td><td>0.032</td></tr>
+  <tr><td>C: Aug + No floor</td><td>70</td><td>0</td><td>0.914</td><td>0.086</td><td>1.000 <span class="badge ns">ns</span></td><td>0.000</td></tr>
+  <tr><td>D: Aug + Floor</td><td>52</td><td>18</td><td>0.923</td><td>0.077</td><td>1.000 <span class="badge ns">ns</span></td><td>0.032</td></tr>
+  <tr><td>C1_original</td><td>70</td><td>0</td><td>0.857</td><td>0.143</td><td>—</td><td>—</td></tr>
+  <tr><td>C1_augmented</td><td>70</td><td>0</td><td>0.857</td><td>0.143</td><td>1.000 <span class="badge ns">ns</span></td><td>0.000</td></tr>
+</table>
+
+<div class="decision">
+  <strong>Final Decision: C</strong> — Combination appears promising, but current evidence remains preliminary due to sample size and confounding.<br>
+  <em>Evidence strength: weak. Augmentation effect = 0.000 (mechanistic null: selection policy bottleneck).</em>
+</div>
+
+<p class="note">All Fisher p-values = 1.000 (underpowered, N≤70). Augmentation null is mechanistically explained: new edges create paths below top-70 cutoff under shortest-path selection.</p>
+</body>
+</html>

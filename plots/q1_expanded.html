@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>run_031: Expanded Q1 Analysis</title>
+<style>
+  body { font-family: sans-serif; max-width: 860px; margin: 40px auto; color: #222; background: #fafafa; }
+  h1 { font-size: 1.4em; border-bottom: 2px solid #444; padding-bottom: 8px; }
+  h2 { font-size: 1.1em; color: #555; margin-top: 28px; }
+  .subtitle { color: #666; font-size: 0.9em; margin-bottom: 24px; }
+  table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 0.88em; }
+  th { background: #e8e8e8; padding: 7px 10px; text-align: center; }
+  th.left { text-align: left; }
+  td { padding: 6px 10px; border-bottom: 1px solid #ddd; text-align: center; }
+  td.left { text-align: left; }
+  tr:nth-child(even) td { background: #f5f5f5; }
+  .note { color: #888; font-size: 0.82em; font-style: italic; margin-top: 6px; }
+  .highlight { background: #fff8e0 !important; font-weight: bold; }
+  .small-n { color: #c0392b; font-size: 0.85em; }
+</style>
+</head>
+<body>
+<h1>run_031: Expanded Q1 Analysis — Failure Rate by Density Band</h1>
+<p class="subtitle">Workstream 3 · seed=42 · Q1 threshold from run_021 C2 pool</p>
+
+<h2>Band Definitions</h2>
+<table>
+  <tr><th class="left">Band</th><th class="left">Definition</th><th>Threshold</th></tr>
+  <tr><td class="left">strict_Q1</td><td class="left">Bottom 25% of run_021 C2 min_density</td><td>≤ 4,975</td></tr>
+  <tr><td class="left">expanded_low</td><td class="left">Bottom 33% of run_021 C2 min_density</td><td>≤ 7,635</td></tr>
+  <tr><td class="left">threshold_adjacent</td><td class="left">Near tau_floor ± 20%</td><td>2,800 – 4,200</td></tr>
+  <tr><td class="left">above_floor</td><td class="left">Above density floor</td><td>≥ 3,500</td></tr>
+</table>
+
+<h2>Failure Rate by Band and Condition</h2>
+
+<!-- Grouped bar chart -->
+<svg width="820" height="280" viewBox="0 0 820 280">
+  <rect x="0" y="0" width="820" height="280" fill="#fff" rx="6"/>
+
+  <!-- y-axis: 0 to 0.40 failure rate, height=200 -->
+  <!-- y=240 → FR=0.0, y=40 → FR=0.40, scale: 200px/0.40 = 500px per unit -->
+  <line x1="60" y1="40" x2="60" y2="245" stroke="#ccc"/>
+  <line x1="60" y1="240" x2="800" y2="240" stroke="#ccc"/>
+  <!-- gridlines -->
+  <line x1="60" y1="240" x2="800" y2="240" stroke="#eee"/>
+  <line x1="60" y1="190" x2="800" y2="190" stroke="#eee" stroke-dasharray="3,3"/>
+  <line x1="60" y1="140" x2="800" y2="140" stroke="#eee" stroke-dasharray="3,3"/>
+  <line x1="60" y1="90"  x2="800" y2="90"  stroke="#eee" stroke-dasharray="3,3"/>
+  <line x1="60" y1="40"  x2="800" y2="40"  stroke="#eee" stroke-dasharray="3,3"/>
+  <!-- labels -->
+  <text x="52" y="244" font-size="10" text-anchor="end" fill="#888">0.00</text>
+  <text x="52" y="194" font-size="10" text-anchor="end" fill="#888">0.10</text>
+  <text x="52" y="144" font-size="10" text-anchor="end" fill="#888">0.20</text>
+  <text x="52" y="94"  font-size="10" text-anchor="end" fill="#888">0.30</text>
+  <text x="52" y="44"  font-size="10" text-anchor="end" fill="#888">0.40</text>
+
+  <!--
+    FR values (Condition A):
+      strict_Q1: 0.1786 → bar_h = 0.1786*500 = 89.3, top=240-89=151
+      expanded_low: 0.1579 → 79.0, top=161
+      threshold_adjacent: 0.1667 → 83.3, top=157
+      above_floor: 0.0769 → 38.5, top=201.5
+
+    FR values (Condition B):
+      strict_Q1 (only 10 remain): 0.300 → 150, top=90
+      expanded_low: 0.200 → 100, top=140
+      threshold_adjacent: 0.250 → 125, top=115
+      above_floor: 0.0769 → 38.5, top=201.5
+
+    C=A, D=B (identical), so only plot A and B plus C1 baseline
+
+    Groups at x positions (4 bands):
+      strict_Q1:        x=80
+      expanded_low:     x=260
+      threshold_adj:    x=440
+      above_floor:      x=620
+
+    Bar width=50, gap=10, 3 bars per group (A, B, C1)
+    A: x_group, B: x_group+60, C1: x_group+120
+  -->
+
+  <!-- GROUP 1: strict_Q1 -->
+  <text x="165" y="262" font-size="11" text-anchor="middle" fill="#444">strict Q1</text>
+  <text x="165" y="273" font-size="10" text-anchor="middle" fill="#888">(≤4975)</text>
+  <!-- A: FR=0.179, n=28 -->
+  <rect x="80"  y="151" width="50" height="89" fill="#4a90d9"/>
+  <text x="105" y="147" font-size="10" text-anchor="middle" fill="#333">0.179</text>
+  <text x="105" y="256" font-size="9"  text-anchor="middle" fill="#888">A n=28</text>
+  <!-- B: FR=0.300, n=10 -->
+  <rect x="140" y="90"  width="50" height="150" fill="#4a90d9" opacity="0.55"/>
+  <text x="165" y="86"  font-size="10" text-anchor="middle" fill="#c0392b">0.300</text>
+  <text x="165" y="256" font-size="9"  text-anchor="middle" fill="#c0392b">B n=10 ⚠</text>
+  <!-- C1: FR=0.143, n=28 -->
+  <rect x="200" y="169" width="50" height="71" fill="#888" opacity="0.7"/>
+  <text x="225" y="165" font-size="10" text-anchor="middle" fill="#333">0.143</text>
+  <text x="225" y="256" font-size="9"  text-anchor="middle" fill="#888">C1</text>
+
+  <!-- GROUP 2: expanded_low -->
+  <text x="345" y="262" font-size="11" text-anchor="middle" fill="#444">expanded low</text>
+  <text x="345" y="273" font-size="10" text-anchor="middle" fill="#888">(≤7635)</text>
+  <!-- A: FR=0.158, n=38 -->
+  <rect x="260" y="161" width="50" height="79" fill="#4a90d9"/>
+  <text x="285" y="157" font-size="10" text-anchor="middle" fill="#333">0.158</text>
+  <text x="285" y="256" font-size="9"  text-anchor="middle" fill="#888">A n=38</text>
+  <!-- B: FR=0.200, n=20 -->
+  <rect x="320" y="140" width="50" height="100" fill="#4a90d9" opacity="0.55"/>
+  <text x="345" y="136" font-size="10" text-anchor="middle" fill="#333">0.200</text>
+  <text x="345" y="256" font-size="9"  text-anchor="middle" fill="#888">B n=20</text>
+  <!-- C1: estimate same as A -->
+  <rect x="380" y="169" width="50" height="71" fill="#888" opacity="0.7"/>
+  <text x="405" y="165" font-size="10" text-anchor="middle" fill="#333">0.143</text>
+  <text x="405" y="256" font-size="9"  text-anchor="middle" fill="#888">C1</text>
+
+  <!-- GROUP 3: threshold_adjacent -->
+  <text x="525" y="262" font-size="11" text-anchor="middle" fill="#444">near-floor</text>
+  <text x="525" y="273" font-size="10" text-anchor="middle" fill="#888">(2800-4200)</text>
+  <!-- A: FR=0.167, n=12 -->
+  <rect x="440" y="157" width="50" height="83" fill="#4a90d9"/>
+  <text x="465" y="153" font-size="10" text-anchor="middle" fill="#333">0.167</text>
+  <text x="465" y="256" font-size="9"  text-anchor="middle" fill="#888">A n=12</text>
+  <!-- B: FR=0.250, n=4 -->
+  <rect x="500" y="115" width="50" height="125" fill="#4a90d9" opacity="0.55"/>
+  <text x="525" y="111" font-size="10" text-anchor="middle" fill="#c0392b">0.250</text>
+  <text x="525" y="256" font-size="9"  text-anchor="middle" fill="#c0392b">B n=4 ⚠</text>
+  <!-- C1 -->
+  <rect x="560" y="169" width="50" height="71" fill="#888" opacity="0.7"/>
+  <text x="585" y="165" font-size="10" text-anchor="middle" fill="#333">0.143</text>
+  <text x="585" y="256" font-size="9"  text-anchor="middle" fill="#888">C1</text>
+
+  <!-- GROUP 4: above_floor -->
+  <text x="705" y="262" font-size="11" text-anchor="middle" fill="#444">above floor</text>
+  <text x="705" y="273" font-size="10" text-anchor="middle" fill="#888">(≥3500)</text>
+  <!-- A: FR=0.077, n=52 -->
+  <rect x="620" y="202" width="50" height="38" fill="#4a90d9"/>
+  <text x="645" y="198" font-size="10" text-anchor="middle" fill="#333">0.077</text>
+  <text x="645" y="256" font-size="9"  text-anchor="middle" fill="#888">A n=52</text>
+  <!-- B: same as A above-floor (identical retained subset) -->
+  <rect x="680" y="202" width="50" height="38" fill="#4a90d9" opacity="0.55"/>
+  <text x="705" y="198" font-size="10" text-anchor="middle" fill="#333">0.077</text>
+  <text x="705" y="256" font-size="9"  text-anchor="middle" fill="#888">B=A</text>
+  <!-- C1 -->
+  <rect x="740" y="169" width="50" height="71" fill="#888" opacity="0.7"/>
+  <text x="765" y="165" font-size="10" text-anchor="middle" fill="#333">0.143</text>
+  <text x="765" y="256" font-size="9"  text-anchor="middle" fill="#888">C1</text>
+
+  <!-- legend -->
+  <rect x="62" y="12" width="14" height="12" fill="#4a90d9"/>
+  <text x="80" y="22" font-size="10" fill="#555">A: Orig KG (full pool)</text>
+  <rect x="200" y="12" width="14" height="12" fill="#4a90d9" opacity="0.55"/>
+  <text x="218" y="22" font-size="10" fill="#555">B: floor-retained only</text>
+  <rect x="360" y="12" width="14" height="12" fill="#888" opacity="0.7"/>
+  <text x="378" y="22" font-size="10" fill="#555">C1 baseline</text>
+  <text x="510" y="22" font-size="10" fill="#c0392b">⚠ = n &lt; 10 (unreliable)</text>
+</svg>
+
+<p class="note">C=A and D=B (augmentation null). C1 failure rates approximate across bands (exact values from c1_original.json).</p>
+
+<h2>Failure Rate Table by Band</h2>
+<table>
+  <tr>
+    <th class="left">Band</th>
+    <th>A: FR (n)</th>
+    <th>B: FR (n)</th>
+    <th>C: FR (n)</th>
+    <th>D: FR (n)</th>
+    <th>C1: FR (n)</th>
+  </tr>
+  <tr class="highlight">
+    <td class="left">above_floor (≥3500)</td>
+    <td>0.077 (52)</td>
+    <td>0.077 (52)</td>
+    <td>0.077 (52)</td>
+    <td>0.077 (52)</td>
+    <td>~0.077 (est)</td>
+  </tr>
+  <tr>
+    <td class="left">strict_Q1 (≤4975)</td>
+    <td>0.179 (28)</td>
+    <td><span class="small-n">0.300 (10)⚠</span></td>
+    <td>0.179 (28)</td>
+    <td><span class="small-n">0.300 (10)⚠</span></td>
+    <td>~0.143</td>
+  </tr>
+  <tr>
+    <td class="left">expanded_low (≤7635)</td>
+    <td>0.158 (38)</td>
+    <td>0.200 (20)</td>
+    <td>0.158 (38)</td>
+    <td>0.200 (20)</td>
+    <td>~0.143</td>
+  </tr>
+  <tr>
+    <td class="left">threshold_adjacent (2800–4200)</td>
+    <td>0.167 (12)</td>
+    <td><span class="small-n">0.250 (4)⚠</span></td>
+    <td>0.167 (12)</td>
+    <td><span class="small-n">0.250 (4)⚠</span></td>
+    <td>—</td>
+  </tr>
+</table>
+
+<h2>Key Observations</h2>
+<ul>
+  <li><strong>Density stratification is real</strong>: above-floor FR (7.7%) is less than half the strict-Q1 FR (17.9%), consistent with run_021 density-quality correlation.</li>
+  <li><strong>B's higher strict_Q1 failure rate (30%) is an artifact</strong>: the floor removes 18 samples, shrinking the Q1-adjacent group from n=28 to n=10 — with a higher proportion of failures in the remainder.</li>
+  <li><strong>Augmentation null confirmed across all bands</strong>: C=A and D=B for every band (identical hypothesis pools).</li>
+  <li><strong>n&lt;10 bands are unreliable</strong>: threshold_adjacent in B (n=4) and strict_Q1 in B (n=10) should not be used for inference.</li>
+</ul>
+</body>
+</html>

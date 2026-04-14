@@ -1,0 +1,193 @@
+{
+  "confidence_intervals": {
+    "A": {
+      "n": 70,
+      "n_investigated": 64,
+      "investigability_rate": 0.9143,
+      "clopper_pearson_95ci": [
+        0.8975,
+        0.0
+      ],
+      "bootstrap_95ci": [
+        0.8429,
+        0.9714
+      ]
+    },
+    "B": {
+      "n": 52,
+      "n_investigated": 48,
+      "investigability_rate": 0.9231,
+      "clopper_pearson_95ci": [
+        0.8701,
+        0.0
+      ],
+      "bootstrap_95ci": [
+        0.8462,
+        0.9808
+      ]
+    },
+    "C": {
+      "n": 70,
+      "n_investigated": 64,
+      "investigability_rate": 0.9143,
+      "clopper_pearson_95ci": [
+        0.8975,
+        0.0
+      ],
+      "bootstrap_95ci": [
+        0.8429,
+        0.9714
+      ]
+    },
+    "D": {
+      "n": 52,
+      "n_investigated": 48,
+      "investigability_rate": 0.9231,
+      "clopper_pearson_95ci": [
+        0.8701,
+        0.0
+      ],
+      "bootstrap_95ci": [
+        0.8462,
+        0.9808
+      ]
+    },
+    "C1_original": {
+      "n": 70,
+      "n_investigated": 60,
+      "investigability_rate": 0.8571,
+      "clopper_pearson_95ci": [
+        0.8378,
+        0.0
+      ],
+      "bootstrap_95ci": [
+        0.7714,
+        0.9429
+      ]
+    },
+    "C1_augmented": {
+      "n": 70,
+      "n_investigated": 60,
+      "investigability_rate": 0.8571,
+      "clopper_pearson_95ci": [
+        0.8378,
+        0.0
+      ],
+      "bootstrap_95ci": [
+        0.7714,
+        0.9286
+      ]
+    }
+  },
+  "pairwise_comparisons": {
+    "filter_effect": {
+      "conditions": [
+        "B",
+        "A"
+      ],
+      "n": [
+        52,
+        70
+      ],
+      "investigability_rates": [
+        0.9231,
+        0.9143
+      ],
+      "fisher_p": 1.0,
+      "significance": "ns",
+      "cohens_h": 0.0322,
+      "effect_interpretation": "small"
+    },
+    "aug_effect": {
+      "conditions": [
+        "C",
+        "A"
+      ],
+      "n": [
+        70,
+        70
+      ],
+      "investigability_rates": [
+        0.9143,
+        0.9143
+      ],
+      "fisher_p": 1.0,
+      "significance": "ns",
+      "cohens_h": 0.0,
+      "effect_interpretation": "small"
+    },
+    "combined_effect": {
+      "conditions": [
+        "D",
+        "A"
+      ],
+      "n": [
+        52,
+        70
+      ],
+      "investigability_rates": [
+        0.9231,
+        0.9143
+      ],
+      "fisher_p": 1.0,
+      "significance": "ns",
+      "cohens_h": 0.0322,
+      "effect_interpretation": "small"
+    },
+    "aug_on_top_of_filter": {
+      "conditions": [
+        "D",
+        "B"
+      ],
+      "n": [
+        52,
+        52
+      ],
+      "investigability_rates": [
+        0.9231,
+        0.9231
+      ],
+      "fisher_p": 1.0,
+      "significance": "ns",
+      "cohens_h": 0.0,
+      "effect_interpretation": "small"
+    },
+    "filter_on_top_of_aug": {
+      "conditions": [
+        "D",
+        "C"
+      ],
+      "n": [
+        52,
+        70
+      ],
+      "investigability_rates": [
+        0.9231,
+        0.9143
+      ],
+      "fisher_p": 1.0,
+      "significance": "ns",
+      "cohens_h": 0.0322,
+      "effect_interpretation": "small"
+    },
+    "c1_aug_vs_c1_orig": {
+      "conditions": [
+        "C1_augmented",
+        "C1_original"
+      ],
+      "n": [
+        70,
+        70
+      ],
+      "investigability_rates": [
+        0.8571,
+        0.8571
+      ],
+      "fisher_p": 1.0,
+      "significance": "ns",
+      "cohens_h": 0.0,
+      "effect_interpretation": "small"
+    }
+  },
+  "sample_size_note": "All conditions N<=70. Statistical tests are underpowered; p-values and CIs should be interpreted as preliminary evidence only."
+}

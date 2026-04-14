@@ -1,0 +1,131 @@
+{
+  "attribution": {
+    "investigability_rates": {
+      "A": 0.9143,
+      "B": 0.9231,
+      "C": 0.9143,
+      "D": 0.9231,
+      "C1_original": 0.8571,
+      "C1_augmented": 0.8571
+    },
+    "filter_effect_B_minus_A": 0.0088,
+    "aug_effect_C_minus_A": 0.0,
+    "interaction_D_minus_C_minus_B_plus_A": 0.0,
+    "combined_gain_D_minus_A": 0.0088,
+    "delta_vs_c1_original": {
+      "A": 0.0572,
+      "B": 0.066,
+      "C": 0.0572,
+      "D": 0.066,
+      "C1_augmented": 0.0
+    },
+    "c1_augmented_vs_c1_original": 0.0,
+    "failure_rates": {
+      "A": 0.0857,
+      "B": 0.0769,
+      "C": 0.0857,
+      "D": 0.0769,
+      "C1_original": 0.1429,
+      "C1_augmented": 0.1429
+    },
+    "delta_failure_vs_A": {
+      "B": -0.0088,
+      "C": 0.0,
+      "D": -0.0088,
+      "C1_original": 0.0572,
+      "C1_augmented": 0.0572
+    }
+  },
+  "metrics_summary": {
+    "A": {
+      "label": "Original KG + no floor",
+      "n_total": 70,
+      "n_excluded": 0,
+      "n_retained": 70,
+      "n_investigated": 64,
+      "n_failures": 6,
+      "investigability_rate": 0.9143,
+      "failure_rate": 0.0857,
+      "mean_min_density": 11464.4,
+      "median_min_density": 6974,
+      "excluded_mean_min_density": -1
+    },
+    "B": {
+      "label": "Original KG + density floor",
+      "n_total": 52,
+      "n_excluded": 18,
+      "n_retained": 52,
+      "n_investigated": 48,
+      "n_failures": 4,
+      "investigability_rate": 0.9231,
+      "failure_rate": 0.0769,
+      "mean_min_density": 14688.5,
+      "median_min_density": 9080,
+      "excluded_mean_min_density": 2150.6
+    },
+    "C": {
+      "label": "Augmented KG + no floor",
+      "n_total": 70,
+      "n_excluded": 0,
+      "n_retained": 70,
+      "n_investigated": 64,
+      "n_failures": 6,
+      "investigability_rate": 0.9143,
+      "failure_rate": 0.0857,
+      "mean_min_density": 11464.4,
+      "median_min_density": 6974,
+      "excluded_mean_min_density": -1
+    },
+    "D": {
+      "label": "Augmented KG + density floor",
+      "n_total": 52,
+      "n_excluded": 18,
+      "n_retained": 52,
+      "n_investigated": 48,
+      "n_failures": 4,
+      "investigability_rate": 0.9231,
+      "failure_rate": 0.0769,
+      "mean_min_density": 14688.5,
+      "median_min_density": 9080,
+      "excluded_mean_min_density": 2150.6
+    },
+    "C1_original": {
+      "label": "C1 Original KG",
+      "n_total": 70,
+      "n_excluded": 0,
+      "n_retained": 70,
+      "n_investigated": 60,
+      "n_failures": 10,
+      "investigability_rate": 0.8571,
+      "failure_rate": 0.1429,
+      "mean_min_density": 29450.7,
+      "median_min_density": 16516,
+      "excluded_mean_min_density": -1
+    },
+    "C1_augmented": {
+      "label": "C1 Augmented KG",
+      "n_total": 70,
+      "n_excluded": 0,
+      "n_retained": 70,
+      "n_investigated": 60,
+      "n_failures": 10,
+      "investigability_rate": 0.8571,
+      "failure_rate": 0.1429,
+      "mean_min_density": 27504.7,
+      "median_min_density": 16516,
+      "excluded_mean_min_density": -1
+    }
+  },
+  "final_decision": {
+    "decision": "C",
+    "statement": "Combination appears promising, but current evidence remains preliminary due to sample size and confounding.",
+    "rationale": "Neither effect reaches significance (filter p=1.000, aug p=1.000). Filter Δ=+0.009 (h=0.032), Aug Δ=+0.000 (h=0.000), Interaction=+0.000. Combination appears promising but current evidence is preliminary.",
+    "evidence_strength": "weak",
+    "caveats": [
+      "All conditions N<=70; statistical tests are underpowered.",
+      "Density floor may selectively exclude hypotheses independent of scientific validity.",
+      "PubMed 2024-2025 count is a proxy for investigability, not biological validity.",
+      "Run_031 generates new hypotheses from bio_chem_kg_full.json; not identical to run_018 pool."
+    ]
+  }
+}

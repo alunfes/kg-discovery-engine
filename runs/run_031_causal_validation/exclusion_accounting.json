@@ -1,0 +1,225 @@
+{
+  "tau_floor": 3500,
+  "B": {
+    "pool_size": 70,
+    "n_retained": 52,
+    "n_excluded": 18,
+    "exclusion_rate": 0.2571,
+    "excluded_min_densities": [
+      2996,
+      2130,
+      2766,
+      3018,
+      2849,
+      2849,
+      883,
+      235,
+      2130,
+      646
+    ],
+    "excluded_mean_density": 2150.6,
+    "excluded_pairs": [
+      {
+        "subject_id": "chem:compound:sulforaphane",
+        "object_id": "bio:process:ros_production",
+        "min_density": 2996
+      },
+      {
+        "subject_id": "chem:mechanism:mtor_inhibition",
+        "object_id": "bio:pathway:autophagy",
+        "min_density": 2130
+      },
+      {
+        "subject_id": "chem:mechanism:proteasome_inhibition",
+        "object_id": "bio:pathway:ubiquitin_proteasome",
+        "min_density": 2766
+      },
+      {
+        "subject_id": "chem:drug:venetoclax",
+        "object_id": "bio:pathway:apoptosis",
+        "min_density": 3018
+      },
+      {
+        "subject_id": "chem:drug:ruxolitinib",
+        "object_id": "bio:pathway:jak_stat",
+        "min_density": 2849
+      },
+      {
+        "subject_id": "chem:drug:ruxolitinib",
+        "object_id": "bio:protein:stat3",
+        "min_density": 2849
+      },
+      {
+        "subject_id": "chem:target:bace1_enzyme",
+        "object_id": "bio:pathway:amyloid_cascade",
+        "min_density": 883
+      },
+      {
+        "subject_id": "chem:mechanism:wnt_inhibition",
+        "object_id": "bio:disease:colon_cancer",
+        "min_density": 235
+      },
+      {
+        "subject_id": "chem:mechanism:mtor_inhibition",
+        "object_id": "bio:pathway:mtor_signaling",
+        "min_density": 2130
+      },
+      {
+        "subject_id": "chem:compound:nicotinamide_riboside",
+        "object_id": "bio:protein:sirt1",
+        "min_density": 646
+      },
+      {
+        "subject_id": "chem:drug:valproic_acid",
+        "object_id": "bio:process:epigenetic_silencing",
+        "min_density": 3255
+      },
+      {
+        "subject_id": "chem:drug:metformin",
+        "object_id": "bio:pathway:ampk_pathway",
+        "min_density": 1876
+      },
+      {
+        "subject_id": "chem:mechanism:proteasome_inhibition",
+        "object_id": "bio:process:protein_aggregation",
+        "min_density": 2766
+      },
+      {
+        "subject_id": "chem:mechanism:ppar_activation",
+        "object_id": "bio:disease:type2_diabetes",
+        "min_density": 236
+      },
+      {
+        "subject_id": "chem:drug:nilotinib",
+        "object_id": "bio:gene:bcr_abl",
+        "min_density": 2853
+      },
+      {
+        "subject_id": "chem:drug:ruxolitinib",
+        "object_id": "bio:protein:jak2",
+        "min_density": 2849
+      },
+      {
+        "subject_id": "chem:mechanism:hdac_inhibition",
+        "object_id": "bio:process:epigenetic_silencing",
+        "min_density": 1520
+      },
+      {
+        "subject_id": "chem:drug:nilotinib",
+        "object_id": "bio:protein:egfr",
+        "min_density": 2853
+      }
+    ]
+  },
+  "D": {
+    "pool_size": 70,
+    "n_retained": 52,
+    "n_excluded": 18,
+    "exclusion_rate": 0.2571,
+    "excluded_min_densities": [
+      2996,
+      2130,
+      2766,
+      3018,
+      2849,
+      2849,
+      883,
+      235,
+      2130,
+      646
+    ],
+    "excluded_mean_density": 2150.6,
+    "excluded_pairs": [
+      {
+        "subject_id": "chem:compound:sulforaphane",
+        "object_id": "bio:process:ros_production",
+        "min_density": 2996
+      },
+      {
+        "subject_id": "chem:mechanism:mtor_inhibition",
+        "object_id": "bio:pathway:autophagy",
+        "min_density": 2130
+      },
+      {
+        "subject_id": "chem:mechanism:proteasome_inhibition",
+        "object_id": "bio:pathway:ubiquitin_proteasome",
+        "min_density": 2766
+      },
+      {
+        "subject_id": "chem:drug:venetoclax",
+        "object_id": "bio:pathway:apoptosis",
+        "min_density": 3018
+      },
+      {
+        "subject_id": "chem:drug:ruxolitinib",
+        "object_id": "bio:pathway:jak_stat",
+        "min_density": 2849
+      },
+      {
+        "subject_id": "chem:drug:ruxolitinib",
+        "object_id": "bio:protein:stat3",
+        "min_density": 2849
+      },
+      {
+        "subject_id": "chem:target:bace1_enzyme",
+        "object_id": "bio:pathway:amyloid_cascade",
+        "min_density": 883
+      },
+      {
+        "subject_id": "chem:mechanism:wnt_inhibition",
+        "object_id": "bio:disease:colon_cancer",
+        "min_density": 235
+      },
+      {
+        "subject_id": "chem:mechanism:mtor_inhibition",
+        "object_id": "bio:pathway:mtor_signaling",
+        "min_density": 2130
+      },
+      {
+        "subject_id": "chem:compound:nicotinamide_riboside",
+        "object_id": "bio:protein:sirt1",
+        "min_density": 646
+      },
+      {
+        "subject_id": "chem:drug:valproic_acid",
+        "object_id": "bio:process:epigenetic_silencing",
+        "min_density": 3255
+      },
+      {
+        "subject_id": "chem:drug:metformin",
+        "object_id": "bio:pathway:ampk_pathway",
+        "min_density": 1876
+      },
+      {
+        "subject_id": "chem:mechanism:proteasome_inhibition",
+        "object_id": "bio:process:protein_aggregation",
+        "min_density": 2766
+      },
+      {
+        "subject_id": "chem:mechanism:ppar_activation",
+        "object_id": "bio:disease:type2_diabetes",
+        "min_density": 236
+      },
+      {
+        "subject_id": "chem:drug:nilotinib",
+        "object_id": "bio:gene:bcr_abl",
+        "min_density": 2853
+      },
+      {
+        "subject_id": "chem:drug:ruxolitinib",
+        "object_id": "bio:protein:jak2",
+        "min_density": 2849
+      },
+      {
+        "subject_id": "chem:mechanism:hdac_inhibition",
+        "object_id": "bio:process:epigenetic_silencing",
+        "min_density": 1520
+      },
+      {
+        "subject_id": "chem:drug:nilotinib",
+        "object_id": "bio:protein:egfr",
+        "min_density": 2853
+      }
+    ]
+  }
+}

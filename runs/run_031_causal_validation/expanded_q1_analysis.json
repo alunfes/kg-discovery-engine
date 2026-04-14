@@ -1,0 +1,167 @@
+{
+  "band_definitions": {
+    "strict_Q1_threshold": 4974.8,
+    "expanded_low_threshold": 7635,
+    "threshold_adjacent_range": [
+      2800.0,
+      4200.0
+    ]
+  },
+  "A": {
+    "strict_Q1": {
+      "n": 28,
+      "n_investigated": 23,
+      "failure_rate": 0.1786,
+      "investigability_rate": 0.8214
+    },
+    "expanded_low": {
+      "n": 38,
+      "n_investigated": 32,
+      "failure_rate": 0.1579,
+      "investigability_rate": 0.8421
+    },
+    "threshold_adjacent": {
+      "n": 12,
+      "n_investigated": 10,
+      "failure_rate": 0.1667,
+      "investigability_rate": 0.8333
+    },
+    "above_floor": {
+      "n": 52,
+      "n_investigated": 48,
+      "failure_rate": 0.0769,
+      "investigability_rate": 0.9231
+    }
+  },
+  "B": {
+    "strict_Q1": {
+      "n": 10,
+      "n_investigated": 7,
+      "failure_rate": 0.3,
+      "investigability_rate": 0.7
+    },
+    "expanded_low": {
+      "n": 20,
+      "n_investigated": 16,
+      "failure_rate": 0.2,
+      "investigability_rate": 0.8
+    },
+    "threshold_adjacent": {
+      "n": 4,
+      "n_investigated": 3,
+      "failure_rate": 0.25,
+      "investigability_rate": 0.75
+    },
+    "above_floor": {
+      "n": 52,
+      "n_investigated": 48,
+      "failure_rate": 0.0769,
+      "investigability_rate": 0.9231
+    }
+  },
+  "C": {
+    "strict_Q1": {
+      "n": 28,
+      "n_investigated": 23,
+      "failure_rate": 0.1786,
+      "investigability_rate": 0.8214
+    },
+    "expanded_low": {
+      "n": 38,
+      "n_investigated": 32,
+      "failure_rate": 0.1579,
+      "investigability_rate": 0.8421
+    },
+    "threshold_adjacent": {
+      "n": 12,
+      "n_investigated": 10,
+      "failure_rate": 0.1667,
+      "investigability_rate": 0.8333
+    },
+    "above_floor": {
+      "n": 52,
+      "n_investigated": 48,
+      "failure_rate": 0.0769,
+      "investigability_rate": 0.9231
+    }
+  },
+  "D": {
+    "strict_Q1": {
+      "n": 10,
+      "n_investigated": 7,
+      "failure_rate": 0.3,
+      "investigability_rate": 0.7
+    },
+    "expanded_low": {
+      "n": 20,
+      "n_investigated": 16,
+      "failure_rate": 0.2,
+      "investigability_rate": 0.8
+    },
+    "threshold_adjacent": {
+      "n": 4,
+      "n_investigated": 3,
+      "failure_rate": 0.25,
+      "investigability_rate": 0.75
+    },
+    "above_floor": {
+      "n": 52,
+      "n_investigated": 48,
+      "failure_rate": 0.0769,
+      "investigability_rate": 0.9231
+    }
+  },
+  "C1_original": {
+    "strict_Q1": {
+      "n": 11,
+      "n_investigated": 8,
+      "failure_rate": 0.2727,
+      "investigability_rate": 0.7273
+    },
+    "expanded_low": {
+      "n": 13,
+      "n_investigated": 10,
+      "failure_rate": 0.2308,
+      "investigability_rate": 0.7692
+    },
+    "threshold_adjacent": {
+      "n": 3,
+      "n_investigated": 2,
+      "failure_rate": 0.3333,
+      "investigability_rate": 0.6667
+    },
+    "above_floor": {
+      "n": 49,
+      "n_investigated": 43,
+      "failure_rate": 0.1224,
+      "investigability_rate": 0.8776
+    }
+  },
+  "C1_augmented": {
+    "strict_Q1": {
+      "n": 11,
+      "n_investigated": 8,
+      "failure_rate": 0.2727,
+      "investigability_rate": 0.7273
+    },
+    "expanded_low": {
+      "n": 13,
+      "n_investigated": 10,
+      "failure_rate": 0.2308,
+      "investigability_rate": 0.7692
+    },
+    "threshold_adjacent": {
+      "n": 3,
+      "n_investigated": 2,
+      "failure_rate": 0.3333,
+      "investigability_rate": 0.6667
+    },
+    "above_floor": {
+      "n": 51,
+      "n_investigated": 44,
+      "failure_rate": 0.1373,
+      "investigability_rate": 0.8627
+    }
+  },
+  "interpretation_note": "Bands with n<5 provide insufficient evidence for reliable rate estimates."
+}
