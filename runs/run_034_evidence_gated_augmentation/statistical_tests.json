@@ -1,0 +1,35 @@
+[
+  {
+    "comparison": "C_vs_A",
+    "test_condition": "C",
+    "base_condition": "A",
+    "test_inv_rate": 0.9429,
+    "base_inv_rate": 0.9429,
+    "delta": 0.0,
+    "cohens_h": 0.0,
+    "p_value": 1.0,
+    "significant_p05": false
+  },
+  {
+    "comparison": "C_vs_B",
+    "test_condition": "C",
+    "base_condition": "B",
+    "test_inv_rate": 0.9429,
+    "base_inv_rate": 0.9429,
+    "delta": 0.0,
+    "cohens_h": 0.0,
+    "p_value": 1.0,
+    "significant_p05": false
+  },
+  {
+    "comparison": "B_vs_A",
+    "test_condition": "B",
+    "base_condition": "A",
+    "test_inv_rate": 0.9429,
+    "base_inv_rate": 0.9429,
+    "delta": 0.0,
+    "cohens_h": 0.0,
+    "p_value": 1.0,
+    "significant_p05": false
+  }
+]
