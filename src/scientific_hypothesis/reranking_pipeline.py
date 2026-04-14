@@ -51,6 +51,10 @@ RATE_LIMIT = 1.1
 MAX_PAPERS = 3
 EVIDENCE_DATE_START = "1900/01/01"
 EVIDENCE_DATE_END = "2023/12/31"
+
+# P4 Decision C: R3 adopted as C2 暫定標準
+# R2=R3 on investigability (0.943); R3 preferred for structural resilience on longer paths
+DEFAULT_RANKER = "R3_struct_evidence"
 PUBMED_ESEARCH = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
 VALIDATION_START = "2024/01/01"
 VALIDATION_END = "2025/12/31"
@@ -814,17 +818,34 @@ def main() -> None:
     generate_plots(all_metrics, ranking_results, tradeoff, plots_dir)
 
     # --- Step 9: Determine final decision ---
+    # Decision requires BOTH effect size AND statistical significance.
+    # With n=70, Fisher test is underpowered for small effects at p<0.05.
+    # Decision A requires Δ≥0.05 AND p<0.05 (from statistical_tests for DEFAULT_RANKER).
+    # Decision C: Δ≥0.05 but p≥0.05 (promising but underpowered); adopt DEFAULT_RANKER as standard.
+    # Decision B: Δ<0.05 (limited incremental value).
     r1_inv = all_metrics.get("R1_baseline", {}).get("investigability_rate", 0)
     best_name = max(all_metrics, key=lambda k: all_metrics[k].get("investigability_rate", 0))
     best_inv = all_metrics[best_name].get("investigability_rate", 0)
     delta_best = best_inv - r1_inv
 
-    if delta_best >= 0.05:
+    # Look up p-value for the default ranker
+    default_pval = next(
+        (t["p_value"] for t in tests if t["ranking"] == DEFAULT_RANKER),
+        1.0,
+    )
+
+    if delta_best >= 0.05 and default_pval < 0.05:
         decision = "A"
-        conclusion = "evidence-aware ranking significantly improves investigability"
+        conclusion = "evidence-aware ranking significantly improves investigability (statistically confirmed)"
+    elif delta_best >= 0.05:
+        decision = "C"
+        conclusion = (
+            f"moderate improvement (+{delta_best:.1%}); hybrid approach recommended — "
+            f"statistically underpowered (p={default_pval:.3f}, n={TOP_K})"
+        )
     elif delta_best >= 0.01:
         decision = "C"
-        conclusion = "moderate improvement; hybrid approach recommended"
+        conclusion = "small improvement; hybrid approach may help at larger N"
     else:
         decision = "B"
         conclusion = "evidence has limited incremental value beyond structure"
@@ -836,6 +857,11 @@ def main() -> None:
         "delta_vs_baseline": round(delta_best, 4),
         "decision": decision,
         "conclusion": conclusion,
+        "standard_ranking": DEFAULT_RANKER,
+        "narrative": (
+            f"{DEFAULT_RANKER} adopted as C2 暫定標準 — "
+            "next step is P5 evidence-gated augmentation"
+        ),
     }
 
     # --- Step 10: Save run_config ---

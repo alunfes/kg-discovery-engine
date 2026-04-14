@@ -22,7 +22,9 @@
     "best_ranking": "R2_evidence_only",
     "best_inv": 0.9429,
     "delta_vs_baseline": 0.0572,
-    "decision": "A",
-    "conclusion": "evidence-aware ranking significantly improves investigability"
+    "decision": "C",
+    "conclusion": "moderate improvement (+5.7pp); hybrid approach recommended — statistically underpowered (p=0.677, n=70)",
+    "standard_ranking": "R3_struct_evidence",
+    "narrative": "R3 adopted as C2 standard baseline; evidence is likely the dominant variable for investigability but N=70 is insufficient for significance. Next: P5 evidence-gated augmentation."
   }
 }
