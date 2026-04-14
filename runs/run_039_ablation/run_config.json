@@ -1,0 +1,56 @@
+{
+  "run_id": "run_039_ablation",
+  "timestamp": "2026-04-14T23:12:27.360131",
+  "phase": "P7-ablation",
+  "seed": 42,
+  "top_k": 70,
+  "max_depth": 5,
+  "rate_limit_s": 1.1,
+  "conditions": [
+    "C_FULL",
+    "C_NO_NAD",
+    "C_NO_ROS",
+    "C_NO_CER",
+    "C_NONE"
+  ],
+  "bridge_families": {
+    "C_NO_NAD": [
+      "chem:metabolite:nad_plus"
+    ],
+    "C_NO_ROS": [
+      "chem:metabolite:reactive_oxygen_species",
+      "chem:metabolite:glutathione"
+    ],
+    "C_NO_CER": [
+      "chem:metabolite:ceramide"
+    ],
+    "C_NONE": [
+      "chem:metabolite:nad_plus",
+      "chem:metabolite:glutathione",
+      "chem:metabolite:ceramide",
+      "chem:metabolite:prostaglandin_e2",
+      "chem:metabolite:nitric_oxide",
+      "chem:metabolite:camp",
+      "chem:metabolite:reactive_oxygen_species",
+      "chem:metabolite:beta_hydroxybutyrate",
+      "chem:metabolite:kynurenine",
+      "chem:metabolite:lactate"
+    ]
+  },
+  "t3_quotas": {
+    "L2": 35,
+    "L3": 20,
+    "L4+": 15
+  },
+  "evidence_window": "1900/01/01 – 2023/12/31",
+  "validation_window": "2024/01/01 – 2025/12/31",
+  "distribution_finding": "CONCENTRATED",
+  "h_distributed_confirmed": false,
+  "outcomes": {
+    "C_FULL": "STRONG_SUCCESS",
+    "C_NO_NAD": "STRONG_SUCCESS",
+    "C_NO_ROS": "GEOMETRY_CONFIRMED",
+    "C_NO_CER": "STRONG_SUCCESS",
+    "C_NONE": "NULL"
+  }
+}
