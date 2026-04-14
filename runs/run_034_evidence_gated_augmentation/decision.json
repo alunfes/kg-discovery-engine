@@ -1,0 +1,12 @@
+{
+  "outcome": "fail",
+  "verdict": "C ≤ B or C ≤ A — evidence gate does not rescue augmentation",
+  "inv_A": 0.9429,
+  "inv_B": 0.9429,
+  "inv_C": 0.9429,
+  "delta_C_vs_A": 0.0,
+  "delta_C_vs_B": 0.0,
+  "delta_B_vs_A": 0.0,
+  "novelty_ok": true,
+  "diversity_ok": true
+}

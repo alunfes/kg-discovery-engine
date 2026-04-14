@@ -1,0 +1,68 @@
+{
+  "A": {
+    "investigability": {
+      "n": 70,
+      "investigability_rate": 0.9429,
+      "failure_rate": 0.0571,
+      "investigated_count": 66
+    },
+    "novelty_retention": {
+      "mean_cross_domain_ratio": 0.5,
+      "novelty_retention": 1.0,
+      "baseline_cross_domain_ratio": 0.5
+    },
+    "support_rate": {
+      "aug_paths_in_top70": 0,
+      "aug_support_rate": null,
+      "aug_fail_rate": null
+    },
+    "diversity": {
+      "unique_endpoint_pairs": 68,
+      "diversity_rate": 0.9714
+    }
+  },
+  "B": {
+    "investigability": {
+      "n": 70,
+      "investigability_rate": 0.9429,
+      "failure_rate": 0.0571,
+      "investigated_count": 66
+    },
+    "novelty_retention": {
+      "mean_cross_domain_ratio": 0.5,
+      "novelty_retention": 1.0,
+      "baseline_cross_domain_ratio": 0.5
+    },
+    "support_rate": {
+      "aug_paths_in_top70": 1,
+      "aug_support_rate": 1.0,
+      "aug_fail_rate": 0.0
+    },
+    "diversity": {
+      "unique_endpoint_pairs": 67,
+      "diversity_rate": 0.9571
+    }
+  },
+  "C": {
+    "investigability": {
+      "n": 70,
+      "investigability_rate": 0.9429,
+      "failure_rate": 0.0571,
+      "investigated_count": 66
+    },
+    "novelty_retention": {
+      "mean_cross_domain_ratio": 0.5,
+      "novelty_retention": 1.0,
+      "baseline_cross_domain_ratio": 0.5
+    },
+    "support_rate": {
+      "aug_paths_in_top70": 1,
+      "aug_support_rate": 1.0,
+      "aug_fail_rate": 0.0
+    },
+    "diversity": {
+      "unique_endpoint_pairs": 68,
+      "diversity_rate": 0.9714
+    }
+  }
+}
