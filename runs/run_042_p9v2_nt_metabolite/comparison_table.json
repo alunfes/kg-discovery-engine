@@ -1,0 +1,68 @@
+{
+  "conditions": [
+    {
+      "condition": "C_P7_FULL",
+      "active_bridge_nodes": 10,
+      "unique_endpoint_pairs": 959,
+      "mean_cdr_l3": 0.6192,
+      "mean_cdr_l4p": 0.6525,
+      "n_multi_cross_l3": 190,
+      "h_p7_1_ok": true,
+      "h_p7_2_ok": true,
+      "h_p7_3_ok": true,
+      "T3_investigability": 0.9857,
+      "T3_novelty_retention": 1.319,
+      "T3_long_path_share": 0.5,
+      "T3_outcome": "STRONG_SUCCESS",
+      "B2_investigability": 0.9714
+    },
+    {
+      "condition": "C_P6_NONE",
+      "active_bridge_nodes": 0,
+      "unique_endpoint_pairs": 472,
+      "mean_cdr_l3": 0.3333,
+      "mean_cdr_l4p": 0.233,
+      "n_multi_cross_l3": 0,
+      "h_p7_1_ok": true,
+      "h_p7_2_ok": false,
+      "h_p7_3_ok": false,
+      "T3_investigability": 0.9429,
+      "T3_novelty_retention": 0.7962,
+      "T3_long_path_share": 0.5,
+      "T3_outcome": "NULL",
+      "B2_investigability": 0.9429
+    },
+    {
+      "condition": "C_NT_ONLY",
+      "active_bridge_nodes": 5,
+      "unique_endpoint_pairs": 782,
+      "mean_cdr_l3": 0.6529,
+      "mean_cdr_l4p": 0.6681,
+      "n_multi_cross_l3": 232,
+      "h_p7_1_ok": true,
+      "h_p7_2_ok": true,
+      "h_p7_3_ok": true,
+      "T3_investigability": 0.9571,
+      "T3_novelty_retention": 1.2196,
+      "T3_long_path_share": 0.5,
+      "T3_outcome": "STRONG_SUCCESS",
+      "B2_investigability": 0.9714
+    },
+    {
+      "condition": "C_COMBINED",
+      "active_bridge_nodes": 12,
+      "unique_endpoint_pairs": 1030,
+      "mean_cdr_l3": 0.8337,
+      "mean_cdr_l4p": 0.8626,
+      "n_multi_cross_l3": 767,
+      "h_p7_1_ok": true,
+      "h_p7_2_ok": true,
+      "h_p7_3_ok": true,
+      "T3_investigability": 0.9857,
+      "T3_novelty_retention": 1.3548,
+      "T3_long_path_share": 0.5,
+      "T3_outcome": "STRONG_SUCCESS",
+      "B2_investigability": 0.9857
+    }
+  ]
+}
