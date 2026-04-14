@@ -1,0 +1,63 @@
+{
+  "run_id": "run_043_p10a_prefilter",
+  "phase": "P10-A",
+  "timestamp": "2026-04-15T08:10:16.712913",
+  "seed": 42,
+  "top_k": 70,
+  "max_depth": 5,
+  "condition": "C_NT_ONLY",
+  "kg_source": "build_p9_from_base (223 nodes, 469 edges)",
+  "cache_source": "run_042_p9v2_nt_metabolite",
+  "bucket_config": {
+    "L2": 35,
+    "L3": 20,
+    "L4+": 15
+  },
+  "prefilter_weights": {
+    "recent_validation_density": 0.5,
+    "bridge_family_support": 0.2,
+    "endpoint_support": 0.2,
+    "path_coherence": 0.1
+  },
+  "selections": [
+    "B2",
+    "T3",
+    "T3+pf"
+  ],
+  "seven_metrics": {
+    "metric_1_investigability": {
+      "B2": 0.9714,
+      "T3": 0.8571,
+      "T3pf": 1.0
+    },
+    "metric_2_novelty_retention": {
+      "B2": 1.0,
+      "T3": 1.3419,
+      "T3pf": 1.2381
+    },
+    "metric_3_long_path_share": {
+      "B2": 0.0,
+      "T3": 0.5,
+      "T3pf": 0.5
+    },
+    "metric_6_b2_t3_gap": -0.1143,
+    "metric_7_b2_t3pf_gap": 0.0286
+  },
+  "outcome": "STRONG_PREFILTER",
+  "gap_verdict": "MATCHES_B2",
+  "h_p10a": {
+    "h1": true,
+    "h2": true,
+    "h3": true,
+    "h4": true
+  },
+  "geometry": {
+    "unique_endpoint_pairs": 714,
+    "n_l2": 228,
+    "n_l3": 424,
+    "n_l4p": 913,
+    "mean_cdr_l3": 0.6053,
+    "mean_cdr_l4p": 0.6525,
+    "n_multi_cross_l3": 173
+  }
+}

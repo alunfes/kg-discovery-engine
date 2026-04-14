@@ -1,0 +1,102 @@
+{
+  "selections": [
+    {
+      "selection": "B2",
+      "investigability": 0.9714,
+      "novelty_retention": 1.0,
+      "long_path_share": 0.0,
+      "b2_gap": 0.0,
+      "n_selected": 70,
+      "unique_pairs": 69
+    },
+    {
+      "selection": "T3",
+      "investigability": 0.8571,
+      "novelty_retention": 1.3419,
+      "long_path_share": 0.5,
+      "b2_gap": -0.1143,
+      "n_selected": 70,
+      "unique_pairs": 58
+    },
+    {
+      "selection": "T3+pf",
+      "investigability": 1.0,
+      "novelty_retention": 1.2381,
+      "long_path_share": 0.5,
+      "b2_gap": 0.0286,
+      "n_selected": 70,
+      "unique_pairs": 44
+    }
+  ],
+  "survival_by_bucket": {
+    "L2": {
+      "t3_n": 35,
+      "t3pf_n": 35,
+      "overlap": 20,
+      "survival_rate": 0.5714
+    },
+    "L3": {
+      "t3_n": 20,
+      "t3pf_n": 20,
+      "overlap": 1,
+      "survival_rate": 0.05
+    },
+    "L4+": {
+      "t3_n": 15,
+      "t3pf_n": 15,
+      "overlap": 0,
+      "survival_rate": 0.0
+    }
+  },
+  "survival_by_family": {
+    "dopamine": {
+      "t3_path_count": 18,
+      "t3_investigated": 14,
+      "t3pf_path_count": 12,
+      "t3pf_investigated": 12,
+      "investigability_t3": 0.7778,
+      "investigability_t3pf": 1.0
+    },
+    "serotonin": {
+      "t3_path_count": 0,
+      "t3_investigated": 0,
+      "t3pf_path_count": 15,
+      "t3pf_investigated": 15,
+      "investigability_t3": 0.0,
+      "investigability_t3pf": 1.0
+    },
+    "gaba": {
+      "t3_path_count": 6,
+      "t3_investigated": 6,
+      "t3pf_path_count": 10,
+      "t3pf_investigated": 10,
+      "investigability_t3": 1.0,
+      "investigability_t3pf": 1.0
+    },
+    "glutamate": {
+      "t3_path_count": 15,
+      "t3_investigated": 10,
+      "t3pf_path_count": 9,
+      "t3pf_investigated": 9,
+      "investigability_t3": 0.6667,
+      "investigability_t3pf": 1.0
+    },
+    "acetylcholine": {
+      "t3_path_count": 6,
+      "t3_investigated": 6,
+      "t3pf_path_count": 17,
+      "t3pf_investigated": 17,
+      "investigability_t3": 1.0,
+      "investigability_t3pf": 1.0
+    }
+  },
+  "geometry": {
+    "unique_endpoint_pairs": 714,
+    "n_l2": 228,
+    "n_l3": 424,
+    "n_l4p": 913,
+    "mean_cdr_l3": 0.6053,
+    "mean_cdr_l4p": 0.6525,
+    "n_multi_cross_l3": 173
+  }
+}
