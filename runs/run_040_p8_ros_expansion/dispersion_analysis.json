@@ -1,0 +1,21 @@
+{
+  "p8_verdict": "DESIGN_PRINCIPLE",
+  "run039_c_no_ros_inv": 0.9286,
+  "c_ros_all_no_core_inv": 0.9857,
+  "fragility_improved": true,
+  "improvement_vs_run039": 0.0571,
+  "build_up_investigability": {
+    "C_P7_FULL": 0.9857,
+    "C_ROS_CORE": 0.9857,
+    "C_ROS_ENZYMES": 0.9857,
+    "C_ROS_REGULATORS": 0.9857,
+    "C_ROS_ALL": 0.9857,
+    "C_ROS_ALL_NO_CORE": 0.9857
+  },
+  "enzyme_contribution_vs_core": 0.0,
+  "regulator_contribution_vs_core": 0.0,
+  "h_p8_1_ros_all_strong_success": true,
+  "h_p8_2_fragility_reduced": true,
+  "h_p8_3_monotonic_buildup": true,
+  "h_p8_4_p7_still_strong": true
+}
