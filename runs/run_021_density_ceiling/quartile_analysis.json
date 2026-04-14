@@ -1,0 +1,134 @@
+{
+  "quartile_thresholds": {
+    "Q1": 3255.0,
+    "Q2_median": 8105.5,
+    "Q3": 22743.0
+  },
+  "overall": [
+    {
+      "quartile": "Q1_low",
+      "n": 55,
+      "investigated": 29,
+      "investigability_rate": 0.5273,
+      "avg_min_density": 1053.6
+    },
+    {
+      "quartile": "Q2",
+      "n": 50,
+      "investigated": 45,
+      "investigability_rate": 0.9,
+      "avg_min_density": 5825.7
+    },
+    {
+      "quartile": "Q3",
+      "n": 55,
+      "investigated": 51,
+      "investigability_rate": 0.9273,
+      "avg_min_density": 12862.8
+    },
+    {
+      "quartile": "Q4_high",
+      "n": 50,
+      "investigated": 49,
+      "investigability_rate": 0.98,
+      "avg_min_density": 52019.0
+    }
+  ],
+  "C1_compose": [
+    {
+      "quartile": "Q1_low",
+      "n": 11,
+      "investigated": 11,
+      "investigability_rate": 1.0,
+      "avg_min_density": 1494.8
+    },
+    {
+      "quartile": "Q2",
+      "n": 14,
+      "investigated": 13,
+      "investigability_rate": 0.9286,
+      "avg_min_density": 5123.3
+    },
+    {
+      "quartile": "Q3",
+      "n": 14,
+      "investigated": 14,
+      "investigability_rate": 1.0,
+      "avg_min_density": 11672.5
+    },
+    {
+      "quartile": "Q4_high",
+      "n": 31,
+      "investigated": 30,
+      "investigability_rate": 0.9677,
+      "avg_min_density": 57383.7
+    }
+  ],
+  "C2_multi_op": [
+    {
+      "quartile": "Q1_low",
+      "n": 12,
+      "investigated": 7,
+      "investigability_rate": 0.5833,
+      "avg_min_density": 1180.5
+    },
+    {
+      "quartile": "Q2",
+      "n": 19,
+      "investigated": 18,
+      "investigability_rate": 0.9474,
+      "avg_min_density": 6397.8
+    },
+    {
+      "quartile": "Q3",
+      "n": 28,
+      "investigated": 28,
+      "investigability_rate": 1.0,
+      "avg_min_density": 13367.5
+    },
+    {
+      "quartile": "Q4_high",
+      "n": 11,
+      "investigated": 11,
+      "investigability_rate": 1.0,
+      "avg_min_density": 44078.9
+    }
+  ],
+  "C_rand_v2": [
+    {
+      "quartile": "Q1_low",
+      "n": 32,
+      "investigated": 11,
+      "investigability_rate": 0.3438,
+      "avg_min_density": 854.4
+    },
+    {
+      "quartile": "Q2",
+      "n": 17,
+      "investigated": 14,
+      "investigability_rate": 0.8235,
+      "avg_min_density": 5764.8
+    },
+    {
+      "quartile": "Q3",
+      "n": 13,
+      "investigated": 9,
+      "investigability_rate": 0.6923,
+      "avg_min_density": 13057.5
+    },
+    {
+      "quartile": "Q4_high",
+      "n": 8,
+      "investigated": 8,
+      "investigability_rate": 1.0,
+      "avg_min_density": 42148.1
+    }
+  ],
+  "h_ceiling_q1_vs_q4": {
+    "q1_investigability": 0.5273,
+    "q4_investigability": 0.98,
+    "gap_q4_minus_q1": 0.4527,
+    "criterion_threshold": 0.15,
+    "criterion_met": true
+  }
+}

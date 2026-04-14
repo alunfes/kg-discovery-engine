@@ -1,0 +1,22 @@
+{
+  "run_id": "run_021_density_ceiling",
+  "date": "2026-04-13T23:42:09Z",
+  "description": "Density ceiling hypothesis (H_ceiling) + matched comparison (H_match)",
+  "seed": 42,
+  "source_runs": [
+    "run_018_investigability_replication",
+    "run_019_novelty_tradeoff_analysis"
+  ],
+  "n_hypotheses": 210,
+  "density_metrics": [
+    "subject_density",
+    "object_density",
+    "pair_density",
+    "min_density",
+    "log_min_density"
+  ],
+  "pair_density_source": "past_pubmed_hits_le2023 from run_018 labeling (same query: subj AND obj, ≤2023)",
+  "h_ceiling_criterion": "best density metric |r| >= 0.4 with investigability",
+  "h_match_criterion": "matched C1-C2 gap <= 0.02 after novelty×density binning",
+  "past_corpus_end": "2023-12-31"
+}

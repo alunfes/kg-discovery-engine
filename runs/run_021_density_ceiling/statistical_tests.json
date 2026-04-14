@@ -1,0 +1,26 @@
+{
+  "test1_q4_vs_q1_density": {
+    "description": "Q4 (high density) vs Q1 (low density) investigability (Fisher one-sided)",
+    "q4": "49/50 (0.980)",
+    "q1": "29/55 (0.527)",
+    "p_value": 0.0,
+    "direction": "group_a_higher",
+    "significant_p05": true
+  },
+  "test2_c2_high_vs_low_density": {
+    "description": "C2: high density (Q3+Q4) vs low density (Q1+Q2) investigability (Fisher one-sided)",
+    "c2_high_density": "39/39 (1.000)",
+    "c2_low_density": "25/31 (0.806)",
+    "p_value": 0.005615,
+    "direction": "group_a_higher",
+    "significant_p05": true
+  },
+  "test3_c1_vs_c2_overall": {
+    "description": "C1 vs C2 overall investigability (Fisher one-sided)",
+    "c1": "68/70 (0.971)",
+    "c2": "64/70 (0.914)",
+    "p_value": 0.13732,
+    "direction": "group_a_higher",
+    "significant_p05": false
+  }
+}

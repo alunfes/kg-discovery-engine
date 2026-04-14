@@ -1,0 +1,179 @@
+{
+  "n_c1": 70,
+  "n_c2": 70,
+  "n_valid_matched": 140,
+  "thresholds": {
+    "novelty_median": 0.6448,
+    "density_median": 10723.0,
+    "novelty_p33": 0.4859,
+    "novelty_p67": 0.7927,
+    "density_p33": 7635.0,
+    "density_p67": 21515.5
+  },
+  "unmatched": {
+    "c1_investigability": 0.9714,
+    "c2_investigability": 0.9143,
+    "gap_c1_minus_c2": 0.0571
+  },
+  "cells_2x2": [
+    {
+      "cell": "nov_low×den_low",
+      "n_c1": 28,
+      "n_c2": 0,
+      "c1_investigability": 0.9643,
+      "c2_investigability": null,
+      "gap_c1_minus_c2": null,
+      "sufficient_n": false
+    },
+    {
+      "cell": "nov_low×den_high",
+      "n_c1": 42,
+      "n_c2": 0,
+      "c1_investigability": 0.9762,
+      "c2_investigability": null,
+      "gap_c1_minus_c2": null,
+      "sufficient_n": false
+    },
+    {
+      "cell": "nov_high×den_low",
+      "n_c1": 0,
+      "n_c2": 45,
+      "c1_investigability": null,
+      "c2_investigability": 0.8667,
+      "gap_c1_minus_c2": null,
+      "sufficient_n": false
+    },
+    {
+      "cell": "nov_high×den_high",
+      "n_c1": 0,
+      "n_c2": 25,
+      "c1_investigability": null,
+      "c2_investigability": 1.0,
+      "gap_c1_minus_c2": null,
+      "sufficient_n": false
+    }
+  ],
+  "cells_3x3": [
+    {
+      "cell": "nov_low×den_low",
+      "n_c1": 6,
+      "n_c2": 0,
+      "c1_investigability": 1.0,
+      "c2_investigability": null,
+      "gap_c1_minus_c2": null,
+      "sufficient_n": false
+    },
+    {
+      "cell": "nov_low×den_mid",
+      "n_c1": 10,
+      "n_c2": 0,
+      "c1_investigability": 1.0,
+      "c2_investigability": null,
+      "gap_c1_minus_c2": null,
+      "sufficient_n": false
+    },
+    {
+      "cell": "nov_low×den_high",
+      "n_c1": 31,
+      "n_c2": 0,
+      "c1_investigability": 0.9677,
+      "c2_investigability": null,
+      "gap_c1_minus_c2": null,
+      "sufficient_n": false
+    },
+    {
+      "cell": "nov_mid×den_low",
+      "n_c1": 17,
+      "n_c2": 3,
+      "c1_investigability": 0.9412,
+      "c2_investigability": 1.0,
+      "gap_c1_minus_c2": -0.0588,
+      "sufficient_n": false
+    },
+    {
+      "cell": "nov_mid×den_mid",
+      "n_c1": 6,
+      "n_c2": 8,
+      "c1_investigability": 1.0,
+      "c2_investigability": 1.0,
+      "gap_c1_minus_c2": 0.0,
+      "sufficient_n": true
+    },
+    {
+      "cell": "nov_mid×den_high",
+      "n_c1": 0,
+      "n_c2": 12,
+      "c1_investigability": null,
+      "c2_investigability": 1.0,
+      "gap_c1_minus_c2": null,
+      "sufficient_n": false
+    },
+    {
+      "cell": "nov_high×den_low",
+      "n_c1": 0,
+      "n_c2": 22,
+      "c1_investigability": null,
+      "c2_investigability": 0.7273,
+      "gap_c1_minus_c2": null,
+      "sufficient_n": false
+    },
+    {
+      "cell": "nov_high×den_mid",
+      "n_c1": 0,
+      "n_c2": 21,
+      "c1_investigability": null,
+      "c2_investigability": 1.0,
+      "gap_c1_minus_c2": null,
+      "sufficient_n": false
+    },
+    {
+      "cell": "nov_high×den_high",
+      "n_c1": 0,
+      "n_c2": 4,
+      "c1_investigability": null,
+      "c2_investigability": 1.0,
+      "gap_c1_minus_c2": null,
+      "sufficient_n": false
+    }
+  ],
+  "novelty_separates_methods": true,
+  "matched_gap_strategy": "density_only (novelty collinear with method)",
+  "n_reportable_cells_2x2": 0,
+  "n_reportable_density_only": 3,
+  "cells_density_only": [
+    {
+      "cell": "density=den_low",
+      "n_c1": 23,
+      "n_c2": 25,
+      "c1_investigability": 0.9565,
+      "c2_investigability": 0.76,
+      "gap_c1_minus_c2": 0.1965,
+      "sufficient_n": true
+    },
+    {
+      "cell": "density=den_mid",
+      "n_c1": 16,
+      "n_c2": 29,
+      "c1_investigability": 1.0,
+      "c2_investigability": 1.0,
+      "gap_c1_minus_c2": 0.0,
+      "sufficient_n": true
+    },
+    {
+      "cell": "density=den_high",
+      "n_c1": 31,
+      "n_c2": 16,
+      "c1_investigability": 0.9677,
+      "c2_investigability": 1.0,
+      "gap_c1_minus_c2": -0.0323,
+      "sufficient_n": true
+    }
+  ],
+  "matched_gap_weighted": 0.0565,
+  "h_match_verdict": "rejected",
+  "h_match_note": "matched gap 0.0565 > 0.04 — density alone does not explain C1-C2 gap",
+  "h_match_criteria": {
+    "supported_threshold": 0.02,
+    "rejected_threshold": 0.04
+  }
+}

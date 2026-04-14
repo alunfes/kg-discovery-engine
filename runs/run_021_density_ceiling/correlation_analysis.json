@@ -1,0 +1,70 @@
+{
+  "subject_density": {
+    "r": -0.0106,
+    "abs_r": 0.0106,
+    "n": 210,
+    "n_investigated": 174,
+    "mean_investigated": 32410.63,
+    "mean_not_investigated": 34232.06
+  },
+  "object_density": {
+    "r": 0.2782,
+    "abs_r": 0.2782,
+    "n": 210,
+    "n_investigated": 174,
+    "mean_investigated": 122620.9,
+    "mean_not_investigated": 38828.5
+  },
+  "pair_density": {
+    "r": 0.1236,
+    "abs_r": 0.1236,
+    "n": 210,
+    "n_investigated": 174,
+    "mean_investigated": 1046.98,
+    "mean_not_investigated": 90.72
+  },
+  "min_density": {
+    "r": 0.1976,
+    "abs_r": 0.1976,
+    "n": 210,
+    "n_investigated": 174,
+    "mean_investigated": 20010.64,
+    "mean_not_investigated": 4882.92
+  },
+  "log_min_density": {
+    "r": 0.4609,
+    "abs_r": 0.4609,
+    "n": 210,
+    "n_investigated": 174,
+    "mean_investigated": 3.96,
+    "mean_not_investigated": 3.11
+  },
+  "ranking_by_abs_r": [
+    {
+      "metric": "log_min_density",
+      "abs_r": 0.4609
+    },
+    {
+      "metric": "object_density",
+      "abs_r": 0.2782
+    },
+    {
+      "metric": "min_density",
+      "abs_r": 0.1976
+    },
+    {
+      "metric": "pair_density",
+      "abs_r": 0.1236
+    },
+    {
+      "metric": "subject_density",
+      "abs_r": 0.0106
+    }
+  ],
+  "h_ceiling_criterion": {
+    "threshold": 0.4,
+    "best_abs_r": 0.4609,
+    "best_metric": "log_min_density",
+    "criterion_met": true
+  }
+}

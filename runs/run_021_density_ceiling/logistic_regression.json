@@ -1,0 +1,29 @@
+{
+  "feature": "log_min_density",
+  "target": "investigated",
+  "n": 210,
+  "intercept": 1.722,
+  "coef_log_min_density": 1.4902,
+  "mcfadden_pseudo_r2": 0.2184,
+  "interpretation": "pseudo_r2 < 0.05: negligible; 0.05-0.15: weak; 0.15-0.25: moderate; > 0.25: strong",
+  "by_method": {
+    "C1_compose": {
+      "n": 70,
+      "intercept": 2.6111,
+      "coef_log_min_density": -0.134,
+      "mcfadden_pseudo_r2": -0.1173
+    },
+    "C2_multi_op": {
+      "n": 70,
+      "intercept": 2.2522,
+      "coef_log_min_density": 1.468,
+      "mcfadden_pseudo_r2": 0.2003
+    },
+    "C_rand_v2": {
+      "n": 70,
+      "intercept": 0.4889,
+      "coef_log_min_density": 1.5712,
+      "mcfadden_pseudo_r2": 0.1954
+    }
+  }
+}
