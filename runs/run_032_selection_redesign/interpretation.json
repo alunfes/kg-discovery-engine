@@ -1,0 +1,34 @@
+{
+  "run_id": "run_032_selection_redesign",
+  "interpretation": {
+    "Q1_augmentation_effective_when_reachable": false,
+    "Q1_evidence": {
+      "policies_with_aug_reachable": [
+        "B_augmentation_quota",
+        "C_novelty_boost",
+        "D_multi_bucket",
+        "E_reranking_layer"
+      ],
+      "investigability_deltas": [
+        -0.0571,
+        -0.0572,
+        -0.0714,
+        -0.0571
+      ]
+    },
+    "Q2_best_policy": "A_baseline",
+    "Q2_investigability_by_policy": {
+      "A_baseline": 0.8857,
+      "B_augmentation_quota": 0.8286,
+      "C_novelty_boost": 0.7857,
+      "D_multi_bucket": 0.8143,
+      "E_reranking_layer": 0.8143
+    },
+    "Q3_shortest_path_dominance_confirmed": true,
+    "Q3_evidence": "See compose_diagnostics.json for rank distribution",
+    "Q4_max_augmented_inclusion_rate": 0.357,
+    "Q4_selection_is_bottleneck": false,
+    "FINAL_DECISION": "B",
+    "FINAL_DECISION_TEXT": "augmentation remains ineffective even when reachable"
+  }
+}

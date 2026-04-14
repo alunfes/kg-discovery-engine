@@ -1,0 +1,1608 @@
+{
+  "condition": "D_multi_bucket_original",
+  "n": 70,
+  "hypotheses": [
+    {
+      "subject_id": "chem:drug:atorvastatin",
+      "subject_label": "Atorvastatin",
+      "object_id": "bio:process:cholesterol_synthesis",
+      "object_label": "Cholesterol Biosynthesis",
+      "path_length": 2,
+      "path": [
+        "chem:drug:atorvastatin",
+        "chem:target:hmg_coa_reductase",
+        "bio:process:cholesterol_synthesis"
+      ],
+      "path_weight": 0.95,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 13,
+      "pmids": [
+        "41333571",
+        "41219186",
+        "40762635"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:nilotinib",
+      "subject_label": "Nilotinib",
+      "object_id": "bio:gene:bcr_abl",
+      "object_label": "BCR-ABL Fusion Gene",
+      "path_length": 2,
+      "path": [
+        "chem:drug:nilotinib",
+        "chem:target:bcr_abl_kinase",
+        "bio:gene:bcr_abl"
+      ],
+      "path_weight": 0.95,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 112,
+      "pmids": [
+        "41469338",
+        "41431370",
+        "41405208"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:imatinib",
+      "subject_label": "Imatinib",
+      "object_id": "bio:gene:bcr_abl",
+      "object_label": "BCR-ABL Fusion Gene",
+      "path_length": 2,
+      "path": [
+        "chem:drug:imatinib",
+        "chem:target:bcr_abl_kinase",
+        "bio:gene:bcr_abl"
+      ],
+      "path_weight": 0.95,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 343,
+      "pmids": [
+        "41613654",
+        "41502514",
+        "41469338"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:trastuzumab",
+      "subject_label": "Trastuzumab",
+      "object_id": "bio:protein:her2",
+      "object_label": "HER2 Receptor",
+      "path_length": 2,
+      "path": [
+        "chem:drug:trastuzumab",
+        "chem:target:her2_receptor_target",
+        "bio:protein:her2"
+      ],
+      "path_weight": 0.95,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 1828,
+      "pmids": [
+        "41859478",
+        "41822285",
+        "41767585"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:bortezomib",
+      "subject_label": "Bortezomib",
+      "object_id": "bio:pathway:ubiquitin_proteasome",
+      "object_label": "Ubiquitin-Proteasome Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:drug:bortezomib",
+        "chem:target:proteasome_target",
+        "bio:pathway:ubiquitin_proteasome"
+      ],
+      "path_weight": 0.95,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 25,
+      "pmids": [
+        "41296429",
+        "41264052",
+        "41115069"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:ruxolitinib",
+      "subject_label": "Ruxolitinib",
+      "object_id": "bio:protein:jak2",
+      "object_label": "Janus Kinase 2",
+      "path_length": 2,
+      "path": [
+        "chem:drug:ruxolitinib",
+        "chem:target:jak2_kinase_target",
+        "bio:protein:jak2"
+      ],
+      "path_weight": 0.95,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 180,
+      "pmids": [
+        "41589191",
+        "41516206",
+        "41511345"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:mechanism:hmg_coa_inhibition",
+      "subject_label": "HMG-CoA Reductase Inhibition",
+      "object_id": "bio:process:cholesterol_synthesis",
+      "object_label": "Cholesterol Biosynthesis",
+      "path_length": 2,
+      "path": [
+        "chem:mechanism:hmg_coa_inhibition",
+        "chem:target:hmg_coa_reductase",
+        "bio:process:cholesterol_synthesis"
+      ],
+      "path_weight": 0.95,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 1,
+      "pmids": [
+        "39598360"
+      ],
+      "label_layer1": "partially_supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:mechanism:proteasome_inhibition",
+      "subject_label": "Proteasome Inhibition",
+      "object_id": "bio:pathway:ubiquitin_proteasome",
+      "object_label": "Ubiquitin-Proteasome Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:mechanism:proteasome_inhibition",
+        "chem:target:proteasome_target",
+        "bio:pathway:ubiquitin_proteasome"
+      ],
+      "path_weight": 0.95,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 18,
+      "pmids": [
+        "41387670",
+        "41255971",
+        "41067125"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:target:bcr_abl_kinase",
+      "subject_label": "BCR-ABL Kinase Target",
+      "object_id": "bio:disease:leukemia_cml",
+      "object_label": "Chronic Myeloid Leukemia",
+      "path_length": 2,
+      "path": [
+        "chem:target:bcr_abl_kinase",
+        "bio:gene:bcr_abl",
+        "bio:disease:leukemia_cml"
+      ],
+      "path_weight": 0.95,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 16,
+      "pmids": [
+        "41523565",
+        "41226124",
+        "40360939"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:mechanism:mtor_inhibition",
+      "subject_label": "mTOR Inhibition Mechanism",
+      "object_id": "bio:pathway:mtor_signaling",
+      "object_label": "mTOR Signaling Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:mechanism:mtor_inhibition",
+        "chem:target:mtor_kinase",
+        "bio:pathway:mtor_signaling"
+      ],
+      "path_weight": 0.9,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 69,
+      "pmids": [
+        "41573866",
+        "41562862",
+        "41472794"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:target:bace1_enzyme",
+      "subject_label": "BACE1 Enzyme Target",
+      "object_id": "bio:protein:app",
+      "object_label": "Amyloid Precursor Protein",
+      "path_length": 2,
+      "path": [
+        "chem:target:bace1_enzyme",
+        "bio:protein:bace1",
+        "bio:protein:app"
+      ],
+      "path_weight": 0.9,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 230,
+      "pmids": [
+        "41595571",
+        "41488323",
+        "41422863"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:target:bace1_enzyme",
+      "subject_label": "BACE1 Enzyme Target",
+      "object_id": "bio:pathway:amyloid_cascade",
+      "object_label": "Amyloid Cascade Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:target:bace1_enzyme",
+        "bio:protein:bace1",
+        "bio:pathway:amyloid_cascade"
+      ],
+      "path_weight": 0.9,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 12,
+      "pmids": [
+        "41154195",
+        "40993924",
+        "40362488"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:mechanism:jak_inhibition",
+      "subject_label": "JAK Kinase Inhibition",
+      "object_id": "bio:protein:jak2",
+      "object_label": "Janus Kinase 2",
+      "path_length": 2,
+      "path": [
+        "chem:mechanism:jak_inhibition",
+        "chem:target:jak2_kinase_target",
+        "bio:protein:jak2"
+      ],
+      "path_weight": 0.9,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 14,
+      "pmids": [
+        "41030319",
+        "40786548",
+        "40764668"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:target:hmg_coa_reductase",
+      "subject_label": "HMG-CoA Reductase Target",
+      "object_id": "bio:biomarker:ldl_cholesterol",
+      "object_label": "LDL Cholesterol",
+      "path_length": 2,
+      "path": [
+        "chem:target:hmg_coa_reductase",
+        "bio:process:cholesterol_synthesis",
+        "bio:biomarker:ldl_cholesterol"
+      ],
+      "path_weight": 0.9,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 20,
+      "pmids": [
+        "41625333",
+        "41523610",
+        "41235335"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:target:jak2_kinase_target",
+      "subject_label": "JAK2 Kinase Drug Target",
+      "object_id": "bio:protein:stat3",
+      "object_label": "Signal Transducer STAT3",
+      "path_length": 2,
+      "path": [
+        "chem:target:jak2_kinase_target",
+        "bio:protein:jak2",
+        "bio:protein:stat3"
+      ],
+      "path_weight": 0.9,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 388,
+      "pmids": [
+        "41728179",
+        "41573199",
+        "41526750"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:rapamycin",
+      "subject_label": "Rapamycin",
+      "object_id": "bio:pathway:mtor_signaling",
+      "object_label": "mTOR Signaling Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:drug:rapamycin",
+        "chem:mechanism:mtor_inhibition",
+        "bio:pathway:mtor_signaling"
+      ],
+      "path_weight": 0.855,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 865,
+      "pmids": [
+        "41839601",
+        "41656814",
+        "41561043"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:everolimus",
+      "subject_label": "Everolimus",
+      "object_id": "bio:pathway:mtor_signaling",
+      "object_label": "mTOR Signaling Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:drug:everolimus",
+        "chem:mechanism:mtor_inhibition",
+        "bio:pathway:mtor_signaling"
+      ],
+      "path_weight": 0.855,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 34,
+      "pmids": [
+        "41502953",
+        "41458541",
+        "41362763"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:erlotinib",
+      "subject_label": "Erlotinib",
+      "object_id": "bio:pathway:mapk_erk",
+      "object_label": "MAPK/ERK Signaling Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:drug:erlotinib",
+        "bio:protein:egfr",
+        "bio:pathway:mapk_erk"
+      ],
+      "path_weight": 0.855,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 0,
+      "pmids": [],
+      "label_layer1": "not_investigated",
+      "investigated": 0
+    },
+    {
+      "subject_id": "chem:drug:venetoclax",
+      "subject_label": "Venetoclax",
+      "object_id": "bio:pathway:apoptosis",
+      "object_label": "Intrinsic Apoptosis Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:drug:venetoclax",
+        "bio:protein:bcl2",
+        "bio:pathway:apoptosis"
+      ],
+      "path_weight": 0.855,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 273,
+      "pmids": [
+        "41657780",
+        "41509496",
+        "41502254"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:ruxolitinib",
+      "subject_label": "Ruxolitinib",
+      "object_id": "bio:protein:stat3",
+      "object_label": "Signal Transducer STAT3",
+      "path_length": 2,
+      "path": [
+        "chem:drug:ruxolitinib",
+        "bio:protein:jak2",
+        "bio:protein:stat3"
+      ],
+      "path_weight": 0.855,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 68,
+      "pmids": [
+        "41511345",
+        "41497807",
+        "41406909"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:ruxolitinib",
+      "subject_label": "Ruxolitinib",
+      "object_id": "bio:pathway:jak_stat",
+      "object_label": "JAK-STAT Signaling Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:drug:ruxolitinib",
+        "chem:mechanism:jak_inhibition",
+        "bio:pathway:jak_stat"
+      ],
+      "path_weight": 0.855,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 50,
+      "pmids": [
+        "41497580",
+        "41472683",
+        "41395290"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:mechanism:hmg_coa_inhibition",
+      "subject_label": "HMG-CoA Reductase Inhibition",
+      "object_id": "bio:biomarker:ldl_cholesterol",
+      "object_label": "LDL Cholesterol",
+      "path_length": 2,
+      "path": [
+        "chem:mechanism:hmg_coa_inhibition",
+        "bio:process:cholesterol_synthesis",
+        "bio:biomarker:ldl_cholesterol"
+      ],
+      "path_weight": 0.855,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 0,
+      "pmids": [],
+      "label_layer1": "not_investigated",
+      "investigated": 0
+    },
+    {
+      "subject_id": "chem:target:mtor_kinase",
+      "subject_label": "mTOR Kinase Target",
+      "object_id": "bio:pathway:autophagy",
+      "object_label": "Autophagy Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:target:mtor_kinase",
+        "bio:pathway:mtor_signaling",
+        "bio:pathway:autophagy"
+      ],
+      "path_weight": 0.85,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 14,
+      "pmids": [
+        "41558720",
+        "40963021",
+        "40892854"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:mechanism:tyrosine_kinase_inhibition",
+      "subject_label": "Tyrosine Kinase Inhibition",
+      "object_id": "bio:gene:bcr_abl",
+      "object_label": "BCR-ABL Fusion Gene",
+      "path_length": 2,
+      "path": [
+        "chem:mechanism:tyrosine_kinase_inhibition",
+        "chem:target:bcr_abl_kinase",
+        "bio:gene:bcr_abl"
+      ],
+      "path_weight": 0.85,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 1,
+      "pmids": [
+        "41120674"
+      ],
+      "label_layer1": "partially_supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:atorvastatin",
+      "subject_label": "Atorvastatin",
+      "object_id": "bio:biomarker:ldl_cholesterol",
+      "object_label": "LDL Cholesterol",
+      "path_length": 2,
+      "path": [
+        "chem:drug:atorvastatin",
+        "bio:process:cholesterol_synthesis",
+        "bio:biomarker:ldl_cholesterol"
+      ],
+      "path_weight": 0.81,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 37,
+      "pmids": [
+        "41687656",
+        "41447006",
+        "41150636"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:pioglitazone",
+      "subject_label": "Pioglitazone",
+      "object_id": "bio:receptor:ppar_gamma",
+      "object_label": "PPAR-gamma Nuclear Receptor",
+      "path_length": 2,
+      "path": [
+        "chem:drug:pioglitazone",
+        "chem:mechanism:ppar_activation",
+        "bio:receptor:ppar_gamma"
+      ],
+      "path_weight": 0.81,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 109,
+      "pmids": [
+        "41789211",
+        "41583325",
+        "41492460"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:rosiglitazone",
+      "subject_label": "Rosiglitazone",
+      "object_id": "bio:receptor:ppar_gamma",
+      "object_label": "PPAR-gamma Nuclear Receptor",
+      "path_length": 2,
+      "path": [
+        "chem:drug:rosiglitazone",
+        "chem:mechanism:ppar_activation",
+        "bio:receptor:ppar_gamma"
+      ],
+      "path_weight": 0.81,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 114,
+      "pmids": [
+        "41492461",
+        "41440884",
+        "41373547"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:sorafenib",
+      "subject_label": "Sorafenib",
+      "object_id": "bio:protein:vegf",
+      "object_label": "Vascular Endothelial Growth Factor",
+      "path_length": 2,
+      "path": [
+        "chem:drug:sorafenib",
+        "chem:target:vegfr_target",
+        "bio:protein:vegf"
+      ],
+      "path_weight": 0.81,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 81,
+      "pmids": [
+        "41716515",
+        "41476965",
+        "41470166"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:mechanism:hdac_inhibition",
+      "subject_label": "Histone Deacetylase Inhibition",
+      "object_id": "bio:process:epigenetic_silencing",
+      "object_label": "Epigenetic Gene Silencing",
+      "path_length": 2,
+      "path": [
+        "chem:mechanism:hdac_inhibition",
+        "chem:target:hdac_target",
+        "bio:process:epigenetic_silencing"
+      ],
+      "path_weight": 0.81,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 1,
+      "pmids": [
+        "38280930"
+      ],
+      "label_layer1": "partially_supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:mechanism:jak_inhibition",
+      "subject_label": "JAK Kinase Inhibition",
+      "object_id": "bio:protein:stat3",
+      "object_label": "Signal Transducer STAT3",
+      "path_length": 2,
+      "path": [
+        "chem:mechanism:jak_inhibition",
+        "bio:protein:jak2",
+        "bio:protein:stat3"
+      ],
+      "path_weight": 0.81,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 11,
+      "pmids": [
+        "41278737",
+        "41236849",
+        "41194923"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:target:vegfr_target",
+      "subject_label": "VEGF Receptor Drug Target",
+      "object_id": "bio:process:tumor_angiogenesis",
+      "object_label": "Tumor Angiogenesis",
+      "path_length": 2,
+      "path": [
+        "chem:target:vegfr_target",
+        "bio:protein:vegf",
+        "bio:process:tumor_angiogenesis"
+      ],
+      "path_weight": 0.81,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 0,
+      "pmids": [],
+      "label_layer1": "not_investigated",
+      "investigated": 0
+    },
+    {
+      "subject_id": "chem:drug:nilotinib",
+      "subject_label": "Nilotinib",
+      "object_id": "bio:protein:egfr",
+      "object_label": "Epidermal Growth Factor Receptor",
+      "path_length": 2,
+      "path": [
+        "chem:drug:nilotinib",
+        "chem:mechanism:tyrosine_kinase_inhibition",
+        "bio:protein:egfr"
+      ],
+      "path_weight": 0.8075,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 4,
+      "pmids": [
+        "39009935",
+        "38281820",
+        "38096682"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:imatinib",
+      "subject_label": "Imatinib",
+      "object_id": "bio:protein:egfr",
+      "object_label": "Epidermal Growth Factor Receptor",
+      "path_length": 2,
+      "path": [
+        "chem:drug:imatinib",
+        "chem:mechanism:tyrosine_kinase_inhibition",
+        "bio:protein:egfr"
+      ],
+      "path_weight": 0.8075,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 22,
+      "pmids": [
+        "41404256",
+        "41393197",
+        "41193444"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:erlotinib",
+      "subject_label": "Erlotinib",
+      "object_id": "bio:disease:lung_cancer",
+      "object_label": "Non-Small Cell Lung Cancer",
+      "path_length": 2,
+      "path": [
+        "chem:drug:erlotinib",
+        "bio:protein:egfr",
+        "bio:disease:lung_cancer"
+      ],
+      "path_weight": 0.8075,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 238,
+      "pmids": [
+        "41948055",
+        "41462168",
+        "41418598"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:erlotinib",
+      "subject_label": "Erlotinib",
+      "object_id": "bio:protein:egfr",
+      "object_label": "Epidermal Growth Factor Receptor",
+      "path_length": 2,
+      "path": [
+        "chem:drug:erlotinib",
+        "chem:mechanism:tyrosine_kinase_inhibition",
+        "bio:protein:egfr"
+      ],
+      "path_weight": 0.8075,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 415,
+      "pmids": [
+        "41522766",
+        "41505979",
+        "41488538"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:metformin",
+      "subject_label": "Metformin",
+      "object_id": "bio:disease:atherosclerosis",
+      "object_label": "Atherosclerosis",
+      "path_length": 4,
+      "path": [
+        "chem:drug:metformin",
+        "bio:pathway:ampk_pathway",
+        "bio:process:cholesterol_synthesis",
+        "bio:biomarker:ldl_cholesterol",
+        "bio:disease:atherosclerosis"
+      ],
+      "path_weight": 0.4877,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 72,
+      "pmids": [
+        "41462689",
+        "41346943",
+        "41304763"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:metformin",
+      "subject_label": "Metformin",
+      "object_id": "bio:disease:heart_failure",
+      "object_label": "Heart Failure",
+      "path_length": 4,
+      "path": [
+        "chem:drug:metformin",
+        "chem:mechanism:ampk_activation",
+        "chem:target:mtor_kinase",
+        "bio:pathway:mtor_signaling",
+        "bio:disease:heart_failure"
+      ],
+      "path_weight": 0.3803,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 133,
+      "pmids": [
+        "41575133",
+        "41531619",
+        "41398811"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:metformin",
+      "subject_label": "Metformin",
+      "object_id": "bio:pathway:autophagy",
+      "object_label": "Autophagy Pathway",
+      "path_length": 4,
+      "path": [
+        "chem:drug:metformin",
+        "chem:mechanism:ampk_activation",
+        "chem:target:mtor_kinase",
+        "bio:pathway:mtor_signaling",
+        "bio:pathway:autophagy"
+      ],
+      "path_weight": 0.4973,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 186,
+      "pmids": [
+        "41641276",
+        "41601414",
+        "41502255"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:metformin",
+      "subject_label": "Metformin",
+      "object_id": "bio:process:protein_aggregation",
+      "object_label": "Pathological Protein Aggregation",
+      "path_length": 5,
+      "path": [
+        "chem:drug:metformin",
+        "chem:mechanism:ampk_activation",
+        "chem:target:mtor_kinase",
+        "bio:pathway:mtor_signaling",
+        "bio:pathway:autophagy",
+        "bio:process:protein_aggregation"
+      ],
+      "path_weight": 0.3978,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 4,
+      "pmids": [
+        "41061696",
+        "40641151",
+        "40283923"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:metformin",
+      "subject_label": "Metformin",
+      "object_id": "bio:pathway:pi3k_akt",
+      "object_label": "PI3K-AKT Signaling Pathway",
+      "path_length": 4,
+      "path": [
+        "chem:drug:metformin",
+        "chem:mechanism:ampk_activation",
+        "chem:target:mtor_kinase",
+        "bio:pathway:mtor_signaling",
+        "bio:pathway:pi3k_akt"
+      ],
+      "path_weight": 0.4095,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 21,
+      "pmids": [
+        "41656807",
+        "41560725",
+        "41502255"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:metformin",
+      "subject_label": "Metformin",
+      "object_id": "bio:disease:breast_cancer",
+      "object_label": "Breast Cancer",
+      "path_length": 5,
+      "path": [
+        "chem:drug:metformin",
+        "chem:mechanism:ampk_activation",
+        "chem:target:mtor_kinase",
+        "bio:pathway:mtor_signaling",
+        "bio:pathway:pi3k_akt",
+        "bio:disease:breast_cancer"
+      ],
+      "path_weight": 0.3071,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 147,
+      "pmids": [
+        "41502615",
+        "41465322",
+        "41452530"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:metformin",
+      "subject_label": "Metformin",
+      "object_id": "bio:disease:alzheimers",
+      "object_label": "Alzheimer's Disease",
+      "path_length": 4,
+      "path": [
+        "chem:drug:metformin",
+        "chem:mechanism:ampk_activation",
+        "chem:target:mtor_kinase",
+        "bio:pathway:mtor_signaling",
+        "bio:disease:alzheimers"
+      ],
+      "path_weight": 0.351,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 118,
+      "pmids": [
+        "41814705",
+        "41473419",
+        "41453655"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:rapamycin",
+      "subject_label": "Rapamycin",
+      "object_id": "bio:process:protein_aggregation",
+      "object_label": "Pathological Protein Aggregation",
+      "path_length": 4,
+      "path": [
+        "chem:drug:rapamycin",
+        "chem:mechanism:mtor_inhibition",
+        "bio:pathway:mtor_signaling",
+        "bio:pathway:autophagy",
+        "bio:process:protein_aggregation"
+      ],
+      "path_weight": 0.5814,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 10,
+      "pmids": [
+        "41853122",
+        "41404692",
+        "40482009"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:rapamycin",
+      "subject_label": "Rapamycin",
+      "object_id": "bio:process:cholesterol_synthesis",
+      "object_label": "Cholesterol Biosynthesis",
+      "path_length": 4,
+      "path": [
+        "chem:drug:rapamycin",
+        "chem:mechanism:mtor_inhibition",
+        "bio:pathway:mtor_signaling",
+        "bio:pathway:ampk_pathway",
+        "bio:process:cholesterol_synthesis"
+      ],
+      "path_weight": 0.4489,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 9,
+      "pmids": [
+        "41303417",
+        "40514450",
+        "40441158"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:rapamycin",
+      "subject_label": "Rapamycin",
+      "object_id": "bio:biomarker:ldl_cholesterol",
+      "object_label": "LDL Cholesterol",
+      "path_length": 5,
+      "path": [
+        "chem:drug:rapamycin",
+        "chem:mechanism:mtor_inhibition",
+        "bio:pathway:mtor_signaling",
+        "bio:pathway:ampk_pathway",
+        "bio:process:cholesterol_synthesis",
+        "bio:biomarker:ldl_cholesterol"
+      ],
+      "path_weight": 0.404,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 4,
+      "pmids": [
+        "40399683",
+        "38621731",
+        "38310895"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:mechanism:nrf2_activation",
+      "subject_label": "Nrf2 Pathway Activation",
+      "object_id": "bio:disease:als",
+      "object_label": "Amyotrophic Lateral Sclerosis",
+      "path_length": 3,
+      "path": [
+        "chem:mechanism:nrf2_activation",
+        "bio:process:ros_production",
+        "bio:protein:sod1",
+        "bio:disease:als"
+      ],
+      "path_weight": 0.476,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 3,
+      "pmids": [
+        "41188870",
+        "41155167",
+        "40624572"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:compound:berberine",
+      "subject_label": "Berberine",
+      "object_id": "bio:biomarker:ldl_cholesterol",
+      "object_label": "LDL Cholesterol",
+      "path_length": 3,
+      "path": [
+        "chem:compound:berberine",
+        "bio:pathway:ampk_pathway",
+        "bio:process:cholesterol_synthesis",
+        "bio:biomarker:ldl_cholesterol"
+      ],
+      "path_weight": 0.4725,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 8,
+      "pmids": [
+        "41539918",
+        "40871675",
+        "39614370"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:mechanism:mtor_inhibition",
+      "subject_label": "mTOR Inhibition Mechanism",
+      "object_id": "bio:disease:breast_cancer",
+      "object_label": "Breast Cancer",
+      "path_length": 3,
+      "path": [
+        "chem:mechanism:mtor_inhibition",
+        "bio:pathway:mtor_signaling",
+        "bio:pathway:pi3k_akt",
+        "bio:disease:breast_cancer"
+      ],
+      "path_weight": 0.4725,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 16,
+      "pmids": [
+        "41413590",
+        "41406241",
+        "41255280"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:mechanism:mtor_inhibition",
+      "subject_label": "mTOR Inhibition Mechanism",
+      "object_id": "bio:process:cholesterol_synthesis",
+      "object_label": "Cholesterol Biosynthesis",
+      "path_length": 3,
+      "path": [
+        "chem:mechanism:mtor_inhibition",
+        "bio:pathway:mtor_signaling",
+        "bio:pathway:ampk_pathway",
+        "bio:process:cholesterol_synthesis"
+      ],
+      "path_weight": 0.4725,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 0,
+      "pmids": [],
+      "label_layer1": "not_investigated",
+      "investigated": 0
+    },
+    {
+      "subject_id": "chem:target:mtor_kinase",
+      "subject_label": "mTOR Kinase Target",
+      "object_id": "bio:biomarker:ldl_cholesterol",
+      "object_label": "LDL Cholesterol",
+      "path_length": 4,
+      "path": [
+        "chem:target:mtor_kinase",
+        "bio:pathway:mtor_signaling",
+        "bio:pathway:ampk_pathway",
+        "bio:process:cholesterol_synthesis",
+        "bio:biomarker:ldl_cholesterol"
+      ],
+      "path_weight": 0.4725,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 0,
+      "pmids": [],
+      "label_layer1": "not_investigated",
+      "investigated": 0
+    },
+    {
+      "subject_id": "chem:drug:everolimus",
+      "subject_label": "Everolimus",
+      "object_id": "bio:disease:breast_cancer",
+      "object_label": "Breast Cancer",
+      "path_length": 3,
+      "path": [
+        "chem:drug:everolimus",
+        "bio:pathway:mtor_signaling",
+        "bio:pathway:pi3k_akt",
+        "bio:disease:breast_cancer"
+      ],
+      "path_weight": 0.4725,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 85,
+      "pmids": [
+        "41647714",
+        "41444692",
+        "41423570"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:everolimus",
+      "subject_label": "Everolimus",
+      "object_id": "bio:process:cholesterol_synthesis",
+      "object_label": "Cholesterol Biosynthesis",
+      "path_length": 3,
+      "path": [
+        "chem:drug:everolimus",
+        "bio:pathway:mtor_signaling",
+        "bio:pathway:ampk_pathway",
+        "bio:process:cholesterol_synthesis"
+      ],
+      "path_weight": 0.4725,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 0,
+      "pmids": [],
+      "label_layer1": "not_investigated",
+      "investigated": 0
+    },
+    {
+      "subject_id": "chem:compound:curcumin",
+      "subject_label": "Curcumin",
+      "object_id": "bio:disease:rheumatoid_arthritis",
+      "object_label": "Rheumatoid Arthritis",
+      "path_length": 3,
+      "path": [
+        "chem:compound:curcumin",
+        "bio:protein:nfkb",
+        "bio:pathway:nfkb_pathway",
+        "bio:disease:rheumatoid_arthritis"
+      ],
+      "path_weight": 0.4725,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 57,
+      "pmids": [
+        "41601662",
+        "41372521",
+        "41370192"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:compound:curcumin",
+      "subject_label": "Curcumin",
+      "object_id": "bio:disease:inflammatory_bowel_disease",
+      "object_label": "Inflammatory Bowel Disease",
+      "path_length": 3,
+      "path": [
+        "chem:compound:curcumin",
+        "bio:protein:nfkb",
+        "bio:pathway:nfkb_pathway",
+        "bio:disease:inflammatory_bowel_disease"
+      ],
+      "path_weight": 0.4725,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 54,
+      "pmids": [
+        "41822273",
+        "41475647",
+        "41424456"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:compound:spermidine",
+      "subject_label": "Spermidine",
+      "object_id": "bio:process:cholesterol_synthesis",
+      "object_label": "Cholesterol Biosynthesis",
+      "path_length": 3,
+      "path": [
+        "chem:compound:spermidine",
+        "chem:mechanism:ampk_activation",
+        "bio:pathway:ampk_pathway",
+        "bio:process:cholesterol_synthesis"
+      ],
+      "path_weight": 0.4781,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 0,
+      "pmids": [],
+      "label_layer1": "not_investigated",
+      "investigated": 0
+    },
+    {
+      "subject_id": "chem:drug:erlotinib",
+      "subject_label": "Erlotinib",
+      "object_id": "bio:gene:bcr_abl",
+      "object_label": "BCR-ABL Fusion Gene",
+      "path_length": 2,
+      "path": [
+        "chem:drug:erlotinib",
+        "chem:mechanism:tyrosine_kinase_inhibition",
+        "bio:gene:bcr_abl"
+      ],
+      "path_weight": 0.8075,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 1,
+      "pmids": [
+        "39687301"
+      ],
+      "label_layer1": "partially_supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:mechanism:tyrosine_kinase_inhibition",
+      "subject_label": "Tyrosine Kinase Inhibition",
+      "object_id": "bio:disease:leukemia_cml",
+      "object_label": "Chronic Myeloid Leukemia",
+      "path_length": 2,
+      "path": [
+        "chem:mechanism:tyrosine_kinase_inhibition",
+        "bio:gene:bcr_abl",
+        "bio:disease:leukemia_cml"
+      ],
+      "path_weight": 0.8075,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 3,
+      "pmids": [
+        "41477582",
+        "41120674",
+        "39583986"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:erlotinib",
+      "subject_label": "Erlotinib",
+      "object_id": "bio:protein:her2",
+      "object_label": "HER2 Receptor",
+      "path_length": 2,
+      "path": [
+        "chem:drug:erlotinib",
+        "chem:target:her2_receptor_target",
+        "bio:protein:her2"
+      ],
+      "path_weight": 0.8,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 26,
+      "pmids": [
+        "41478011",
+        "41461214",
+        "41355866"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:mechanism:tyrosine_kinase_inhibition",
+      "subject_label": "Tyrosine Kinase Inhibition",
+      "object_id": "bio:protein:her2",
+      "object_label": "HER2 Receptor",
+      "path_length": 2,
+      "path": [
+        "chem:mechanism:tyrosine_kinase_inhibition",
+        "chem:target:her2_receptor_target",
+        "bio:protein:her2"
+      ],
+      "path_weight": 0.8,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 3,
+      "pmids": [
+        "40473905",
+        "39975402",
+        "39130801"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:target:her2_receptor_target",
+      "subject_label": "HER2 Receptor Drug Target",
+      "object_id": "bio:pathway:pi3k_akt",
+      "object_label": "PI3K-AKT Signaling Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:target:her2_receptor_target",
+        "bio:protein:her2",
+        "bio:pathway:pi3k_akt"
+      ],
+      "path_weight": 0.8,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 11,
+      "pmids": [
+        "41300448",
+        "41208884",
+        "40842076"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:target:proteasome_target",
+      "subject_label": "26S Proteasome Target",
+      "object_id": "bio:process:protein_aggregation",
+      "object_label": "Pathological Protein Aggregation",
+      "path_length": 2,
+      "path": [
+        "chem:target:proteasome_target",
+        "bio:pathway:ubiquitin_proteasome",
+        "bio:process:protein_aggregation"
+      ],
+      "path_weight": 0.8,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 0,
+      "pmids": [],
+      "label_layer1": "not_investigated",
+      "investigated": 0
+    },
+    {
+      "subject_id": "chem:drug:metformin",
+      "subject_label": "Metformin",
+      "object_id": "bio:pathway:ampk_pathway",
+      "object_label": "AMPK Metabolic Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:drug:metformin",
+        "chem:mechanism:ampk_activation",
+        "bio:pathway:ampk_pathway"
+      ],
+      "path_weight": 0.765,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 48,
+      "pmids": [
+        "41624202",
+        "41515170",
+        "41502255"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:mechanism:mtor_inhibition",
+      "subject_label": "mTOR Inhibition Mechanism",
+      "object_id": "bio:pathway:autophagy",
+      "object_label": "Autophagy Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:mechanism:mtor_inhibition",
+        "bio:pathway:mtor_signaling",
+        "bio:pathway:autophagy"
+      ],
+      "path_weight": 0.765,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 71,
+      "pmids": [
+        "41436422",
+        "41420847",
+        "41359382"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:tamoxifen",
+      "subject_label": "Tamoxifen",
+      "object_id": "bio:disease:breast_cancer",
+      "object_label": "Breast Cancer",
+      "path_length": 2,
+      "path": [
+        "chem:drug:tamoxifen",
+        "bio:receptor:er_alpha",
+        "bio:disease:breast_cancer"
+      ],
+      "path_weight": 0.765,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 875,
+      "pmids": [
+        "41850970",
+        "41769278",
+        "41731859"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:finasteride",
+      "subject_label": "Finasteride",
+      "object_id": "bio:disease:prostate_cancer",
+      "object_label": "Prostate Cancer",
+      "path_length": 2,
+      "path": [
+        "chem:drug:finasteride",
+        "bio:receptor:ar",
+        "bio:disease:prostate_cancer"
+      ],
+      "path_weight": 0.765,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 12,
+      "pmids": [
+        "41378003",
+        "41267989",
+        "41054355"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:pioglitazone",
+      "subject_label": "Pioglitazone",
+      "object_id": "bio:disease:type2_diabetes",
+      "object_label": "Type 2 Diabetes",
+      "path_length": 2,
+      "path": [
+        "chem:drug:pioglitazone",
+        "bio:process:insulin_resistance",
+        "bio:disease:type2_diabetes"
+      ],
+      "path_weight": 0.765,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 159,
+      "pmids": [
+        "41789211",
+        "41726330",
+        "41583325"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:everolimus",
+      "subject_label": "Everolimus",
+      "object_id": "bio:pathway:autophagy",
+      "object_label": "Autophagy Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:drug:everolimus",
+        "bio:pathway:mtor_signaling",
+        "bio:pathway:autophagy"
+      ],
+      "path_weight": 0.765,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 24,
+      "pmids": [
+        "41265631",
+        "40960531",
+        "40917720"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:sorafenib",
+      "subject_label": "Sorafenib",
+      "object_id": "bio:protein:egfr",
+      "object_label": "Epidermal Growth Factor Receptor",
+      "path_length": 2,
+      "path": [
+        "chem:drug:sorafenib",
+        "chem:mechanism:tyrosine_kinase_inhibition",
+        "bio:protein:egfr"
+      ],
+      "path_weight": 0.765,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 68,
+      "pmids": [
+        "41522766",
+        "41510095",
+        "41401595"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:sorafenib",
+      "subject_label": "Sorafenib",
+      "object_id": "bio:gene:bcr_abl",
+      "object_label": "BCR-ABL Fusion Gene",
+      "path_length": 2,
+      "path": [
+        "chem:drug:sorafenib",
+        "chem:mechanism:tyrosine_kinase_inhibition",
+        "bio:gene:bcr_abl"
+      ],
+      "path_weight": 0.765,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 1,
+      "pmids": [
+        "41044387"
+      ],
+      "label_layer1": "partially_supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:compound:nicotinamide_riboside",
+      "subject_label": "Nicotinamide Riboside",
+      "object_id": "bio:protein:sirt1",
+      "object_label": "Sirtuin-1 Deacetylase",
+      "path_length": 2,
+      "path": [
+        "chem:compound:nicotinamide_riboside",
+        "chem:mechanism:sirt1_activation",
+        "bio:protein:sirt1"
+      ],
+      "path_weight": 0.765,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "pubmed_count_2024_2025": 26,
+      "pmids": [
+        "41541758",
+        "41419644",
+        "41107931"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    }
+  ]
+}

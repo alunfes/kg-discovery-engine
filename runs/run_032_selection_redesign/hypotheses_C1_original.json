@@ -1,0 +1,1605 @@
+{
+  "condition": "C1_original",
+  "n": 70,
+  "hypotheses": [
+    {
+      "subject_id": "bio:gene:pten_gene",
+      "subject_label": "PTEN Tumor Suppressor Gene",
+      "object_id": "bio:pathway:pi3k_akt",
+      "object_label": "PI3K-AKT Signaling Pathway",
+      "path_length": 2,
+      "path": [
+        "bio:gene:pten_gene",
+        "bio:protein:pten",
+        "bio:pathway:pi3k_akt"
+      ],
+      "path_weight": 0.9,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 8,
+      "pmids": [
+        "41400623",
+        "41389185",
+        "40321699"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:gene:snca",
+      "subject_label": "SNCA Alpha-Synuclein Gene",
+      "object_id": "bio:process:protein_aggregation",
+      "object_label": "Pathological Protein Aggregation",
+      "path_length": 2,
+      "path": [
+        "bio:gene:snca",
+        "bio:protein:alpha_syn",
+        "bio:process:protein_aggregation"
+      ],
+      "path_weight": 0.9,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 23,
+      "pmids": [
+        "41201792",
+        "41190991",
+        "41172742"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:gene:vegfa",
+      "subject_label": "VEGFA Angiogenesis Gene",
+      "object_id": "bio:process:tumor_angiogenesis",
+      "object_label": "Tumor Angiogenesis",
+      "path_length": 2,
+      "path": [
+        "bio:gene:vegfa",
+        "bio:protein:vegf",
+        "bio:process:tumor_angiogenesis"
+      ],
+      "path_weight": 0.9,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 76,
+      "pmids": [
+        "41454602",
+        "41443042",
+        "41369408"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:protein:app",
+      "subject_label": "Amyloid Precursor Protein",
+      "object_id": "bio:process:beta_amyloid_aggregation",
+      "object_label": "Beta-Amyloid Aggregation",
+      "path_length": 2,
+      "path": [
+        "bio:protein:app",
+        "bio:biomarker:amyloid_beta42",
+        "bio:process:beta_amyloid_aggregation"
+      ],
+      "path_weight": 0.855,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 5,
+      "pmids": [
+        "39936324",
+        "39519278",
+        "38747495"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:protein:bace1",
+      "subject_label": "BACE1 Protease",
+      "object_id": "bio:biomarker:amyloid_beta42",
+      "object_label": "Amyloid-Beta 42 Peptide",
+      "path_length": 2,
+      "path": [
+        "bio:protein:bace1",
+        "bio:protein:app",
+        "bio:biomarker:amyloid_beta42"
+      ],
+      "path_weight": 0.855,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 3,
+      "pmids": [
+        "40320777",
+        "39631714",
+        "38230736"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:gene:snca",
+      "subject_label": "SNCA Alpha-Synuclein Gene",
+      "object_id": "bio:disease:parkinsons",
+      "object_label": "Parkinson's Disease",
+      "path_length": 2,
+      "path": [
+        "bio:gene:snca",
+        "bio:protein:alpha_syn",
+        "bio:disease:parkinsons"
+      ],
+      "path_weight": 0.85,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 383,
+      "pmids": [
+        "41904012",
+        "41480014",
+        "41465155"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:gene:tp53",
+      "subject_label": "TP53 Tumor Suppressor Gene",
+      "object_id": "bio:pathway:apoptosis",
+      "object_label": "Intrinsic Apoptosis Pathway",
+      "path_length": 2,
+      "path": [
+        "bio:gene:tp53",
+        "bio:protein:p53",
+        "bio:pathway:apoptosis"
+      ],
+      "path_weight": 0.85,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 957,
+      "pmids": [
+        "41846870",
+        "41716635",
+        "41675270"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:gene:tp53",
+      "subject_label": "TP53 Tumor Suppressor Gene",
+      "object_id": "bio:pathway:cell_cycle",
+      "object_label": "Cell Cycle Pathway",
+      "path_length": 2,
+      "path": [
+        "bio:gene:tp53",
+        "bio:protein:p53",
+        "bio:pathway:cell_cycle"
+      ],
+      "path_weight": 0.85,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 592,
+      "pmids": [
+        "41846870",
+        "41787622",
+        "41613542"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:protein:hif1a",
+      "subject_label": "Hypoxia-Inducible Factor 1-alpha",
+      "object_id": "bio:protein:vegf",
+      "object_label": "Vascular Endothelial Growth Factor",
+      "path_length": 2,
+      "path": [
+        "bio:protein:hif1a",
+        "bio:gene:vegfa",
+        "bio:protein:vegf"
+      ],
+      "path_weight": 0.85,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 206,
+      "pmids": [
+        "41457935",
+        "41456528",
+        "41409042"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:pathway:angiogenesis",
+      "subject_label": "Angiogenesis Signaling Pathway",
+      "object_id": "bio:process:tumor_angiogenesis",
+      "object_label": "Tumor Angiogenesis",
+      "path_length": 2,
+      "path": [
+        "bio:pathway:angiogenesis",
+        "bio:protein:vegf",
+        "bio:process:tumor_angiogenesis"
+      ],
+      "path_weight": 0.81,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 795,
+      "pmids": [
+        "41755605",
+        "41657775",
+        "41626159"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:protein:gsk3b",
+      "subject_label": "Glycogen Synthase Kinase 3 Beta",
+      "object_id": "bio:biomarker:tau_protein",
+      "object_label": "Phospho-Tau Biomarker",
+      "path_length": 2,
+      "path": [
+        "bio:protein:gsk3b",
+        "bio:protein:tau",
+        "bio:biomarker:tau_protein"
+      ],
+      "path_weight": 0.8075,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 12,
+      "pmids": [
+        "41318068",
+        "41250640",
+        "41244831"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:biomarker:amyloid_beta42",
+      "subject_label": "Amyloid-Beta 42 Peptide",
+      "object_id": "bio:disease:alzheimers",
+      "object_label": "Alzheimer's Disease",
+      "path_length": 2,
+      "path": [
+        "bio:biomarker:amyloid_beta42",
+        "bio:process:beta_amyloid_aggregation",
+        "bio:disease:alzheimers"
+      ],
+      "path_weight": 0.765,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 80,
+      "pmids": [
+        "41560134",
+        "41422676",
+        "41407844"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:disease:obesity",
+      "subject_label": "Obesity",
+      "object_id": "bio:disease:type2_diabetes",
+      "object_label": "Type 2 Diabetes",
+      "path_length": 2,
+      "path": [
+        "bio:disease:obesity",
+        "bio:process:insulin_resistance",
+        "bio:disease:type2_diabetes"
+      ],
+      "path_weight": 0.765,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 7756,
+      "pmids": [
+        "41945470",
+        "41944417",
+        "41939519"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:pathway:insulin_signaling",
+      "subject_label": "Insulin Signaling Pathway",
+      "object_id": "bio:disease:type2_diabetes",
+      "object_label": "Type 2 Diabetes",
+      "path_length": 2,
+      "path": [
+        "bio:pathway:insulin_signaling",
+        "bio:process:insulin_resistance",
+        "bio:disease:type2_diabetes"
+      ],
+      "path_weight": 0.765,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 419,
+      "pmids": [
+        "41656807",
+        "41635536",
+        "41541675"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:pathway:insulin_signaling",
+      "subject_label": "Insulin Signaling Pathway",
+      "object_id": "bio:biomarker:hba1c",
+      "object_label": "Glycated Hemoglobin HbA1c",
+      "path_length": 2,
+      "path": [
+        "bio:pathway:insulin_signaling",
+        "bio:process:glucose_metabolism",
+        "bio:biomarker:hba1c"
+      ],
+      "path_weight": 0.765,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 24,
+      "pmids": [
+        "41282288",
+        "41249265",
+        "41210858"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:process:cholesterol_synthesis",
+      "subject_label": "Cholesterol Biosynthesis",
+      "object_id": "bio:disease:atherosclerosis",
+      "object_label": "Atherosclerosis",
+      "path_length": 2,
+      "path": [
+        "bio:process:cholesterol_synthesis",
+        "bio:biomarker:ldl_cholesterol",
+        "bio:disease:atherosclerosis"
+      ],
+      "path_weight": 0.765,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 26,
+      "pmids": [
+        "41478357",
+        "41352811",
+        "41116669"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:protein:cdk5",
+      "subject_label": "Cyclin-Dependent Kinase 5",
+      "object_id": "bio:biomarker:tau_protein",
+      "object_label": "Phospho-Tau Biomarker",
+      "path_length": 2,
+      "path": [
+        "bio:protein:cdk5",
+        "bio:protein:tau",
+        "bio:biomarker:tau_protein"
+      ],
+      "path_weight": 0.76,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 26,
+      "pmids": [
+        "41309199",
+        "41265651",
+        "41250640"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:protein:akt1",
+      "subject_label": "AKT Serine/Threonine Kinase",
+      "object_id": "bio:pathway:autophagy",
+      "object_label": "Autophagy Pathway",
+      "path_length": 2,
+      "path": [
+        "bio:protein:akt1",
+        "bio:pathway:mtor_signaling",
+        "bio:pathway:autophagy"
+      ],
+      "path_weight": 0.7225,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 93,
+      "pmids": [
+        "41601414",
+        "41458180",
+        "41415834"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:protein:gsk3b",
+      "subject_label": "Glycogen Synthase Kinase 3 Beta",
+      "object_id": "bio:process:tau_hyperphosphorylation",
+      "object_label": "Tau Hyperphosphorylation",
+      "path_length": 2,
+      "path": [
+        "bio:protein:gsk3b",
+        "bio:protein:tau",
+        "bio:process:tau_hyperphosphorylation"
+      ],
+      "path_weight": 0.7225,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 5,
+      "pmids": [
+        "41518901",
+        "40867577",
+        "40853403"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:gene:atm",
+      "subject_label": "ATM DNA Damage Response Gene",
+      "object_id": "bio:pathway:apoptosis",
+      "object_label": "Intrinsic Apoptosis Pathway",
+      "path_length": 2,
+      "path": [
+        "bio:gene:atm",
+        "bio:pathway:dna_damage_response",
+        "bio:pathway:apoptosis"
+      ],
+      "path_weight": 0.72,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 231,
+      "pmids": [
+        "41835789",
+        "41624793",
+        "41595586"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:gene:tert",
+      "subject_label": "TERT Telomerase Gene",
+      "object_id": "bio:process:cell_senescence",
+      "object_label": "Cellular Senescence",
+      "path_length": 2,
+      "path": [
+        "bio:gene:tert",
+        "bio:process:telomere_shortening",
+        "bio:process:cell_senescence"
+      ],
+      "path_weight": 0.72,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 87,
+      "pmids": [
+        "41393934",
+        "41379209",
+        "41324273"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:pathway:tau_phosphorylation",
+      "subject_label": "Tau Phosphorylation Pathway",
+      "object_id": "bio:disease:alzheimers",
+      "object_label": "Alzheimer's Disease",
+      "path_length": 2,
+      "path": [
+        "bio:pathway:tau_phosphorylation",
+        "bio:process:tau_hyperphosphorylation",
+        "bio:disease:alzheimers"
+      ],
+      "path_weight": 0.72,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 462,
+      "pmids": [
+        "41904008",
+        "41594549",
+        "41483575"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:protein:brca1",
+      "subject_label": "BRCA1 DNA Repair Protein",
+      "object_id": "bio:disease:breast_cancer",
+      "object_label": "Breast Cancer",
+      "path_length": 2,
+      "path": [
+        "bio:protein:brca1",
+        "bio:process:dna_repair",
+        "bio:disease:breast_cancer"
+      ],
+      "path_weight": 0.72,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 1284,
+      "pmids": [
+        "41704472",
+        "41701219",
+        "41669295"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:protein:vegf",
+      "subject_label": "Vascular Endothelial Growth Factor",
+      "object_id": "bio:disease:glioblastoma",
+      "object_label": "Glioblastoma Multiforme",
+      "path_length": 2,
+      "path": [
+        "bio:protein:vegf",
+        "bio:process:tumor_angiogenesis",
+        "bio:disease:glioblastoma"
+      ],
+      "path_weight": 0.72,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 105,
+      "pmids": [
+        "41516249",
+        "41516199",
+        "41476211"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:receptor:ppar_gamma",
+      "subject_label": "PPAR-gamma Nuclear Receptor",
+      "object_id": "bio:disease:type2_diabetes",
+      "object_label": "Type 2 Diabetes",
+      "path_length": 2,
+      "path": [
+        "bio:receptor:ppar_gamma",
+        "bio:process:insulin_resistance",
+        "bio:disease:type2_diabetes"
+      ],
+      "path_weight": 0.72,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 125,
+      "pmids": [
+        "41789211",
+        "41583325",
+        "41471798"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:receptor:ppar_gamma",
+      "subject_label": "PPAR-gamma Nuclear Receptor",
+      "object_id": "bio:process:glucose_metabolism",
+      "object_label": "Glucose Metabolism",
+      "path_length": 2,
+      "path": [
+        "bio:receptor:ppar_gamma",
+        "bio:pathway:insulin_signaling",
+        "bio:process:glucose_metabolism"
+      ],
+      "path_weight": 0.72,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 93,
+      "pmids": [
+        "41462594",
+        "41440884",
+        "41407819"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:pathway:mtor_signaling",
+      "subject_label": "mTOR Signaling Pathway",
+      "object_id": "bio:process:protein_aggregation",
+      "object_label": "Pathological Protein Aggregation",
+      "path_length": 2,
+      "path": [
+        "bio:pathway:mtor_signaling",
+        "bio:pathway:autophagy",
+        "bio:process:protein_aggregation"
+      ],
+      "path_weight": 0.68,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 4,
+      "pmids": [
+        "41393939",
+        "39798875",
+        "39120751"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:pathway:neuroinflammation",
+      "subject_label": "Neuroinflammation Pathway",
+      "object_id": "bio:disease:parkinsons",
+      "object_label": "Parkinson's Disease",
+      "path_length": 2,
+      "path": [
+        "bio:pathway:neuroinflammation",
+        "bio:process:neurodegeneration",
+        "bio:disease:parkinsons"
+      ],
+      "path_weight": 0.68,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 1860,
+      "pmids": [
+        "41756116",
+        "41743798",
+        "41640521"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:pathway:neuroinflammation",
+      "subject_label": "Neuroinflammation Pathway",
+      "object_id": "bio:disease:alzheimers",
+      "object_label": "Alzheimer's Disease",
+      "path_length": 2,
+      "path": [
+        "bio:pathway:neuroinflammation",
+        "bio:process:neurodegeneration",
+        "bio:disease:alzheimers"
+      ],
+      "path_weight": 0.68,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 4048,
+      "pmids": [
+        "41959743",
+        "41929929",
+        "41904008"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:protein:cdk5",
+      "subject_label": "Cyclin-Dependent Kinase 5",
+      "object_id": "bio:process:tau_hyperphosphorylation",
+      "object_label": "Tau Hyperphosphorylation",
+      "path_length": 2,
+      "path": [
+        "bio:protein:cdk5",
+        "bio:protein:tau",
+        "bio:process:tau_hyperphosphorylation"
+      ],
+      "path_weight": 0.68,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 20,
+      "pmids": [
+        "41110674",
+        "41106693",
+        "40967163"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:protein:igf1r",
+      "subject_label": "IGF-1 Receptor",
+      "object_id": "bio:pathway:autophagy",
+      "object_label": "Autophagy Pathway",
+      "path_length": 2,
+      "path": [
+        "bio:protein:igf1r",
+        "bio:pathway:mtor_signaling",
+        "bio:pathway:autophagy"
+      ],
+      "path_weight": 0.68,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 25,
+      "pmids": [
+        "41452559",
+        "41448557",
+        "41390521"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:protein:tau",
+      "subject_label": "Tau Microtubule Protein",
+      "object_id": "bio:disease:alzheimers",
+      "object_label": "Alzheimer's Disease",
+      "path_length": 2,
+      "path": [
+        "bio:protein:tau",
+        "bio:process:tau_hyperphosphorylation",
+        "bio:disease:alzheimers"
+      ],
+      "path_weight": 0.68,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 6843,
+      "pmids": [
+        "41959743",
+        "41929929",
+        "41924560"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:receptor:ppar_gamma",
+      "subject_label": "PPAR-gamma Nuclear Receptor",
+      "object_id": "bio:process:insulin_resistance",
+      "object_label": "Insulin Resistance",
+      "path_length": 2,
+      "path": [
+        "bio:receptor:ppar_gamma",
+        "bio:pathway:insulin_signaling",
+        "bio:process:insulin_resistance"
+      ],
+      "path_weight": 0.68,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 154,
+      "pmids": [
+        "41789211",
+        "41573201",
+        "41492460"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:gene:kras",
+      "subject_label": "KRAS Oncogene",
+      "object_id": "bio:disease:colon_cancer",
+      "object_label": "Colorectal Cancer",
+      "path_length": 2,
+      "path": [
+        "bio:gene:kras",
+        "bio:pathway:mapk_erk",
+        "bio:disease:colon_cancer"
+      ],
+      "path_weight": 0.675,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 126,
+      "pmids": [
+        "41647984",
+        "41589240",
+        "41565288"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:pathway:ampk_pathway",
+      "subject_label": "AMPK Metabolic Pathway",
+      "object_id": "bio:biomarker:ldl_cholesterol",
+      "object_label": "LDL Cholesterol",
+      "path_length": 2,
+      "path": [
+        "bio:pathway:ampk_pathway",
+        "bio:process:cholesterol_synthesis",
+        "bio:biomarker:ldl_cholesterol"
+      ],
+      "path_weight": 0.675,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 1,
+      "pmids": [
+        "38931268"
+      ],
+      "label_layer1": "partially_supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:protein:egfr",
+      "subject_label": "Epidermal Growth Factor Receptor",
+      "object_id": "bio:disease:colon_cancer",
+      "object_label": "Colorectal Cancer",
+      "path_length": 2,
+      "path": [
+        "bio:protein:egfr",
+        "bio:pathway:mapk_erk",
+        "bio:disease:colon_cancer"
+      ],
+      "path_weight": 0.675,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 107,
+      "pmids": [
+        "41589240",
+        "41418598",
+        "41405165"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:protein:jak2",
+      "subject_label": "Janus Kinase 2",
+      "object_id": "bio:disease:leukemia_cml",
+      "object_label": "Chronic Myeloid Leukemia",
+      "path_length": 2,
+      "path": [
+        "bio:protein:jak2",
+        "bio:protein:stat3",
+        "bio:disease:leukemia_cml"
+      ],
+      "path_weight": 0.675,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 29,
+      "pmids": [
+        "41406910",
+        "41378161",
+        "41137901"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:protein:mapk1",
+      "subject_label": "Mitogen-Activated Protein Kinase 1",
+      "object_id": "bio:disease:colon_cancer",
+      "object_label": "Colorectal Cancer",
+      "path_length": 2,
+      "path": [
+        "bio:protein:mapk1",
+        "bio:pathway:mapk_erk",
+        "bio:disease:colon_cancer"
+      ],
+      "path_weight": 0.675,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 2,
+      "pmids": [
+        "40742050",
+        "38044218"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:protein:nfkb",
+      "subject_label": "NF-kB Transcription Factor",
+      "object_id": "bio:disease:rheumatoid_arthritis",
+      "object_label": "Rheumatoid Arthritis",
+      "path_length": 2,
+      "path": [
+        "bio:protein:nfkb",
+        "bio:pathway:nfkb_pathway",
+        "bio:disease:rheumatoid_arthritis"
+      ],
+      "path_weight": 0.675,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 29,
+      "pmids": [
+        "41373781",
+        "41353846",
+        "41167686"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:protein:nfkb",
+      "subject_label": "NF-kB Transcription Factor",
+      "object_id": "bio:disease:inflammatory_bowel_disease",
+      "object_label": "Inflammatory Bowel Disease",
+      "path_length": 2,
+      "path": [
+        "bio:protein:nfkb",
+        "bio:pathway:nfkb_pathway",
+        "bio:disease:inflammatory_bowel_disease"
+      ],
+      "path_weight": 0.675,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 23,
+      "pmids": [
+        "41013217",
+        "40738440",
+        "40678517"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:protein:pten",
+      "subject_label": "PTEN Phosphatase",
+      "object_id": "bio:disease:breast_cancer",
+      "object_label": "Breast Cancer",
+      "path_length": 2,
+      "path": [
+        "bio:protein:pten",
+        "bio:pathway:pi3k_akt",
+        "bio:disease:breast_cancer"
+      ],
+      "path_weight": 0.675,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 308,
+      "pmids": [
+        "41954340",
+        "41612657",
+        "41584708"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:protein:ras",
+      "subject_label": "RAS GTPase",
+      "object_id": "bio:disease:colon_cancer",
+      "object_label": "Colorectal Cancer",
+      "path_length": 2,
+      "path": [
+        "bio:protein:ras",
+        "bio:pathway:mapk_erk",
+        "bio:disease:colon_cancer"
+      ],
+      "path_weight": 0.675,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 125,
+      "pmids": [
+        "41589240",
+        "41546300",
+        "41546218"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:protein:bdnf",
+      "subject_label": "Brain-Derived Neurotrophic Factor",
+      "object_id": "bio:disease:parkinsons",
+      "object_label": "Parkinson's Disease",
+      "path_length": 2,
+      "path": [
+        "bio:protein:bdnf",
+        "bio:process:neurodegeneration",
+        "bio:disease:parkinsons"
+      ],
+      "path_weight": 0.64,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 171,
+      "pmids": [
+        "41595556",
+        "41562905",
+        "41516320"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:protein:bdnf",
+      "subject_label": "Brain-Derived Neurotrophic Factor",
+      "object_id": "bio:disease:alzheimers",
+      "object_label": "Alzheimer's Disease",
+      "path_length": 2,
+      "path": [
+        "bio:protein:bdnf",
+        "bio:process:neurodegeneration",
+        "bio:disease:alzheimers"
+      ],
+      "path_weight": 0.64,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 459,
+      "pmids": [
+        "41778432",
+        "41624198",
+        "41602161"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:receptor:glucocorticoid_receptor",
+      "subject_label": "Glucocorticoid Receptor",
+      "object_id": "bio:disease:lupus",
+      "object_label": "Systemic Lupus Erythematosus",
+      "path_length": 2,
+      "path": [
+        "bio:receptor:glucocorticoid_receptor",
+        "bio:process:immune_activation",
+        "bio:disease:lupus"
+      ],
+      "path_weight": 0.64,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 5,
+      "pmids": [
+        "41155288",
+        "41153970",
+        "39874239"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:gene:apoe4",
+      "subject_label": "APOE4 Risk Gene",
+      "object_id": "bio:disease:alzheimers",
+      "object_label": "Alzheimer's Disease",
+      "path_length": 2,
+      "path": [
+        "bio:gene:apoe4",
+        "bio:process:beta_amyloid_aggregation",
+        "bio:disease:alzheimers"
+      ],
+      "path_weight": 0.6375,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 656,
+      "pmids": [
+        "41602222",
+        "41595571",
+        "41585268"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:pathway:neuroinflammation",
+      "subject_label": "Neuroinflammation Pathway",
+      "object_id": "bio:disease:huntingtons",
+      "object_label": "Huntington's Disease",
+      "path_length": 2,
+      "path": [
+        "bio:pathway:neuroinflammation",
+        "bio:process:neurodegeneration",
+        "bio:disease:huntingtons"
+      ],
+      "path_weight": 0.6375,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 220,
+      "pmids": [
+        "41614741",
+        "41602154",
+        "41581940"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:receptor:igf1_receptor",
+      "subject_label": "IGF-1 Receptor",
+      "object_id": "bio:disease:breast_cancer",
+      "object_label": "Breast Cancer",
+      "path_length": 2,
+      "path": [
+        "bio:receptor:igf1_receptor",
+        "bio:pathway:pi3k_akt",
+        "bio:disease:breast_cancer"
+      ],
+      "path_weight": 0.6375,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 4,
+      "pmids": [
+        "41480638",
+        "40528195",
+        "40161818"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:receptor:tlr4",
+      "subject_label": "Toll-Like Receptor 4",
+      "object_id": "bio:disease:rheumatoid_arthritis",
+      "object_label": "Rheumatoid Arthritis",
+      "path_length": 2,
+      "path": [
+        "bio:receptor:tlr4",
+        "bio:pathway:nfkb_pathway",
+        "bio:disease:rheumatoid_arthritis"
+      ],
+      "path_weight": 0.6375,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 89,
+      "pmids": [
+        "41613108",
+        "41508268",
+        "41398286"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:receptor:tlr4",
+      "subject_label": "Toll-Like Receptor 4",
+      "object_id": "bio:disease:inflammatory_bowel_disease",
+      "object_label": "Inflammatory Bowel Disease",
+      "path_length": 2,
+      "path": [
+        "bio:receptor:tlr4",
+        "bio:pathway:nfkb_pathway",
+        "bio:disease:inflammatory_bowel_disease"
+      ],
+      "path_weight": 0.6375,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 98,
+      "pmids": [
+        "41568049",
+        "41448457",
+        "41344439"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:protein:bcl2",
+      "subject_label": "B-cell Lymphoma 2 Protein",
+      "object_id": "bio:disease:leukemia_cml",
+      "object_label": "Chronic Myeloid Leukemia",
+      "path_length": 2,
+      "path": [
+        "bio:protein:bcl2",
+        "bio:pathway:apoptosis",
+        "bio:disease:leukemia_cml"
+      ],
+      "path_weight": 0.63,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 32,
+      "pmids": [
+        "41523833",
+        "41471266",
+        "41418352"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:protein:bcl2",
+      "subject_label": "B-cell Lymphoma 2 Protein",
+      "object_id": "bio:disease:multiple_myeloma",
+      "object_label": "Multiple Myeloma",
+      "path_length": 2,
+      "path": [
+        "bio:protein:bcl2",
+        "bio:pathway:apoptosis",
+        "bio:disease:multiple_myeloma"
+      ],
+      "path_weight": 0.63,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 103,
+      "pmids": [
+        "41657780",
+        "41624733",
+        "41439242"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:protein:il6",
+      "subject_label": "Interleukin-6",
+      "object_id": "bio:disease:rheumatoid_arthritis",
+      "object_label": "Rheumatoid Arthritis",
+      "path_length": 2,
+      "path": [
+        "bio:protein:il6",
+        "bio:pathway:jak_stat",
+        "bio:disease:rheumatoid_arthritis"
+      ],
+      "path_weight": 0.63,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 819,
+      "pmids": [
+        "41907960",
+        "41881739",
+        "41614803"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:pathway:oxidative_stress",
+      "subject_label": "Oxidative Stress Response Pathway",
+      "object_id": "bio:disease:nafld",
+      "object_label": "Non-Alcoholic Fatty Liver Disease",
+      "path_length": 2,
+      "path": [
+        "bio:pathway:oxidative_stress",
+        "bio:process:lipid_peroxidation",
+        "bio:disease:nafld"
+      ],
+      "path_weight": 0.6,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 373,
+      "pmids": [
+        "41887838",
+        "41788585",
+        "41657771"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:protein:bdnf",
+      "subject_label": "Brain-Derived Neurotrophic Factor",
+      "object_id": "bio:disease:huntingtons",
+      "object_label": "Huntington's Disease",
+      "path_length": 2,
+      "path": [
+        "bio:protein:bdnf",
+        "bio:process:neurodegeneration",
+        "bio:disease:huntingtons"
+      ],
+      "path_weight": 0.6,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 51,
+      "pmids": [
+        "41471389",
+        "41452361",
+        "41339520"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:protein:foxo3",
+      "subject_label": "FOXO3 Transcription Factor",
+      "object_id": "bio:process:protein_aggregation",
+      "object_label": "Pathological Protein Aggregation",
+      "path_length": 2,
+      "path": [
+        "bio:protein:foxo3",
+        "bio:pathway:autophagy",
+        "bio:process:protein_aggregation"
+      ],
+      "path_weight": 0.6,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 0,
+      "pmids": [],
+      "label_layer1": "not_investigated",
+      "investigated": 0
+    },
+    {
+      "subject_id": "bio:protein:her2",
+      "subject_label": "HER2 Receptor",
+      "object_id": "bio:disease:breast_cancer",
+      "object_label": "Breast Cancer",
+      "path_length": 2,
+      "path": [
+        "bio:protein:her2",
+        "bio:pathway:pi3k_akt",
+        "bio:disease:breast_cancer"
+      ],
+      "path_weight": 0.6,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 6493,
+      "pmids": [
+        "41954342",
+        "41954341",
+        "41954340"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:protein:sirt1",
+      "subject_label": "Sirtuin-1 Deacetylase",
+      "object_id": "bio:pathway:autophagy",
+      "object_label": "Autophagy Pathway",
+      "path_length": 2,
+      "path": [
+        "bio:protein:sirt1",
+        "bio:protein:foxo3",
+        "bio:pathway:autophagy"
+      ],
+      "path_weight": 0.6,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 428,
+      "pmids": [
+        "41648753",
+        "41567193",
+        "41550591"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:receptor:glucocorticoid_receptor",
+      "subject_label": "Glucocorticoid Receptor",
+      "object_id": "bio:disease:psoriasis",
+      "object_label": "Psoriasis",
+      "path_length": 2,
+      "path": [
+        "bio:receptor:glucocorticoid_receptor",
+        "bio:process:immune_activation",
+        "bio:disease:psoriasis"
+      ],
+      "path_weight": 0.6,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 3,
+      "pmids": [
+        "41573728",
+        "40744405",
+        "38389423"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:process:mitochondrial_dysfunction",
+      "subject_label": "Mitochondrial Dysfunction",
+      "object_id": "bio:disease:parkinsons",
+      "object_label": "Parkinson's Disease",
+      "path_length": 2,
+      "path": [
+        "bio:process:mitochondrial_dysfunction",
+        "bio:process:ros_production",
+        "bio:disease:parkinsons"
+      ],
+      "path_weight": 0.595,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 745,
+      "pmids": [
+        "41585498",
+        "41581940",
+        "41541005"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:process:mitochondrial_dysfunction",
+      "subject_label": "Mitochondrial Dysfunction",
+      "object_id": "bio:protein:sod1",
+      "object_label": "Superoxide Dismutase 1",
+      "path_length": 2,
+      "path": [
+        "bio:process:mitochondrial_dysfunction",
+        "bio:process:ros_production",
+        "bio:protein:sod1"
+      ],
+      "path_weight": 0.595,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 69,
+      "pmids": [
+        "41506100",
+        "41462929",
+        "41462644"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:process:ros_production",
+      "subject_label": "Reactive Oxygen Species Production",
+      "object_id": "bio:disease:als",
+      "object_label": "Amyotrophic Lateral Sclerosis",
+      "path_length": 2,
+      "path": [
+        "bio:process:ros_production",
+        "bio:protein:sod1",
+        "bio:disease:als"
+      ],
+      "path_weight": 0.595,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 8,
+      "pmids": [
+        "41280004",
+        "40992079",
+        "40826812"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:protein:akt1",
+      "subject_label": "AKT Serine/Threonine Kinase",
+      "object_id": "bio:pathway:pi3k_akt",
+      "object_label": "PI3K-AKT Signaling Pathway",
+      "path_length": 2,
+      "path": [
+        "bio:protein:akt1",
+        "bio:pathway:mtor_signaling",
+        "bio:pathway:pi3k_akt"
+      ],
+      "path_weight": 0.595,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 377,
+      "pmids": [
+        "41814699",
+        "41687633",
+        "41646936"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:protein:akt1",
+      "subject_label": "AKT Serine/Threonine Kinase",
+      "object_id": "bio:pathway:ampk_pathway",
+      "object_label": "AMPK Metabolic Pathway",
+      "path_length": 2,
+      "path": [
+        "bio:protein:akt1",
+        "bio:pathway:mtor_signaling",
+        "bio:pathway:ampk_pathway"
+      ],
+      "path_weight": 0.595,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 7,
+      "pmids": [
+        "41137228",
+        "40964109",
+        "40717511"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:protein:p53",
+      "subject_label": "Tumor Suppressor Protein p53",
+      "object_id": "bio:disease:leukemia_cml",
+      "object_label": "Chronic Myeloid Leukemia",
+      "path_length": 2,
+      "path": [
+        "bio:protein:p53",
+        "bio:pathway:apoptosis",
+        "bio:disease:leukemia_cml"
+      ],
+      "path_weight": 0.595,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 20,
+      "pmids": [
+        "41353321",
+        "41162917",
+        "41117883"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:protein:p53",
+      "subject_label": "Tumor Suppressor Protein p53",
+      "object_id": "bio:disease:multiple_myeloma",
+      "object_label": "Multiple Myeloma",
+      "path_length": 2,
+      "path": [
+        "bio:protein:p53",
+        "bio:pathway:apoptosis",
+        "bio:disease:multiple_myeloma"
+      ],
+      "path_weight": 0.595,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 56,
+      "pmids": [
+        "41437395",
+        "41315915",
+        "41045696"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:receptor:adenosine_a2a",
+      "subject_label": "Adenosine A2A Receptor",
+      "object_id": "bio:process:dopamine_synthesis",
+      "object_label": "Dopamine Biosynthesis",
+      "path_length": 2,
+      "path": [
+        "bio:receptor:adenosine_a2a",
+        "bio:receptor:dopamine_d2",
+        "bio:process:dopamine_synthesis"
+      ],
+      "path_weight": 0.595,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 0,
+      "pmids": [],
+      "label_layer1": "not_investigated",
+      "investigated": 0
+    },
+    {
+      "subject_id": "bio:gene:park2",
+      "subject_label": "PARK2 Parkin Gene",
+      "object_id": "bio:disease:parkinsons",
+      "object_label": "Parkinson's Disease",
+      "path_length": 2,
+      "path": [
+        "bio:gene:park2",
+        "bio:process:mitophagy",
+        "bio:disease:parkinsons"
+      ],
+      "path_weight": 0.56,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 29,
+      "pmids": [
+        "41300754",
+        "41018272",
+        "40990598"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:pathway:dna_damage_response",
+      "subject_label": "DNA Damage Response Pathway",
+      "object_id": "bio:disease:leukemia_cml",
+      "object_label": "Chronic Myeloid Leukemia",
+      "path_length": 2,
+      "path": [
+        "bio:pathway:dna_damage_response",
+        "bio:pathway:apoptosis",
+        "bio:disease:leukemia_cml"
+      ],
+      "path_weight": 0.56,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 6,
+      "pmids": [
+        "41090572",
+        "40706411",
+        "40563586"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "bio:pathway:dna_damage_response",
+      "subject_label": "DNA Damage Response Pathway",
+      "object_id": "bio:disease:multiple_myeloma",
+      "object_label": "Multiple Myeloma",
+      "path_length": 2,
+      "path": [
+        "bio:pathway:dna_damage_response",
+        "bio:pathway:apoptosis",
+        "bio:disease:multiple_myeloma"
+      ],
+      "path_weight": 0.56,
+      "uses_augmented_edge": false,
+      "method": "C1_compose",
+      "pubmed_count_2024_2025": 13,
+      "pmids": [
+        "41315184",
+        "41188812",
+        "41155462"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    }
+  ]
+}
