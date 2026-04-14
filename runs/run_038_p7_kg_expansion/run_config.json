@@ -1,0 +1,51 @@
+{
+  "run_id": "run_038_p7_kg_expansion",
+  "timestamp": "2026-04-14T22:33:08.112650",
+  "phase": "P7",
+  "seed": 42,
+  "top_k": 70,
+  "max_depth": 5,
+  "rate_limit_s": 1.1,
+  "evidence_window": "1900/01/01 – 2023/12/31",
+  "validation_window": "2024/01/01 – 2025/12/31",
+  "conditions": {
+    "B1_P7": "global top-70, R1_baseline",
+    "B2_P7": "global top-70, R3_struct_evidence",
+    "T3_P7": "bucketed top-70, R2, 3-bucket (L2/L3/L4+)"
+  },
+  "p7_additions": {
+    "metabolite_nodes": 10,
+    "bio_to_chem_edges": "see build_p7_kg.py",
+    "chem_to_bio_edges": "see build_p7_kg.py"
+  },
+  "geometry_metrics": {
+    "M1_cd_density": 0.4858,
+    "M1_baseline": 0.3877,
+    "M1_improvement": 1.253,
+    "M1_target_gt_1_5x": false,
+    "M2_mean_cdr_L4p": 0.6525,
+    "M2_target_gt_0_30": true,
+    "M3_max_l3_quota": 70,
+    "M3_max_l4p_quota": 70,
+    "M3_target_l4p_ge_5": true,
+    "mean_cdr_L2": 0.5,
+    "mean_cdr_L3": 0.6192,
+    "n_l2": 248,
+    "n_l3": 443,
+    "n_l4p": 1308,
+    "n_multi_cross_l3": 190,
+    "n_multi_cross_l4p": 1044,
+    "unique_endpoint_pairs": 959,
+    "H_P7_1_ge_200_pairs": true,
+    "H_P7_2_l3_cdr_ge_0_40": true,
+    "H_P7_3_l4p_quota_gt_20": true
+  },
+  "bucket_quotas": {
+    "design": "3-bucket (L2/L3/L4+)",
+    "L2": 35,
+    "L3": 20,
+    "L4+": 15,
+    "rationale": "M2=0.652 > 0.40 → L4+ viable"
+  },
+  "outcome": "STRONG_SUCCESS"
+}
