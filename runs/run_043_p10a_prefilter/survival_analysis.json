@@ -1,0 +1,64 @@
+{
+  "metric_4_survival_by_bucket": {
+    "L2": {
+      "t3_n": 35,
+      "t3pf_n": 35,
+      "overlap": 20,
+      "survival_rate": 0.5714
+    },
+    "L3": {
+      "t3_n": 20,
+      "t3pf_n": 20,
+      "overlap": 1,
+      "survival_rate": 0.05
+    },
+    "L4+": {
+      "t3_n": 15,
+      "t3pf_n": 15,
+      "overlap": 0,
+      "survival_rate": 0.0
+    }
+  },
+  "metric_5_survival_by_family": {
+    "dopamine": {
+      "t3_path_count": 18,
+      "t3_investigated": 14,
+      "t3pf_path_count": 12,
+      "t3pf_investigated": 12,
+      "investigability_t3": 0.7778,
+      "investigability_t3pf": 1.0
+    },
+    "serotonin": {
+      "t3_path_count": 0,
+      "t3_investigated": 0,
+      "t3pf_path_count": 15,
+      "t3pf_investigated": 15,
+      "investigability_t3": 0.0,
+      "investigability_t3pf": 1.0
+    },
+    "gaba": {
+      "t3_path_count": 6,
+      "t3_investigated": 6,
+      "t3pf_path_count": 10,
+      "t3pf_investigated": 10,
+      "investigability_t3": 1.0,
+      "investigability_t3pf": 1.0
+    },
+    "glutamate": {
+      "t3_path_count": 15,
+      "t3_investigated": 10,
+      "t3pf_path_count": 9,
+      "t3pf_investigated": 9,
+      "investigability_t3": 0.6667,
+      "investigability_t3pf": 1.0
+    },
+    "acetylcholine": {
+      "t3_path_count": 6,
+      "t3_investigated": 6,
+      "t3pf_path_count": 17,
+      "t3pf_investigated": 17,
+      "investigability_t3": 1.0,
+      "investigability_t3pf": 1.0
+    }
+  }
+}
