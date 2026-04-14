@@ -1,0 +1,2875 @@
+{
+  "chem:target:bace1_enzyme|||bio:biomarker:amyloid_beta42": {
+    "pubmed_count_2024_2025": 3,
+    "pmids": [
+      "40320777",
+      "39631714",
+      "38230736"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:protein:tau|||bio:disease:alzheimers": {
+    "pubmed_count_2024_2025": 6843,
+    "pmids": [
+      "41959743",
+      "41929929",
+      "41924560"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:mechanism:ampk_activation|||bio:disease:huntingtons": {
+    "pubmed_count_2024_2025": 3,
+    "pmids": [
+      "40283923",
+      "40124420",
+      "39592326"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:finasteride|||bio:disease:prostate_cancer": {
+    "pubmed_count_2024_2025": 12,
+    "pmids": [
+      "41378003",
+      "41267989",
+      "41054355"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:venetoclax|||bio:pathway:apoptosis": {
+    "pubmed_count_2024_2025": 273,
+    "pmids": [
+      "41657780",
+      "41509496",
+      "41502254"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:protein:jak2|||bio:disease:leukemia_cml": {
+    "pubmed_count_2024_2025": 29,
+    "pmids": [
+      "41406910",
+      "41378161",
+      "41137901"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:sildenafil|||bio:disease:heart_failure": {
+    "pubmed_count_2024_2025": 36,
+    "pmids": [
+      "41304908",
+      "41258850",
+      "41094728"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:celecoxib|||bio:protein:tnf_alpha": {
+    "pubmed_count_2024_2025": 64,
+    "pmids": [
+      "41421753",
+      "41397330",
+      "41373428"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:process:cholesterol_synthesis|||bio:disease:atherosclerosis": {
+    "pubmed_count_2024_2025": 26,
+    "pmids": [
+      "41478357",
+      "41352811",
+      "41116669"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:nilotinib|||bio:gene:bcr_abl": {
+    "pubmed_count_2024_2025": 112,
+    "pmids": [
+      "41469338",
+      "41431370",
+      "41405208"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:mechanism:mtor_inhibition|||bio:pathway:autophagy": {
+    "pubmed_count_2024_2025": 71,
+    "pmids": [
+      "41436422",
+      "41420847",
+      "41359382"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:sildenafil|||bio:disease:huntingtons": {
+    "pubmed_count_2024_2025": 2,
+    "pmids": [
+      "39451238",
+      "39425458"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:thalidomide|||bio:pathway:pi3k_akt": {
+    "pubmed_count_2024_2025": 1,
+    "pmids": [
+      "41443295"
+    ],
+    "label_layer1": "partially_supported",
+    "investigated": 1
+  },
+  "chem:target:bcr_abl_kinase|||bio:disease:leukemia_cml": {
+    "pubmed_count_2024_2025": 16,
+    "pmids": [
+      "41523565",
+      "41226124",
+      "40360939"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:rapamycin|||bio:biomarker:ldl_cholesterol": {
+    "pubmed_count_2024_2025": 4,
+    "pmids": [
+      "40399683",
+      "38621731",
+      "38310895"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:protein:akt1|||bio:pathway:ampk_pathway": {
+    "pubmed_count_2024_2025": 7,
+    "pmids": [
+      "41137228",
+      "40964109",
+      "40717511"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:receptor:adenosine_a2a|||bio:process:dopamine_synthesis": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "chem:mechanism:ampk_activation|||bio:disease:type2_diabetes": {
+    "pubmed_count_2024_2025": 47,
+    "pmids": [
+      "41595604",
+      "41539774",
+      "41392217"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:valproic_acid|||bio:process:epigenetic_silencing": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "chem:drug:selegiline|||bio:process:dopamine_synthesis": {
+    "pubmed_count_2024_2025": 1,
+    "pmids": [
+      "38196001"
+    ],
+    "label_layer1": "partially_supported",
+    "investigated": 1
+  },
+  "bio:pathway:dna_damage_response|||bio:disease:leukemia_cml": {
+    "pubmed_count_2024_2025": 6,
+    "pmids": [
+      "41090572",
+      "40706411",
+      "40563586"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:sildenafil|||bio:disease:type2_diabetes": {
+    "pubmed_count_2024_2025": 8,
+    "pmids": [
+      "40865594",
+      "40204283",
+      "39844934"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:valproic_acid|||bio:disease:colon_cancer": {
+    "pubmed_count_2024_2025": 1,
+    "pmids": [
+      "39489464"
+    ],
+    "label_layer1": "partially_supported",
+    "investigated": 1
+  },
+  "chem:drug:trastuzumab|||bio:protein:her2": {
+    "pubmed_count_2024_2025": 1828,
+    "pmids": [
+      "41859478",
+      "41822285",
+      "41767585"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:donepezil|||bio:process:synaptic_plasticity": {
+    "pubmed_count_2024_2025": 18,
+    "pmids": [
+      "41527666",
+      "41508235",
+      "41297563"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:compound:spermidine|||bio:disease:huntingtons": {
+    "pubmed_count_2024_2025": 2,
+    "pmids": [
+      "39986431",
+      "39032763"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:compound:sulforaphane|||bio:pathway:oxidative_stress": {
+    "pubmed_count_2024_2025": 150,
+    "pmids": [
+      "41514880",
+      "41473190",
+      "41462654"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:protein:nfkb|||bio:disease:rheumatoid_arthritis": {
+    "pubmed_count_2024_2025": 29,
+    "pmids": [
+      "41373781",
+      "41353846",
+      "41167686"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:metformin|||bio:pathway:ampk_pathway": {
+    "pubmed_count_2024_2025": 48,
+    "pmids": [
+      "41624202",
+      "41515170",
+      "41502255"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:protein:cdk5|||bio:process:tau_hyperphosphorylation": {
+    "pubmed_count_2024_2025": 20,
+    "pmids": [
+      "41110674",
+      "41106693",
+      "40967163"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:protein:p53|||bio:disease:multiple_myeloma": {
+    "pubmed_count_2024_2025": 56,
+    "pmids": [
+      "41437395",
+      "41315915",
+      "41045696"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:process:mitochondrial_dysfunction|||bio:disease:parkinsons": {
+    "pubmed_count_2024_2025": 745,
+    "pmids": [
+      "41585498",
+      "41581940",
+      "41541005"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:mechanism:mtor_inhibition|||bio:process:cholesterol_synthesis": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "chem:drug:sorafenib|||bio:protein:egfr": {
+    "pubmed_count_2024_2025": 68,
+    "pmids": [
+      "41522766",
+      "41510095",
+      "41401595"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:erlotinib|||bio:disease:breast_cancer": {
+    "pubmed_count_2024_2025": 53,
+    "pmids": [
+      "41461214",
+      "41418598",
+      "41385860"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:compound:berberine|||bio:pathway:ampk_pathway": {
+    "pubmed_count_2024_2025": 9,
+    "pmids": [
+      "41297722",
+      "41273838",
+      "41076148"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:target:mtor_kinase|||bio:pathway:autophagy": {
+    "pubmed_count_2024_2025": 14,
+    "pmids": [
+      "41558720",
+      "40963021",
+      "40892854"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:rosiglitazone|||bio:process:insulin_resistance": {
+    "pubmed_count_2024_2025": 37,
+    "pmids": [
+      "41412068",
+      "41382285",
+      "41295241"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:memantine|||bio:process:synaptic_plasticity": {
+    "pubmed_count_2024_2025": 12,
+    "pmids": [
+      "41465271",
+      "40827489",
+      "40028750"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:rosiglitazone|||bio:pathway:insulin_signaling": {
+    "pubmed_count_2024_2025": 4,
+    "pmids": [
+      "40712680",
+      "40570558",
+      "38118354"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:compound:spermidine|||bio:process:protein_aggregation": {
+    "pubmed_count_2024_2025": 5,
+    "pmids": [
+      "41263813",
+      "40706770",
+      "40401986"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:atorvastatin|||bio:biomarker:ldl_cholesterol": {
+    "pubmed_count_2024_2025": 37,
+    "pmids": [
+      "41687656",
+      "41447006",
+      "41150636"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:mechanism:mtor_inhibition|||bio:disease:heart_failure": {
+    "pubmed_count_2024_2025": 3,
+    "pmids": [
+      "40131211",
+      "38567527",
+      "37979443"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:compound:resveratrol|||bio:protein:sirt1": {
+    "pubmed_count_2024_2025": 239,
+    "pmids": [
+      "41573560",
+      "41470875",
+      "41446880"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:rapamycin|||bio:disease:atherosclerosis": {
+    "pubmed_count_2024_2025": 69,
+    "pmids": [
+      "41564805",
+      "41406476",
+      "41304763"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:ruxolitinib|||bio:protein:jak2": {
+    "pubmed_count_2024_2025": 180,
+    "pmids": [
+      "41589191",
+      "41516206",
+      "41511345"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:compound:resveratrol|||bio:process:cell_senescence": {
+    "pubmed_count_2024_2025": 49,
+    "pmids": [
+      "41514880",
+      "41402268",
+      "41317607"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:mechanism:ampk_activation|||bio:process:cholesterol_synthesis": {
+    "pubmed_count_2024_2025": 2,
+    "pmids": [
+      "40082541",
+      "38880706"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:rapamycin|||bio:process:tumor_angiogenesis": {
+    "pubmed_count_2024_2025": 2,
+    "pmids": [
+      "38711062",
+      "38194806"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:mechanism:nrf2_activation|||bio:process:lipid_peroxidation": {
+    "pubmed_count_2024_2025": 43,
+    "pmids": [
+      "41439983",
+      "41421430",
+      "41384022"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:compound:sulforaphane|||bio:process:ros_production": {
+    "pubmed_count_2024_2025": 20,
+    "pmids": [
+      "41462654",
+      "41341174",
+      "41276024"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:target:mtor_kinase|||bio:pathway:pi3k_akt": {
+    "pubmed_count_2024_2025": 1,
+    "pmids": [
+      "39807482"
+    ],
+    "label_layer1": "partially_supported",
+    "investigated": 1
+  },
+  "chem:compound:curcumin|||bio:process:tumor_angiogenesis": {
+    "pubmed_count_2024_2025": 4,
+    "pmids": [
+      "41201753",
+      "40332041",
+      "38660661"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:pathway:ampk_pathway|||bio:biomarker:ldl_cholesterol": {
+    "pubmed_count_2024_2025": 1,
+    "pmids": [
+      "38931268"
+    ],
+    "label_layer1": "partially_supported",
+    "investigated": 1
+  },
+  "bio:process:ros_production|||bio:disease:als": {
+    "pubmed_count_2024_2025": 8,
+    "pmids": [
+      "41280004",
+      "40992079",
+      "40826812"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:sorafenib|||bio:gene:bcr_abl": {
+    "pubmed_count_2024_2025": 1,
+    "pmids": [
+      "41044387"
+    ],
+    "label_layer1": "partially_supported",
+    "investigated": 1
+  },
+  "chem:mechanism:mtor_inhibition|||bio:disease:alzheimers": {
+    "pubmed_count_2024_2025": 7,
+    "pmids": [
+      "40650013",
+      "40292249",
+      "40279970"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:protein:cdk5|||bio:biomarker:tau_protein": {
+    "pubmed_count_2024_2025": 26,
+    "pmids": [
+      "41309199",
+      "41265651",
+      "41250640"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:everolimus|||bio:pathway:mtor_signaling": {
+    "pubmed_count_2024_2025": 34,
+    "pmids": [
+      "41502953",
+      "41458541",
+      "41362763"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:mechanism:ppar_activation|||bio:disease:type2_diabetes": {
+    "pubmed_count_2024_2025": 2,
+    "pmids": [
+      "40914537",
+      "39437175"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:target:mtor_kinase|||bio:disease:heart_failure": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "chem:drug:erlotinib|||bio:pathway:mapk_erk": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "chem:drug:ibuprofen|||bio:protein:tnf_alpha": {
+    "pubmed_count_2024_2025": 31,
+    "pmids": [
+      "41741990",
+      "41473805",
+      "41404196"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:pathway:neuroinflammation|||bio:disease:alzheimers": {
+    "pubmed_count_2024_2025": 4048,
+    "pmids": [
+      "41959743",
+      "41929929",
+      "41904008"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:compound:spermidine|||bio:process:cholesterol_synthesis": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "bio:protein:p53|||bio:disease:leukemia_cml": {
+    "pubmed_count_2024_2025": 20,
+    "pmids": [
+      "41353321",
+      "41162917",
+      "41117883"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:protein:bdnf|||bio:disease:huntingtons": {
+    "pubmed_count_2024_2025": 51,
+    "pmids": [
+      "41471389",
+      "41452361",
+      "41339520"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:everolimus|||bio:disease:breast_cancer": {
+    "pubmed_count_2024_2025": 85,
+    "pmids": [
+      "41647714",
+      "41444692",
+      "41423570"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:protein:app|||bio:process:beta_amyloid_aggregation": {
+    "pubmed_count_2024_2025": 5,
+    "pmids": [
+      "39936324",
+      "39519278",
+      "38747495"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:metformin|||bio:disease:atherosclerosis": {
+    "pubmed_count_2024_2025": 72,
+    "pmids": [
+      "41462689",
+      "41346943",
+      "41304763"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:thalidomide|||bio:pathway:wnt_signaling": {
+    "pubmed_count_2024_2025": 1,
+    "pmids": [
+      "38230780"
+    ],
+    "label_layer1": "partially_supported",
+    "investigated": 1
+  },
+  "bio:protein:bcl2|||bio:disease:leukemia_cml": {
+    "pubmed_count_2024_2025": 32,
+    "pmids": [
+      "41523833",
+      "41471266",
+      "41418352"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:metformin|||bio:disease:breast_cancer": {
+    "pubmed_count_2024_2025": 147,
+    "pmids": [
+      "41502615",
+      "41465322",
+      "41452530"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:sildenafil|||bio:pathway:neuroinflammation": {
+    "pubmed_count_2024_2025": 7,
+    "pmids": [
+      "41469822",
+      "41161293",
+      "39451238"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:gene:park2|||bio:disease:parkinsons": {
+    "pubmed_count_2024_2025": 29,
+    "pmids": [
+      "41300754",
+      "41018272",
+      "40990598"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:receptor:glucocorticoid_receptor|||bio:disease:lupus": {
+    "pubmed_count_2024_2025": 5,
+    "pmids": [
+      "41155288",
+      "41153970",
+      "39874239"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:compound:alpha_lipoic_acid|||bio:process:tumor_angiogenesis": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "chem:drug:sildenafil|||bio:disease:atherosclerosis": {
+    "pubmed_count_2024_2025": 4,
+    "pmids": [
+      "40645094",
+      "40405356",
+      "40204283"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:metformin|||bio:process:tumor_angiogenesis": {
+    "pubmed_count_2024_2025": 2,
+    "pmids": [
+      "40644406",
+      "38472734"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:lenalidomide|||bio:pathway:wnt_signaling": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "bio:protein:akt1|||bio:pathway:pi3k_akt": {
+    "pubmed_count_2024_2025": 377,
+    "pmids": [
+      "41814699",
+      "41687633",
+      "41646936"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:compound:epigallocatechin|||bio:disease:huntingtons": {
+    "pubmed_count_2024_2025": 4,
+    "pmids": [
+      "40676294",
+      "40350140",
+      "40147618"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:mechanism:hmg_coa_inhibition|||bio:process:cholesterol_synthesis": {
+    "pubmed_count_2024_2025": 1,
+    "pmids": [
+      "39598360"
+    ],
+    "label_layer1": "partially_supported",
+    "investigated": 1
+  },
+  "bio:protein:ras|||bio:disease:colon_cancer": {
+    "pubmed_count_2024_2025": 125,
+    "pmids": [
+      "41589240",
+      "41546300",
+      "41546218"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:compound:curcumin|||bio:disease:inflammatory_bowel_disease": {
+    "pubmed_count_2024_2025": 54,
+    "pmids": [
+      "41822273",
+      "41475647",
+      "41424456"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:pathway:insulin_signaling|||bio:biomarker:hba1c": {
+    "pubmed_count_2024_2025": 24,
+    "pmids": [
+      "41282288",
+      "41249265",
+      "41210858"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:compound:nicotinamide_riboside|||bio:protein:sirt1": {
+    "pubmed_count_2024_2025": 26,
+    "pmids": [
+      "41541758",
+      "41419644",
+      "41107931"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:mechanism:tyrosine_kinase_inhibition|||bio:disease:glioblastoma": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "chem:target:mtor_kinase|||bio:disease:alzheimers": {
+    "pubmed_count_2024_2025": 4,
+    "pmids": [
+      "41558720",
+      "41257084",
+      "40347153"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:compound:pterostilbene|||bio:protein:sirt1": {
+    "pubmed_count_2024_2025": 18,
+    "pmids": [
+      "41031163",
+      "40889623",
+      "40291020"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:sorafenib|||bio:protein:vegf": {
+    "pubmed_count_2024_2025": 81,
+    "pmids": [
+      "41716515",
+      "41476965",
+      "41470166"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:sildenafil|||bio:pathway:ampk_pathway": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "chem:mechanism:jak_inhibition|||bio:disease:rheumatoid_arthritis": {
+    "pubmed_count_2024_2025": 23,
+    "pmids": [
+      "41668767",
+      "41515559",
+      "41301504"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:mechanism:cox_inhibition|||bio:pathway:pi3k_akt": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "chem:compound:berberine|||bio:process:tumor_angiogenesis": {
+    "pubmed_count_2024_2025": 2,
+    "pmids": [
+      "39414206",
+      "38236508"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:protein:bace1|||bio:biomarker:amyloid_beta42": {
+    "pubmed_count_2024_2025": 3,
+    "pmids": [
+      "40320777",
+      "39631714",
+      "38230736"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:pathway:pi3k_akt|||bio:disease:glioblastoma": {
+    "pubmed_count_2024_2025": 60,
+    "pmids": [
+      "41407973",
+      "41355614",
+      "41230163"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:rapamycin|||bio:pathway:mtor_signaling": {
+    "pubmed_count_2024_2025": 865,
+    "pmids": [
+      "41839601",
+      "41656814",
+      "41561043"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:doxycycline|||bio:process:neurodegeneration": {
+    "pubmed_count_2024_2025": 13,
+    "pmids": [
+      "41304763",
+      "41300191",
+      "41267687"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:rapamycin|||bio:process:protein_aggregation": {
+    "pubmed_count_2024_2025": 10,
+    "pmids": [
+      "41853122",
+      "41404692",
+      "40482009"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:mechanism:jak_inhibition|||bio:protein:jak2": {
+    "pubmed_count_2024_2025": 14,
+    "pmids": [
+      "41030319",
+      "40786548",
+      "40764668"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:mechanism:jak_inhibition|||bio:protein:stat3": {
+    "pubmed_count_2024_2025": 11,
+    "pmids": [
+      "41278737",
+      "41236849",
+      "41194923"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:compound:epigallocatechin|||bio:disease:alzheimers": {
+    "pubmed_count_2024_2025": 51,
+    "pmids": [
+      "41594549",
+      "41338951",
+      "41323809"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:erlotinib|||bio:protein:egfr": {
+    "pubmed_count_2024_2025": 415,
+    "pmids": [
+      "41522766",
+      "41505979",
+      "41488538"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:valproic_acid|||bio:disease:huntingtons": {
+    "pubmed_count_2024_2025": 2,
+    "pmids": [
+      "41467429",
+      "39276955"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:protein:il6|||bio:disease:rheumatoid_arthritis": {
+    "pubmed_count_2024_2025": 819,
+    "pmids": [
+      "41907960",
+      "41881739",
+      "41614803"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:protein:igf1r|||bio:pathway:autophagy": {
+    "pubmed_count_2024_2025": 25,
+    "pmids": [
+      "41452559",
+      "41448557",
+      "41390521"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:rapamycin|||bio:disease:breast_cancer": {
+    "pubmed_count_2024_2025": 166,
+    "pmids": [
+      "41640662",
+      "41509976",
+      "41502518"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:gene:vegfa|||bio:process:tumor_angiogenesis": {
+    "pubmed_count_2024_2025": 76,
+    "pmids": [
+      "41454602",
+      "41443042",
+      "41369408"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:compound:sulforaphane|||bio:process:tumor_angiogenesis": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "chem:drug:tamoxifen|||bio:disease:breast_cancer": {
+    "pubmed_count_2024_2025": 875,
+    "pmids": [
+      "41850970",
+      "41769278",
+      "41731859"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:protein:hif1a|||bio:protein:vegf": {
+    "pubmed_count_2024_2025": 206,
+    "pmids": [
+      "41457935",
+      "41456528",
+      "41409042"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:mechanism:tyrosine_kinase_inhibition|||bio:gene:bcr_abl": {
+    "pubmed_count_2024_2025": 1,
+    "pmids": [
+      "41120674"
+    ],
+    "label_layer1": "partially_supported",
+    "investigated": 1
+  },
+  "chem:compound:berberine|||bio:biomarker:ldl_cholesterol": {
+    "pubmed_count_2024_2025": 8,
+    "pmids": [
+      "41539918",
+      "40871675",
+      "39614370"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:compound:coenzyme_q10|||bio:process:ros_production": {
+    "pubmed_count_2024_2025": 17,
+    "pmids": [
+      "41410617",
+      "41154456",
+      "41004379"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:mechanism:ppar_activation|||bio:pathway:insulin_signaling": {
+    "pubmed_count_2024_2025": 1,
+    "pmids": [
+      "41075524"
+    ],
+    "label_layer1": "partially_supported",
+    "investigated": 1
+  },
+  "chem:compound:kaempferol|||bio:protein:bace1": {
+    "pubmed_count_2024_2025": 10,
+    "pmids": [
+      "41421404",
+      "41384075",
+      "40899340"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:mechanism:tyrosine_kinase_inhibition|||bio:pathway:mapk_erk": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "bio:gene:tert|||bio:process:cell_senescence": {
+    "pubmed_count_2024_2025": 87,
+    "pmids": [
+      "41393934",
+      "41379209",
+      "41324273"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:receptor:tlr4|||bio:disease:inflammatory_bowel_disease": {
+    "pubmed_count_2024_2025": 98,
+    "pmids": [
+      "41568049",
+      "41448457",
+      "41344439"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:protein:akt1|||bio:pathway:autophagy": {
+    "pubmed_count_2024_2025": 93,
+    "pmids": [
+      "41601414",
+      "41458180",
+      "41415834"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:metformin|||bio:process:protein_aggregation": {
+    "pubmed_count_2024_2025": 4,
+    "pmids": [
+      "41061696",
+      "40641151",
+      "40283923"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:target:hmg_coa_reductase|||bio:biomarker:ldl_cholesterol": {
+    "pubmed_count_2024_2025": 20,
+    "pmids": [
+      "41625333",
+      "41523610",
+      "41235335"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:rosiglitazone|||bio:receptor:ppar_gamma": {
+    "pubmed_count_2024_2025": 114,
+    "pmids": [
+      "41492461",
+      "41440884",
+      "41373547"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:mechanism:mtor_inhibition|||bio:pathway:ampk_pathway": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "chem:drug:rapamycin|||bio:process:cholesterol_synthesis": {
+    "pubmed_count_2024_2025": 9,
+    "pmids": [
+      "41303417",
+      "40514450",
+      "40441158"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:erlotinib|||bio:gene:bcr_abl": {
+    "pubmed_count_2024_2025": 1,
+    "pmids": [
+      "39687301"
+    ],
+    "label_layer1": "partially_supported",
+    "investigated": 1
+  },
+  "bio:gene:atm|||bio:pathway:apoptosis": {
+    "pubmed_count_2024_2025": 231,
+    "pmids": [
+      "41835789",
+      "41624793",
+      "41595586"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:mechanism:tyrosine_kinase_inhibition|||bio:protein:her2": {
+    "pubmed_count_2024_2025": 3,
+    "pmids": [
+      "40473905",
+      "39975402",
+      "39130801"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:gene:snca|||bio:disease:parkinsons": {
+    "pubmed_count_2024_2025": 383,
+    "pmids": [
+      "41904012",
+      "41480014",
+      "41465155"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:everolimus|||bio:pathway:autophagy": {
+    "pubmed_count_2024_2025": 24,
+    "pmids": [
+      "41265631",
+      "40960531",
+      "40917720"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:sildenafil|||bio:pathway:mtor_signaling": {
+    "pubmed_count_2024_2025": 2,
+    "pmids": [
+      "39226294",
+      "39027562"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:pioglitazone|||bio:process:insulin_resistance": {
+    "pubmed_count_2024_2025": 94,
+    "pmids": [
+      "41789211",
+      "41595448",
+      "41514930"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:imatinib|||bio:protein:egfr": {
+    "pubmed_count_2024_2025": 22,
+    "pmids": [
+      "41404256",
+      "41393197",
+      "41193444"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:mechanism:nrf2_activation|||bio:disease:als": {
+    "pubmed_count_2024_2025": 3,
+    "pmids": [
+      "41188870",
+      "41155167",
+      "40624572"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:metformin|||bio:pathway:autophagy": {
+    "pubmed_count_2024_2025": 186,
+    "pmids": [
+      "41641276",
+      "41601414",
+      "41502255"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:lithium_carbonate|||bio:protein:tau": {
+    "pubmed_count_2024_2025": 2,
+    "pmids": [
+      "40891144",
+      "38160617"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:pathway:mtor_signaling|||bio:disease:huntingtons": {
+    "pubmed_count_2024_2025": 1,
+    "pmids": [
+      "38913026"
+    ],
+    "label_layer1": "partially_supported",
+    "investigated": 1
+  },
+  "bio:gene:tp53|||bio:pathway:cell_cycle": {
+    "pubmed_count_2024_2025": 592,
+    "pmids": [
+      "41846870",
+      "41787622",
+      "41613542"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:ibuprofen|||bio:pathway:amyloid_cascade": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "bio:pathway:oxidative_stress|||bio:disease:nafld": {
+    "pubmed_count_2024_2025": 373,
+    "pmids": [
+      "41887838",
+      "41788585",
+      "41657771"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:receptor:ppar_gamma|||bio:disease:type2_diabetes": {
+    "pubmed_count_2024_2025": 125,
+    "pmids": [
+      "41789211",
+      "41583325",
+      "41471798"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:aspirin|||bio:process:tumor_angiogenesis": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "bio:disease:obesity|||bio:disease:type2_diabetes": {
+    "pubmed_count_2024_2025": 7756,
+    "pmids": [
+      "41945470",
+      "41944417",
+      "41939519"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:compound:luteolin|||bio:process:neurodegeneration": {
+    "pubmed_count_2024_2025": 17,
+    "pmids": [
+      "41436666",
+      "41262070",
+      "41082993"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:receptor:igf1_receptor|||bio:disease:breast_cancer": {
+    "pubmed_count_2024_2025": 4,
+    "pmids": [
+      "41480638",
+      "40528195",
+      "40161818"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:aspirin|||bio:disease:glioblastoma": {
+    "pubmed_count_2024_2025": 2,
+    "pmids": [
+      "40544306",
+      "38347095"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:protein:foxo3|||bio:process:protein_aggregation": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "chem:drug:erlotinib|||bio:protein:her2": {
+    "pubmed_count_2024_2025": 26,
+    "pmids": [
+      "41478011",
+      "41461214",
+      "41355866"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:mechanism:tyrosine_kinase_inhibition|||bio:protein:vegf": {
+    "pubmed_count_2024_2025": 2,
+    "pmids": [
+      "39374939",
+      "38798717"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:gene:kras|||bio:disease:colon_cancer": {
+    "pubmed_count_2024_2025": 126,
+    "pmids": [
+      "41647984",
+      "41589240",
+      "41565288"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:receptor:igf1_receptor|||bio:process:tumor_angiogenesis": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "chem:drug:pioglitazone|||bio:disease:type2_diabetes": {
+    "pubmed_count_2024_2025": 159,
+    "pmids": [
+      "41789211",
+      "41726330",
+      "41583325"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:pathway:mtor_signaling|||bio:process:protein_aggregation": {
+    "pubmed_count_2024_2025": 4,
+    "pmids": [
+      "41393939",
+      "39798875",
+      "39120751"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:pathway:tau_phosphorylation|||bio:disease:alzheimers": {
+    "pubmed_count_2024_2025": 462,
+    "pmids": [
+      "41904008",
+      "41594549",
+      "41483575"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:target:proteasome_target|||bio:process:protein_aggregation": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "chem:drug:lithium_carbonate|||bio:disease:alzheimers": {
+    "pubmed_count_2024_2025": 2,
+    "pmids": [
+      "40891144",
+      "38160617"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:protein:bdnf|||bio:disease:alzheimers": {
+    "pubmed_count_2024_2025": 459,
+    "pmids": [
+      "41778432",
+      "41624198",
+      "41602161"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:protein:her2|||bio:disease:breast_cancer": {
+    "pubmed_count_2024_2025": 6493,
+    "pmids": [
+      "41954342",
+      "41954341",
+      "41954340"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:pathway:insulin_signaling|||bio:disease:type2_diabetes": {
+    "pubmed_count_2024_2025": 419,
+    "pmids": [
+      "41656807",
+      "41635536",
+      "41541675"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:aspirin|||bio:protein:tnf_alpha": {
+    "pubmed_count_2024_2025": 59,
+    "pmids": [
+      "41407245",
+      "41393721",
+      "41242519"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:mechanism:tyrosine_kinase_inhibition|||bio:disease:lung_cancer": {
+    "pubmed_count_2024_2025": 3,
+    "pmids": [
+      "41675805",
+      "41149474",
+      "38871738"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:metformin|||bio:pathway:pi3k_akt": {
+    "pubmed_count_2024_2025": 21,
+    "pmids": [
+      "41656807",
+      "41560725",
+      "41502255"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:atorvastatin|||bio:process:cholesterol_synthesis": {
+    "pubmed_count_2024_2025": 13,
+    "pmids": [
+      "41333571",
+      "41219186",
+      "40762635"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:everolimus|||bio:process:cholesterol_synthesis": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "chem:target:mtor_kinase|||bio:pathway:ampk_pathway": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "chem:mechanism:nmda_antagonism|||bio:process:synaptic_plasticity": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "bio:protein:her2|||bio:process:tumor_angiogenesis": {
+    "pubmed_count_2024_2025": 7,
+    "pmids": [
+      "41459979",
+      "41394809",
+      "41051138"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:metformin|||bio:process:cholesterol_synthesis": {
+    "pubmed_count_2024_2025": 5,
+    "pmids": [
+      "41291157",
+      "41118580",
+      "40517864"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:imatinib|||bio:gene:bcr_abl": {
+    "pubmed_count_2024_2025": 343,
+    "pmids": [
+      "41613654",
+      "41502514",
+      "41469338"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:protein:sirt1|||bio:pathway:autophagy": {
+    "pubmed_count_2024_2025": 428,
+    "pmids": [
+      "41648753",
+      "41567193",
+      "41550591"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:bortezomib|||bio:pathway:ubiquitin_proteasome": {
+    "pubmed_count_2024_2025": 25,
+    "pmids": [
+      "41296429",
+      "41264052",
+      "41115069"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:mechanism:proteasome_inhibition|||bio:pathway:ubiquitin_proteasome": {
+    "pubmed_count_2024_2025": 18,
+    "pmids": [
+      "41387670",
+      "41255971",
+      "41067125"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:compound:curcumin|||bio:pathway:nfkb_pathway": {
+    "pubmed_count_2024_2025": 2,
+    "pmids": [
+      "40185300",
+      "39730030"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:compound:curcumin|||bio:disease:rheumatoid_arthritis": {
+    "pubmed_count_2024_2025": 57,
+    "pmids": [
+      "41601662",
+      "41372521",
+      "41370192"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:compound:quercetin|||bio:protein:app": {
+    "pubmed_count_2024_2025": 20,
+    "pmids": [
+      "41383949",
+      "41262070",
+      "40660408"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:mechanism:mtor_inhibition|||bio:pathway:mtor_signaling": {
+    "pubmed_count_2024_2025": 69,
+    "pmids": [
+      "41573866",
+      "41562862",
+      "41472794"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:metformin|||bio:disease:heart_failure": {
+    "pubmed_count_2024_2025": 133,
+    "pmids": [
+      "41575133",
+      "41531619",
+      "41398811"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:compound:berberine|||bio:process:cholesterol_synthesis": {
+    "pubmed_count_2024_2025": 4,
+    "pmids": [
+      "41291157",
+      "40865345",
+      "40106906"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:erlotinib|||bio:disease:lung_cancer": {
+    "pubmed_count_2024_2025": 238,
+    "pmids": [
+      "41948055",
+      "41462168",
+      "41418598"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:metformin|||bio:disease:huntingtons": {
+    "pubmed_count_2024_2025": 6,
+    "pmids": [
+      "41239791",
+      "40482451",
+      "40403503"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:thalidomide|||bio:disease:colon_cancer": {
+    "pubmed_count_2024_2025": 3,
+    "pmids": [
+      "40387023",
+      "38762414",
+      "38324080"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:valproic_acid|||bio:disease:multiple_myeloma": {
+    "pubmed_count_2024_2025": 1,
+    "pmids": [
+      "40834544"
+    ],
+    "label_layer1": "partially_supported",
+    "investigated": 1
+  },
+  "chem:mechanism:hmg_coa_inhibition|||bio:disease:atherosclerosis": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "bio:protein:nfkb|||bio:disease:inflammatory_bowel_disease": {
+    "pubmed_count_2024_2025": 23,
+    "pmids": [
+      "41013217",
+      "40738440",
+      "40678517"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:compound:quercetin|||bio:pathway:amyloid_cascade": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "bio:gene:tp53|||bio:pathway:apoptosis": {
+    "pubmed_count_2024_2025": 957,
+    "pmids": [
+      "41846870",
+      "41716635",
+      "41675270"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:protein:pten|||bio:disease:breast_cancer": {
+    "pubmed_count_2024_2025": 308,
+    "pmids": [
+      "41954340",
+      "41612657",
+      "41584708"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:target:mtor_kinase|||bio:biomarker:ldl_cholesterol": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "bio:gene:snca|||bio:process:protein_aggregation": {
+    "pubmed_count_2024_2025": 23,
+    "pmids": [
+      "41201792",
+      "41190991",
+      "41172742"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:receptor:ppar_gamma|||bio:process:glucose_metabolism": {
+    "pubmed_count_2024_2025": 93,
+    "pmids": [
+      "41462594",
+      "41440884",
+      "41407819"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:sildenafil|||bio:process:cholesterol_synthesis": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "bio:pathway:neuroinflammation|||bio:disease:huntingtons": {
+    "pubmed_count_2024_2025": 220,
+    "pmids": [
+      "41614741",
+      "41602154",
+      "41581940"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:compound:berberine|||bio:disease:type2_diabetes": {
+    "pubmed_count_2024_2025": 62,
+    "pmids": [
+      "41799384",
+      "41505913",
+      "41476996"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:mechanism:mtor_inhibition|||bio:pathway:pi3k_akt": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "chem:mechanism:proteasome_inhibition|||bio:process:protein_aggregation": {
+    "pubmed_count_2024_2025": 4,
+    "pmids": [
+      "39601510",
+      "39316746",
+      "38835240"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:hydroxychloroquine|||bio:pathway:mtor_signaling": {
+    "pubmed_count_2024_2025": 4,
+    "pmids": [
+      "41504063",
+      "40897974",
+      "40619511"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:mechanism:hdac_inhibition|||bio:process:epigenetic_silencing": {
+    "pubmed_count_2024_2025": 1,
+    "pmids": [
+      "38280930"
+    ],
+    "label_layer1": "partially_supported",
+    "investigated": 1
+  },
+  "chem:target:bace1_enzyme|||bio:protein:app": {
+    "pubmed_count_2024_2025": 230,
+    "pmids": [
+      "41595571",
+      "41488323",
+      "41422863"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:mechanism:mtor_inhibition|||bio:disease:type2_diabetes": {
+    "pubmed_count_2024_2025": 5,
+    "pmids": [
+      "41222548",
+      "41165878",
+      "40737109"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:protein:bdnf|||bio:disease:parkinsons": {
+    "pubmed_count_2024_2025": 171,
+    "pmids": [
+      "41595556",
+      "41562905",
+      "41516320"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:nilotinib|||bio:protein:egfr": {
+    "pubmed_count_2024_2025": 4,
+    "pmids": [
+      "39009935",
+      "38281820",
+      "38096682"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:biomarker:amyloid_beta42|||bio:disease:alzheimers": {
+    "pubmed_count_2024_2025": 80,
+    "pmids": [
+      "41560134",
+      "41422676",
+      "41407844"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:target:bace1_enzyme|||bio:pathway:amyloid_cascade": {
+    "pubmed_count_2024_2025": 12,
+    "pmids": [
+      "41154195",
+      "40993924",
+      "40362488"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:compound:quercetin|||bio:disease:alzheimers": {
+    "pubmed_count_2024_2025": 176,
+    "pmids": [
+      "41515408",
+      "41502755",
+      "41479381"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:compound:epigallocatechin|||bio:process:tumor_angiogenesis": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "chem:drug:sildenafil|||bio:pathway:pi3k_akt": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "chem:compound:alpha_lipoic_acid|||bio:pathway:oxidative_stress": {
+    "pubmed_count_2024_2025": 158,
+    "pmids": [
+      "41623448",
+      "41508488",
+      "41469453"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:gene:pten_gene|||bio:pathway:pi3k_akt": {
+    "pubmed_count_2024_2025": 8,
+    "pmids": [
+      "41400623",
+      "41389185",
+      "40321699"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:protein:pten|||bio:process:tumor_angiogenesis": {
+    "pubmed_count_2024_2025": 3,
+    "pmids": [
+      "40746889",
+      "38886281",
+      "38479157"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:hydroxychloroquine|||bio:disease:glioblastoma": {
+    "pubmed_count_2024_2025": 1,
+    "pmids": [
+      "40478478"
+    ],
+    "label_layer1": "partially_supported",
+    "investigated": 1
+  },
+  "chem:compound:quercetin|||bio:protein:bace1": {
+    "pubmed_count_2024_2025": 16,
+    "pmids": [
+      "41502755",
+      "41421404",
+      "40899340"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:protein:mapk1|||bio:disease:colon_cancer": {
+    "pubmed_count_2024_2025": 2,
+    "pmids": [
+      "40742050",
+      "38044218"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:ruxolitinib|||bio:pathway:jak_stat": {
+    "pubmed_count_2024_2025": 50,
+    "pmids": [
+      "41497580",
+      "41472683",
+      "41395290"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:target:vegfr_target|||bio:process:tumor_angiogenesis": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "chem:mechanism:ampk_activation|||bio:pathway:mtor_signaling": {
+    "pubmed_count_2024_2025": 25,
+    "pmids": [
+      "41427327",
+      "41414677",
+      "41362763"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:memantine|||bio:receptor:nmda_receptor": {
+    "pubmed_count_2024_2025": 98,
+    "pmids": [
+      "41531659",
+      "41452429",
+      "41446876"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:receptor:glucocorticoid_receptor|||bio:disease:psoriasis": {
+    "pubmed_count_2024_2025": 3,
+    "pmids": [
+      "41573728",
+      "40744405",
+      "38389423"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:target:jak2_kinase_target|||bio:protein:stat3": {
+    "pubmed_count_2024_2025": 388,
+    "pmids": [
+      "41728179",
+      "41573199",
+      "41526750"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:trastuzumab|||bio:pathway:pi3k_akt": {
+    "pubmed_count_2024_2025": 8,
+    "pmids": [
+      "40729049",
+      "40683573",
+      "40133809"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:mechanism:cox_inhibition|||bio:disease:alzheimers": {
+    "pubmed_count_2024_2025": 1,
+    "pmids": [
+      "40907839"
+    ],
+    "label_layer1": "partially_supported",
+    "investigated": 1
+  },
+  "bio:protein:gsk3b|||bio:biomarker:tau_protein": {
+    "pubmed_count_2024_2025": 12,
+    "pmids": [
+      "41318068",
+      "41250640",
+      "41244831"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:protein:egfr|||bio:disease:colon_cancer": {
+    "pubmed_count_2024_2025": 107,
+    "pmids": [
+      "41589240",
+      "41418598",
+      "41405165"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:pioglitazone|||bio:pathway:insulin_signaling": {
+    "pubmed_count_2024_2025": 7,
+    "pmids": [
+      "41320887",
+      "40076566",
+      "39636405"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:mechanism:sirt1_activation|||bio:protein:foxo3": {
+    "pubmed_count_2024_2025": 5,
+    "pmids": [
+      "41276935",
+      "40859434",
+      "40216168"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:valproic_acid|||bio:disease:leukemia_cml": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "chem:mechanism:mtor_inhibition|||bio:disease:huntingtons": {
+    "pubmed_count_2024_2025": 2,
+    "pmids": [
+      "40392702",
+      "38854023"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:mechanism:nrf2_activation|||bio:disease:glioblastoma": {
+    "pubmed_count_2024_2025": 3,
+    "pmids": [
+      "41663838",
+      "40298811",
+      "37749236"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:pathway:neuroinflammation|||bio:disease:parkinsons": {
+    "pubmed_count_2024_2025": 1860,
+    "pmids": [
+      "41756116",
+      "41743798",
+      "41640521"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:process:mitochondrial_dysfunction|||bio:protein:sod1": {
+    "pubmed_count_2024_2025": 69,
+    "pmids": [
+      "41506100",
+      "41462929",
+      "41462644"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:hydroxychloroquine|||bio:pathway:pi3k_akt": {
+    "pubmed_count_2024_2025": 1,
+    "pmids": [
+      "38513896"
+    ],
+    "label_layer1": "partially_supported",
+    "investigated": 1
+  },
+  "chem:drug:sildenafil|||bio:pathway:autophagy": {
+    "pubmed_count_2024_2025": 1,
+    "pmids": [
+      "41005622"
+    ],
+    "label_layer1": "partially_supported",
+    "investigated": 1
+  },
+  "chem:target:her2_receptor_target|||bio:pathway:pi3k_akt": {
+    "pubmed_count_2024_2025": 11,
+    "pmids": [
+      "41300448",
+      "41208884",
+      "40842076"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:rapamycin|||bio:pathway:ampk_pathway": {
+    "pubmed_count_2024_2025": 25,
+    "pmids": [
+      "41429663",
+      "41321524",
+      "41191614"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:mechanism:hmg_coa_inhibition|||bio:biomarker:ldl_cholesterol": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "bio:protein:brca1|||bio:disease:breast_cancer": {
+    "pubmed_count_2024_2025": 1284,
+    "pmids": [
+      "41704472",
+      "41701219",
+      "41669295"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:bortezomib|||bio:process:protein_aggregation": {
+    "pubmed_count_2024_2025": 2,
+    "pmids": [
+      "41264052",
+      "40305312"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:protein:gsk3b|||bio:process:tau_hyperphosphorylation": {
+    "pubmed_count_2024_2025": 5,
+    "pmids": [
+      "41518901",
+      "40867577",
+      "40853403"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:receptor:ppar_gamma|||bio:process:insulin_resistance": {
+    "pubmed_count_2024_2025": 154,
+    "pmids": [
+      "41789211",
+      "41573201",
+      "41492460"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:compound:berberine|||bio:disease:huntingtons": {
+    "pubmed_count_2024_2025": 4,
+    "pmids": [
+      "40755499",
+      "40454536",
+      "40377895"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:receptor:tlr4|||bio:disease:rheumatoid_arthritis": {
+    "pubmed_count_2024_2025": 89,
+    "pmids": [
+      "41613108",
+      "41508268",
+      "41398286"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:lithium_carbonate|||bio:disease:colon_cancer": {
+    "pubmed_count_2024_2025": 1,
+    "pmids": [
+      "39281337"
+    ],
+    "label_layer1": "partially_supported",
+    "investigated": 1
+  },
+  "chem:drug:metformin|||bio:disease:type2_diabetes": {
+    "pubmed_count_2024_2025": 1879,
+    "pmids": [
+      "41939519",
+      "41938318",
+      "41938311"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:compound:luteolin|||bio:process:tumor_angiogenesis": {
+    "pubmed_count_2024_2025": 1,
+    "pmids": [
+      "39395766"
+    ],
+    "label_layer1": "partially_supported",
+    "investigated": 1
+  },
+  "bio:pathway:dna_damage_response|||bio:disease:multiple_myeloma": {
+    "pubmed_count_2024_2025": 13,
+    "pmids": [
+      "41315184",
+      "41188812",
+      "41155462"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:mechanism:wnt_inhibition|||bio:disease:colon_cancer": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "chem:drug:sildenafil|||bio:disease:glioblastoma": {
+    "pubmed_count_2024_2025": 1,
+    "pmids": [
+      "38712133"
+    ],
+    "label_layer1": "partially_supported",
+    "investigated": 1
+  },
+  "chem:drug:metformin|||bio:disease:alzheimers": {
+    "pubmed_count_2024_2025": 118,
+    "pmids": [
+      "41814705",
+      "41473419",
+      "41453655"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:pathway:angiogenesis|||bio:process:tumor_angiogenesis": {
+    "pubmed_count_2024_2025": 795,
+    "pmids": [
+      "41755605",
+      "41657775",
+      "41626159"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:mechanism:mtor_inhibition|||bio:disease:breast_cancer": {
+    "pubmed_count_2024_2025": 16,
+    "pmids": [
+      "41413590",
+      "41406241",
+      "41255280"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:ruxolitinib|||bio:protein:stat3": {
+    "pubmed_count_2024_2025": 68,
+    "pmids": [
+      "41511345",
+      "41497807",
+      "41406909"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:protein:bcl2|||bio:disease:multiple_myeloma": {
+    "pubmed_count_2024_2025": 103,
+    "pmids": [
+      "41657780",
+      "41624733",
+      "41439242"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:aspirin|||bio:pathway:amyloid_cascade": {
+    "pubmed_count_2024_2025": 1,
+    "pmids": [
+      "39141762"
+    ],
+    "label_layer1": "partially_supported",
+    "investigated": 1
+  },
+  "chem:mechanism:tyrosine_kinase_inhibition|||bio:disease:leukemia_cml": {
+    "pubmed_count_2024_2025": 3,
+    "pmids": [
+      "41477582",
+      "41120674",
+      "39583986"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:gene:apoe4|||bio:disease:alzheimers": {
+    "pubmed_count_2024_2025": 656,
+    "pmids": [
+      "41602222",
+      "41595571",
+      "41585268"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "bio:protein:vegf|||bio:disease:glioblastoma": {
+    "pubmed_count_2024_2025": 105,
+    "pmids": [
+      "41516249",
+      "41516199",
+      "41476211"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:hydroxychloroquine|||bio:disease:huntingtons": {
+    "pubmed_count_2024_2025": 0,
+    "pmids": [],
+    "label_layer1": "not_investigated",
+    "investigated": 0
+  },
+  "chem:drug:pioglitazone|||bio:receptor:ppar_gamma": {
+    "pubmed_count_2024_2025": 109,
+    "pmids": [
+      "41789211",
+      "41583325",
+      "41492460"
+    ],
+    "label_layer1": "supported",
+    "investigated": 1
+  },
+  "chem:drug:bortezomib|||bio:disease:multiple_myeloma": {
+    "pubmed_count_2024_2025": 674,
+    "investigated": 1,
+    "label": "supported"
+  },
+  "chem:compound:nicotinamide_riboside|||bio:protein:foxo3": {
+    "pubmed_count_2024_2025": 3,
+    "investigated": 1,
+    "label": "supported"
+  },
+  "chem:mechanism:proteasome_inhibition|||bio:disease:multiple_myeloma": {
+    "pubmed_count_2024_2025": 31,
+    "investigated": 1,
+    "label": "supported"
+  },
+  "chem:mechanism:nrf2_activation|||bio:protein:sod1": {
+    "pubmed_count_2024_2025": 8,
+    "investigated": 1,
+    "label": "supported"
+  },
+  "chem:drug:everolimus|||bio:pathway:ampk_pathway": {
+    "pubmed_count_2024_2025": 0,
+    "investigated": 0,
+    "label": "none"
+  },
+  "chem:mechanism:nrf2_activation|||bio:disease:parkinsons": {
+    "pubmed_count_2024_2025": 21,
+    "investigated": 1,
+    "label": "supported"
+  },
+  "chem:drug:bortezomib|||bio:disease:leukemia_cml": {
+    "pubmed_count_2024_2025": 2,
+    "investigated": 1,
+    "label": "supported"
+  },
+  "chem:mechanism:proteasome_inhibition|||bio:disease:leukemia_cml": {
+    "pubmed_count_2024_2025": 1,
+    "investigated": 1,
+    "label": "partial"
+  },
+  "chem:drug:bortezomib|||bio:pathway:apoptosis": {
+    "pubmed_count_2024_2025": 173,
+    "investigated": 1,
+    "label": "supported"
+  },
+  "chem:drug:everolimus|||bio:disease:alzheimers": {
+    "pubmed_count_2024_2025": 1,
+    "investigated": 1,
+    "label": "partial"
+  },
+  "chem:drug:sorafenib|||bio:process:tumor_angiogenesis": {
+    "pubmed_count_2024_2025": 13,
+    "investigated": 1,
+    "label": "supported"
+  },
+  "chem:drug:everolimus|||bio:pathway:pi3k_akt": {
+    "pubmed_count_2024_2025": 1,
+    "investigated": 1,
+    "label": "partial"
+  },
+  "chem:drug:everolimus|||bio:disease:heart_failure": {
+    "pubmed_count_2024_2025": 27,
+    "investigated": 1,
+    "label": "supported"
+  },
+  "chem:compound:curcumin|||bio:process:ros_production": {
+    "pubmed_count_2024_2025": 73,
+    "investigated": 1,
+    "label": "supported"
+  },
+  "chem:mechanism:ppar_activation|||bio:process:insulin_resistance": {
+    "pubmed_count_2024_2025": 2,
+    "investigated": 1
+  },
+  "chem:compound:resveratrol|||bio:pathway:mtor_signaling": {
+    "pubmed_count_2024_2025": 18,
+    "investigated": 1
+  },
+  "chem:target:hdac_target|||bio:disease:colon_cancer": {
+    "pubmed_count_2024_2025": 0,
+    "investigated": 0
+  },
+  "chem:compound:nicotinamide_riboside|||bio:process:cell_senescence": {
+    "pubmed_count_2024_2025": 1,
+    "investigated": 1
+  },
+  "chem:compound:epigallocatechin|||bio:process:ros_production": {
+    "pubmed_count_2024_2025": 27,
+    "investigated": 1
+  },
+  "chem:compound:epigallocatechin|||bio:pathway:oxidative_stress": {
+    "pubmed_count_2024_2025": 267,
+    "investigated": 1
+  },
+  "chem:compound:fisetin|||bio:pathway:wnt_signaling": {
+    "pubmed_count_2024_2025": 4,
+    "investigated": 1
+  },
+  "chem:compound:spermidine|||bio:pathway:ampk_pathway": {
+    "pubmed_count_2024_2025": 0,
+    "investigated": 0
+  },
+  "chem:compound:curcumin|||bio:pathway:oxidative_stress": {
+    "pubmed_count_2024_2025": 873,
+    "investigated": 1
+  },
+  "chem:compound:alpha_lipoic_acid|||bio:process:ros_production": {
+    "pubmed_count_2024_2025": 3,
+    "investigated": 1
+  },
+  "chem:compound:curcumin|||bio:pathway:wnt_signaling": {
+    "pubmed_count_2024_2025": 19,
+    "investigated": 1
+  },
+  "chem:compound:coenzyme_q10|||bio:protein:sod1": {
+    "pubmed_count_2024_2025": 0,
+    "investigated": 0
+  },
+  "chem:drug:venetoclax|||bio:disease:leukemia_cml": {
+    "pubmed_count_2024_2025": 2,
+    "investigated": 1
+  },
+  "chem:drug:venetoclax|||bio:disease:multiple_myeloma": {
+    "pubmed_count_2024_2025": 69,
+    "investigated": 1
+  },
+  "chem:mechanism:ppar_activation|||bio:process:glucose_metabolism": {
+    "pubmed_count_2024_2025": 1,
+    "investigated": 1
+  },
+  "chem:drug:rosiglitazone|||bio:process:glucose_metabolism": {
+    "pubmed_count_2024_2025": 22,
+    "investigated": 1
+  },
+  "chem:drug:imatinib|||bio:disease:lung_cancer": {
+    "pubmed_count_2024_2025": 14,
+    "investigated": 1
+  },
+  "chem:drug:nilotinib|||bio:disease:leukemia_cml": {
+    "pubmed_count_2024_2025": 97,
+    "investigated": 1
+  },
+  "chem:drug:atorvastatin|||bio:disease:atherosclerosis": {
+    "pubmed_count_2024_2025": 119,
+    "investigated": 1
+  },
+  "chem:compound:coenzyme_q10|||bio:disease:parkinsons": {
+    "pubmed_count_2024_2025": 15,
+    "investigated": 1
+  },
+  "chem:drug:sorafenib|||bio:disease:glioblastoma": {
+    "pubmed_count_2024_2025": 13,
+    "investigated": 1
+  },
+  "chem:drug:trastuzumab|||bio:disease:breast_cancer": {
+    "pubmed_count_2024_2025": 1501,
+    "investigated": 1
+  },
+  "chem:target:hmg_coa_reductase|||bio:disease:atherosclerosis": {
+    "pubmed_count_2024_2025": 25,
+    "investigated": 1
+  },
+  "chem:drug:everolimus|||bio:process:protein_aggregation": {
+    "pubmed_count_2024_2025": 0,
+    "investigated": 0
+  },
+  "chem:target:mtor_kinase|||bio:disease:breast_cancer": {
+    "pubmed_count_2024_2025": 2,
+    "investigated": 1
+  },
+  "chem:compound:luteolin|||bio:disease:parkinsons": {
+    "pubmed_count_2024_2025": 19,
+    "investigated": 1
+  },
+  "chem:target:jak2_kinase_target|||bio:disease:leukemia_cml": {
+    "pubmed_count_2024_2025": 5,
+    "investigated": 1
+  },
+  "chem:target:mtor_kinase|||bio:process:protein_aggregation": {
+    "pubmed_count_2024_2025": 1,
+    "investigated": 1
+  },
+  "chem:compound:apigenin|||bio:disease:leukemia_cml": {
+    "pubmed_count_2024_2025": 0,
+    "investigated": 0
+  },
+  "chem:drug:pioglitazone|||bio:process:glucose_metabolism": {
+    "pubmed_count_2024_2025": 35,
+    "investigated": 1
+  },
+  "chem:compound:sulforaphane|||bio:process:lipid_peroxidation": {
+    "pubmed_count_2024_2025": 19,
+    "investigated": 1
+  },
+  "chem:compound:sulforaphane|||bio:protein:sod1": {
+    "pubmed_count_2024_2025": 6,
+    "investigated": 1
+  },
+  "chem:drug:ruxolitinib|||bio:disease:leukemia_cml": {
+    "pubmed_count_2024_2025": 2,
+    "investigated": 1
+  },
+  "chem:compound:nicotinamide_riboside|||bio:pathway:autophagy": {
+    "pubmed_count_2024_2025": 14,
+    "investigated": 1
+  },
+  "chem:drug:erlotinib|||bio:pathway:pi3k_akt": {
+    "pubmed_count_2024_2025": 6,
+    "investigated": 1
+  },
+  "chem:mechanism:jak_inhibition|||bio:disease:leukemia_cml": {
+    "pubmed_count_2024_2025": 0,
+    "investigated": 0
+  },
+  "chem:compound:alpha_lipoic_acid|||bio:protein:sod1": {
+    "pubmed_count_2024_2025": 3,
+    "investigated": 1
+  },
+  "chem:compound:alpha_lipoic_acid|||bio:disease:als": {
+    "pubmed_count_2024_2025": 2,
+    "investigated": 1
+  },
+  "chem:compound:luteolin|||bio:disease:alzheimers": {
+    "pubmed_count_2024_2025": 40,
+    "investigated": 1
+  },
+  "chem:compound:luteolin|||bio:disease:huntingtons": {
+    "pubmed_count_2024_2025": 5,
+    "investigated": 1
+  },
+  "chem:target:her2_receptor_target|||bio:disease:breast_cancer": {
+    "pubmed_count_2024_2025": 1754,
+    "investigated": 1
+  },
+  "chem:drug:lenalidomide|||bio:pathway:pi3k_akt": {
+    "pubmed_count_2024_2025": 2,
+    "investigated": 1
+  },
+  "chem:drug:ruxolitinib|||bio:disease:rheumatoid_arthritis": {
+    "pubmed_count_2024_2025": 10,
+    "investigated": 1
+  },
+  "chem:compound:sulforaphane|||bio:disease:parkinsons": {
+    "pubmed_count_2024_2025": 7,
+    "investigated": 1
+  },
+  "chem:compound:alpha_lipoic_acid|||bio:disease:parkinsons": {
+    "pubmed_count_2024_2025": 5,
+    "investigated": 1
+  },
+  "chem:compound:resveratrol|||bio:protein:foxo3": {
+    "pubmed_count_2024_2025": 5,
+    "investigated": 1
+  },
+  "chem:drug:imatinib|||bio:disease:leukemia_cml": {
+    "pubmed_count_2024_2025": 303,
+    "investigated": 1
+  },
+  "chem:target:bace1_enzyme|||bio:disease:alzheimers": {
+    "pubmed_count_2024_2025": 443,
+    "investigated": 1
+  },
+  "chem:drug:imatinib|||bio:pathway:mapk_erk": {
+    "pubmed_count_2024_2025": 1,
+    "investigated": 1
+  },
+  "chem:mechanism:sirt1_activation|||bio:pathway:autophagy": {
+    "pubmed_count_2024_2025": 14,
+    "investigated": 1
+  },
+  "chem:mechanism:nrf2_activation|||bio:disease:nafld": {
+    "pubmed_count_2024_2025": 2,
+    "investigated": 1
+  },
+  "chem:compound:epigallocatechin|||bio:disease:type2_diabetes": {
+    "pubmed_count_2024_2025": 22,
+    "investigated": 1
+  },
+  "chem:mechanism:sirt1_activation|||bio:disease:type2_diabetes": {
+    "pubmed_count_2024_2025": 6,
+    "investigated": 1
+  },
+  "chem:compound:luteolin|||bio:process:ros_production": {
+    "pubmed_count_2024_2025": 20,
+    "investigated": 1
+  },
+  "chem:compound:pterostilbene|||bio:protein:foxo3": {
+    "pubmed_count_2024_2025": 0,
+    "investigated": 0
+  },
+  "chem:compound:luteolin|||bio:pathway:oxidative_stress": {
+    "pubmed_count_2024_2025": 258,
+    "investigated": 1
+  },
+  "chem:compound:kaempferol|||bio:pathway:amyloid_cascade": {
+    "pubmed_count_2024_2025": 0,
+    "investigated": 0
+  },
+  "chem:mechanism:sirt1_activation|||bio:pathway:ampk_pathway": {
+    "pubmed_count_2024_2025": 0,
+    "investigated": 0
+  },
+  "chem:compound:epigallocatechin|||bio:process:cholesterol_synthesis": {
+    "pubmed_count_2024_2025": 1,
+    "investigated": 1
+  },
+  "chem:compound:fisetin|||bio:disease:atherosclerosis": {
+    "pubmed_count_2024_2025": 5,
+    "investigated": 1
+  },
+  "chem:compound:kaempferol|||bio:protein:app": {
+    "pubmed_count_2024_2025": 8,
+    "investigated": 1
+  },
+  "chem:mechanism:sirt1_activation|||bio:disease:atherosclerosis": {
+    "pubmed_count_2024_2025": 1,
+    "investigated": 1
+  },
+  "chem:mechanism:pde5_inhibition|||bio:process:neurodegeneration": {
+    "pubmed_count_2024_2025": 0,
+    "investigated": 0
+  },
+  "chem:compound:coenzyme_q10|||bio:disease:als": {
+    "pubmed_count_2024_2025": 1,
+    "investigated": 1
+  },
+  "chem:compound:sulforaphane|||bio:disease:nafld": {
+    "pubmed_count_2024_2025": 1,
+    "investigated": 1
+  },
+  "chem:compound:resveratrol|||bio:process:protein_aggregation": {
+    "pubmed_count_2024_2025": 11,
+    "investigated": 1
+  },
+  "chem:drug:pioglitazone|||bio:biomarker:hba1c": {
+    "pubmed_count_2024_2025": 42,
+    "investigated": 1
+  },
+  "chem:drug:rosiglitazone|||bio:biomarker:hba1c": {
+    "pubmed_count_2024_2025": 5,
+    "investigated": 1
+  },
+  "chem:drug:thalidomide|||bio:disease:breast_cancer": {
+    "pubmed_count_2024_2025": 0,
+    "investigated": 0
+  },
+  "chem:compound:resveratrol|||bio:pathway:autophagy": {
+    "pubmed_count_2024_2025": 165,
+    "investigated": 1
+  },
+  "chem:mechanism:sirt1_activation|||bio:process:protein_aggregation": {
+    "pubmed_count_2024_2025": 1,
+    "investigated": 1
+  },
+  "chem:metabolite:reactive_oxygen_species|||bio:disease:als": {
+    "pubmed_count_2024_2025": 73,
+    "investigated": 1
+  },
+  "chem:metabolite:ceramide|||bio:disease:multiple_myeloma": {
+    "pubmed_count_2024_2025": 3,
+    "investigated": 1
+  },
+  "chem:metabolite:nitric_oxide|||bio:process:neurodegeneration": {
+    "pubmed_count_2024_2025": 125,
+    "investigated": 1
+  },
+  "chem:metabolite:camp|||bio:process:protein_aggregation": {
+    "pubmed_count_2024_2025": 4,
+    "investigated": 1
+  },
+  "chem:metabolite:reactive_oxygen_species|||bio:disease:alzheimers": {
+    "pubmed_count_2024_2025": 763,
+    "investigated": 1
+  },
+  "chem:metabolite:reactive_oxygen_species|||bio:disease:parkinsons": {
+    "pubmed_count_2024_2025": 497,
+    "investigated": 1
+  },
+  "chem:metabolite:glutathione|||bio:disease:parkinsons": {
+    "pubmed_count_2024_2025": 227,
+    "investigated": 1
+  },
+  "chem:metabolite:reactive_oxygen_species|||bio:disease:huntingtons": {
+    "pubmed_count_2024_2025": 55,
+    "investigated": 1
+  },
+  "chem:metabolite:glutathione|||bio:disease:alzheimers": {
+    "pubmed_count_2024_2025": 305,
+    "investigated": 1
+  },
+  "chem:metabolite:glutathione|||bio:disease:huntingtons": {
+    "pubmed_count_2024_2025": 18,
+    "investigated": 1
+  },
+  "chem:metabolite:nad_plus|||bio:protein:foxo3": {
+    "pubmed_count_2024_2025": 17,
+    "investigated": 1
+  },
+  "chem:metabolite:glutathione|||bio:protein:sod1": {
+    "pubmed_count_2024_2025": 150,
+    "investigated": 1
+  },
+  "chem:metabolite:kynurenine|||bio:disease:lupus": {
+    "pubmed_count_2024_2025": 8,
+    "investigated": 1
+  },
+  "chem:metabolite:kynurenine|||bio:disease:parkinsons": {
+    "pubmed_count_2024_2025": 25,
+    "investigated": 1
+  },
+  "chem:metabolite:kynurenine|||bio:disease:huntingtons": {
+    "pubmed_count_2024_2025": 5,
+    "investigated": 1
+  },
+  "chem:metabolite:kynurenine|||bio:disease:alzheimers": {
+    "pubmed_count_2024_2025": 48,
+    "investigated": 1
+  },
+  "chem:metabolite:ceramide|||bio:disease:leukemia_cml": {
+    "pubmed_count_2024_2025": 1,
+    "investigated": 1
+  },
+  "chem:metabolite:reactive_oxygen_species|||bio:disease:atherosclerosis": {
+    "pubmed_count_2024_2025": 485,
+    "investigated": 1
+  },
+  "chem:metabolite:ceramide|||bio:disease:parkinsons": {
+    "pubmed_count_2024_2025": 28,
+    "investigated": 1
+  },
+  "chem:metabolite:glutathione|||bio:disease:als": {
+    "pubmed_count_2024_2025": 44,
+    "investigated": 1
+  },
+  "chem:metabolite:ceramide|||bio:disease:alzheimers": {
+    "pubmed_count_2024_2025": 47,
+    "investigated": 1
+  },
+  "chem:metabolite:ceramide|||bio:disease:huntingtons": {
+    "pubmed_count_2024_2025": 1,
+    "investigated": 1
+  },
+  "chem:metabolite:nitric_oxide|||bio:protein:sod1": {
+    "pubmed_count_2024_2025": 35,
+    "investigated": 1
+  },
+  "chem:mechanism:nrf2_activation|||bio:process:ros_production": {
+    "pubmed_count_2024_2025": 23,
+    "investigated": 1
+  },
+  "chem:mechanism:nrf2_activation|||bio:disease:alzheimers": {
+    "pubmed_count_2024_2025": 22,
+    "investigated": 1
+  },
+  "chem:mechanism:nrf2_activation|||bio:disease:huntingtons": {
+    "pubmed_count_2024_2025": 3,
+    "investigated": 1
+  },
+  "chem:metabolite:nitric_oxide|||bio:disease:als": {
+    "pubmed_count_2024_2025": 10,
+    "investigated": 1
+  },
+  "chem:metabolite:reactive_oxygen_species|||bio:process:ros_production": {
+    "pubmed_count_2024_2025": 4674,
+    "investigated": 1
+  },
+  "chem:mechanism:nrf2_activation|||bio:process:neurodegeneration": {
+    "pubmed_count_2024_2025": 23,
+    "investigated": 1
+  },
+  "chem:metabolite:reactive_oxygen_species|||bio:protein:sod1": {
+    "pubmed_count_2024_2025": 275,
+    "investigated": 1
+  },
+  "chem:metabolite:nitric_oxide|||bio:disease:parkinsons": {
+    "pubmed_count_2024_2025": 110,
+    "investigated": 1
+  },
+  "chem:metabolite:nitric_oxide|||bio:disease:alzheimers": {
+    "pubmed_count_2024_2025": 183,
+    "investigated": 1
+  },
+  "chem:metabolite:glutathione|||bio:process:neurodegeneration": {
+    "pubmed_count_2024_2025": 221,
+    "investigated": 1
+  },
+  "chem:metabolite:nitric_oxide|||bio:disease:huntingtons": {
+    "pubmed_count_2024_2025": 8,
+    "investigated": 1
+  }
+}

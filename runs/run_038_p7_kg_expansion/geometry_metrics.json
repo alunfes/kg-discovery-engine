@@ -1,0 +1,22 @@
+{
+  "M1_cd_density": 0.4858,
+  "M1_baseline": 0.3877,
+  "M1_improvement": 1.253,
+  "M1_target_gt_1_5x": false,
+  "M2_mean_cdr_L4p": 0.6525,
+  "M2_target_gt_0_30": true,
+  "M3_max_l3_quota": 70,
+  "M3_max_l4p_quota": 70,
+  "M3_target_l4p_ge_5": true,
+  "mean_cdr_L2": 0.5,
+  "mean_cdr_L3": 0.6192,
+  "n_l2": 248,
+  "n_l3": 443,
+  "n_l4p": 1308,
+  "n_multi_cross_l3": 190,
+  "n_multi_cross_l4p": 1044,
+  "unique_endpoint_pairs": 959,
+  "H_P7_1_ge_200_pairs": true,
+  "H_P7_2_l3_cdr_ge_0_40": true,
+  "H_P7_3_l4p_quota_gt_20": true
+}

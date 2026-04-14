@@ -1,0 +1,93 @@
+{
+  "B1_P7": {
+    "investigability": {
+      "n": 70,
+      "investigability_rate": 0.8857,
+      "investigated_count": 62
+    },
+    "novelty": {
+      "mean_cross_domain_ratio": 0.5,
+      "novelty_retention": 1.0,
+      "novelty_ok": true
+    },
+    "long_path": {
+      "long_path_count": 0,
+      "long_path_share": 0.0
+    },
+    "stratum": {
+      "L2": {
+        "n": 70,
+        "investigated": 62,
+        "investigability": 0.8857,
+        "mean_cdr": 0.5
+      }
+    }
+  },
+  "B2_P7": {
+    "investigability": {
+      "n": 70,
+      "investigability_rate": 0.9714,
+      "investigated_count": 68
+    },
+    "novelty": {
+      "mean_cross_domain_ratio": 0.5,
+      "novelty_retention": 1.0,
+      "novelty_ok": true
+    },
+    "long_path": {
+      "long_path_count": 0,
+      "long_path_share": 0.0
+    },
+    "stratum": {
+      "L2": {
+        "n": 70,
+        "investigated": 68,
+        "investigability": 0.9714,
+        "mean_cdr": 0.5
+      }
+    }
+  },
+  "T3_P7": {
+    "investigability": {
+      "n": 70,
+      "investigability_rate": 0.9857,
+      "investigated_count": 69
+    },
+    "novelty": {
+      "mean_cross_domain_ratio": 0.6595,
+      "novelty_retention": 1.319,
+      "novelty_ok": true
+    },
+    "long_path": {
+      "long_path_count": 35,
+      "long_path_share": 0.5
+    },
+    "stratum": {
+      "L2": {
+        "n": 35,
+        "investigated": 34,
+        "investigability": 0.9714,
+        "mean_cdr": 0.5
+      },
+      "L3": {
+        "n": 20,
+        "investigated": 20,
+        "investigability": 1.0,
+        "mean_cdr": 0.8333
+      },
+      "L4+": {
+        "n": 15,
+        "investigated": 15,
+        "investigability": 1.0,
+        "mean_cdr": 0.8
+      }
+    },
+    "quotas": {
+      "design": "3-bucket (L2/L3/L4+)",
+      "L2": 35,
+      "L3": 20,
+      "L4+": 15,
+      "rationale": "M2=0.652 > 0.40 → L4+ viable"
+    }
+  }
+}

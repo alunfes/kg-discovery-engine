@@ -1,0 +1,8 @@
+{
+  "outcome": "STRONG_SUCCESS",
+  "verdict": "P7 breaks geometry ceiling: inv > 0.943 + novelty ≥ 0.90 + long_path > 0.30",
+  "M4_investigability": 0.9857,
+  "M5_novelty_retention": 1.319,
+  "M6_long_path_share": 0.5,
+  "M2_mean_cdr_L4p": 0.6525
+}
