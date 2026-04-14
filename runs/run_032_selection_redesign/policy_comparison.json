@@ -1,0 +1,212 @@
+{
+  "run_id": "run_032_selection_redesign",
+  "date": "2026-04-14T14:35:42Z",
+  "seed": 42,
+  "target_n": 70,
+  "policies": [
+    {
+      "name": "A_baseline",
+      "label": "Baseline (shortest-path top-k)",
+      "formula": "sort(path_length ASC, path_weight DESC) → top-k",
+      "augmented_quota": 0,
+      "expected_augmented_inclusion": "~0 (displaced by shorter original paths)"
+    },
+    {
+      "name": "B_augmentation_quota",
+      "label": "Augmentation Quota (15 reserved slots)",
+      "formula": "top-15 augmented (shortest-path rank) + top-55 non-augmented",
+      "augmented_quota": 15
+    },
+    {
+      "name": "C_novelty_boost",
+      "label": "Novelty Boost (α=0.5)",
+      "formula": "score = (1 - path_len/max_len) + 0.5 * novelty(path)",
+      "alpha": 0.5,
+      "novelty_components": {
+        "uses_augmented_edge": "+0.3",
+        "path_length_ge_4": "+0.1",
+        "cross_domain": "+0.1"
+      }
+    },
+    {
+      "name": "D_multi_bucket",
+      "label": "Multi-bucket (4 buckets)",
+      "buckets": {
+        "b1_shortest": 35,
+        "b2_augmented": 15,
+        "b3_high_novelty": 10,
+        "b4_mid_density_exploratory": 10
+      }
+    },
+    {
+      "name": "E_reranking_layer",
+      "label": "Reranking Layer (pool=200)",
+      "pool_size": 200,
+      "reranker_formula": "0.4*path_quality + 0.2*density_proxy + 0.2*diversity_penalty + 0.2*aug_bonus",
+      "reranker_weights": {
+        "path_quality": 0.4,
+        "density_proxy": 0.2,
+        "diversity_penalty": 0.2,
+        "augmented_bonus": 0.2
+      }
+    }
+  ],
+  "conditions": {
+    "A_baseline_original": {
+      "condition": "A_baseline_original",
+      "n": 70,
+      "investigated": 62,
+      "failures": 8,
+      "investigability_rate": 0.8857,
+      "failure_rate": 0.1143,
+      "pct_augmented_included": 0.0,
+      "n_augmented_included": 0,
+      "path_diversity": 70,
+      "mean_path_length": 2.0,
+      "mean_path_weight": 0.8121
+    },
+    "A_baseline_augmented": {
+      "condition": "A_baseline_augmented",
+      "n": 70,
+      "investigated": 62,
+      "failures": 8,
+      "investigability_rate": 0.8857,
+      "failure_rate": 0.1143,
+      "pct_augmented_included": 0.0,
+      "n_augmented_included": 0,
+      "path_diversity": 70,
+      "mean_path_length": 2.0,
+      "mean_path_weight": 0.8121
+    },
+    "B_augmentation_quota_original": {
+      "condition": "B_augmentation_quota_original",
+      "n": 70,
+      "investigated": 62,
+      "failures": 8,
+      "investigability_rate": 0.8857,
+      "failure_rate": 0.1143,
+      "pct_augmented_included": 0.0,
+      "n_augmented_included": 0,
+      "path_diversity": 70,
+      "mean_path_length": 2.0,
+      "mean_path_weight": 0.8121
+    },
+    "B_augmentation_quota_augmented": {
+      "condition": "B_augmentation_quota_augmented",
+      "n": 70,
+      "investigated": 58,
+      "failures": 12,
+      "investigability_rate": 0.8286,
+      "failure_rate": 0.1714,
+      "pct_augmented_included": 0.2143,
+      "n_augmented_included": 15,
+      "path_diversity": 70,
+      "mean_path_length": 2.0,
+      "mean_path_weight": 0.771
+    },
+    "C_novelty_boost_original": {
+      "condition": "C_novelty_boost_original",
+      "n": 70,
+      "investigated": 59,
+      "failures": 11,
+      "investigability_rate": 0.8429,
+      "failure_rate": 0.1571,
+      "pct_augmented_included": 0.0,
+      "n_augmented_included": 0,
+      "path_diversity": 70,
+      "mean_path_length": 2.0,
+      "mean_path_weight": 0.6395
+    },
+    "C_novelty_boost_augmented": {
+      "condition": "C_novelty_boost_augmented",
+      "n": 70,
+      "investigated": 55,
+      "failures": 15,
+      "investigability_rate": 0.7857,
+      "failure_rate": 0.2143,
+      "pct_augmented_included": 0.3,
+      "n_augmented_included": 21,
+      "path_diversity": 70,
+      "mean_path_length": 2.0,
+      "mean_path_weight": 0.5831
+    },
+    "D_multi_bucket_original": {
+      "condition": "D_multi_bucket_original",
+      "n": 70,
+      "investigated": 62,
+      "failures": 8,
+      "investigability_rate": 0.8857,
+      "failure_rate": 0.1143,
+      "pct_augmented_included": 0.0,
+      "n_augmented_included": 0,
+      "path_diversity": 70,
+      "mean_path_length": 2.486,
+      "mean_path_weight": 0.7319
+    },
+    "D_multi_bucket_augmented": {
+      "condition": "D_multi_bucket_augmented",
+      "n": 70,
+      "investigated": 57,
+      "failures": 13,
+      "investigability_rate": 0.8143,
+      "failure_rate": 0.1857,
+      "pct_augmented_included": 0.3571,
+      "n_augmented_included": 25,
+      "path_diversity": 70,
+      "mean_path_length": 2.514,
+      "mean_path_weight": 0.6642
+    },
+    "E_reranking_layer_original": {
+      "condition": "E_reranking_layer_original",
+      "n": 70,
+      "investigated": 61,
+      "failures": 9,
+      "investigability_rate": 0.8714,
+      "failure_rate": 0.1286,
+      "pct_augmented_included": 0.0,
+      "n_augmented_included": 0,
+      "path_diversity": 70,
+      "mean_path_length": 2.014,
+      "mean_path_weight": 0.7579
+    },
+    "E_reranking_layer_augmented": {
+      "condition": "E_reranking_layer_augmented",
+      "n": 70,
+      "investigated": 57,
+      "failures": 13,
+      "investigability_rate": 0.8143,
+      "failure_rate": 0.1857,
+      "pct_augmented_included": 0.2571,
+      "n_augmented_included": 18,
+      "path_diversity": 70,
+      "mean_path_length": 2.0,
+      "mean_path_weight": 0.7146
+    },
+    "C1_original": {
+      "condition": "C1_original",
+      "n": 70,
+      "investigated": 68,
+      "failures": 2,
+      "investigability_rate": 0.9714,
+      "failure_rate": 0.0286,
+      "pct_augmented_included": 0.0,
+      "n_augmented_included": 0,
+      "path_diversity": 70,
+      "mean_path_length": 2.0,
+      "mean_path_weight": 0.691
+    },
+    "C1_augmented": {
+      "condition": "C1_augmented",
+      "n": 70,
+      "investigated": 68,
+      "failures": 2,
+      "investigability_rate": 0.9714,
+      "failure_rate": 0.0286,
+      "pct_augmented_included": 0.0,
+      "n_augmented_included": 0,
+      "path_diversity": 70,
+      "mean_path_length": 2.0,
+      "mean_path_weight": 0.6974
+    }
+  }
+}

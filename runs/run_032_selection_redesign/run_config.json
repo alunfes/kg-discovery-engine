@@ -1,0 +1,60 @@
+{
+  "run_id": "run_032_selection_redesign",
+  "run_config": {
+    "date": "2026-04-14T14:35:43Z",
+    "seed": 42,
+    "target_n": 70,
+    "policies": [
+      {
+        "name": "A_baseline",
+        "label": "Baseline (shortest-path top-k)",
+        "formula": "sort(path_length ASC, path_weight DESC) → top-k",
+        "augmented_quota": 0,
+        "expected_augmented_inclusion": "~0 (displaced by shorter original paths)"
+      },
+      {
+        "name": "B_augmentation_quota",
+        "label": "Augmentation Quota (15 reserved slots)",
+        "formula": "top-15 augmented (shortest-path rank) + top-55 non-augmented",
+        "augmented_quota": 15
+      },
+      {
+        "name": "C_novelty_boost",
+        "label": "Novelty Boost (α=0.5)",
+        "formula": "score = (1 - path_len/max_len) + 0.5 * novelty(path)",
+        "alpha": 0.5,
+        "novelty_components": {
+          "uses_augmented_edge": "+0.3",
+          "path_length_ge_4": "+0.1",
+          "cross_domain": "+0.1"
+        }
+      },
+      {
+        "name": "D_multi_bucket",
+        "label": "Multi-bucket (4 buckets)",
+        "buckets": {
+          "b1_shortest": 35,
+          "b2_augmented": 15,
+          "b3_high_novelty": 10,
+          "b4_mid_density_exploratory": 10
+        }
+      },
+      {
+        "name": "E_reranking_layer",
+        "label": "Reranking Layer (pool=200)",
+        "pool_size": 200,
+        "reranker_formula": "0.4*path_quality + 0.2*density_proxy + 0.2*diversity_penalty + 0.2*aug_bonus",
+        "reranker_weights": {
+          "path_quality": 0.4,
+          "density_proxy": 0.2,
+          "diversity_penalty": 0.2,
+          "augmented_bonus": 0.2
+        }
+      }
+    ],
+    "kg_original": "/Users/alun/claude-dev/kg-discovery-engine/.claude/worktrees/trusting-ptolemy/src/scientific_hypothesis/../../src/scientific_hypothesis/bio_chem_kg_full.json",
+    "kg_augmented": "/Users/alun/claude-dev/kg-discovery-engine/.claude/worktrees/trusting-ptolemy/src/scientific_hypothesis/../../src/scientific_hypothesis/bio_chem_kg_augmented.json",
+    "pubmed_window": "2024/01/01 – 2025/12/31",
+    "rate_limit_s": 1.1
+  }
+}

@@ -1,0 +1,1686 @@
+{
+  "condition": "C_novelty_boost_original",
+  "n": 70,
+  "hypotheses": [
+    {
+      "subject_id": "chem:drug:metformin",
+      "subject_label": "Metformin",
+      "object_id": "bio:process:cholesterol_synthesis",
+      "object_label": "Cholesterol Biosynthesis",
+      "path_length": 2,
+      "path": [
+        "chem:drug:metformin",
+        "bio:pathway:ampk_pathway",
+        "bio:process:cholesterol_synthesis"
+      ],
+      "path_weight": 0.6375,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 5,
+      "pmids": [
+        "41291157",
+        "41118580",
+        "40517864"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:metformin",
+      "subject_label": "Metformin",
+      "object_id": "bio:disease:type2_diabetes",
+      "object_label": "Type 2 Diabetes",
+      "path_length": 2,
+      "path": [
+        "chem:drug:metformin",
+        "bio:pathway:ampk_pathway",
+        "bio:disease:type2_diabetes"
+      ],
+      "path_weight": 0.68,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 1879,
+      "pmids": [
+        "41939519",
+        "41938318",
+        "41938311"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:metformin",
+      "subject_label": "Metformin",
+      "object_id": "bio:pathway:ampk_pathway",
+      "object_label": "AMPK Metabolic Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:drug:metformin",
+        "chem:mechanism:ampk_activation",
+        "bio:pathway:ampk_pathway"
+      ],
+      "path_weight": 0.765,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 48,
+      "pmids": [
+        "41624202",
+        "41515170",
+        "41502255"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:rapamycin",
+      "subject_label": "Rapamycin",
+      "object_id": "bio:disease:breast_cancer",
+      "object_label": "Breast Cancer",
+      "path_length": 2,
+      "path": [
+        "chem:drug:rapamycin",
+        "bio:pathway:pi3k_akt",
+        "bio:disease:breast_cancer"
+      ],
+      "path_weight": 0.525,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 166,
+      "pmids": [
+        "41640662",
+        "41509976",
+        "41502518"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:rapamycin",
+      "subject_label": "Rapamycin",
+      "object_id": "bio:pathway:mtor_signaling",
+      "object_label": "mTOR Signaling Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:drug:rapamycin",
+        "chem:mechanism:mtor_inhibition",
+        "bio:pathway:mtor_signaling"
+      ],
+      "path_weight": 0.855,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 865,
+      "pmids": [
+        "41839601",
+        "41656814",
+        "41561043"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:sildenafil",
+      "subject_label": "Sildenafil",
+      "object_id": "bio:pathway:neuroinflammation",
+      "object_label": "Neuroinflammation Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:drug:sildenafil",
+        "chem:mechanism:pde5_inhibition",
+        "bio:pathway:neuroinflammation"
+      ],
+      "path_weight": 0.5225,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 7,
+      "pmids": [
+        "41469822",
+        "41161293",
+        "39451238"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:sildenafil",
+      "subject_label": "Sildenafil",
+      "object_id": "bio:disease:heart_failure",
+      "object_label": "Heart Failure",
+      "path_length": 2,
+      "path": [
+        "chem:drug:sildenafil",
+        "bio:pathway:mtor_signaling",
+        "bio:disease:heart_failure"
+      ],
+      "path_weight": 0.3575,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 36,
+      "pmids": [
+        "41304908",
+        "41258850",
+        "41094728"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:sildenafil",
+      "subject_label": "Sildenafil",
+      "object_id": "bio:pathway:autophagy",
+      "object_label": "Autophagy Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:drug:sildenafil",
+        "bio:pathway:mtor_signaling",
+        "bio:pathway:autophagy"
+      ],
+      "path_weight": 0.4675,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 1,
+      "pmids": [
+        "41005622"
+      ],
+      "label_layer1": "partially_supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:sildenafil",
+      "subject_label": "Sildenafil",
+      "object_id": "bio:pathway:pi3k_akt",
+      "object_label": "PI3K-AKT Signaling Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:drug:sildenafil",
+        "bio:pathway:mtor_signaling",
+        "bio:pathway:pi3k_akt"
+      ],
+      "path_weight": 0.385,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 0,
+      "pmids": [],
+      "label_layer1": "not_investigated",
+      "investigated": 0
+    },
+    {
+      "subject_id": "chem:drug:sildenafil",
+      "subject_label": "Sildenafil",
+      "object_id": "bio:pathway:ampk_pathway",
+      "object_label": "AMPK Metabolic Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:drug:sildenafil",
+        "bio:pathway:mtor_signaling",
+        "bio:pathway:ampk_pathway"
+      ],
+      "path_weight": 0.385,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 0,
+      "pmids": [],
+      "label_layer1": "not_investigated",
+      "investigated": 0
+    },
+    {
+      "subject_id": "chem:drug:sildenafil",
+      "subject_label": "Sildenafil",
+      "object_id": "bio:pathway:mtor_signaling",
+      "object_label": "mTOR Signaling Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:drug:sildenafil",
+        "chem:target:mtor_kinase",
+        "bio:pathway:mtor_signaling"
+      ],
+      "path_weight": 0.5,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 2,
+      "pmids": [
+        "39226294",
+        "39027562"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:aspirin",
+      "subject_label": "Aspirin",
+      "object_id": "bio:protein:tnf_alpha",
+      "object_label": "TNF-alpha Cytokine",
+      "path_length": 2,
+      "path": [
+        "chem:drug:aspirin",
+        "chem:target:cox2_enzyme",
+        "bio:protein:tnf_alpha"
+      ],
+      "path_weight": 0.595,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 59,
+      "pmids": [
+        "41407245",
+        "41393721",
+        "41242519"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:aspirin",
+      "subject_label": "Aspirin",
+      "object_id": "bio:pathway:amyloid_cascade",
+      "object_label": "Amyloid Cascade Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:drug:aspirin",
+        "chem:mechanism:cox_inhibition",
+        "bio:pathway:amyloid_cascade"
+      ],
+      "path_weight": 0.475,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 1,
+      "pmids": [
+        "39141762"
+      ],
+      "label_layer1": "partially_supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:hydroxychloroquine",
+      "subject_label": "Hydroxychloroquine",
+      "object_id": "bio:pathway:pi3k_akt",
+      "object_label": "PI3K-AKT Signaling Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:drug:hydroxychloroquine",
+        "bio:protein:tnf_alpha",
+        "bio:pathway:pi3k_akt"
+      ],
+      "path_weight": 0.39,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 1,
+      "pmids": [
+        "38513896"
+      ],
+      "label_layer1": "partially_supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:hydroxychloroquine",
+      "subject_label": "Hydroxychloroquine",
+      "object_id": "bio:pathway:mtor_signaling",
+      "object_label": "mTOR Signaling Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:drug:hydroxychloroquine",
+        "chem:target:mtor_kinase",
+        "bio:pathway:mtor_signaling"
+      ],
+      "path_weight": 0.6,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 4,
+      "pmids": [
+        "41504063",
+        "40897974",
+        "40619511"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:compound:quercetin",
+      "subject_label": "Quercetin",
+      "object_id": "bio:disease:alzheimers",
+      "object_label": "Alzheimer's Disease",
+      "path_length": 2,
+      "path": [
+        "chem:compound:quercetin",
+        "bio:pathway:amyloid_cascade",
+        "bio:disease:alzheimers"
+      ],
+      "path_weight": 0.54,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 176,
+      "pmids": [
+        "41515408",
+        "41502755",
+        "41479381"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:compound:quercetin",
+      "subject_label": "Quercetin",
+      "object_id": "bio:protein:app",
+      "object_label": "Amyloid Precursor Protein",
+      "path_length": 2,
+      "path": [
+        "chem:compound:quercetin",
+        "bio:protein:bace1",
+        "bio:protein:app"
+      ],
+      "path_weight": 0.585,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 20,
+      "pmids": [
+        "41383949",
+        "41262070",
+        "40660408"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:compound:quercetin",
+      "subject_label": "Quercetin",
+      "object_id": "bio:pathway:amyloid_cascade",
+      "object_label": "Amyloid Cascade Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:compound:quercetin",
+        "bio:protein:bace1",
+        "bio:pathway:amyloid_cascade"
+      ],
+      "path_weight": 0.585,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 0,
+      "pmids": [],
+      "label_layer1": "not_investigated",
+      "investigated": 0
+    },
+    {
+      "subject_id": "chem:compound:quercetin",
+      "subject_label": "Quercetin",
+      "object_id": "bio:protein:bace1",
+      "object_label": "BACE1 Protease",
+      "path_length": 2,
+      "path": [
+        "chem:compound:quercetin",
+        "chem:target:bace1_enzyme",
+        "bio:protein:bace1"
+      ],
+      "path_weight": 0.75,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 16,
+      "pmids": [
+        "41502755",
+        "41421404",
+        "40899340"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:compound:berberine",
+      "subject_label": "Berberine",
+      "object_id": "bio:process:cholesterol_synthesis",
+      "object_label": "Cholesterol Biosynthesis",
+      "path_length": 2,
+      "path": [
+        "chem:compound:berberine",
+        "bio:pathway:ampk_pathway",
+        "bio:process:cholesterol_synthesis"
+      ],
+      "path_weight": 0.525,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 4,
+      "pmids": [
+        "41291157",
+        "40865345",
+        "40106906"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:compound:berberine",
+      "subject_label": "Berberine",
+      "object_id": "bio:disease:type2_diabetes",
+      "object_label": "Type 2 Diabetes",
+      "path_length": 2,
+      "path": [
+        "chem:compound:berberine",
+        "bio:pathway:ampk_pathway",
+        "bio:disease:type2_diabetes"
+      ],
+      "path_weight": 0.56,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 62,
+      "pmids": [
+        "41799384",
+        "41505913",
+        "41476996"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:compound:berberine",
+      "subject_label": "Berberine",
+      "object_id": "bio:pathway:ampk_pathway",
+      "object_label": "AMPK Metabolic Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:compound:berberine",
+        "chem:mechanism:ampk_activation",
+        "bio:pathway:ampk_pathway"
+      ],
+      "path_weight": 0.68,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 9,
+      "pmids": [
+        "41297722",
+        "41273838",
+        "41076148"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:compound:resveratrol",
+      "subject_label": "Resveratrol",
+      "object_id": "bio:process:cell_senescence",
+      "object_label": "Cellular Senescence",
+      "path_length": 2,
+      "path": [
+        "chem:compound:resveratrol",
+        "chem:mechanism:sirt1_activation",
+        "bio:process:cell_senescence"
+      ],
+      "path_weight": 0.56,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 49,
+      "pmids": [
+        "41514880",
+        "41402268",
+        "41317607"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:compound:resveratrol",
+      "subject_label": "Resveratrol",
+      "object_id": "bio:protein:sirt1",
+      "object_label": "Sirtuin-1 Deacetylase",
+      "path_length": 2,
+      "path": [
+        "chem:compound:resveratrol",
+        "chem:mechanism:sirt1_activation",
+        "bio:protein:sirt1"
+      ],
+      "path_weight": 0.72,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 239,
+      "pmids": [
+        "41573560",
+        "41470875",
+        "41446880"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:mechanism:mtor_inhibition",
+      "subject_label": "mTOR Inhibition Mechanism",
+      "object_id": "bio:disease:heart_failure",
+      "object_label": "Heart Failure",
+      "path_length": 2,
+      "path": [
+        "chem:mechanism:mtor_inhibition",
+        "bio:pathway:mtor_signaling",
+        "bio:disease:heart_failure"
+      ],
+      "path_weight": 0.585,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 3,
+      "pmids": [
+        "40131211",
+        "38567527",
+        "37979443"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:mechanism:mtor_inhibition",
+      "subject_label": "mTOR Inhibition Mechanism",
+      "object_id": "bio:pathway:autophagy",
+      "object_label": "Autophagy Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:mechanism:mtor_inhibition",
+        "bio:pathway:mtor_signaling",
+        "bio:pathway:autophagy"
+      ],
+      "path_weight": 0.765,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 71,
+      "pmids": [
+        "41436422",
+        "41420847",
+        "41359382"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:mechanism:mtor_inhibition",
+      "subject_label": "mTOR Inhibition Mechanism",
+      "object_id": "bio:pathway:pi3k_akt",
+      "object_label": "PI3K-AKT Signaling Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:mechanism:mtor_inhibition",
+        "bio:pathway:mtor_signaling",
+        "bio:pathway:pi3k_akt"
+      ],
+      "path_weight": 0.63,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 0,
+      "pmids": [],
+      "label_layer1": "not_investigated",
+      "investigated": 0
+    },
+    {
+      "subject_id": "chem:mechanism:mtor_inhibition",
+      "subject_label": "mTOR Inhibition Mechanism",
+      "object_id": "bio:disease:alzheimers",
+      "object_label": "Alzheimer's Disease",
+      "path_length": 2,
+      "path": [
+        "chem:mechanism:mtor_inhibition",
+        "bio:pathway:mtor_signaling",
+        "bio:disease:alzheimers"
+      ],
+      "path_weight": 0.54,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 7,
+      "pmids": [
+        "40650013",
+        "40292249",
+        "40279970"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:mechanism:mtor_inhibition",
+      "subject_label": "mTOR Inhibition Mechanism",
+      "object_id": "bio:pathway:ampk_pathway",
+      "object_label": "AMPK Metabolic Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:mechanism:mtor_inhibition",
+        "bio:pathway:mtor_signaling",
+        "bio:pathway:ampk_pathway"
+      ],
+      "path_weight": 0.63,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 0,
+      "pmids": [],
+      "label_layer1": "not_investigated",
+      "investigated": 0
+    },
+    {
+      "subject_id": "chem:mechanism:mtor_inhibition",
+      "subject_label": "mTOR Inhibition Mechanism",
+      "object_id": "bio:pathway:mtor_signaling",
+      "object_label": "mTOR Signaling Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:mechanism:mtor_inhibition",
+        "chem:target:mtor_kinase",
+        "bio:pathway:mtor_signaling"
+      ],
+      "path_weight": 0.9,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 69,
+      "pmids": [
+        "41573866",
+        "41562862",
+        "41472794"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:mechanism:ampk_activation",
+      "subject_label": "AMPK Activation Mechanism",
+      "object_id": "bio:process:cholesterol_synthesis",
+      "object_label": "Cholesterol Biosynthesis",
+      "path_length": 2,
+      "path": [
+        "chem:mechanism:ampk_activation",
+        "bio:pathway:ampk_pathway",
+        "bio:process:cholesterol_synthesis"
+      ],
+      "path_weight": 0.6375,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 2,
+      "pmids": [
+        "40082541",
+        "38880706"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:mechanism:ampk_activation",
+      "subject_label": "AMPK Activation Mechanism",
+      "object_id": "bio:disease:type2_diabetes",
+      "object_label": "Type 2 Diabetes",
+      "path_length": 2,
+      "path": [
+        "chem:mechanism:ampk_activation",
+        "bio:pathway:ampk_pathway",
+        "bio:disease:type2_diabetes"
+      ],
+      "path_weight": 0.68,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 47,
+      "pmids": [
+        "41595604",
+        "41539774",
+        "41392217"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:mechanism:ampk_activation",
+      "subject_label": "AMPK Activation Mechanism",
+      "object_id": "bio:pathway:mtor_signaling",
+      "object_label": "mTOR Signaling Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:mechanism:ampk_activation",
+        "chem:target:mtor_kinase",
+        "bio:pathway:mtor_signaling"
+      ],
+      "path_weight": 0.65,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 25,
+      "pmids": [
+        "41427327",
+        "41414677",
+        "41362763"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:mechanism:cox_inhibition",
+      "subject_label": "COX Inhibition Mechanism",
+      "object_id": "bio:disease:alzheimers",
+      "object_label": "Alzheimer's Disease",
+      "path_length": 2,
+      "path": [
+        "chem:mechanism:cox_inhibition",
+        "bio:pathway:amyloid_cascade",
+        "bio:disease:alzheimers"
+      ],
+      "path_weight": 0.45,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 1,
+      "pmids": [
+        "40907839"
+      ],
+      "label_layer1": "partially_supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:mechanism:cox_inhibition",
+      "subject_label": "COX Inhibition Mechanism",
+      "object_id": "bio:pathway:pi3k_akt",
+      "object_label": "PI3K-AKT Signaling Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:mechanism:cox_inhibition",
+        "bio:protein:tnf_alpha",
+        "bio:pathway:pi3k_akt"
+      ],
+      "path_weight": 0.4225,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 0,
+      "pmids": [],
+      "label_layer1": "not_investigated",
+      "investigated": 0
+    },
+    {
+      "subject_id": "chem:target:bace1_enzyme",
+      "subject_label": "BACE1 Enzyme Target",
+      "object_id": "bio:protein:app",
+      "object_label": "Amyloid Precursor Protein",
+      "path_length": 2,
+      "path": [
+        "chem:target:bace1_enzyme",
+        "bio:protein:bace1",
+        "bio:protein:app"
+      ],
+      "path_weight": 0.9,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 230,
+      "pmids": [
+        "41595571",
+        "41488323",
+        "41422863"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:target:bace1_enzyme",
+      "subject_label": "BACE1 Enzyme Target",
+      "object_id": "bio:pathway:amyloid_cascade",
+      "object_label": "Amyloid Cascade Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:target:bace1_enzyme",
+        "bio:protein:bace1",
+        "bio:pathway:amyloid_cascade"
+      ],
+      "path_weight": 0.9,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 12,
+      "pmids": [
+        "41154195",
+        "40993924",
+        "40362488"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:target:mtor_kinase",
+      "subject_label": "mTOR Kinase Target",
+      "object_id": "bio:disease:heart_failure",
+      "object_label": "Heart Failure",
+      "path_length": 2,
+      "path": [
+        "chem:target:mtor_kinase",
+        "bio:pathway:mtor_signaling",
+        "bio:disease:heart_failure"
+      ],
+      "path_weight": 0.65,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 0,
+      "pmids": [],
+      "label_layer1": "not_investigated",
+      "investigated": 0
+    },
+    {
+      "subject_id": "chem:target:mtor_kinase",
+      "subject_label": "mTOR Kinase Target",
+      "object_id": "bio:pathway:autophagy",
+      "object_label": "Autophagy Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:target:mtor_kinase",
+        "bio:pathway:mtor_signaling",
+        "bio:pathway:autophagy"
+      ],
+      "path_weight": 0.85,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 14,
+      "pmids": [
+        "41558720",
+        "40963021",
+        "40892854"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:target:mtor_kinase",
+      "subject_label": "mTOR Kinase Target",
+      "object_id": "bio:pathway:pi3k_akt",
+      "object_label": "PI3K-AKT Signaling Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:target:mtor_kinase",
+        "bio:pathway:mtor_signaling",
+        "bio:pathway:pi3k_akt"
+      ],
+      "path_weight": 0.7,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 1,
+      "pmids": [
+        "39807482"
+      ],
+      "label_layer1": "partially_supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:target:mtor_kinase",
+      "subject_label": "mTOR Kinase Target",
+      "object_id": "bio:disease:alzheimers",
+      "object_label": "Alzheimer's Disease",
+      "path_length": 2,
+      "path": [
+        "chem:target:mtor_kinase",
+        "bio:pathway:mtor_signaling",
+        "bio:disease:alzheimers"
+      ],
+      "path_weight": 0.6,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 4,
+      "pmids": [
+        "41558720",
+        "41257084",
+        "40347153"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:target:mtor_kinase",
+      "subject_label": "mTOR Kinase Target",
+      "object_id": "bio:pathway:ampk_pathway",
+      "object_label": "AMPK Metabolic Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:target:mtor_kinase",
+        "bio:pathway:mtor_signaling",
+        "bio:pathway:ampk_pathway"
+      ],
+      "path_weight": 0.7,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 0,
+      "pmids": [],
+      "label_layer1": "not_investigated",
+      "investigated": 0
+    },
+    {
+      "subject_id": "chem:drug:atorvastatin",
+      "subject_label": "Atorvastatin",
+      "object_id": "bio:biomarker:ldl_cholesterol",
+      "object_label": "LDL Cholesterol",
+      "path_length": 2,
+      "path": [
+        "chem:drug:atorvastatin",
+        "bio:process:cholesterol_synthesis",
+        "bio:biomarker:ldl_cholesterol"
+      ],
+      "path_weight": 0.81,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 37,
+      "pmids": [
+        "41687656",
+        "41447006",
+        "41150636"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:atorvastatin",
+      "subject_label": "Atorvastatin",
+      "object_id": "bio:process:cholesterol_synthesis",
+      "object_label": "Cholesterol Biosynthesis",
+      "path_length": 2,
+      "path": [
+        "chem:drug:atorvastatin",
+        "chem:target:hmg_coa_reductase",
+        "bio:process:cholesterol_synthesis"
+      ],
+      "path_weight": 0.95,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 13,
+      "pmids": [
+        "41333571",
+        "41219186",
+        "40762635"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:ibuprofen",
+      "subject_label": "Ibuprofen",
+      "object_id": "bio:protein:tnf_alpha",
+      "object_label": "TNF-alpha Cytokine",
+      "path_length": 2,
+      "path": [
+        "chem:drug:ibuprofen",
+        "chem:target:cox2_enzyme",
+        "bio:protein:tnf_alpha"
+      ],
+      "path_weight": 0.595,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 31,
+      "pmids": [
+        "41741990",
+        "41473805",
+        "41404196"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:ibuprofen",
+      "subject_label": "Ibuprofen",
+      "object_id": "bio:pathway:amyloid_cascade",
+      "object_label": "Amyloid Cascade Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:drug:ibuprofen",
+        "chem:mechanism:cox_inhibition",
+        "bio:pathway:amyloid_cascade"
+      ],
+      "path_weight": 0.45,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 0,
+      "pmids": [],
+      "label_layer1": "not_investigated",
+      "investigated": 0
+    },
+    {
+      "subject_id": "chem:drug:lithium_carbonate",
+      "subject_label": "Lithium Carbonate",
+      "object_id": "bio:disease:alzheimers",
+      "object_label": "Alzheimer's Disease",
+      "path_length": 2,
+      "path": [
+        "chem:drug:lithium_carbonate",
+        "bio:process:tau_hyperphosphorylation",
+        "bio:disease:alzheimers"
+      ],
+      "path_weight": 0.52,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 2,
+      "pmids": [
+        "40891144",
+        "38160617"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:lithium_carbonate",
+      "subject_label": "Lithium Carbonate",
+      "object_id": "bio:disease:colon_cancer",
+      "object_label": "Colorectal Cancer",
+      "path_length": 2,
+      "path": [
+        "chem:drug:lithium_carbonate",
+        "bio:pathway:wnt_signaling",
+        "bio:disease:colon_cancer"
+      ],
+      "path_weight": 0.595,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 1,
+      "pmids": [
+        "39281337"
+      ],
+      "label_layer1": "partially_supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:lithium_carbonate",
+      "subject_label": "Lithium Carbonate",
+      "object_id": "bio:protein:tau",
+      "object_label": "Tau Microtubule Protein",
+      "path_length": 2,
+      "path": [
+        "chem:drug:lithium_carbonate",
+        "bio:protein:gsk3b",
+        "bio:protein:tau"
+      ],
+      "path_weight": 0.7225,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 2,
+      "pmids": [
+        "40891144",
+        "38160617"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:nilotinib",
+      "subject_label": "Nilotinib",
+      "object_id": "bio:gene:bcr_abl",
+      "object_label": "BCR-ABL Fusion Gene",
+      "path_length": 2,
+      "path": [
+        "chem:drug:nilotinib",
+        "chem:target:bcr_abl_kinase",
+        "bio:gene:bcr_abl"
+      ],
+      "path_weight": 0.95,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 112,
+      "pmids": [
+        "41469338",
+        "41431370",
+        "41405208"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:nilotinib",
+      "subject_label": "Nilotinib",
+      "object_id": "bio:protein:egfr",
+      "object_label": "Epidermal Growth Factor Receptor",
+      "path_length": 2,
+      "path": [
+        "chem:drug:nilotinib",
+        "chem:mechanism:tyrosine_kinase_inhibition",
+        "bio:protein:egfr"
+      ],
+      "path_weight": 0.8075,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 4,
+      "pmids": [
+        "39009935",
+        "38281820",
+        "38096682"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:imatinib",
+      "subject_label": "Imatinib",
+      "object_id": "bio:gene:bcr_abl",
+      "object_label": "BCR-ABL Fusion Gene",
+      "path_length": 2,
+      "path": [
+        "chem:drug:imatinib",
+        "chem:target:bcr_abl_kinase",
+        "bio:gene:bcr_abl"
+      ],
+      "path_weight": 0.95,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 343,
+      "pmids": [
+        "41613654",
+        "41502514",
+        "41469338"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:imatinib",
+      "subject_label": "Imatinib",
+      "object_id": "bio:protein:egfr",
+      "object_label": "Epidermal Growth Factor Receptor",
+      "path_length": 2,
+      "path": [
+        "chem:drug:imatinib",
+        "chem:mechanism:tyrosine_kinase_inhibition",
+        "bio:protein:egfr"
+      ],
+      "path_weight": 0.8075,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 22,
+      "pmids": [
+        "41404256",
+        "41393197",
+        "41193444"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:tamoxifen",
+      "subject_label": "Tamoxifen",
+      "object_id": "bio:disease:breast_cancer",
+      "object_label": "Breast Cancer",
+      "path_length": 2,
+      "path": [
+        "chem:drug:tamoxifen",
+        "bio:receptor:er_alpha",
+        "bio:disease:breast_cancer"
+      ],
+      "path_weight": 0.765,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 875,
+      "pmids": [
+        "41850970",
+        "41769278",
+        "41731859"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:valproic_acid",
+      "subject_label": "Valproic Acid",
+      "object_id": "bio:disease:leukemia_cml",
+      "object_label": "Chronic Myeloid Leukemia",
+      "path_length": 2,
+      "path": [
+        "chem:drug:valproic_acid",
+        "bio:pathway:apoptosis",
+        "bio:disease:leukemia_cml"
+      ],
+      "path_weight": 0.455,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 0,
+      "pmids": [],
+      "label_layer1": "not_investigated",
+      "investigated": 0
+    },
+    {
+      "subject_id": "chem:drug:valproic_acid",
+      "subject_label": "Valproic Acid",
+      "object_id": "bio:disease:multiple_myeloma",
+      "object_label": "Multiple Myeloma",
+      "path_length": 2,
+      "path": [
+        "chem:drug:valproic_acid",
+        "bio:pathway:apoptosis",
+        "bio:disease:multiple_myeloma"
+      ],
+      "path_weight": 0.455,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 1,
+      "pmids": [
+        "40834544"
+      ],
+      "label_layer1": "partially_supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:valproic_acid",
+      "subject_label": "Valproic Acid",
+      "object_id": "bio:disease:colon_cancer",
+      "object_label": "Colorectal Cancer",
+      "path_length": 2,
+      "path": [
+        "chem:drug:valproic_acid",
+        "bio:process:epigenetic_silencing",
+        "bio:disease:colon_cancer"
+      ],
+      "path_weight": 0.455,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 1,
+      "pmids": [
+        "39489464"
+      ],
+      "label_layer1": "partially_supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:valproic_acid",
+      "subject_label": "Valproic Acid",
+      "object_id": "bio:process:epigenetic_silencing",
+      "object_label": "Epigenetic Gene Silencing",
+      "path_length": 2,
+      "path": [
+        "chem:drug:valproic_acid",
+        "chem:target:hdac_target",
+        "bio:process:epigenetic_silencing"
+      ],
+      "path_weight": 0.72,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 0,
+      "pmids": [],
+      "label_layer1": "not_investigated",
+      "investigated": 0
+    },
+    {
+      "subject_id": "chem:drug:thalidomide",
+      "subject_label": "Thalidomide",
+      "object_id": "bio:pathway:pi3k_akt",
+      "object_label": "PI3K-AKT Signaling Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:drug:thalidomide",
+        "bio:protein:tnf_alpha",
+        "bio:pathway:pi3k_akt"
+      ],
+      "path_weight": 0.52,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 1,
+      "pmids": [
+        "41443295"
+      ],
+      "label_layer1": "partially_supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:thalidomide",
+      "subject_label": "Thalidomide",
+      "object_id": "bio:disease:colon_cancer",
+      "object_label": "Colorectal Cancer",
+      "path_length": 2,
+      "path": [
+        "chem:drug:thalidomide",
+        "chem:mechanism:wnt_inhibition",
+        "bio:disease:colon_cancer"
+      ],
+      "path_weight": 0.45,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 3,
+      "pmids": [
+        "40387023",
+        "38762414",
+        "38324080"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:thalidomide",
+      "subject_label": "Thalidomide",
+      "object_id": "bio:pathway:wnt_signaling",
+      "object_label": "Wnt Signaling Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:drug:thalidomide",
+        "chem:mechanism:wnt_inhibition",
+        "bio:pathway:wnt_signaling"
+      ],
+      "path_weight": 0.675,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 1,
+      "pmids": [
+        "38230780"
+      ],
+      "label_layer1": "partially_supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:doxycycline",
+      "subject_label": "Doxycycline",
+      "object_id": "bio:process:neurodegeneration",
+      "object_label": "Neurodegeneration",
+      "path_length": 2,
+      "path": [
+        "chem:drug:doxycycline",
+        "bio:pathway:neuroinflammation",
+        "bio:process:neurodegeneration"
+      ],
+      "path_weight": 0.4675,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 13,
+      "pmids": [
+        "41304763",
+        "41300191",
+        "41267687"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:finasteride",
+      "subject_label": "Finasteride",
+      "object_id": "bio:disease:prostate_cancer",
+      "object_label": "Prostate Cancer",
+      "path_length": 2,
+      "path": [
+        "chem:drug:finasteride",
+        "bio:receptor:ar",
+        "bio:disease:prostate_cancer"
+      ],
+      "path_weight": 0.765,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 12,
+      "pmids": [
+        "41378003",
+        "41267989",
+        "41054355"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:pioglitazone",
+      "subject_label": "Pioglitazone",
+      "object_id": "bio:disease:type2_diabetes",
+      "object_label": "Type 2 Diabetes",
+      "path_length": 2,
+      "path": [
+        "chem:drug:pioglitazone",
+        "bio:process:insulin_resistance",
+        "bio:disease:type2_diabetes"
+      ],
+      "path_weight": 0.765,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 159,
+      "pmids": [
+        "41789211",
+        "41726330",
+        "41583325"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:pioglitazone",
+      "subject_label": "Pioglitazone",
+      "object_id": "bio:process:insulin_resistance",
+      "object_label": "Insulin Resistance",
+      "path_length": 2,
+      "path": [
+        "chem:drug:pioglitazone",
+        "bio:receptor:ppar_gamma",
+        "bio:process:insulin_resistance"
+      ],
+      "path_weight": 0.72,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 94,
+      "pmids": [
+        "41789211",
+        "41595448",
+        "41514930"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:pioglitazone",
+      "subject_label": "Pioglitazone",
+      "object_id": "bio:pathway:insulin_signaling",
+      "object_label": "Insulin Signaling Pathway",
+      "path_length": 2,
+      "path": [
+        "chem:drug:pioglitazone",
+        "bio:receptor:ppar_gamma",
+        "bio:pathway:insulin_signaling"
+      ],
+      "path_weight": 0.72,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 7,
+      "pmids": [
+        "41320887",
+        "40076566",
+        "39636405"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:pioglitazone",
+      "subject_label": "Pioglitazone",
+      "object_id": "bio:receptor:ppar_gamma",
+      "object_label": "PPAR-gamma Nuclear Receptor",
+      "path_length": 2,
+      "path": [
+        "chem:drug:pioglitazone",
+        "chem:mechanism:ppar_activation",
+        "bio:receptor:ppar_gamma"
+      ],
+      "path_weight": 0.81,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 109,
+      "pmids": [
+        "41789211",
+        "41583325",
+        "41492460"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:donepezil",
+      "subject_label": "Donepezil",
+      "object_id": "bio:process:synaptic_plasticity",
+      "object_label": "Synaptic Plasticity",
+      "path_length": 2,
+      "path": [
+        "chem:drug:donepezil",
+        "chem:mechanism:ache_inhibition",
+        "bio:process:synaptic_plasticity"
+      ],
+      "path_weight": 0.7125,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 18,
+      "pmids": [
+        "41527666",
+        "41508235",
+        "41297563"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:selegiline",
+      "subject_label": "Selegiline",
+      "object_id": "bio:process:dopamine_synthesis",
+      "object_label": "Dopamine Biosynthesis",
+      "path_length": 2,
+      "path": [
+        "chem:drug:selegiline",
+        "bio:receptor:dopamine_d2",
+        "bio:process:dopamine_synthesis"
+      ],
+      "path_weight": 0.595,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 1,
+      "pmids": [
+        "38196001"
+      ],
+      "label_layer1": "partially_supported",
+      "investigated": 1
+    },
+    {
+      "subject_id": "chem:drug:memantine",
+      "subject_label": "Memantine",
+      "object_id": "bio:process:synaptic_plasticity",
+      "object_label": "Synaptic Plasticity",
+      "path_length": 2,
+      "path": [
+        "chem:drug:memantine",
+        "bio:receptor:nmda_receptor",
+        "bio:process:synaptic_plasticity"
+      ],
+      "path_weight": 0.7225,
+      "uses_augmented_edge": false,
+      "method": "C2_multi_op",
+      "novelty_score": 0.1,
+      "composite_score": 0.65,
+      "pubmed_count_2024_2025": 12,
+      "pmids": [
+        "41465271",
+        "40827489",
+        "40028750"
+      ],
+      "label_layer1": "supported",
+      "investigated": 1
+    }
+  ]
+}

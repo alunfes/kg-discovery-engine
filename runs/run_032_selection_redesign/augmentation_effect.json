@@ -1,0 +1,50 @@
+{
+  "run_id": "run_032_selection_redesign",
+  "augmentation_effects": [
+    {
+      "policy": "A_baseline",
+      "delta_investigability": 0.0,
+      "delta_failure_rate": 0.0,
+      "delta_pct_augmented": 0.0,
+      "delta_path_diversity": 0,
+      "aug_paths_reached": 0,
+      "augmentation_reachable": false
+    },
+    {
+      "policy": "B_augmentation_quota",
+      "delta_investigability": -0.0571,
+      "delta_failure_rate": 0.0571,
+      "delta_pct_augmented": 0.2143,
+      "delta_path_diversity": 0,
+      "aug_paths_reached": 15,
+      "augmentation_reachable": true
+    },
+    {
+      "policy": "C_novelty_boost",
+      "delta_investigability": -0.0572,
+      "delta_failure_rate": 0.0572,
+      "delta_pct_augmented": 0.3,
+      "delta_path_diversity": 0,
+      "aug_paths_reached": 21,
+      "augmentation_reachable": true
+    },
+    {
+      "policy": "D_multi_bucket",
+      "delta_investigability": -0.0714,
+      "delta_failure_rate": 0.0714,
+      "delta_pct_augmented": 0.3571,
+      "delta_path_diversity": 0,
+      "aug_paths_reached": 25,
+      "augmentation_reachable": true
+    },
+    {
+      "policy": "E_reranking_layer",
+      "delta_investigability": -0.0571,
+      "delta_failure_rate": 0.0571,
+      "delta_pct_augmented": 0.2571,
+      "delta_path_diversity": 0,
+      "aug_paths_reached": 18,
+      "augmentation_reachable": true
+    }
+  ]
+}
