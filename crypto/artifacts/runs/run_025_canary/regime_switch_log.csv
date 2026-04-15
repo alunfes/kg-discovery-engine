@@ -1,0 +1,10 @@
+timestamp_min,from_regime,to_regime,n_events,reason,suppressed_by_dwell,suppressed_by_hysteresis
+0.0,sparse,sparse,65,no_change,False,False
+16.0,sparse,sparse,65,no_change,False,False
+32.0,sparse,event-heavy,140,sparse→event-heavy (n_events=140),False,False
+48.0,event-heavy,event-heavy,140,no_change,False,False
+64.0,event-heavy,calm,100,event-heavy→calm (n_events=100),False,False
+80.0,calm,sparse,88,calm→sparse (n_events=88),False,False
+96.0,sparse,sparse,92,no_change,False,True
+112.0,sparse,calm,96,sparse→calm (n_events=96),False,False
+117.0,calm,sparse,65,suppressed_dwell,True,False
