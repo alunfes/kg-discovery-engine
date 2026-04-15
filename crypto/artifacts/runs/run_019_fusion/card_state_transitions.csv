@@ -1,0 +1,11 @@
+card_id,branch,asset,tier_before,tier_after,score_before,score_after,half_life_before,half_life_after,n_active_transitions
+01a1d412-4b73-4431-a089-f516f46529db,positioning_unwind,HYPE,research_priority,actionable_watch,0.6958,1.0,50.0,50.0,10
+0b30edc5-961f-433e-b5b5-eef286531ecc,positioning_unwind,HYPE,actionable_watch,actionable_watch,0.745,1.0,40.0,40.0,10
+1e1566ec-8d48-4994-b8d5-66bafae7383b,positioning_unwind,HYPE,research_priority,actionable_watch,0.6958,1.0,50.0,50.0,10
+7c0b569e-6ee7-4650-bca1-938752afb384,positioning_unwind,HYPE,research_priority,actionable_watch,0.7055,1.0,50.0,50.0,10
+9295f67c-e438-40e6-8511-f1039ba70a82,positioning_unwind,HYPE,research_priority,actionable_watch,0.6876,1.0,50.0,50.0,10
+ac90318b-01ca-458a-8791-bfbdfc258f23,positioning_unwind,HYPE,research_priority,actionable_watch,0.7055,1.0,50.0,50.0,10
+bdd0e993-a659-43fe-879e-bc6743523079,positioning_unwind,HYPE,actionable_watch,actionable_watch,0.745,1.0,40.0,40.0,10
+e5989b3e-7cbf-47cd-ae8b-bfd815935c5e,positioning_unwind,HYPE,actionable_watch,actionable_watch,0.8038,1.0,40.0,40.0,10
+f3a91efd-c6ec-4689-8b51-75d689556986,positioning_unwind,HYPE,actionable_watch,actionable_watch,0.865,1.0,40.0,40.0,10
+f7efb9c6-8afb-4090-8cc4-a846c4ead6a3,positioning_unwind,HYPE,research_priority,actionable_watch,0.6958,1.0,50.0,50.0,10

@@ -1,0 +1,14 @@
+{
+  "run_id": "run_019_fusion_batch",
+  "seed": 42,
+  "n_minutes": 60,
+  "assets": [
+    "HYPE",
+    "BTC",
+    "ETH",
+    "SOL"
+  ],
+  "top_k": 10,
+  "created_at": "2026-04-15T10:34:36.028720+00:00",
+  "sprint": "J"
+}
