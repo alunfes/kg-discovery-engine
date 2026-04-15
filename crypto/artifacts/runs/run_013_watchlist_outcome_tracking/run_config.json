@@ -1,0 +1,51 @@
+{
+  "run_id": "run_013_watchlist_outcome_tracking",
+  "date": "2026-04-15",
+  "sprint": "M",
+  "objective": "Watchlist outcome tracking (I5) — evaluate whether I4 watchlist predictions materialise in synthetic outcome window",
+  "seed": 42,
+  "assets": ["HYPE", "ETH", "BTC", "SOL"],
+  "n_minutes": 120,
+  "top_k": 60,
+  "new_files": [
+    "crypto/src/eval/outcome_tracker.py",
+    "crypto/tests/test_sprint_m.py",
+    "crypto/artifacts/runs/run_013_watchlist_outcome_tracking/",
+    "docs/run013_watchlist_outcome_tracking.md"
+  ],
+  "modified_files": [
+    "crypto/src/pipeline.py"
+  ],
+  "outcome_results": {
+    "n_tracked": 60,
+    "n_hits": 32,
+    "n_partials": 0,
+    "overall_hit_rate": 0.533,
+    "watchlist_precision": 1.0,
+    "avg_time_to_outcome_min": 14.9,
+    "avg_half_life_remaining_min": -9.6,
+    "half_life_adequacy_rate": 0.533
+  },
+  "branch_hit_rates": {
+    "positioning_unwind": 1.0,
+    "beta_reversion": 1.0,
+    "other": 0.0
+  },
+  "tier_hit_rates": {
+    "actionable_watch": 1.0,
+    "research_priority": 0.867,
+    "monitor_borderline": 0.0,
+    "baseline_like": 0.0
+  },
+  "key_findings": [
+    "Tier discrimination validated: actionable_watch=1.0, research_priority=0.867, monitor_borderline=0.0, baseline_like=0.0",
+    "Signal cards (positioning_unwind + beta_reversion) hit 100% and 100%",
+    "Null-baseline cards (ETH/BTC other branch) expire correctly — 0% hit rate",
+    "4 research_priority cards expired; extend HALF_LIFE_BY_TIER[research_priority] 50→70",
+    "avg_half_life_remaining=-9.6 is dominated by null-baseline expiry, not miscalibration"
+  ],
+  "threshold_recommendations": {
+    "overall": "no_action",
+    "half_life_update": "research_priority 50 -> 70"
+  }
+}
