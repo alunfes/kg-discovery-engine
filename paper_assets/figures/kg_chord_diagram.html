@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>KG Chord Diagram — Phase 4</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0A0E1A; color:#fff; font-family:'Segoe UI',sans-serif; display:flex; flex-direction:column; align-items:center; min-height:100vh; padding:20px; }
+  h1 { font-size:1.4rem; margin-bottom:4px; color:#e0e0ff; letter-spacing:1px; }
+  p.sub { font-size:0.85rem; color:#888; margin-bottom:20px; }
+  #chart { position:relative; }
+  svg { overflow:visible; }
+  .tooltip { position:absolute; background:rgba(20,24,40,0.95); border:1px solid #444; border-radius:8px; padding:10px 14px; font-size:0.82rem; pointer-events:none; display:none; min-width:180px; }
+  .tooltip h3 { font-size:0.9rem; margin-bottom:6px; color:#FFD700; }
+  .tooltip .row { display:flex; justify-content:space-between; gap:20px; color:#ccc; }
+  .legend { display:flex; gap:24px; margin-top:18px; }
+  .legend-item { display:flex; align-items:center; gap:8px; font-size:0.85rem; color:#ccc; }
+  .legend-dot { width:14px; height:14px; border-radius:50%; }
+  .stats { margin-top:12px; font-size:0.78rem; color:#666; text-align:center; }
+</style>
+</head>
+<body>
+<h1>KG Discovery Engine — Cross-Domain Knowledge Graph</h1>
+<p class="sub">Phase 4 · Bio+Chem Integration · Chord Diagram (hover to explore)</p>
+<div id="chart"><div class="tooltip" id="tip"></div></div>
+<div class="legend" id="legend"></div>
+<div class="stats" id="stats"></div>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+const matrix     = [[233, 27], [15, 189]];
+const domains    = ["biology", "chemistry"];
+const colorMap   = {"biology": "#4FC3F7", "chemistry": "#FF7043"};
+const relData    = {"biology\u2192biology": {"activates": 72, "inhibits": 23, "associated_with": 16, "is_part_of": 14, "interacts_with": 7, "phosphorylates": 5, "localizes_to": 3, "catalyzes": 24, "produces": 23, "converts_to": 2, "requires_cofactor": 7, "is_substrate_of": 4, "is_precursor_of": 11, "encodes": 22}, "biology\u2192chemistry": {"same_entity_as": 27}, "chemistry\u2192chemistry": {"contains": 65, "is_isomer_of": 9, "undergoes": 22, "is_precursor_of": 18, "is_product_of": 26, "is_polymer_of": 3, "inhibits": 23, "reacts_with": 5, "is_cofactor_of": 5, "produces": 6, "is_reverse_of": 2, "is_solvent_of": 1, "is_reactant_of": 1, "is_type_of": 3}, "chemistry\u2192biology": {"inhibits": 11, "is_cofactor_of": 4}};
+const nodeCounts = {"biology": 293, "chemistry": 243};
+
+const W = Math.min(window.innerWidth - 40, 700);
+const H = W;
+const outerR = W / 2 - 60;
+const innerR = outerR - 30;
+
+const svg = d3.select("#chart").append("svg")
+  .attr("width", W).attr("height", H)
+  .append("g")
+  .attr("transform", `translate(${W/2},${H/2})`);
+
+const chord = d3.chord().padAngle(0.05).sortSubgroups(d3.descending);
+const chords = chord(matrix);
+
+const arc = d3.arc().innerRadius(innerR).outerRadius(outerR);
+const ribbon = d3.ribbon().radius(innerR - 2);
+
+const color = d => colorMap[domains[d.index]] || "#888";
+
+// Groups (arcs)
+const group = svg.append("g").selectAll("g").data(chords.groups).join("g");
+
+group.append("path")
+  .attr("fill", d => color(d))
+  .attr("stroke", d => d3.rgb(color(d)).darker())
+  .attr("d", arc)
+  .attr("opacity", 0.85)
+  .on("mouseover", function(event, d) {
+    const dom = domains[d.index];
+    const key1 = `${dom}→${dom}`;
+    const crossKeys = domains.filter((_,i) => i !== d.index).map(od => `${dom}→${od}`);
+    let html = `<h3>${dom.toUpperCase()}</h3>`;
+    html += `<div class="row"><span>Nodes</span><span>${nodeCounts[dom]}</span></div>`;
+    html += `<div class="row"><span>Internal edges</span><span>${matrix[d.index][d.index]}</span></div>`;
+    crossKeys.forEach(k => {
+      if (relData[k]) {
+        html += `<hr style="border-color:#333;margin:6px 0"/>`;
+        html += `<div class="row" style="color:#FFD700"><span>${k}</span><span></span></div>`;
+        Object.entries(relData[k]).slice(0,5).forEach(([rel, cnt]) => {
+          html += `<div class="row"><span>&nbsp;${rel}</span><span>${cnt}</span></div>`;
+        });
+      }
+    });
+    d3.select("#tip").html(html).style("display","block");
+    d3.selectAll(".chord-path").attr("opacity", cd =>
+      cd.source.index === d.index || cd.target.index === d.index ? 0.85 : 0.05);
+  })
+  .on("mousemove", function(event) {
+    const [mx, my] = d3.pointer(event, document.body);
+    d3.select("#tip").style("left", (mx+16)+"px").style("top", (my-10)+"px");
+  })
+  .on("mouseout", function() {
+    d3.select("#tip").style("display","none");
+    d3.selectAll(".chord-path").attr("opacity", 0.65);
+  });
+
+// Arc labels
+group.append("text")
+  .each(d => { d.angle = (d.startAngle + d.endAngle) / 2; })
+  .attr("dy", "0.35em")
+  .attr("transform", d => `
+    rotate(${(d.angle * 180 / Math.PI - 90)})
+    translate(${outerR + 12})
+    ${d.angle > Math.PI ? "rotate(180)" : ""}
+  `)
+  .attr("text-anchor", d => d.angle > Math.PI ? "end" : null)
+  .text(d => `${domains[d.index].toUpperCase()} (${nodeCounts[domains[d.index]]} nodes)`)
+  .attr("fill", d => colorMap[domains[d.index]])
+  .attr("font-size", "13px")
+  .attr("font-weight", "bold");
+
+// Chords (ribbons)
+svg.append("g").attr("fill-opacity", 0.65)
+  .selectAll("path").data(chords).join("path")
+  .classed("chord-path", true)
+  .attr("d", ribbon)
+  .attr("fill", d => color(d.target))
+  .attr("stroke", d => d3.rgb(color(d.target)).darker())
+  .attr("opacity", 0.65)
+  .on("mouseover", function(event, d) {
+    const src = domains[d.source.index];
+    const tgt = domains[d.target.index];
+    const key = `${src}→${tgt}`;
+    let html = `<h3>${src} → ${tgt}</h3>`;
+    html += `<div class="row"><span>Connections</span><span>${matrix[d.source.index][d.target.index]}</span></div>`;
+    if (relData[key]) {
+      html += `<hr style="border-color:#333;margin:6px 0"/>`;
+      Object.entries(relData[key]).slice(0,8).forEach(([rel, cnt]) => {
+        html += `<div class="row"><span>${rel}</span><span>${cnt}</span></div>`;
+      });
+    }
+    d3.select("#tip").html(html).style("display","block");
+    d3.select(this).attr("opacity", 0.9);
+  })
+  .on("mousemove", function(event) {
+    const [mx, my] = d3.pointer(event, document.body);
+    d3.select("#tip").style("left", (mx+16)+"px").style("top", (my-10)+"px");
+  })
+  .on("mouseout", function() {
+    d3.select("#tip").style("display","none");
+    d3.select(this).attr("opacity", 0.65);
+  });
+
+// Legend
+const legend = d3.select("#legend");
+domains.forEach(d => {
+  const item = legend.append("div").attr("class","legend-item");
+  item.append("div").attr("class","legend-dot").style("background", colorMap[d]);
+  item.append("span").text(`${d.charAt(0).toUpperCase()+d.slice(1)} — ${nodeCounts[d]} nodes`);
+});
+
+// Stats
+const totalEdges = matrix.flat().reduce((a,b)=>a+b,0);
+const crossEdges = matrix[0][1] + matrix[1][0];
+d3.select("#stats").text(
+  `Total: ${domains.reduce((a,d)=>a+nodeCounts[d],0)} nodes · ${totalEdges} edges · ${crossEdges} cross-domain connections`
+);
+</script>
+</body>
+</html>
