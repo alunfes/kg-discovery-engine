@@ -58,6 +58,46 @@ HALF_LIFE_BY_TIER: dict[str, int] = {
 }
 DEFAULT_HALF_LIFE_MIN: int = 45
 
+# Run 014: Calibrated 2D half-life table (tier × grammar_family).
+# Derived from p90(time_to_outcome) + 5 min buffer on run_013 data.
+# Groups with no observed hits retain the 1D HALF_LIFE_BY_TIER value
+# (insufficient data for data-driven calibration).
+# Why 2D: positioning_unwind and beta_reversion events arrive in 7-25 min;
+# the 1D tier windows (40-50 min) over-allocate monitoring capacity by
+# ~15-25 min per card. Tighter windows (30 min) capture the same hits.
+CALIBRATED_HALF_LIFE_2D: dict[str, dict[str, int]] = {
+    "actionable_watch": {
+        "positioning_unwind": 30,
+        "beta_reversion":     30,
+        "flow_continuation":  40,
+        "baseline":           40,
+    },
+    "research_priority": {
+        "positioning_unwind": 30,
+        "beta_reversion":     30,
+        "flow_continuation":  50,
+        "baseline":           50,
+    },
+    "monitor_borderline": {
+        "positioning_unwind": 60,
+        "beta_reversion":     60,
+        "flow_continuation":  60,
+        "baseline":           60,
+    },
+    "baseline_like": {
+        "positioning_unwind": 90,
+        "beta_reversion":     90,
+        "flow_continuation":  90,
+        "baseline":           90,
+    },
+    "reject_conflicted": {
+        "positioning_unwind": 20,
+        "beta_reversion":     20,
+        "flow_continuation":  20,
+        "baseline":           20,
+    },
+}
+
 # Event detection thresholds
 BUY_BURST_THRESHOLD: float = 0.70    # buy_ratio for strong_buy (hit)
 PARTIAL_BUY_THRESHOLD: float = 0.55  # buy_ratio for moderate_buy (partial)
@@ -163,6 +203,31 @@ def _resolve_half_life(tier: str, n_minutes: int = 120) -> int:
         Half-life in minutes, capped at (n_minutes - n_minutes // 2).
     """
     hl = HALF_LIFE_BY_TIER.get(tier, DEFAULT_HALF_LIFE_MIN)
+    midpoint = n_minutes // 2
+    return min(hl, n_minutes - midpoint)
+
+
+def _resolve_half_life_2d(
+    tier: str,
+    grammar_family: str,
+    n_minutes: int = 120,
+) -> int:
+    """Return calibrated half-life for (tier, grammar_family) combination.
+
+    Uses CALIBRATED_HALF_LIFE_2D when the (tier, family) pair is known,
+    falling back to HALF_LIFE_BY_TIER for unrecognized combinations.
+    Result is capped at (n_minutes - midpoint).
+
+    Args:
+        tier: Decision tier string constant.
+        grammar_family: Grammar family label (positioning_unwind, etc.).
+        n_minutes: Total simulation duration in minutes.
+
+    Returns:
+        Calibrated half-life in minutes, window-capped.
+    """
+    tier_map = CALIBRATED_HALF_LIFE_2D.get(tier, {})
+    hl = tier_map.get(grammar_family, HALF_LIFE_BY_TIER.get(tier, DEFAULT_HALF_LIFE_MIN))
     midpoint = n_minutes // 2
     return min(hl, n_minutes - midpoint)
 
