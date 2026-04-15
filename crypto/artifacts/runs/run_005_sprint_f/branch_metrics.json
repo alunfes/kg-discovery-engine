@@ -1,0 +1,913 @@
+{
+  "branch_distribution": {
+    "positioning_unwind": 30,
+    "beta_reversion": 8,
+    "other": 14,
+    "flow_continuation": 8
+  },
+  "branch_entropy": 1.7651,
+  "top_k_branch_share": {
+    "positioning_unwind": 0.5,
+    "beta_reversion": 0.1333,
+    "other": 0.2333,
+    "flow_continuation": 0.1333
+  },
+  "mean_score_by_branch": {
+    "positioning_unwind": 0.7017,
+    "beta_reversion": 0.6653,
+    "other": 0.619,
+    "flow_continuation": 0.6319
+  },
+  "survival_across_runs": "N/A (single run)",
+  "branch_activation_rate": {
+    "positioning_unwind": 1.0,
+    "beta_reversion": 1.0,
+    "other": 1.0,
+    "flow_continuation": 1.0
+  },
+  "branch_suppression_reason": {
+    "contradictory_evidence": 20,
+    "failed_followthrough": 6,
+    "structural_absence": 2,
+    "no_trigger": 4,
+    "missing_accumulation": 2
+  },
+  "total_cards": 60,
+  "n_corr_break_pairs": 6,
+  "branch_calibration": {
+    "positioning_unwind": {
+      "count": 30,
+      "mean_score": 0.7017,
+      "median_score": 0.6929,
+      "p90_score": 0.7485,
+      "top_k_share": 0.5,
+      "count_normalized_top_k_share": 1.0,
+      "evidence_count_vs_score_slope": -0.0114,
+      "low_coverage_score_persistence": null,
+      "score_architecture_advantage": false
+    },
+    "beta_reversion": {
+      "count": 8,
+      "mean_score": 0.6653,
+      "median_score": 0.6359,
+      "p90_score": 0.7504,
+      "top_k_share": 0.1333,
+      "count_normalized_top_k_share": 0.9998,
+      "evidence_count_vs_score_slope": 0.071,
+      "low_coverage_score_persistence": null,
+      "score_architecture_advantage": false
+    },
+    "other": {
+      "count": 14,
+      "mean_score": 0.619,
+      "median_score": 0.6038,
+      "p90_score": 0.6759,
+      "top_k_share": 0.2333,
+      "count_normalized_top_k_share": 0.9999,
+      "evidence_count_vs_score_slope": -0.0005,
+      "low_coverage_score_persistence": 0.6212,
+      "score_architecture_advantage": false
+    },
+    "flow_continuation": {
+      "count": 8,
+      "mean_score": 0.6319,
+      "median_score": 0.6159,
+      "p90_score": 0.6623,
+      "top_k_share": 0.1333,
+      "count_normalized_top_k_share": 0.9998,
+      "evidence_count_vs_score_slope": 0.0048,
+      "low_coverage_score_persistence": null,
+      "score_architecture_advantage": false
+    }
+  },
+  "normalized_ranking": {
+    "normalized_cards": [
+      {
+        "card_id": "115cc1d9-2620-4a65-942e-9f5963010bb9",
+        "title": "E2 positioning unwind: (HYPE,ETH) \u2014 one-sided OI build + crowding",
+        "branch": "positioning_unwind",
+        "raw_rank": 1,
+        "raw_score": 0.865,
+        "branch_zscore": 3.4637,
+        "branch_percentile": 1.0,
+        "meta_score": 1.0,
+        "norm_rank": 1,
+        "rank_diff": 0
+      },
+      {
+        "card_id": "af7fb6c9-016e-46fa-9115-a999858359cd",
+        "title": "Chain-D1 positioning unwind: (HYPE,ETH) break + HYPE funding extreme",
+        "branch": "other",
+        "raw_rank": 5,
+        "raw_score": 0.7708,
+        "branch_zscore": 2.7639,
+        "branch_percentile": 1.0,
+        "meta_score": 0.9842,
+        "norm_rank": 2,
+        "rank_diff": 3
+      },
+      {
+        "card_id": "9770e3f4-3ba1-4e51-bc55-5851b7dee4ef",
+        "title": "Chain-D1 flow continuation: (HYPE,BTC) break driven by HYPE burst aggression",
+        "branch": "flow_continuation",
+        "raw_rank": 11,
+        "raw_score": 0.7113,
+        "branch_zscore": 2.2986,
+        "branch_percentile": 1.0,
+        "meta_score": 0.9532,
+        "norm_rank": 3,
+        "rank_diff": 8
+      },
+      {
+        "card_id": "7a893ae7-6bb5-4132-ba61-17ea61b1e4c2",
+        "title": "E2 positioning unwind: (HYPE,SOL) \u2014 funding pressure regime",
+        "branch": "positioning_unwind",
+        "raw_rank": 2,
+        "raw_score": 0.8063,
+        "branch_zscore": 2.2189,
+        "branch_percentile": 0.9667,
+        "meta_score": 0.9279,
+        "norm_rank": 4,
+        "rank_diff": -2
+      },
+      {
+        "card_id": "255b3ffa-879d-4aec-9c23-980932ab24e3",
+        "title": "E1 beta reversion: (ETH,BTC) \u2014 no funding shift, no OI expansion",
+        "branch": "beta_reversion",
+        "raw_rank": 4,
+        "raw_score": 0.772,
+        "branch_zscore": 1.8174,
+        "branch_percentile": 1.0,
+        "meta_score": 0.9212,
+        "norm_rank": 5,
+        "rank_diff": -1
+      },
+      {
+        "card_id": "ef00d28e-af55-4715-afff-d6202e0472c7",
+        "title": "E2 positioning unwind: (HYPE,ETH) \u2014 premium compression",
+        "branch": "positioning_unwind",
+        "raw_rank": 3,
+        "raw_score": 0.7804,
+        "branch_zscore": 1.6697,
+        "branch_percentile": 0.9333,
+        "meta_score": 0.8713,
+        "norm_rank": 6,
+        "rank_diff": -3
+      },
+      {
+        "card_id": "8bba4fef-6a9f-4330-9131-09db60216985",
+        "title": "Extreme long funding on HYPE predicts reversion",
+        "branch": "other",
+        "raw_rank": 14,
+        "raw_score": 0.7012,
+        "branch_zscore": 1.4971,
+        "branch_percentile": 0.9286,
+        "meta_score": 0.857,
+        "norm_rank": 7,
+        "rank_diff": 7
+      },
+      {
+        "card_id": "24910f5d-8576-4af1-9bf4-560e27a22ecb",
+        "title": "E1 beta reversion: (HYPE,SOL) \u2014 transient aggression, no persistence",
+        "branch": "beta_reversion",
+        "raw_rank": 8,
+        "raw_score": 0.7412,
+        "branch_zscore": 1.2929,
+        "branch_percentile": 0.875,
+        "meta_score": 0.8112,
+        "norm_rank": 8,
+        "rank_diff": 0
+      },
+      {
+        "card_id": "be6f4cc1-183f-452c-8702-c75046fcaaa3",
+        "title": "E2 positioning unwind: (HYPE,BTC) \u2014 one-sided OI build + crowding",
+        "branch": "positioning_unwind",
+        "raw_rank": 6,
+        "raw_score": 0.745,
+        "branch_zscore": 0.919,
+        "branch_percentile": 0.8667,
+        "meta_score": 0.7813,
+        "norm_rank": 9,
+        "rank_diff": -3
+      },
+      {
+        "card_id": "15ef681a-89ca-4d96-8f23-27854ce42f6b",
+        "title": "E2 positioning unwind: (HYPE,SOL) \u2014 one-sided OI build + crowding",
+        "branch": "positioning_unwind",
+        "raw_rank": 7,
+        "raw_score": 0.745,
+        "branch_zscore": 0.919,
+        "branch_percentile": 0.8667,
+        "meta_score": 0.7813,
+        "norm_rank": 10,
+        "rank_diff": -3
+      },
+      {
+        "card_id": "c1cde85e-c324-4611-be92-af33dcd272b0",
+        "title": "Chain-D1 flow continuation: (ETH,BTC) break driven by ETH burst aggression",
+        "branch": "flow_continuation",
+        "raw_rank": 37,
+        "raw_score": 0.6413,
+        "branch_zscore": 0.2721,
+        "branch_percentile": 0.875,
+        "meta_score": 0.7432,
+        "norm_rank": 11,
+        "rank_diff": 26
+      },
+      {
+        "card_id": "092c1512-ceda-4c3f-b66e-f2cd4c65b428",
+        "title": "E2 positioning unwind: (ETH,SOL) \u2014 one-sided OI build + crowding",
+        "branch": "positioning_unwind",
+        "raw_rank": 9,
+        "raw_score": 0.7221,
+        "branch_zscore": 0.4334,
+        "branch_percentile": 0.8,
+        "meta_score": 0.7089,
+        "norm_rank": 12,
+        "rank_diff": -3
+      },
+      {
+        "card_id": "42cccd47-4862-481c-96bf-f8248b130da0",
+        "title": "E2 positioning unwind: (BTC,SOL) \u2014 one-sided OI build + crowding",
+        "branch": "positioning_unwind",
+        "raw_rank": 10,
+        "raw_score": 0.7221,
+        "branch_zscore": 0.4334,
+        "branch_percentile": 0.8,
+        "meta_score": 0.7089,
+        "norm_rank": 13,
+        "rank_diff": -3
+      },
+      {
+        "card_id": "b9c67d1e-34f6-4f08-b64f-62e8fe1695a5",
+        "title": "Chain-D1 flow continuation: (HYPE,BTC) break driven by BTC burst aggression",
+        "branch": "flow_continuation",
+        "raw_rank": 38,
+        "raw_score": 0.6389,
+        "branch_zscore": 0.2026,
+        "branch_percentile": 0.75,
+        "meta_score": 0.6635,
+        "norm_rank": 14,
+        "rank_diff": 24
+      },
+      {
+        "card_id": "2d312aa1-864f-4164-a328-08b6b668e212",
+        "title": "E1 beta reversion: (ETH,BTC) \u2014 no funding shift, no OI expansion",
+        "branch": "beta_reversion",
+        "raw_rank": 30,
+        "raw_score": 0.665,
+        "branch_zscore": -0.0047,
+        "branch_percentile": 0.75,
+        "meta_score": 0.6497,
+        "norm_rank": 15,
+        "rank_diff": 15
+      },
+      {
+        "card_id": "edceda32-7876-414b-9ab1-10f1f5876b88",
+        "title": "E2 positioning unwind: (HYPE,ETH) \u2014 funding pressure regime",
+        "branch": "positioning_unwind",
+        "raw_rank": 12,
+        "raw_score": 0.7055,
+        "branch_zscore": 0.0814,
+        "branch_percentile": 0.7333,
+        "meta_score": 0.6454,
+        "norm_rank": 16,
+        "rank_diff": -4
+      },
+      {
+        "card_id": "2cd9f88b-fe0e-4a46-850d-33e7977bf1b1",
+        "title": "E2 positioning unwind: (HYPE,BTC) \u2014 funding pressure regime",
+        "branch": "positioning_unwind",
+        "raw_rank": 13,
+        "raw_score": 0.7055,
+        "branch_zscore": 0.0814,
+        "branch_percentile": 0.7333,
+        "meta_score": 0.6454,
+        "norm_rank": 17,
+        "rank_diff": -4
+      },
+      {
+        "card_id": "ade76501-ccc8-4f36-8594-a303805f1c94",
+        "title": "E2 positioning unwind: (ETH,SOL) \u2014 funding pressure regime",
+        "branch": "positioning_unwind",
+        "raw_rank": 15,
+        "raw_score": 0.7005,
+        "branch_zscore": -0.0247,
+        "branch_percentile": 0.7,
+        "meta_score": 0.6184,
+        "norm_rank": 18,
+        "rank_diff": -3
+      },
+      {
+        "card_id": "4605c087-b168-4edc-8235-64f386ee24a0",
+        "title": "Chain-D1 positioning unwind: (HYPE,BTC) break + HYPE funding extreme",
+        "branch": "other",
+        "raw_rank": 45,
+        "raw_score": 0.6167,
+        "branch_zscore": -0.041,
+        "branch_percentile": 0.6429,
+        "meta_score": 0.583,
+        "norm_rank": 19,
+        "rank_diff": 26
+      },
+      {
+        "card_id": "2e07f28a-1af1-42c6-8825-2b7587f31357",
+        "title": "Chain-D1 positioning unwind: (HYPE,SOL) break + HYPE funding extreme",
+        "branch": "other",
+        "raw_rank": 46,
+        "raw_score": 0.6167,
+        "branch_zscore": -0.041,
+        "branch_percentile": 0.6429,
+        "meta_score": 0.583,
+        "norm_rank": 20,
+        "rank_diff": 26
+      },
+      {
+        "card_id": "c22ae45b-4e1b-4dec-8846-cee4f1423045",
+        "title": "Chain-D1 positioning unwind: (ETH,SOL) break + SOL funding extreme",
+        "branch": "other",
+        "raw_rank": 47,
+        "raw_score": 0.6167,
+        "branch_zscore": -0.041,
+        "branch_percentile": 0.6429,
+        "meta_score": 0.583,
+        "norm_rank": 21,
+        "rank_diff": 26
+      },
+      {
+        "card_id": "de0a4526-cebd-4901-a502-f782a9f2f0cc",
+        "title": "Chain-D1 positioning unwind: (BTC,SOL) break + SOL funding extreme",
+        "branch": "other",
+        "raw_rank": 48,
+        "raw_score": 0.6167,
+        "branch_zscore": -0.041,
+        "branch_percentile": 0.6429,
+        "meta_score": 0.583,
+        "norm_rank": 22,
+        "rank_diff": 26
+      },
+      {
+        "card_id": "e52cb8b7-3ae5-4d53-a903-40668e6ef013",
+        "title": "Chain-D1 flow continuation: (BTC,SOL) break driven by BTC burst aggression",
+        "branch": "flow_continuation",
+        "raw_rank": 42,
+        "raw_score": 0.62,
+        "branch_zscore": -0.3445,
+        "branch_percentile": 0.625,
+        "meta_score": 0.552,
+        "norm_rank": 23,
+        "rank_diff": 19
+      },
+      {
+        "card_id": "2c8540a3-b413-4e1f-aa9a-046058591048",
+        "title": "E1 beta reversion: (ETH,SOL) \u2014 transient aggression, no persistence",
+        "branch": "beta_reversion",
+        "raw_rank": 39,
+        "raw_score": 0.6361,
+        "branch_zscore": -0.4968,
+        "branch_percentile": 0.625,
+        "meta_score": 0.5419,
+        "norm_rank": 24,
+        "rank_diff": 15
+      },
+      {
+        "card_id": "6bf6bad2-eace-4c7c-a032-a0ef47bd452c",
+        "title": "Chain-D1 positioning unwind: (HYPE,ETH) break + HYPE funding extreme",
+        "branch": "other",
+        "raw_rank": 53,
+        "raw_score": 0.6082,
+        "branch_zscore": -0.1957,
+        "branch_percentile": 0.5714,
+        "meta_score": 0.5298,
+        "norm_rank": 25,
+        "rank_diff": 28
+      },
+      {
+        "card_id": "22f4625c-7a13-49de-b507-b07faeaecefc",
+        "title": "E2 positioning unwind: (HYPE,ETH) \u2014 one-sided OI build + crowding",
+        "branch": "positioning_unwind",
+        "raw_rank": 16,
+        "raw_score": 0.6958,
+        "branch_zscore": -0.1243,
+        "branch_percentile": 0.5333,
+        "meta_score": 0.5117,
+        "norm_rank": 26,
+        "rank_diff": -10
+      },
+      {
+        "card_id": "f987d9bf-25b4-42e1-b64e-5700551cfddf",
+        "title": "E2 positioning unwind: (HYPE,BTC) \u2014 one-sided OI build + crowding",
+        "branch": "positioning_unwind",
+        "raw_rank": 17,
+        "raw_score": 0.6958,
+        "branch_zscore": -0.1243,
+        "branch_percentile": 0.5333,
+        "meta_score": 0.5117,
+        "norm_rank": 27,
+        "rank_diff": -10
+      },
+      {
+        "card_id": "e66e964a-233f-46fe-bbca-3bb284e9a701",
+        "title": "E2 positioning unwind: (HYPE,SOL) \u2014 one-sided OI build + crowding",
+        "branch": "positioning_unwind",
+        "raw_rank": 18,
+        "raw_score": 0.6958,
+        "branch_zscore": -0.1243,
+        "branch_percentile": 0.5333,
+        "meta_score": 0.5117,
+        "norm_rank": 28,
+        "rank_diff": -10
+      },
+      {
+        "card_id": "3e56b399-3e99-4604-8c37-e3e40de9141a",
+        "title": "E2 positioning unwind: (ETH,SOL) \u2014 one-sided OI build + crowding",
+        "branch": "positioning_unwind",
+        "raw_rank": 19,
+        "raw_score": 0.6958,
+        "branch_zscore": -0.1243,
+        "branch_percentile": 0.5333,
+        "meta_score": 0.5117,
+        "norm_rank": 29,
+        "rank_diff": -10
+      },
+      {
+        "card_id": "bed2dbb4-fdb3-4ff5-b3e1-4907df93cf74",
+        "title": "E2 positioning unwind: (BTC,SOL) \u2014 one-sided OI build + crowding",
+        "branch": "positioning_unwind",
+        "raw_rank": 20,
+        "raw_score": 0.6958,
+        "branch_zscore": -0.1243,
+        "branch_percentile": 0.5333,
+        "meta_score": 0.5117,
+        "norm_rank": 30,
+        "rank_diff": -10
+      },
+      {
+        "card_id": "d994f546-6edb-4548-829f-42abca16dc77",
+        "title": "E2 positioning unwind: (HYPE,SOL) \u2014 funding pressure regime",
+        "branch": "positioning_unwind",
+        "raw_rank": 21,
+        "raw_score": 0.6901,
+        "branch_zscore": -0.2452,
+        "branch_percentile": 0.5,
+        "meta_score": 0.4836,
+        "norm_rank": 31,
+        "rank_diff": -10
+      },
+      {
+        "card_id": "c24c6e66-fc72-49fc-ad14-440c85db28ed",
+        "title": "E1 beta reversion: (BTC,SOL) \u2014 transient aggression, no persistence",
+        "branch": "beta_reversion",
+        "raw_rank": 40,
+        "raw_score": 0.6356,
+        "branch_zscore": -0.5053,
+        "branch_percentile": 0.5,
+        "meta_score": 0.4663,
+        "norm_rank": 32,
+        "rank_diff": 8
+      },
+      {
+        "card_id": "4957863e-11f6-4c9a-a4e1-7c76cbc886fd",
+        "title": "E2 positioning unwind: (HYPE,BTC) \u2014 premium compression",
+        "branch": "positioning_unwind",
+        "raw_rank": 22,
+        "raw_score": 0.6846,
+        "branch_zscore": -0.3618,
+        "branch_percentile": 0.3667,
+        "meta_score": 0.3959,
+        "norm_rank": 33,
+        "rank_diff": -11
+      },
+      {
+        "card_id": "2c886872-18f6-4f9b-ba09-57411c8e96f1",
+        "title": "E2 positioning unwind: (HYPE,SOL) \u2014 premium compression",
+        "branch": "positioning_unwind",
+        "raw_rank": 23,
+        "raw_score": 0.6846,
+        "branch_zscore": -0.3618,
+        "branch_percentile": 0.3667,
+        "meta_score": 0.3959,
+        "norm_rank": 34,
+        "rank_diff": -11
+      },
+      {
+        "card_id": "291d1c55-cd69-4503-ab09-cdd00b5f5bfd",
+        "title": "E2 positioning unwind: (ETH,SOL) \u2014 premium compression",
+        "branch": "positioning_unwind",
+        "raw_rank": 24,
+        "raw_score": 0.6846,
+        "branch_zscore": -0.3618,
+        "branch_percentile": 0.3667,
+        "meta_score": 0.3959,
+        "norm_rank": 35,
+        "rank_diff": -11
+      },
+      {
+        "card_id": "a2516d3a-3162-4d41-89fc-d6b42c4e6a55",
+        "title": "E2 positioning unwind: (BTC,SOL) \u2014 premium compression",
+        "branch": "positioning_unwind",
+        "raw_rank": 25,
+        "raw_score": 0.6846,
+        "branch_zscore": -0.3618,
+        "branch_percentile": 0.3667,
+        "meta_score": 0.3959,
+        "norm_rank": 36,
+        "rank_diff": -11
+      },
+      {
+        "card_id": "194bc515-ed77-4ae8-95de-fe4419ae763c",
+        "title": "E1 beta reversion: (HYPE,SOL) \u2014 transient aggression, no persistence",
+        "branch": "beta_reversion",
+        "raw_rank": 41,
+        "raw_score": 0.6346,
+        "branch_zscore": -0.5224,
+        "branch_percentile": 0.375,
+        "meta_score": 0.3902,
+        "norm_rank": 37,
+        "rank_diff": 4
+      },
+      {
+        "card_id": "5908090c-514d-4f3e-a6e6-bfbe296d7c31",
+        "title": "E2 positioning unwind: (BTC,SOL) \u2014 funding pressure regime",
+        "branch": "positioning_unwind",
+        "raw_rank": 26,
+        "raw_score": 0.6843,
+        "branch_zscore": -0.3682,
+        "branch_percentile": 0.3333,
+        "meta_score": 0.3754,
+        "norm_rank": 38,
+        "rank_diff": -12
+      },
+      {
+        "card_id": "00542ecd-df4c-4aa5-917e-bc6a6c33868f",
+        "title": "Chain-D1 positioning unwind: (HYPE,BTC) break + HYPE funding extreme",
+        "branch": "other",
+        "raw_rank": 54,
+        "raw_score": 0.5993,
+        "branch_zscore": -0.3577,
+        "branch_percentile": 0.2857,
+        "meta_score": 0.3476,
+        "norm_rank": 39,
+        "rank_diff": 15
+      },
+      {
+        "card_id": "8831029d-8f8d-4e21-97ae-16fc3571d85c",
+        "title": "Chain-D1 positioning unwind: (HYPE,SOL) break + HYPE funding extreme",
+        "branch": "other",
+        "raw_rank": 55,
+        "raw_score": 0.5993,
+        "branch_zscore": -0.3577,
+        "branch_percentile": 0.2857,
+        "meta_score": 0.3476,
+        "norm_rank": 40,
+        "rank_diff": 15
+      },
+      {
+        "card_id": "d245b109-efa7-47b6-a0d5-dd9559587ea6",
+        "title": "Chain-D1 positioning unwind: (ETH,SOL) break + SOL funding extreme",
+        "branch": "other",
+        "raw_rank": 56,
+        "raw_score": 0.5993,
+        "branch_zscore": -0.3577,
+        "branch_percentile": 0.2857,
+        "meta_score": 0.3476,
+        "norm_rank": 41,
+        "rank_diff": 15
+      },
+      {
+        "card_id": "bcaa19f1-565f-489a-8e1e-6287fbbc1446",
+        "title": "Chain-D1 positioning unwind: (BTC,SOL) break + SOL funding extreme",
+        "branch": "other",
+        "raw_rank": 57,
+        "raw_score": 0.5993,
+        "branch_zscore": -0.3577,
+        "branch_percentile": 0.2857,
+        "meta_score": 0.3476,
+        "norm_rank": 42,
+        "rank_diff": 15
+      },
+      {
+        "card_id": "3b4b8b8b-574e-4f5e-9d5a-4fa7c426e74c",
+        "title": "E2 positioning unwind: (HYPE,ETH) \u2014 funding pressure regime",
+        "branch": "positioning_unwind",
+        "raw_rank": 27,
+        "raw_score": 0.6677,
+        "branch_zscore": -0.7202,
+        "branch_percentile": 0.2667,
+        "meta_score": 0.312,
+        "norm_rank": 43,
+        "rank_diff": -16
+      },
+      {
+        "card_id": "95dd3159-50fa-4e77-838c-b7a0508763f4",
+        "title": "E2 positioning unwind: (HYPE,BTC) \u2014 funding pressure regime",
+        "branch": "positioning_unwind",
+        "raw_rank": 28,
+        "raw_score": 0.6677,
+        "branch_zscore": -0.7202,
+        "branch_percentile": 0.2667,
+        "meta_score": 0.312,
+        "norm_rank": 44,
+        "rank_diff": -16
+      },
+      {
+        "card_id": "af598cbf-63d4-4972-a28d-94fa3dba8bc5",
+        "title": "Chain-D1 flow continuation: (HYPE,SOL) break driven by HYPE burst aggression",
+        "branch": "flow_continuation",
+        "raw_rank": 49,
+        "raw_score": 0.6118,
+        "branch_zscore": -0.5819,
+        "branch_percentile": 0.25,
+        "meta_score": 0.3112,
+        "norm_rank": 45,
+        "rank_diff": 4
+      },
+      {
+        "card_id": "6c7f94f2-18e9-4159-b8d4-e56789d0fb46",
+        "title": "Chain-D1 flow continuation: (HYPE,SOL) break driven by SOL burst aggression",
+        "branch": "flow_continuation",
+        "raw_rank": 50,
+        "raw_score": 0.6118,
+        "branch_zscore": -0.5819,
+        "branch_percentile": 0.25,
+        "meta_score": 0.3112,
+        "norm_rank": 46,
+        "rank_diff": 4
+      },
+      {
+        "card_id": "ce8808c8-f32c-4879-b135-717a99bea846",
+        "title": "Chain-D1 flow continuation: (BTC,SOL) break driven by SOL burst aggression",
+        "branch": "flow_continuation",
+        "raw_rank": 51,
+        "raw_score": 0.6118,
+        "branch_zscore": -0.5819,
+        "branch_percentile": 0.25,
+        "meta_score": 0.3112,
+        "norm_rank": 47,
+        "rank_diff": 4
+      },
+      {
+        "card_id": "9d919f8a-14a0-45ea-abe5-6d8da6b41131",
+        "title": "E1 beta reversion: (BTC,SOL) \u2014 transient aggression, no persistence",
+        "branch": "beta_reversion",
+        "raw_rank": 43,
+        "raw_score": 0.6195,
+        "branch_zscore": -0.7795,
+        "branch_percentile": 0.25,
+        "meta_score": 0.298,
+        "norm_rank": 48,
+        "rank_diff": -5
+      },
+      {
+        "card_id": "ad8134ee-9d11-45c3-be34-b6cebdc1f69d",
+        "title": "E2 positioning unwind: (ETH,SOL) \u2014 funding pressure regime",
+        "branch": "positioning_unwind",
+        "raw_rank": 29,
+        "raw_score": 0.6663,
+        "branch_zscore": -0.7499,
+        "branch_percentile": 0.2333,
+        "meta_score": 0.29,
+        "norm_rank": 49,
+        "rank_diff": -20
+      },
+      {
+        "card_id": "3151e8ad-09d2-408a-8d8e-5f18f57289f2",
+        "title": "Chain-D1 positioning unwind: (HYPE,SOL) break + SOL funding extreme",
+        "branch": "other",
+        "raw_rank": 58,
+        "raw_score": 0.59,
+        "branch_zscore": -0.5269,
+        "branch_percentile": 0.1429,
+        "meta_score": 0.2506,
+        "norm_rank": 50,
+        "rank_diff": 8
+      },
+      {
+        "card_id": "1393fb55-605e-4010-b64e-8034ad4142f4",
+        "title": "Chain-D1 positioning unwind: (HYPE,SOL) break + SOL funding extreme",
+        "branch": "other",
+        "raw_rank": 59,
+        "raw_score": 0.59,
+        "branch_zscore": -0.5269,
+        "branch_percentile": 0.1429,
+        "meta_score": 0.2506,
+        "norm_rank": 51,
+        "rank_diff": 8
+      },
+      {
+        "card_id": "d1d941bb-b525-4346-bc9e-829869ec5fd2",
+        "title": "Chain-D1 flow continuation: (ETH,BTC) break driven by BTC burst aggression",
+        "branch": "flow_continuation",
+        "raw_rank": 52,
+        "raw_score": 0.6083,
+        "branch_zscore": -0.6832,
+        "branch_percentile": 0.125,
+        "meta_score": 0.2294,
+        "norm_rank": 52,
+        "rank_diff": 0
+      },
+      {
+        "card_id": "e4c3b7b6-6103-4116-b683-cbe3499c3e3b",
+        "title": "E1 beta reversion: (ETH,SOL) \u2014 transient aggression, no persistence",
+        "branch": "beta_reversion",
+        "raw_rank": 44,
+        "raw_score": 0.6182,
+        "branch_zscore": -0.8016,
+        "branch_percentile": 0.125,
+        "meta_score": 0.2216,
+        "norm_rank": 53,
+        "rank_diff": -9
+      },
+      {
+        "card_id": "880bec36-4ffb-4161-b6d2-eadc1c3e3cd2",
+        "title": "E2 positioning unwind: (HYPE,ETH) \u2014 premium compression",
+        "branch": "positioning_unwind",
+        "raw_rank": 31,
+        "raw_score": 0.6625,
+        "branch_zscore": -0.8305,
+        "branch_percentile": 0.0667,
+        "meta_score": 0.1847,
+        "norm_rank": 54,
+        "rank_diff": -23
+      },
+      {
+        "card_id": "68717c05-954a-4b92-ad8d-cbb7704bfaed",
+        "title": "E2 positioning unwind: (HYPE,BTC) \u2014 premium compression",
+        "branch": "positioning_unwind",
+        "raw_rank": 32,
+        "raw_score": 0.6625,
+        "branch_zscore": -0.8305,
+        "branch_percentile": 0.0667,
+        "meta_score": 0.1847,
+        "norm_rank": 55,
+        "rank_diff": -23
+      },
+      {
+        "card_id": "da3ca78e-f85d-4762-b996-aae7721648cd",
+        "title": "E2 positioning unwind: (HYPE,SOL) \u2014 premium compression",
+        "branch": "positioning_unwind",
+        "raw_rank": 33,
+        "raw_score": 0.6625,
+        "branch_zscore": -0.8305,
+        "branch_percentile": 0.0667,
+        "meta_score": 0.1847,
+        "norm_rank": 56,
+        "rank_diff": -23
+      },
+      {
+        "card_id": "08a3d911-3fd1-4057-ba1f-3243b96abdd6",
+        "title": "E2 positioning unwind: (ETH,SOL) \u2014 premium compression",
+        "branch": "positioning_unwind",
+        "raw_rank": 34,
+        "raw_score": 0.6625,
+        "branch_zscore": -0.8305,
+        "branch_percentile": 0.0667,
+        "meta_score": 0.1847,
+        "norm_rank": 57,
+        "rank_diff": -23
+      },
+      {
+        "card_id": "9af23fc2-8185-485f-bf05-8d2a92f2d5ba",
+        "title": "E2 positioning unwind: (BTC,SOL) \u2014 premium compression",
+        "branch": "positioning_unwind",
+        "raw_rank": 35,
+        "raw_score": 0.6625,
+        "branch_zscore": -0.8305,
+        "branch_percentile": 0.0667,
+        "meta_score": 0.1847,
+        "norm_rank": 58,
+        "rank_diff": -23
+      },
+      {
+        "card_id": "d67f5282-6f34-49fd-b8fd-216f94f43d98",
+        "title": "Extreme long funding on SOL predicts reversion",
+        "branch": "other",
+        "raw_rank": 60,
+        "raw_score": 0.5411,
+        "branch_zscore": -1.417,
+        "branch_percentile": 0.0714,
+        "meta_score": 0.1484,
+        "norm_rank": 59,
+        "rank_diff": 1
+      },
+      {
+        "card_id": "ef89980d-e705-4c00-b360-6d0f343a6855",
+        "title": "E2 positioning unwind: (BTC,SOL) \u2014 funding pressure regime",
+        "branch": "positioning_unwind",
+        "raw_rank": 36,
+        "raw_score": 0.6465,
+        "branch_zscore": -1.1698,
+        "branch_percentile": 0.0333,
+        "meta_score": 0.142,
+        "norm_rank": 60,
+        "rank_diff": -24
+      }
+    ],
+    "ranking_diff_summary": {
+      "mean_abs_diff": 11.67,
+      "max_diff": 28,
+      "n_cards_changed_top_k": 0
+    }
+  },
+  "regime_stratified": {
+    "high_oi_growth": {
+      "n_cards": 10,
+      "mean_score": 0.7278,
+      "top_k_share": 1.0,
+      "dominant_branch": "positioning_unwind",
+      "branch_activation": {
+        "positioning_unwind": 1.0
+      }
+    },
+    "funding_shifted": {
+      "n_cards": 30,
+      "mean_score": 0.7017,
+      "top_k_share": 1.0,
+      "dominant_branch": "positioning_unwind",
+      "branch_activation": {
+        "positioning_unwind": 1.0
+      }
+    },
+    "alt_led": {
+      "n_cards": 34,
+      "mean_score": 0.6729,
+      "top_k_share": 1.0,
+      "dominant_branch": "positioning_unwind",
+      "branch_activation": {
+        "positioning_unwind": 0.5294,
+        "beta_reversion": 0.1176,
+        "other": 0.2941,
+        "flow_continuation": 0.0588
+      }
+    },
+    "high_coverage": {
+      "n_cards": 60,
+      "mean_score": 0.6682,
+      "top_k_share": 1.0,
+      "dominant_branch": "positioning_unwind",
+      "branch_activation": {
+        "positioning_unwind": 0.5,
+        "beta_reversion": 0.1333,
+        "other": 0.2333,
+        "flow_continuation": 0.1333
+      }
+    },
+    "btc_led": {
+      "n_cards": 26,
+      "mean_score": 0.662,
+      "top_k_share": 1.0,
+      "dominant_branch": "positioning_unwind",
+      "branch_activation": {
+        "positioning_unwind": 0.4615,
+        "beta_reversion": 0.1538,
+        "other": 0.1538,
+        "flow_continuation": 0.2308
+      }
+    },
+    "flat_oi": {
+      "n_cards": 50,
+      "mean_score": 0.6563,
+      "top_k_share": 1.0,
+      "dominant_branch": "positioning_unwind",
+      "branch_activation": {
+        "positioning_unwind": 0.4,
+        "beta_reversion": 0.16,
+        "other": 0.28,
+        "flow_continuation": 0.16
+      }
+    },
+    "low_vol": {
+      "n_cards": 8,
+      "mean_score": 0.6653,
+      "top_k_share": 1.0,
+      "dominant_branch": "beta_reversion",
+      "branch_activation": {
+        "beta_reversion": 1.0
+      }
+    },
+    "funding_quiet": {
+      "n_cards": 8,
+      "mean_score": 0.6653,
+      "top_k_share": 1.0,
+      "dominant_branch": "beta_reversion",
+      "branch_activation": {
+        "beta_reversion": 1.0
+      }
+    },
+    "high_vol": {
+      "n_cards": 8,
+      "mean_score": 0.6319,
+      "top_k_share": 1.0,
+      "dominant_branch": "flow_continuation",
+      "branch_activation": {
+        "flow_continuation": 1.0
+      }
+    }
+  },
+  "baseline_uplift": {
+    "uplift_cards": [],
+    "top_uplift": [],
+    "mean_uplift_by_branch": {},
+    "n_matched": 0
+  }
+}

@@ -1,0 +1,410 @@
+[
+  {
+    "card_id": "83de09b4-7f19-494e-a168-21c1ad9ab6b9",
+    "version": 1,
+    "created_at": "2026-04-15T01:25:34.690953+00:00",
+    "title": "Correlation break on (HYPE,ETH) predicts spread mean reversion",
+    "claim": "When rolling correlation between HYPE and ETH drops below 0.3 (observed rho=0.000), the relative spread is likely to mean-revert within 2 correlation windows.",
+    "mechanism": "Temporary correlation breaks are typically regime-driven rather than structural; the spread reverts as the common factor reasserts.",
+    "evidence_nodes": [
+      "asset:HYPE",
+      "corr:HYPE:ETH"
+    ],
+    "evidence_edges": [
+      "correlation_break:HYPE:corr:HYPE:ETH"
+    ],
+    "operator_trace": [
+      "align",
+      "difference",
+      "compose"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 1.0,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.765,
+    "run_id": "run_001_20260415",
+    "kg_families": [
+      "cross_asset",
+      "pair"
+    ],
+    "tags": [
+      "pair",
+      "mean_reversion",
+      "correlation"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "80975882-1aa9-4c7e-bc92-be5945fa72a6",
+    "version": 1,
+    "created_at": "2026-04-15T01:25:34.691188+00:00",
+    "title": "Correlation break on (HYPE,BTC) predicts spread mean reversion",
+    "claim": "When rolling correlation between HYPE and BTC drops below 0.3 (observed rho=0.000), the relative spread is likely to mean-revert within 2 correlation windows.",
+    "mechanism": "Temporary correlation breaks are typically regime-driven rather than structural; the spread reverts as the common factor reasserts.",
+    "evidence_nodes": [
+      "asset:HYPE",
+      "corr:HYPE:BTC"
+    ],
+    "evidence_edges": [
+      "correlation_break:HYPE:corr:HYPE:BTC"
+    ],
+    "operator_trace": [
+      "align",
+      "difference",
+      "compose"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.087,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.5824,
+    "run_id": "run_001_20260415",
+    "kg_families": [
+      "cross_asset",
+      "pair"
+    ],
+    "tags": [
+      "pair",
+      "mean_reversion",
+      "correlation"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "24c10800-2b20-4763-b8c5-de1351d77651",
+    "version": 1,
+    "created_at": "2026-04-15T01:25:34.691232+00:00",
+    "title": "Correlation break on (HYPE,SOL) predicts spread mean reversion",
+    "claim": "When rolling correlation between HYPE and SOL drops below 0.3 (observed rho=0.000), the relative spread is likely to mean-revert within 2 correlation windows.",
+    "mechanism": "Temporary correlation breaks are typically regime-driven rather than structural; the spread reverts as the common factor reasserts.",
+    "evidence_nodes": [
+      "asset:HYPE",
+      "corr:HYPE:SOL"
+    ],
+    "evidence_edges": [
+      "correlation_break:HYPE:corr:HYPE:SOL"
+    ],
+    "operator_trace": [
+      "align",
+      "difference",
+      "compose"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.087,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.5824,
+    "run_id": "run_001_20260415",
+    "kg_families": [
+      "cross_asset",
+      "pair"
+    ],
+    "tags": [
+      "pair",
+      "mean_reversion",
+      "correlation"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "5f8d4ed6-dda6-41f6-8c7b-7084c143775f",
+    "version": 1,
+    "created_at": "2026-04-15T01:25:34.691272+00:00",
+    "title": "Correlation break on (ETH,BTC) predicts spread mean reversion",
+    "claim": "When rolling correlation between ETH and BTC drops below 0.3 (observed rho=0.000), the relative spread is likely to mean-revert within 2 correlation windows.",
+    "mechanism": "Temporary correlation breaks are typically regime-driven rather than structural; the spread reverts as the common factor reasserts.",
+    "evidence_nodes": [
+      "asset:ETH",
+      "corr:ETH:BTC"
+    ],
+    "evidence_edges": [
+      "correlation_break:ETH:corr:ETH:BTC"
+    ],
+    "operator_trace": [
+      "align",
+      "difference",
+      "compose"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.087,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.5824,
+    "run_id": "run_001_20260415",
+    "kg_families": [
+      "cross_asset",
+      "pair"
+    ],
+    "tags": [
+      "pair",
+      "mean_reversion",
+      "correlation"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "ad7bce36-4e06-416d-b3ca-c200ca46dcb7",
+    "version": 1,
+    "created_at": "2026-04-15T01:25:34.691312+00:00",
+    "title": "Correlation break on (ETH,SOL) predicts spread mean reversion",
+    "claim": "When rolling correlation between ETH and SOL drops below 0.3 (observed rho=0.000), the relative spread is likely to mean-revert within 2 correlation windows.",
+    "mechanism": "Temporary correlation breaks are typically regime-driven rather than structural; the spread reverts as the common factor reasserts.",
+    "evidence_nodes": [
+      "asset:ETH",
+      "corr:ETH:SOL"
+    ],
+    "evidence_edges": [
+      "correlation_break:ETH:corr:ETH:SOL"
+    ],
+    "operator_trace": [
+      "align",
+      "difference",
+      "compose"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.087,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.5824,
+    "run_id": "run_001_20260415",
+    "kg_families": [
+      "cross_asset",
+      "pair"
+    ],
+    "tags": [
+      "pair",
+      "mean_reversion",
+      "correlation"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "d64c8614-bae2-41f2-878f-c0b30d50f7f1",
+    "version": 1,
+    "created_at": "2026-04-15T01:25:34.691352+00:00",
+    "title": "Correlation break on (BTC,SOL) predicts spread mean reversion",
+    "claim": "When rolling correlation between BTC and SOL drops below 0.3 (observed rho=0.000), the relative spread is likely to mean-revert within 2 correlation windows.",
+    "mechanism": "Temporary correlation breaks are typically regime-driven rather than structural; the spread reverts as the common factor reasserts.",
+    "evidence_nodes": [
+      "asset:BTC",
+      "corr:BTC:SOL"
+    ],
+    "evidence_edges": [
+      "correlation_break:BTC:corr:BTC:SOL"
+    ],
+    "operator_trace": [
+      "align",
+      "difference",
+      "compose"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.087,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.5824,
+    "run_id": "run_001_20260415",
+    "kg_families": [
+      "cross_asset",
+      "pair"
+    ],
+    "tags": [
+      "pair",
+      "mean_reversion",
+      "correlation"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "2cfa8238-93a9-45e0-b59e-fa427a8a1520",
+    "version": 1,
+    "created_at": "2026-04-15T01:25:34.691399+00:00",
+    "title": "Regime transition aggressive_buying → undefined detected",
+    "claim": "A transition from aggressive_buying to undefined has been observed. Following this pattern historically, the market tends to exhibit lower volatility and tighter spreads for at least 2 hours.",
+    "mechanism": "Extreme regimes exhaust the directional participants; the subsequent resting phase reflects informed market-maker re-entry.",
+    "evidence_nodes": [
+      "regime:HYPE:4",
+      "regime:HYPE:5"
+    ],
+    "evidence_edges": [
+      "transition:HYPE:4:5"
+    ],
+    "operator_trace": [
+      "compose",
+      "difference"
+    ],
+    "secrecy_level": "shareable_structure",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.58,
+      "novelty": 0.9111,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.25
+    },
+    "composite_score": 0.6922,
+    "run_id": "run_001_20260415",
+    "kg_families": [
+      "regime"
+    ],
+    "tags": [
+      "regime",
+      "transition"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "e046be3a-d0a2-4d02-bd4c-e3032fc6734f",
+    "version": 1,
+    "created_at": "2026-04-15T01:25:34.691446+00:00",
+    "title": "Regime transition aggressive_selling → undefined detected",
+    "claim": "A transition from aggressive_selling to undefined has been observed. Following this pattern historically, the market tends to exhibit lower volatility and tighter spreads for at least 2 hours.",
+    "mechanism": "Extreme regimes exhaust the directional participants; the subsequent resting phase reflects informed market-maker re-entry.",
+    "evidence_nodes": [
+      "regime:HYPE:8",
+      "regime:HYPE:9"
+    ],
+    "evidence_edges": [
+      "transition:HYPE:8:9"
+    ],
+    "operator_trace": [
+      "compose",
+      "difference"
+    ],
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.58,
+      "novelty": 0.0714,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.25
+    },
+    "composite_score": 0.5243,
+    "run_id": "run_001_20260415",
+    "kg_families": [
+      "regime"
+    ],
+    "tags": [
+      "regime",
+      "transition"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "0ba82caa-42e8-42aa-a2c4-18947ef8a113",
+    "version": 1,
+    "created_at": "2026-04-15T01:25:34.691495+00:00",
+    "title": "Regime transition aggressive_selling → resting_liquidity detected",
+    "claim": "A transition from aggressive_selling to resting_liquidity has been observed. Following this pattern historically, the market tends to exhibit lower volatility and tighter spreads for at least 2 hours.",
+    "mechanism": "Extreme regimes exhaust the directional participants; the subsequent resting phase reflects informed market-maker re-entry.",
+    "evidence_nodes": [
+      "regime:HYPE:11",
+      "regime:HYPE:12"
+    ],
+    "evidence_edges": [
+      "transition:HYPE:11:12"
+    ],
+    "operator_trace": [
+      "compose",
+      "difference"
+    ],
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.58,
+      "novelty": 0.0714,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.25
+    },
+    "composite_score": 0.5243,
+    "run_id": "run_001_20260415",
+    "kg_families": [
+      "regime"
+    ],
+    "tags": [
+      "regime",
+      "transition"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "d5817515-2337-48d9-bfa6-8536034725a5",
+    "version": 1,
+    "created_at": "2026-04-15T01:25:34.691546+00:00",
+    "title": "Regime transition aggressive_selling → aggressive_buying detected",
+    "claim": "A transition from aggressive_selling to aggressive_buying has been observed. Following this pattern historically, the market tends to exhibit lower volatility and tighter spreads for at least 2 hours.",
+    "mechanism": "Extreme regimes exhaust the directional participants; the subsequent resting phase reflects informed market-maker re-entry.",
+    "evidence_nodes": [
+      "regime:ETH:0",
+      "regime:ETH:1"
+    ],
+    "evidence_edges": [
+      "transition:ETH:0:1"
+    ],
+    "operator_trace": [
+      "compose",
+      "difference"
+    ],
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.58,
+      "novelty": 0.0714,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.25
+    },
+    "composite_score": 0.5243,
+    "run_id": "run_001_20260415",
+    "kg_families": [
+      "regime"
+    ],
+    "tags": [
+      "regime",
+      "transition"
+    ],
+    "actionability_note": null
+  }
+]
