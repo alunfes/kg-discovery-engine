@@ -1,0 +1,29 @@
+{
+  "run_id": "run_011_r1_formalization",
+  "date": "2026-04-15",
+  "sprint": "K",
+  "objective": "Formalize Meta-rule R1 (Regime Dominance Gate) as first-class grammar policy",
+  "seed": 42,
+  "assets": ["HYPE", "ETH", "BTC", "SOL"],
+  "n_minutes": 120,
+  "top_k": 60,
+  "base_branch": "claude/zen-curran",
+  "base_commit": "c9a30d8",
+  "new_files": [
+    "crypto/src/kg/regime_dominance_gate.py",
+    "crypto/tests/test_sprint_k.py",
+    "crypto/artifacts/runs/run_011_r1_formalization/",
+    "crypto/docs/grammar_meta_rules.md",
+    "docs/run011_regime_dominance_gate.md"
+  ],
+  "modified_files": [
+    "crypto/src/kg/chain_grammar.py"
+  ],
+  "test_results": {
+    "total_pass": 268,
+    "total_fail": 4,
+    "fail_pre_existing": 4,
+    "new_failures": 0,
+    "sprint_k_tests": 37
+  }
+}

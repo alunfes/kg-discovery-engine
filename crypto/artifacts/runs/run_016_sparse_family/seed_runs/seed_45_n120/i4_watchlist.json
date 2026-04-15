@@ -1,0 +1,602 @@
+{
+  "watchlist_cards": [
+    {
+      "card_id": "e8ed42ee-6735-4744-a8b3-7337c6404fa6",
+      "title": "E2 positioning unwind: (HYPE,ETH) \u2014 one-sided OI build + crowding",
+      "branch": "positioning_unwind",
+      "decision_tier": "actionable_watch",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "high",
+      "composite_score": 0.865
+    },
+    {
+      "card_id": "fe40f09e-40c5-443b-a460-624f90cb75e6",
+      "title": "E2 positioning unwind: (HYPE,BTC) \u2014 one-sided OI build + crowding",
+      "branch": "positioning_unwind",
+      "decision_tier": "actionable_watch",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "high",
+      "composite_score": 0.745
+    },
+    {
+      "card_id": "947bae92-72c5-4942-a207-cd5f84860e72",
+      "title": "E2 positioning unwind: (HYPE,SOL) \u2014 one-sided OI build + crowding",
+      "branch": "positioning_unwind",
+      "decision_tier": "actionable_watch",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "high",
+      "composite_score": 0.745
+    },
+    {
+      "card_id": "04271da2-bfa7-4acc-b8f2-2c09f130d417",
+      "title": "E2 positioning unwind: (ETH,SOL) \u2014 one-sided OI build + crowding",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.7221
+    },
+    {
+      "card_id": "aa50d1ba-f4ad-4f23-abb8-3957e3f13f75",
+      "title": "E2 positioning unwind: (BTC,SOL) \u2014 one-sided OI build + crowding",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.7221
+    },
+    {
+      "card_id": "56ff160a-f9dd-4156-a7a0-a696b8a41c0b",
+      "title": "E2 positioning unwind: (HYPE,ETH) \u2014 one-sided OI build + crowding",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.6958
+    },
+    {
+      "card_id": "9cddb0fc-b075-491e-8f5b-295bad0247a2",
+      "title": "E2 positioning unwind: (HYPE,BTC) \u2014 one-sided OI build + crowding",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.6958
+    },
+    {
+      "card_id": "f5d08a22-6066-4756-94d6-fd7f2441f34a",
+      "title": "E2 positioning unwind: (HYPE,SOL) \u2014 one-sided OI build + crowding",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.6958
+    },
+    {
+      "card_id": "3c05c5e0-04ea-4a9d-8336-c639b6fee058",
+      "title": "E2 positioning unwind: (ETH,SOL) \u2014 one-sided OI build + crowding",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.6958
+    },
+    {
+      "card_id": "2231f289-11dc-4640-8268-f07c0f17407d",
+      "title": "E2 positioning unwind: (BTC,SOL) \u2014 one-sided OI build + crowding",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.6958
+    },
+    {
+      "card_id": "d33c8dfe-1d02-43d0-8e94-79060e4f686e",
+      "title": "E2 positioning unwind: (HYPE,SOL) \u2014 funding pressure regime",
+      "branch": "positioning_unwind",
+      "decision_tier": "actionable_watch",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "high",
+      "composite_score": 0.8063
+    },
+    {
+      "card_id": "e915338c-a256-44d7-97e2-d1190b859b81",
+      "title": "E2 positioning unwind: (HYPE,SOL) \u2014 funding pressure regime",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.6901
+    },
+    {
+      "card_id": "ee397a9f-e7aa-4d7f-bd03-4d01973fcc01",
+      "title": "E2 positioning unwind: (HYPE,ETH) \u2014 funding pressure regime",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.7055
+    },
+    {
+      "card_id": "9052da4f-a6d6-4bb8-96a7-a9a622fc1596",
+      "title": "E2 positioning unwind: (HYPE,BTC) \u2014 funding pressure regime",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.7055
+    },
+    {
+      "card_id": "a5b957ec-e3b6-45be-9954-593bcb03fff4",
+      "title": "E2 positioning unwind: (HYPE,ETH) \u2014 funding pressure regime",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.6677
+    },
+    {
+      "card_id": "6f8e921b-1c26-41a3-8ddf-a4a0145f456c",
+      "title": "E2 positioning unwind: (HYPE,BTC) \u2014 funding pressure regime",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.6677
+    },
+    {
+      "card_id": "c34d9967-a3a1-40d1-a37c-55a0dd93fdc8",
+      "title": "E2 positioning unwind: (ETH,SOL) \u2014 funding pressure regime",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.703
+    },
+    {
+      "card_id": "45ecdb25-1eca-484d-b8fb-73fcccdfcb2c",
+      "title": "E2 positioning unwind: (BTC,SOL) \u2014 funding pressure regime",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.703
+    },
+    {
+      "card_id": "7f1e9b26-107a-497d-992e-3b17e8b01be7",
+      "title": "E2 positioning unwind: (ETH,SOL) \u2014 funding pressure regime",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.6652
+    },
+    {
+      "card_id": "14462848-8e09-47ca-b8e3-3f94c86aac04",
+      "title": "E2 positioning unwind: (BTC,SOL) \u2014 funding pressure regime",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.6652
+    },
+    {
+      "card_id": "94281fa6-b542-43cf-84f1-5f5899f702be",
+      "title": "E2 positioning unwind: (HYPE,ETH) \u2014 premium compression",
+      "branch": "positioning_unwind",
+      "decision_tier": "actionable_watch",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "high",
+      "composite_score": 0.7804
+    },
+    {
+      "card_id": "e1c238a9-3071-44cc-86b9-7252b9ef57f2",
+      "title": "E2 positioning unwind: (HYPE,BTC) \u2014 premium compression",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.6846
+    },
+    {
+      "card_id": "44799a01-5c6b-437e-809b-423dbbc8516b",
+      "title": "E2 positioning unwind: (HYPE,SOL) \u2014 premium compression",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.6846
+    },
+    {
+      "card_id": "7d1a79f0-df18-4f53-99fa-52a557f5535c",
+      "title": "E2 positioning unwind: (ETH,SOL) \u2014 premium compression",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.6846
+    },
+    {
+      "card_id": "6fba1a36-90a5-4c0f-af02-afa3c5e054d7",
+      "title": "E2 positioning unwind: (BTC,SOL) \u2014 premium compression",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.6846
+    },
+    {
+      "card_id": "0d954ad1-2d70-4b05-97d0-09262f683464",
+      "title": "E2 positioning unwind: (HYPE,ETH) \u2014 premium compression",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.6625
+    },
+    {
+      "card_id": "6ba1a386-5e32-4dbd-965a-0d54fa38ea25",
+      "title": "E2 positioning unwind: (HYPE,BTC) \u2014 premium compression",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.6625
+    },
+    {
+      "card_id": "048ec637-2bc3-4196-8013-aa8ea44555ee",
+      "title": "E2 positioning unwind: (HYPE,SOL) \u2014 premium compression",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.6625
+    },
+    {
+      "card_id": "90202c6c-af47-4562-ae46-12dcf14eef47",
+      "title": "E2 positioning unwind: (ETH,SOL) \u2014 premium compression",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.6625
+    },
+    {
+      "card_id": "5250344e-79bc-4bcc-8343-8b950f71b65d",
+      "title": "E2 positioning unwind: (BTC,SOL) \u2014 premium compression",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.6625
+    },
+    {
+      "card_id": "04a2e1e7-dc15-4874-8bae-c17d140a6460",
+      "title": "E1 beta reversion: (ETH,BTC) \u2014 no funding shift, no OI expansion",
+      "branch": "beta_reversion",
+      "decision_tier": "actionable_watch",
+      "watch_label": "beta_reversion_watch",
+      "watch_urgency": "high",
+      "composite_score": 0.7742
+    },
+    {
+      "card_id": "b47fc06a-7046-4b73-9f12-4a700a6ea486",
+      "title": "E1 beta reversion: (ETH,BTC) \u2014 no funding shift, no OI expansion",
+      "branch": "beta_reversion",
+      "decision_tier": "research_priority",
+      "watch_label": "beta_reversion_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.6635
+    },
+    {
+      "card_id": "cbc37f6a-46dc-4575-91e5-e0b6f98ce5a9",
+      "title": "E1 beta reversion: (ETH,BTC) \u2014 transient aggression, no persistence",
+      "branch": "beta_reversion",
+      "decision_tier": "actionable_watch",
+      "watch_label": "beta_reversion_watch",
+      "watch_urgency": "high",
+      "composite_score": 0.7478
+    },
+    {
+      "card_id": "320ca124-4e18-444d-855e-a27c670aa067",
+      "title": "E1 beta reversion: (ETH,BTC) \u2014 transient aggression, no persistence",
+      "branch": "beta_reversion",
+      "decision_tier": "monitor_borderline",
+      "watch_label": "beta_reversion_watch",
+      "watch_urgency": "low",
+      "composite_score": 0.6486
+    },
+    {
+      "card_id": "b07a3a36-3367-489d-b362-f6a2206cf3dc",
+      "title": "Chain-D1 positioning unwind: (HYPE,ETH) break + HYPE funding extreme",
+      "branch": "other",
+      "decision_tier": "research_priority",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "medium",
+      "composite_score": 0.7708
+    },
+    {
+      "card_id": "f728d028-f8cd-48bc-855d-f5dcaf4cfd0c",
+      "title": "Chain-D1 positioning unwind: (HYPE,BTC) break + HYPE funding extreme",
+      "branch": "other",
+      "decision_tier": "monitor_borderline",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "low",
+      "composite_score": 0.6167
+    },
+    {
+      "card_id": "ac4bba46-e10c-4da1-bb74-638c989c35f6",
+      "title": "Chain-D1 positioning unwind: (HYPE,SOL) break + HYPE funding extreme",
+      "branch": "other",
+      "decision_tier": "monitor_borderline",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "low",
+      "composite_score": 0.6167
+    },
+    {
+      "card_id": "5f48a4c9-5550-4e3e-878b-9b3f9822ffb4",
+      "title": "Chain-D1 positioning unwind: (HYPE,SOL) break + SOL funding extreme",
+      "branch": "other",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "none",
+      "composite_score": 0.59
+    },
+    {
+      "card_id": "f4ce86d5-97ae-432c-8880-64782803d750",
+      "title": "Chain-D1 positioning unwind: (ETH,SOL) break + SOL funding extreme",
+      "branch": "other",
+      "decision_tier": "monitor_borderline",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "low",
+      "composite_score": 0.6167
+    },
+    {
+      "card_id": "c23cbd92-d911-4190-bed5-680d454f56af",
+      "title": "Chain-D1 positioning unwind: (BTC,SOL) break + SOL funding extreme",
+      "branch": "other",
+      "decision_tier": "monitor_borderline",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "low",
+      "composite_score": 0.6167
+    },
+    {
+      "card_id": "6c039152-db76-44c6-b709-a58a11d5a7d6",
+      "title": "Chain-D1 positioning unwind: (HYPE,ETH) break + HYPE funding extreme",
+      "branch": "other",
+      "decision_tier": "monitor_borderline",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "low",
+      "composite_score": 0.6082
+    },
+    {
+      "card_id": "a968dcf0-7130-42ca-9bbb-bb0bd2ca0886",
+      "title": "Chain-D1 positioning unwind: (HYPE,BTC) break + HYPE funding extreme",
+      "branch": "other",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "none",
+      "composite_score": 0.5993
+    },
+    {
+      "card_id": "e3f59b01-96df-4010-a784-a62d2bbdf445",
+      "title": "Chain-D1 positioning unwind: (HYPE,SOL) break + HYPE funding extreme",
+      "branch": "other",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "none",
+      "composite_score": 0.5993
+    },
+    {
+      "card_id": "b842fe9c-7d8c-47fb-8589-63b5fa9ea53b",
+      "title": "Chain-D1 positioning unwind: (HYPE,SOL) break + SOL funding extreme",
+      "branch": "other",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "none",
+      "composite_score": 0.59
+    },
+    {
+      "card_id": "903d5996-003b-4831-86f1-504795572fa0",
+      "title": "Chain-D1 positioning unwind: (ETH,SOL) break + SOL funding extreme",
+      "branch": "other",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "none",
+      "composite_score": 0.5993
+    },
+    {
+      "card_id": "99400087-3808-4a02-b831-294066ffb86a",
+      "title": "Chain-D1 positioning unwind: (BTC,SOL) break + SOL funding extreme",
+      "branch": "other",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "none",
+      "composite_score": 0.5993
+    },
+    {
+      "card_id": "3c02497f-bf72-4cb6-a395-3360b0d892c1",
+      "title": "Chain-D1 flow continuation: (HYPE,ETH) break driven by HYPE burst aggr",
+      "branch": "other",
+      "decision_tier": "research_priority",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "medium",
+      "composite_score": 0.7113
+    },
+    {
+      "card_id": "a516aa7f-9637-412f-be32-e24105261d91",
+      "title": "Chain-D1 flow continuation: (HYPE,ETH) break driven by ETH burst aggre",
+      "branch": "other",
+      "decision_tier": "monitor_borderline",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "low",
+      "composite_score": 0.6389
+    },
+    {
+      "card_id": "c74160bb-4355-432c-9115-f5a81b8fea33",
+      "title": "Chain-D1 flow continuation: (HYPE,SOL) break driven by HYPE burst aggr",
+      "branch": "other",
+      "decision_tier": "monitor_borderline",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "low",
+      "composite_score": 0.6118
+    },
+    {
+      "card_id": "20ad5746-2b6c-47d8-992e-be3b0ff8766a",
+      "title": "Chain-D1 flow continuation: (HYPE,SOL) break driven by SOL burst aggre",
+      "branch": "other",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "none",
+      "composite_score": 0.5928
+    },
+    {
+      "card_id": "824ed349-a324-4cec-8be5-3ad2f5700fa4",
+      "title": "Chain-D1 flow continuation: (ETH,BTC) break driven by ETH burst aggres",
+      "branch": "other",
+      "decision_tier": "monitor_borderline",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "low",
+      "composite_score": 0.62
+    },
+    {
+      "card_id": "49fbfe3b-5f7f-4282-bfca-3c9d92f23b67",
+      "title": "Chain-D1 flow continuation: (ETH,BTC) break driven by BTC burst aggres",
+      "branch": "other",
+      "decision_tier": "monitor_borderline",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "low",
+      "composite_score": 0.6083
+    },
+    {
+      "card_id": "d367b8b2-3b6d-4e3c-9c22-f22befd29495",
+      "title": "Chain-D1 flow continuation: (ETH,SOL) break driven by ETH burst aggres",
+      "branch": "other",
+      "decision_tier": "monitor_borderline",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "low",
+      "composite_score": 0.6083
+    },
+    {
+      "card_id": "dd465885-7fef-49d0-b868-f8e7fc9a247c",
+      "title": "Chain-D1 flow continuation: (ETH,SOL) break driven by SOL burst aggres",
+      "branch": "other",
+      "decision_tier": "monitor_borderline",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "low",
+      "composite_score": 0.6118
+    },
+    {
+      "card_id": "0d9710ee-22f0-4720-8da9-3d4ebcab0875",
+      "title": "Chain-D1 flow continuation: (BTC,SOL) break driven by BTC burst aggres",
+      "branch": "other",
+      "decision_tier": "monitor_borderline",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "low",
+      "composite_score": 0.62
+    },
+    {
+      "card_id": "4a475f9f-dd67-477d-b99e-c7778d248198",
+      "title": "Chain-D1 flow continuation: (BTC,SOL) break driven by SOL burst aggres",
+      "branch": "other",
+      "decision_tier": "monitor_borderline",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "low",
+      "composite_score": 0.6118
+    },
+    {
+      "card_id": "ed6759ec-6e28-45ac-a8ff-d5e36a5ca1ac",
+      "title": "Extreme long funding on HYPE predicts reversion",
+      "branch": "other",
+      "decision_tier": "research_priority",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "medium",
+      "composite_score": 0.7012
+    },
+    {
+      "card_id": "f80e13e9-710d-4c11-a0a8-cbd2a47163d6",
+      "title": "Extreme long funding on SOL predicts reversion",
+      "branch": "other",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "none",
+      "composite_score": 0.5411
+    },
+    {
+      "card_id": "98cd257d-5d91-42c7-b5af-a13a438a2d40",
+      "title": "Correlation break (HYPE,ETH) \u2014 positioning_unwind_candidate",
+      "branch": "other",
+      "decision_tier": "research_priority",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "medium",
+      "composite_score": 0.7129
+    },
+    {
+      "card_id": "d5152cd0-3472-4313-b737-22d47dcd6df8",
+      "title": "Correlation break (HYPE,BTC) \u2014 positioning_unwind_candidate",
+      "branch": "other",
+      "decision_tier": "monitor_borderline",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "low",
+      "composite_score": 0.62
+    }
+  ],
+  "label_counts": {
+    "positioning_unwind_watch": 30,
+    "beta_reversion_watch": 4,
+    "monitor_no_action": 26
+  },
+  "urgency_counts": {
+    "high": 7,
+    "medium": 30,
+    "low": 15,
+    "none": 8
+  },
+  "high_urgency_labels": [
+    {
+      "card_id": "e8ed42ee-6735-4744-a8b3-7337c6404fa6",
+      "title": "E2 positioning unwind: (HYPE,ETH) \u2014 one-sided OI build + crowding",
+      "branch": "positioning_unwind",
+      "decision_tier": "actionable_watch",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "high",
+      "composite_score": 0.865
+    },
+    {
+      "card_id": "d33c8dfe-1d02-43d0-8e94-79060e4f686e",
+      "title": "E2 positioning unwind: (HYPE,SOL) \u2014 funding pressure regime",
+      "branch": "positioning_unwind",
+      "decision_tier": "actionable_watch",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "high",
+      "composite_score": 0.8063
+    },
+    {
+      "card_id": "94281fa6-b542-43cf-84f1-5f5899f702be",
+      "title": "E2 positioning unwind: (HYPE,ETH) \u2014 premium compression",
+      "branch": "positioning_unwind",
+      "decision_tier": "actionable_watch",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "high",
+      "composite_score": 0.7804
+    },
+    {
+      "card_id": "04a2e1e7-dc15-4874-8bae-c17d140a6460",
+      "title": "E1 beta reversion: (ETH,BTC) \u2014 no funding shift, no OI expansion",
+      "branch": "beta_reversion",
+      "decision_tier": "actionable_watch",
+      "watch_label": "beta_reversion_watch",
+      "watch_urgency": "high",
+      "composite_score": 0.7742
+    },
+    {
+      "card_id": "cbc37f6a-46dc-4575-91e5-e0b6f98ce5a9",
+      "title": "E1 beta reversion: (ETH,BTC) \u2014 transient aggression, no persistence",
+      "branch": "beta_reversion",
+      "decision_tier": "actionable_watch",
+      "watch_label": "beta_reversion_watch",
+      "watch_urgency": "high",
+      "composite_score": 0.7478
+    }
+  ]
+}

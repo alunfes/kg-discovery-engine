@@ -1,0 +1,13 @@
+tier,grammar_family,n_before,n_after,delta,was_sparse,still_sparse,promoted
+actionable_watch,baseline,0,1,1,True,True,False
+actionable_watch,beta_reversion,1,6,5,True,False,True
+actionable_watch,positioning_unwind,5,24,19,False,False,False
+baseline_like,baseline,7,35,28,False,False,False
+baseline_like,flow_continuation,0,5,5,True,False,True
+monitor_borderline,baseline,10,35,25,False,False,False
+monitor_borderline,beta_reversion,0,3,3,True,False,True
+monitor_borderline,flow_continuation,7,40,33,False,False,False
+research_priority,baseline,3,13,10,False,False,False
+research_priority,beta_reversion,1,7,6,True,False,True
+research_priority,flow_continuation,1,5,4,True,False,True
+research_priority,positioning_unwind,25,126,101,False,False,False

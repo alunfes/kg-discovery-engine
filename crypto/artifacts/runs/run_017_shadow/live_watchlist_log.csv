@@ -1,0 +1,11 @@
+card_id,title,branch,decision_tier,grammar_family,composite_score,assets_mentioned,watch_label,tags
+aa82be80-b470-4be3-838d-e4faff9900ff,"E1 beta reversion: (HYPE,BTC) — no funding shift, no OI expansion",beta_reversion,actionable_watch,,0.8275,,beta_reversion_watch,beta_reversion|chain_rule|E1|negative_evidence
+abe015c7-cff1-4b35-9f54-e03cf60a006f,"E1 beta reversion: (HYPE,ETH) — no funding shift, no OI expansion",beta_reversion,monitor_borderline,,0.6486,,beta_reversion_watch,beta_reversion|chain_rule|E1|negative_evidence
+07de8aa3-a7c3-48c8-88b3-3434ad0014d6,"E1 beta reversion: (HYPE,SOL) — no funding shift, no OI expansion",beta_reversion,monitor_borderline,,0.6486,,beta_reversion_watch,beta_reversion|chain_rule|E1|negative_evidence
+785e7c53-ec1d-4c7c-a60a-2aa2a2f97302,"E1 beta reversion: (BTC,ETH) — no funding shift, no OI expansion",beta_reversion,monitor_borderline,,0.6486,,beta_reversion_watch,beta_reversion|chain_rule|E1|negative_evidence
+0cfd784f-a6fe-43a3-8cda-eb8a1427e270,"E1 beta reversion: (BTC,SOL) — no funding shift, no OI expansion",beta_reversion,monitor_borderline,,0.6486,,beta_reversion_watch,beta_reversion|chain_rule|E1|negative_evidence
+5fd8fff1-4e30-41a7-bf9f-50d9737b75b3,"E1 beta reversion: (ETH,SOL) — no funding shift, no OI expansion",beta_reversion,monitor_borderline,,0.6486,,beta_reversion_watch,beta_reversion|chain_rule|E1|negative_evidence
+ad8cd645-2684-4bd3-93c2-beb5ce8b1aa2,"E1 beta reversion: (HYPE,BTC) — transient aggression, no persistence",beta_reversion,actionable_watch,,0.7448,,beta_reversion_watch,beta_reversion|chain_rule|E1|transient_aggression
+601438ce-ce18-4e22-b533-1217b77c2814,"E1 beta reversion: (HYPE,ETH) — transient aggression, no persistence",beta_reversion,monitor_borderline,,0.6338,,beta_reversion_watch,beta_reversion|chain_rule|E1|transient_aggression
+2557d8e6-37b3-4307-b0b1-ddb1945b7b6b,"E1 beta reversion: (HYPE,SOL) — transient aggression, no persistence",beta_reversion,monitor_borderline,,0.6338,,beta_reversion_watch,beta_reversion|chain_rule|E1|transient_aggression
+97b08402-5ce9-4a21-aa10-1cbf112f8a55,"E1 beta reversion: (BTC,ETH) — transient aggression, no persistence",beta_reversion,research_priority,,0.6692,,beta_reversion_watch,beta_reversion|chain_rule|E1|transient_aggression

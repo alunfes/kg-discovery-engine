@@ -1,0 +1,458 @@
+[
+  {
+    "card_id": "aa82be80-b470-4be3-838d-e4faff9900ff",
+    "version": 1,
+    "created_at": "2026-04-15T09:23:48.060494+00:00",
+    "title": "E1 beta reversion: (HYPE,BTC) — no funding shift, no OI expansion",
+    "claim": "Correlation break (HYPE,BTC) rho=0.000, break_score=0.000. KG shows NoFundingShiftNode + NoOIExpansionNode (neg_evidence=1.000) → beta recoupling expected within 2-4 epochs.",
+    "mechanism": "Path: CorrelationNode→NoFundingShiftNode→NoOIExpansionNode→CorrelationRecouplingNode. Absence of flow causation confirms transient beta noise.",
+    "evidence_nodes": [
+      "corr:HYPE_BTC",
+      "no_funding_shift:HYPE:BTC",
+      "no_oi_expansion:HYPE:BTC",
+      "correlation_recoupling:HYPE:BTC"
+    ],
+    "evidence_edges": [
+      "lacks_funding:HYPE:BTC",
+      "nfs_to_noi:HYPE:BTC"
+    ],
+    "operator_trace": [
+      "align",
+      "difference",
+      "chain_grammar"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.85,
+      "novelty": 1.0,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.8275,
+    "run_id": "run_017_shadow",
+    "kg_families": [
+      "cross_asset",
+      "chain_grammar"
+    ],
+    "tags": [
+      "beta_reversion",
+      "chain_rule",
+      "E1",
+      "negative_evidence"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "abe015c7-cff1-4b35-9f54-e03cf60a006f",
+    "version": 1,
+    "created_at": "2026-04-15T09:23:48.060756+00:00",
+    "title": "E1 beta reversion: (HYPE,ETH) — no funding shift, no OI expansion",
+    "claim": "Correlation break (HYPE,ETH) rho=0.000, break_score=0.000. KG shows NoFundingShiftNode + NoOIExpansionNode (neg_evidence=1.000) → beta recoupling expected within 2-4 epochs.",
+    "mechanism": "Path: CorrelationNode→NoFundingShiftNode→NoOIExpansionNode→CorrelationRecouplingNode. Absence of flow causation confirms transient beta noise.",
+    "evidence_nodes": [
+      "corr:HYPE_ETH",
+      "no_funding_shift:HYPE:ETH",
+      "no_oi_expansion:HYPE:ETH",
+      "correlation_recoupling:HYPE:ETH"
+    ],
+    "evidence_edges": [
+      "lacks_funding:HYPE:ETH",
+      "nfs_to_noi:HYPE:ETH"
+    ],
+    "operator_trace": [
+      "align",
+      "difference",
+      "chain_grammar"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.85,
+      "novelty": 0.1053,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.6486,
+    "run_id": "run_017_shadow",
+    "kg_families": [
+      "cross_asset",
+      "chain_grammar"
+    ],
+    "tags": [
+      "beta_reversion",
+      "chain_rule",
+      "E1",
+      "negative_evidence"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "07de8aa3-a7c3-48c8-88b3-3434ad0014d6",
+    "version": 1,
+    "created_at": "2026-04-15T09:23:48.060890+00:00",
+    "title": "E1 beta reversion: (HYPE,SOL) — no funding shift, no OI expansion",
+    "claim": "Correlation break (HYPE,SOL) rho=0.000, break_score=0.000. KG shows NoFundingShiftNode + NoOIExpansionNode (neg_evidence=1.000) → beta recoupling expected within 2-4 epochs.",
+    "mechanism": "Path: CorrelationNode→NoFundingShiftNode→NoOIExpansionNode→CorrelationRecouplingNode. Absence of flow causation confirms transient beta noise.",
+    "evidence_nodes": [
+      "corr:HYPE_SOL",
+      "no_funding_shift:HYPE:SOL",
+      "no_oi_expansion:HYPE:SOL",
+      "correlation_recoupling:HYPE:SOL"
+    ],
+    "evidence_edges": [
+      "lacks_funding:HYPE:SOL",
+      "nfs_to_noi:HYPE:SOL"
+    ],
+    "operator_trace": [
+      "align",
+      "difference",
+      "chain_grammar"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.85,
+      "novelty": 0.1053,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.6486,
+    "run_id": "run_017_shadow",
+    "kg_families": [
+      "cross_asset",
+      "chain_grammar"
+    ],
+    "tags": [
+      "beta_reversion",
+      "chain_rule",
+      "E1",
+      "negative_evidence"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "785e7c53-ec1d-4c7c-a60a-2aa2a2f97302",
+    "version": 1,
+    "created_at": "2026-04-15T09:23:48.060960+00:00",
+    "title": "E1 beta reversion: (BTC,ETH) — no funding shift, no OI expansion",
+    "claim": "Correlation break (BTC,ETH) rho=0.000, break_score=0.000. KG shows NoFundingShiftNode + NoOIExpansionNode (neg_evidence=1.000) → beta recoupling expected within 2-4 epochs.",
+    "mechanism": "Path: CorrelationNode→NoFundingShiftNode→NoOIExpansionNode→CorrelationRecouplingNode. Absence of flow causation confirms transient beta noise.",
+    "evidence_nodes": [
+      "corr:BTC_ETH",
+      "no_funding_shift:BTC:ETH",
+      "no_oi_expansion:BTC:ETH",
+      "correlation_recoupling:BTC:ETH"
+    ],
+    "evidence_edges": [
+      "lacks_funding:BTC:ETH",
+      "nfs_to_noi:BTC:ETH"
+    ],
+    "operator_trace": [
+      "align",
+      "difference",
+      "chain_grammar"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.85,
+      "novelty": 0.1053,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.6486,
+    "run_id": "run_017_shadow",
+    "kg_families": [
+      "cross_asset",
+      "chain_grammar"
+    ],
+    "tags": [
+      "beta_reversion",
+      "chain_rule",
+      "E1",
+      "negative_evidence"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "0cfd784f-a6fe-43a3-8cda-eb8a1427e270",
+    "version": 1,
+    "created_at": "2026-04-15T09:23:48.061005+00:00",
+    "title": "E1 beta reversion: (BTC,SOL) — no funding shift, no OI expansion",
+    "claim": "Correlation break (BTC,SOL) rho=0.000, break_score=0.000. KG shows NoFundingShiftNode + NoOIExpansionNode (neg_evidence=1.000) → beta recoupling expected within 2-4 epochs.",
+    "mechanism": "Path: CorrelationNode→NoFundingShiftNode→NoOIExpansionNode→CorrelationRecouplingNode. Absence of flow causation confirms transient beta noise.",
+    "evidence_nodes": [
+      "corr:BTC_SOL",
+      "no_funding_shift:BTC:SOL",
+      "no_oi_expansion:BTC:SOL",
+      "correlation_recoupling:BTC:SOL"
+    ],
+    "evidence_edges": [
+      "lacks_funding:BTC:SOL",
+      "nfs_to_noi:BTC:SOL"
+    ],
+    "operator_trace": [
+      "align",
+      "difference",
+      "chain_grammar"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.85,
+      "novelty": 0.1053,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.6486,
+    "run_id": "run_017_shadow",
+    "kg_families": [
+      "cross_asset",
+      "chain_grammar"
+    ],
+    "tags": [
+      "beta_reversion",
+      "chain_rule",
+      "E1",
+      "negative_evidence"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "5fd8fff1-4e30-41a7-bf9f-50d9737b75b3",
+    "version": 1,
+    "created_at": "2026-04-15T09:23:48.061049+00:00",
+    "title": "E1 beta reversion: (ETH,SOL) — no funding shift, no OI expansion",
+    "claim": "Correlation break (ETH,SOL) rho=0.000, break_score=0.000. KG shows NoFundingShiftNode + NoOIExpansionNode (neg_evidence=1.000) → beta recoupling expected within 2-4 epochs.",
+    "mechanism": "Path: CorrelationNode→NoFundingShiftNode→NoOIExpansionNode→CorrelationRecouplingNode. Absence of flow causation confirms transient beta noise.",
+    "evidence_nodes": [
+      "corr:ETH_SOL",
+      "no_funding_shift:ETH:SOL",
+      "no_oi_expansion:ETH:SOL",
+      "correlation_recoupling:ETH:SOL"
+    ],
+    "evidence_edges": [
+      "lacks_funding:ETH:SOL",
+      "nfs_to_noi:ETH:SOL"
+    ],
+    "operator_trace": [
+      "align",
+      "difference",
+      "chain_grammar"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.85,
+      "novelty": 0.1053,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.6486,
+    "run_id": "run_017_shadow",
+    "kg_families": [
+      "cross_asset",
+      "chain_grammar"
+    ],
+    "tags": [
+      "beta_reversion",
+      "chain_rule",
+      "E1",
+      "negative_evidence"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "ad8cd645-2684-4bd3-93c2-beb5ce8b1aa2",
+    "version": 1,
+    "created_at": "2026-04-15T09:23:48.061098+00:00",
+    "title": "E1 beta reversion: (HYPE,BTC) — transient aggression, no persistence",
+    "claim": "Correlation break (HYPE,BTC) rho=0.000, break_score=0.000. NoPersistentAggressionNode found (burst_count=1, state_score=0.875) → recoupling expected once burst fades.",
+    "mechanism": "Path: CorrelationNode→NoPersistentAggressionNode→CorrelationRecouplingNode. Transient bursts exhaust; common factor reasserts.",
+    "evidence_nodes": [
+      "corr:HYPE_BTC",
+      "no_persistent_aggr:HYPE:BTC",
+      "correlation_recoupling:HYPE:BTC"
+    ],
+    "evidence_edges": [
+      "transient_aggr:HYPE:BTC",
+      "npa_recoupling:HYPE:BTC"
+    ],
+    "operator_trace": [
+      "align",
+      "difference",
+      "chain_grammar"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.775,
+      "novelty": 0.68,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.7448,
+    "run_id": "run_017_shadow",
+    "kg_families": [
+      "cross_asset",
+      "chain_grammar"
+    ],
+    "tags": [
+      "beta_reversion",
+      "chain_rule",
+      "E1",
+      "transient_aggression"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "601438ce-ce18-4e22-b533-1217b77c2814",
+    "version": 1,
+    "created_at": "2026-04-15T09:23:48.061147+00:00",
+    "title": "E1 beta reversion: (HYPE,ETH) — transient aggression, no persistence",
+    "claim": "Correlation break (HYPE,ETH) rho=0.000, break_score=0.000. NoPersistentAggressionNode found (burst_count=1, state_score=0.875) → recoupling expected once burst fades.",
+    "mechanism": "Path: CorrelationNode→NoPersistentAggressionNode→CorrelationRecouplingNode. Transient bursts exhaust; common factor reasserts.",
+    "evidence_nodes": [
+      "corr:HYPE_ETH",
+      "no_persistent_aggr:HYPE:ETH",
+      "correlation_recoupling:HYPE:ETH"
+    ],
+    "evidence_edges": [
+      "transient_aggr:HYPE:ETH",
+      "npa_recoupling:HYPE:ETH"
+    ],
+    "operator_trace": [
+      "align",
+      "difference",
+      "chain_grammar"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.775,
+      "novelty": 0.125,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.6338,
+    "run_id": "run_017_shadow",
+    "kg_families": [
+      "cross_asset",
+      "chain_grammar"
+    ],
+    "tags": [
+      "beta_reversion",
+      "chain_rule",
+      "E1",
+      "transient_aggression"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "2557d8e6-37b3-4307-b0b1-ddb1945b7b6b",
+    "version": 1,
+    "created_at": "2026-04-15T09:23:48.061196+00:00",
+    "title": "E1 beta reversion: (HYPE,SOL) — transient aggression, no persistence",
+    "claim": "Correlation break (HYPE,SOL) rho=0.000, break_score=0.000. NoPersistentAggressionNode found (burst_count=1, state_score=0.875) → recoupling expected once burst fades.",
+    "mechanism": "Path: CorrelationNode→NoPersistentAggressionNode→CorrelationRecouplingNode. Transient bursts exhaust; common factor reasserts.",
+    "evidence_nodes": [
+      "corr:HYPE_SOL",
+      "no_persistent_aggr:HYPE:SOL",
+      "correlation_recoupling:HYPE:SOL"
+    ],
+    "evidence_edges": [
+      "transient_aggr:HYPE:SOL",
+      "npa_recoupling:HYPE:SOL"
+    ],
+    "operator_trace": [
+      "align",
+      "difference",
+      "chain_grammar"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.775,
+      "novelty": 0.125,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.6338,
+    "run_id": "run_017_shadow",
+    "kg_families": [
+      "cross_asset",
+      "chain_grammar"
+    ],
+    "tags": [
+      "beta_reversion",
+      "chain_rule",
+      "E1",
+      "transient_aggression"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "97b08402-5ce9-4a21-aa10-1cbf112f8a55",
+    "version": 1,
+    "created_at": "2026-04-15T09:23:48.061249+00:00",
+    "title": "E1 beta reversion: (BTC,ETH) — transient aggression, no persistence",
+    "claim": "Correlation break (BTC,ETH) rho=0.000, break_score=0.000. NoPersistentAggressionNode found (burst_count=2, state_score=0.750) → recoupling expected once burst fades.",
+    "mechanism": "Path: CorrelationNode→NoPersistentAggressionNode→CorrelationRecouplingNode. Transient bursts exhaust; common factor reasserts.",
+    "evidence_nodes": [
+      "corr:BTC_ETH",
+      "no_persistent_aggr:BTC:ETH",
+      "correlation_recoupling:BTC:ETH"
+    ],
+    "evidence_edges": [
+      "transient_aggr:BTC:ETH",
+      "npa_recoupling:BTC:ETH"
+    ],
+    "operator_trace": [
+      "align",
+      "difference",
+      "chain_grammar"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.75,
+      "novelty": 0.3333,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.6692,
+    "run_id": "run_017_shadow",
+    "kg_families": [
+      "cross_asset",
+      "chain_grammar"
+    ],
+    "tags": [
+      "beta_reversion",
+      "chain_rule",
+      "E1",
+      "transient_aggression"
+    ],
+    "actionability_note": null
+  }
+]

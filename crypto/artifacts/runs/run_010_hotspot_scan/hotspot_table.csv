@@ -1,0 +1,8 @@
+rank,hotspot_id,original_grammar,rerouted_grammar,pair,asset_containing_leg,regime_context,threshold_boundary,runs_active,n_reroutes,n_reject_conflicted,max_severity,mean_score_drop,resolution_status,fix_applied
+1,HS-001,beta_reversion (E1-transient_aggr),positioning_unwind (E2),HYPE/SOL,SOL,funding_extreme+high_oi_growth,burst_min=4 (boundary),007-008,2,1,6.0,-0.2071,resolved,J1 gate (run_009)
+2,HS-002,beta_reversion (E1-transient_aggr),positioning_unwind (E2),BTC/SOL,SOL,funding_extreme+high_oi_growth,burst_min=4 (boundary),007-008,2,1,6.0,-0.2127,resolved,J1 gate (run_009)
+3,HS-003,beta_reversion (E1-transient_aggr),positioning_unwind (E2),ETH/SOL,SOL,funding_extreme+high_oi_growth,burst_min=4 (boundary),007-008,4,2,6.0,-0.2128,resolved,J1 gate (run_009)
+4,HS-004,beta_reversion (E1-transient_aggr),flow_continuation,HYPE/SOL,SOL,funding_extreme+strong_premium,burst_min=4 (boundary),007-008,2,0,6.0,-0.2462,resolved,J1 gate (run_009)
+5,HS-005,beta_reversion (E1-transient_aggr),flow_continuation,BTC/SOL,SOL,funding_extreme+strong_premium,burst_min=4 (boundary),007-008,2,0,6.0,-0.2444,resolved,J1 gate (run_009)
+6,HS-006,beta_reversion (E1-transient_aggr),flow_continuation,ETH/SOL,SOL,funding_extreme+strong_premium,burst_min=4 (boundary),007-008,4,0,6.0,-0.2444,resolved,J1 gate (run_009)
+7,HS-007,beta_reversion (E1-transient_aggr),— (conflict rank drop),HYPE/SOL,SOL,funding_extreme,burst_min=4 (boundary),006,0,0,6.0,-47 rank,resolved,J1 gate (run_009)

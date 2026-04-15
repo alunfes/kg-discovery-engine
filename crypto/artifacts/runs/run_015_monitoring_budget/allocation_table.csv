@@ -1,0 +1,10 @@
+tier,grammar_family,n_cards,hit_rate,mean_time_to_outcome_min,monitoring_cost_min,value_density,allocation_category,budget_aware_hl_min
+actionable_watch,positioning_unwind,5,1.0,17.8,30,0.033333,short_high_priority,30
+research_priority,positioning_unwind,25,1.0,13.5,30,0.033333,short_high_priority,30
+actionable_watch,beta_reversion,1,1.0,25.0,40,0.025,insufficient_evidence,16
+research_priority,beta_reversion,1,1.0,25.0,50,0.02,insufficient_evidence,20
+baseline_like,baseline,7,0.0,,90,0.0,low_background,45
+monitor_borderline,baseline,10,0.0,,60,0.0,low_background,30
+monitor_borderline,flow_continuation,7,0.0,,60,0.0,low_background,30
+research_priority,baseline,3,0.0,,50,0.0,low_background,25
+research_priority,flow_continuation,1,0.0,,50,0.0,insufficient_evidence,20

@@ -1,0 +1,13 @@
+[
+  {
+    "chain_type": "positioning_unwind_oi_crowding",
+    "n_activations": 3,
+    "n_high_risk": 0,
+    "n_with_contradiction": 0,
+    "min_proximity_observed": 0.3367,
+    "n_distinct_pairs": 1,
+    "expected_outcome": "positioning_unwind",
+    "contradicting_signals": [],
+    "risk_score": 0
+  }
+]

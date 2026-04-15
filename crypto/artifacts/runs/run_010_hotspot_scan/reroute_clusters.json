@@ -1,0 +1,121 @@
+{
+  "scan_id": "run_010_grammar_hotspot_scan",
+  "scan_date": "2026-04-15",
+  "runs_analyzed": ["run_006_sprint_g", "run_007_sprint_h", "run_008_sprint_i", "run_009_20260415", "run_010_hotspot_scan"],
+  "summary": {
+    "total_reroute_records": 24,
+    "distinct_card_families": 6,
+    "runs_with_active_reroutes": ["run_007_sprint_h", "run_008_sprint_i"],
+    "runs_resolved": ["run_009_20260415", "run_010_hotspot_scan"],
+    "grammar_pairs_observed": 2,
+    "hotspot_count": 7
+  },
+  "clusters": [
+    {
+      "cluster_id": "CLUS-A",
+      "label": "SOL funding-extreme / E1→E2 reroute",
+      "original_grammar": "beta_reversion",
+      "original_chain": "E1-transient_aggression",
+      "rerouted_grammar": "positioning_unwind",
+      "rerouted_chain": "E2",
+      "reroute_confidence": 0.70,
+      "reroute_reason": "beta_reversion blocked by funding extreme → unwind candidate",
+      "pairs": ["HYPE/SOL", "BTC/SOL", "ETH/SOL"],
+      "asset_leg": "SOL",
+      "regime_context": ["funding_extreme", "high_oi_growth"],
+      "threshold_boundary": {"param": "burst_min", "value": 4, "description": "minimum burst count — all 6 families fired at exactly this floor"},
+      "severity": 6.0,
+      "runs_active": ["run_007_sprint_h", "run_008_sprint_i"],
+      "n_reroute_records_per_run": 6,
+      "score_delta_range": [-0.2071, -0.2132],
+      "reject_conflicted_per_run": 3,
+      "resolution": {
+        "status": "resolved",
+        "fix": "J1 discriminative gate (run_009)",
+        "gate_condition": "has_funding_extreme AND has_oi_accumulation → suppress E1-transient_aggression chain",
+        "first_clean_run": "run_009_20260415"
+      }
+    },
+    {
+      "cluster_id": "CLUS-B",
+      "label": "SOL funding-extreme / E1→flow_continuation reroute",
+      "original_grammar": "beta_reversion",
+      "original_chain": "E1-transient_aggression",
+      "rerouted_grammar": "flow_continuation",
+      "rerouted_chain": "flow_continuation (secondary target)",
+      "reroute_confidence": 0.60,
+      "reroute_reason": "beta_reversion blocked by strong premium → continuation candidate",
+      "pairs": ["HYPE/SOL", "BTC/SOL", "ETH/SOL"],
+      "asset_leg": "SOL",
+      "regime_context": ["funding_extreme", "strong_premium"],
+      "threshold_boundary": {"param": "burst_min", "value": 4, "description": "same boundary as CLUS-A; secondary reroute target"},
+      "severity": 6.0,
+      "runs_active": ["run_007_sprint_h", "run_008_sprint_i"],
+      "n_reroute_records_per_run": 6,
+      "score_delta_range": [-0.2441, -0.2478],
+      "reject_conflicted_per_run": 0,
+      "resolution": {
+        "status": "resolved",
+        "fix": "J1 discriminative gate (run_009) — upstream suppression eliminated source chain",
+        "first_clean_run": "run_009_20260415"
+      }
+    },
+    {
+      "cluster_id": "CLUS-C",
+      "label": "SOL conflict-ranking crash (pre-H2 era)",
+      "original_grammar": "beta_reversion",
+      "original_chain": "E1-transient_aggression",
+      "rerouted_grammar": null,
+      "rerouted_chain": null,
+      "reroute_confidence": null,
+      "reroute_reason": "H2 rerouting framework not yet active; visible only as conflict-rank drop",
+      "pairs": ["HYPE/SOL"],
+      "asset_leg": "SOL",
+      "regime_context": ["funding_extreme"],
+      "threshold_boundary": {"param": "burst_min", "value": 4, "description": "boundary activation"},
+      "severity": 6.0,
+      "runs_active": ["run_006_sprint_g"],
+      "n_reroute_records_per_run": 0,
+      "rank_drop": {"raw_rank": 8, "conflict_rank": 55, "delta": -47},
+      "reject_conflicted_per_run": 0,
+      "resolution": {
+        "status": "resolved",
+        "fix": "J1 gate eliminated the source card",
+        "first_clean_run": "run_009_20260415"
+      }
+    }
+  ],
+  "non_hotspot_grammar_pairs": [
+    {
+      "pair": "E2 (positioning_unwind) vs flow_continuation",
+      "observation": "No reroutes or reject_conflicted observed across any run. Not a confusion site.",
+      "evidence": "run_006-010 all show stable E2/flow_continuation coexistence without cross-assignment."
+    },
+    {
+      "pair": "D1-chain vs E2 (positioning_unwind)",
+      "observation": "D1 cards appear in monitor_borderline (soft_gated=False) but as legitimate uncertainty, not grammar confusion. No reroutes from D1.",
+      "evidence": "run_008-010: Chain-D1 cards consistently land in monitor_borderline at scores 0.7–0.77. No I3 confusion matrix entries."
+    },
+    {
+      "pair": "E1 (beta_reversion) vs D1-chain",
+      "observation": "Not observed. E1 and D1 target structurally different regimes (transient-beta vs chain-linkage).",
+      "evidence": "No reroute records with D1 as target across run_007-010."
+    }
+  ],
+  "threshold_boundary_inventory": [
+    {
+      "chain": "E1-transient_aggression",
+      "param": "burst_min",
+      "boundary_value": 4,
+      "status": "fixed (J1 gate)",
+      "note": "All 6 SOL hotspot families activated at exactly burst_min=4. The J1 gate now checks regime context before allowing the chain to proceed."
+    },
+    {
+      "chain": "soft_gate (G2)",
+      "param": "uplift_min",
+      "boundary_value": 0.05,
+      "status": "active — no confusion observed",
+      "note": "2 cards are soft_gated each run. These are borderline uplift cases, not grammar confusions. Monitor if count rises."
+    }
+  ]
+}

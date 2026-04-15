@@ -1,0 +1,54 @@
+{
+  "run_id": "run_014_half_life",
+  "source_run": "run_013_watchlist_outcomes",
+  "created_at": "2026-04-15T00:00:00+00:00",
+  "sprint": "N",
+  "objective": "Half-life calibration by decision tier and grammar family",
+  "method": "p90(time_to_outcome) + 5 min buffer per (tier, grammar_family) group",
+  "min_calibration_samples": 2,
+  "new_files": [
+    "crypto/src/eval/half_life_calibrator.py",
+    "crypto/tests/test_sprint_n.py",
+    "crypto/artifacts/runs/run_014_half_life/",
+    "docs/run014_half_life_calibration.md"
+  ],
+  "modified_files": [
+    "crypto/src/eval/outcome_tracker.py"
+  ],
+  "calibration_summary": {
+    "n_records": 60,
+    "groups_analyzed": 9,
+    "groups_calibrated": 2,
+    "groups_fallback": 7
+  },
+  "calibrated_groups": [
+    {
+      "tier": "actionable_watch",
+      "grammar_family": "positioning_unwind",
+      "n_hits": 5,
+      "tte_p90": 25.0,
+      "current_hl_min": 40,
+      "recommended_hl_min": 30
+    },
+    {
+      "tier": "research_priority",
+      "grammar_family": "positioning_unwind",
+      "n_hits": 25,
+      "tte_p90": 25.0,
+      "current_hl_min": 50,
+      "recommended_hl_min": 30
+    }
+  ],
+  "before_after": {
+    "precision_before": 1.0,
+    "precision_after": 1.0,
+    "recall_before": 0.533,
+    "recall_after": 0.533,
+    "false_expiry_rate_before": 0.0,
+    "false_expiry_rate_after": 0.0,
+    "total_hl_min_before": 3390,
+    "total_hl_min_after": 2840,
+    "total_hl_min_delta": -550,
+    "total_hl_pct_change": -16.2
+  }
+}

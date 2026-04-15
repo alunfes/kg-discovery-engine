@@ -1,0 +1,134 @@
+[
+  {
+    "original_card_id": "d248b0db-ee70-4f6e-98ac-3720a9c368ad",
+    "original_title": "E1 beta reversion: (HYPE,SOL) \u2014 transient aggression, no persistence",
+    "original_branch": "beta_reversion",
+    "reroute_candidate_branch": "positioning_unwind",
+    "reroute_confidence": 0.7,
+    "original_score": 0.7412,
+    "rerouted_score": 0.5341,
+    "original_branch_vs_rerouted_score": -0.2071,
+    "reroute_reason": "beta_reversion blocked by funding extreme \u2192 unwind candidate"
+  },
+  {
+    "original_card_id": "d248b0db-ee70-4f6e-98ac-3720a9c368ad",
+    "original_title": "E1 beta reversion: (HYPE,SOL) \u2014 transient aggression, no persistence",
+    "original_branch": "beta_reversion",
+    "reroute_candidate_branch": "flow_continuation",
+    "reroute_confidence": 0.6,
+    "original_score": 0.7412,
+    "rerouted_score": 0.4934,
+    "original_branch_vs_rerouted_score": -0.2478,
+    "reroute_reason": "beta_reversion blocked by strong premium \u2192 continuation candidate"
+  },
+  {
+    "original_card_id": "470455ab-f658-44af-8d40-4cadeef2f25a",
+    "original_title": "E1 beta reversion: (BTC,SOL) \u2014 transient aggression, no persistence",
+    "original_branch": "beta_reversion",
+    "reroute_candidate_branch": "positioning_unwind",
+    "reroute_confidence": 0.7,
+    "original_score": 0.6195,
+    "rerouted_score": 0.4064,
+    "original_branch_vs_rerouted_score": -0.2131,
+    "reroute_reason": "beta_reversion blocked by funding extreme \u2192 unwind candidate"
+  },
+  {
+    "original_card_id": "470455ab-f658-44af-8d40-4cadeef2f25a",
+    "original_title": "E1 beta reversion: (BTC,SOL) \u2014 transient aggression, no persistence",
+    "original_branch": "beta_reversion",
+    "reroute_candidate_branch": "flow_continuation",
+    "reroute_confidence": 0.6,
+    "original_score": 0.6195,
+    "rerouted_score": 0.3754,
+    "original_branch_vs_rerouted_score": -0.2441,
+    "reroute_reason": "beta_reversion blocked by strong premium \u2192 continuation candidate"
+  },
+  {
+    "original_card_id": "ab8fb656-2cfa-4273-b09c-c7756b36c9fc",
+    "original_title": "E1 beta reversion: (ETH,SOL) \u2014 transient aggression, no persistence",
+    "original_branch": "beta_reversion",
+    "reroute_candidate_branch": "positioning_unwind",
+    "reroute_confidence": 0.7,
+    "original_score": 0.6182,
+    "rerouted_score": 0.405,
+    "original_branch_vs_rerouted_score": -0.2132,
+    "reroute_reason": "beta_reversion blocked by funding extreme \u2192 unwind candidate"
+  },
+  {
+    "original_card_id": "ab8fb656-2cfa-4273-b09c-c7756b36c9fc",
+    "original_title": "E1 beta reversion: (ETH,SOL) \u2014 transient aggression, no persistence",
+    "original_branch": "beta_reversion",
+    "reroute_candidate_branch": "flow_continuation",
+    "reroute_confidence": 0.6,
+    "original_score": 0.6182,
+    "rerouted_score": 0.3741,
+    "original_branch_vs_rerouted_score": -0.2441,
+    "reroute_reason": "beta_reversion blocked by strong premium \u2192 continuation candidate"
+  },
+  {
+    "original_card_id": "b403d279-33de-44f5-8b79-d0a6b3802577",
+    "original_title": "E1 beta reversion: (ETH,SOL) \u2014 transient aggression, no persistence",
+    "original_branch": "beta_reversion",
+    "reroute_candidate_branch": "positioning_unwind",
+    "reroute_confidence": 0.7,
+    "original_score": 0.6361,
+    "rerouted_score": 0.4238,
+    "original_branch_vs_rerouted_score": -0.2123,
+    "reroute_reason": "beta_reversion blocked by funding extreme \u2192 unwind candidate"
+  },
+  {
+    "original_card_id": "b403d279-33de-44f5-8b79-d0a6b3802577",
+    "original_title": "E1 beta reversion: (ETH,SOL) \u2014 transient aggression, no persistence",
+    "original_branch": "beta_reversion",
+    "reroute_candidate_branch": "flow_continuation",
+    "reroute_confidence": 0.6,
+    "original_score": 0.6361,
+    "rerouted_score": 0.3915,
+    "original_branch_vs_rerouted_score": -0.2446,
+    "reroute_reason": "beta_reversion blocked by strong premium \u2192 continuation candidate"
+  },
+  {
+    "original_card_id": "6ae3510a-beb6-45aa-894d-8acee0d74e31",
+    "original_title": "E1 beta reversion: (BTC,SOL) \u2014 transient aggression, no persistence",
+    "original_branch": "beta_reversion",
+    "reroute_candidate_branch": "positioning_unwind",
+    "reroute_confidence": 0.7,
+    "original_score": 0.6356,
+    "rerouted_score": 0.4233,
+    "original_branch_vs_rerouted_score": -0.2123,
+    "reroute_reason": "beta_reversion blocked by funding extreme \u2192 unwind candidate"
+  },
+  {
+    "original_card_id": "6ae3510a-beb6-45aa-894d-8acee0d74e31",
+    "original_title": "E1 beta reversion: (BTC,SOL) \u2014 transient aggression, no persistence",
+    "original_branch": "beta_reversion",
+    "reroute_candidate_branch": "flow_continuation",
+    "reroute_confidence": 0.6,
+    "original_score": 0.6356,
+    "rerouted_score": 0.391,
+    "original_branch_vs_rerouted_score": -0.2446,
+    "reroute_reason": "beta_reversion blocked by strong premium \u2192 continuation candidate"
+  },
+  {
+    "original_card_id": "31e2272c-c090-4d43-bef7-8a6520d4f9f1",
+    "original_title": "E1 beta reversion: (HYPE,SOL) \u2014 transient aggression, no persistence",
+    "original_branch": "beta_reversion",
+    "reroute_candidate_branch": "positioning_unwind",
+    "reroute_confidence": 0.7,
+    "original_score": 0.6346,
+    "rerouted_score": 0.4222,
+    "original_branch_vs_rerouted_score": -0.2124,
+    "reroute_reason": "beta_reversion blocked by funding extreme \u2192 unwind candidate"
+  },
+  {
+    "original_card_id": "31e2272c-c090-4d43-bef7-8a6520d4f9f1",
+    "original_title": "E1 beta reversion: (HYPE,SOL) \u2014 transient aggression, no persistence",
+    "original_branch": "beta_reversion",
+    "reroute_candidate_branch": "flow_continuation",
+    "reroute_confidence": 0.6,
+    "original_score": 0.6346,
+    "rerouted_score": 0.39,
+    "original_branch_vs_rerouted_score": -0.2446,
+    "reroute_reason": "beta_reversion blocked by strong premium \u2192 continuation candidate"
+  }
+]

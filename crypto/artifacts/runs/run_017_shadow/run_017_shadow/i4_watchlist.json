@@ -1,0 +1,122 @@
+{
+  "watchlist_cards": [
+    {
+      "card_id": "aa82be80-b470-4be3-838d-e4faff9900ff",
+      "title": "E1 beta reversion: (HYPE,BTC) \u2014 no funding shift, no OI expansion",
+      "branch": "beta_reversion",
+      "decision_tier": "actionable_watch",
+      "watch_label": "beta_reversion_watch",
+      "watch_urgency": "high",
+      "composite_score": 0.8275
+    },
+    {
+      "card_id": "abe015c7-cff1-4b35-9f54-e03cf60a006f",
+      "title": "E1 beta reversion: (HYPE,ETH) \u2014 no funding shift, no OI expansion",
+      "branch": "beta_reversion",
+      "decision_tier": "monitor_borderline",
+      "watch_label": "beta_reversion_watch",
+      "watch_urgency": "low",
+      "composite_score": 0.6486
+    },
+    {
+      "card_id": "07de8aa3-a7c3-48c8-88b3-3434ad0014d6",
+      "title": "E1 beta reversion: (HYPE,SOL) \u2014 no funding shift, no OI expansion",
+      "branch": "beta_reversion",
+      "decision_tier": "monitor_borderline",
+      "watch_label": "beta_reversion_watch",
+      "watch_urgency": "low",
+      "composite_score": 0.6486
+    },
+    {
+      "card_id": "785e7c53-ec1d-4c7c-a60a-2aa2a2f97302",
+      "title": "E1 beta reversion: (BTC,ETH) \u2014 no funding shift, no OI expansion",
+      "branch": "beta_reversion",
+      "decision_tier": "monitor_borderline",
+      "watch_label": "beta_reversion_watch",
+      "watch_urgency": "low",
+      "composite_score": 0.6486
+    },
+    {
+      "card_id": "0cfd784f-a6fe-43a3-8cda-eb8a1427e270",
+      "title": "E1 beta reversion: (BTC,SOL) \u2014 no funding shift, no OI expansion",
+      "branch": "beta_reversion",
+      "decision_tier": "monitor_borderline",
+      "watch_label": "beta_reversion_watch",
+      "watch_urgency": "low",
+      "composite_score": 0.6486
+    },
+    {
+      "card_id": "5fd8fff1-4e30-41a7-bf9f-50d9737b75b3",
+      "title": "E1 beta reversion: (ETH,SOL) \u2014 no funding shift, no OI expansion",
+      "branch": "beta_reversion",
+      "decision_tier": "monitor_borderline",
+      "watch_label": "beta_reversion_watch",
+      "watch_urgency": "low",
+      "composite_score": 0.6486
+    },
+    {
+      "card_id": "ad8cd645-2684-4bd3-93c2-beb5ce8b1aa2",
+      "title": "E1 beta reversion: (HYPE,BTC) \u2014 transient aggression, no persistence",
+      "branch": "beta_reversion",
+      "decision_tier": "actionable_watch",
+      "watch_label": "beta_reversion_watch",
+      "watch_urgency": "high",
+      "composite_score": 0.7448
+    },
+    {
+      "card_id": "601438ce-ce18-4e22-b533-1217b77c2814",
+      "title": "E1 beta reversion: (HYPE,ETH) \u2014 transient aggression, no persistence",
+      "branch": "beta_reversion",
+      "decision_tier": "monitor_borderline",
+      "watch_label": "beta_reversion_watch",
+      "watch_urgency": "low",
+      "composite_score": 0.6338
+    },
+    {
+      "card_id": "2557d8e6-37b3-4307-b0b1-ddb1945b7b6b",
+      "title": "E1 beta reversion: (HYPE,SOL) \u2014 transient aggression, no persistence",
+      "branch": "beta_reversion",
+      "decision_tier": "monitor_borderline",
+      "watch_label": "beta_reversion_watch",
+      "watch_urgency": "low",
+      "composite_score": 0.6338
+    },
+    {
+      "card_id": "97b08402-5ce9-4a21-aa10-1cbf112f8a55",
+      "title": "E1 beta reversion: (BTC,ETH) \u2014 transient aggression, no persistence",
+      "branch": "beta_reversion",
+      "decision_tier": "research_priority",
+      "watch_label": "beta_reversion_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.6692
+    }
+  ],
+  "label_counts": {
+    "beta_reversion_watch": 10
+  },
+  "urgency_counts": {
+    "high": 2,
+    "low": 7,
+    "medium": 1
+  },
+  "high_urgency_labels": [
+    {
+      "card_id": "aa82be80-b470-4be3-838d-e4faff9900ff",
+      "title": "E1 beta reversion: (HYPE,BTC) \u2014 no funding shift, no OI expansion",
+      "branch": "beta_reversion",
+      "decision_tier": "actionable_watch",
+      "watch_label": "beta_reversion_watch",
+      "watch_urgency": "high",
+      "composite_score": 0.8275
+    },
+    {
+      "card_id": "ad8cd645-2684-4bd3-93c2-beb5ce8b1aa2",
+      "title": "E1 beta reversion: (HYPE,BTC) \u2014 transient aggression, no persistence",
+      "branch": "beta_reversion",
+      "decision_tier": "actionable_watch",
+      "watch_label": "beta_reversion_watch",
+      "watch_urgency": "high",
+      "composite_score": 0.7448
+    }
+  ]
+}
