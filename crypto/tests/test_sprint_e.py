@@ -253,7 +253,9 @@ def test_suppression_reasons_are_valid(collections_120, merged_kg_120, pipeline_
     """All suppression reasons must be from the defined set."""
     valid_reasons = {
         "no_trigger", "low_coverage", "failed_timeline", "below_threshold",
-        "missing_accumulation", "insufficient_negative_evidence",
+        "missing_accumulation",
+        # F3 taxonomy (replaces generic insufficient_negative_evidence)
+        "contradictory_evidence", "failed_followthrough", "structural_absence",
     }
     _, suppression_log = build_chain_grammar_kg(merged_kg_120, collections_120)
     for entry in suppression_log:

@@ -1,4 +1,4 @@
-"""Chain grammar KG builder — Sprint E (E1 beta_reversion + E2 positioning_unwind).
+"""Chain grammar KG builder — Sprint E (E1/E2) + Sprint F (F3).
 
 E1: Negative-evidence nodes — the *absence* of flow signals is the positive
     signal for beta reversion.  Nodes encode below-threshold conditions
@@ -8,6 +8,12 @@ E2: Positive-evidence nodes — crowded positioning + trigger event produces
     unwind. Nodes encode accumulation state (OneSidedOIBuildNode,
     PositionCrowdingStateNode, FundingPressureRegimeNode, FragilePremiumStateNode,
     UnwindTriggerNode, PositioningUnwindContextNode).
+
+F3: Negative-evidence taxonomy — suppression reasons are now typed:
+    structural_absence    — required KG node/structure does not exist.
+    failed_followthrough  — signal present but below persistence/intensity threshold.
+    contradictory_evidence — active positive counter-signal blocks the chain.
+    (replaces the old generic "insufficient_negative_evidence" reason)
 
 Returns (KGraph, suppression_log) so the pipeline can emit branch_metrics.json.
 """
@@ -121,11 +127,30 @@ def _e1_no_funding_oi_chain(
     a1: str, a2: str, corr_nid: str, break_score: float,
     log: list[dict],
 ) -> None:
-    """E1 Chain 1: corr_break → no_funding_shift → no_oi_expansion → recoupling."""
+    """E1 Chain 1: corr_break → no_funding_shift → no_oi_expansion → recoupling.
+
+    F3: suppression reasons typed:
+      contradictory_evidence  — funding extreme or OI accumulation present.
+      structural_absence      — coverage too low to verify OI absence.
+    """
     pair = f"{a1}/{a2}"
-    if _scan_funding_extreme_kg(merged_kg, [a1, a2]) > 0 or _has_oi_accumulation(collections, [a1, a2]):
+    has_fund_extreme = _scan_funding_extreme_kg(merged_kg, [a1, a2]) > 0
+    has_oi_accum = _has_oi_accumulation(collections, [a1, a2])
+    if has_fund_extreme or has_oi_accum:
+        detail = (
+            "funding extreme present" if has_fund_extreme
+            else "OI accumulation detected"
+        )
         log.append({"chain": "beta_reversion_no_funding_oi", "pair": pair,
-                    "reason": "insufficient_negative_evidence"})
+                    "reason": "contradictory_evidence", "detail": detail,
+                    "neg_evidence_taxonomy": "contradictory_evidence"})
+        return
+    cov = _oi_coverage(collections, [a1, a2])
+    if cov < 0.1:
+        log.append({"chain": "beta_reversion_no_funding_oi", "pair": pair,
+                    "reason": "structural_absence",
+                    "detail": f"OI coverage={cov:.3f} — insufficient data",
+                    "neg_evidence_taxonomy": "structural_absence"})
         return
     cov = _oi_coverage(collections, [a1, a2])
 
@@ -177,9 +202,11 @@ def _e1_transient_aggression_chain(
                     "reason": "no_trigger", "detail": "no aggression burst"})
         return
     if burst_count > 4:
+        # F3: failed_followthrough — aggression exists but persisted beyond transient threshold
         log.append({"chain": "beta_reversion_transient_aggr", "pair": pair,
-                    "reason": "insufficient_negative_evidence",
-                    "detail": f"min burst count={burst_count} — both sides persistent"})
+                    "reason": "failed_followthrough",
+                    "detail": f"min burst count={burst_count} — both sides persistent",
+                    "neg_evidence_taxonomy": "failed_followthrough"})
         return
 
     npa_id = f"no_persistent_aggr:{a1}:{a2}"
@@ -211,13 +238,18 @@ def _e1_weak_premium_chain(
     """E1 Chain 3: weak_premium_dislocation → no_expected_funding_shift → no_oi_expansion."""
     pair = f"{a1}/{a2}"
     if not _has_premium_chain_kg(merged_kg, [a1, a2]):
+        # F3: structural_absence — premium dislocation node type absent from KG
         log.append({"chain": "beta_reversion_weak_premium", "pair": pair,
-                    "reason": "no_trigger", "detail": "no PremiumDislocationNode"})
+                    "reason": "structural_absence",
+                    "detail": "no PremiumDislocationNode in KG",
+                    "neg_evidence_taxonomy": "structural_absence"})
         return
     if _scan_funding_extreme_kg(merged_kg, [a1, a2]) > 0:
+        # F3: contradictory_evidence — funding extreme contradicts weak-premium claim
         log.append({"chain": "beta_reversion_weak_premium", "pair": pair,
-                    "reason": "insufficient_negative_evidence",
-                    "detail": "funding extreme present — premium not weak"})
+                    "reason": "contradictory_evidence",
+                    "detail": "funding extreme present — premium not weak",
+                    "neg_evidence_taxonomy": "contradictory_evidence"})
         return
 
     rctx_id = f"reversion_context:{a1}:{a2}"

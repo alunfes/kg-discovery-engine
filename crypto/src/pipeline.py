@@ -181,7 +181,7 @@ def _save_outputs(
         "assets": config.assets or ["HYPE", "ETH", "BTC", "SOL"],
         "top_k": config.top_k,
         "created_at": datetime.now(timezone.utc).isoformat(),
-        "sprint": "E",
+        "sprint": "F",
     }
     with open(os.path.join(run_dir, "run_config.json"), "w") as f:
         json.dump(run_config, f, indent=2)
@@ -227,6 +227,24 @@ def _write_review_memo(
     suppression = branch_metrics.get("branch_suppression_reason", {})
     top_share = branch_metrics.get("top_k_branch_share", {})
 
+    # F1 calibration
+    calibration = branch_metrics.get("branch_calibration", {})
+    # F2 normalization diff summary
+    norm_ranking = branch_metrics.get("normalized_ranking", {})
+    norm_diff = norm_ranking.get("ranking_diff_summary", {})
+    # F3 taxonomy
+    suppression_taxonomy = {
+        k: v for k, v in suppression.items()
+        if k in ("structural_absence", "failed_followthrough",
+                 "contradictory_evidence", "no_trigger", "missing_accumulation")
+    }
+    # F4 regime
+    regime = branch_metrics.get("regime_stratified", {})
+    # F5 baseline uplift
+    uplift = branch_metrics.get("baseline_uplift", {})
+    top_uplift = uplift.get("top_uplift", [])
+    mean_uplift = uplift.get("mean_uplift_by_branch", {})
+
     lines = [
         f"# Review Memo — {config.run_id}",
         "",
@@ -251,6 +269,46 @@ def _write_review_memo(
         f"- **top_k_branch_share:** {top_share}",
         "- **branch_suppression_reason:**",
     ] + [f"  - {r}: {c}" for r, c in suppression.items()] + [
+        "",
+        "## F1: Branch Calibration",
+        "",
+    ] + [
+        f"- **{b}**: count={s['count']}, mean={s['mean_score']}, "
+        f"median={s['median_score']}, p90={s['p90_score']}, "
+        f"count_norm_top_k={s['count_normalized_top_k_share']}, "
+        f"ev_slope={s['evidence_count_vs_score_slope']}, "
+        f"arch_advantage={s['score_architecture_advantage']}"
+        for b, s in calibration.items()
+    ] + [
+        "",
+        "## F2: Cross-Branch Normalization",
+        "",
+        f"- mean_abs_rank_diff: {norm_diff.get('mean_abs_diff', 'N/A')}",
+        f"- max_rank_diff: {norm_diff.get('max_diff', 'N/A')}",
+        f"- n_cards_changed_top_k: {norm_diff.get('n_cards_changed_top_k', 'N/A')}",
+        "",
+        "## F3: Negative Evidence Taxonomy",
+        "",
+    ] + [f"  - {r}: {c}" for r, c in suppression_taxonomy.items()] + [
+        "",
+        "## F4: Regime-Stratified",
+        "",
+    ] + [
+        f"- **{bucket}**: n={d['n_cards']}, dominant={d['dominant_branch']}, "
+        f"mean_score={d['mean_score']}, top_k_share={d['top_k_share']}"
+        for bucket, d in sorted(regime.items())
+    ] + [
+        "",
+        "## F5: Baseline Uplift",
+        "",
+        f"- n_matched: {uplift.get('n_matched', 0)}",
+        f"- mean_uplift_by_branch: {mean_uplift}",
+        "- top_uplift hypotheses:",
+    ] + [
+        f"  - [{d.get('branch', '?')}] {d.get('title', '')[:60]} "
+        f"adj_uplift={d.get('complexity_penalty_adjusted_uplift', 0):.4f}"
+        for d in top_uplift
+    ] + [
         "",
         "## Top Hypotheses",
         "",
