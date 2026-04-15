@@ -1,0 +1,27 @@
+{
+  "run_id": "run_003_sprint_d",
+  "total_cards": 16,
+  "tag_counts": {
+    "correlation_break": 12,
+    "continuation_candidate": 12,
+    "chain_rule": 8,
+    "D1": 8,
+    "regime": 4,
+    "transition": 4
+  },
+  "branch_breakdown": {
+    "A4_continuation_candidate": 12,
+    "D1_chain_flow_continuation": 8,
+    "regime_transition": 4,
+    "mean_reversion_candidate": 0,
+    "microstructure_artifact": 0,
+    "positioning_unwind_candidate": 0
+  },
+  "notes": [
+    "All pairs qualify as continuation_candidate (corr_break_score > 0.20 for all pairs)",
+    "D1 chain rules produce 8 hypotheses (2 per pair: one per asset with burst)",
+    "beta_reversion and positioning_unwind rules not triggered: every break has aggression burst context",
+    "mean_reversion not triggered: D3 threshold 0.0 but A4 routing sends all breaks to continuation",
+    "regime_transition rules fire 4 times (aggressive_buying/selling transitions)"
+  ]
+}

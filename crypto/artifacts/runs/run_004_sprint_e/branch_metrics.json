@@ -1,0 +1,35 @@
+{
+  "branch_distribution": {
+    "positioning_unwind": 30,
+    "beta_reversion": 8,
+    "other": 14,
+    "flow_continuation": 8
+  },
+  "branch_entropy": 1.7651,
+  "top_k_branch_share": {
+    "positioning_unwind": 0.5,
+    "beta_reversion": 0.1333,
+    "other": 0.2333,
+    "flow_continuation": 0.1333
+  },
+  "mean_score_by_branch": {
+    "positioning_unwind": 0.7017,
+    "beta_reversion": 0.6653,
+    "other": 0.619,
+    "flow_continuation": 0.6319
+  },
+  "survival_across_runs": "N/A (single run)",
+  "branch_activation_rate": {
+    "positioning_unwind": 1.0,
+    "flow_continuation": 1.0,
+    "beta_reversion": 1.0,
+    "other": 1.0
+  },
+  "branch_suppression_reason": {
+    "insufficient_negative_evidence": 26,
+    "no_trigger": 6,
+    "missing_accumulation": 2
+  },
+  "total_cards": 60,
+  "n_corr_break_pairs": 6
+}
