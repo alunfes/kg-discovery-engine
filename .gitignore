@@ -11,3 +11,5 @@ build/
 .venv/
 venv/
 data/cache/
+crypto/artifacts/runs/*/output_candidates_full.json
+crypto/artifacts/runs/*/hypothesis_store/private_alpha/
