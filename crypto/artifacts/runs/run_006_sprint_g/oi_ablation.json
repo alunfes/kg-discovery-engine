@@ -1,0 +1,73 @@
+{
+  "full": {
+    "variant": "full",
+    "branch_entropy": 1.7651,
+    "top_k_branch_share": {
+      "positioning_unwind": 0.5,
+      "beta_reversion": 0.1333,
+      "other": 0.2333,
+      "flow_continuation": 0.1333
+    },
+    "mean_score_by_branch": {
+      "positioning_unwind": 0.7017,
+      "beta_reversion": 0.6653,
+      "other": 0.619,
+      "flow_continuation": 0.6319
+    },
+    "branch_distribution": {
+      "positioning_unwind": 30,
+      "beta_reversion": 8,
+      "other": 14,
+      "flow_continuation": 8
+    },
+    "total_cards": 60
+  },
+  "no_OI_features": {
+    "variant": "no_OI_features",
+    "branch_entropy": 1.7709,
+    "top_k_branch_share": {
+      "positioning_unwind": 0.3333,
+      "other": 0.4333,
+      "beta_reversion": 0.1,
+      "flow_continuation": 0.1333
+    },
+    "mean_score_by_branch": {
+      "positioning_unwind": 0.6912,
+      "beta_reversion": 0.6475,
+      "other": 0.6168,
+      "flow_continuation": 0.6319
+    },
+    "branch_distribution": {
+      "positioning_unwind": 20,
+      "beta_reversion": 6,
+      "other": 26,
+      "flow_continuation": 8
+    },
+    "total_cards": 60
+  },
+  "OI_only_downweighted": {
+    "variant": "OI_only_downweighted",
+    "branch_entropy": 1.7651,
+    "top_k_branch_share": {
+      "positioning_unwind": 0.5,
+      "beta_reversion": 0.1333,
+      "other": 0.2333,
+      "flow_continuation": 0.1333
+    },
+    "mean_score_by_branch": {
+      "positioning_unwind": 0.6979,
+      "beta_reversion": 0.6653,
+      "other": 0.619,
+      "flow_continuation": 0.6319
+    },
+    "branch_distribution": {
+      "positioning_unwind": 30,
+      "beta_reversion": 8,
+      "other": 14,
+      "flow_continuation": 8
+    },
+    "total_cards": 60
+  },
+  "entropy_diff_no_oi": 0.0058,
+  "entropy_diff_downweighted": 0.0
+}

@@ -1,0 +1,7 @@
+pair,confusion_type,funding_state_n_extreme,funding_state_is_extreme,spread_divergence_corr_break_score,lead_lag_state,aggression_burst_a1,aggression_burst_a2,aggression_burst_min,aggression_persistent_gt4,oi_accumulation_present,oi_state_score,oi_build_duration,has_premium_dislocation,execution_asymmetry_proxy,e1_transient_aggr_fired,e2_oi_crowding_confirmed,e2_funding_pressure_confirmed,both_e1_e2_active,discriminative_flag_funding_extreme_AND_oi,should_suppress_e1_transient
+HYPE/SOL,beta→positioning_unwind,3,True,0.391,HYPE_leads,5,4,4,False,True,1.0,69,True,1.0,True,True,True,True,True,True
+ETH/SOL,beta→positioning_unwind,1,True,0.175,ETH_leads,5,4,4,False,True,1.0,69,True,1.0,True,True,True,True,True,True
+BTC/SOL,beta→positioning_unwind,1,True,0.2429,BTC_leads,6,4,4,False,True,1.0,69,True,1.0,True,True,True,True,True,True
+ETH/BTC,NONE (true beta_reversion),0,False,0.2551,BTC_leads,5,6,5,True,False,1.0,30,False,1.0,False,True,False,False,False,False
+HYPE/ETH,NONE (true beta_reversion),2,True,0.1707,symmetric,5,5,5,True,True,1.0,30,True,1.0,False,True,True,False,True,True
+HYPE/BTC,NONE (true beta_reversion),2,True,0.2028,BTC_leads,5,6,5,True,True,1.0,28,True,1.0,False,True,True,False,True,True
