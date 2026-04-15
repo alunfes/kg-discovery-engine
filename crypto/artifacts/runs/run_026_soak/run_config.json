@@ -1,0 +1,41 @@
+{
+  "run_id": "run_026_soak",
+  "description": "20-window live shadow soak with operator-value audit",
+  "n_windows": 20,
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61
+  ],
+  "window_duration_min": 120,
+  "replay_n_minutes": 30,
+  "assets": [
+    "HYPE",
+    "BTC",
+    "ETH",
+    "SOL"
+  ],
+  "regime_switching": true,
+  "hysteresis": true,
+  "dwell_guardrail": true,
+  "fatigue_risk_level": "low",
+  "is_daily_usable": true,
+  "recommended_cadence_min": 120
+}

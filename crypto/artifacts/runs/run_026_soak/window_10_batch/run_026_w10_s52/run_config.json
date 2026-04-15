@@ -1,0 +1,14 @@
+{
+  "run_id": "run_026_w10_s52",
+  "seed": 52,
+  "n_minutes": 60,
+  "assets": [
+    "HYPE",
+    "BTC",
+    "ETH",
+    "SOL"
+  ],
+  "top_k": 10,
+  "created_at": "2026-04-15T13:34:37.672505+00:00",
+  "sprint": "J"
+}
