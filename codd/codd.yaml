@@ -1,0 +1,41 @@
+# CoDD プロジェクト設定
+version: "0.1.0"
+
+project:
+  name: "kg-discovery-engine"
+  language: "python"
+  frameworks: []
+
+# NOTE: --ai フラグは CoDD × SWE-bench 計測で退化施策と確認済み。
+# ai_command は参照用に残すが、codd extract では使用しない。
+ai_command: "claude --print --model claude-opus-4-6 --tools \"\""
+coding_principles: null
+
+scan:
+  source_dirs:
+    - "src"
+    - "crypto"  test_dirs:
+    - "tests/"
+  doc_dirs:
+    - "docs/"
+  config_files: []
+  exclude:
+    - "**/node_modules/**"
+    - "**/__pycache__/**"
+    - "**/dist/**"
+    - "**/.venv/**"
+
+graph:
+  store: "jsonl"
+  path: "codd/scan"
+
+bands:
+  green:
+    min_confidence: 0.90
+    min_evidence_count: 2
+  amber:
+    min_confidence: 0.50
+
+propagation:
+  max_depth: 10
+  stop_at_contract_boundary: true
