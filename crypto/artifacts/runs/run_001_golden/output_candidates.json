@@ -1,0 +1,398 @@
+[
+  {
+    "card_id": "b15fb155-c5f1-457e-8f9d-156127fab196",
+    "version": 1,
+    "created_at": "2026-04-15T01:53:26.590929+00:00",
+    "title": "Regime transition aggressive_buying → undefined detected",
+    "claim": "A transition from aggressive_buying to undefined has been observed. Following this pattern historically, the market tends to exhibit lower volatility and tighter spreads for at least 2 hours.",
+    "mechanism": "Extreme regimes exhaust the directional participants; the subsequent resting phase reflects informed market-maker re-entry.",
+    "evidence_nodes": [
+      "regime:HYPE:4",
+      "regime:HYPE:5"
+    ],
+    "evidence_edges": [
+      "transition:HYPE:4:5"
+    ],
+    "operator_trace": [
+      "compose",
+      "difference"
+    ],
+    "secrecy_level": "shareable_structure",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.58,
+      "novelty": 1.0,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.25
+    },
+    "composite_score": 0.71,
+    "run_id": "run_001_golden",
+    "kg_families": [
+      "regime"
+    ],
+    "tags": [
+      "regime",
+      "transition"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "c1328dc6-9340-4131-9d35-f87e5c2c281e",
+    "version": 1,
+    "created_at": "2026-04-15T01:53:26.592674+00:00",
+    "title": "Regime transition aggressive_selling → undefined detected",
+    "claim": "A transition from aggressive_selling to undefined has been observed. Following this pattern historically, the market tends to exhibit lower volatility and tighter spreads for at least 2 hours.",
+    "mechanism": "Extreme regimes exhaust the directional participants; the subsequent resting phase reflects informed market-maker re-entry.",
+    "evidence_nodes": [
+      "regime:HYPE:8",
+      "regime:HYPE:9"
+    ],
+    "evidence_edges": [
+      "transition:HYPE:8:9"
+    ],
+    "operator_trace": [
+      "compose",
+      "difference"
+    ],
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.58,
+      "novelty": 0.0714,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.25
+    },
+    "composite_score": 0.5243,
+    "run_id": "run_001_golden",
+    "kg_families": [
+      "regime"
+    ],
+    "tags": [
+      "regime",
+      "transition"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "ab21f285-2766-4c24-869d-c913b49f6b2d",
+    "version": 1,
+    "created_at": "2026-04-15T01:53:26.592729+00:00",
+    "title": "Regime transition aggressive_selling → resting_liquidity detected",
+    "claim": "A transition from aggressive_selling to resting_liquidity has been observed. Following this pattern historically, the market tends to exhibit lower volatility and tighter spreads for at least 2 hours.",
+    "mechanism": "Extreme regimes exhaust the directional participants; the subsequent resting phase reflects informed market-maker re-entry.",
+    "evidence_nodes": [
+      "regime:HYPE:11",
+      "regime:HYPE:12"
+    ],
+    "evidence_edges": [
+      "transition:HYPE:11:12"
+    ],
+    "operator_trace": [
+      "compose",
+      "difference"
+    ],
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.58,
+      "novelty": 0.0714,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.25
+    },
+    "composite_score": 0.5243,
+    "run_id": "run_001_golden",
+    "kg_families": [
+      "regime"
+    ],
+    "tags": [
+      "regime",
+      "transition"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "39a243a9-8091-4a86-ae2c-dce828930127",
+    "version": 1,
+    "created_at": "2026-04-15T01:53:26.592777+00:00",
+    "title": "Regime transition aggressive_selling → aggressive_buying detected",
+    "claim": "A transition from aggressive_selling to aggressive_buying has been observed. Following this pattern historically, the market tends to exhibit lower volatility and tighter spreads for at least 2 hours.",
+    "mechanism": "Extreme regimes exhaust the directional participants; the subsequent resting phase reflects informed market-maker re-entry.",
+    "evidence_nodes": [
+      "regime:ETH:0",
+      "regime:ETH:1"
+    ],
+    "evidence_edges": [
+      "transition:ETH:0:1"
+    ],
+    "operator_trace": [
+      "compose",
+      "difference"
+    ],
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.58,
+      "novelty": 0.0714,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.25
+    },
+    "composite_score": 0.5243,
+    "run_id": "run_001_golden",
+    "kg_families": [
+      "regime"
+    ],
+    "tags": [
+      "regime",
+      "transition"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "4c0ecb23-3f49-46ad-ab1f-0d5e1a14b93d",
+    "version": 1,
+    "created_at": "2026-04-15T01:53:26.592827+00:00",
+    "title": "Correlation break (HYPE,ETH) — continuation_candidate",
+    "claim": "Rolling correlation between HYPE and ETH broke below 0.3 (rho=0.025) alongside rising aggression bursts; divergence likely to continue while directional pressure persists.",
+    "mechanism": "Directional flow in one asset while the other remains passive mechanically reduces contemporaneous correlation; the break continues until the momentum exhausts or the other asset follows.",
+    "evidence_nodes": [
+      "asset:HYPE",
+      "corr:HYPE:ETH"
+    ],
+    "evidence_edges": [
+      "correlation_break:HYPE:corr:HYPE:ETH"
+    ],
+    "operator_trace": [
+      "align",
+      "compose"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.55,
+      "novelty": 0.9574,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.744,
+    "run_id": "run_001_golden",
+    "kg_families": [
+      "cross_asset",
+      "microstructure"
+    ],
+    "tags": [
+      "correlation_break",
+      "continuation_candidate"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "f73b28a8-b15a-472f-8ccb-85323f99bcce",
+    "version": 1,
+    "created_at": "2026-04-15T01:53:26.592879+00:00",
+    "title": "Correlation break (HYPE,BTC) — continuation_candidate",
+    "claim": "Rolling correlation between HYPE and BTC broke below 0.3 (rho=-0.029) alongside rising aggression bursts; divergence likely to continue while directional pressure persists.",
+    "mechanism": "Directional flow in one asset while the other remains passive mechanically reduces contemporaneous correlation; the break continues until the momentum exhausts or the other asset follows.",
+    "evidence_nodes": [
+      "asset:HYPE",
+      "corr:HYPE:BTC"
+    ],
+    "evidence_edges": [
+      "correlation_break:HYPE:corr:HYPE:BTC"
+    ],
+    "operator_trace": [
+      "align",
+      "compose"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.55,
+      "novelty": 0.1667,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.5858,
+    "run_id": "run_001_golden",
+    "kg_families": [
+      "cross_asset",
+      "microstructure"
+    ],
+    "tags": [
+      "correlation_break",
+      "continuation_candidate"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "1bc4692b-a2cc-4328-9c49-b50a30a696e1",
+    "version": 1,
+    "created_at": "2026-04-15T01:53:26.592933+00:00",
+    "title": "Correlation break (HYPE,SOL) — continuation_candidate",
+    "claim": "Rolling correlation between HYPE and SOL broke below 0.3 (rho=0.050) alongside rising aggression bursts; divergence likely to continue while directional pressure persists.",
+    "mechanism": "Directional flow in one asset while the other remains passive mechanically reduces contemporaneous correlation; the break continues until the momentum exhausts or the other asset follows.",
+    "evidence_nodes": [
+      "asset:HYPE",
+      "corr:HYPE:SOL"
+    ],
+    "evidence_edges": [
+      "correlation_break:HYPE:corr:HYPE:SOL"
+    ],
+    "operator_trace": [
+      "align",
+      "compose"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.55,
+      "novelty": 0.1667,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.5858,
+    "run_id": "run_001_golden",
+    "kg_families": [
+      "cross_asset",
+      "microstructure"
+    ],
+    "tags": [
+      "correlation_break",
+      "continuation_candidate"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "ecbf0dbb-6553-4b45-95a6-6bca99cc5015",
+    "version": 1,
+    "created_at": "2026-04-15T01:53:26.592988+00:00",
+    "title": "Correlation break (ETH,BTC) — continuation_candidate",
+    "claim": "Rolling correlation between ETH and BTC broke below 0.3 (rho=-0.082) alongside rising aggression bursts; divergence likely to continue while directional pressure persists.",
+    "mechanism": "Directional flow in one asset while the other remains passive mechanically reduces contemporaneous correlation; the break continues until the momentum exhausts or the other asset follows.",
+    "evidence_nodes": [
+      "asset:ETH",
+      "corr:ETH:BTC"
+    ],
+    "evidence_edges": [
+      "correlation_break:ETH:corr:ETH:BTC"
+    ],
+    "operator_trace": [
+      "align",
+      "compose"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.55,
+      "novelty": 0.1667,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.5858,
+    "run_id": "run_001_golden",
+    "kg_families": [
+      "cross_asset",
+      "microstructure"
+    ],
+    "tags": [
+      "correlation_break",
+      "continuation_candidate"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "a4e3445e-a090-459e-b76d-a33441a6ec3a",
+    "version": 1,
+    "created_at": "2026-04-15T01:53:26.593044+00:00",
+    "title": "Correlation break (ETH,SOL) — continuation_candidate",
+    "claim": "Rolling correlation between ETH and SOL broke below 0.3 (rho=0.096) alongside rising aggression bursts; divergence likely to continue while directional pressure persists.",
+    "mechanism": "Directional flow in one asset while the other remains passive mechanically reduces contemporaneous correlation; the break continues until the momentum exhausts or the other asset follows.",
+    "evidence_nodes": [
+      "asset:ETH",
+      "corr:ETH:SOL"
+    ],
+    "evidence_edges": [
+      "correlation_break:ETH:corr:ETH:SOL"
+    ],
+    "operator_trace": [
+      "align",
+      "compose"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.55,
+      "novelty": 0.1667,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.5858,
+    "run_id": "run_001_golden",
+    "kg_families": [
+      "cross_asset",
+      "microstructure"
+    ],
+    "tags": [
+      "correlation_break",
+      "continuation_candidate"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "1c7d7ebe-02cf-4254-b406-f6265c21805c",
+    "version": 1,
+    "created_at": "2026-04-15T01:53:26.593102+00:00",
+    "title": "Correlation break (BTC,SOL) — continuation_candidate",
+    "claim": "Rolling correlation between BTC and SOL broke below 0.3 (rho=-0.187) alongside rising aggression bursts; divergence likely to continue while directional pressure persists.",
+    "mechanism": "Directional flow in one asset while the other remains passive mechanically reduces contemporaneous correlation; the break continues until the momentum exhausts or the other asset follows.",
+    "evidence_nodes": [
+      "asset:BTC",
+      "corr:BTC:SOL"
+    ],
+    "evidence_edges": [
+      "correlation_break:BTC:corr:BTC:SOL"
+    ],
+    "operator_trace": [
+      "align",
+      "compose"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.55,
+      "novelty": 0.1667,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.5858,
+    "run_id": "run_001_golden",
+    "kg_families": [
+      "cross_asset",
+      "microstructure"
+    ],
+    "tags": [
+      "correlation_break",
+      "continuation_candidate"
+    ],
+    "actionability_note": null
+  }
+]

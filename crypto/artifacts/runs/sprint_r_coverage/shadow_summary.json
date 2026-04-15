@@ -1,0 +1,253 @@
+{
+  "run_id": "sprint_r_coverage",
+  "timestamp": "2026-04-15T09:55:44.137294+00:00",
+  "mode": "offline_cache",
+  "n_windows": 4,
+  "n_assets": 4,
+  "total_cards": 72,
+  "families_covered": [
+    "cross_asset"
+  ],
+  "families_absent": [
+    "beta_reversion",
+    "positioning_unwind",
+    "flow_continuation",
+    "baseline"
+  ],
+  "regimes_covered": [],
+  "regimes_absent": [
+    "resting_liquidity",
+    "aggressive_buying",
+    "aggressive_selling",
+    "spread_widening",
+    "funding_extreme_long",
+    "funding_extreme_short",
+    "correlation_break",
+    "undefined"
+  ],
+  "elapsed_s": 0.03,
+  "windows": [
+    {
+      "window": "1h",
+      "n_minutes": 60,
+      "n_cards": 18,
+      "families_fired": [
+        "cross_asset"
+      ],
+      "regimes_observed": [],
+      "tier_distribution": {
+        "unknown": 18
+      },
+      "fetch_meta": {
+        "HYPE": {
+          "window": "1h",
+          "n_minutes": 60,
+          "n_candles": 0,
+          "n_funding_records": 0,
+          "book_available": false,
+          "ctx_available": false,
+          "oi_snapshot": null,
+          "mark_price": null
+        },
+        "BTC": {
+          "window": "1h",
+          "n_minutes": 60,
+          "n_candles": 0,
+          "n_funding_records": 0,
+          "book_available": false,
+          "ctx_available": false,
+          "oi_snapshot": null,
+          "mark_price": null
+        },
+        "ETH": {
+          "window": "1h",
+          "n_minutes": 60,
+          "n_candles": 0,
+          "n_funding_records": 0,
+          "book_available": false,
+          "ctx_available": false,
+          "oi_snapshot": null,
+          "mark_price": null
+        },
+        "SOL": {
+          "window": "1h",
+          "n_minutes": 60,
+          "n_candles": 0,
+          "n_funding_records": 0,
+          "book_available": false,
+          "ctx_available": false,
+          "oi_snapshot": null,
+          "mark_price": null
+        }
+      }
+    },
+    {
+      "window": "4h",
+      "n_minutes": 240,
+      "n_cards": 18,
+      "families_fired": [
+        "cross_asset"
+      ],
+      "regimes_observed": [],
+      "tier_distribution": {
+        "unknown": 18
+      },
+      "fetch_meta": {
+        "HYPE": {
+          "window": "4h",
+          "n_minutes": 240,
+          "n_candles": 0,
+          "n_funding_records": 0,
+          "book_available": false,
+          "ctx_available": false,
+          "oi_snapshot": null,
+          "mark_price": null
+        },
+        "BTC": {
+          "window": "4h",
+          "n_minutes": 240,
+          "n_candles": 0,
+          "n_funding_records": 0,
+          "book_available": false,
+          "ctx_available": false,
+          "oi_snapshot": null,
+          "mark_price": null
+        },
+        "ETH": {
+          "window": "4h",
+          "n_minutes": 240,
+          "n_candles": 0,
+          "n_funding_records": 0,
+          "book_available": false,
+          "ctx_available": false,
+          "oi_snapshot": null,
+          "mark_price": null
+        },
+        "SOL": {
+          "window": "4h",
+          "n_minutes": 240,
+          "n_candles": 0,
+          "n_funding_records": 0,
+          "book_available": false,
+          "ctx_available": false,
+          "oi_snapshot": null,
+          "mark_price": null
+        }
+      }
+    },
+    {
+      "window": "8h",
+      "n_minutes": 480,
+      "n_cards": 18,
+      "families_fired": [
+        "cross_asset"
+      ],
+      "regimes_observed": [],
+      "tier_distribution": {
+        "unknown": 18
+      },
+      "fetch_meta": {
+        "HYPE": {
+          "window": "8h",
+          "n_minutes": 480,
+          "n_candles": 0,
+          "n_funding_records": 0,
+          "book_available": false,
+          "ctx_available": false,
+          "oi_snapshot": null,
+          "mark_price": null
+        },
+        "BTC": {
+          "window": "8h",
+          "n_minutes": 480,
+          "n_candles": 0,
+          "n_funding_records": 0,
+          "book_available": false,
+          "ctx_available": false,
+          "oi_snapshot": null,
+          "mark_price": null
+        },
+        "ETH": {
+          "window": "8h",
+          "n_minutes": 480,
+          "n_candles": 0,
+          "n_funding_records": 0,
+          "book_available": false,
+          "ctx_available": false,
+          "oi_snapshot": null,
+          "mark_price": null
+        },
+        "SOL": {
+          "window": "8h",
+          "n_minutes": 480,
+          "n_candles": 0,
+          "n_funding_records": 0,
+          "book_available": false,
+          "ctx_available": false,
+          "oi_snapshot": null,
+          "mark_price": null
+        }
+      }
+    },
+    {
+      "window": "7d",
+      "n_minutes": 10080,
+      "n_cards": 18,
+      "families_fired": [
+        "cross_asset"
+      ],
+      "regimes_observed": [],
+      "tier_distribution": {
+        "unknown": 18
+      },
+      "fetch_meta": {
+        "HYPE": {
+          "window": "7d",
+          "n_minutes": 10080,
+          "n_candles": 0,
+          "n_funding_records": 0,
+          "book_available": false,
+          "ctx_available": false,
+          "oi_snapshot": null,
+          "mark_price": null
+        },
+        "BTC": {
+          "window": "7d",
+          "n_minutes": 10080,
+          "n_candles": 0,
+          "n_funding_records": 0,
+          "book_available": false,
+          "ctx_available": false,
+          "oi_snapshot": null,
+          "mark_price": null
+        },
+        "ETH": {
+          "window": "7d",
+          "n_minutes": 10080,
+          "n_candles": 0,
+          "n_funding_records": 0,
+          "book_available": false,
+          "ctx_available": false,
+          "oi_snapshot": null,
+          "mark_price": null
+        },
+        "SOL": {
+          "window": "7d",
+          "n_minutes": 10080,
+          "n_candles": 0,
+          "n_funding_records": 0,
+          "book_available": false,
+          "ctx_available": false,
+          "oi_snapshot": null,
+          "mark_price": null
+        }
+      }
+    }
+  ],
+  "artifacts": {
+    "family_coverage_csv": "crypto/artifacts/runs/sprint_r_coverage/family_coverage.csv",
+    "regime_coverage_csv": "crypto/artifacts/runs/sprint_r_coverage/regime_coverage.csv",
+    "missing_condition_map": "crypto/artifacts/runs/sprint_r_coverage/missing_condition_map.md",
+    "recommended_state_expansions": "crypto/artifacts/runs/sprint_r_coverage/recommended_state_expansions.md"
+  }
+}

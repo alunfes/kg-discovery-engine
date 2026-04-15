@@ -1,0 +1,2 @@
+chain_type,pair,threshold_key,threshold_name,threshold_value,actual_value,boundary_proximity,dominant_regime_signals,expected_outcome,regime_contradiction_flag
+positioning_unwind_oi_crowding,ETH/BTC,e2_oi_soft_gate,oi_confidence_min,0.3,0.401,0.3367,,positioning_unwind,False

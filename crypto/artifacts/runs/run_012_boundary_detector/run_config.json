@@ -1,0 +1,36 @@
+{
+  "run_id": "run_012_boundary_detector",
+  "date": "2026-04-15",
+  "sprint": "L",
+  "objective": "Boundary-case detector for grammar chains \u2014 R1 threshold-boundary confusion pre-detection",
+  "seed": 42,
+  "assets": [
+    "HYPE",
+    "ETH",
+    "BTC",
+    "SOL"
+  ],
+  "n_minutes": 120,
+  "top_k": 60,
+  "new_files": [
+    "crypto/src/eval/boundary_detector.py",
+    "crypto/tests/test_sprint_l.py",
+    "crypto/artifacts/runs/run_012_boundary_detector/",
+    "docs/run012_boundary_case_detector.md"
+  ],
+  "modified_files": [
+    "crypto/src/pipeline.py"
+  ],
+  "boundary_detection_results": {
+    "n_activation_records": 1,
+    "n_warnings": 0,
+    "high_warnings": 0
+  },
+  "test_results": {
+    "total_pass": 309,
+    "total_fail": 4,
+    "fail_pre_existing": 4,
+    "new_failures": 0,
+    "sprint_l_tests": 39
+  }
+}

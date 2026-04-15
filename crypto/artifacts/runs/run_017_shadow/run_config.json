@@ -1,0 +1,62 @@
+{
+  "run_id": "run_017_shadow",
+  "sprint": "Q",
+  "date": "2026-04-15",
+  "objective": "Real-data shadow deployment \u2014 end-to-end test of calibrated monitoring engine",
+  "assets": [
+    "HYPE",
+    "BTC",
+    "ETH",
+    "SOL"
+  ],
+  "n_minutes": 120,
+  "top_k": 10,
+  "mode": "shadow",
+  "live_fetch": false,
+  "data_source": "hyperliquid_public_api",
+  "fetch_meta": {
+    "HYPE": {
+      "n_candles": 121,
+      "n_funding_records": 0,
+      "book_available": false,
+      "ctx_available": true,
+      "oi_snapshot": 20907504.32,
+      "mark_price": 43.528
+    },
+    "BTC": {
+      "n_candles": 121,
+      "n_funding_records": 0,
+      "book_available": false,
+      "ctx_available": true,
+      "oi_snapshot": 27169.37,
+      "mark_price": 74020.0
+    },
+    "ETH": {
+      "n_candles": 121,
+      "n_funding_records": 0,
+      "book_available": false,
+      "ctx_available": true,
+      "oi_snapshot": 480136.43,
+      "mark_price": 2324.4
+    },
+    "SOL": {
+      "n_candles": 121,
+      "n_funding_records": 0,
+      "book_available": false,
+      "ctx_available": true,
+      "oi_snapshot": 3386986.88,
+      "mark_price": 83.105
+    }
+  },
+  "calibration_source": "run_014_half_life + run_015_monitoring_budget + run_016_sparse_family",
+  "pipeline_changes": [
+    "PipelineConfig.dataset field added for real-data injection"
+  ],
+  "new_files": [
+    "crypto/src/ingestion/hyperliquid_connector.py",
+    "crypto/src/ingestion/data_adapter.py",
+    "crypto/run_017_shadow.py",
+    "crypto/tests/test_run017_shadow.py",
+    "docs/run017_shadow_deployment.md"
+  ]
+}

@@ -1,0 +1,309 @@
+{
+  "run_id": "run_017_shadow",
+  "n_cards_tracked": 10,
+  "observation_midpoint_min": 60,
+  "outcome_records": [
+    {
+      "card_id": "aa82be80-b470-4be3-838d-e4faff9900ff",
+      "title": "E1 beta reversion: (HYPE,BTC) \u2014 no funding shift, no OI expansion",
+      "branch": "beta_reversion",
+      "decision_tier": "actionable_watch",
+      "watch_label": "beta_reversion_watch",
+      "composite_score": 0.8275,
+      "assets_mentioned": [
+        "HYPE",
+        "BTC"
+      ],
+      "expected_events": [
+        "funding_extreme",
+        "buy_burst"
+      ],
+      "outcome_result": "miss",
+      "time_to_outcome_min": null,
+      "half_life_min": 40,
+      "half_life_remaining_min": -40,
+      "outcome_type_match": false,
+      "matched_event": null,
+      "outcome_detail": "No ['funding_extreme', 'buy_burst'] events for assets ['BTC', 'HYPE'] in outcome window [min 60, min 100]."
+    },
+    {
+      "card_id": "abe015c7-cff1-4b35-9f54-e03cf60a006f",
+      "title": "E1 beta reversion: (HYPE,ETH) \u2014 no funding shift, no OI expansion",
+      "branch": "beta_reversion",
+      "decision_tier": "monitor_borderline",
+      "watch_label": "beta_reversion_watch",
+      "composite_score": 0.6486,
+      "assets_mentioned": [
+        "HYPE",
+        "ETH"
+      ],
+      "expected_events": [
+        "funding_extreme",
+        "buy_burst"
+      ],
+      "outcome_result": "miss",
+      "time_to_outcome_min": null,
+      "half_life_min": 60,
+      "half_life_remaining_min": -60,
+      "outcome_type_match": false,
+      "matched_event": null,
+      "outcome_detail": "No ['funding_extreme', 'buy_burst'] events for assets ['ETH', 'HYPE'] in outcome window [min 60, min 120]."
+    },
+    {
+      "card_id": "07de8aa3-a7c3-48c8-88b3-3434ad0014d6",
+      "title": "E1 beta reversion: (HYPE,SOL) \u2014 no funding shift, no OI expansion",
+      "branch": "beta_reversion",
+      "decision_tier": "monitor_borderline",
+      "watch_label": "beta_reversion_watch",
+      "composite_score": 0.6486,
+      "assets_mentioned": [
+        "HYPE",
+        "SOL"
+      ],
+      "expected_events": [
+        "funding_extreme",
+        "buy_burst"
+      ],
+      "outcome_result": "miss",
+      "time_to_outcome_min": null,
+      "half_life_min": 60,
+      "half_life_remaining_min": -60,
+      "outcome_type_match": false,
+      "matched_event": null,
+      "outcome_detail": "No ['funding_extreme', 'buy_burst'] events for assets ['HYPE', 'SOL'] in outcome window [min 60, min 120]."
+    },
+    {
+      "card_id": "785e7c53-ec1d-4c7c-a60a-2aa2a2f97302",
+      "title": "E1 beta reversion: (BTC,ETH) \u2014 no funding shift, no OI expansion",
+      "branch": "beta_reversion",
+      "decision_tier": "monitor_borderline",
+      "watch_label": "beta_reversion_watch",
+      "composite_score": 0.6486,
+      "assets_mentioned": [
+        "ETH",
+        "BTC"
+      ],
+      "expected_events": [
+        "funding_extreme",
+        "buy_burst"
+      ],
+      "outcome_result": "miss",
+      "time_to_outcome_min": null,
+      "half_life_min": 60,
+      "half_life_remaining_min": -60,
+      "outcome_type_match": false,
+      "matched_event": null,
+      "outcome_detail": "No ['funding_extreme', 'buy_burst'] events for assets ['BTC', 'ETH'] in outcome window [min 60, min 120]."
+    },
+    {
+      "card_id": "0cfd784f-a6fe-43a3-8cda-eb8a1427e270",
+      "title": "E1 beta reversion: (BTC,SOL) \u2014 no funding shift, no OI expansion",
+      "branch": "beta_reversion",
+      "decision_tier": "monitor_borderline",
+      "watch_label": "beta_reversion_watch",
+      "composite_score": 0.6486,
+      "assets_mentioned": [
+        "BTC",
+        "SOL"
+      ],
+      "expected_events": [
+        "funding_extreme",
+        "buy_burst"
+      ],
+      "outcome_result": "miss",
+      "time_to_outcome_min": null,
+      "half_life_min": 60,
+      "half_life_remaining_min": -60,
+      "outcome_type_match": false,
+      "matched_event": null,
+      "outcome_detail": "No ['funding_extreme', 'buy_burst'] events for assets ['BTC', 'SOL'] in outcome window [min 60, min 120]."
+    },
+    {
+      "card_id": "5fd8fff1-4e30-41a7-bf9f-50d9737b75b3",
+      "title": "E1 beta reversion: (ETH,SOL) \u2014 no funding shift, no OI expansion",
+      "branch": "beta_reversion",
+      "decision_tier": "monitor_borderline",
+      "watch_label": "beta_reversion_watch",
+      "composite_score": 0.6486,
+      "assets_mentioned": [
+        "ETH",
+        "SOL"
+      ],
+      "expected_events": [
+        "funding_extreme",
+        "buy_burst"
+      ],
+      "outcome_result": "miss",
+      "time_to_outcome_min": null,
+      "half_life_min": 60,
+      "half_life_remaining_min": -60,
+      "outcome_type_match": false,
+      "matched_event": null,
+      "outcome_detail": "No ['funding_extreme', 'buy_burst'] events for assets ['ETH', 'SOL'] in outcome window [min 60, min 120]."
+    },
+    {
+      "card_id": "ad8cd645-2684-4bd3-93c2-beb5ce8b1aa2",
+      "title": "E1 beta reversion: (HYPE,BTC) \u2014 transient aggression, no persistence",
+      "branch": "beta_reversion",
+      "decision_tier": "actionable_watch",
+      "watch_label": "beta_reversion_watch",
+      "composite_score": 0.7448,
+      "assets_mentioned": [
+        "HYPE",
+        "BTC"
+      ],
+      "expected_events": [
+        "funding_extreme",
+        "buy_burst"
+      ],
+      "outcome_result": "miss",
+      "time_to_outcome_min": null,
+      "half_life_min": 40,
+      "half_life_remaining_min": -40,
+      "outcome_type_match": false,
+      "matched_event": null,
+      "outcome_detail": "No ['funding_extreme', 'buy_burst'] events for assets ['BTC', 'HYPE'] in outcome window [min 60, min 100]."
+    },
+    {
+      "card_id": "601438ce-ce18-4e22-b533-1217b77c2814",
+      "title": "E1 beta reversion: (HYPE,ETH) \u2014 transient aggression, no persistence",
+      "branch": "beta_reversion",
+      "decision_tier": "monitor_borderline",
+      "watch_label": "beta_reversion_watch",
+      "composite_score": 0.6338,
+      "assets_mentioned": [
+        "HYPE",
+        "ETH"
+      ],
+      "expected_events": [
+        "funding_extreme",
+        "buy_burst"
+      ],
+      "outcome_result": "miss",
+      "time_to_outcome_min": null,
+      "half_life_min": 60,
+      "half_life_remaining_min": -60,
+      "outcome_type_match": false,
+      "matched_event": null,
+      "outcome_detail": "No ['funding_extreme', 'buy_burst'] events for assets ['ETH', 'HYPE'] in outcome window [min 60, min 120]."
+    },
+    {
+      "card_id": "2557d8e6-37b3-4307-b0b1-ddb1945b7b6b",
+      "title": "E1 beta reversion: (HYPE,SOL) \u2014 transient aggression, no persistence",
+      "branch": "beta_reversion",
+      "decision_tier": "monitor_borderline",
+      "watch_label": "beta_reversion_watch",
+      "composite_score": 0.6338,
+      "assets_mentioned": [
+        "HYPE",
+        "SOL"
+      ],
+      "expected_events": [
+        "funding_extreme",
+        "buy_burst"
+      ],
+      "outcome_result": "miss",
+      "time_to_outcome_min": null,
+      "half_life_min": 60,
+      "half_life_remaining_min": -60,
+      "outcome_type_match": false,
+      "matched_event": null,
+      "outcome_detail": "No ['funding_extreme', 'buy_burst'] events for assets ['HYPE', 'SOL'] in outcome window [min 60, min 120]."
+    },
+    {
+      "card_id": "97b08402-5ce9-4a21-aa10-1cbf112f8a55",
+      "title": "E1 beta reversion: (BTC,ETH) \u2014 transient aggression, no persistence",
+      "branch": "beta_reversion",
+      "decision_tier": "research_priority",
+      "watch_label": "beta_reversion_watch",
+      "composite_score": 0.6692,
+      "assets_mentioned": [
+        "ETH",
+        "BTC"
+      ],
+      "expected_events": [
+        "funding_extreme",
+        "buy_burst"
+      ],
+      "outcome_result": "miss",
+      "time_to_outcome_min": null,
+      "half_life_min": 50,
+      "half_life_remaining_min": -50,
+      "outcome_type_match": false,
+      "matched_event": null,
+      "outcome_detail": "No ['funding_extreme', 'buy_burst'] events for assets ['BTC', 'ETH'] in outcome window [min 60, min 110]."
+    }
+  ],
+  "tier_comparison": {
+    "actionable_watch": {
+      "n_total": 2,
+      "hit_count": 0,
+      "hit_rate": 0.0,
+      "partial_count": 0,
+      "miss_count": 2,
+      "expired_count": 0,
+      "avg_time_to_outcome_min": null
+    },
+    "monitor_borderline": {
+      "n_total": 7,
+      "hit_count": 0,
+      "hit_rate": 0.0,
+      "partial_count": 0,
+      "miss_count": 7,
+      "expired_count": 0,
+      "avg_time_to_outcome_min": null
+    },
+    "research_priority": {
+      "n_total": 1,
+      "hit_count": 0,
+      "hit_rate": 0.0,
+      "partial_count": 0,
+      "miss_count": 1,
+      "expired_count": 0,
+      "avg_time_to_outcome_min": null
+    }
+  },
+  "summary": {
+    "run_id": "run_017_shadow",
+    "n_tracked": 10,
+    "n_hits": 0,
+    "n_partials": 0,
+    "overall_hit_rate": 0.0,
+    "watchlist_precision": 0.0,
+    "avg_time_to_outcome_min": null,
+    "branch_hit_rates": {
+      "beta_reversion": {
+        "n": 10,
+        "hits": 0,
+        "partials": 0,
+        "hit_rate": 0.0
+      }
+    },
+    "decayed_never_materialized_count": 10,
+    "dnm_by_branch": {
+      "beta_reversion": 10
+    }
+  },
+  "half_life_analysis": {
+    "half_life_distribution": {
+      "40": 2,
+      "60": 7,
+      "50": 1
+    },
+    "avg_time_to_outcome_min": null,
+    "avg_half_life_remaining_min": -55.0,
+    "half_life_adequacy_rate": 0.0,
+    "recommendation": "Consider increasing half-life; many events exceed current window."
+  },
+  "synthetic_data_note": "Outcomes evaluated against known synthetic scenario events. HYPE events (min 20-35) precede observation midpoint (min 60) and register as miss. SOL events (min 65-80) fall within the outcome window and register as hit/partial. ETH/BTC baseline cards have no matching events -> miss (control).",
+  "threshold_recommendations": {
+    "recommendations": [],
+    "tier_verdicts": {
+      "actionable_watch": "monitor",
+      "monitor_borderline": "maintain",
+      "reject_conflicted": "maintain"
+    },
+    "overall": "no_action",
+    "synthetic_data_caveat": "Recommendations based on synthetic outcome tracking. Validate against live market data before applying changes."
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "run_id": "run_017_shadow",
+  "timestamp": "2026-04-15T09:23:48.067542+00:00",
+  "mode": "offline_cache",
+  "n_assets": 4,
+  "n_cards": 10,
+  "elapsed_s": 0.05,
+  "tier_distribution": {
+    "actionable_watch": 2,
+    "monitor_borderline": 7,
+    "research_priority": 1
+  },
+  "family_distribution": {
+    "beta_reversion": 10
+  },
+  "fetch_meta": {
+    "HYPE": {
+      "n_candles": 121,
+      "n_funding_records": 0,
+      "book_available": false,
+      "ctx_available": true,
+      "oi_snapshot": 20907504.32,
+      "mark_price": 43.528
+    },
+    "BTC": {
+      "n_candles": 121,
+      "n_funding_records": 0,
+      "book_available": false,
+      "ctx_available": true,
+      "oi_snapshot": 27169.37,
+      "mark_price": 74020.0
+    },
+    "ETH": {
+      "n_candles": 121,
+      "n_funding_records": 0,
+      "book_available": false,
+      "ctx_available": true,
+      "oi_snapshot": 480136.43,
+      "mark_price": 2324.4
+    },
+    "SOL": {
+      "n_candles": 121,
+      "n_funding_records": 0,
+      "book_available": false,
+      "ctx_available": true,
+      "oi_snapshot": 3386986.88,
+      "mark_price": 83.105
+    }
+  },
+  "output_dir": "crypto/artifacts/runs/run_017_shadow"
+}
