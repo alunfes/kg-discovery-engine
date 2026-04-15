@@ -1,0 +1,42 @@
+{
+  "run_id": "sprint_r_coverage",
+  "timestamp": "2026-04-15T09:55:44.137294+00:00",
+  "windows": [
+    {
+      "label": "1h",
+      "n_minutes": 60,
+      "funding_epochs": 6
+    },
+    {
+      "label": "4h",
+      "n_minutes": 240,
+      "funding_epochs": 15
+    },
+    {
+      "label": "8h",
+      "n_minutes": 480,
+      "funding_epochs": 21
+    },
+    {
+      "label": "7d",
+      "n_minutes": 10080,
+      "funding_epochs": 21
+    }
+  ],
+  "assets": [
+    "HYPE",
+    "BTC",
+    "ETH",
+    "SOL"
+  ],
+  "top_k": 20,
+  "seed": 42,
+  "mode": "offline_cache",
+  "real_data_mode": true,
+  "threshold_overrides": {
+    "FUNDING_Z_WINDOW_REAL": 5,
+    "FUNDING_ABS_EXTREME": 0.0003,
+    "OI_BUILD_RATE_REAL": 0.005,
+    "buy_ratio_0.5pct_candle": 0.8
+  }
+}

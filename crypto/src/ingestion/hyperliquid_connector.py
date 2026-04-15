@@ -147,24 +147,38 @@ class HyperliquidConnector:
             return []
         return self._parse_candles(asset, raw)
 
-    def fetch_funding(self, asset: str, n_epochs: int = 10) -> list[FundingRecord]:
+    def fetch_funding(
+        self, asset: str, n_epochs: int = 21, lookback_days: int = 7
+    ) -> list[FundingRecord]:
         """Fetch recent 8h funding rate history.
+
+        Sprint R: default lookback extended to 7 days (21 epochs at 8h/epoch).
+        This ensures at least one full funding cycle is captured, enabling
+        reliable z-score computation in extract_funding_states().
+
+        Why 7 days: funding rate regimes typically persist 1-7 days; a 7-day
+        window captures at least one complete contango/backwardation cycle
+        and gives FUNDING_Z_WINDOW=10 enough history to produce non-zero z-scores.
 
         Returns up to n_epochs most recent records, sorted ascending.
         Returns [] on cache miss or API failure.
         """
-        lookback_ms = n_epochs * 8 * 3_600_000
+        lookback_ms = max(
+            n_epochs * 8 * 3_600_000,
+            lookback_days * 24 * 3_600_000,
+        )
         start_ms = int(time.time() * 1000) - lookback_ms
         payload = {
             "type": "fundingHistory",
             "req": {"coin": asset, "startTime": start_ms},
         }
-        cache_key = f"funding_{asset}_{start_ms // 3_600_000}"
+        cache_key = f"funding7d_{asset}_{start_ms // (24 * 3_600_000)}"
         raw = self._post(payload, cache_key)
         if raw is None:
             return []
         records = self._parse_funding(asset, raw)
-        return records[-n_epochs:]
+        # Return at most n_epochs; caller can override for shorter lookback.
+        return records[-n_epochs:] if len(records) > n_epochs else records
 
     def fetch_book(self, asset: str) -> Optional[BookRecord]:
         """Fetch best bid/ask L2 book snapshot.
@@ -235,12 +249,33 @@ class HyperliquidConnector:
     def _parse_book(self, asset: str, raw: dict) -> Optional[BookRecord]:
         """Parse raw l2Book API response into BookRecord.
 
+        Handles two known response shapes from Hyperliquid:
+          Shape A: {"levels": [[{px, sz}, ...], [...]]}   (standard perp)
+          Shape B: {"coin": ..., "levels": [[{"px","sz","n"},...], [...]]}
+
         Returns None when both sides are empty (no usable depth data).
         """
         try:
+            # unwrap if response is wrapped in a list
+            if isinstance(raw, list) and len(raw) > 0:
+                raw = raw[0]
             levels = raw.get("levels", [[], []])
-            bids = [(float(b["px"]), float(b["sz"])) for b in levels[0][:5]]
-            asks = [(float(a["px"]), float(a["sz"])) for a in levels[1][:5]]
+            if not isinstance(levels, list) or len(levels) < 2:
+                return None
+            bids_raw = levels[0][:5] if isinstance(levels[0], list) else []
+            asks_raw = levels[1][:5] if isinstance(levels[1], list) else []
+            bids = []
+            for b in bids_raw:
+                if isinstance(b, dict):
+                    bids.append((float(b["px"]), float(b["sz"])))
+                elif isinstance(b, (list, tuple)) and len(b) >= 2:
+                    bids.append((float(b[0]), float(b[1])))
+            asks = []
+            for a in asks_raw:
+                if isinstance(a, dict):
+                    asks.append((float(a["px"]), float(a["sz"])))
+                elif isinstance(a, (list, tuple)) and len(a) >= 2:
+                    asks.append((float(a[0]), float(a[1])))
             if not bids and not asks:
                 return None
             return BookRecord(
@@ -249,7 +284,7 @@ class HyperliquidConnector:
                 bids=bids,
                 asks=asks,
             )
-        except (KeyError, ValueError, IndexError):
+        except (KeyError, ValueError, IndexError, TypeError):
             return None
 
     def _parse_asset_contexts(self, raw: list) -> list[AssetCtxRecord]:

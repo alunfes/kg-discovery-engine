@@ -1,0 +1,481 @@
+{
+  "run_id": "sprint_r_coverage_8h",
+  "n_cards_tracked": 18,
+  "observation_midpoint_min": 240,
+  "outcome_records": [
+    {
+      "card_id": "2dd6f2e5-2863-4c47-980c-e0dc6f8c081d",
+      "title": "Chain-D1 beta reversion: (HYPE,BTC) break, no flow evidence",
+      "branch": "beta_reversion",
+      "decision_tier": "actionable_watch",
+      "watch_label": "beta_reversion_watch",
+      "composite_score": 0.7725,
+      "assets_mentioned": [
+        "HYPE",
+        "BTC"
+      ],
+      "expected_events": [
+        "funding_extreme",
+        "buy_burst"
+      ],
+      "outcome_result": "miss",
+      "time_to_outcome_min": null,
+      "half_life_min": 40,
+      "half_life_remaining_min": -40,
+      "outcome_type_match": false,
+      "matched_event": null,
+      "outcome_detail": "No ['funding_extreme', 'buy_burst'] events for assets ['BTC', 'HYPE'] in outcome window [min 240, min 280]."
+    },
+    {
+      "card_id": "75383f8c-7fd0-48c2-b924-7e0d5ca7102f",
+      "title": "Chain-D1 beta reversion: (HYPE,ETH) break, no flow evidence",
+      "branch": "beta_reversion",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "composite_score": 0.5846,
+      "assets_mentioned": [
+        "HYPE",
+        "ETH"
+      ],
+      "expected_events": [
+        "funding_extreme",
+        "buy_burst"
+      ],
+      "outcome_result": "miss",
+      "time_to_outcome_min": null,
+      "half_life_min": 90,
+      "half_life_remaining_min": -90,
+      "outcome_type_match": false,
+      "matched_event": null,
+      "outcome_detail": "No ['funding_extreme', 'buy_burst'] events for assets ['ETH', 'HYPE'] in outcome window [min 240, min 330]."
+    },
+    {
+      "card_id": "9ea0e164-6881-40c0-a7f9-00e588e37809",
+      "title": "Chain-D1 beta reversion: (HYPE,SOL) break, no flow evidence",
+      "branch": "beta_reversion",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "composite_score": 0.5846,
+      "assets_mentioned": [
+        "HYPE",
+        "SOL"
+      ],
+      "expected_events": [
+        "funding_extreme",
+        "buy_burst"
+      ],
+      "outcome_result": "miss",
+      "time_to_outcome_min": null,
+      "half_life_min": 90,
+      "half_life_remaining_min": -90,
+      "outcome_type_match": false,
+      "matched_event": null,
+      "outcome_detail": "No ['funding_extreme', 'buy_burst'] events for assets ['HYPE', 'SOL'] in outcome window [min 240, min 330]."
+    },
+    {
+      "card_id": "5c0d6176-e17d-44f3-94da-d7ef623e2a1a",
+      "title": "Chain-D1 beta reversion: (BTC,ETH) break, no flow evidence",
+      "branch": "beta_reversion",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "composite_score": 0.5846,
+      "assets_mentioned": [
+        "ETH",
+        "BTC"
+      ],
+      "expected_events": [
+        "funding_extreme",
+        "buy_burst"
+      ],
+      "outcome_result": "miss",
+      "time_to_outcome_min": null,
+      "half_life_min": 90,
+      "half_life_remaining_min": -90,
+      "outcome_type_match": false,
+      "matched_event": null,
+      "outcome_detail": "No ['funding_extreme', 'buy_burst'] events for assets ['BTC', 'ETH'] in outcome window [min 240, min 330]."
+    },
+    {
+      "card_id": "a8910568-3b6f-47f3-ac6a-9bc7568ae6c5",
+      "title": "Chain-D1 beta reversion: (BTC,SOL) break, no flow evidence",
+      "branch": "beta_reversion",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "composite_score": 0.5846,
+      "assets_mentioned": [
+        "BTC",
+        "SOL"
+      ],
+      "expected_events": [
+        "funding_extreme",
+        "buy_burst"
+      ],
+      "outcome_result": "miss",
+      "time_to_outcome_min": null,
+      "half_life_min": 90,
+      "half_life_remaining_min": -90,
+      "outcome_type_match": false,
+      "matched_event": null,
+      "outcome_detail": "No ['funding_extreme', 'buy_burst'] events for assets ['BTC', 'SOL'] in outcome window [min 240, min 330]."
+    },
+    {
+      "card_id": "27b3a5e9-cec7-42b4-9abf-1f64f6e2c27a",
+      "title": "Chain-D1 beta reversion: (ETH,SOL) break, no flow evidence",
+      "branch": "beta_reversion",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "composite_score": 0.5846,
+      "assets_mentioned": [
+        "ETH",
+        "SOL"
+      ],
+      "expected_events": [
+        "funding_extreme",
+        "buy_burst"
+      ],
+      "outcome_result": "miss",
+      "time_to_outcome_min": null,
+      "half_life_min": 90,
+      "half_life_remaining_min": -90,
+      "outcome_type_match": false,
+      "matched_event": null,
+      "outcome_detail": "No ['funding_extreme', 'buy_burst'] events for assets ['ETH', 'SOL'] in outcome window [min 240, min 330]."
+    },
+    {
+      "card_id": "f7c468f4-bb52-4c81-aa7b-efbd457cd6a6",
+      "title": "Correlation break (HYPE,BTC) \u2014 mean_reversion_candidate",
+      "branch": "other",
+      "decision_tier": "research_priority",
+      "watch_label": "monitor_no_action",
+      "composite_score": 0.7185,
+      "assets_mentioned": [
+        "HYPE",
+        "BTC"
+      ],
+      "expected_events": [],
+      "outcome_result": "expired",
+      "time_to_outcome_min": null,
+      "half_life_min": 50,
+      "half_life_remaining_min": -50,
+      "outcome_type_match": false,
+      "matched_event": null,
+      "outcome_detail": "Control card (no expected events); baseline reference."
+    },
+    {
+      "card_id": "8b064c7e-967c-41dd-9ef2-5211d80d4bd0",
+      "title": "Correlation break (HYPE,ETH) \u2014 mean_reversion_candidate",
+      "branch": "other",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "composite_score": 0.5832,
+      "assets_mentioned": [
+        "HYPE",
+        "ETH"
+      ],
+      "expected_events": [],
+      "outcome_result": "expired",
+      "time_to_outcome_min": null,
+      "half_life_min": 90,
+      "half_life_remaining_min": -90,
+      "outcome_type_match": false,
+      "matched_event": null,
+      "outcome_detail": "Control card (no expected events); baseline reference."
+    },
+    {
+      "card_id": "9e6e9603-1391-4520-9952-143c9baadb0b",
+      "title": "Correlation break (HYPE,SOL) \u2014 mean_reversion_candidate",
+      "branch": "other",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "composite_score": 0.5832,
+      "assets_mentioned": [
+        "HYPE",
+        "SOL"
+      ],
+      "expected_events": [],
+      "outcome_result": "expired",
+      "time_to_outcome_min": null,
+      "half_life_min": 90,
+      "half_life_remaining_min": -90,
+      "outcome_type_match": false,
+      "matched_event": null,
+      "outcome_detail": "Control card (no expected events); baseline reference."
+    },
+    {
+      "card_id": "a3566fe6-6ea2-4345-a8ba-8aad98b2166d",
+      "title": "Correlation break (BTC,ETH) \u2014 mean_reversion_candidate",
+      "branch": "other",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "composite_score": 0.5832,
+      "assets_mentioned": [
+        "ETH",
+        "BTC"
+      ],
+      "expected_events": [],
+      "outcome_result": "expired",
+      "time_to_outcome_min": null,
+      "half_life_min": 90,
+      "half_life_remaining_min": -90,
+      "outcome_type_match": false,
+      "matched_event": null,
+      "outcome_detail": "Control card (no expected events); baseline reference."
+    },
+    {
+      "card_id": "44957605-5ba5-4eb4-aaa7-d10bf8e4353b",
+      "title": "Correlation break (BTC,SOL) \u2014 mean_reversion_candidate",
+      "branch": "other",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "composite_score": 0.5832,
+      "assets_mentioned": [
+        "BTC",
+        "SOL"
+      ],
+      "expected_events": [],
+      "outcome_result": "expired",
+      "time_to_outcome_min": null,
+      "half_life_min": 90,
+      "half_life_remaining_min": -90,
+      "outcome_type_match": false,
+      "matched_event": null,
+      "outcome_detail": "Control card (no expected events); baseline reference."
+    },
+    {
+      "card_id": "5040b460-9805-4653-9c82-204966d77b03",
+      "title": "Correlation break (ETH,SOL) \u2014 mean_reversion_candidate",
+      "branch": "other",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "composite_score": 0.5832,
+      "assets_mentioned": [
+        "ETH",
+        "SOL"
+      ],
+      "expected_events": [],
+      "outcome_result": "expired",
+      "time_to_outcome_min": null,
+      "half_life_min": 90,
+      "half_life_remaining_min": -90,
+      "outcome_type_match": false,
+      "matched_event": null,
+      "outcome_detail": "Control card (no expected events); baseline reference."
+    },
+    {
+      "card_id": "6895229d-cf5b-4135-affd-b3c23e9efda6",
+      "title": "Null baseline: (HYPE,BTC) \u2014 low followthrough, normalization expected",
+      "branch": "null_baseline",
+      "decision_tier": "monitor_borderline",
+      "watch_label": "monitor_no_action",
+      "composite_score": 0.6487,
+      "assets_mentioned": [
+        "HYPE",
+        "BTC"
+      ],
+      "expected_events": [],
+      "outcome_result": "expired",
+      "time_to_outcome_min": null,
+      "half_life_min": 60,
+      "half_life_remaining_min": -60,
+      "outcome_type_match": false,
+      "matched_event": null,
+      "outcome_detail": "Control card (no expected events); baseline reference."
+    },
+    {
+      "card_id": "88fcd239-538d-4d69-96b1-da757ec2a7a3",
+      "title": "Null baseline: (HYPE,ETH) \u2014 low followthrough, normalization expected",
+      "branch": "null_baseline",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "composite_score": 0.4832,
+      "assets_mentioned": [
+        "HYPE",
+        "ETH"
+      ],
+      "expected_events": [],
+      "outcome_result": "expired",
+      "time_to_outcome_min": null,
+      "half_life_min": 90,
+      "half_life_remaining_min": -90,
+      "outcome_type_match": false,
+      "matched_event": null,
+      "outcome_detail": "Control card (no expected events); baseline reference."
+    },
+    {
+      "card_id": "99a8f523-4237-44e4-9035-1120b9b641c8",
+      "title": "Null baseline: (HYPE,SOL) \u2014 low followthrough, normalization expected",
+      "branch": "null_baseline",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "composite_score": 0.4832,
+      "assets_mentioned": [
+        "HYPE",
+        "SOL"
+      ],
+      "expected_events": [],
+      "outcome_result": "expired",
+      "time_to_outcome_min": null,
+      "half_life_min": 90,
+      "half_life_remaining_min": -90,
+      "outcome_type_match": false,
+      "matched_event": null,
+      "outcome_detail": "Control card (no expected events); baseline reference."
+    },
+    {
+      "card_id": "edc45e95-1993-4cb7-8f81-d9335c6d6012",
+      "title": "Null baseline: (BTC,ETH) \u2014 low followthrough, normalization expected",
+      "branch": "null_baseline",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "composite_score": 0.4832,
+      "assets_mentioned": [
+        "ETH",
+        "BTC"
+      ],
+      "expected_events": [],
+      "outcome_result": "expired",
+      "time_to_outcome_min": null,
+      "half_life_min": 90,
+      "half_life_remaining_min": -90,
+      "outcome_type_match": false,
+      "matched_event": null,
+      "outcome_detail": "Control card (no expected events); baseline reference."
+    },
+    {
+      "card_id": "b2e5855d-78cc-4bd9-831e-652472a5dedf",
+      "title": "Null baseline: (BTC,SOL) \u2014 low followthrough, normalization expected",
+      "branch": "null_baseline",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "composite_score": 0.4832,
+      "assets_mentioned": [
+        "BTC",
+        "SOL"
+      ],
+      "expected_events": [],
+      "outcome_result": "expired",
+      "time_to_outcome_min": null,
+      "half_life_min": 90,
+      "half_life_remaining_min": -90,
+      "outcome_type_match": false,
+      "matched_event": null,
+      "outcome_detail": "Control card (no expected events); baseline reference."
+    },
+    {
+      "card_id": "ac844871-33f7-4464-a7d4-98844ef5afe1",
+      "title": "Null baseline: (ETH,SOL) \u2014 low followthrough, normalization expected",
+      "branch": "null_baseline",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "composite_score": 0.4832,
+      "assets_mentioned": [
+        "ETH",
+        "SOL"
+      ],
+      "expected_events": [],
+      "outcome_result": "expired",
+      "time_to_outcome_min": null,
+      "half_life_min": 90,
+      "half_life_remaining_min": -90,
+      "outcome_type_match": false,
+      "matched_event": null,
+      "outcome_detail": "Control card (no expected events); baseline reference."
+    }
+  ],
+  "tier_comparison": {
+    "actionable_watch": {
+      "n_total": 1,
+      "hit_count": 0,
+      "hit_rate": 0.0,
+      "partial_count": 0,
+      "miss_count": 1,
+      "expired_count": 0,
+      "avg_time_to_outcome_min": null
+    },
+    "baseline_like": {
+      "n_total": 15,
+      "hit_count": 0,
+      "hit_rate": 0.0,
+      "partial_count": 0,
+      "miss_count": 5,
+      "expired_count": 10,
+      "avg_time_to_outcome_min": null
+    },
+    "research_priority": {
+      "n_total": 1,
+      "hit_count": 0,
+      "hit_rate": 0.0,
+      "partial_count": 0,
+      "miss_count": 0,
+      "expired_count": 1,
+      "avg_time_to_outcome_min": null
+    },
+    "monitor_borderline": {
+      "n_total": 1,
+      "hit_count": 0,
+      "hit_rate": 0.0,
+      "partial_count": 0,
+      "miss_count": 0,
+      "expired_count": 1,
+      "avg_time_to_outcome_min": null
+    }
+  },
+  "summary": {
+    "run_id": "sprint_r_coverage_8h",
+    "n_tracked": 18,
+    "n_hits": 0,
+    "n_partials": 0,
+    "overall_hit_rate": 0.0,
+    "watchlist_precision": 0.0,
+    "avg_time_to_outcome_min": null,
+    "branch_hit_rates": {
+      "beta_reversion": {
+        "n": 6,
+        "hits": 0,
+        "partials": 0,
+        "hit_rate": 0.0
+      },
+      "other": {
+        "n": 6,
+        "hits": 0,
+        "partials": 0,
+        "hit_rate": 0.0
+      },
+      "null_baseline": {
+        "n": 6,
+        "hits": 0,
+        "partials": 0,
+        "hit_rate": 0.0
+      }
+    },
+    "decayed_never_materialized_count": 18,
+    "dnm_by_branch": {
+      "beta_reversion": 6,
+      "other": 6,
+      "null_baseline": 6
+    }
+  },
+  "half_life_analysis": {
+    "half_life_distribution": {
+      "40": 1,
+      "90": 15,
+      "50": 1,
+      "60": 1
+    },
+    "avg_time_to_outcome_min": null,
+    "avg_half_life_remaining_min": -83.3,
+    "half_life_adequacy_rate": 0.0,
+    "recommendation": "Consider increasing half-life; many events exceed current window."
+  },
+  "synthetic_data_note": "Outcomes evaluated against known synthetic scenario events. HYPE events (min 20-35) precede observation midpoint (min 60) and register as miss. SOL events (min 65-80) fall within the outcome window and register as hit/partial. ETH/BTC baseline cards have no matching events -> miss (control).",
+  "threshold_recommendations": {
+    "recommendations": [],
+    "tier_verdicts": {
+      "actionable_watch": "monitor",
+      "monitor_borderline": "maintain",
+      "reject_conflicted": "maintain"
+    },
+    "overall": "no_action",
+    "synthetic_data_caveat": "Recommendations based on synthetic outcome tracking. Validate against live market data before applying changes."
+  }
+}

@@ -1,0 +1,698 @@
+[
+  {
+    "card_id": "feea3d65-4400-4291-849f-16b377c6ade8",
+    "version": 1,
+    "created_at": "2026-04-15T09:55:44.147428+00:00",
+    "title": "Chain-D1 beta reversion: (HYPE,BTC) break, no flow evidence",
+    "claim": "Correlation between HYPE and BTC broke (rho=0.000, roll_mean=0.000, break_score=0.000).  KG path traversal found no aggression bursts or funding extremes for either asset; divergence consistent with transient beta noise → mean reversion expected.",
+    "mechanism": "Absence of flow causation (no aggression edges with is_burst=True, no exhibits_funding edges with is_extreme=True) means the break is not anchored to an economic event.  The common factor (beta) reasserts.",
+    "evidence_nodes": [
+      "asset:HYPE",
+      "asset:BTC",
+      "corr:HYPE_BTC"
+    ],
+    "evidence_edges": [],
+    "operator_trace": [
+      "align",
+      "difference"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.63,
+      "novelty": 1.0,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.7725,
+    "run_id": "sprint_r_coverage_4h",
+    "kg_families": [
+      "cross_asset"
+    ],
+    "tags": [
+      "correlation_break",
+      "beta_reversion",
+      "chain_rule",
+      "D1"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "1b3edd78-529f-48fe-a5e6-1c301ec4a58b",
+    "version": 1,
+    "created_at": "2026-04-15T09:55:44.147459+00:00",
+    "title": "Chain-D1 beta reversion: (HYPE,ETH) break, no flow evidence",
+    "claim": "Correlation between HYPE and ETH broke (rho=0.000, roll_mean=0.000, break_score=0.000).  KG path traversal found no aggression bursts or funding extremes for either asset; divergence consistent with transient beta noise → mean reversion expected.",
+    "mechanism": "Absence of flow causation (no aggression edges with is_burst=True, no exhibits_funding edges with is_extreme=True) means the break is not anchored to an economic event.  The common factor (beta) reasserts.",
+    "evidence_nodes": [
+      "asset:HYPE",
+      "asset:ETH",
+      "corr:HYPE_ETH"
+    ],
+    "evidence_edges": [],
+    "operator_trace": [
+      "align",
+      "difference"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.63,
+      "novelty": 0.0606,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.5846,
+    "run_id": "sprint_r_coverage_4h",
+    "kg_families": [
+      "cross_asset"
+    ],
+    "tags": [
+      "correlation_break",
+      "beta_reversion",
+      "chain_rule",
+      "D1"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "ab53ad2a-9070-491c-8bc0-3ad8c0fa0512",
+    "version": 1,
+    "created_at": "2026-04-15T09:55:44.147487+00:00",
+    "title": "Chain-D1 beta reversion: (HYPE,SOL) break, no flow evidence",
+    "claim": "Correlation between HYPE and SOL broke (rho=0.000, roll_mean=0.000, break_score=0.000).  KG path traversal found no aggression bursts or funding extremes for either asset; divergence consistent with transient beta noise → mean reversion expected.",
+    "mechanism": "Absence of flow causation (no aggression edges with is_burst=True, no exhibits_funding edges with is_extreme=True) means the break is not anchored to an economic event.  The common factor (beta) reasserts.",
+    "evidence_nodes": [
+      "asset:HYPE",
+      "asset:SOL",
+      "corr:HYPE_SOL"
+    ],
+    "evidence_edges": [],
+    "operator_trace": [
+      "align",
+      "difference"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.63,
+      "novelty": 0.0606,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.5846,
+    "run_id": "sprint_r_coverage_4h",
+    "kg_families": [
+      "cross_asset"
+    ],
+    "tags": [
+      "correlation_break",
+      "beta_reversion",
+      "chain_rule",
+      "D1"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "f15fb7dd-a50b-4f79-a720-b46c0aa58e9d",
+    "version": 1,
+    "created_at": "2026-04-15T09:55:44.147514+00:00",
+    "title": "Chain-D1 beta reversion: (BTC,ETH) break, no flow evidence",
+    "claim": "Correlation between BTC and ETH broke (rho=0.000, roll_mean=0.000, break_score=0.000).  KG path traversal found no aggression bursts or funding extremes for either asset; divergence consistent with transient beta noise → mean reversion expected.",
+    "mechanism": "Absence of flow causation (no aggression edges with is_burst=True, no exhibits_funding edges with is_extreme=True) means the break is not anchored to an economic event.  The common factor (beta) reasserts.",
+    "evidence_nodes": [
+      "asset:BTC",
+      "asset:ETH",
+      "corr:BTC_ETH"
+    ],
+    "evidence_edges": [],
+    "operator_trace": [
+      "align",
+      "difference"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.63,
+      "novelty": 0.0606,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.5846,
+    "run_id": "sprint_r_coverage_4h",
+    "kg_families": [
+      "cross_asset"
+    ],
+    "tags": [
+      "correlation_break",
+      "beta_reversion",
+      "chain_rule",
+      "D1"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "8f4da9dd-21c7-4e6d-a05c-5dc6e5d96935",
+    "version": 1,
+    "created_at": "2026-04-15T09:55:44.147544+00:00",
+    "title": "Chain-D1 beta reversion: (BTC,SOL) break, no flow evidence",
+    "claim": "Correlation between BTC and SOL broke (rho=0.000, roll_mean=0.000, break_score=0.000).  KG path traversal found no aggression bursts or funding extremes for either asset; divergence consistent with transient beta noise → mean reversion expected.",
+    "mechanism": "Absence of flow causation (no aggression edges with is_burst=True, no exhibits_funding edges with is_extreme=True) means the break is not anchored to an economic event.  The common factor (beta) reasserts.",
+    "evidence_nodes": [
+      "asset:BTC",
+      "asset:SOL",
+      "corr:BTC_SOL"
+    ],
+    "evidence_edges": [],
+    "operator_trace": [
+      "align",
+      "difference"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.63,
+      "novelty": 0.0606,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.5846,
+    "run_id": "sprint_r_coverage_4h",
+    "kg_families": [
+      "cross_asset"
+    ],
+    "tags": [
+      "correlation_break",
+      "beta_reversion",
+      "chain_rule",
+      "D1"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "a0b771af-97d1-4327-8a9c-84baadbc8e70",
+    "version": 1,
+    "created_at": "2026-04-15T09:55:44.147579+00:00",
+    "title": "Chain-D1 beta reversion: (ETH,SOL) break, no flow evidence",
+    "claim": "Correlation between ETH and SOL broke (rho=0.000, roll_mean=0.000, break_score=0.000).  KG path traversal found no aggression bursts or funding extremes for either asset; divergence consistent with transient beta noise → mean reversion expected.",
+    "mechanism": "Absence of flow causation (no aggression edges with is_burst=True, no exhibits_funding edges with is_extreme=True) means the break is not anchored to an economic event.  The common factor (beta) reasserts.",
+    "evidence_nodes": [
+      "asset:ETH",
+      "asset:SOL",
+      "corr:ETH_SOL"
+    ],
+    "evidence_edges": [],
+    "operator_trace": [
+      "align",
+      "difference"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.63,
+      "novelty": 0.0606,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.5846,
+    "run_id": "sprint_r_coverage_4h",
+    "kg_families": [
+      "cross_asset"
+    ],
+    "tags": [
+      "correlation_break",
+      "beta_reversion",
+      "chain_rule",
+      "D1"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "6c8d941a-3e13-4dd3-9960-907968ea2eaf",
+    "version": 1,
+    "created_at": "2026-04-15T09:55:44.147620+00:00",
+    "title": "Correlation break (HYPE,BTC) — mean_reversion_candidate",
+    "claim": "Rolling correlation between HYPE and BTC broke (rho=0.000, roll_min=0.000, break_score=0.000) with low market event intensity; mean reversion expected within 2 windows.",
+    "mechanism": "Absent liquidity shocks or directional positioning, correlation breaks are typically transient; the common factor reasserts.",
+    "evidence_nodes": [
+      "pair:HYPE_BTC",
+      "corr:HYPE_BTC"
+    ],
+    "evidence_edges": [
+      "correlation_break:HYPE_BTC"
+    ],
+    "operator_trace": [
+      "align",
+      "difference",
+      "compose"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.7674,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.7185,
+    "run_id": "sprint_r_coverage_4h",
+    "kg_families": [
+      "cross_asset"
+    ],
+    "tags": [
+      "correlation_break",
+      "mean_reversion_candidate"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "f5e1daa4-a98b-4200-8c97-de99eb93da35",
+    "version": 1,
+    "created_at": "2026-04-15T09:55:44.147661+00:00",
+    "title": "Correlation break (HYPE,ETH) — mean_reversion_candidate",
+    "claim": "Rolling correlation between HYPE and ETH broke (rho=0.000, roll_min=0.000, break_score=0.000) with low market event intensity; mean reversion expected within 2 windows.",
+    "mechanism": "Absent liquidity shocks or directional positioning, correlation breaks are typically transient; the common factor reasserts.",
+    "evidence_nodes": [
+      "pair:HYPE_ETH",
+      "corr:HYPE_ETH"
+    ],
+    "evidence_edges": [
+      "correlation_break:HYPE_ETH"
+    ],
+    "operator_trace": [
+      "align",
+      "difference",
+      "compose"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.0909,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.5832,
+    "run_id": "sprint_r_coverage_4h",
+    "kg_families": [
+      "cross_asset"
+    ],
+    "tags": [
+      "correlation_break",
+      "mean_reversion_candidate"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "421ec61a-5a9b-40d5-a5e4-46535bafdab4",
+    "version": 1,
+    "created_at": "2026-04-15T09:55:44.147703+00:00",
+    "title": "Correlation break (HYPE,SOL) — mean_reversion_candidate",
+    "claim": "Rolling correlation between HYPE and SOL broke (rho=0.000, roll_min=0.000, break_score=0.000) with low market event intensity; mean reversion expected within 2 windows.",
+    "mechanism": "Absent liquidity shocks or directional positioning, correlation breaks are typically transient; the common factor reasserts.",
+    "evidence_nodes": [
+      "pair:HYPE_SOL",
+      "corr:HYPE_SOL"
+    ],
+    "evidence_edges": [
+      "correlation_break:HYPE_SOL"
+    ],
+    "operator_trace": [
+      "align",
+      "difference",
+      "compose"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.0909,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.5832,
+    "run_id": "sprint_r_coverage_4h",
+    "kg_families": [
+      "cross_asset"
+    ],
+    "tags": [
+      "correlation_break",
+      "mean_reversion_candidate"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "e55547d7-e120-480e-9c98-afdad64fbfce",
+    "version": 1,
+    "created_at": "2026-04-15T09:55:44.147748+00:00",
+    "title": "Correlation break (BTC,ETH) — mean_reversion_candidate",
+    "claim": "Rolling correlation between BTC and ETH broke (rho=0.000, roll_min=0.000, break_score=0.000) with low market event intensity; mean reversion expected within 2 windows.",
+    "mechanism": "Absent liquidity shocks or directional positioning, correlation breaks are typically transient; the common factor reasserts.",
+    "evidence_nodes": [
+      "pair:BTC_ETH",
+      "corr:BTC_ETH"
+    ],
+    "evidence_edges": [
+      "correlation_break:BTC_ETH"
+    ],
+    "operator_trace": [
+      "align",
+      "difference",
+      "compose"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.0909,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.5832,
+    "run_id": "sprint_r_coverage_4h",
+    "kg_families": [
+      "cross_asset"
+    ],
+    "tags": [
+      "correlation_break",
+      "mean_reversion_candidate"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "9bfb6129-a112-452e-9b8c-26a011412ea0",
+    "version": 1,
+    "created_at": "2026-04-15T09:55:44.147793+00:00",
+    "title": "Correlation break (BTC,SOL) — mean_reversion_candidate",
+    "claim": "Rolling correlation between BTC and SOL broke (rho=0.000, roll_min=0.000, break_score=0.000) with low market event intensity; mean reversion expected within 2 windows.",
+    "mechanism": "Absent liquidity shocks or directional positioning, correlation breaks are typically transient; the common factor reasserts.",
+    "evidence_nodes": [
+      "pair:BTC_SOL",
+      "corr:BTC_SOL"
+    ],
+    "evidence_edges": [
+      "correlation_break:BTC_SOL"
+    ],
+    "operator_trace": [
+      "align",
+      "difference",
+      "compose"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.0909,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.5832,
+    "run_id": "sprint_r_coverage_4h",
+    "kg_families": [
+      "cross_asset"
+    ],
+    "tags": [
+      "correlation_break",
+      "mean_reversion_candidate"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "12cc2705-f20f-4318-8163-937c9eb53799",
+    "version": 1,
+    "created_at": "2026-04-15T09:55:44.147840+00:00",
+    "title": "Correlation break (ETH,SOL) — mean_reversion_candidate",
+    "claim": "Rolling correlation between ETH and SOL broke (rho=0.000, roll_min=0.000, break_score=0.000) with low market event intensity; mean reversion expected within 2 windows.",
+    "mechanism": "Absent liquidity shocks or directional positioning, correlation breaks are typically transient; the common factor reasserts.",
+    "evidence_nodes": [
+      "pair:ETH_SOL",
+      "corr:ETH_SOL"
+    ],
+    "evidence_edges": [
+      "correlation_break:ETH_SOL"
+    ],
+    "operator_trace": [
+      "align",
+      "difference",
+      "compose"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.6,
+      "novelty": 0.0909,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.5832,
+    "run_id": "sprint_r_coverage_4h",
+    "kg_families": [
+      "cross_asset"
+    ],
+    "tags": [
+      "correlation_break",
+      "mean_reversion_candidate"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "e163a42d-4d9e-4aab-9ea2-4f21c9403010",
+    "version": 1,
+    "created_at": "2026-04-15T09:55:44.147927+00:00",
+    "title": "Null baseline: (HYPE,BTC) — low followthrough, normalization expected",
+    "claim": "Correlation break (HYPE,BTC) rho=0.000, break_score=0.000 is below the low-followthrough threshold (0.15). No flow or positioning context detected. Normalization to baseline expected.",
+    "mechanism": "Weak correlation breaks without supporting flow evidence are consistent with sampling noise; no structural explanation required.",
+    "evidence_nodes": [
+      "corr:HYPE_BTC"
+    ],
+    "evidence_edges": [],
+    "operator_trace": [
+      "difference"
+    ],
+    "secrecy_level": "shareable_structure",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.4,
+      "novelty": 0.9184,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.25
+    },
+    "composite_score": 0.6487,
+    "run_id": "sprint_r_coverage_4h",
+    "kg_families": [
+      "cross_asset"
+    ],
+    "tags": [
+      "null_baseline",
+      "low_followthrough",
+      "E4"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "3c2f0a3c-ea1a-4781-a33c-cb53f81abec9",
+    "version": 1,
+    "created_at": "2026-04-15T09:55:44.147999+00:00",
+    "title": "Null baseline: (HYPE,ETH) — low followthrough, normalization expected",
+    "claim": "Correlation break (HYPE,ETH) rho=0.000, break_score=0.000 is below the low-followthrough threshold (0.15). No flow or positioning context detected. Normalization to baseline expected.",
+    "mechanism": "Weak correlation breaks without supporting flow evidence are consistent with sampling noise; no structural explanation required.",
+    "evidence_nodes": [
+      "corr:HYPE_ETH"
+    ],
+    "evidence_edges": [],
+    "operator_trace": [
+      "difference"
+    ],
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.4,
+      "novelty": 0.0909,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.25
+    },
+    "composite_score": 0.4832,
+    "run_id": "sprint_r_coverage_4h",
+    "kg_families": [
+      "cross_asset"
+    ],
+    "tags": [
+      "null_baseline",
+      "low_followthrough",
+      "E4"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "7e28a3d4-9b99-4301-b086-469c4f45b070",
+    "version": 1,
+    "created_at": "2026-04-15T09:55:44.148110+00:00",
+    "title": "Null baseline: (HYPE,SOL) — low followthrough, normalization expected",
+    "claim": "Correlation break (HYPE,SOL) rho=0.000, break_score=0.000 is below the low-followthrough threshold (0.15). No flow or positioning context detected. Normalization to baseline expected.",
+    "mechanism": "Weak correlation breaks without supporting flow evidence are consistent with sampling noise; no structural explanation required.",
+    "evidence_nodes": [
+      "corr:HYPE_SOL"
+    ],
+    "evidence_edges": [],
+    "operator_trace": [
+      "difference"
+    ],
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.4,
+      "novelty": 0.0909,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.25
+    },
+    "composite_score": 0.4832,
+    "run_id": "sprint_r_coverage_4h",
+    "kg_families": [
+      "cross_asset"
+    ],
+    "tags": [
+      "null_baseline",
+      "low_followthrough",
+      "E4"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "894d7042-2210-4ab3-b75e-e79661f9b506",
+    "version": 1,
+    "created_at": "2026-04-15T09:55:44.148189+00:00",
+    "title": "Null baseline: (BTC,ETH) — low followthrough, normalization expected",
+    "claim": "Correlation break (BTC,ETH) rho=0.000, break_score=0.000 is below the low-followthrough threshold (0.15). No flow or positioning context detected. Normalization to baseline expected.",
+    "mechanism": "Weak correlation breaks without supporting flow evidence are consistent with sampling noise; no structural explanation required.",
+    "evidence_nodes": [
+      "corr:BTC_ETH"
+    ],
+    "evidence_edges": [],
+    "operator_trace": [
+      "difference"
+    ],
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.4,
+      "novelty": 0.0909,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.25
+    },
+    "composite_score": 0.4832,
+    "run_id": "sprint_r_coverage_4h",
+    "kg_families": [
+      "cross_asset"
+    ],
+    "tags": [
+      "null_baseline",
+      "low_followthrough",
+      "E4"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "e7526d55-b7b1-4c70-a3c9-80a4450af654",
+    "version": 1,
+    "created_at": "2026-04-15T09:55:44.148254+00:00",
+    "title": "Null baseline: (BTC,SOL) — low followthrough, normalization expected",
+    "claim": "Correlation break (BTC,SOL) rho=0.000, break_score=0.000 is below the low-followthrough threshold (0.15). No flow or positioning context detected. Normalization to baseline expected.",
+    "mechanism": "Weak correlation breaks without supporting flow evidence are consistent with sampling noise; no structural explanation required.",
+    "evidence_nodes": [
+      "corr:BTC_SOL"
+    ],
+    "evidence_edges": [],
+    "operator_trace": [
+      "difference"
+    ],
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.4,
+      "novelty": 0.0909,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.25
+    },
+    "composite_score": 0.4832,
+    "run_id": "sprint_r_coverage_4h",
+    "kg_families": [
+      "cross_asset"
+    ],
+    "tags": [
+      "null_baseline",
+      "low_followthrough",
+      "E4"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "f0c94262-c069-4b52-b319-6f280568c31d",
+    "version": 1,
+    "created_at": "2026-04-15T09:55:44.148316+00:00",
+    "title": "Null baseline: (ETH,SOL) — low followthrough, normalization expected",
+    "claim": "Correlation break (ETH,SOL) rho=0.000, break_score=0.000 is below the low-followthrough threshold (0.15). No flow or positioning context detected. Normalization to baseline expected.",
+    "mechanism": "Weak correlation breaks without supporting flow evidence are consistent with sampling noise; no structural explanation required.",
+    "evidence_nodes": [
+      "corr:ETH_SOL"
+    ],
+    "evidence_edges": [],
+    "operator_trace": [
+      "difference"
+    ],
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.4,
+      "novelty": 0.0909,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.25
+    },
+    "composite_score": 0.4832,
+    "run_id": "sprint_r_coverage_4h",
+    "kg_families": [
+      "cross_asset"
+    ],
+    "tags": [
+      "null_baseline",
+      "low_followthrough",
+      "E4"
+    ],
+    "actionability_note": null
+  }
+]

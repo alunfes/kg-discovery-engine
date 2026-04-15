@@ -20,8 +20,8 @@ Coverage:
   RealDataAdapter:
     - _candles_to_price_ticks: mid = (open + close) / 2
     - _candles_to_price_ticks: spread applied correctly
-    - _candles_to_trade_ticks: buy_ratio 0.65 for rising candle
-    - _candles_to_trade_ticks: buy_ratio 0.35 for falling candle
+    - _candles_to_trade_ticks: majority buys for rising candle (>0.5)
+    - _candles_to_trade_ticks: majority sells for falling candle (>0.5)
     - _candles_to_trade_ticks: n_trades capped at MAX
     - _fundings_to_samples: rate preserved
     - _book_to_snapshots: one snapshot per price tick
@@ -302,7 +302,7 @@ class TestAdapterPriceTicks:
 class TestAdapterTradeTicks:
     def test_buy_ratio_rising_candle(self):
         # Use 200 candles (each capped to 10 trades) to get 2000 samples —
-        # large enough for the 0.65 buy_ratio to dominate despite any seed.
+        # large enough for the 0.80 buy_ratio to dominate despite any seed.
         adapter = RealDataAdapter(seed=0)
         candles = [
             _make_candle(open_ms=1700000000000 + i * 60_000,
@@ -505,11 +505,18 @@ class TestPipelineIntegration:
 # ---------------------------------------------------------------------------
 
 class TestInferBuyRatio:
+    # Sprint R: _infer_buy_ratio now scales by move magnitude so strong candles
+    # exceed BUY_STRONG=0.70 / fall below SELL_STRONG=0.30.
+    # 20.0 → 20.5 = +2.5% move → 0.80 (was 0.65 before Sprint R)
+    # 20.5 → 20.0 = -2.4% move → 0.20 (was 0.35 before Sprint R)
+
     def test_rising_price(self):
-        assert _infer_buy_ratio(20.0, 20.5) == pytest.approx(0.65)
+        # 2.5% up candle → STRONG_BUY bucket (0.80)
+        assert _infer_buy_ratio(20.0, 20.5) == pytest.approx(0.80)
 
     def test_falling_price(self):
-        assert _infer_buy_ratio(20.5, 20.0) == pytest.approx(0.35)
+        # 2.4% down candle → STRONG_SELL bucket (0.20)
+        assert _infer_buy_ratio(20.5, 20.0) == pytest.approx(0.20)
 
     def test_flat_price(self):
         assert _infer_buy_ratio(20.0, 20.0) == pytest.approx(0.50)
@@ -517,3 +524,7 @@ class TestInferBuyRatio:
     def test_tiny_rise_still_flat(self):
         # Within 0.01% threshold → flat
         assert _infer_buy_ratio(20.0, 20.0001) == pytest.approx(0.50)
+
+    def test_moderate_rise_below_strong(self):
+        # 0.1% up candle → MODERATE_BUY bucket (0.62)
+        assert _infer_buy_ratio(100.0, 100.1) == pytest.approx(0.62)

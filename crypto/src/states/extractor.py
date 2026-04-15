@@ -47,6 +47,36 @@ BUY_MODERATE = 0.55
 SELL_MODERATE = 0.45
 SELL_STRONG = 0.30
 
+# ---------------------------------------------------------------------------
+# Sprint R: Real-data threshold presets
+# ---------------------------------------------------------------------------
+# Rationale for each adjustment:
+#
+# FUNDING_Z_WINDOW_REAL = 5:
+#   Hyperliquid returns 21 epochs for 7-day lookback. The synthetic default
+#   of 10 requires 11 epochs before z-scores are non-zero. With 5, z-scores
+#   become useful after the 6th epoch, giving more non-zero observations.
+#
+# FUNDING_ABS_EXTREME = 0.0003:
+#   Hyperliquid perpetual funding rates range from ~0.0001 to 0.003 (extreme).
+#   A 0.0003 8h rate (~33% annualised) marks genuine extreme funding pressure
+#   regardless of z-score magnitude. Used as fallback when epoch history < 5.
+#
+# OI_BUILD_RATE_REAL = 0.005:
+#   Synthetic OI is generated with large step changes (>5% per window).
+#   Real OI changes ≈0.1–1% per 20-min window. Lowering the threshold from
+#   0.05 to 0.005 allows is_accumulation=True on real steady OI growth.
+#
+# CORR_BREAK_REAL = 0.5:
+#   Synthetic baseline uses CORR_BREAK_THRESHOLD=0.3. Real crypto pairs
+#   often have rho > 0.3 in trending markets. Raising to 0.5 keeps
+#   cross_asset branches firing on real-data correlation breaks.
+#   (Applied in multi-window runner config; cross_asset.py constant unchanged.)
+
+FUNDING_Z_WINDOW_REAL = 5
+FUNDING_ABS_EXTREME = 0.0003
+OI_BUILD_RATE_REAL = 0.005
+
 
 def _rolling_zscore(value: float, history: list[float]) -> float:
     """Compute z-score of value against a history window.
@@ -112,16 +142,32 @@ def extract_funding_states(
     samples: list[FundingSample],
     window: int = FUNDING_Z_WINDOW,
     processing_lag_ms: int = 0,
+    real_data_mode: bool = False,
 ) -> list[FundingState]:
     """Compute funding rate z-scores over a rolling epoch window.
+
+    Sprint R: real_data_mode=True applies two adjustments:
+      1. Shrinks the z-score rolling window to FUNDING_Z_WINDOW_REAL (5)
+         so z-scores become non-zero earlier in short funding histories.
+      2. Augments z-score with absolute-rate fallback: if abs(rate) >
+         FUNDING_ABS_EXTREME and history is short (< 5 epochs), synthesise
+         a z-score of ±2.5 so the regime detector fires. This is an honest
+         fallback — we know the rate is extreme; z-score is just unavailable.
 
     B1: event_time = epoch timestamp, observable_time = epoch timestamp
     (funding is published at epoch boundary), valid_to = next epoch.
     """
+    eff_window = FUNDING_Z_WINDOW_REAL if real_data_mode else window
     states: list[FundingState] = []
     history: list[float] = []
     for idx, s in enumerate(samples):
         z = _rolling_zscore(s.rate, history)
+        # Absolute-rate fallback for short histories in real data mode.
+        if real_data_mode and len(history) < 5 and z == 0.0:
+            if s.rate > FUNDING_ABS_EXTREME:
+                z = 2.5
+            elif s.rate < -FUNDING_ABS_EXTREME:
+                z = -2.5
         annualised = s.rate * 3 * 365  # 8h → annual
         next_ts = samples[idx + 1].timestamp_ms if idx + 1 < len(samples) else 0
         states.append(FundingState(
@@ -136,7 +182,7 @@ def extract_funding_states(
             valid_to=next_ts if next_ts > 0 else s.timestamp_ms + EPOCH_MS,
         ))
         history.append(s.rate)
-        if len(history) > window:
+        if len(history) > eff_window:
             history.pop(0)
     return states
 
@@ -235,8 +281,14 @@ def extract_oi_states(
     price_ticks: list[PriceTick],
     window: int = OI_WINDOW_MINS,
     processing_lag_ms: int = 0,
+    real_data_mode: bool = False,
 ) -> list[OIState]:
     """Detect OI accumulation patterns from per-minute OI samples.
+
+    Sprint R: real_data_mode=True lowers OI_BUILD_RATE to OI_BUILD_RATE_REAL
+    (0.005) so real-market OI growth (~0.1-1% per 20-min window) triggers
+    is_accumulation=True. The synthetic default of 0.05 requires 5% per window,
+    which never occurs in real data.
 
     Uses a rolling window to compute OI change %; counts consecutive windows
     of positive growth for build_duration.  is_one_sided=True when accumulation
@@ -244,6 +296,7 @@ def extract_oi_states(
     """
     if len(samples) < window + 1:
         return []
+    build_rate = OI_BUILD_RATE_REAL if real_data_mode else OI_BUILD_RATE
     states: list[OIState] = []
     build_streak = 0
     for idx in range(window, len(samples)):
@@ -254,7 +307,7 @@ def extract_oi_states(
             build_streak += 1
         else:
             build_streak = 0
-        is_accum = build_streak >= OI_ACCUM_THRESHOLD and change_pct >= OI_BUILD_RATE
+        is_accum = build_streak >= OI_ACCUM_THRESHOLD and change_pct >= build_rate
         price_up = False
         if price_ticks and idx < len(price_ticks) and idx >= window:
             price_up = price_ticks[idx].mid > price_ticks[idx - window].mid
@@ -283,6 +336,7 @@ def extract_states(
     asset: str,
     run_id: str,
     processing_lag_ms: int = 0,
+    real_data_mode: bool = False,
 ) -> MarketStateCollection:
     """Full state extraction for one asset from a SyntheticDataset.
 
@@ -292,6 +346,10 @@ def extract_states(
     Args:
         processing_lag_ms: Simulated observation lag.  0 for synthetic data;
             set to a positive value to model live data feed latency.
+        real_data_mode:    True activates Sprint R real-data threshold presets:
+            - Funding z-score window shortened (FUNDING_Z_WINDOW_REAL).
+            - Absolute funding rate fallback for extreme detection.
+            - OI build rate lowered (OI_BUILD_RATE_REAL).
     """
     price_ticks = [t for t in dataset.price_ticks if t.asset == asset]
     trade_ticks = [t for t in dataset.trade_ticks if t.asset == asset]
@@ -299,12 +357,18 @@ def extract_states(
     oi_samples = [s for s in dataset.oi_samples if s.asset == asset]
 
     spreads = extract_spread_states(price_ticks, processing_lag_ms=processing_lag_ms)
-    fundings = extract_funding_states(funding_samples, processing_lag_ms=processing_lag_ms)
+    fundings = extract_funding_states(
+        funding_samples,
+        processing_lag_ms=processing_lag_ms,
+        real_data_mode=real_data_mode,
+    )
     aggressions = extract_aggression_states(
         trade_ticks, processing_lag_ms=processing_lag_ms
     )
     oi_states = extract_oi_states(
-        oi_samples, price_ticks, processing_lag_ms=processing_lag_ms
+        oi_samples, price_ticks,
+        processing_lag_ms=processing_lag_ms,
+        real_data_mode=real_data_mode,
     )
 
     # Assign regime labels — align by closest timestamp

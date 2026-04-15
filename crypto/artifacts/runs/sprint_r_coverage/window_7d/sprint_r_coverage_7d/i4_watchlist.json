@@ -1,0 +1,187 @@
+{
+  "watchlist_cards": [
+    {
+      "card_id": "e3b67668-6f74-4288-843c-b7457ace3827",
+      "title": "Chain-D1 beta reversion: (HYPE,BTC) break, no flow evidence",
+      "branch": "beta_reversion",
+      "decision_tier": "actionable_watch",
+      "watch_label": "beta_reversion_watch",
+      "watch_urgency": "high",
+      "composite_score": 0.7725
+    },
+    {
+      "card_id": "00cb9745-cc3c-4a37-b0af-ba918576191d",
+      "title": "Chain-D1 beta reversion: (HYPE,ETH) break, no flow evidence",
+      "branch": "beta_reversion",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "none",
+      "composite_score": 0.5846
+    },
+    {
+      "card_id": "1e08f0fa-2ca9-443d-b162-cc3a267ae9dd",
+      "title": "Chain-D1 beta reversion: (HYPE,SOL) break, no flow evidence",
+      "branch": "beta_reversion",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "none",
+      "composite_score": 0.5846
+    },
+    {
+      "card_id": "6b7b52d2-0848-4475-bf66-0b26f4528493",
+      "title": "Chain-D1 beta reversion: (BTC,ETH) break, no flow evidence",
+      "branch": "beta_reversion",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "none",
+      "composite_score": 0.5846
+    },
+    {
+      "card_id": "049bfc66-9ac1-4bcf-829f-d51896044c52",
+      "title": "Chain-D1 beta reversion: (BTC,SOL) break, no flow evidence",
+      "branch": "beta_reversion",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "none",
+      "composite_score": 0.5846
+    },
+    {
+      "card_id": "41a49632-38e5-402b-abee-c5d9fea13fb9",
+      "title": "Chain-D1 beta reversion: (ETH,SOL) break, no flow evidence",
+      "branch": "beta_reversion",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "none",
+      "composite_score": 0.5846
+    },
+    {
+      "card_id": "cd1c9583-7b6c-450e-b3f8-13131fe4e26e",
+      "title": "Correlation break (HYPE,BTC) \u2014 mean_reversion_candidate",
+      "branch": "other",
+      "decision_tier": "research_priority",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "medium",
+      "composite_score": 0.7185
+    },
+    {
+      "card_id": "2cc51003-6b62-48de-b22e-e910b92f75a5",
+      "title": "Correlation break (HYPE,ETH) \u2014 mean_reversion_candidate",
+      "branch": "other",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "none",
+      "composite_score": 0.5832
+    },
+    {
+      "card_id": "b8cecd34-9506-40b6-951e-3671d96573b7",
+      "title": "Correlation break (HYPE,SOL) \u2014 mean_reversion_candidate",
+      "branch": "other",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "none",
+      "composite_score": 0.5832
+    },
+    {
+      "card_id": "71d52ca2-de45-47b9-8467-c58e7f71a37b",
+      "title": "Correlation break (BTC,ETH) \u2014 mean_reversion_candidate",
+      "branch": "other",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "none",
+      "composite_score": 0.5832
+    },
+    {
+      "card_id": "362675b4-ff12-4973-a5ed-a99c56671c7e",
+      "title": "Correlation break (BTC,SOL) \u2014 mean_reversion_candidate",
+      "branch": "other",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "none",
+      "composite_score": 0.5832
+    },
+    {
+      "card_id": "fb08d62f-9515-429c-9065-3e110d945674",
+      "title": "Correlation break (ETH,SOL) \u2014 mean_reversion_candidate",
+      "branch": "other",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "none",
+      "composite_score": 0.5832
+    },
+    {
+      "card_id": "70426cf9-e49a-41ea-aaec-8362f06f66ed",
+      "title": "Null baseline: (HYPE,BTC) \u2014 low followthrough, normalization expected",
+      "branch": "null_baseline",
+      "decision_tier": "monitor_borderline",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "low",
+      "composite_score": 0.6487
+    },
+    {
+      "card_id": "324894b4-7ad6-4f37-89a4-3bb750983073",
+      "title": "Null baseline: (HYPE,ETH) \u2014 low followthrough, normalization expected",
+      "branch": "null_baseline",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "none",
+      "composite_score": 0.4832
+    },
+    {
+      "card_id": "feb6139e-5934-48ab-99e8-0bb06ae57e18",
+      "title": "Null baseline: (HYPE,SOL) \u2014 low followthrough, normalization expected",
+      "branch": "null_baseline",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "none",
+      "composite_score": 0.4832
+    },
+    {
+      "card_id": "086cba46-de63-47d6-abf1-250b88e613b2",
+      "title": "Null baseline: (BTC,ETH) \u2014 low followthrough, normalization expected",
+      "branch": "null_baseline",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "none",
+      "composite_score": 0.4832
+    },
+    {
+      "card_id": "0e573164-a3a7-42d4-a3ed-a055546edc08",
+      "title": "Null baseline: (BTC,SOL) \u2014 low followthrough, normalization expected",
+      "branch": "null_baseline",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "none",
+      "composite_score": 0.4832
+    },
+    {
+      "card_id": "921f3d0e-21c0-4a20-86ce-d29cb6013c4e",
+      "title": "Null baseline: (ETH,SOL) \u2014 low followthrough, normalization expected",
+      "branch": "null_baseline",
+      "decision_tier": "baseline_like",
+      "watch_label": "monitor_no_action",
+      "watch_urgency": "none",
+      "composite_score": 0.4832
+    }
+  ],
+  "label_counts": {
+    "beta_reversion_watch": 1,
+    "monitor_no_action": 17
+  },
+  "urgency_counts": {
+    "high": 1,
+    "none": 15,
+    "medium": 1,
+    "low": 1
+  },
+  "high_urgency_labels": [
+    {
+      "card_id": "e3b67668-6f74-4288-843c-b7457ace3827",
+      "title": "Chain-D1 beta reversion: (HYPE,BTC) break, no flow evidence",
+      "branch": "beta_reversion",
+      "decision_tier": "actionable_watch",
+      "watch_label": "beta_reversion_watch",
+      "watch_urgency": "high",
+      "composite_score": 0.7725
+    }
+  ]
+}

@@ -72,6 +72,7 @@ class PipelineConfig:
     top_k: int = 10
     output_dir: str = "crypto/artifacts/runs"
     dataset: Optional[SyntheticDataset] = None
+    real_data_mode: bool = False  # Sprint R: activate real-data threshold presets
 
 
 def run_pipeline(config: PipelineConfig) -> list:
@@ -104,7 +105,10 @@ def run_pipeline(config: PipelineConfig) -> list:
     # 2. State extraction (per asset)
     collections = {}
     for asset in assets:
-        collections[asset] = extract_states(dataset, asset, config.run_id)
+        collections[asset] = extract_states(
+            dataset, asset, config.run_id,
+            real_data_mode=config.real_data_mode,
+        )
 
     # 3. KG construction (per family)
     micro_kgs = {a: build_microstructure_kg(collections[a]) for a in assets}
