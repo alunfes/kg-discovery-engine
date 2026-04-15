@@ -12,11 +12,11 @@ from crypto.src.pipeline import PipelineConfig, run_pipeline
 def main() -> None:
     """Execute the MVP pipeline run."""
     config = PipelineConfig(
-        run_id="run_001_20260415",
+        run_id="run_007_sprint_h",
         seed=42,
         n_minutes=120,
         assets=["HYPE", "ETH", "BTC", "SOL"],
-        top_k=10,
+        top_k=60,
         output_dir="crypto/artifacts/runs",
     )
 

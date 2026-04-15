@@ -256,6 +256,8 @@ def test_suppression_reasons_are_valid(collections_120, merged_kg_120, pipeline_
         "missing_accumulation",
         # F3 taxonomy (replaces generic insufficient_negative_evidence)
         "contradictory_evidence", "failed_followthrough", "structural_absence",
+        # H1: soft gate border cases
+        "soft_gated",
     }
     _, suppression_log = build_chain_grammar_kg(merged_kg_120, collections_120)
     for entry in suppression_log:

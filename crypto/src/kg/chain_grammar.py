@@ -18,6 +18,12 @@ F3: Negative-evidence taxonomy — suppression reasons are now typed:
 Returns (KGraph, suppression_log) so the pipeline can emit branch_metrics.json.
 """
 
+from ..eval.soft_gate import (
+    HARD_GATE_MIN,
+    compute_funding_pressure_confidence,
+    compute_oi_accumulation_confidence,
+    soft_activation_gate,
+)
 from ..kg.base import KGEdge, KGNode, KGraph
 from ..schema.market_state import MarketStateCollection
 
@@ -117,6 +123,84 @@ def _oi_coverage(collections: dict[str, MarketStateCollection], assets: list[str
     )
     return min(1.0, total / (20.0 * max(len(assets), 1)))
 
+
+
+
+# ---------------------------------------------------------------------------
+# H1: Soft-gate helpers
+# ---------------------------------------------------------------------------
+
+def _collect_oi_states(
+    collections: dict, assets: list[str]
+) -> list:
+    """Flatten OIState objects for the given assets from collections."""
+    result = []
+    for a in assets:
+        coll = collections.get(a)
+        if coll:
+            result.extend(coll.oi_states)
+    return result
+
+
+def _collect_funding_states(
+    collections: dict, assets: list[str]
+) -> list:
+    """Flatten FundingState objects for the given assets from collections."""
+    result = []
+    for a in assets:
+        coll = collections.get(a)
+        if coll:
+            result.extend(coll.fundings)
+    return result
+
+
+def _apply_oi_soft_gate(
+    collections: dict, assets: list[str], pair: str, log: list
+) -> tuple[bool, float]:
+    """H1: Check OI activation confidence; allow border cases through.
+
+    Returns (proceed: bool, activation_confidence: float).
+    """
+    has_accum = _has_oi_accumulation(collections, assets)
+    all_oi = _collect_oi_states(collections, assets)
+    conf = compute_oi_accumulation_confidence(all_oi)
+    if has_accum:
+        return True, max(conf, HARD_GATE_MIN)
+    gate = soft_activation_gate(conf)
+    if not gate["soft_active"]:
+        return False, 0.0
+    log.append({
+        "chain": "e2_oi_border_case", "pair": pair,
+        "reason": "soft_gated",
+        "activation_confidence": gate["effective_conf"],
+        "detail": f"OI near-threshold conf={conf:.3f} — border case",
+        "neg_evidence_taxonomy": "soft_gated",
+    })
+    return True, gate["effective_conf"]
+
+
+def _apply_funding_soft_gate(
+    collections: dict, assets: list[str], pair: str, log: list, n_extreme: int
+) -> tuple[bool, float]:
+    """H1: Check funding pressure confidence; allow border cases through.
+
+    Returns (proceed: bool, activation_confidence: float).
+    """
+    if n_extreme > 0:
+        return True, 1.0
+    all_fund = _collect_funding_states(collections, assets)
+    conf = compute_funding_pressure_confidence(all_fund)
+    gate = soft_activation_gate(conf)
+    if not gate["soft_active"]:
+        return False, 0.0
+    log.append({
+        "chain": "e2_funding_border_case", "pair": pair,
+        "reason": "soft_gated",
+        "activation_confidence": gate["effective_conf"],
+        "detail": f"Funding near-extreme conf={conf:.3f} — border case",
+        "neg_evidence_taxonomy": "soft_gated",
+    })
+    return True, gate["effective_conf"]
 
 # ---------------------------------------------------------------------------
 # E1 chain builders
@@ -289,17 +373,24 @@ def _e2_funding_pressure_chain(
     """E2 Chain 1: corr_break → funding_pressure_regime → fragile_premium → unwind_trigger."""
     pair = f"{a1}/{a2}"
     n_extreme = _scan_funding_extreme_kg(merged_kg, [a1, a2])
-    if n_extreme == 0:
+    # H1: Apply soft activation gate for funding pressure
+    proceed, act_conf = _apply_funding_soft_gate(
+        collections, [a1, a2], pair, log, n_extreme
+    )
+    if not proceed:
         log.append({"chain": "positioning_unwind_funding_pressure", "pair": pair,
                     "reason": "no_trigger", "detail": "no funding extreme"})
         return
 
-    persistence = min(1.0, n_extreme * 0.4)
+    is_soft_fund = act_conf < HARD_GATE_MIN
+    eff_n = n_extreme if n_extreme > 0 else 1
+    persistence = min(1.0, eff_n * 0.4)
     fpr_id = f"funding_pressure_regime:{a1}:{a2}"
     _mk_node(kg, fpr_id, "FundingPressureRegimeNode", {
         "asset_a": a1, "asset_b": a2,
-        "state_score": round(min(1.0, n_extreme * 0.5), 3),
-        "duration": n_extreme, "persistence": round(persistence, 3), "coverage": 1.0,
+        "state_score": round(min(1.0, act_conf), 3),
+        "duration": eff_n, "persistence": round(persistence, 3), "coverage": 1.0,
+        "activation_confidence": round(act_conf, 3), "is_soft_gated": is_soft_fund,
     })
     _mk_edge(kg, f"funding_pressure:{a1}:{a2}", corr_nid, fpr_id, "has_funding_pressure_regime")
 
@@ -309,7 +400,8 @@ def _e2_funding_pressure_chain(
     _mk_node(kg, fps_id, "FragilePremiumStateNode", {
         "asset_a": a1, "asset_b": a2, "state_score": fps_score,
         "has_premium_chain": has_prem,
-        "duration": n_extreme, "persistence": round(persistence, 3), "coverage": 1.0,
+        "duration": eff_n, "persistence": round(persistence, 3), "coverage": 1.0,
+        "activation_confidence": round(act_conf, 3), "is_soft_gated": is_soft_fund,
     })
     _mk_edge(kg, f"funding_to_fragile:{a1}:{a2}", fpr_id, fps_id,
              "funding_pressure_creates_fragile_premium")
@@ -319,6 +411,7 @@ def _e2_funding_pressure_chain(
         "asset_a": a1, "asset_b": a2,
         "state_score": round(fps_score * 0.9, 3), "trigger_type": "funding_extreme",
         "duration": 1, "coverage": 1.0,
+        "activation_confidence": round(act_conf, 3), "is_soft_gated": is_soft_fund,
     })
     _mk_edge(kg, f"fragile_trigger:{a1}:{a2}", fps_id, utr_id, "fragile_premium_triggers_unwind")
 
@@ -330,7 +423,9 @@ def _e2_one_sided_oi_chain(
 ) -> None:
     """E2 Chain 2: corr_break → one_sided_oi_build → position_crowding → aggression_reversal."""
     pair = f"{a1}/{a2}"
-    if not _has_oi_accumulation(collections, [a1, a2]):
+    # H1: Apply soft activation gate for OI accumulation
+    proceed, act_conf = _apply_oi_soft_gate(collections, [a1, a2], pair, log)
+    if not proceed:
         log.append({"chain": "positioning_unwind_oi_crowding", "pair": pair,
                     "reason": "missing_accumulation", "detail": "no OI accumulation"})
         return
@@ -340,6 +435,7 @@ def _e2_one_sided_oi_chain(
                     "reason": "no_trigger", "detail": "OI accumulation but no burst"})
         return
 
+    is_soft_oi = act_conf < HARD_GATE_MIN
     build_dur = _oi_build_duration(collections, [a1, a2])
     oi_score = _oi_state_score(collections, [a1, a2])
 
@@ -347,6 +443,7 @@ def _e2_one_sided_oi_chain(
     _mk_node(kg, oi_id, "OneSidedOIBuildNode", {
         "asset_a": a1, "asset_b": a2, "state_score": round(oi_score, 3),
         "build_duration": build_dur, "persistence": min(1.0, build_dur / 10.0),
+        "activation_confidence": round(act_conf, 3), "is_soft_gated": is_soft_oi,
         "coverage": 1.0,
     })
     _mk_edge(kg, f"oi_build:{a1}:{a2}", corr_nid, oi_id, "has_one_sided_oi_build")
@@ -357,6 +454,7 @@ def _e2_one_sided_oi_chain(
         "asset_a": a1, "asset_b": a2, "state_score": crowd_score,
         "duration": build_dur, "persistence": min(1.0, build_dur / 10.0),
         "coverage": 1.0,
+        "activation_confidence": round(act_conf, 3), "is_soft_gated": is_soft_oi,
     })
     _mk_edge(kg, f"oi_crowding:{a1}:{a2}", oi_id, crowd_id, "oi_build_creates_crowding")
 

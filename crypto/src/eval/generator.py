@@ -993,7 +993,11 @@ def _rule_chain_e1_weak_premium(kg: KGraph) -> list[dict]:
 # ---------------------------------------------------------------------------
 
 def _rule_chain_e2_funding_pressure(kg: KGraph) -> list[dict]:
-    """E2 Chain 1: corr_break → funding_pressure_regime → fragile_premium → unwind_trigger."""
+    """E2 Chain 1: corr_break → funding_pressure_regime → fragile_premium → unwind_trigger.
+
+    H1: reads activation_confidence from FundingPressureRegimeNode; soft-gated candidates
+    get reduced plausibility and the "soft_gated" tag so they are traceable.
+    """
     results: list[dict] = []
     for node in kg.nodes.values():
         if node.node_type != "CorrelationNode" or not node.attributes.get("is_break"):
@@ -1007,6 +1011,9 @@ def _rule_chain_e2_funding_pressure(kg: KGraph) -> list[dict]:
             continue
         rho = node.attributes.get("rho", 0.0)
         bs = node.attributes.get("corr_break_score", 0.0)
+        # H1: read soft-gate attributes from funding pressure node
+        act_conf = fpr.attributes.get("activation_confidence", 1.0)
+        is_soft = fpr.attributes.get("is_soft_gated", False)
         plaus = _score_e2_unwind(
             fpr.attributes.get("state_score", 0.5),
             fps.attributes.get("state_score", 0.5),
@@ -1014,6 +1021,14 @@ def _rule_chain_e2_funding_pressure(kg: KGraph) -> list[dict]:
             int(fpr.attributes.get("duration", 1)),
             fpr.attributes.get("coverage", 1.0),
         )
+        # H1: scale plausibility for soft-gated border cases
+        from ..eval.soft_gate import soft_activation_gate
+        if is_soft:
+            gate = soft_activation_gate(act_conf)
+            plaus = round(plaus * gate["plausibility_scale"], 3)
+        tags = ["positioning_unwind", "chain_rule", "E2", "funding_pressure"]
+        if is_soft:
+            tags.append("soft_gated")
         results.append({
             "title": f"E2 positioning unwind: ({a1},{a2}) — funding pressure regime",
             "claim": (
@@ -1032,13 +1047,18 @@ def _rule_chain_e2_funding_pressure(kg: KGraph) -> list[dict]:
             "secrecy_level": SecrecyLevel.INTERNAL_WATCHLIST.value,
             "kg_families": ["cross_asset", "microstructure", "chain_grammar"],
             "plausibility_prior": plaus,
-            "tags": ["positioning_unwind", "chain_rule", "E2", "funding_pressure"],
+            "activation_confidence": act_conf,
+            "tags": tags,
         })
     return results
 
 
 def _rule_chain_e2_oi_crowding(kg: KGraph) -> list[dict]:
-    """E2 Chain 2: corr_break → one_sided_oi_build → position_crowding → positioning_unwind."""
+    """E2 Chain 2: corr_break → one_sided_oi_build → position_crowding → positioning_unwind.
+
+    H1: reads activation_confidence from OneSidedOIBuildNode; soft-gated candidates
+    get reduced plausibility and the "soft_gated" tag so they are traceable.
+    """
     results: list[dict] = []
     for node in kg.nodes.values():
         if node.node_type != "CorrelationNode" or not node.attributes.get("is_break"):
@@ -1051,6 +1071,10 @@ def _rule_chain_e2_oi_crowding(kg: KGraph) -> list[dict]:
             continue
         rho = node.attributes.get("rho", 0.0)
         bs = node.attributes.get("corr_break_score", 0.0)
+        # H1: read soft-gate attributes from OI node
+        act_conf = oi_nd.attributes.get("activation_confidence", 1.0)
+        is_soft = oi_nd.attributes.get("is_soft_gated", False)
+        crowd_conf = crowd.attributes.get("activation_confidence", act_conf)
         plaus = _score_e2_unwind(
             oi_nd.attributes.get("state_score", 0.5),
             crowd.attributes.get("state_score", 0.5),
@@ -1058,6 +1082,14 @@ def _rule_chain_e2_oi_crowding(kg: KGraph) -> list[dict]:
             int(oi_nd.attributes.get("build_duration", 1)),
             oi_nd.attributes.get("coverage", 1.0),
         )
+        # H1: scale plausibility for soft-gated border cases
+        from ..eval.soft_gate import soft_activation_gate
+        if is_soft:
+            gate = soft_activation_gate(act_conf, other_evidence_conf=crowd_conf)
+            plaus = round(plaus * gate["plausibility_scale"], 3)
+        tags = ["positioning_unwind", "chain_rule", "E2", "oi_crowding"]
+        if is_soft:
+            tags.append("soft_gated")
         results.append({
             "title": f"E2 positioning unwind: ({a1},{a2}) — one-sided OI build + crowding",
             "claim": (
@@ -1077,7 +1109,8 @@ def _rule_chain_e2_oi_crowding(kg: KGraph) -> list[dict]:
             "secrecy_level": SecrecyLevel.INTERNAL_WATCHLIST.value,
             "kg_families": ["cross_asset", "chain_grammar"],
             "plausibility_prior": plaus,
-            "tags": ["positioning_unwind", "chain_rule", "E2", "oi_crowding"],
+            "activation_confidence": act_conf,
+            "tags": tags,
         })
     return results
 

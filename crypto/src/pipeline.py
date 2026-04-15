@@ -29,7 +29,9 @@ from .eval.contradiction_metrics import (
 )
 from .eval.generator import generate_hypotheses
 from .eval.metrics import compute_branch_metrics
+from .eval.rerouter import compute_reroute_candidates, reroute_summary
 from .eval.scorer import score_hypothesis
+from .eval.uplift_ranker import compute_uplift_aware_ranking
 from .kg.chain_grammar import build_chain_grammar_kg
 from .ingestion.synthetic import SyntheticGenerator
 from .inventory.store import HypothesisInventory
@@ -152,6 +154,15 @@ def run_pipeline(config: PipelineConfig) -> list:
         cards, suppression_log, n_corr_break_pairs, top_k=config.top_k
     )
 
+    # H1: Count soft-gated cards (border cases that fired due to soft activation)
+    n_soft_gated = sum(1 for c in cards if "soft_gated" in c.tags)
+    branch_metrics["h1_soft_gate"] = {
+        "n_soft_gated_cards": n_soft_gated,
+        "soft_gated_fraction": round(n_soft_gated / max(len(cards), 1), 4),
+        "soft_gate_min": 0.30,
+        "hard_gate_min": 0.50,
+    }
+
     # G1: Compute per-card contradiction metrics and conflict-adjusted ranking.
     # cross_kg is kept in scope from step 3 so we can look up corr_break_score.
     contradiction_data = compute_contradiction_metrics(
@@ -168,6 +179,20 @@ def run_pipeline(config: PipelineConfig) -> list:
     )
     branch_metrics["g1_contradiction_metrics"] = contradiction_data
     branch_metrics["g1_conflict_adjusted_ranking"] = conflict_ranking
+
+    # H2: Contradiction-driven rerouting
+    reroutes = compute_reroute_candidates(
+        cards, contradiction_data, suppression_log, top_k=config.top_k
+    )
+    branch_metrics["h2_reroute_candidates"] = reroutes
+    branch_metrics["h2_reroute_summary"] = reroute_summary(reroutes, config.top_k)
+
+    # H3: Uplift-aware ranking
+    g3_pool = branch_metrics.get("matched_baseline_pool", {})
+    uplift_ranking = compute_uplift_aware_ranking(
+        cards, contradiction_data, meta_scores, g3_pool, top_k=config.top_k
+    )
+    branch_metrics["h3_uplift_ranking"] = uplift_ranking
 
     _save_outputs(config, cards, inventory, branch_metrics)
 
@@ -318,7 +343,7 @@ def _save_outputs(
         "assets": config.assets or ["HYPE", "ETH", "BTC", "SOL"],
         "top_k": config.top_k,
         "created_at": datetime.now(timezone.utc).isoformat(),
-        "sprint": "G",
+        "sprint": "H",
     }
     with open(os.path.join(run_dir, "run_config.json"), "w") as f:
         json.dump(run_config, f, indent=2)
@@ -326,9 +351,17 @@ def _save_outputs(
     # output_candidates.json
     inventory.save(os.path.join(run_dir, "output_candidates.json"))
 
-    # branch_metrics.json — E3
+    # branch_metrics.json — E3 + H1/H2/H3
     with open(os.path.join(run_dir, "branch_metrics.json"), "w") as f:
         json.dump(branch_metrics, f, indent=2)
+
+    # h2_reroute_candidates.json
+    with open(os.path.join(run_dir, "h2_reroute_candidates.json"), "w") as f:
+        json.dump(branch_metrics.get("h2_reroute_candidates", []), f, indent=2)
+
+    # h3_uplift_ranking.json
+    with open(os.path.join(run_dir, "h3_uplift_ranking.json"), "w") as f:
+        json.dump(branch_metrics.get("h3_uplift_ranking", {}), f, indent=2)
 
     # review_memo.md
     _write_review_memo(run_dir, config, cards, branch_metrics)
@@ -379,6 +412,65 @@ def _g3_memo_lines(branch_metrics: dict) -> list[str]:
     ]
     return lines
 
+
+
+
+def _h2_memo_lines(branch_metrics: dict) -> list[str]:
+    """H2 section for review memo: reroute candidate summary."""
+    summary = branch_metrics.get("h2_reroute_summary", {})
+    tops = summary.get("top_reroutes", [])
+    lines = [
+        "",
+        "## H2: Contradiction-Driven Rerouting",
+        "",
+        f"- n_rerouted: {summary.get('n_rerouted', 0)}",
+        f"- branch_distribution: {summary.get('branch_distribution', {})}",
+        f"- mean_delta: {summary.get('mean_delta', 0.0):.4f}",
+        "- top_reroutes:",
+    ] + [
+        f"  - [{r.get('original_branch','?')}→{r.get('reroute_candidate_branch','?')}] "
+        f"{r.get('original_title','')[:50]} "
+        f"orig={r.get('original_score',0):.3f} → rerouted={r.get('rerouted_score',0):.3f} "
+        f"(Δ={r.get('original_branch_vs_rerouted_score',0):+.3f}) "
+        f"conf={r.get('reroute_confidence',0):.2f}"
+        for r in tops
+    ]
+    return lines
+
+
+def _h3_memo_lines(branch_metrics: dict) -> list[str]:
+    """H3 section for review memo: uplift-aware ranking summary."""
+    ur = branch_metrics.get("h3_uplift_ranking", {})
+    summary = ur.get("uplift_aware_summary", {})
+    rescued = ur.get("rescued_hypotheses", [])
+    demoted = ur.get("demoted_hypotheses", [])
+    top5 = ur.get("uplift_ranked_cards", [])[:5]
+    lines = [
+        "",
+        "## H3: Uplift-Aware Ranking",
+        "",
+        f"- n_rescued (into top-k): {summary.get('n_rescued', 0)}",
+        f"- n_demoted (out of top-k): {summary.get('n_demoted', 0)}",
+        f"- n_top_k_changed: {summary.get('n_top_k_changed', 0)}",
+        f"- mean_uplift_aware_score: {summary.get('mean_ua_score', 0.0):.4f}",
+        "- Top-5 uplift-aware cards:",
+    ] + [
+        f"  {i+1}. [{d.get('branch','?')}] {d.get('title','')[:50]} "
+        f"ua={d.get('uplift_aware_score',0):.4f} raw={d.get('raw_score',0):.3f} "
+        f"rank_Δ={d.get('rank_delta',0):+d}"
+        for i, d in enumerate(top5)
+    ] + [
+        "- Rescued (raw low, uplift high):",
+    ] + [
+        f"  - {r.get('title','')[:50]} ua={r.get('uplift_aware_score',0):.4f}"
+        for r in rescued
+    ] + [
+        "- Demoted (raw high, uplift low):",
+    ] + [
+        f"  - {d.get('title','')[:50]} ua={d.get('uplift_aware_score',0):.4f}"
+        for d in demoted
+    ]
+    return lines
 
 def _write_review_memo(
     run_dir: str,
@@ -491,7 +583,7 @@ def _write_review_memo(
         f"  - [{d.get('branch', '?')}] {d.get('title', '')[:60]} "
         f"adj_uplift={d.get('complexity_penalty_adjusted_uplift', 0):.4f}"
         for d in top_uplift
-    ] + _g1_memo_lines(branch_metrics) + _g3_memo_lines(branch_metrics) + [
+    ] + _g1_memo_lines(branch_metrics) + _g3_memo_lines(branch_metrics) + _h2_memo_lines(branch_metrics) + _h3_memo_lines(branch_metrics) + [
         "",
         "## Top Hypotheses",
         "",
