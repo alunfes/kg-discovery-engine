@@ -1,0 +1,3 @@
+variant,final_tier,final_score,n_contradict,n_ratelimited,n_expire_faster
+before,monitor_borderline,0.5,2,0,3
+after,research_priority,0.55,1,4,0

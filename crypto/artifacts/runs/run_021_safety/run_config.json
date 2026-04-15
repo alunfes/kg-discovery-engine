@@ -1,0 +1,19 @@
+{
+  "run_id": "run_021_safety",
+  "phase": 2,
+  "seed": 42,
+  "demotion_rate_limit_ms": 900000,
+  "half_life_floors": {
+    "actionable_watch": 10.0,
+    "research_priority": 5.0,
+    "monitor_borderline": 3.0,
+    "baseline_like": 2.0,
+    "reject_conflicted": 1.0
+  },
+  "scenarios": [
+    "A_clustered_demotion",
+    "B_expire_floor",
+    "C_reinforce_regression",
+    "D_opposes_with_safety"
+  ]
+}
