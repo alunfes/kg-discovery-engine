@@ -1,0 +1,5 @@
+cadence_min,fr_stale_rate,fr_surfaced_before,fr_surfaced_after,fr_precision,fr_info_loss,br_stale_rate,br_surfaced_before,br_surfaced_after,br_precision,br_info_loss
+30,0.065,20.0,4.85,1.0,0.6848,0.9324,10.42,1.52,0.0625,0.7635
+45,0.21,18.7,4.85,0.56,0.6838,0.9183,9.18,1.44,0.043,0.7573
+60,0.9025,18.7,4.85,0.0,0.6838,0.9855,8.77,1.19,0.0,0.7625
+120,1.0,1.95,1.75,0.0,0.0946,1.0,3.01,1.12,0.0,0.6106

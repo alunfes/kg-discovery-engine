@@ -1,0 +1,125 @@
+{
+  "run_id": "run_027_delivery",
+  "timestamp": "2026-04-15T14:09:49Z",
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61
+  ],
+  "cadences_tested": [
+    30,
+    45,
+    60,
+    120
+  ],
+  "n_cards": 20,
+  "session_hours": 8,
+  "delivery_state_thresholds": {
+    "fresh_max_ratio": 0.5,
+    "active_max_ratio": 1.0,
+    "aging_max_ratio": 1.75,
+    "digest_max_ratio": 2.5
+  },
+  "collapse_min_family_size": 2,
+  "results_first_review": {
+    "30": {
+      "cadence_min": 30,
+      "n_reviews": 1,
+      "avg_stale_rate": 0.065,
+      "avg_surfaced_before": 20.0,
+      "avg_surfaced_after": 4.85,
+      "avg_reduction": 15.15,
+      "avg_precision": 1.0,
+      "avg_info_loss": 0.6848
+    },
+    "45": {
+      "cadence_min": 45,
+      "n_reviews": 1,
+      "avg_stale_rate": 0.21,
+      "avg_surfaced_before": 18.7,
+      "avg_surfaced_after": 4.85,
+      "avg_reduction": 13.85,
+      "avg_precision": 0.56,
+      "avg_info_loss": 0.6838
+    },
+    "60": {
+      "cadence_min": 60,
+      "n_reviews": 1,
+      "avg_stale_rate": 0.9025,
+      "avg_surfaced_before": 18.7,
+      "avg_surfaced_after": 4.85,
+      "avg_reduction": 13.85,
+      "avg_precision": 0.0,
+      "avg_info_loss": 0.6838
+    },
+    "120": {
+      "cadence_min": 120,
+      "n_reviews": 1,
+      "avg_stale_rate": 1.0,
+      "avg_surfaced_before": 1.95,
+      "avg_surfaced_after": 1.75,
+      "avg_reduction": 0.2,
+      "avg_precision": 0.0,
+      "avg_info_loss": 0.0946
+    }
+  },
+  "results_batch_refresh": {
+    "30": {
+      "cadence_min": 30,
+      "n_reviews": 16,
+      "avg_stale_rate": 0.9324,
+      "avg_surfaced_before": 10.42,
+      "avg_surfaced_after": 1.52,
+      "avg_reduction": 8.9,
+      "avg_precision": 0.0625,
+      "avg_info_loss": 0.7635
+    },
+    "45": {
+      "cadence_min": 45,
+      "n_reviews": 10,
+      "avg_stale_rate": 0.9183,
+      "avg_surfaced_before": 9.18,
+      "avg_surfaced_after": 1.44,
+      "avg_reduction": 7.73,
+      "avg_precision": 0.043,
+      "avg_info_loss": 0.7573
+    },
+    "60": {
+      "cadence_min": 60,
+      "n_reviews": 8,
+      "avg_stale_rate": 0.9855,
+      "avg_surfaced_before": 8.77,
+      "avg_surfaced_after": 1.19,
+      "avg_reduction": 7.58,
+      "avg_precision": 0.0,
+      "avg_info_loss": 0.7625
+    },
+    "120": {
+      "cadence_min": 120,
+      "n_reviews": 4,
+      "avg_stale_rate": 1.0,
+      "avg_surfaced_before": 3.01,
+      "avg_surfaced_after": 1.12,
+      "avg_reduction": 1.89,
+      "avg_precision": 0.0,
+      "avg_info_loss": 0.6106
+    }
+  }
+}
