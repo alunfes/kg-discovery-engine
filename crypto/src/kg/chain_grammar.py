@@ -1,4 +1,4 @@
-"""Chain grammar KG builder — Sprint E (E1/E2) + Sprint F (F3).
+"""Chain grammar KG builder — Sprint E (E1/E2) + Sprint F (F3) + Sprint K (R1).
 
 E1: Negative-evidence nodes — the *absence* of flow signals is the positive
     signal for beta reversion.  Nodes encode below-threshold conditions
@@ -15,6 +15,10 @@ F3: Negative-evidence taxonomy — suppression reasons are now typed:
     contradictory_evidence — active positive counter-signal blocks the chain.
     (replaces the old generic "insufficient_negative_evidence" reason)
 
+Sprint K / R1: The J1 discriminative gate is now a first-class instance of
+    Meta-rule R1 (Regime Dominance Gate) defined in regime_dominance_gate.py.
+    J1 logic is unchanged; the inline check is replaced by apply_r1().
+
 Returns (KGraph, suppression_log) so the pipeline can emit branch_metrics.json.
 """
 
@@ -25,9 +29,39 @@ from ..eval.soft_gate import (
     soft_activation_gate,
 )
 from ..kg.base import KGEdge, KGNode, KGraph
+from ..kg.regime_dominance_gate import R1PolicySpec, apply_r1
 from ..schema.market_state import MarketStateCollection
 
 FAMILY = "chain_grammar"
+
+# ---------------------------------------------------------------------------
+# R1 policy specs for this module
+#
+# Each spec is a first-class instance of Meta-rule R1 (Regime Dominance Gate).
+# Declaring them at module level makes the gate configuration explicit and
+# introspectable by tests / tooling without running the full chain.
+# ---------------------------------------------------------------------------
+
+# J1: E1 transient-aggression chain — funding_extreme + OI_accumulation → suppress.
+# When both regime signals co-occur, the aggression burst is part of a
+# positioning_unwind context (E2), not a transient beta_reversion signal (E1).
+# Suppressing prevents a beta_reversion card that would conflict with the E2
+# card for the same pair, causing reject_conflicted downstream.
+_J1_R1_SPEC = R1PolicySpec(
+    chain_type="beta_reversion_transient_aggr",
+    regime_signals=["funding_extreme", "oi_accumulation"],
+    regime_combinator="AND",
+    expected_outcome="beta_reversion",
+    contradicting_outcome="positioning_unwind",
+    suppression_reason=(
+        "funding extreme + OI accumulation both present — "
+        "aggression is unwind-context signal, not transient beta_reversion"
+    ),
+    # j1_discriminative_gate kept as alias so existing test_sprint_j assertions
+    # (e.get("j1_discriminative_gate")) continue to pass without modification.
+    # r1_regime_dominance_gate=True is always added by RegimeDominanceChecker.
+    log_tag="j1_discriminative_gate",
+)
 
 
 # ---------------------------------------------------------------------------
@@ -277,28 +311,17 @@ def _e1_transient_aggression_chain(
     Combined counts inflate the total when the other asset has random bursts,
     so we check each asset individually.
 
-    J1 discriminative gate (run_009): If funding_extreme AND OI_accumulation are
-    both present, the aggression burst is part of a positioning_unwind context,
-    not a beta_reversion signal.  Suppress E1 so the hypothesis generator does not
-    produce a beta_reversion card that will conflict with the E2 positioning_unwind
-    chain for the same pair.
+    Sprint K (run_011): The J1 gate is now a first-class R1 instance (_J1_R1_SPEC).
+    If funding_extreme AND OI_accumulation are both present, apply_r1 suppresses
+    this chain (aggression is unwind-context, not beta_reversion noise).
+    Behavior is identical to the Sprint J inline check; only the implementation
+    structure changed.
     """
     pair = f"{a1}/{a2}"
-    # J1: Discriminative gate — funding extreme + OI accumulation → unwind context,
-    # not transient beta_reversion.  This is the key SOL funding-extreme fix.
-    has_fund_extreme = _scan_funding_extreme_kg(merged_kg, [a1, a2]) > 0
-    has_oi_accum = _has_oi_accumulation(collections, [a1, a2])
-    if has_fund_extreme and has_oi_accum:
-        log.append({
-            "chain": "beta_reversion_transient_aggr", "pair": pair,
-            "reason": "contradictory_evidence",
-            "detail": (
-                "funding extreme + OI accumulation both present — "
-                "aggression is unwind-context signal, not transient beta_reversion"
-            ),
-            "neg_evidence_taxonomy": "contradictory_evidence",
-            "j1_discriminative_gate": True,
-        })
+    # J1 is now an instance of Meta-rule R1 (Regime Dominance Gate).
+    # Spec: _J1_R1_SPEC at module level.  Suppresses E1 when funding_extreme AND
+    # OI_accumulation are both present (aggression is unwind context, not beta noise).
+    if apply_r1(_J1_R1_SPEC, merged_kg, collections, [a1, a2], pair, log):
         return
 
     burst_a1 = _count_burst_windows_kg(merged_kg, [a1])
