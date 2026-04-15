@@ -1,0 +1,17 @@
+{
+  "uplift_ranked_cards": [],
+  "uplift_aware_summary": {
+    "n_rescued": 0,
+    "n_demoted": 0,
+    "n_top_k_changed": 0,
+    "mean_ua_score": 0.0,
+    "weights": {
+      "norm_meta": 0.2,
+      "conflict_adj": 0.3,
+      "uplift_baseline": 0.3,
+      "complexity_adj": 0.2
+    }
+  },
+  "rescued_hypotheses": [],
+  "demoted_hypotheses": []
+}

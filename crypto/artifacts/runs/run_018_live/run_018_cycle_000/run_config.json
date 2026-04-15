@@ -1,0 +1,11 @@
+{
+  "run_id": "run_018_cycle_000",
+  "seed": 42,
+  "n_minutes": 60,
+  "assets": [
+    "HYPE"
+  ],
+  "top_k": 10,
+  "created_at": "2026-04-15T10:18:57.685387+00:00",
+  "sprint": "J"
+}

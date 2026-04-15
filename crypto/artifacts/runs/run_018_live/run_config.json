@@ -1,0 +1,18 @@
+{
+  "run_id": "run_018_live",
+  "timestamp": "2026-04-15T10:17:22Z",
+  "mode": "replay",
+  "assets": [
+    "HYPE",
+    "BTC",
+    "ETH",
+    "SOL"
+  ],
+  "cycle_interval_s": 0,
+  "event_window_s": 600,
+  "replay_n_minutes": 30,
+  "max_cycles": 3,
+  "real_data_mode": true,
+  "shadow_mode": true,
+  "n_cycles": 2
+}

@@ -1,0 +1,29 @@
+{
+  "run_id": "run_018_cycle_001",
+  "n_cards_tracked": 0,
+  "observation_midpoint_min": 30,
+  "outcome_records": [],
+  "tier_comparison": {},
+  "summary": {
+    "run_id": "run_018_cycle_001",
+    "n_tracked": 0
+  },
+  "half_life_analysis": {
+    "half_life_distribution": {},
+    "avg_time_to_outcome_min": null,
+    "avg_half_life_remaining_min": null,
+    "half_life_adequacy_rate": 0.0,
+    "recommendation": "Consider increasing half-life; many events exceed current window."
+  },
+  "synthetic_data_note": "Outcomes evaluated against known synthetic scenario events. HYPE events (min 20-35) precede observation midpoint (min 60) and register as miss. SOL events (min 65-80) fall within the outcome window and register as hit/partial. ETH/BTC baseline cards have no matching events -> miss (control).",
+  "threshold_recommendations": {
+    "recommendations": [],
+    "tier_verdicts": {
+      "actionable_watch": "monitor",
+      "monitor_borderline": "maintain",
+      "reject_conflicted": "maintain"
+    },
+    "overall": "no_action",
+    "synthetic_data_caveat": "Recommendations based on synthetic outcome tracking. Validate against live market data before applying changes."
+  }
+}
