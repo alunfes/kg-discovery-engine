@@ -1,0 +1,4 @@
+slice_name,regime,monitoring_budget_multiplier,batch_live_ratio,background_watch_density,fw_positioning_unwind,fw_beta_reversion,fw_flow_continuation,fw_baseline
+calm,calm,0.8,0.5,medium,0.0,0.0,0.0,0.0
+event-heavy,event-heavy,1.0,0.8,thick,-0.05,0.05,0.0,0.0
+sparse,sparse,1.3,0.2,thin,0.0,0.0,0.0,0.0
