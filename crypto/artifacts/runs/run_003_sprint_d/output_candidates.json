@@ -1,0 +1,674 @@
+[
+  {
+    "card_id": "b7eda363-ad26-42b9-b591-08acd6107b53",
+    "version": 1,
+    "created_at": "2026-04-15T02:19:07.214497+00:00",
+    "title": "Chain-D1 flow continuation: (HYPE,SOL) break driven by HYPE burst aggression",
+    "claim": "Correlation break between HYPE and SOL (rho=0.050, break_score=0.265) is anchored via KG path to a strong_buy burst on HYPE (buy_ratio=1.00).  While directional pressure on HYPE persists, SOL remains unanchored → divergence likely continues.  A positive premium dislocation chain was verified in the KG.",
+    "mechanism": "KG path: corr_break → asset → has_aggression → AggressionNode(burst). Flow-driven correlation breaks are self-sustaining: buyers pushing HYPE's mark above index create funding pressure that attracts more positioning, keeping the asset decoupled from its pair.",
+    "evidence_nodes": [
+      "asset:HYPE",
+      "asset:SOL",
+      "corr:HYPE:SOL",
+      "aggr:HYPE:4",
+      "premium_disloc:HYPE:4",
+      "expected_funding:HYPE:4:1"
+    ],
+    "evidence_edges": [
+      "has_aggression:HYPE:4",
+      "disloc_drives_expected:HYPE:4:1",
+      "expected_realized:HYPE:4:1"
+    ],
+    "operator_trace": [
+      "align",
+      "compose"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.67,
+      "novelty": 1.0,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.7825,
+    "run_id": "run_003_sprint_d",
+    "kg_families": [
+      "cross_asset",
+      "microstructure"
+    ],
+    "tags": [
+      "correlation_break",
+      "continuation_candidate",
+      "chain_rule",
+      "D1"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "a8269755-6d90-411d-9213-1f57f9d28e8c",
+    "version": 1,
+    "created_at": "2026-04-15T02:19:07.214833+00:00",
+    "title": "Chain-D1 flow continuation: (HYPE,SOL) break driven by SOL burst aggression",
+    "claim": "Correlation break between HYPE and SOL (rho=0.050, break_score=0.265) is anchored via KG path to a strong_sell burst on SOL (buy_ratio=0.30).  While directional pressure on SOL persists, HYPE remains unanchored → divergence likely continues.",
+    "mechanism": "KG path: corr_break → asset → has_aggression → AggressionNode(burst). Flow-driven correlation breaks are self-sustaining: buyers pushing SOL's mark above index create funding pressure that attracts more positioning, keeping the asset decoupled from its pair.",
+    "evidence_nodes": [
+      "asset:HYPE",
+      "asset:SOL",
+      "corr:HYPE:SOL",
+      "aggr:SOL:1"
+    ],
+    "evidence_edges": [
+      "has_aggression:SOL:1"
+    ],
+    "operator_trace": [
+      "align",
+      "compose"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.67,
+      "novelty": 0.325,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.6475,
+    "run_id": "run_003_sprint_d",
+    "kg_families": [
+      "cross_asset",
+      "microstructure"
+    ],
+    "tags": [
+      "correlation_break",
+      "continuation_candidate",
+      "chain_rule",
+      "D1"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "53d15f18-22a1-4083-bfd3-5645dfa7b1d8",
+    "version": 1,
+    "created_at": "2026-04-15T02:19:07.214899+00:00",
+    "title": "Chain-D1 flow continuation: (ETH,BTC) break driven by ETH burst aggression",
+    "claim": "Correlation break between ETH and BTC (rho=-0.082, break_score=0.300) is anchored via KG path to a strong_sell burst on ETH (buy_ratio=0.29).  While directional pressure on ETH persists, BTC remains unanchored → divergence likely continues.",
+    "mechanism": "KG path: corr_break → asset → has_aggression → AggressionNode(burst). Flow-driven correlation breaks are self-sustaining: buyers pushing ETH's mark above index create funding pressure that attracts more positioning, keeping the asset decoupled from its pair.",
+    "evidence_nodes": [
+      "asset:ETH",
+      "asset:BTC",
+      "corr:ETH:BTC",
+      "aggr:ETH:0"
+    ],
+    "evidence_edges": [
+      "has_aggression:ETH:0"
+    ],
+    "operator_trace": [
+      "align",
+      "compose"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.67,
+      "novelty": 0.2941,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.6413,
+    "run_id": "run_003_sprint_d",
+    "kg_families": [
+      "cross_asset",
+      "microstructure"
+    ],
+    "tags": [
+      "correlation_break",
+      "continuation_candidate",
+      "chain_rule",
+      "D1"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "3643ee2c-2f17-4f1a-87dd-fcd793fa5d5a",
+    "version": 1,
+    "created_at": "2026-04-15T02:19:07.214959+00:00",
+    "title": "Chain-D1 flow continuation: (ETH,BTC) break driven by BTC burst aggression",
+    "claim": "Correlation break between ETH and BTC (rho=-0.082, break_score=0.300) is anchored via KG path to a strong_buy burst on BTC (buy_ratio=0.81).  While directional pressure on BTC persists, ETH remains unanchored → divergence likely continues.",
+    "mechanism": "KG path: corr_break → asset → has_aggression → AggressionNode(burst). Flow-driven correlation breaks are self-sustaining: buyers pushing BTC's mark above index create funding pressure that attracts more positioning, keeping the asset decoupled from its pair.",
+    "evidence_nodes": [
+      "asset:ETH",
+      "asset:BTC",
+      "corr:ETH:BTC",
+      "aggr:BTC:3"
+    ],
+    "evidence_edges": [
+      "has_aggression:BTC:3"
+    ],
+    "operator_trace": [
+      "align",
+      "compose"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.67,
+      "novelty": 0.129,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.6083,
+    "run_id": "run_003_sprint_d",
+    "kg_families": [
+      "cross_asset",
+      "microstructure"
+    ],
+    "tags": [
+      "correlation_break",
+      "continuation_candidate",
+      "chain_rule",
+      "D1"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "fa974f16-ee3b-4da9-84fb-3ed1bbb80a94",
+    "version": 1,
+    "created_at": "2026-04-15T02:19:07.215019+00:00",
+    "title": "Chain-D1 flow continuation: (ETH,SOL) break driven by ETH burst aggression",
+    "claim": "Correlation break between ETH and SOL (rho=0.096, break_score=0.300) is anchored via KG path to a strong_sell burst on ETH (buy_ratio=0.29).  While directional pressure on ETH persists, SOL remains unanchored → divergence likely continues.",
+    "mechanism": "KG path: corr_break → asset → has_aggression → AggressionNode(burst). Flow-driven correlation breaks are self-sustaining: buyers pushing ETH's mark above index create funding pressure that attracts more positioning, keeping the asset decoupled from its pair.",
+    "evidence_nodes": [
+      "asset:ETH",
+      "asset:SOL",
+      "corr:ETH:SOL",
+      "aggr:ETH:0"
+    ],
+    "evidence_edges": [
+      "has_aggression:ETH:0"
+    ],
+    "operator_trace": [
+      "align",
+      "compose"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.67,
+      "novelty": 0.129,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.6083,
+    "run_id": "run_003_sprint_d",
+    "kg_families": [
+      "cross_asset",
+      "microstructure"
+    ],
+    "tags": [
+      "correlation_break",
+      "continuation_candidate",
+      "chain_rule",
+      "D1"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "5108f18b-729f-4ae4-8ed4-ecadc55cbd76",
+    "version": 1,
+    "created_at": "2026-04-15T02:19:07.215081+00:00",
+    "title": "Chain-D1 flow continuation: (ETH,SOL) break driven by SOL burst aggression",
+    "claim": "Correlation break between ETH and SOL (rho=0.096, break_score=0.300) is anchored via KG path to a strong_sell burst on SOL (buy_ratio=0.30).  While directional pressure on SOL persists, ETH remains unanchored → divergence likely continues.",
+    "mechanism": "KG path: corr_break → asset → has_aggression → AggressionNode(burst). Flow-driven correlation breaks are self-sustaining: buyers pushing SOL's mark above index create funding pressure that attracts more positioning, keeping the asset decoupled from its pair.",
+    "evidence_nodes": [
+      "asset:ETH",
+      "asset:SOL",
+      "corr:ETH:SOL",
+      "aggr:SOL:1"
+    ],
+    "evidence_edges": [
+      "has_aggression:SOL:1"
+    ],
+    "operator_trace": [
+      "align",
+      "compose"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.67,
+      "novelty": 0.0667,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.5958,
+    "run_id": "run_003_sprint_d",
+    "kg_families": [
+      "cross_asset",
+      "microstructure"
+    ],
+    "tags": [
+      "correlation_break",
+      "continuation_candidate",
+      "chain_rule",
+      "D1"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "865312eb-5e0e-43d3-a176-b8ca1206a387",
+    "version": 1,
+    "created_at": "2026-04-15T02:19:07.215148+00:00",
+    "title": "Chain-D1 flow continuation: (BTC,SOL) break driven by BTC burst aggression",
+    "claim": "Correlation break between BTC and SOL (rho=-0.187, break_score=0.250) is anchored via KG path to a strong_buy burst on BTC (buy_ratio=0.81).  While directional pressure on BTC persists, SOL remains unanchored → divergence likely continues.",
+    "mechanism": "KG path: corr_break → asset → has_aggression → AggressionNode(burst). Flow-driven correlation breaks are self-sustaining: buyers pushing BTC's mark above index create funding pressure that attracts more positioning, keeping the asset decoupled from its pair.",
+    "evidence_nodes": [
+      "asset:BTC",
+      "asset:SOL",
+      "corr:BTC:SOL",
+      "aggr:BTC:3"
+    ],
+    "evidence_edges": [
+      "has_aggression:BTC:3"
+    ],
+    "operator_trace": [
+      "align",
+      "compose"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.67,
+      "novelty": 0.1875,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.62,
+    "run_id": "run_003_sprint_d",
+    "kg_families": [
+      "cross_asset",
+      "microstructure"
+    ],
+    "tags": [
+      "correlation_break",
+      "continuation_candidate",
+      "chain_rule",
+      "D1"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "ff2c1982-77dd-4119-92f3-744a69e6098c",
+    "version": 1,
+    "created_at": "2026-04-15T02:19:07.215216+00:00",
+    "title": "Chain-D1 flow continuation: (BTC,SOL) break driven by SOL burst aggression",
+    "claim": "Correlation break between BTC and SOL (rho=-0.187, break_score=0.250) is anchored via KG path to a strong_sell burst on SOL (buy_ratio=0.30).  While directional pressure on SOL persists, BTC remains unanchored → divergence likely continues.",
+    "mechanism": "KG path: corr_break → asset → has_aggression → AggressionNode(burst). Flow-driven correlation breaks are self-sustaining: buyers pushing SOL's mark above index create funding pressure that attracts more positioning, keeping the asset decoupled from its pair.",
+    "evidence_nodes": [
+      "asset:BTC",
+      "asset:SOL",
+      "corr:BTC:SOL",
+      "aggr:SOL:1"
+    ],
+    "evidence_edges": [
+      "has_aggression:SOL:1"
+    ],
+    "operator_trace": [
+      "align",
+      "compose"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.67,
+      "novelty": 0.129,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.6083,
+    "run_id": "run_003_sprint_d",
+    "kg_families": [
+      "cross_asset",
+      "microstructure"
+    ],
+    "tags": [
+      "correlation_break",
+      "continuation_candidate",
+      "chain_rule",
+      "D1"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "7facbd14-9386-4e0b-85bd-7b27a0e27888",
+    "version": 1,
+    "created_at": "2026-04-15T02:19:07.215291+00:00",
+    "title": "Regime transition aggressive_buying → undefined detected",
+    "claim": "A transition from aggressive_buying to undefined has been observed. Following this pattern historically, the market tends to exhibit lower volatility and tighter spreads for at least 2 hours.",
+    "mechanism": "Extreme regimes exhaust the directional participants; the subsequent resting phase reflects informed market-maker re-entry.",
+    "evidence_nodes": [
+      "regime:HYPE:4",
+      "regime:HYPE:5"
+    ],
+    "evidence_edges": [
+      "transition:HYPE:4:5"
+    ],
+    "operator_trace": [
+      "compose",
+      "difference"
+    ],
+    "secrecy_level": "shareable_structure",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.58,
+      "novelty": 0.9344,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.25
+    },
+    "composite_score": 0.6969,
+    "run_id": "run_003_sprint_d",
+    "kg_families": [
+      "regime"
+    ],
+    "tags": [
+      "regime",
+      "transition"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "0409124c-8f9e-4779-9a96-c09cb291fb9b",
+    "version": 1,
+    "created_at": "2026-04-15T02:19:07.215366+00:00",
+    "title": "Regime transition aggressive_selling → undefined detected",
+    "claim": "A transition from aggressive_selling to undefined has been observed. Following this pattern historically, the market tends to exhibit lower volatility and tighter spreads for at least 2 hours.",
+    "mechanism": "Extreme regimes exhaust the directional participants; the subsequent resting phase reflects informed market-maker re-entry.",
+    "evidence_nodes": [
+      "regime:HYPE:8",
+      "regime:HYPE:9"
+    ],
+    "evidence_edges": [
+      "transition:HYPE:8:9"
+    ],
+    "operator_trace": [
+      "compose",
+      "difference"
+    ],
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.58,
+      "novelty": 0.0714,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.25
+    },
+    "composite_score": 0.5243,
+    "run_id": "run_003_sprint_d",
+    "kg_families": [
+      "regime"
+    ],
+    "tags": [
+      "regime",
+      "transition"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "365e40d7-b9d2-4cd0-9b20-05c173562b94",
+    "version": 1,
+    "created_at": "2026-04-15T02:19:07.215441+00:00",
+    "title": "Regime transition aggressive_selling → resting_liquidity detected",
+    "claim": "A transition from aggressive_selling to resting_liquidity has been observed. Following this pattern historically, the market tends to exhibit lower volatility and tighter spreads for at least 2 hours.",
+    "mechanism": "Extreme regimes exhaust the directional participants; the subsequent resting phase reflects informed market-maker re-entry.",
+    "evidence_nodes": [
+      "regime:HYPE:11",
+      "regime:HYPE:12"
+    ],
+    "evidence_edges": [
+      "transition:HYPE:11:12"
+    ],
+    "operator_trace": [
+      "compose",
+      "difference"
+    ],
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.58,
+      "novelty": 0.0714,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.25
+    },
+    "composite_score": 0.5243,
+    "run_id": "run_003_sprint_d",
+    "kg_families": [
+      "regime"
+    ],
+    "tags": [
+      "regime",
+      "transition"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "6f230f8e-48b2-41d7-9e32-b53dffde867c",
+    "version": 1,
+    "created_at": "2026-04-15T02:19:07.215518+00:00",
+    "title": "Regime transition aggressive_selling → aggressive_buying detected",
+    "claim": "A transition from aggressive_selling to aggressive_buying has been observed. Following this pattern historically, the market tends to exhibit lower volatility and tighter spreads for at least 2 hours.",
+    "mechanism": "Extreme regimes exhaust the directional participants; the subsequent resting phase reflects informed market-maker re-entry.",
+    "evidence_nodes": [
+      "regime:ETH:0",
+      "regime:ETH:1"
+    ],
+    "evidence_edges": [
+      "transition:ETH:0:1"
+    ],
+    "operator_trace": [
+      "compose",
+      "difference"
+    ],
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.58,
+      "novelty": 0.0714,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.25
+    },
+    "composite_score": 0.5243,
+    "run_id": "run_003_sprint_d",
+    "kg_families": [
+      "regime"
+    ],
+    "tags": [
+      "regime",
+      "transition"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "04cd641a-f5e5-44f0-bf85-41def51fc3ff",
+    "version": 1,
+    "created_at": "2026-04-15T02:19:07.215603+00:00",
+    "title": "Correlation break (HYPE,SOL) — continuation_candidate",
+    "claim": "Rolling correlation between HYPE and SOL broke (rho=0.050, break_score=0.265) alongside rising aggression bursts; divergence likely to continue.",
+    "mechanism": "Directional flow in one asset while the other stays passive mechanically reduces contemporaneous correlation; the break continues until momentum exhausts.",
+    "evidence_nodes": [
+      "asset:HYPE",
+      "corr:HYPE:SOL"
+    ],
+    "evidence_edges": [
+      "correlation_break:HYPE:corr:HYPE:SOL"
+    ],
+    "operator_trace": [
+      "align",
+      "compose"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.55,
+      "novelty": 0.7222,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.6969,
+    "run_id": "run_003_sprint_d",
+    "kg_families": [
+      "cross_asset",
+      "microstructure"
+    ],
+    "tags": [
+      "correlation_break",
+      "continuation_candidate"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "eb893af3-0269-4798-9977-e46871b96403",
+    "version": 1,
+    "created_at": "2026-04-15T02:19:07.215686+00:00",
+    "title": "Correlation break (ETH,BTC) — continuation_candidate",
+    "claim": "Rolling correlation between ETH and BTC broke (rho=-0.082, break_score=0.300) alongside rising aggression bursts; divergence likely to continue.",
+    "mechanism": "Directional flow in one asset while the other stays passive mechanically reduces contemporaneous correlation; the break continues until momentum exhausts.",
+    "evidence_nodes": [
+      "asset:ETH",
+      "corr:ETH:BTC"
+    ],
+    "evidence_edges": [
+      "correlation_break:ETH:corr:ETH:BTC"
+    ],
+    "operator_trace": [
+      "align",
+      "compose"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.55,
+      "novelty": 0.381,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.6287,
+    "run_id": "run_003_sprint_d",
+    "kg_families": [
+      "cross_asset",
+      "microstructure"
+    ],
+    "tags": [
+      "correlation_break",
+      "continuation_candidate"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "09cfd27e-4297-44f7-9b88-2e50ff6770ad",
+    "version": 1,
+    "created_at": "2026-04-15T02:19:07.215768+00:00",
+    "title": "Correlation break (ETH,SOL) — continuation_candidate",
+    "claim": "Rolling correlation between ETH and SOL broke (rho=0.096, break_score=0.300) alongside rising aggression bursts; divergence likely to continue.",
+    "mechanism": "Directional flow in one asset while the other stays passive mechanically reduces contemporaneous correlation; the break continues until momentum exhausts.",
+    "evidence_nodes": [
+      "asset:ETH",
+      "corr:ETH:SOL"
+    ],
+    "evidence_edges": [
+      "correlation_break:ETH:corr:ETH:SOL"
+    ],
+    "operator_trace": [
+      "align",
+      "compose"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "untested",
+    "scores": {
+      "plausibility": 0.55,
+      "novelty": 0.2105,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.5946,
+    "run_id": "run_003_sprint_d",
+    "kg_families": [
+      "cross_asset",
+      "microstructure"
+    ],
+    "tags": [
+      "correlation_break",
+      "continuation_candidate"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "62703406-50bb-4165-9ac8-4ff3e6450d3b",
+    "version": 1,
+    "created_at": "2026-04-15T02:19:07.215853+00:00",
+    "title": "Correlation break (BTC,SOL) — continuation_candidate",
+    "claim": "Rolling correlation between BTC and SOL broke (rho=-0.187, break_score=0.250) alongside rising aggression bursts; divergence likely to continue.",
+    "mechanism": "Directional flow in one asset while the other stays passive mechanically reduces contemporaneous correlation; the break continues until momentum exhausts.",
+    "evidence_nodes": [
+      "asset:BTC",
+      "corr:BTC:SOL"
+    ],
+    "evidence_edges": [
+      "correlation_break:BTC:corr:BTC:SOL"
+    ],
+    "operator_trace": [
+      "align",
+      "compose"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.55,
+      "novelty": 0.3,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.6125,
+    "run_id": "run_003_sprint_d",
+    "kg_families": [
+      "cross_asset",
+      "microstructure"
+    ],
+    "tags": [
+      "correlation_break",
+      "continuation_candidate"
+    ],
+    "actionability_note": null
+  }
+]

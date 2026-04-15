@@ -1,0 +1,102 @@
+[
+  {
+    "title": "Correlation break (HYPE,ETH) \u2014 continuation_candidate",
+    "composite_score": 0.744,
+    "validation_status": "weakly_supported",
+    "secrecy_level": "internal_watchlist",
+    "tags": [
+      "correlation_break",
+      "continuation_candidate"
+    ]
+  },
+  {
+    "title": "Regime transition aggressive_buying \u2192 undefined detected",
+    "composite_score": 0.71,
+    "validation_status": "weakly_supported",
+    "secrecy_level": "shareable_structure",
+    "tags": [
+      "regime",
+      "transition"
+    ]
+  },
+  {
+    "title": "Correlation break (HYPE,BTC) \u2014 continuation_candidate",
+    "composite_score": 0.5858,
+    "validation_status": "untested",
+    "secrecy_level": "internal_watchlist",
+    "tags": [
+      "correlation_break",
+      "continuation_candidate"
+    ]
+  },
+  {
+    "title": "Correlation break (HYPE,SOL) \u2014 continuation_candidate",
+    "composite_score": 0.5858,
+    "validation_status": "untested",
+    "secrecy_level": "internal_watchlist",
+    "tags": [
+      "correlation_break",
+      "continuation_candidate"
+    ]
+  },
+  {
+    "title": "Correlation break (ETH,BTC) \u2014 continuation_candidate",
+    "composite_score": 0.5858,
+    "validation_status": "untested",
+    "secrecy_level": "internal_watchlist",
+    "tags": [
+      "correlation_break",
+      "continuation_candidate"
+    ]
+  },
+  {
+    "title": "Correlation break (ETH,SOL) \u2014 continuation_candidate",
+    "composite_score": 0.5858,
+    "validation_status": "untested",
+    "secrecy_level": "internal_watchlist",
+    "tags": [
+      "correlation_break",
+      "continuation_candidate"
+    ]
+  },
+  {
+    "title": "Correlation break (BTC,SOL) \u2014 continuation_candidate",
+    "composite_score": 0.5858,
+    "validation_status": "untested",
+    "secrecy_level": "internal_watchlist",
+    "tags": [
+      "correlation_break",
+      "continuation_candidate"
+    ]
+  },
+  {
+    "title": "Regime transition aggressive_selling \u2192 undefined detected",
+    "composite_score": 0.5243,
+    "validation_status": "untested",
+    "secrecy_level": "shareable_structure",
+    "tags": [
+      "regime",
+      "transition"
+    ]
+  },
+  {
+    "title": "Regime transition aggressive_selling \u2192 resting_liquidity detected",
+    "composite_score": 0.5243,
+    "validation_status": "untested",
+    "secrecy_level": "shareable_structure",
+    "tags": [
+      "regime",
+      "transition"
+    ]
+  },
+  {
+    "title": "Regime transition aggressive_selling \u2192 aggressive_buying detected",
+    "composite_score": 0.5243,
+    "validation_status": "untested",
+    "secrecy_level": "shareable_structure",
+    "tags": [
+      "regime",
+      "transition"
+    ]
+  }
+]
