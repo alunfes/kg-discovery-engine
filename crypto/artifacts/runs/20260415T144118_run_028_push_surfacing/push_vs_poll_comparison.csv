@@ -1,0 +1,10 @@
+approach,reviews_per_day,avg_stale_rate,avg_precision,avg_surfaced_after,avg_archived,missed_critical,model
+poll_30min,48.0,0.065,1.0,4.85,0.0,n/a,poll_first_review
+poll_45min,32.0,0.21,0.56,4.85,0.0,n/a,poll_first_review
+poll_60min,24.0,0.9025,0.0,4.85,0.0,n/a,poll_first_review
+poll_30min_archive,48.0,0.6397,0.76,5.0,41.97,n/a,poll_batch_archive
+poll_45min_archive,32.0,0.6457,0.666,5.0,36.72,n/a,poll_batch_archive
+poll_60min_archive,24.0,0.6695,0.7475,5.0,46.84,n/a,poll_batch_archive
+push_default,18.45,n/a,trigger-only,23.87,n/a,0,push
+push_sensitive,19.05,n/a,trigger-only,23.5,n/a,0,push
+push_conservative,16.95,n/a,trigger-only,25.05,n/a,0,push
