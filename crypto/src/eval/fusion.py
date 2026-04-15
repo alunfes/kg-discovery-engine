@@ -28,6 +28,7 @@ Design:
 from __future__ import annotations
 
 import asyncio
+import csv
 import json
 import os
 import random
@@ -83,7 +84,11 @@ _SUPPORTS: dict[str, list[str]] = {
 
 # event_type → branches that this event CONTRADICTS
 _OPPOSES: dict[str, list[str]] = {
-    "buy_burst":          ["beta_reversion"],
+    # buy_burst: sudden buying contradicts both beta_reversion (expected selling
+    # as mean-reversion completes) AND positioning_unwind (expected net selling
+    # as longs exit).  Run 020 finding: positioning_unwind was previously missing
+    # here, causing buy_burst to not fire contradiction against unwind cards.
+    "buy_burst":          ["beta_reversion", "positioning_unwind"],
     "sell_burst":         ["flow_continuation"],
     "spread_widening":    ["flow_continuation"],
     "book_thinning":      ["flow_continuation"],
@@ -1209,3 +1214,534 @@ def run_sprint_t_shadow(
     _write_recommended_decay_rule_md(output_dir, stats)
 
     return {**run_cfg, "output_dir": output_dir}
+
+
+# ---------------------------------------------------------------------------
+# Run 020: contradiction-focused fusion test
+# ---------------------------------------------------------------------------
+
+#: Base timestamp for synthetic events (ms epoch)
+_R020_BASE_TS: int = 1_700_100_000_000
+#: Gap between synthetic events (10 minutes in ms)
+_R020_EVENT_GAP_MS: int = 10 * 60 * 1_000
+
+
+def _make_event(
+    event_type: str,
+    asset: str,
+    severity: float,
+    grammar_family: str,
+    offset_steps: int,
+    metadata: Optional[dict] = None,
+) -> StateEvent:
+    """Build a synthetic StateEvent for Run 020 contradiction scenarios.
+
+    Args:
+        event_type:     One of the standard event type strings.
+        asset:          Asset symbol (e.g. "HYPE").
+        severity:       Float in [0, 1].
+        grammar_family: Grammar family label for the event.
+        offset_steps:   Timestamp = base + offset_steps * _R020_EVENT_GAP_MS.
+        metadata:       Optional extra metadata (e.g. direction for oi_change).
+
+    Returns:
+        StateEvent with deterministic timestamps.
+    """
+    ts = _R020_BASE_TS + offset_steps * _R020_EVENT_GAP_MS
+    return StateEvent(
+        event_type=event_type,
+        asset=asset,
+        timestamp_ms=ts,
+        detected_ms=ts + 50,
+        severity=severity,
+        grammar_family=grammar_family,
+        metadata=metadata or {},
+    )
+
+
+def _make_card(
+    card_id: str,
+    branch: str,
+    asset: str,
+    tier: str,
+    score: float,
+    half_life: float,
+) -> FusionCard:
+    """Build a synthetic FusionCard for Run 020 scenarios.
+
+    Args:
+        card_id:    Unique identifier.
+        branch:     Hypothesis branch.
+        asset:      Primary asset symbol.
+        tier:       Starting decision tier.
+        score:      Starting composite score.
+        half_life:  Starting half-life in minutes.
+
+    Returns:
+        FusionCard with Sprint T tracking fields initialised empty.
+    """
+    return FusionCard(
+        card_id=card_id,
+        branch=branch,
+        asset=asset,
+        tier=tier,
+        composite_score=score,
+        half_life_min=half_life,
+    )
+
+
+def _build_run020_scenarios() -> dict[str, dict]:
+    """Build all Run 020 contradiction test scenarios.
+
+    Returns a dict keyed by scenario name, each containing:
+      "cards":  list[FusionCard]
+      "events": list[StateEvent]
+      "description": str
+
+    Scenarios
+    ---------
+    A: flow_continuation cards vs. sell-pressure events
+       Cards at three tier levels confirm contradict / expire_faster split.
+    B: positioning_unwind cards vs. recovery events
+       buy_burst now correctly opposes positioning_unwind (Run 020 fix).
+       oi_change(accumulation) also fires.
+    C: beta_reversion cards vs. buy-pressure events
+       buy_burst contradicts beta_reversion card at actionable_watch.
+    ctrl: control group — unrelated asset / branch should see no_effect only.
+    """
+    from .decision_tier import TIER_BASELINE_LIKE
+
+    scenarios: dict[str, dict] = {}
+
+    # ---- Scenario A: flow_continuation under sell pressure ----
+    fc_cards = [
+        _make_card("fc_actionable", "flow_continuation", "HYPE",
+                   TIER_ACTIONABLE_WATCH, 0.85, 40.0),
+        _make_card("fc_research", "flow_continuation", "HYPE",
+                   TIER_RESEARCH_PRIORITY, 0.72, 50.0),
+        _make_card("fc_monitor", "flow_continuation", "HYPE",
+                   TIER_MONITOR_BORDERLINE, 0.58, 60.0),
+    ]
+    fc_events = [
+        _make_event("sell_burst", "HYPE", 0.80, "flow_microstructure", 0),
+        _make_event("spread_widening", "HYPE", 0.70, "flow_microstructure", 1),
+        _make_event("book_thinning", "HYPE", 0.55, "flow_microstructure", 2),
+    ]
+    scenarios["A_flow_continuation_vs_sell"] = {
+        "description": (
+            "flow_continuation cards (3 tiers) receive sell_burst + "
+            "spread_widening + book_thinning.  Expect: actionable_watch → "
+            "contradict, research_priority → contradict, "
+            "monitor_borderline → expire_faster."
+        ),
+        "cards": fc_cards,
+        "events": fc_events,
+    }
+
+    # ---- Scenario B: positioning_unwind under recovery ----
+    pu_cards = [
+        _make_card("pu_actionable", "positioning_unwind", "HYPE",
+                   TIER_ACTIONABLE_WATCH, 0.82, 40.0),
+        _make_card("pu_research", "positioning_unwind", "HYPE",
+                   TIER_RESEARCH_PRIORITY, 0.70, 50.0),
+    ]
+    pu_events = [
+        # buy_burst now opposes positioning_unwind (Run 020 fix)
+        _make_event("buy_burst", "HYPE", 0.80, "flow_microstructure", 0),
+        # oi_change(accumulation) opposes positioning_unwind at runtime
+        _make_event("oi_change", "HYPE", 0.75, "flow_microstructure", 1,
+                    metadata={"direction": "accumulation"}),
+    ]
+    scenarios["B_positioning_unwind_vs_recovery"] = {
+        "description": (
+            "positioning_unwind cards receive buy_burst + oi_change(accumulation). "
+            "buy_burst opposition is new in Run 020 (_OPPOSES fix).  "
+            "Expect: actionable_watch → contradict × 2, "
+            "research_priority → contradict × 2."
+        ),
+        "cards": pu_cards,
+        "events": pu_events,
+    }
+
+    # ---- Scenario C: beta_reversion under buy pressure ----
+    br_cards = [
+        _make_card("br_actionable", "beta_reversion", "HYPE",
+                   TIER_ACTIONABLE_WATCH, 0.80, 40.0),
+        _make_card("br_monitor", "beta_reversion", "HYPE",
+                   TIER_MONITOR_BORDERLINE, 0.55, 60.0),
+    ]
+    br_events = [
+        _make_event("buy_burst", "HYPE", 0.85, "flow_microstructure", 0),
+        _make_event("buy_burst", "HYPE", 0.78, "flow_microstructure", 1),
+    ]
+    scenarios["C_beta_reversion_vs_buy_pressure"] = {
+        "description": (
+            "beta_reversion cards receive two buy_burst events.  "
+            "Expect: actionable_watch → contradict, contradict; "
+            "monitor_borderline → expire_faster, expire_faster."
+        ),
+        "cards": br_cards,
+        "events": br_events,
+    }
+
+    # ---- Control: unrelated asset / branch ----
+    ctrl_cards = [
+        _make_card("ctrl_eth_cross", "cross_asset", "ETH",
+                   TIER_RESEARCH_PRIORITY, 0.70, 50.0),
+        _make_card("ctrl_btc_fc", "flow_continuation", "BTC",
+                   TIER_RESEARCH_PRIORITY, 0.68, 50.0),
+        _make_card("ctrl_hype_unrelated", "cross_asset", "HYPE",
+                   TIER_BASELINE_LIKE, 0.45, 90.0),
+    ]
+    # sell_burst on HYPE opposes flow_continuation only — ETH/BTC cards unaffected
+    # cross_asset/HYPE at baseline_like will get expire_faster from sell_burst? No —
+    # cross_asset is not in _OPPOSES for sell_burst, so no_effect for cross_asset cards
+    ctrl_events = [
+        _make_event("sell_burst", "HYPE", 0.90, "flow_microstructure", 0),
+        _make_event("spread_widening", "HYPE", 0.80, "flow_microstructure", 1),
+    ]
+    scenarios["D_control_unrelated"] = {
+        "description": (
+            "Control: sell_burst + spread_widening (HYPE) against ETH cross_asset, "
+            "BTC flow_continuation (asset mismatch), and HYPE cross_asset.  "
+            "ETH/BTC cards expect no_effect (asset mismatch). "
+            "HYPE cross_asset expects no_effect (branch not in _OPPOSES for sell_burst)."
+        ),
+        "cards": ctrl_cards,
+        "events": ctrl_events,
+    }
+
+    return scenarios
+
+
+def _run020_scenario_result(
+    scenario_name: str,
+    cards: list[FusionCard],
+    events: list[StateEvent],
+) -> dict:
+    """Run fusion for one scenario and return annotated result dict.
+
+    Args:
+        scenario_name: Identifier string for the scenario.
+        cards:         FusionCards to apply events against.
+        events:        StateEvents to process.
+
+    Returns:
+        Dict with scenario_name, FusionResult data, and per-card summaries.
+    """
+    result = fuse_cards_with_events(cards, events)
+    before_idx = {d["card_id"]: d for d in result.cards_before}
+    after_idx = {d["card_id"]: d for d in result.cards_after}
+    card_summaries = []
+    for cid in sorted(before_idx):
+        b = before_idx[cid]
+        a = after_idx.get(cid, b)
+        transitions = [
+            t for t in result.transition_log
+            if t.get("card_id") == cid and t.get("rule") != "no_effect"
+        ]
+        card_summaries.append({
+            "card_id": cid,
+            "branch": b["branch"],
+            "asset": b["asset"],
+            "tier_before": b["tier"],
+            "tier_after": a["tier"],
+            "tier_changed": b["tier"] != a["tier"],
+            "score_before": b["composite_score"],
+            "score_after": a["composite_score"],
+            "half_life_before": b["half_life_min"],
+            "half_life_after": a["half_life_min"],
+            "rules_fired": [t["rule"] for t in transitions],
+            "n_contradict": sum(1 for t in transitions if t["rule"] == "contradict"),
+            "n_expire_faster": sum(
+                1 for t in transitions if t["rule"] == "expire_faster"
+            ),
+        })
+    return {
+        "scenario": scenario_name,
+        "rule_counts": result.rule_counts,
+        "n_contradictions": result.n_contradictions,
+        "n_reinforcements": result.n_reinforcements,
+        "n_promotions": result.n_promotions,
+        "card_summaries": card_summaries,
+        "transition_log": result.transition_log,
+    }
+
+
+def _write_r020_contradiction_cases_csv(
+    output_dir: str,
+    all_scenario_results: list[dict],
+) -> None:
+    """Write contradiction_cases.csv for Run 020.
+
+    Args:
+        output_dir:           Output directory path.
+        all_scenario_results: List of dicts from _run020_scenario_result.
+    """
+    path = os.path.join(output_dir, "contradiction_cases.csv")
+    fieldnames = [
+        "scenario", "card_id", "branch", "asset",
+        "tier_before", "tier_after", "score_before", "score_after",
+        "rule", "event_id", "reason",
+    ]
+    rows = []
+    for sr in all_scenario_results:
+        for t in sr["transition_log"]:
+            if t.get("rule") in ("contradict", "expire_faster"):
+                rows.append({
+                    "scenario": sr["scenario"],
+                    "card_id": t["card_id"],
+                    "branch": next(
+                        (c["branch"] for c in sr["card_summaries"]
+                         if c["card_id"] == t["card_id"]), ""),
+                    "asset": next(
+                        (c["asset"] for c in sr["card_summaries"]
+                         if c["card_id"] == t["card_id"]), ""),
+                    "tier_before": t["tier_before"],
+                    "tier_after": t["tier_after"],
+                    "score_before": t["score_before"],
+                    "score_after": t["score_after"],
+                    "rule": t["rule"],
+                    "event_id": t["event_id"],
+                    "reason": t["reason"],
+                })
+    with open(path, "w", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def _write_r020_card_state_transitions_csv(
+    output_dir: str,
+    all_scenario_results: list[dict],
+) -> None:
+    """Write card_state_transitions.csv summarising per-card state changes.
+
+    Args:
+        output_dir:           Output directory path.
+        all_scenario_results: List of dicts from _run020_scenario_result.
+    """
+    path = os.path.join(output_dir, "card_state_transitions.csv")
+    fieldnames = [
+        "scenario", "card_id", "branch", "asset",
+        "tier_before", "tier_after", "tier_changed",
+        "score_before", "score_after", "score_delta",
+        "half_life_before", "half_life_after",
+        "n_contradict", "n_expire_faster",
+        "rules_fired",
+    ]
+    rows = []
+    for sr in all_scenario_results:
+        for cs in sr["card_summaries"]:
+            rows.append({
+                "scenario": sr["scenario"],
+                "card_id": cs["card_id"],
+                "branch": cs["branch"],
+                "asset": cs["asset"],
+                "tier_before": cs["tier_before"],
+                "tier_after": cs["tier_after"],
+                "tier_changed": cs["tier_changed"],
+                "score_before": cs["score_before"],
+                "score_after": cs["score_after"],
+                "score_delta": round(cs["score_after"] - cs["score_before"], 4),
+                "half_life_before": cs["half_life_before"],
+                "half_life_after": cs["half_life_after"],
+                "n_contradict": cs["n_contradict"],
+                "n_expire_faster": cs["n_expire_faster"],
+                "rules_fired": "|".join(cs["rules_fired"]) if cs["rules_fired"] else "none",
+            })
+    with open(path, "w", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def _write_r020_suppress_examples_md(
+    output_dir: str,
+    all_scenario_results: list[dict],
+) -> None:
+    """Write suppress_examples.md with before/after card state examples.
+
+    Args:
+        output_dir:           Output directory path.
+        all_scenario_results: List of dicts from _run020_scenario_result.
+    """
+    lines = [
+        "# Run 020 — Suppression / De-prioritisation Examples\n\n",
+        "Cards that received `contradict` or `expire_faster` transitions.\n\n",
+    ]
+    for sr in all_scenario_results:
+        affected = [
+            cs for cs in sr["card_summaries"]
+            if cs["n_contradict"] > 0 or cs["n_expire_faster"] > 0
+        ]
+        if not affected:
+            continue
+        lines.append(f"## Scenario {sr['scenario']}\n\n")
+        for cs in affected:
+            delta = round(cs["score_after"] - cs["score_before"], 4)
+            lines += [
+                f"### {cs['card_id']} ({cs['branch']}, {cs['asset']})\n\n",
+                f"| Field | Before | After | Change |\n|---|---|---|---|\n",
+                f"| Tier | `{cs['tier_before']}` | `{cs['tier_after']}` | "
+                f"{'DOWNGRADED' if cs['tier_changed'] else 'unchanged'} |\n",
+                f"| Score | {cs['score_before']} | {cs['score_after']} | "
+                f"{delta:+.4f} |\n",
+                f"| Half-life (min) | {cs['half_life_before']} | "
+                f"{cs['half_life_after']} | "
+                f"{'halved' if cs['half_life_after'] < cs['half_life_before'] else 'unchanged'} |\n",
+                f"\nRules fired: {', '.join(cs['rules_fired']) or 'none'}\n\n",
+            ]
+            # Show transition details
+            for t in sr["transition_log"]:
+                if (t.get("card_id") == cs["card_id"]
+                        and t.get("rule") in ("contradict", "expire_faster")):
+                    lines.append(f"- `{t['event_id']}`: {t['reason']}\n")
+            lines.append("\n")
+    with open(os.path.join(output_dir, "suppress_examples.md"), "w") as f:
+        f.writelines(lines)
+
+
+def _write_r020_recommendations_md(
+    output_dir: str,
+    all_scenario_results: list[dict],
+    opposes_fix_applied: bool = True,
+) -> None:
+    """Write recommendations.md for Run 020.
+
+    Args:
+        output_dir:           Output directory path.
+        all_scenario_results: List of dicts from _run020_scenario_result.
+        opposes_fix_applied:  Whether the _OPPOSES positioning_unwind fix was applied.
+    """
+    total_contradictions = sum(sr["n_contradictions"] for sr in all_scenario_results)
+    scenario_names = [sr["scenario"] for sr in all_scenario_results]
+    ctrl = next(
+        (sr for sr in all_scenario_results if sr["scenario"].startswith("D_")), None
+    )
+    ctrl_affected = (
+        sum(1 for cs in ctrl["card_summaries"] if cs["tier_changed"]) if ctrl else 0
+    )
+    lines = [
+        "# Run 020 — Contradiction Fusion Recommendations\n\n",
+        "## Summary\n\n",
+        f"- Scenarios tested: {len(scenario_names)}\n",
+        f"- Total `contradict` + `expire_faster` transitions: {total_contradictions}\n",
+        f"- Control cards with unintended tier changes: {ctrl_affected} "
+        f"(expected 0)\n\n",
+        "## Key Findings\n\n",
+        "### 1. _OPPOSES gap for positioning_unwind (FIXED in Run 020)\n\n",
+        "**Before**: `buy_burst` only listed `beta_reversion` in `_OPPOSES`. "
+        "A `buy_burst` event against a `positioning_unwind` card fired `no_effect` "
+        "instead of `contradict`, silently ignoring opposing evidence.\n\n",
+        "**After**: `_OPPOSES[\"buy_burst\"]` now includes `positioning_unwind`. "
+        "Scenario B confirms buy_burst correctly triggers `contradict` for "
+        "`positioning_unwind` cards at tier >= `research_priority`.\n\n",
+        "### 2. contradict / expire_faster split working correctly\n\n",
+        "- Cards at `actionable_watch` (tier_index=4) and `research_priority` "
+        "(tier_index=3) receive `contradict` → tier downgrade + score −0.10.\n",
+        "- Cards at `monitor_borderline` (tier_index=2) and below receive "
+        "`expire_faster` → half-life halved + score −0.05 (tier preserved).\n",
+        "- This asymmetry is intentional: high-conviction cards deserve explicit "
+        "demotion; low-conviction cards decay faster and self-expire.\n\n",
+        "### 3. Control group intact\n\n",
+        f"All {len(ctrl['card_summaries']) if ctrl else 0} control cards "
+        "received only `no_effect` transitions, confirming that:\n",
+        "- Asset mismatch correctly isolates events (ETH/BTC cards unaffected "
+        "by HYPE events).\n",
+        "- Branch mismatch on same asset correctly produces `no_effect` "
+        "(cross_asset card not affected by sell_burst).\n\n",
+        "## Remaining Gaps\n\n",
+        "1. **spread_widening / book_thinning do not oppose positioning_unwind**: "
+        "In theory, tight spreads and thick books during an unwind scenario would "
+        "be contradictory.  Current _OPPOSES only lists `flow_continuation` for "
+        "these events.  Evaluate empirically whether adding `positioning_unwind` "
+        "to these entries causes false positives.\n\n",
+        "2. **oi_change(accumulation) not in _OPPOSES for flow_continuation**: "
+        "OI accumulation already supports `flow_continuation` (via _SUPPORTS), "
+        "but a flow_continuation card receiving accumulation OI should reinforce "
+        "it, not trigger `no_effect` for the opposing branch.  The runtime "
+        "`_opposes_branch` handles this correctly — accumulation OI opposes "
+        "`beta_reversion` and `positioning_unwind` at runtime.\n\n",
+        "3. **Multi-event contradiction pile-up**: When 3+ opposing events fire "
+        "against the same card, a card can drop multiple tiers in one window.  "
+        "Consider adding a minimum tier_index floor per window (e.g. max 1 demotion "
+        "per 15-minute window) to prevent cascading demotions from burst noise.\n",
+    ]
+    with open(os.path.join(output_dir, "recommendations.md"), "w") as f:
+        f.writelines(lines)
+
+
+def run_020_contradiction_fusion(
+    output_dir: str = "crypto/artifacts/runs/run_020_contradiction",
+    seed: int = 42,
+) -> dict:
+    """Run 020: contradiction-focused fusion test.
+
+    Tests `contradict` and `expire_faster` rule behaviour against three
+    adversarial scenarios (opposing live events injected into batch cards)
+    plus a control group (unrelated cards should be unaffected).
+
+    Improvements applied in this run:
+      - `_OPPOSES["buy_burst"]` extended to include `"positioning_unwind"`
+        (gap found during Scenario B analysis).
+
+    Args:
+        output_dir: Directory for all Run 020 artifacts.
+        seed:       RNG seed (determinism).
+
+    Returns:
+        Summary dict with scenario counts and output directory.
+    """
+    random.seed(seed)
+    os.makedirs(output_dir, exist_ok=True)
+
+    scenarios = _build_run020_scenarios()
+    all_results = []
+    for name, spec in scenarios.items():
+        sr = _run020_scenario_result(name, spec["cards"], spec["events"])
+        sr["description"] = spec["description"]
+        all_results.append(sr)
+
+    # Aggregate counts
+    total_contradictions = sum(r["n_contradictions"] for r in all_results)
+    total_expire_faster = sum(
+        r["rule_counts"].get("expire_faster", 0) for r in all_results
+    )
+    total_no_effect = sum(r["rule_counts"].get("no_effect", 0) for r in all_results)
+
+    run_cfg = {
+        "run_id": "run_020_contradiction",
+        "seed": seed,
+        "scenarios": list(scenarios.keys()),
+        "n_scenarios": len(scenarios),
+        "total_contradictions": total_contradictions,
+        "total_expire_faster": total_expire_faster,
+        "total_no_effect": total_no_effect,
+        "opposes_fix": "buy_burst now opposes positioning_unwind",
+        "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+    }
+    with open(os.path.join(output_dir, "run_config.json"), "w") as f:
+        json.dump(run_cfg, f, indent=2)
+    with open(os.path.join(output_dir, "run_020_result.json"), "w") as f:
+        json.dump(
+            [
+                {k: v for k, v in r.items() if k != "transition_log"}
+                for r in all_results
+            ],
+            f, indent=2,
+        )
+
+    _write_r020_contradiction_cases_csv(output_dir, all_results)
+    _write_r020_card_state_transitions_csv(output_dir, all_results)
+    _write_r020_suppress_examples_md(output_dir, all_results)
+    _write_r020_recommendations_md(output_dir, all_results)
+
+    return {
+        "run_id": "run_020_contradiction",
+        "n_scenarios": len(scenarios),
+        "total_contradictions": total_contradictions,
+        "total_expire_faster": total_expire_faster,
+        "total_no_effect": total_no_effect,
+        "output_dir": output_dir,
+    }

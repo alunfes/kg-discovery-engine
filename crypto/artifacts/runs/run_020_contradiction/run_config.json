@@ -1,0 +1,16 @@
+{
+  "run_id": "run_020_contradiction",
+  "seed": 42,
+  "scenarios": [
+    "A_flow_continuation_vs_sell",
+    "B_positioning_unwind_vs_recovery",
+    "C_beta_reversion_vs_buy_pressure",
+    "D_control_unrelated"
+  ],
+  "n_scenarios": 4,
+  "total_contradictions": 8,
+  "total_expire_faster": 9,
+  "total_no_effect": 2,
+  "opposes_fix": "buy_burst now opposes positioning_unwind",
+  "timestamp": "2026-04-15T11:13:35Z"
+}
