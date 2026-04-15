@@ -125,6 +125,14 @@ def run_pipeline(config: PipelineConfig) -> list:
     grammar_kg, suppression_log = build_chain_grammar_kg(working_kg, collections)
     working_kg = union(working_kg, grammar_kg)
 
+    # Run 012: boundary-case detection (pre-adjudication warning for near-threshold
+    # activations where regime signals contradict the expected outcome).
+    # Stored in branch_metrics below so it travels with all other run artifacts.
+    from .eval.boundary_detector import BoundaryDetector, record_to_dict, warning_to_dict
+    _bd = BoundaryDetector()
+    _boundary_records = _bd.detect_from_kg(grammar_kg, suppression_log, working_kg, collections)
+    _boundary_warnings = _bd.generate_warnings(_boundary_records)
+
     # Count corr_break pairs for branch_activation_rate metric.
     n_corr_break_pairs = sum(
         1 for n in cross_kg.nodes.values()
@@ -231,6 +239,15 @@ def run_pipeline(config: PipelineConfig) -> list:
         cards,
     )
     branch_metrics["i4_watchlist"] = i4_watchlist
+
+    # Run 012: attach boundary detection results to branch_metrics
+    branch_metrics["run012_boundary_detection"] = {
+        "records": [record_to_dict(r) for r in _boundary_records],
+        "warnings": [warning_to_dict(w) for w in _boundary_warnings],
+        "n_records": len(_boundary_records),
+        "n_warnings": len(_boundary_warnings),
+        "high_warnings": sum(1 for w in _boundary_warnings if w.warning_level == "high"),
+    }
 
     _save_outputs(config, cards, inventory, branch_metrics)
 
