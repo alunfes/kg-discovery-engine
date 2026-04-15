@@ -1,0 +1,464 @@
+[
+  {
+    "card_id": "08bf842f-aff3-4d8e-834f-9c6c10c6fc2e",
+    "version": 1,
+    "created_at": "2026-04-15T12:04:13.900647+00:00",
+    "title": "E2 positioning unwind: (HYPE,BTC) — one-sided OI build + crowding",
+    "claim": "Correlation break (HYPE,BTC) rho=-0.158. OneSidedOIBuildNode (score=1.000, duration=24) → PositionCrowdingStateNode. Crowd unwind expected.",
+    "mechanism": "Path: CorrelationNode→OneSidedOIBuildNode→PositionCrowdingStateNode. Monotonic OI accumulation + aggression burst creates crowded positioning; any shock triggers forced unwind cascade.",
+    "evidence_nodes": [
+      "corr:HYPE:BTC",
+      "one_sided_oi:HYPE:BTC",
+      "position_crowding:HYPE:BTC"
+    ],
+    "evidence_edges": [
+      "oi_build:HYPE:BTC",
+      "oi_crowding:HYPE:BTC"
+    ],
+    "operator_trace": [
+      "align",
+      "union",
+      "chain_grammar"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 1.0,
+      "novelty": 1.0,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.865,
+    "run_id": "run_022_w07_s49",
+    "kg_families": [
+      "cross_asset",
+      "chain_grammar"
+    ],
+    "tags": [
+      "positioning_unwind",
+      "chain_rule",
+      "E2",
+      "oi_crowding"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "8ed5dad7-9edd-4aa8-8a52-bd98bf057942",
+    "version": 1,
+    "created_at": "2026-04-15T12:04:13.900825+00:00",
+    "title": "E2 positioning unwind: (HYPE,ETH) — one-sided OI build + crowding",
+    "claim": "Correlation break (HYPE,ETH) rho=0.026. OneSidedOIBuildNode (score=1.000, duration=24) → PositionCrowdingStateNode. Crowd unwind expected.",
+    "mechanism": "Path: CorrelationNode→OneSidedOIBuildNode→PositionCrowdingStateNode. Monotonic OI accumulation + aggression burst creates crowded positioning; any shock triggers forced unwind cascade.",
+    "evidence_nodes": [
+      "corr:HYPE:ETH",
+      "one_sided_oi:HYPE:ETH",
+      "position_crowding:HYPE:ETH"
+    ],
+    "evidence_edges": [
+      "oi_build:HYPE:ETH",
+      "oi_crowding:HYPE:ETH"
+    ],
+    "operator_trace": [
+      "align",
+      "union",
+      "chain_grammar"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 1.0,
+      "novelty": 0.2857,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.7221,
+    "run_id": "run_022_w07_s49",
+    "kg_families": [
+      "cross_asset",
+      "chain_grammar"
+    ],
+    "tags": [
+      "positioning_unwind",
+      "chain_rule",
+      "E2",
+      "oi_crowding"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "03b0a659-be86-40ba-bb67-4986a8896cee",
+    "version": 1,
+    "created_at": "2026-04-15T12:04:13.900964+00:00",
+    "title": "E2 positioning unwind: (HYPE,SOL) — one-sided OI build + crowding",
+    "claim": "Correlation break (HYPE,SOL) rho=0.174. OneSidedOIBuildNode (score=1.000, duration=24) → PositionCrowdingStateNode. Crowd unwind expected.",
+    "mechanism": "Path: CorrelationNode→OneSidedOIBuildNode→PositionCrowdingStateNode. Monotonic OI accumulation + aggression burst creates crowded positioning; any shock triggers forced unwind cascade.",
+    "evidence_nodes": [
+      "corr:HYPE:SOL",
+      "one_sided_oi:HYPE:SOL",
+      "position_crowding:HYPE:SOL"
+    ],
+    "evidence_edges": [
+      "oi_build:HYPE:SOL",
+      "oi_crowding:HYPE:SOL"
+    ],
+    "operator_trace": [
+      "align",
+      "union",
+      "chain_grammar"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 1.0,
+      "novelty": 0.2857,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.7221,
+    "run_id": "run_022_w07_s49",
+    "kg_families": [
+      "cross_asset",
+      "chain_grammar"
+    ],
+    "tags": [
+      "positioning_unwind",
+      "chain_rule",
+      "E2",
+      "oi_crowding"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "42d5036f-7fb2-44cb-860f-03d4045ced1b",
+    "version": 1,
+    "created_at": "2026-04-15T12:04:13.901171+00:00",
+    "title": "E2 positioning unwind: (HYPE,BTC) — one-sided OI build + crowding",
+    "claim": "Correlation break (HYPE,BTC) rho=0.000. OneSidedOIBuildNode (score=1.000, duration=24) → PositionCrowdingStateNode. Crowd unwind expected.",
+    "mechanism": "Path: CorrelationNode→OneSidedOIBuildNode→PositionCrowdingStateNode. Monotonic OI accumulation + aggression burst creates crowded positioning; any shock triggers forced unwind cascade.",
+    "evidence_nodes": [
+      "corr:HYPE_BTC",
+      "one_sided_oi:HYPE:BTC",
+      "position_crowding:HYPE:BTC"
+    ],
+    "evidence_edges": [
+      "oi_build:HYPE:BTC",
+      "oi_crowding:HYPE:BTC"
+    ],
+    "operator_trace": [
+      "align",
+      "union",
+      "chain_grammar"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 1.0,
+      "novelty": 0.1538,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.6958,
+    "run_id": "run_022_w07_s49",
+    "kg_families": [
+      "cross_asset",
+      "chain_grammar"
+    ],
+    "tags": [
+      "positioning_unwind",
+      "chain_rule",
+      "E2",
+      "oi_crowding"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "6b2dcffc-cbef-4ce4-bb5e-5e0bdbcc0320",
+    "version": 1,
+    "created_at": "2026-04-15T12:04:13.901273+00:00",
+    "title": "E2 positioning unwind: (HYPE,ETH) — one-sided OI build + crowding",
+    "claim": "Correlation break (HYPE,ETH) rho=0.000. OneSidedOIBuildNode (score=1.000, duration=24) → PositionCrowdingStateNode. Crowd unwind expected.",
+    "mechanism": "Path: CorrelationNode→OneSidedOIBuildNode→PositionCrowdingStateNode. Monotonic OI accumulation + aggression burst creates crowded positioning; any shock triggers forced unwind cascade.",
+    "evidence_nodes": [
+      "corr:HYPE_ETH",
+      "one_sided_oi:HYPE:ETH",
+      "position_crowding:HYPE:ETH"
+    ],
+    "evidence_edges": [
+      "oi_build:HYPE:ETH",
+      "oi_crowding:HYPE:ETH"
+    ],
+    "operator_trace": [
+      "align",
+      "union",
+      "chain_grammar"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 1.0,
+      "novelty": 0.1538,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.6958,
+    "run_id": "run_022_w07_s49",
+    "kg_families": [
+      "cross_asset",
+      "chain_grammar"
+    ],
+    "tags": [
+      "positioning_unwind",
+      "chain_rule",
+      "E2",
+      "oi_crowding"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "bbde9289-455a-4602-9b87-96e08e5dfe4f",
+    "version": 1,
+    "created_at": "2026-04-15T12:04:13.901372+00:00",
+    "title": "E2 positioning unwind: (HYPE,SOL) — one-sided OI build + crowding",
+    "claim": "Correlation break (HYPE,SOL) rho=0.000. OneSidedOIBuildNode (score=1.000, duration=24) → PositionCrowdingStateNode. Crowd unwind expected.",
+    "mechanism": "Path: CorrelationNode→OneSidedOIBuildNode→PositionCrowdingStateNode. Monotonic OI accumulation + aggression burst creates crowded positioning; any shock triggers forced unwind cascade.",
+    "evidence_nodes": [
+      "corr:HYPE_SOL",
+      "one_sided_oi:HYPE:SOL",
+      "position_crowding:HYPE:SOL"
+    ],
+    "evidence_edges": [
+      "oi_build:HYPE:SOL",
+      "oi_crowding:HYPE:SOL"
+    ],
+    "operator_trace": [
+      "align",
+      "union",
+      "chain_grammar"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 1.0,
+      "novelty": 0.1538,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.6958,
+    "run_id": "run_022_w07_s49",
+    "kg_families": [
+      "cross_asset",
+      "chain_grammar"
+    ],
+    "tags": [
+      "positioning_unwind",
+      "chain_rule",
+      "E2",
+      "oi_crowding"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "99400279-e4e3-4848-8866-c5e2e1b0badd",
+    "version": 1,
+    "created_at": "2026-04-15T12:04:13.901492+00:00",
+    "title": "E2 positioning unwind: (HYPE,BTC) — funding pressure regime",
+    "claim": "Correlation break (HYPE,BTC) rho=-0.158, break_score=0.523. FundingPressureRegimeNode (score=1.000) → FragilePremiumStateNode → UnwindTriggerNode (type=funding_extreme). Positioning unwind expected within 1-2 epochs.",
+    "mechanism": "Path: CorrelationNode→FundingPressureRegimeNode→FragilePremiumStateNode→UnwindTriggerNode. Extreme funding forces holders to exit, decoupling the pair.",
+    "evidence_nodes": [
+      "corr:HYPE:BTC",
+      "funding_pressure_regime:HYPE:BTC",
+      "fragile_premium:HYPE:BTC",
+      "unwind_trigger:HYPE:BTC"
+    ],
+    "evidence_edges": [
+      "funding_pressure:HYPE:BTC",
+      "funding_to_fragile:HYPE:BTC"
+    ],
+    "operator_trace": [
+      "align",
+      "union",
+      "compose",
+      "chain_grammar"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.922,
+      "novelty": 0.7917,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.8038,
+    "run_id": "run_022_w07_s49",
+    "kg_families": [
+      "cross_asset",
+      "microstructure",
+      "chain_grammar"
+    ],
+    "tags": [
+      "positioning_unwind",
+      "chain_rule",
+      "E2",
+      "funding_pressure"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "bd6accfb-248c-4872-a078-ecdafa641618",
+    "version": 1,
+    "created_at": "2026-04-15T12:04:13.901546+00:00",
+    "title": "E2 positioning unwind: (HYPE,ETH) — funding pressure regime",
+    "claim": "Correlation break (HYPE,ETH) rho=0.026, break_score=0.310. FundingPressureRegimeNode (score=1.000) → FragilePremiumStateNode → UnwindTriggerNode (type=funding_extreme). Positioning unwind expected within 1-2 epochs.",
+    "mechanism": "Path: CorrelationNode→FundingPressureRegimeNode→FragilePremiumStateNode→UnwindTriggerNode. Extreme funding forces holders to exit, decoupling the pair.",
+    "evidence_nodes": [
+      "corr:HYPE:ETH",
+      "funding_pressure_regime:HYPE:ETH",
+      "fragile_premium:HYPE:ETH",
+      "unwind_trigger:HYPE:ETH"
+    ],
+    "evidence_edges": [
+      "funding_pressure:HYPE:ETH",
+      "funding_to_fragile:HYPE:ETH"
+    ],
+    "operator_trace": [
+      "align",
+      "union",
+      "compose",
+      "chain_grammar"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.922,
+      "novelty": 0.3,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.7055,
+    "run_id": "run_022_w07_s49",
+    "kg_families": [
+      "cross_asset",
+      "microstructure",
+      "chain_grammar"
+    ],
+    "tags": [
+      "positioning_unwind",
+      "chain_rule",
+      "E2",
+      "funding_pressure"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "b243ffbe-5417-4ed4-be5a-4a035d596b63",
+    "version": 1,
+    "created_at": "2026-04-15T12:04:13.901594+00:00",
+    "title": "E2 positioning unwind: (HYPE,SOL) — funding pressure regime",
+    "claim": "Correlation break (HYPE,SOL) rho=0.174, break_score=0.536. FundingPressureRegimeNode (score=1.000) → FragilePremiumStateNode → UnwindTriggerNode (type=funding_extreme). Positioning unwind expected within 1-2 epochs.",
+    "mechanism": "Path: CorrelationNode→FundingPressureRegimeNode→FragilePremiumStateNode→UnwindTriggerNode. Extreme funding forces holders to exit, decoupling the pair.",
+    "evidence_nodes": [
+      "corr:HYPE:SOL",
+      "funding_pressure_regime:HYPE:SOL",
+      "fragile_premium:HYPE:SOL",
+      "unwind_trigger:HYPE:SOL"
+    ],
+    "evidence_edges": [
+      "funding_pressure:HYPE:SOL",
+      "funding_to_fragile:HYPE:SOL"
+    ],
+    "operator_trace": [
+      "align",
+      "union",
+      "compose",
+      "chain_grammar"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.922,
+      "novelty": 0.3,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.7055,
+    "run_id": "run_022_w07_s49",
+    "kg_families": [
+      "cross_asset",
+      "microstructure",
+      "chain_grammar"
+    ],
+    "tags": [
+      "positioning_unwind",
+      "chain_rule",
+      "E2",
+      "funding_pressure"
+    ],
+    "actionability_note": null
+  },
+  {
+    "card_id": "4785ab73-7381-40e0-bc1f-34166eb24290",
+    "version": 1,
+    "created_at": "2026-04-15T12:04:13.901890+00:00",
+    "title": "E2 positioning unwind: (HYPE,BTC) — funding pressure regime",
+    "claim": "Correlation break (HYPE,BTC) rho=0.000, break_score=0.000. FundingPressureRegimeNode (score=1.000) → FragilePremiumStateNode → UnwindTriggerNode (type=funding_extreme). Positioning unwind expected within 1-2 epochs.",
+    "mechanism": "Path: CorrelationNode→FundingPressureRegimeNode→FragilePremiumStateNode→UnwindTriggerNode. Extreme funding forces holders to exit, decoupling the pair.",
+    "evidence_nodes": [
+      "corr:HYPE_BTC",
+      "funding_pressure_regime:HYPE:BTC",
+      "fragile_premium:HYPE:BTC",
+      "unwind_trigger:HYPE:BTC"
+    ],
+    "evidence_edges": [
+      "funding_pressure:HYPE:BTC",
+      "funding_to_fragile:HYPE:BTC"
+    ],
+    "operator_trace": [
+      "align",
+      "union",
+      "compose",
+      "chain_grammar"
+    ],
+    "secrecy_level": "internal_watchlist",
+    "validation_status": "weakly_supported",
+    "scores": {
+      "plausibility": 0.922,
+      "novelty": 0.2105,
+      "actionability": 0.7,
+      "traceability": 1.0,
+      "reproducibility": 0.5,
+      "secrecy": 0.75
+    },
+    "composite_score": 0.6876,
+    "run_id": "run_022_w07_s49",
+    "kg_families": [
+      "cross_asset",
+      "microstructure",
+      "chain_grammar"
+    ],
+    "tags": [
+      "positioning_unwind",
+      "chain_rule",
+      "E2",
+      "funding_pressure"
+    ],
+    "actionability_note": null
+  }
+]

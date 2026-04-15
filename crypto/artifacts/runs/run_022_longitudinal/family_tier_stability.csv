@@ -1,0 +1,10 @@
+item,metric_type,mean,std,cv,stability
+flow_continuation,family_count,0.0,0.0,0.0,stable
+beta_reversion,family_count,0.1,0.3,3.0,drift
+positioning_unwind,family_count,9.9,0.3,0.0303,stable
+baseline,family_count,0.0,0.0,0.0,stable
+actionable_watch,tier_count,10.0,0.0,0.0,stable
+research_priority,tier_count,0.0,0.0,0.0,stable
+monitor_borderline,tier_count,0.0,0.0,0.0,stable
+baseline_like,tier_count,0.0,0.0,0.0,stable
+reject_conflicted,tier_count,0.0,0.0,0.0,stable

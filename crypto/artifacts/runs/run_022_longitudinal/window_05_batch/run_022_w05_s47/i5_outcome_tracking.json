@@ -1,0 +1,306 @@
+{
+  "run_id": "run_022_w05_s47",
+  "n_cards_tracked": 10,
+  "observation_midpoint_min": 30,
+  "outcome_records": [
+    {
+      "card_id": "9bbd286d-7859-4d41-902e-424936912c2a",
+      "title": "E2 positioning unwind: (HYPE,BTC) \u2014 one-sided OI build + crowding",
+      "branch": "positioning_unwind",
+      "decision_tier": "actionable_watch",
+      "watch_label": "positioning_unwind_watch",
+      "composite_score": 0.865,
+      "assets_mentioned": [
+        "HYPE",
+        "BTC"
+      ],
+      "expected_events": [
+        "buy_burst",
+        "oi_accumulation",
+        "one_sided_oi"
+      ],
+      "outcome_result": "hit",
+      "time_to_outcome_min": 0,
+      "half_life_min": 30,
+      "half_life_remaining_min": 30,
+      "outcome_type_match": true,
+      "matched_event": "buy_burst",
+      "outcome_detail": "buy_burst on HYPE at min 30 (magnitude=0.712)"
+    },
+    {
+      "card_id": "fd19ac7c-fca3-46cf-851b-0c779fef92ed",
+      "title": "E2 positioning unwind: (HYPE,ETH) \u2014 one-sided OI build + crowding",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "composite_score": 0.7221,
+      "assets_mentioned": [
+        "HYPE",
+        "ETH"
+      ],
+      "expected_events": [
+        "buy_burst",
+        "oi_accumulation",
+        "one_sided_oi"
+      ],
+      "outcome_result": "hit",
+      "time_to_outcome_min": 0,
+      "half_life_min": 30,
+      "half_life_remaining_min": 30,
+      "outcome_type_match": true,
+      "matched_event": "buy_burst",
+      "outcome_detail": "buy_burst on HYPE at min 30 (magnitude=0.712)"
+    },
+    {
+      "card_id": "8156a2fd-b351-4abf-a879-97535d9dbea1",
+      "title": "E2 positioning unwind: (HYPE,SOL) \u2014 one-sided OI build + crowding",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "composite_score": 0.7221,
+      "assets_mentioned": [
+        "HYPE",
+        "SOL"
+      ],
+      "expected_events": [
+        "buy_burst",
+        "oi_accumulation",
+        "one_sided_oi"
+      ],
+      "outcome_result": "hit",
+      "time_to_outcome_min": 0,
+      "half_life_min": 30,
+      "half_life_remaining_min": 30,
+      "outcome_type_match": true,
+      "matched_event": "buy_burst",
+      "outcome_detail": "buy_burst on HYPE at min 30 (magnitude=0.712)"
+    },
+    {
+      "card_id": "d7380f0f-5e89-45dc-b3ac-ae0034de2143",
+      "title": "E2 positioning unwind: (HYPE,BTC) \u2014 one-sided OI build + crowding",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "composite_score": 0.6958,
+      "assets_mentioned": [
+        "HYPE",
+        "BTC"
+      ],
+      "expected_events": [
+        "buy_burst",
+        "oi_accumulation",
+        "one_sided_oi"
+      ],
+      "outcome_result": "hit",
+      "time_to_outcome_min": 0,
+      "half_life_min": 30,
+      "half_life_remaining_min": 30,
+      "outcome_type_match": true,
+      "matched_event": "buy_burst",
+      "outcome_detail": "buy_burst on HYPE at min 30 (magnitude=0.712)"
+    },
+    {
+      "card_id": "82df575a-99c5-418d-b1be-10508b32b1ac",
+      "title": "E2 positioning unwind: (HYPE,ETH) \u2014 one-sided OI build + crowding",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "composite_score": 0.6958,
+      "assets_mentioned": [
+        "HYPE",
+        "ETH"
+      ],
+      "expected_events": [
+        "buy_burst",
+        "oi_accumulation",
+        "one_sided_oi"
+      ],
+      "outcome_result": "hit",
+      "time_to_outcome_min": 0,
+      "half_life_min": 30,
+      "half_life_remaining_min": 30,
+      "outcome_type_match": true,
+      "matched_event": "buy_burst",
+      "outcome_detail": "buy_burst on HYPE at min 30 (magnitude=0.712)"
+    },
+    {
+      "card_id": "80292643-568f-40ea-9c09-77f17125fcae",
+      "title": "E2 positioning unwind: (HYPE,SOL) \u2014 one-sided OI build + crowding",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "composite_score": 0.6958,
+      "assets_mentioned": [
+        "HYPE",
+        "SOL"
+      ],
+      "expected_events": [
+        "buy_burst",
+        "oi_accumulation",
+        "one_sided_oi"
+      ],
+      "outcome_result": "hit",
+      "time_to_outcome_min": 0,
+      "half_life_min": 30,
+      "half_life_remaining_min": 30,
+      "outcome_type_match": true,
+      "matched_event": "buy_burst",
+      "outcome_detail": "buy_burst on HYPE at min 30 (magnitude=0.712)"
+    },
+    {
+      "card_id": "0a64cea5-4ff2-4d35-8bda-1d632e6e39e1",
+      "title": "E2 positioning unwind: (HYPE,BTC) \u2014 funding pressure regime",
+      "branch": "positioning_unwind",
+      "decision_tier": "actionable_watch",
+      "watch_label": "positioning_unwind_watch",
+      "composite_score": 0.8038,
+      "assets_mentioned": [
+        "HYPE",
+        "BTC"
+      ],
+      "expected_events": [
+        "buy_burst",
+        "oi_accumulation",
+        "one_sided_oi"
+      ],
+      "outcome_result": "hit",
+      "time_to_outcome_min": 0,
+      "half_life_min": 30,
+      "half_life_remaining_min": 30,
+      "outcome_type_match": true,
+      "matched_event": "buy_burst",
+      "outcome_detail": "buy_burst on HYPE at min 30 (magnitude=0.712)"
+    },
+    {
+      "card_id": "ad25cceb-c868-4c84-8fac-269b02fc8b32",
+      "title": "E2 positioning unwind: (HYPE,ETH) \u2014 funding pressure regime",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "composite_score": 0.7055,
+      "assets_mentioned": [
+        "HYPE",
+        "ETH"
+      ],
+      "expected_events": [
+        "buy_burst",
+        "oi_accumulation",
+        "one_sided_oi"
+      ],
+      "outcome_result": "hit",
+      "time_to_outcome_min": 0,
+      "half_life_min": 30,
+      "half_life_remaining_min": 30,
+      "outcome_type_match": true,
+      "matched_event": "buy_burst",
+      "outcome_detail": "buy_burst on HYPE at min 30 (magnitude=0.712)"
+    },
+    {
+      "card_id": "1e476f9c-0fc8-4272-b684-f6272bb57923",
+      "title": "E2 positioning unwind: (HYPE,SOL) \u2014 funding pressure regime",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "composite_score": 0.7055,
+      "assets_mentioned": [
+        "HYPE",
+        "SOL"
+      ],
+      "expected_events": [
+        "buy_burst",
+        "oi_accumulation",
+        "one_sided_oi"
+      ],
+      "outcome_result": "hit",
+      "time_to_outcome_min": 0,
+      "half_life_min": 30,
+      "half_life_remaining_min": 30,
+      "outcome_type_match": true,
+      "matched_event": "buy_burst",
+      "outcome_detail": "buy_burst on HYPE at min 30 (magnitude=0.712)"
+    },
+    {
+      "card_id": "2eb2b7ab-be2b-46bb-9c7c-9957462c8cc6",
+      "title": "E2 positioning unwind: (HYPE,BTC) \u2014 funding pressure regime",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "composite_score": 0.6876,
+      "assets_mentioned": [
+        "HYPE",
+        "BTC"
+      ],
+      "expected_events": [
+        "buy_burst",
+        "oi_accumulation",
+        "one_sided_oi"
+      ],
+      "outcome_result": "hit",
+      "time_to_outcome_min": 0,
+      "half_life_min": 30,
+      "half_life_remaining_min": 30,
+      "outcome_type_match": true,
+      "matched_event": "buy_burst",
+      "outcome_detail": "buy_burst on HYPE at min 30 (magnitude=0.712)"
+    }
+  ],
+  "tier_comparison": {
+    "actionable_watch": {
+      "n_total": 2,
+      "hit_count": 2,
+      "hit_rate": 1.0,
+      "partial_count": 0,
+      "miss_count": 0,
+      "expired_count": 0,
+      "avg_time_to_outcome_min": 0.0
+    },
+    "research_priority": {
+      "n_total": 8,
+      "hit_count": 8,
+      "hit_rate": 1.0,
+      "partial_count": 0,
+      "miss_count": 0,
+      "expired_count": 0,
+      "avg_time_to_outcome_min": 0.0
+    }
+  },
+  "summary": {
+    "run_id": "run_022_w05_s47",
+    "n_tracked": 10,
+    "n_hits": 10,
+    "n_partials": 0,
+    "overall_hit_rate": 1.0,
+    "watchlist_precision": 1.0,
+    "avg_time_to_outcome_min": 0.0,
+    "branch_hit_rates": {
+      "positioning_unwind": {
+        "n": 10,
+        "hits": 10,
+        "partials": 0,
+        "hit_rate": 1.0
+      }
+    },
+    "decayed_never_materialized_count": 0,
+    "dnm_by_branch": {}
+  },
+  "half_life_analysis": {
+    "half_life_distribution": {
+      "30": 10
+    },
+    "avg_time_to_outcome_min": 0.0,
+    "avg_half_life_remaining_min": 30.0,
+    "half_life_adequacy_rate": 0.0,
+    "recommendation": "Consider increasing half-life; many events exceed current window."
+  },
+  "synthetic_data_note": "Outcomes evaluated against known synthetic scenario events. HYPE events (min 20-35) precede observation midpoint (min 60) and register as miss. SOL events (min 65-80) fall within the outcome window and register as hit/partial. ETH/BTC baseline cards have no matching events -> miss (control).",
+  "threshold_recommendations": {
+    "recommendations": [],
+    "tier_verdicts": {
+      "actionable_watch": "maintain",
+      "monitor_borderline": "maintain",
+      "reject_conflicted": "maintain"
+    },
+    "overall": "no_action",
+    "synthetic_data_caveat": "Recommendations based on synthetic outcome tracking. Validate against live market data before applying changes."
+  }
+}

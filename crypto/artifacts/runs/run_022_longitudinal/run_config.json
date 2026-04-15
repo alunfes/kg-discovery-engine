@@ -1,0 +1,34 @@
+{
+  "run_id": "run_022_longitudinal",
+  "sprint": "U",
+  "date": "2026-04-15",
+  "objective": "Longitudinal shadow operations \u2014 multi-day stability validation",
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "n_windows": 10,
+  "window_duration_min": 120,
+  "replay_n_minutes": 30,
+  "assets": [
+    "HYPE",
+    "BTC",
+    "ETH",
+    "SOL"
+  ],
+  "calibration_source": "run_021 (adjudication + grammar + half-life + monitoring + fusion + Sprint T)",
+  "mode": "shadow",
+  "new_files": [
+    "crypto/src/eval/longitudinal_runner.py",
+    "crypto/tests/test_run022_longitudinal.py",
+    "docs/run022_longitudinal_shadow.md"
+  ]
+}

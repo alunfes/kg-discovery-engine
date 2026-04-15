@@ -1,0 +1,121 @@
+{
+  "watchlist_cards": [
+    {
+      "card_id": "2d05985a-65eb-47ec-bbd5-c8222b34cf25",
+      "title": "E2 positioning unwind: (HYPE,BTC) \u2014 one-sided OI build + crowding",
+      "branch": "positioning_unwind",
+      "decision_tier": "actionable_watch",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "high",
+      "composite_score": 0.865
+    },
+    {
+      "card_id": "319100f3-27ec-4b70-99fc-2ae2b64eb407",
+      "title": "E2 positioning unwind: (HYPE,ETH) \u2014 one-sided OI build + crowding",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.7221
+    },
+    {
+      "card_id": "615c8214-9700-446a-9661-c3db34fe4a49",
+      "title": "E2 positioning unwind: (HYPE,SOL) \u2014 one-sided OI build + crowding",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.7221
+    },
+    {
+      "card_id": "72153579-c72b-433e-a067-11eb7c9ec7a4",
+      "title": "E2 positioning unwind: (HYPE,BTC) \u2014 one-sided OI build + crowding",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.6958
+    },
+    {
+      "card_id": "8b129ef3-3e1c-444c-a38b-7f59a4cadd29",
+      "title": "E2 positioning unwind: (HYPE,ETH) \u2014 one-sided OI build + crowding",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.6958
+    },
+    {
+      "card_id": "a4e7ef03-f7af-424a-94f3-5d0e28711889",
+      "title": "E2 positioning unwind: (HYPE,SOL) \u2014 one-sided OI build + crowding",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.6958
+    },
+    {
+      "card_id": "1b58bf94-5e5b-4532-9cb1-b1912dee4130",
+      "title": "E2 positioning unwind: (HYPE,BTC) \u2014 funding pressure regime",
+      "branch": "positioning_unwind",
+      "decision_tier": "actionable_watch",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "high",
+      "composite_score": 0.8038
+    },
+    {
+      "card_id": "014a2289-67bc-464f-85ac-f9affc940e46",
+      "title": "E2 positioning unwind: (HYPE,ETH) \u2014 funding pressure regime",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.7055
+    },
+    {
+      "card_id": "222085ac-8cf7-4827-b417-b02cc6da4af8",
+      "title": "E2 positioning unwind: (HYPE,SOL) \u2014 funding pressure regime",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.7055
+    },
+    {
+      "card_id": "cac7f4a8-cb98-4e49-9e13-908743cfeb51",
+      "title": "E2 positioning unwind: (HYPE,BTC) \u2014 funding pressure regime",
+      "branch": "positioning_unwind",
+      "decision_tier": "research_priority",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "medium",
+      "composite_score": 0.6876
+    }
+  ],
+  "label_counts": {
+    "positioning_unwind_watch": 10
+  },
+  "urgency_counts": {
+    "high": 2,
+    "medium": 8
+  },
+  "high_urgency_labels": [
+    {
+      "card_id": "2d05985a-65eb-47ec-bbd5-c8222b34cf25",
+      "title": "E2 positioning unwind: (HYPE,BTC) \u2014 one-sided OI build + crowding",
+      "branch": "positioning_unwind",
+      "decision_tier": "actionable_watch",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "high",
+      "composite_score": 0.865
+    },
+    {
+      "card_id": "1b58bf94-5e5b-4532-9cb1-b1912dee4130",
+      "title": "E2 positioning unwind: (HYPE,BTC) \u2014 funding pressure regime",
+      "branch": "positioning_unwind",
+      "decision_tier": "actionable_watch",
+      "watch_label": "positioning_unwind_watch",
+      "watch_urgency": "high",
+      "composite_score": 0.8038
+    }
+  ]
+}

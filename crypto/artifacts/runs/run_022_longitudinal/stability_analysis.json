@@ -1,0 +1,32 @@
+{
+  "cv_by_metric": {
+    "n_promotions": 0.0873,
+    "n_contradictions": 0.0,
+    "n_reinforcements": 0.206,
+    "n_suppress": 0.0,
+    "n_stale_cards": 0.3333,
+    "monitoring_cost_hl_min": 0.0139,
+    "score_mean": 0.0335,
+    "active_ratio": 0.0,
+    "n_batch_cards": 0.0
+  },
+  "stable_metrics": [
+    "n_promotions",
+    "n_contradictions",
+    "n_suppress",
+    "monitoring_cost_hl_min",
+    "score_mean",
+    "active_ratio",
+    "n_batch_cards"
+  ],
+  "drifting_metrics": [
+    "n_reinforcements",
+    "n_stale_cards"
+  ],
+  "recalibration_needed": [
+    "n_reinforcements",
+    "n_stale_cards"
+  ],
+  "is_production_ready": false,
+  "n_windows_analyzed": 10
+}
