@@ -36,6 +36,7 @@ from .eval.rerouter import compute_reroute_candidates, reroute_summary
 from .eval.scorer import score_hypothesis
 from .eval.uplift_ranker import compute_uplift_aware_ranking
 from .eval.outcome_tracker import compute_watchlist_outcomes, compute_tier_recommendations
+from .eval.monitoring_budget import build_allocation_table_from_outcomes
 from .eval.watchlist_semantics import compute_watchlist_semantics
 from .kg.chain_grammar import build_chain_grammar_kg
 from .ingestion.synthetic import SyntheticGenerator
@@ -255,6 +256,13 @@ def run_pipeline(config: PipelineConfig) -> list:
         i5_outcomes["tier_comparison"]
     )
     branch_metrics["i5_outcome_tracking"] = i5_outcomes
+
+    # Run 015: monitoring budget allocation — value density per (tier, family) group
+    # and 3-strategy budget simulation. Uses in-memory i5 outcome_records so no
+    # CSV I/O is needed mid-run (see build_allocation_table_from_outcomes docstring).
+    branch_metrics["run015_monitoring_budget"] = build_allocation_table_from_outcomes(
+        i5_outcomes["outcome_records"]
+    )
 
     # Run 012: attach boundary detection results to branch_metrics
     branch_metrics["run012_boundary_detection"] = {
