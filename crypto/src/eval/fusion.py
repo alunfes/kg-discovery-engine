@@ -94,6 +94,35 @@ _OPPOSES: dict[str, list[str]] = {
 # Minimum severity to trigger a promotion (not just reinforce)
 _PROMOTE_SEVERITY_MIN: float = 0.6
 
+# ---------------------------------------------------------------------------
+# Diminishing-returns parameters (Sprint T)
+# ---------------------------------------------------------------------------
+
+# Why same-family decay instead of a simple flat cap:
+# Repeated events of the same type carry diminishing informational value —
+# the 5th spread_widening in a row does not add as much signal as the 1st.
+# A flat count-based decay preserves the signal shape without introducing
+# continuous math that makes the threshold analysis opaque.
+_DECAY_COEFFICIENTS: tuple[float, ...] = (1.0, 0.7, 0.5, 0.3)
+#   index 0 = 1st occurrence (novel path handles this, but kept for clarity)
+#   index 1 = 2nd occurrence → 70% credit
+#   index 2 = 3rd occurrence → 50% credit
+#   index 3+ = 4th+ occurrence → 30% credit
+
+# Why time-window dedup with 0.3 credit rather than 0.0 (full skip):
+# A burst of identical events within 5 minutes may still carry marginal
+# confirmation value (different microstructure snapshots); 0.3 acknowledges
+# this while preventing burst-flooding of the score.
+_TIME_WINDOW_MS: int = 5 * 60 * 1_000   # 5-minute dedup window (ms)
+_TIME_WINDOW_CREDIT: float = 0.3
+
+# Why 0.9 threshold with 0.2x uplift rather than a hard ceiling at 1.0:
+# A hard ceiling is already enforced via min(1.0, …).  The ceiling brake
+# adds a soft barrier at 0.9 so scores approaching maximum don't fully
+# saturate — preserving rank spread between top cards.
+_CEILING_BRAKE_THRESHOLD: float = 0.9
+_CEILING_BRAKE_FACTOR: float = 0.2
+
 
 # ---------------------------------------------------------------------------
 # Data classes
@@ -104,14 +133,17 @@ class FusionCard:
     """Mutable wrapper around a batch hypothesis card with live fusion state.
 
     Attributes:
-        card_id:         Identifier from the originating HypothesisCard.
-        branch:          Canonical branch (flow_continuation, beta_reversion, etc.).
-        asset:           Primary asset symbol for matching.
-        tier:            Current decision tier (updated by fusion rules).
-        composite_score: Current score in [0, 1] (updated by fusion rules).
-        half_life_min:   Remaining monitoring window in minutes (updated).
-        transitions:     Ordered log of FusionTransition records.
-        source:          "batch" for pipeline-sourced; "live_only" for new cards.
+        card_id:            Identifier from the originating HypothesisCard.
+        branch:             Canonical branch (flow_continuation, beta_reversion, etc.).
+        asset:              Primary asset symbol for matching.
+        tier:               Current decision tier (updated by fusion rules).
+        composite_score:    Current score in [0, 1] (updated by fusion rules).
+        half_life_min:      Remaining monitoring window in minutes (updated).
+        transitions:        Ordered log of FusionTransition records.
+        source:             "batch" for pipeline-sourced; "live_only" for new cards.
+        reinforce_counts:   Per-event-type reinforcement count (for decay, Sprint T).
+        last_reinforce_ts:  Last reinforcement timestamp_ms per event type (Sprint T).
+        seen_event_types:   Set of event_types ever applied as reinforce (Sprint T).
     """
 
     card_id: str
@@ -122,6 +154,10 @@ class FusionCard:
     half_life_min: float
     transitions: list["FusionTransition"] = field(default_factory=list)
     source: str = "batch"
+    # Sprint T: diminishing-returns tracking state
+    reinforce_counts: dict[str, int] = field(default_factory=dict)
+    last_reinforce_ts: dict[str, int] = field(default_factory=dict)
+    seen_event_types: set[str] = field(default_factory=set)
 
     def tier_index(self) -> int:
         """Numeric rank of the current tier (0 = lowest, 4 = highest)."""
@@ -263,6 +299,60 @@ def _opposes_branch(event_type: str, branch: str, metadata: dict) -> bool:
 
 
 # ---------------------------------------------------------------------------
+# Diminishing-returns helpers (Sprint T)
+# ---------------------------------------------------------------------------
+
+def _compute_decay_factor(card: "FusionCard", event: StateEvent) -> float:
+    """Return the decay multiplier for a reinforce application on card.
+
+    Priority (first matching rule wins):
+      1. Novel event type → 1.0 (full credit; preserves signal diversity)
+      2. Within time-window dedup → _TIME_WINDOW_CREDIT (0.3)
+      3. Same-family count decay → _DECAY_COEFFICIENTS[min(count, 3)]
+
+    Why state is checked BEFORE updating:
+      The caller updates reinforce_counts / seen_event_types / last_reinforce_ts
+      after this function returns so this call always sees pre-event state.
+
+    Args:
+        card:  FusionCard with Sprint T tracking fields populated.
+        event: Incoming StateEvent about to be applied.
+
+    Returns:
+        float in (0, 1] — the fraction of raw delta to apply.
+    """
+    etype = event.event_type
+    if etype not in card.seen_event_types:
+        return 1.0
+    last_ts = card.last_reinforce_ts.get(etype, 0)
+    if event.timestamp_ms - last_ts < _TIME_WINDOW_MS:
+        return _TIME_WINDOW_CREDIT
+    count = card.reinforce_counts.get(etype, 0)
+    idx = min(count, len(_DECAY_COEFFICIENTS) - 1)
+    return _DECAY_COEFFICIENTS[idx]
+
+
+def _apply_ceiling_brake(decay: float, score: float) -> float:
+    """Reduce decay by _CEILING_BRAKE_FACTOR when score exceeds brake threshold.
+
+    Why multiplicative rather than additive:
+      Multiplicative brake preserves the relative ordering of decay factors
+      (time-window dedup < count decay < novel) without introducing a
+      separate code path for each combination.
+
+    Args:
+        decay: Decay factor before ceiling check (from _compute_decay_factor).
+        score: Current composite_score of the card.
+
+    Returns:
+        Adjusted decay factor.
+    """
+    if score > _CEILING_BRAKE_THRESHOLD:
+        return decay * _CEILING_BRAKE_FACTOR
+    return decay
+
+
+# ---------------------------------------------------------------------------
 # Rule determination
 # ---------------------------------------------------------------------------
 
@@ -320,11 +410,25 @@ def _apply_promote(
 def _apply_reinforce(
     card: FusionCard, event: StateEvent, eid: str
 ) -> "FusionTransition":
-    """Increase composite score proportional to event severity; keep tier."""
+    """Increase composite score proportional to event severity; keep tier.
+
+    Sprint T: applies diminishing-returns decay so repeated same-type events
+    add less signal, and ceiling brake suppresses uplift near score=1.0.
+    Tracking state (seen_event_types, reinforce_counts, last_reinforce_ts) is
+    read BEFORE mutation so this event is not counted against itself.
+    """
     tier_b, score_b, hl_b = card.tier, card.composite_score, card.half_life_min
-    delta = round(0.07 * event.severity, 4)
+    etype = event.event_type
+    decay = _compute_decay_factor(card, event)
+    decay = _apply_ceiling_brake(decay, score_b)
+    raw_delta = round(0.07 * event.severity, 4)
+    delta = round(raw_delta * decay, 4)
     new_score = round(min(1.0, score_b + delta), 4)
     card.composite_score = new_score
+    # Update tracking state after computing decay to avoid self-penalisation
+    card.seen_event_types.add(etype)
+    card.reinforce_counts[etype] = card.reinforce_counts.get(etype, 0) + 1
+    card.last_reinforce_ts[etype] = event.timestamp_ms
     return FusionTransition(
         event_id=eid, rule="reinforce",
         tier_before=tier_b, tier_after=tier_b,
@@ -332,7 +436,7 @@ def _apply_reinforce(
         half_life_before=hl_b, half_life_after=hl_b,
         timestamp_ms=event.timestamp_ms,
         reason=(f"{event.event_type}({event.asset}) reinforces {card.branch} "
-                f"Δscore=+{delta:.4f}"),
+                f"Δscore=+{delta:.4f} (decay={decay:.2f})"),
     )
 
 
@@ -870,3 +974,238 @@ def _write_recommendations_md(output_dir: str, result: FusionResult) -> None:
     ]
     with open(os.path.join(output_dir, "recommendations.md"), "w") as f:
         f.writelines(lines)
+
+
+# ---------------------------------------------------------------------------
+# Sprint T: diminishing-returns comparison shadow run
+# ---------------------------------------------------------------------------
+
+def _load_r019_scores(run_019_dir: str) -> dict[str, dict]:
+    """Load per-card before/after state from Run 019 card_state_transitions.csv.
+
+    Returns:
+        dict mapping card_id → {"score_before": float, "score_after": float,
+        "tier_before": str, "tier_after": str}.
+    """
+    path = os.path.join(run_019_dir, "card_state_transitions.csv")
+    result: dict[str, dict] = {}
+    try:
+        with open(path) as f:
+            header = f.readline().strip().split(",")
+            for line in f:
+                parts = line.strip().split(",")
+                row = dict(zip(header, parts))
+                result[row["card_id"]] = {
+                    "score_before": float(row["score_before"]),
+                    "score_after": float(row["score_after"]),
+                    "tier_before": row["tier_before"],
+                    "tier_after": row["tier_after"],
+                }
+    except FileNotFoundError:
+        pass
+    return result
+
+
+def _compute_sprint_t_stats(
+    r019: dict[str, dict],
+    result_t: FusionResult,
+) -> dict:
+    """Compute before/after saturation, rank spread, and promotion stats.
+
+    Args:
+        r019:     Per-card Run 019 data (from _load_r019_scores).
+        result_t: FusionResult from Sprint T shadow run.
+
+    Returns:
+        Stats dict with saturation counts, rank spread, top-3 gap.
+    """
+    after_idx = {d["card_id"]: d for d in result_t.cards_after}
+    t_scores = [d["composite_score"] for d in result_t.cards_after]
+    r019_after = [v["score_after"] for v in r019.values()] if r019 else []
+    sat_r019 = sum(1 for s in r019_after if s >= 1.0)
+    sat_t = sum(1 for s in t_scores if s >= 1.0)
+    promos_r019 = sum(1 for v in r019.values() if v["tier_after"] != v["tier_before"])
+    promos_t = result_t.n_promotions
+    sorted_t = sorted(t_scores, reverse=True)
+    rank_spread = round(sorted_t[0] - sorted_t[-1], 4) if len(sorted_t) > 1 else 0.0
+    top3_gap = round(sorted_t[0] - sorted_t[2], 4) if len(sorted_t) >= 3 else 0.0
+    return {
+        "sat_r019": sat_r019, "sat_t": sat_t,
+        "promos_r019": promos_r019, "promos_t": promos_t,
+        "rank_spread_t": rank_spread, "top3_gap_t": top3_gap,
+        "n_cards": len(t_scores),
+        "scores_t": sorted_t,
+    }
+
+
+def _write_score_distribution_csv(
+    output_dir: str,
+    r019: dict[str, dict],
+    result_t: FusionResult,
+) -> None:
+    """Write before_after_score_distribution.csv comparing Run 019 vs Sprint T."""
+    after_t = {d["card_id"]: d for d in result_t.cards_after}
+    before_t = {d["card_id"]: d for d in result_t.cards_before}
+    path = os.path.join(output_dir, "before_after_score_distribution.csv")
+    header = "card_id,score_initial,score_r019_after,score_sprint_t,saturated_r019,saturated_t\n"
+    with open(path, "w") as f:
+        f.write(header)
+        for cid in sorted(after_t):
+            s_init = before_t[cid]["composite_score"]
+            s_r019 = r019.get(cid, {}).get("score_after", "n/a")
+            s_t = after_t[cid]["composite_score"]
+            sat_r = int(float(s_r019) >= 1.0) if s_r019 != "n/a" else "n/a"
+            sat_t = int(s_t >= 1.0)
+            f.write(f"{cid},{s_init},{s_r019},{s_t},{sat_r},{sat_t}\n")
+
+
+def _write_saturation_reduction_md(output_dir: str, stats: dict) -> None:
+    """Write saturation_reduction.md with before/after saturation analysis."""
+    lines = [
+        "# Saturation Reduction — Sprint T Diminishing Returns\n\n",
+        "## Score Saturation (score == 1.0)\n\n",
+        f"| Metric | Run 019 (no decay) | Sprint T (decay) |\n|---|---|---|\n",
+        f"| Cards at score=1.0 | {stats['sat_r019']} / {stats['n_cards']} "
+        f"| {stats['sat_t']} / {stats['n_cards']} |\n",
+        f"| Rank spread (max−min) | n/a | {stats['rank_spread_t']} |\n",
+        f"| Top-3 score gap | n/a | {stats['top3_gap_t']} |\n\n",
+        "## Score Distribution (Sprint T, descending)\n\n",
+        "| Rank | Score |\n|---|---|\n",
+    ]
+    for i, s in enumerate(stats["scores_t"], 1):
+        lines.append(f"| {i} | {s:.4f} |\n")
+    lines += [
+        "\n## Analysis\n\n",
+        "Sprint T diminishing returns prevent all cards from collapsing to 1.0.\n"
+        "Same-family decay (0.7→0.5→0.3) reduces repetitive event signal;\n"
+        "ceiling brake (×0.2 above 0.9) preserves rank spread near the top.\n",
+    ]
+    with open(os.path.join(output_dir, "saturation_reduction.md"), "w") as f:
+        f.writelines(lines)
+
+
+def _write_promotion_retention_md(output_dir: str, stats: dict) -> None:
+    """Write promotion_retention.md confirming Run 019 promotions are retained."""
+    retained = stats["promos_t"] >= stats["promos_r019"]
+    status = "RETAINED" if retained else "DEGRADED"
+    lines = [
+        "# Promotion Retention — Sprint T\n\n",
+        f"## Result: {status}\n\n",
+        "| Metric | Run 019 | Sprint T |\n|---|---|---|\n",
+        f"| Promotions (research_priority → actionable_watch) "
+        f"| {stats['promos_r019']} | {stats['promos_t']} |\n\n",
+        "## Notes\n\n",
+        "Promotions use `_apply_promote` which adds a fixed +0.05 score bump\n"
+        "and does not go through `_apply_reinforce`. Diminishing-returns decay\n"
+        "applies only to `reinforce` rule transitions, so promote rule is\n"
+        "unaffected by Sprint T changes.\n\n",
+        "Promotion eligibility depends on: event.severity >= 0.6 (promote\n"
+        "threshold) AND card tier < actionable_watch. Both conditions are\n"
+        "unchanged in Sprint T.\n",
+    ]
+    with open(os.path.join(output_dir, "promotion_retention.md"), "w") as f:
+        f.writelines(lines)
+
+
+def _write_recommended_decay_rule_md(output_dir: str, stats: dict) -> None:
+    """Write recommended_decay_rule.md with parameter rationale and tuning notes."""
+    lines = [
+        "# Recommended Decay Rule — Sprint T\n\n",
+        "## Chosen Parameters\n\n",
+        "| Parameter | Value | Rationale |\n|---|---|---|\n",
+        "| Same-family decay coefficients | (1.0, 0.7, 0.5, 0.3) | "
+        "Stepwise to avoid discontinuity; 0.3 floor retains weak signal |\n",
+        "| Time-window dedup (ms) | 300,000 (5 min) | "
+        "Matches typical microstructure burst duration |\n",
+        "| Time-window credit | 0.3 | "
+        "Partial credit for burst events (vs 0.0 which would discard) |\n",
+        "| Ceiling brake threshold | 0.9 | "
+        "Soft barrier preserving rank spread near max |\n",
+        "| Ceiling brake factor | 0.2 | "
+        "5× reduction prevents saturation without full suppression |\n\n",
+        "## Observed Effect\n\n",
+        f"Run 019 saturation: {stats['sat_r019']}/{stats['n_cards']} cards at 1.0\n\n",
+        f"Sprint T saturation: {stats['sat_t']}/{stats['n_cards']} cards at 1.0\n\n",
+        f"Rank spread (top−bottom): {stats['rank_spread_t']}\n\n",
+        f"Top-3 score gap: {stats['top3_gap_t']}\n\n",
+        "## Tuning Guidance\n\n",
+        "- If too few promotions occur: lower _TIME_WINDOW_MS (e.g. 2 min)\n"
+        "- If saturation persists with diverse events: lower _DECAY_COEFFICIENTS[3]\n"
+        "  from 0.3 to 0.2\n"
+        "- If rank spread too small: lower _CEILING_BRAKE_THRESHOLD to 0.85\n",
+    ]
+    with open(os.path.join(output_dir, "recommended_decay_rule.md"), "w") as f:
+        f.writelines(lines)
+
+
+def run_sprint_t_shadow(
+    output_dir: str = "crypto/artifacts/runs/sprint_t_fusion_decay",
+    seed: int = 42,
+    assets: Optional[list[str]] = None,
+    replay_n_minutes: int = 30,
+    run_019_dir: str = "crypto/artifacts/runs/run_019_fusion",
+) -> dict:
+    """Execute Sprint T shadow run with diminishing-returns fusion.
+
+    Replicates Run 019 conditions (same seed, assets, replay window) so
+    results are directly comparable.  Loads Run 019 artifacts as the
+    "before" baseline; Sprint T run produces the "after".
+
+    Args:
+        output_dir:        Directory for Sprint T artifacts.
+        seed:              RNG seed (must match Run 019 for fair comparison).
+        assets:            Asset symbols (must match Run 019).
+        replay_n_minutes:  Replay window length (must match Run 019).
+        run_019_dir:       Path to Run 019 artifact directory (before baseline).
+
+    Returns:
+        Summary dict with counts, saturation stats, and file paths.
+    """
+    from ..pipeline import PipelineConfig, run_pipeline
+
+    if assets is None:
+        assets = ["HYPE", "BTC", "ETH", "SOL"]
+    random.seed(seed)
+    os.makedirs(output_dir, exist_ok=True)
+
+    batch_dir = os.path.join(output_dir, "batch_run")
+    pipe_cfg = PipelineConfig(
+        run_id="sprint_t_fusion_decay_batch",
+        seed=seed, assets=assets, output_dir=batch_dir,
+    )
+    run_pipeline(pipe_cfg)
+    tier_path = os.path.join(
+        batch_dir, "sprint_t_fusion_decay_batch", "i1_decision_tiers.json"
+    )
+    with open(tier_path) as f:
+        tier_assignments = json.load(f).get("tier_assignments", [])
+
+    random.seed(seed)
+    live_events = _collect_events_sync(assets, seed, replay_n_minutes)
+
+    fusion_cards = build_fusion_cards_from_watchlist(tier_assignments)
+    result_t = fuse_cards_with_events(fusion_cards, live_events)
+
+    r019 = _load_r019_scores(run_019_dir)
+    stats = _compute_sprint_t_stats(r019, result_t)
+
+    run_cfg = {
+        "run_id": "sprint_t_fusion_decay", "seed": seed,
+        "assets": assets, "replay_n_minutes": replay_n_minutes,
+        "n_batch_cards": len(tier_assignments),
+        "n_live_events": len(live_events),
+        "n_promotions": result_t.n_promotions,
+        "n_reinforcements": result_t.n_reinforcements,
+        "sat_r019": stats["sat_r019"], "sat_sprint_t": stats["sat_t"],
+        "rank_spread": stats["rank_spread_t"],
+        "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+    }
+    with open(os.path.join(output_dir, "run_config.json"), "w") as f:
+        json.dump(run_cfg, f, indent=2)
+
+    _write_score_distribution_csv(output_dir, r019, result_t)
+    _write_saturation_reduction_md(output_dir, stats)
+    _write_promotion_retention_md(output_dir, stats)
+    _write_recommended_decay_rule_md(output_dir, stats)
+
+    return {**run_cfg, "output_dir": output_dir}

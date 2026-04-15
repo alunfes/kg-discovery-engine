@@ -1,0 +1,19 @@
+{
+  "run_id": "sprint_t_fusion_decay",
+  "seed": 42,
+  "assets": [
+    "HYPE",
+    "BTC",
+    "ETH",
+    "SOL"
+  ],
+  "replay_n_minutes": 30,
+  "n_batch_cards": 10,
+  "n_live_events": 47,
+  "n_promotions": 6,
+  "n_reinforcements": 94,
+  "sat_r019": 10,
+  "sat_sprint_t": 0,
+  "rank_spread": 0.0537,
+  "timestamp": "2026-04-15T10:49:26Z"
+}
