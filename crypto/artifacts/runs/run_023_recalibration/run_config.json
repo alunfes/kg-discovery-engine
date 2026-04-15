@@ -1,0 +1,21 @@
+{
+  "run_id": "run_023_recalibration",
+  "sprint": "V",
+  "date": "2026-04-15",
+  "objective": "Recalibration sensitivity / drift trigger test \u2014 validate global defaults under calm / event-heavy / sparse regimes",
+  "source_run": "run_022_longitudinal",
+  "source_artifacts": "crypto/artifacts/runs/run_022_longitudinal",
+  "n_windows_analysed": 10,
+  "slice_boundaries": {
+    "sparse": "n_live_events < 90",
+    "calm": "90 <= n_live_events <= 110",
+    "event-heavy": "n_live_events > 110"
+  },
+  "drift_threshold": 0.2,
+  "mode": "shadow",
+  "new_files": [
+    "crypto/src/eval/recalibration_sensitivity.py",
+    "crypto/tests/test_run023_recalibration.py",
+    "docs/run023_recalibration_sensitivity.md"
+  ]
+}

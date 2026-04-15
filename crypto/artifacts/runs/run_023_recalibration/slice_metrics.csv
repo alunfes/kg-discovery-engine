@@ -1,0 +1,5 @@
+slice,n_windows,windows,hit_rate_strict,hit_rate_broad,hl_effectiveness,monitoring_cost_efficiency,time_to_outcome_min,time_to_outcome_mean,time_to_outcome_max,promote_freq,contradict_freq,suppress_freq,total_promotions,total_events,total_hl_min,hit_rate_tier_actionable_watch,hit_rate_tier_research_priority,hit_rate_tier_monitor_borderline,hit_rate_tier_baseline_like,hit_rate_tier_reject_conflicted,hit_rate_family_flow_continuation,hit_rate_family_beta_reversion,hit_rate_family_positioning_unwind,hit_rate_family_baseline
+calm,4,0|2|4|5,1.0,1.0,1.0,0.015344,0.0,1.25,5.0,0.0707,0.0,0.0,29,410,1890.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0
+event-heavy,5,1|3|6|8|9,0.68,1.0,1.0,0.016318,0.0,2.94,25.0,0.0585,0.0,0.0,39,667,2390.0,0.8182,0.641,0.0,0.0,0.0,0.0,1.0,0.6735,0.0
+sparse,1,7,1.0,1.0,1.0,0.016667,5.0,15.5,20.0,0.1143,0.0,0.0,8,70,480.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0
+global,10,0|1|2|3|4|5|6|7|8|9,0.84,1.0,1.0,0.015966,0.0,3.63,25.0,0.0663,0.0,0.0,76,1147,4760.0,0.9167,0.8158,0.0,0.0,0.0,0.0,1.0,0.8384,0.0
