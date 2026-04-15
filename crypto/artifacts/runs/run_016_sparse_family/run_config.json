@@ -1,0 +1,53 @@
+{
+  "run_id": "run_016_sparse_family",
+  "sprint": "P",
+  "date": "2026-04-15",
+  "objective": "Sparse grammar family data acquisition and calibration extension",
+  "seeds": [42, 43, 44, 45, 46],
+  "n_minutes": 120,
+  "top_k": 60,
+  "n_records_before": 60,
+  "n_records_after": 300,
+  "sparse_threshold": 3,
+  "sparse_groups_identified": [
+    {"tier": "actionable_watch",  "grammar_family": "beta_reversion",    "n_before": 1},
+    {"tier": "research_priority", "grammar_family": "beta_reversion",    "n_before": 1},
+    {"tier": "research_priority", "grammar_family": "flow_continuation", "n_before": 1}
+  ],
+  "promotion_results": [
+    {"tier": "actionable_watch",  "grammar_family": "beta_reversion",    "n_after": 6,  "promoted": true},
+    {"tier": "research_priority", "grammar_family": "beta_reversion",    "n_after": 7,  "promoted": true},
+    {"tier": "research_priority", "grammar_family": "flow_continuation", "n_after": 5,  "promoted": true},
+    {"tier": "baseline_like",     "grammar_family": "flow_continuation", "n_after": 5,  "promoted": true},
+    {"tier": "monitor_borderline","grammar_family": "beta_reversion",    "n_after": 3,  "promoted": true},
+    {"tier": "actionable_watch",  "grammar_family": "baseline",          "n_after": 1,  "promoted": false}
+  ],
+  "updated_beta_reversion_hit_rate": {
+    "actionable_watch":  0.667,
+    "research_priority": 0.857,
+    "monitor_borderline": 0.667
+  },
+  "updated_half_life_recommendations": {
+    "actionable_watch_x_beta_reversion": 48,
+    "research_priority_x_beta_reversion": 47,
+    "monitor_borderline_x_beta_reversion": 43
+  },
+  "budget_strategy_comparison": {
+    "uniform_total_min": 15000,
+    "budget_aware_total_min": 10512,
+    "budget_aware_vs_uniform_pct": -29.9
+  },
+  "new_files": [
+    "crypto/src/eval/sparse_family_expander.py",
+    "crypto/tests/test_sprint_p.py",
+    "crypto/artifacts/runs/run_016_sparse_family/",
+    "docs/run016_sparse_family_expansion.md"
+  ],
+  "test_results": {
+    "sprint_p_tests": 44,
+    "total_pass": 489,
+    "total_fail": 4,
+    "fail_pre_existing": 4,
+    "new_failures": 0
+  }
+}
