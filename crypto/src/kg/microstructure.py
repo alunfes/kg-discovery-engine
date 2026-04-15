@@ -146,7 +146,11 @@ def _add_aggression_to_funding_edges(
 
         for j, fn in enumerate(collection.fundings):
             gap = fn.timestamp_ms - ag.timestamp_ms
-            if not (0 < gap <= max_gap_ms and fn.z_score > 1.5):
+            # Use z_score when rolling history is sufficient; fall back to
+            # absolute rate threshold for short simulations where rolling window
+            # has insufficient epochs (e.g. only 1 funding epoch in 120-min run).
+            is_elevated = fn.z_score > 1.5 or abs(fn.funding_rate) > 0.0008
+            if not (0 < gap <= max_gap_ms and is_elevated):
                 continue
 
             # Intermediate node 1: PremiumDislocationNode

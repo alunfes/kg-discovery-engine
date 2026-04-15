@@ -189,7 +189,14 @@ class SyntheticGenerator:
         return trades
 
     def _generate_fundings(self, asset: str, t0_ms: int) -> list[FundingSample]:
-        """Generate one funding sample per 8h epoch in the window."""
+        """Generate one funding sample per 8h epoch in the window.
+
+        For HYPE, an additional mid-sim epoch is injected at minute 35 so that
+        the B3 decomposition chain (aggression → PremiumDislocation →
+        ExpectedFunding → FundingNode) has a post-burst funding event to link to.
+        The burst occurs at minutes 20-30; the injected epoch at min 35 produces
+        a positive gap that satisfies the 0 < gap <= 8h condition.
+        """
         fundings: list[FundingSample] = []
         epoch_ms = 8 * 3_600_000
         n_epochs = max(1, (self.n_minutes * 60_000) // epoch_ms + 1)
@@ -212,6 +219,19 @@ class SyntheticGenerator:
                 timestamp_ms=t0_ms + i * epoch_ms,
                 rate=round(rate + noise, 6),
             ))
+
+        # Post-burst funding episode for HYPE at minute 35.
+        # Rate 0.0018 > is_elevated threshold (0.0008) without needing z_score
+        # (rolling z_score requires >= 2 samples; this may be the second sample).
+        # Deterministic: no _rng call, so existing random sequence is unchanged.
+        if asset == "HYPE" and self.n_minutes >= 35:
+            fundings.append(FundingSample(
+                asset=asset,
+                timestamp_ms=t0_ms + 35 * 60_000,
+                rate=0.0018,
+            ))
+            fundings.sort(key=lambda s: s.timestamp_ms)
+
         return fundings
 
     def _generate_books(

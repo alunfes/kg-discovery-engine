@@ -55,6 +55,92 @@ def _coverage_meta(
         "rolling_window_size": window,
     }
 
+# ---------------------------------------------------------------------------
+# D2: Composite corr_break_score
+# ---------------------------------------------------------------------------
+
+# D3: Per-branch thresholds — each branch has a minimum corr_break_score.
+# Rationale: artifact detection should fire even on weak breaks (thin liquidity
+# inflates any break score); continuation requires stronger evidence; mean
+# reversion fires on genuinely weak breaks that lack other context.
+BRANCH_THRESHOLDS: dict[str, float] = {
+    "mean_reversion_candidate":     0.0,   # fires on any genuine break
+    "continuation_candidate":       0.20,  # needs moderate strength
+    "microstructure_artifact":      0.0,   # fires on any break (coverage is the signal)
+    "positioning_unwind_candidate": 0.0,   # funding extreme is the primary condition
+}
+
+
+def compute_corr_break_score(
+    rho_pearson: float,
+    roll_rhos: list[float],
+    roll_mean: float,
+    best_k: int,
+    rho_high_vol: "float | None",
+    rho_normal: "float | None",
+    coverage: dict,
+    lead_lag_max_k: int = LEAD_LAG_MAX_K,
+) -> float:
+    """Compute a composite break-strength score in [0, 1].
+
+    Four sub-scores (D2):
+
+    1. correlation_drop_magnitude (weight 0.45)
+       z-score of rho against rolling rho distribution, negated and normalised.
+       A large negative z means the current rho is far below the historical mean
+       → stronger break signal.  Clamped to [0, 1] after dividing by 3σ.
+
+    2. lead_lag_shift (weight 0.25)
+       |best_lag_k| / lead_lag_max_k.  A large best-lag offset indicates the
+       timing relationship has shifted — a secondary break indicator.
+
+    3. co_move_dispersion (weight 0.20)
+       |rho_high_vol - rho_normal|, representing regime-dependent divergence.
+       High dispersion means the pair moves together in one regime but not
+       another — structural instability.  None → 0.
+
+    4. coverage_quality (weight 0.10)
+       1 - missing_ratio.  Higher coverage → more reliable score.
+
+    Why not just |rho|: a raw rho of -0.05 could be noise (if roll_mean ≈ 0)
+    or a genuine break (if roll_mean was 0.4).  The z-score captures this.
+
+    Returns:
+        float in [0, 1]; higher = stronger / more genuine break signal.
+    """
+    # Sub-score 1: correlation_drop_magnitude
+    if len(roll_rhos) >= 2:
+        rho_variance = sum((r - roll_mean) ** 2 for r in roll_rhos) / len(roll_rhos)
+        import math as _math
+        rho_std = _math.sqrt(rho_variance) if rho_variance > 0 else 1e-9
+        z_drop = (rho_pearson - roll_mean) / rho_std
+        # Negative z (below mean) → break; stronger negative → higher score
+        drop_score = min(1.0, max(0.0, -z_drop / 3.0))
+    else:
+        # Fallback: use absolute rho distance from 0 (lower rho = stronger break)
+        drop_score = min(1.0, max(0.0, (CORR_BREAK_THRESHOLD - rho_pearson) / CORR_BREAK_THRESHOLD))
+
+    # Sub-score 2: lead_lag_shift
+    lag_score = abs(best_k) / max(1, lead_lag_max_k)
+
+    # Sub-score 3: co_move_dispersion
+    if rho_high_vol is not None and rho_normal is not None:
+        disp_score = min(1.0, abs(rho_high_vol - rho_normal))
+    else:
+        disp_score = 0.0
+
+    # Sub-score 4: coverage quality
+    missing_ratio = coverage.get("missing_ratio", 0.0)
+    coverage_score = 1.0 - missing_ratio  # perfect coverage = 1.0
+
+    composite = (
+        0.45 * drop_score
+        + 0.25 * lag_score
+        + 0.20 * disp_score
+        + 0.10 * coverage_score
+    )
+    return round(min(1.0, max(0.0, composite)), 4)
+
 
 # ---------------------------------------------------------------------------
 # Statistical helpers
@@ -283,6 +369,17 @@ def build_cross_asset_kg(
             is_break = rho_pearson < CORR_BREAK_THRESHOLD
             pair_id = f"corr:{a1}:{a2}"
 
+            # D2: Composite corr_break_score
+            break_score = compute_corr_break_score(
+                rho_pearson=rho_pearson,
+                roll_rhos=roll_rhos,
+                roll_mean=roll_mean,
+                best_k=best_k,
+                rho_high_vol=regime_corrs["high_vol"],
+                rho_normal=regime_corrs["normal"],
+                coverage=meta,
+            )
+
             kg.add_node(KGNode(
                 node_id=pair_id,
                 node_type="CorrelationNode",
@@ -312,6 +409,12 @@ def build_cross_asset_kg(
                     ),
                     # A3: coverage
                     "coverage": meta,
+                    # D2: composite break strength score
+                    "corr_break_score": break_score,
+                    # D3: branch it will fire (pre-computed for fast lookup)
+                    "branch_thresholds": {
+                        b: t for b, t in BRANCH_THRESHOLDS.items()
+                    },
                 },
             ))
 

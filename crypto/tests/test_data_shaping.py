@@ -33,14 +33,33 @@ def test_price_tick_timestamps_monotone():
 
 
 def test_funding_samples_are_8h_apart():
-    """Consecutive funding samples must be exactly 8 h apart for a 24h sim."""
-    gen = SyntheticGenerator(seed=42, n_minutes=24 * 60, assets=["HYPE"])
+    """Standard 8h-epoch assets must have exactly 8h-spaced funding samples.
+
+    HYPE is excluded here because it has an injected mid-sim epoch at minute 35
+    (for B3 chain testing); ETH follows standard 8h spacing.
+    """
+    gen = SyntheticGenerator(seed=42, n_minutes=24 * 60, assets=["ETH"])
     ds = gen.generate()
-    samples = [f for f in ds.funding_samples if f.asset == "HYPE"]
+    samples = [f for f in ds.funding_samples if f.asset == "ETH"]
     assert len(samples) >= 3
     epoch_ms = 8 * 3_600_000
     for i in range(1, len(samples)):
         assert samples[i].timestamp_ms - samples[i - 1].timestamp_ms == epoch_ms
+
+
+def test_hype_has_mid_sim_funding_epoch():
+    """HYPE must include an injected mid-sim funding epoch at minute 35."""
+    gen = SyntheticGenerator(seed=42, n_minutes=120, assets=["HYPE"])
+    ds = gen.generate()
+    samples = sorted(
+        [f for f in ds.funding_samples if f.asset == "HYPE"],
+        key=lambda s: s.timestamp_ms,
+    )
+    t0 = samples[0].timestamp_ms
+    offsets_min = [(s.timestamp_ms - t0) // 60_000 for s in samples]
+    assert 35 in offsets_min, f"Expected minute-35 epoch, got offsets: {offsets_min}"
+    mid_sim = next(s for s in samples if (s.timestamp_ms - t0) // 60_000 == 35)
+    assert mid_sim.rate == 0.0018
 
 
 def test_spread_state_timestamps_match_price_ticks():
