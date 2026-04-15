@@ -1,4 +1,0 @@
-config_name,archive_rate_per_8h,n_archived,n_resurfaced,resurface_rate,archive_churn,avg_archive_age_min
-relaxed,20.0,20.0,15.1,0.7525,0.3483,131.1
-standard,20.0,20.0,18.2,0.91,0.862,70.5
-tight,20.0,20.0,18.7,0.935,0.94,43.3
