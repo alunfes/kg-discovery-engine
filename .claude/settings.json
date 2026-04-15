@@ -1,0 +1,78 @@
+{
+  "permissions": {
+    "deny": [
+      "Bash(sudo *)",
+      "Bash(rm -rf /)",
+      "Bash(rm -rf ~)",
+      "Bash(rm -rf /*)",
+      "Bash(dd if=*)",
+      "Bash(mkfs *)",
+      "Bash(shutdown *)",
+      "Bash(reboot *)",
+      "Bash(git push --force*)",
+      "Bash(git push -f *)",
+      "Edit(.claude/hooks/**)",
+      "Write(.claude/hooks/**)",
+      "Edit(.claude/settings.json)",
+      "Write(.claude/settings.json)",
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(**/.env)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Read(**/*.secret)",
+      "Read(**/id_rsa)",
+      "Read(**/id_ed25519)",
+      "Edit(.env)",
+      "Edit(.env.*)"
+    ],
+    "defaultMode": "bypassPermissions"
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/security-guard.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/data-validator.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "WebFetch|WebSearch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/web-content-sanitizer.sh"
+          }
+        ]
+      },
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/audit-log.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/notification-dispatcher.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,4 @@
+config_name,push_rate_per_8h,avg_precision,avg_cards_per_push,suppressed_cooldown,suppressed_threshold,signal_new_actionable,signal_score_spike,signal_state_upgrade,signal_family_breakout
+aggressive,17.0,0.5134,20.0,0.0,14.9,1.4,15.7,0.0,0.0
+balanced,16.0,0.5516,20.06,15.9,0.0,1.8,14.2,0.0,0.0
+conservative,16.0,0.5543,20.18,15.4,0.0,6.8,9.2,0.0,0.0
