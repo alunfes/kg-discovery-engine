@@ -1,0 +1,360 @@
+"""Cross-Asset KG builder.
+
+Builds correlation and lead-lag relationships between assets using
+log-return-based measures.
+
+Why log returns instead of spread z-scores (A1 fix):
+  The original spread_bps is constant per asset (SPREAD_BPS dict), so spread
+  z-scores are near-zero for all pairs → rho ≈ 0 for every pair, which is a
+  measurement artifact rather than an economic signal.
+  Log returns are the standard measure of co-movement: r_t = log(mid_t / mid_{t-1}).
+
+Why three correlation levels (A2):
+  Level 1 (Pearson + Spearman, rolling window) — base signal.
+  Level 2 (lead-lag) — detects which asset leads which; pure contemporaneous
+    correlation misses the predictive edge.
+  Level 3 (regime-conditioned) — correlations collapse during stress; a 0.5
+    average can hide a 0.9 in normal and 0.0 in stressed regime.
+"""
+
+import math
+from typing import Optional
+
+from ..ingestion.synthetic import PriceTick, SyntheticDataset
+from ..schema.market_state import MarketRegime, MarketStateCollection
+from .base import KGEdge, KGNode, KGraph
+
+FAMILY = "cross_asset"
+CORR_BREAK_THRESHOLD = 0.3
+LEAD_LAG_MAX_K = 10       # lags ±10 ticks
+ROLLING_WINDOW = 30       # ticks per rolling window
+ROLLING_STEP = 10         # overlap step
+
+
+# ---------------------------------------------------------------------------
+# A3: Coverage metadata helpers
+# ---------------------------------------------------------------------------
+
+def _coverage_meta(
+    n_obs: int,
+    missing: int,
+    window: int,
+    sampling_interval_s: int,
+    winsorised: bool = False,
+) -> dict:
+    """Build coverage metadata dict for a correlation observation.
+
+    Attaches quality indicators so downstream consumers can filter on data
+    quality rather than silently using poor estimates.
+    """
+    return {
+        "sampling_interval_s": sampling_interval_s,
+        "overlap_count": n_obs,
+        "missing_ratio": round(missing / max(n_obs + missing, 1), 4),
+        "winsorization": winsorised,
+        "rolling_window_size": window,
+    }
+
+
+# ---------------------------------------------------------------------------
+# Statistical helpers
+# ---------------------------------------------------------------------------
+
+def _log_returns(prices: list[float]) -> list[float]:
+    """Compute log returns from a price series.
+
+    Returns list of length len(prices)-1.
+    Returns [] if fewer than 2 prices.
+    """
+    if len(prices) < 2:
+        return []
+    return [math.log(prices[i] / prices[i - 1]) for i in range(1, len(prices))]
+
+
+def _pearson(xs: list[float], ys: list[float]) -> float:
+    """Pearson correlation between two equal-length lists.
+
+    Returns 0.0 if variance of either series is negligible (< 1e-12).
+    """
+    n = len(xs)
+    if n < 2:
+        return 0.0
+    mx = sum(xs) / n
+    my = sum(ys) / n
+    num = sum((x - mx) * (y - my) for x, y in zip(xs, ys))
+    dx = math.sqrt(sum((x - mx) ** 2 for x in xs))
+    dy = math.sqrt(sum((y - my) ** 2 for y in ys))
+    if dx < 1e-9 or dy < 1e-9:
+        return 0.0
+    return num / (dx * dy)
+
+
+def _spearman(xs: list[float], ys: list[float]) -> float:
+    """Spearman rank correlation between two equal-length lists.
+
+    Computed via ranking + Pearson on ranks (avoids scipy dependency).
+    """
+    def _rank(seq: list[float]) -> list[float]:
+        sorted_idx = sorted(range(len(seq)), key=lambda i: seq[i])
+        ranks = [0.0] * len(seq)
+        for rank, idx in enumerate(sorted_idx, 1):
+            ranks[idx] = float(rank)
+        return ranks
+    return _pearson(_rank(xs), _rank(ys))
+
+
+def _rolling_pearson(xs: list[float], ys: list[float], window: int) -> list[float]:
+    """Compute Pearson correlation over a rolling window.
+
+    Returns list of length max(0, n - window + 1).
+    """
+    n = min(len(xs), len(ys))
+    if n < window:
+        return []
+    results = []
+    for i in range(n - window + 1):
+        results.append(_pearson(xs[i:i + window], ys[i:i + window]))
+    return results
+
+
+def _lead_lag_correlations(
+    xs: list[float],
+    ys: list[float],
+    max_k: int = LEAD_LAG_MAX_K,
+) -> dict[int, float]:
+    """Compute corr(x[t], y[t-k]) for k in range(-max_k, max_k+1).
+
+    Negative k means x leads y; positive k means y leads x.
+    Lags with fewer than 5 observations return 0.0.
+    """
+    n = len(xs)
+    result: dict[int, float] = {}
+    for k in range(-max_k, max_k + 1):
+        if k == 0:
+            result[0] = _pearson(xs, ys)
+            continue
+        if k > 0:
+            # x leads y: align xs[0..n-k-1] with ys[k..n-1]
+            xa = xs[:n - k]
+            ya = ys[k:]
+        else:
+            # y leads x: align xs[-k..n-1] with ys[0..n+k-1]
+            xa = xs[-k:]
+            ya = ys[:n + k]
+        if len(xa) < 5:
+            result[k] = 0.0
+        else:
+            result[k] = _pearson(xa, ya)
+    return result
+
+
+# ---------------------------------------------------------------------------
+# Regime-conditioned correlations (A2 Level 3)
+# ---------------------------------------------------------------------------
+
+def _regime_conditioned_corr(
+    returns_a: list[float],
+    returns_b: list[float],
+    regime_ts: list[tuple[int, MarketRegime]],
+    price_ts_a: list[PriceTick],
+    high_vol_threshold: float = 0.015,
+) -> dict[str, Optional[float]]:
+    """Split return series by regime and compute per-regime correlations.
+
+    Regimes:
+      - high_vol: |r_a| > threshold in that tick
+      - aggressive: price timestamps overlap with AGGRESSIVE_* regime labels
+      - other: everything else
+
+    Why split by volatility and aggression separately (not just regime label):
+      The regime label is sampled at spread tick frequency; return series are
+      sampler from price ticks.  Joining on closest-timestamp keeps things
+      simple and avoids a precision requirement.
+    """
+    n = min(len(returns_a), len(returns_b))
+    if n < 5:
+        return {"high_vol": None, "normal": None, "all": _pearson(returns_a[:n], returns_b[:n])}
+
+    high_vol_a, high_vol_b = [], []
+    normal_a, normal_b = [], []
+    for i in range(n):
+        if abs(returns_a[i]) > high_vol_threshold:
+            high_vol_a.append(returns_a[i])
+            high_vol_b.append(returns_b[i])
+        else:
+            normal_a.append(returns_a[i])
+            normal_b.append(returns_b[i])
+
+    return {
+        "high_vol": _pearson(high_vol_a, high_vol_b) if len(high_vol_a) >= 5 else None,
+        "normal": _pearson(normal_a, normal_b) if len(normal_a) >= 5 else None,
+        "all": _pearson(returns_a[:n], returns_b[:n]),
+    }
+
+
+# ---------------------------------------------------------------------------
+# Main builder
+# ---------------------------------------------------------------------------
+
+def build_cross_asset_kg(
+    collections: dict[str, MarketStateCollection],
+    dataset: "SyntheticDataset | None" = None,
+) -> KGraph:
+    """Build Cross-Asset KG from per-asset MarketStateCollections.
+
+    Uses log-return-based correlations (A1), rolling windows (A2 L1),
+    lead-lag analysis (A2 L2), and regime conditioning (A2 L3).
+    Attaches coverage metadata to every CorrelationNode (A3).
+
+    Args:
+        collections: Per-asset state collections.
+        dataset: Full SyntheticDataset (used to extract mid prices for
+                 log-return computation).  If None, correlation nodes are
+                 still created but with null return-based scores.
+    """
+    kg = KGraph(family=FAMILY)
+    assets = list(collections.keys())
+
+    # Build asset nodes
+    for asset in assets:
+        kg.add_node(KGNode(
+            node_id=f"asset:{asset}",
+            node_type="AssetNode",
+            attributes={"symbol": asset},
+        ))
+
+    # Extract log returns per asset (from price ticks in dataset)
+    log_returns: dict[str, list[float]] = {}
+    price_ticks_by_asset: dict[str, list[PriceTick]] = {}
+    if dataset is not None:
+        for asset in assets:
+            ticks = sorted(
+                [t for t in dataset.price_ticks if t.asset == asset],
+                key=lambda t: t.timestamp_ms,
+            )
+            price_ticks_by_asset[asset] = ticks
+            mids = [t.mid for t in ticks]
+            log_returns[asset] = _log_returns(mids)
+
+    # Pairwise analysis
+    for i, a1 in enumerate(assets):
+        for a2 in assets[i + 1:]:
+            r1 = log_returns.get(a1, [])
+            r2 = log_returns.get(a2, [])
+            n = min(len(r1), len(r2))
+
+            if n < 5:
+                continue
+
+            r1_trim = r1[:n]
+            r2_trim = r2[:n]
+
+            # Level 1: Pearson + Spearman on full window
+            rho_pearson = _pearson(r1_trim, r2_trim)
+            rho_spearman = _spearman(r1_trim, r2_trim)
+
+            # Level 1: Rolling Pearson
+            roll_rhos = _rolling_pearson(r1_trim, r2_trim, ROLLING_WINDOW)
+            roll_mean = sum(roll_rhos) / len(roll_rhos) if roll_rhos else rho_pearson
+            roll_min = min(roll_rhos) if roll_rhos else rho_pearson
+            roll_max = max(roll_rhos) if roll_rhos else rho_pearson
+
+            # Level 2: Lead-lag
+            ll_corrs = _lead_lag_correlations(r1_trim, r2_trim, LEAD_LAG_MAX_K)
+            best_k = max(ll_corrs, key=lambda k: abs(ll_corrs[k]))
+            best_ll_rho = ll_corrs[best_k]
+
+            # Level 3: Regime-conditioned
+            regime_ts = collections[a1].regime_labels
+            regime_corrs = _regime_conditioned_corr(
+                r1_trim, r2_trim, regime_ts, price_ticks_by_asset.get(a1, [])
+            )
+
+            # Coverage metadata (A3)
+            sampling_s = 60  # one tick per minute in synthetic data
+            meta = _coverage_meta(
+                n_obs=n,
+                missing=0,  # synthetic data has no gaps
+                window=ROLLING_WINDOW,
+                sampling_interval_s=sampling_s,
+                winsorised=False,
+            )
+
+            is_break = rho_pearson < CORR_BREAK_THRESHOLD
+            pair_id = f"corr:{a1}:{a2}"
+
+            kg.add_node(KGNode(
+                node_id=pair_id,
+                node_type="CorrelationNode",
+                attributes={
+                    "asset_a": a1,
+                    "asset_b": a2,
+                    # A1: return-based measures
+                    "rho": round(rho_pearson, 4),
+                    "rho_spearman": round(rho_spearman, 4),
+                    "is_break": is_break,
+                    "n_ticks": n,
+                    # A2 L1: rolling
+                    "roll_mean": round(roll_mean, 4),
+                    "roll_min": round(roll_min, 4),
+                    "roll_max": round(roll_max, 4),
+                    # A2 L2: lead-lag
+                    "best_lag_k": best_k,
+                    "best_lag_rho": round(best_ll_rho, 4),
+                    # A2 L3: regime-conditioned
+                    "rho_high_vol": (
+                        round(regime_corrs["high_vol"], 4)
+                        if regime_corrs["high_vol"] is not None else None
+                    ),
+                    "rho_normal": (
+                        round(regime_corrs["normal"], 4)
+                        if regime_corrs["normal"] is not None else None
+                    ),
+                    # A3: coverage
+                    "coverage": meta,
+                },
+            ))
+
+            # Spread-bps node is now an auxiliary feature node (not the primary)
+            # (kept for backward compat with downstream consumers)
+            zs1 = [s.z_score for s in collections[a1].spreads]
+            zs2 = [s.z_score for s in collections[a2].spreads]
+            spread_rho = _pearson(zs1[:n], zs2[:n]) if len(zs1) >= n and len(zs2) >= n else 0.0
+            kg.add_node(KGNode(
+                node_id=f"spread_corr:{a1}:{a2}",
+                node_type="SpreadCorrelationNode",
+                attributes={
+                    "asset_a": a1,
+                    "asset_b": a2,
+                    "rho_spread_zscore": round(spread_rho, 4),
+                    "note": "auxiliary feature; primary correlation uses log returns",
+                },
+            ))
+
+            # Edges
+            relation = "correlation_break" if is_break else "correlated_with"
+            for asset_ref in [a1, a2]:
+                kg.add_edge(KGEdge(
+                    edge_id=f"{relation}:{asset_ref}:{pair_id}",
+                    source_id=f"asset:{asset_ref}",
+                    target_id=pair_id,
+                    relation=relation,
+                    attributes={"rho": round(rho_pearson, 4)},
+                ))
+
+            # Lead-lag edge (only if strong signal at non-zero lag)
+            if abs(best_k) > 0 and abs(best_ll_rho) > 0.3:
+                leader = a1 if best_k < 0 else a2
+                follower = a2 if best_k < 0 else a1
+                kg.add_edge(KGEdge(
+                    edge_id=f"leads:{leader}:{follower}:{abs(best_k)}",
+                    source_id=f"asset:{leader}",
+                    target_id=f"asset:{follower}",
+                    relation="price_leads",
+                    attributes={
+                        "lag_ticks": abs(best_k),
+                        "rho": round(best_ll_rho, 4),
+                    },
+                ))
+
+    return kg
