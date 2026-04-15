@@ -35,6 +35,7 @@ from .eval.persistence_tracker import compute_persistence_snapshot
 from .eval.rerouter import compute_reroute_candidates, reroute_summary
 from .eval.scorer import score_hypothesis
 from .eval.uplift_ranker import compute_uplift_aware_ranking
+from .eval.outcome_tracker import compute_watchlist_outcomes, compute_tier_recommendations
 from .eval.watchlist_semantics import compute_watchlist_semantics
 from .kg.chain_grammar import build_chain_grammar_kg
 from .ingestion.synthetic import SyntheticGenerator
@@ -240,6 +241,21 @@ def run_pipeline(config: PipelineConfig) -> list:
     )
     branch_metrics["i4_watchlist"] = i4_watchlist
 
+    # I5: Outcome tracking — evaluate whether watchlist predictions materialized
+    # within the synthetic outcome window (second half of simulation).
+    # Uses observation midpoint = n_minutes // 2 as the card generation proxy.
+    i5_outcomes = compute_watchlist_outcomes(
+        run_id=config.run_id,
+        watchlist_cards=i4_watchlist["watchlist_cards"],
+        dataset=dataset,
+        collections=collections,
+        n_minutes=config.n_minutes,
+    )
+    i5_outcomes["threshold_recommendations"] = compute_tier_recommendations(
+        i5_outcomes["tier_comparison"]
+    )
+    branch_metrics["i5_outcome_tracking"] = i5_outcomes
+
     # Run 012: attach boundary detection results to branch_metrics
     branch_metrics["run012_boundary_detection"] = {
         "records": [record_to_dict(r) for r in _boundary_records],
@@ -426,8 +442,43 @@ def _save_outputs(
     with open(os.path.join(run_dir, "i4_watchlist.json"), "w") as f:
         json.dump(branch_metrics.get("i4_watchlist", {}), f, indent=2)
 
+    # i5_outcome_tracking.json + watchlist_outcomes.csv (Run 013)
+    i5 = branch_metrics.get("i5_outcome_tracking", {})
+    if i5:
+        with open(os.path.join(run_dir, "i5_outcome_tracking.json"), "w") as f:
+            json.dump(i5, f, indent=2)
+        _write_outcomes_csv(i5, os.path.join(run_dir, "watchlist_outcomes.csv"))
+
     # review_memo.md
     _write_review_memo(run_dir, config, cards, branch_metrics)
+
+
+def _write_outcomes_csv(i5: dict, csv_path: str) -> None:
+    """Write i5_outcome_tracking outcome records to a CSV file.
+
+    Args:
+        i5: i5_outcome_tracking dict from branch_metrics.
+        csv_path: Absolute path for the output CSV file.
+    """
+    import csv as _csv
+    records = i5.get("outcome_records", [])
+    if not records:
+        return
+    fieldnames = [
+        "card_id", "title", "branch", "decision_tier", "watch_label",
+        "composite_score", "assets_mentioned", "expected_events",
+        "outcome_result", "time_to_outcome_min", "half_life_min",
+        "half_life_remaining_min", "outcome_type_match", "matched_event",
+        "outcome_detail",
+    ]
+    with open(csv_path, "w", newline="") as f:
+        writer = _csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        for r in records:
+            row = dict(r)
+            row["assets_mentioned"] = "|".join(row.get("assets_mentioned") or [])
+            row["expected_events"] = "|".join(row.get("expected_events") or [])
+            writer.writerow({k: row.get(k, "") for k in fieldnames})
 
 
 def _g1_memo_lines(branch_metrics: dict) -> list[str]:
