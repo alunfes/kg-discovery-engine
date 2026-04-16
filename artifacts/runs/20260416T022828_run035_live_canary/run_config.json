@@ -1,0 +1,66 @@
+{
+  "run_id": "run_035_live_canary",
+  "timestamp": "20260416T022828",
+  "regime_profile": [
+    {
+      "day": 1,
+      "label": "quiet",
+      "hot_prob": 0.15,
+      "seed": 200
+    },
+    {
+      "day": 2,
+      "label": "quiet",
+      "hot_prob": 0.2,
+      "seed": 201
+    },
+    {
+      "day": 3,
+      "label": "transition\u2192hot",
+      "hot_prob": 0.35,
+      "seed": 202
+    },
+    {
+      "day": 4,
+      "label": "hot",
+      "hot_prob": 0.5,
+      "seed": 203
+    },
+    {
+      "day": 5,
+      "label": "hot\u2192cooling",
+      "hot_prob": 0.4,
+      "seed": 204
+    },
+    {
+      "day": 6,
+      "label": "transition\u2192quiet",
+      "hot_prob": 0.25,
+      "seed": 205
+    },
+    {
+      "day": 7,
+      "label": "quiet",
+      "hot_prob": 0.15,
+      "seed": 206
+    }
+  ],
+  "production_config": {
+    "high_conviction_threshold": 0.74,
+    "fresh_count_threshold": 3,
+    "last_chance_lookahead_min": 10.0,
+    "min_push_gap_min": 15.0,
+    "fallback_cadence_min": 45,
+    "batch_interval_min": 30,
+    "session_hours": 8,
+    "n_cards_per_batch": 20,
+    "resurface_window_min": 120,
+    "archive_max_age_min": 480
+  },
+  "run028_baselines": {
+    "reviews_per_day": 18.45,
+    "missed_critical": 0,
+    "avg_items_per_review": 23.9,
+    "operator_burden": 441.0
+  }
+}
