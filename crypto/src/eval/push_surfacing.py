@@ -1,4 +1,4 @@
-"""Run 028: Push-based surfacing engine.
+"""Run 028 / Run 033: Push-based surfacing engine.
 
 Instead of polling every N minutes, the push engine monitors the incoming
 card stream and fires a "review now" signal only when it is genuinely needed.
@@ -6,10 +6,9 @@ card stream and fires a "review now" signal only when it is genuinely needed.
 Trigger conditions (ANY of these fires a push):
   T1 — High-conviction fresh card: a new card is actionable_watch or
        research_priority AND composite_score >= HIGH_CONVICTION_THRESHOLD.
-  T2 — Fresh-card count threshold: total fresh+active cards in the deck
-       crosses FRESH_COUNT_THRESHOLD (enough new signal to warrant review).
-  T3 — Aging last-chance: any card is about to transition from aging to
-       digest_only within LAST_CHANCE_LOOKAHEAD_MIN minutes.
+  T2 — Fresh-card count threshold: total high-priority fresh cards in the
+       incoming batch crosses FRESH_COUNT_THRESHOLD (enough new signal to
+       warrant review).
 
 No-trigger conditions (push is suppressed even if cadence elapsed):
   S1 — All surfaceable cards are digest_only or expired (no actionable signal).
@@ -29,31 +28,24 @@ Design rationale:
   (trigger) OR low-signal digest-only noise (suppress).  Push distinguishes
   the two; poll cannot.
 
-Why T3 (aging last-chance) as a separate trigger:
-  An aging card that goes digest_only before the operator sees it is a
-  silently missed signal.  T3 ensures the operator gets one final
-  notification before the card degrades past the review horizon, even if
-  T1/T2 would not have fired.
+Run 033 note (T3 removal):
+  A T3 "aging last-chance" trigger was present in Run 028 but never fired
+  in any simulation (T3 events = 0 across all seeds and threshold configs).
+  The implementation used _DIGEST_MAX (2.5) instead of _AGING_MAX (1.75) as
+  the aging→digest_only crossover, making time_remaining always exceed the
+  10-min lookahead window for all tier half-lives.  T3 was dead code and has
+  been removed.  The push policy is now fully defined by T1 + T2 + S1/S2/S3.
 """
 from __future__ import annotations
 
-import json
 from dataclasses import dataclass, field
 from typing import Optional
 
 from crypto.src.eval.delivery_state import (
     DeliveryCard,
-    DigestCard,
-    DeliveryStateEngine,
     STATE_FRESH,
     STATE_ACTIVE,
     STATE_AGING,
-    STATE_DIGEST_ONLY,
-    STATE_EXPIRED,
-    STATE_ARCHIVED,
-    _AGING_MAX,
-    _DIGEST_MAX,
-    _HL_BY_TIER,
 )
 
 # ---------------------------------------------------------------------------
@@ -67,10 +59,6 @@ HIGH_PRIORITY_TIERS: frozenset[str] = frozenset(["actionable_watch", "research_p
 
 # T2: minimum number of fresh+active (non-collapsed) cards to trigger
 FRESH_COUNT_THRESHOLD: int = 3
-
-# T3: push if any card's remaining time before digest_only transition is
-# within this many minutes
-LAST_CHANCE_LOOKAHEAD_MIN: float = 10.0
 
 # Rate-limit: minimum minutes between consecutive push events
 MIN_PUSH_GAP_MIN: float = 15.0
@@ -86,13 +74,12 @@ class PushEvent:
 
     Attributes:
         trigger_time_min:  Session-time (minutes) when push was fired.
-        trigger_reason:    Which trigger condition(s) fired (T1/T2/T3).
+        trigger_reason:    Which trigger condition(s) fired (T1/T2).
         trigger_detail:    Human-readable summary of the reason.
         fresh_count:       Fresh cards in deck at trigger time.
         active_count:      Active cards in deck at trigger time.
-        aging_count:       Aging cards (including last-chance) at trigger time.
+        aging_count:       Aging cards in deck at trigger time.
         high_conviction_cards: Cards that satisfied T1 (card_id list).
-        last_chance_cards:     Cards that triggered T3 (card_id list).
         suppressed:        True if the event was computed but suppressed
                            by a no-trigger condition (for diagnostics).
         suppress_reason:   Why the event was suppressed (if suppressed=True).
@@ -105,7 +92,6 @@ class PushEvent:
     active_count: int
     aging_count: int
     high_conviction_cards: list[str] = field(default_factory=list)
-    last_chance_cards: list[str] = field(default_factory=list)
     suppressed: bool = False
     suppress_reason: str = ""
 
@@ -119,7 +105,6 @@ class PushEvent:
             "active_count": self.active_count,
             "aging_count": self.aging_count,
             "high_conviction_cards": self.high_conviction_cards,
-            "last_chance_cards": self.last_chance_cards,
             "suppressed": self.suppressed,
             "suppress_reason": self.suppress_reason,
         }
@@ -175,8 +160,7 @@ class PushSurfacingEngine:
 
     Args:
         high_conviction_threshold: composite_score minimum for T1.
-        fresh_count_threshold:     fresh+active count minimum for T2.
-        last_chance_lookahead_min: remaining-time cutoff for T3.
+        fresh_count_threshold:     high-priority incoming card count minimum for T2.
         min_push_gap_min:          minimum minutes between consecutive pushes.
     """
 
@@ -184,12 +168,10 @@ class PushSurfacingEngine:
         self,
         high_conviction_threshold: float = HIGH_CONVICTION_THRESHOLD,
         fresh_count_threshold: int = FRESH_COUNT_THRESHOLD,
-        last_chance_lookahead_min: float = LAST_CHANCE_LOOKAHEAD_MIN,
         min_push_gap_min: float = MIN_PUSH_GAP_MIN,
     ) -> None:
         self.high_conviction_threshold = high_conviction_threshold
         self.fresh_count_threshold = fresh_count_threshold
-        self.last_chance_lookahead_min = last_chance_lookahead_min
         self.min_push_gap_min = min_push_gap_min
         self._last_push_time: Optional[float] = None
 
@@ -233,35 +215,6 @@ class PushSurfacingEngine:
             1 for c in incoming
             if c.tier in HIGH_PRIORITY_TIERS
         )
-
-    def _check_t3(
-        self, cards: list[DeliveryCard], current_time_min: float
-    ) -> list[DeliveryCard]:
-        """T3: Aging last-chance — card about to cross into digest_only.
-
-        A card is "last-chance" if:
-          age_hl_ratio is in the aging window AND
-          time remaining until _DIGEST_MAX * HL is <= last_chance_lookahead_min.
-
-        Why we use absolute time remaining rather than ratio proximity:
-          At HL=40 min, 10 min is 0.25 ratio units — meaningful.
-          At HL=90 min (baseline_like), 10 min is only 0.11 units.
-          Absolute time treats all tiers fairly from the operator's perspective:
-          "you have 10 min to act" is a consistent urgency signal regardless
-          of tier.
-
-        Returns list of cards satisfying T3.
-        """
-        last_chance = []
-        for c in cards:
-            if c.delivery_state() != STATE_AGING:
-                continue
-            # Time until card crosses into digest_only
-            digest_crossover_min = _DIGEST_MAX * c.half_life_min
-            time_remaining = digest_crossover_min - c.age_min
-            if 0 < time_remaining <= self.last_chance_lookahead_min:
-                last_chance.append(c)
-        return last_chance
 
     def _check_suppress_s1(self, cards: list[DeliveryCard]) -> bool:
         """S1: All surfaceable cards are digest_only/expired/archived."""
@@ -315,17 +268,15 @@ class PushSurfacingEngine:
     ) -> PushEvent:
         """Evaluate push conditions and return a PushEvent (may be suppressed).
 
-        T1 and T2 evaluate only the INCOMING batch to avoid re-triggering on
-        cards already reviewed in a previous push.  T3 (last-chance aging)
-        is evaluated deck-wide because expiry risk is independent of when
-        the card arrived.
+        T1 and T2 are evaluated on the INCOMING batch only to avoid
+        re-triggering on cards already reviewed in a previous push.
 
         Args:
             cards:            Current full card deck (all states).
             current_time_min: Current session time in minutes.
             incoming_cards:   Newly arrived cards from this batch.  T1/T2
                               are evaluated on this list.  Pass [] or None
-                              to skip T1/T2 (only T3 can fire).
+                              to skip both triggers (event will be suppressed).
 
         Returns:
             PushEvent with suppressed=True if no-trigger conditions apply,
@@ -336,8 +287,6 @@ class PushSurfacingEngine:
         # T1/T2: evaluated on incoming batch only (see _check_t1/_check_t2 docstrings)
         t1_cards = self._check_t1(incoming)
         fresh_active_count = self._check_t2(incoming)
-        # T3: deck-wide (aging risk is about existing cards, not new arrivals)
-        t3_cards = self._check_t3(cards, current_time_min)
 
         fresh_count = sum(1 for c in cards if c.delivery_state() == STATE_FRESH)
         active_count = sum(1 for c in cards if c.delivery_state() == STATE_ACTIVE)
@@ -353,8 +302,6 @@ class PushSurfacingEngine:
             triggers.append("T1")
         if fresh_active_count >= self.fresh_count_threshold:
             triggers.append("T2")
-        if t3_cards:
-            triggers.append("T3")
 
         detail_parts = []
         if t1_cards:
@@ -367,11 +314,6 @@ class PushSurfacingEngine:
                 f"T2: {fresh_active_count} fresh+active cards "
                 f"(threshold={self.fresh_count_threshold})"
             )
-        if t3_cards:
-            detail_parts.append(
-                f"T3: {len(t3_cards)} aging last-chance card(s) "
-                f"(<{self.last_chance_lookahead_min}min to digest_only)"
-            )
 
         event = PushEvent(
             trigger_time_min=current_time_min,
@@ -381,7 +323,6 @@ class PushSurfacingEngine:
             active_count=active_count,
             aging_count=aging_count,
             high_conviction_cards=[c.card_id for c in t1_cards],
-            last_chance_cards=[c.card_id for c in t3_cards],
         )
 
         # Check no-trigger conditions
@@ -433,7 +374,6 @@ def simulate_push_surfacing(
     n_cards_per_batch: int = 20,
     high_conviction_threshold: float = HIGH_CONVICTION_THRESHOLD,
     fresh_count_threshold: int = FRESH_COUNT_THRESHOLD,
-    last_chance_lookahead_min: float = LAST_CHANCE_LOOKAHEAD_MIN,
     min_push_gap_min: float = MIN_PUSH_GAP_MIN,
     collapse_min_family_size: int = 2,
     hot_batch_probability: float = 0.30,
@@ -461,7 +401,6 @@ def simulate_push_surfacing(
         n_cards_per_batch:         Cards per batch.
         high_conviction_threshold: T1 score floor.
         fresh_count_threshold:     T2 count floor.
-        last_chance_lookahead_min: T3 lookahead window.
         min_push_gap_min:          Minimum gap between push events (S3).
         collapse_min_family_size:  Family collapse threshold.
         hot_batch_probability:     Fraction of batches that are "hot" (rich
@@ -478,7 +417,6 @@ def simulate_push_surfacing(
     engine = PushSurfacingEngine(
         high_conviction_threshold=high_conviction_threshold,
         fresh_count_threshold=fresh_count_threshold,
-        last_chance_lookahead_min=last_chance_lookahead_min,
         min_push_gap_min=min_push_gap_min,
     )
     engine.reset()
@@ -561,7 +499,7 @@ def simulate_push_surfacing(
         sum(e.active_count for e in fired_events) / n_fired if n_fired else 0.0
     )
 
-    trigger_breakdown: dict[str, int] = {"T1": 0, "T2": 0, "T3": 0}
+    trigger_breakdown: dict[str, int] = {"T1": 0, "T2": 0}
     for e in fired_events:
         for t_code in e.trigger_reason:
             trigger_breakdown[t_code] = trigger_breakdown.get(t_code, 0) + 1
@@ -586,7 +524,6 @@ def run_push_multi_seed(
     n_cards_per_batch: int = 20,
     high_conviction_threshold: float = HIGH_CONVICTION_THRESHOLD,
     fresh_count_threshold: int = FRESH_COUNT_THRESHOLD,
-    last_chance_lookahead_min: float = LAST_CHANCE_LOOKAHEAD_MIN,
     min_push_gap_min: float = MIN_PUSH_GAP_MIN,
     hot_batch_probability: float = 0.30,
 ) -> PushSurfacingResult:
@@ -609,7 +546,6 @@ def run_push_multi_seed(
             n_cards_per_batch=n_cards_per_batch,
             high_conviction_threshold=high_conviction_threshold,
             fresh_count_threshold=fresh_count_threshold,
-            last_chance_lookahead_min=last_chance_lookahead_min,
             min_push_gap_min=min_push_gap_min,
             hot_batch_probability=hot_batch_probability,
         )
