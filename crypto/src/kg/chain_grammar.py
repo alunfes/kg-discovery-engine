@@ -2,6 +2,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 """Chain grammar KG builder — Sprint E (E1/E2) + Sprint F (F3) + Sprint K (R1).
 =======
 """Chain grammar KG builder — Sprint E (E1 beta_reversion + E2 positioning_unwind).
@@ -15,6 +16,9 @@
 =======
 """Chain grammar KG builder — Sprint E (E1/E2) + Sprint F (F3).
 >>>>>>> claude/optimistic-swanson
+=======
+"""Chain grammar KG builder — Sprint E (E1/E2) + Sprint F (F3).
+>>>>>>> claude/sleepy-mestorf
 
 E1: Negative-evidence nodes — the *absence* of flow signals is the positive
     signal for beta reversion.  Nodes encode below-threshold conditions
@@ -29,12 +33,15 @@ E2: Positive-evidence nodes — crowded positioning + trigger event produces
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/sharp-kowalevski
 =======
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
 F3: Negative-evidence taxonomy — suppression reasons are now typed:
     structural_absence    — required KG node/structure does not exist.
     failed_followthrough  — signal present but below persistence/intensity threshold.
@@ -44,12 +51,15 @@ F3: Negative-evidence taxonomy — suppression reasons are now typed:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Sprint K / R1: The J1 discriminative gate is now a first-class instance of
     Meta-rule R1 (Regime Dominance Gate) defined in regime_dominance_gate.py.
     J1 logic is unchanged; the inline check is replaced by apply_r1().
 
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
 Returns (KGraph, suppression_log) so the pipeline can emit branch_metrics.json.
 """
 
@@ -60,6 +70,7 @@ from ..eval.soft_gate import (
     soft_activation_gate,
 )
 from ..kg.base import KGEdge, KGNode, KGraph
+<<<<<<< HEAD
 <<<<<<< HEAD
 from ..kg.regime_dominance_gate import R1PolicySpec, apply_r1
 =======
@@ -80,10 +91,13 @@ from ..kg.base import KGEdge, KGNode, KGraph
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
 from ..schema.market_state import MarketStateCollection
 
 FAMILY = "chain_grammar"
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -125,6 +139,8 @@ _J1_R1_SPEC = R1PolicySpec(
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
 
 # ---------------------------------------------------------------------------
 # Internal helpers
@@ -224,8 +240,11 @@ def _oi_coverage(collections: dict[str, MarketStateCollection], assets: list[str
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
 
 
 # ---------------------------------------------------------------------------
@@ -305,6 +324,7 @@ def _apply_funding_soft_gate(
     return True, gate["effective_conf"]
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/gracious-edison
 =======
@@ -313,6 +333,8 @@ def _apply_funding_soft_gate(
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
 # ---------------------------------------------------------------------------
 # E1 chain builders
 # ---------------------------------------------------------------------------
@@ -326,12 +348,15 @@ def _e1_no_funding_oi_chain(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/sharp-kowalevski
 =======
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
     """E1 Chain 1: corr_break → no_funding_shift → no_oi_expansion → recoupling.
 
     F3: suppression reasons typed:
@@ -359,6 +384,7 @@ def _e1_no_funding_oi_chain(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     """E1 Chain 1: corr_break → no_funding_shift → no_oi_expansion → recoupling."""
     pair = f"{a1}/{a2}"
@@ -372,6 +398,8 @@ def _e1_no_funding_oi_chain(
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
         return
     cov = _oi_coverage(collections, [a1, a2])
 
@@ -417,6 +445,7 @@ def _e1_transient_aggression_chain(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     Sprint K (run_011): The J1 gate is now a first-class R1 instance (_J1_R1_SPEC).
     If funding_extreme AND OI_accumulation are both present, apply_r1 suppresses
@@ -447,6 +476,10 @@ def _e1_transient_aggression_chain(
     """
     pair = f"{a1}/{a2}"
 >>>>>>> claude/optimistic-swanson
+=======
+    """
+    pair = f"{a1}/{a2}"
+>>>>>>> claude/sleepy-mestorf
     burst_a1 = _count_burst_windows_kg(merged_kg, [a1])
     burst_a2 = _count_burst_windows_kg(merged_kg, [a2])
     burst_count = min(burst_a1, burst_a2)  # transient if EITHER side is low-burst
@@ -459,17 +492,21 @@ def _e1_transient_aggression_chain(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/sharp-kowalevski
 =======
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
         # F3: failed_followthrough — aggression exists but persisted beyond transient threshold
         log.append({"chain": "beta_reversion_transient_aggr", "pair": pair,
                     "reason": "failed_followthrough",
                     "detail": f"min burst count={burst_count} — both sides persistent",
                     "neg_evidence_taxonomy": "failed_followthrough"})
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -484,6 +521,8 @@ def _e1_transient_aggression_chain(
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
         return
 
     npa_id = f"no_persistent_aggr:{a1}:{a2}"
@@ -519,12 +558,15 @@ def _e1_weak_premium_chain(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/sharp-kowalevski
 =======
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
         # F3: structural_absence — premium dislocation node type absent from KG
         log.append({"chain": "beta_reversion_weak_premium", "pair": pair,
                     "reason": "structural_absence",
@@ -537,6 +579,7 @@ def _e1_weak_premium_chain(
                     "reason": "contradictory_evidence",
                     "detail": "funding extreme present — premium not weak",
                     "neg_evidence_taxonomy": "contradictory_evidence"})
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -555,6 +598,8 @@ def _e1_weak_premium_chain(
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
         return
 
     rctx_id = f"reversion_context:{a1}:{a2}"
@@ -598,13 +643,17 @@ def _e2_funding_pressure_chain(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
     # H1: Apply soft activation gate for funding pressure
     proceed, act_conf = _apply_funding_soft_gate(
         collections, [a1, a2], pair, log, n_extreme
     )
     if not proceed:
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     if n_extreme == 0:
@@ -617,6 +666,8 @@ def _e2_funding_pressure_chain(
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
         log.append({"chain": "positioning_unwind_funding_pressure", "pair": pair,
                     "reason": "no_trigger", "detail": "no funding extreme"})
         return
@@ -625,8 +676,11 @@ def _e2_funding_pressure_chain(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
     is_soft_fund = act_conf < HARD_GATE_MIN
     eff_n = n_extreme if n_extreme > 0 else 1
     persistence = min(1.0, eff_n * 0.4)
@@ -636,6 +690,7 @@ def _e2_funding_pressure_chain(
         "state_score": round(min(1.0, act_conf), 3),
         "duration": eff_n, "persistence": round(persistence, 3), "coverage": 1.0,
         "activation_confidence": round(act_conf, 3), "is_soft_gated": is_soft_fund,
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -657,6 +712,8 @@ def _e2_funding_pressure_chain(
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
     })
     _mk_edge(kg, f"funding_pressure:{a1}:{a2}", corr_nid, fpr_id, "has_funding_pressure_regime")
 
@@ -670,6 +727,7 @@ def _e2_funding_pressure_chain(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "duration": eff_n, "persistence": round(persistence, 3), "coverage": 1.0,
         "activation_confidence": round(act_conf, 3), "is_soft_gated": is_soft_fund,
 =======
@@ -685,6 +743,10 @@ def _e2_funding_pressure_chain(
         "duration": eff_n, "persistence": round(persistence, 3), "coverage": 1.0,
         "activation_confidence": round(act_conf, 3), "is_soft_gated": is_soft_fund,
 >>>>>>> claude/optimistic-swanson
+=======
+        "duration": eff_n, "persistence": round(persistence, 3), "coverage": 1.0,
+        "activation_confidence": round(act_conf, 3), "is_soft_gated": is_soft_fund,
+>>>>>>> claude/sleepy-mestorf
     })
     _mk_edge(kg, f"funding_to_fragile:{a1}:{a2}", fpr_id, fps_id,
              "funding_pressure_creates_fragile_premium")
@@ -698,6 +760,7 @@ def _e2_funding_pressure_chain(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "activation_confidence": round(act_conf, 3), "is_soft_gated": is_soft_fund,
 =======
 >>>>>>> claude/gracious-edison
@@ -708,6 +771,9 @@ def _e2_funding_pressure_chain(
 =======
         "activation_confidence": round(act_conf, 3), "is_soft_gated": is_soft_fund,
 >>>>>>> claude/optimistic-swanson
+=======
+        "activation_confidence": round(act_conf, 3), "is_soft_gated": is_soft_fund,
+>>>>>>> claude/sleepy-mestorf
     })
     _mk_edge(kg, f"fragile_trigger:{a1}:{a2}", fps_id, utr_id, "fragile_premium_triggers_unwind")
 
@@ -723,6 +789,7 @@ def _e2_one_sided_oi_chain(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     # H1: Apply soft activation gate for OI accumulation
     proceed, act_conf = _apply_oi_soft_gate(collections, [a1, a2], pair, log)
     if not proceed:
@@ -740,6 +807,11 @@ def _e2_one_sided_oi_chain(
     proceed, act_conf = _apply_oi_soft_gate(collections, [a1, a2], pair, log)
     if not proceed:
 >>>>>>> claude/optimistic-swanson
+=======
+    # H1: Apply soft activation gate for OI accumulation
+    proceed, act_conf = _apply_oi_soft_gate(collections, [a1, a2], pair, log)
+    if not proceed:
+>>>>>>> claude/sleepy-mestorf
         log.append({"chain": "positioning_unwind_oi_crowding", "pair": pair,
                     "reason": "missing_accumulation", "detail": "no OI accumulation"})
         return
@@ -753,6 +825,7 @@ def _e2_one_sided_oi_chain(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     is_soft_oi = act_conf < HARD_GATE_MIN
 =======
 >>>>>>> claude/gracious-edison
@@ -763,6 +836,9 @@ def _e2_one_sided_oi_chain(
 =======
     is_soft_oi = act_conf < HARD_GATE_MIN
 >>>>>>> claude/optimistic-swanson
+=======
+    is_soft_oi = act_conf < HARD_GATE_MIN
+>>>>>>> claude/sleepy-mestorf
     build_dur = _oi_build_duration(collections, [a1, a2])
     oi_score = _oi_state_score(collections, [a1, a2])
 
@@ -774,6 +850,7 @@ def _e2_one_sided_oi_chain(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "activation_confidence": round(act_conf, 3), "is_soft_gated": is_soft_oi,
 =======
 >>>>>>> claude/gracious-edison
@@ -784,6 +861,9 @@ def _e2_one_sided_oi_chain(
 =======
         "activation_confidence": round(act_conf, 3), "is_soft_gated": is_soft_oi,
 >>>>>>> claude/optimistic-swanson
+=======
+        "activation_confidence": round(act_conf, 3), "is_soft_gated": is_soft_oi,
+>>>>>>> claude/sleepy-mestorf
         "coverage": 1.0,
     })
     _mk_edge(kg, f"oi_build:{a1}:{a2}", corr_nid, oi_id, "has_one_sided_oi_build")
@@ -798,6 +878,7 @@ def _e2_one_sided_oi_chain(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "activation_confidence": round(act_conf, 3), "is_soft_gated": is_soft_oi,
 =======
 >>>>>>> claude/gracious-edison
@@ -808,6 +889,9 @@ def _e2_one_sided_oi_chain(
 =======
         "activation_confidence": round(act_conf, 3), "is_soft_gated": is_soft_oi,
 >>>>>>> claude/optimistic-swanson
+=======
+        "activation_confidence": round(act_conf, 3), "is_soft_gated": is_soft_oi,
+>>>>>>> claude/sleepy-mestorf
     })
     _mk_edge(kg, f"oi_crowding:{a1}:{a2}", oi_id, crowd_id, "oi_build_creates_crowding")
 

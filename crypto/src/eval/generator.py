@@ -8,6 +8,7 @@ docs and emits a dict conforming to the scorer.score_hypothesis() interface.
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/elated-lamarr
 =======
@@ -18,6 +19,8 @@ docs and emits a dict conforming to the scorer.score_hypothesis() interface.
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
 
 D1: Added 4 chain-walking rules that follow multi-hop KG paths anchored to
     CorrelationNode(break) and/or AggressionNode → PremiumDislocationNode chains.
@@ -33,6 +36,7 @@ D3: A4 branch selection now also gates on corr_break_score >= branch threshold
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/thirsty-heisenberg
 =======
@@ -45,11 +49,14 @@ D3: A4 branch selection now also gates on corr_break_score >= branch threshold
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
 """
 
 from ..kg.base import KGraph
 from ..schema.task_status import SecrecyLevel
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -66,6 +73,8 @@ from ..schema.task_status import SecrecyLevel
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
 # D3: branch strength thresholds (mirror of BRANCH_THRESHOLDS in cross_asset.py)
 # Defined here to avoid circular imports; kept in sync by the test suite.
 _BRANCH_MIN_SCORE: dict[str, float] = {
@@ -80,6 +89,7 @@ _BRANCH_MIN_SCORE: dict[str, float] = {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/thirsty-heisenberg
 =======
@@ -92,6 +102,8 @@ _BRANCH_MIN_SCORE: dict[str, float] = {
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
 
 def generate_hypotheses(kg: KGraph) -> list[dict]:
     """Walk the KG and emit raw hypothesis candidates.
@@ -112,6 +124,7 @@ def generate_hypotheses(kg: KGraph) -> list[dict]:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/elated-lamarr
 =======
@@ -122,11 +135,14 @@ def generate_hypotheses(kg: KGraph) -> list[dict]:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
     # D1: chain-walking rules (richer evidence than A4 label rules)
     candidates.extend(_rule_chain_beta_reversion(kg))
     candidates.extend(_rule_chain_positioning_unwind(kg))
     candidates.extend(_rule_chain_flow_continuation(kg))
     candidates.extend(_rule_chain_microstructure_artifact(kg))
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -140,6 +156,8 @@ def generate_hypotheses(kg: KGraph) -> list[dict]:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
     # E1: beta_reversion grammar (explicit negative-evidence chains)
     candidates.extend(_rule_chain_e1_no_funding_oi(kg))
     candidates.extend(_rule_chain_e1_transient_aggr(kg))
@@ -151,6 +169,7 @@ def generate_hypotheses(kg: KGraph) -> list[dict]:
     # E4: null / baseline chains
     candidates.extend(_rule_chain_null_low_followthrough(kg))
     candidates.extend(_rule_chain_null_weak_dispersion(kg))
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -167,6 +186,8 @@ def generate_hypotheses(kg: KGraph) -> list[dict]:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
 
     # Dedup by (title, claim)
     seen: set[tuple[str, str]] = set()
@@ -186,6 +207,7 @@ def generate_hypotheses(kg: KGraph) -> list[dict]:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/elated-lamarr
 =======
@@ -196,10 +218,13 @@ def generate_hypotheses(kg: KGraph) -> list[dict]:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
 # ---------------------------------------------------------------------------
 # Existing rules (Sprint A4 branches — now also gate on corr_break_score D3)
 # ---------------------------------------------------------------------------
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -217,6 +242,8 @@ def generate_hypotheses(kg: KGraph) -> list[dict]:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
 def _rule_aggression_predicts_funding(kg: KGraph) -> list[dict]:
     """Rule: aggression_predicts_funding edge → funding direction hypothesis."""
     results: list[dict] = []
@@ -274,6 +301,7 @@ def _rule_funding_extreme_reversion(kg: KGraph) -> list[dict]:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         asset = node.attributes.get("asset", node.node_id.split(":")[1] if ":" in node.node_id else "UNK")
 =======
         asset = node.attributes.get("asset", node.node_id.split(":")[1])
@@ -293,6 +321,9 @@ def _rule_funding_extreme_reversion(kg: KGraph) -> list[dict]:
 =======
         asset = node.attributes.get("asset", node.node_id.split(":")[1] if ":" in node.node_id else "UNK")
 >>>>>>> claude/optimistic-swanson
+=======
+        asset = node.attributes.get("asset", node.node_id.split(":")[1] if ":" in node.node_id else "UNK")
+>>>>>>> claude/sleepy-mestorf
         direction = node.attributes.get("direction", "unknown")
         z = node.attributes.get("z_score", 0.0)
         opposite = "short" if direction == "long" else "long"
@@ -325,6 +356,7 @@ def _rule_correlation_break_mean_revert(kg: KGraph) -> list[dict]:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/elated-lamarr
 =======
@@ -335,6 +367,8 @@ def _rule_correlation_break_mean_revert(kg: KGraph) -> list[dict]:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
     """Rule: correlation_break edge → one of 4 contextual branches (A4 + D3).
 
     A4 replaces the old single "mean reversion" branch with 4 branches that
@@ -531,6 +565,7 @@ def _scan_funding_extreme(kg: KGraph, assets: list[str]) -> int:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     """Rule: correlation_break edge → pair mean reversion hypothesis (PV-1)."""
     results: list[dict] = []
@@ -579,6 +614,8 @@ def _scan_funding_extreme(kg: KGraph, assets: list[str]) -> int:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
 def _rule_pair_basis_convergence(kg: KGraph) -> list[dict]:
     """Rule: basis_extreme edge → funding convergence hypothesis (PV-2)."""
     results: list[dict] = []
@@ -628,6 +665,7 @@ def _rule_regime_transition_pattern(kg: KGraph) -> list[dict]:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         # Only flag transitions from an extreme to resting (historically predictive)
 >>>>>>> claude/thirsty-heisenberg
@@ -641,6 +679,8 @@ def _rule_regime_transition_pattern(kg: KGraph) -> list[dict]:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
         if "extreme" not in from_r and "aggressive" not in from_r:
             continue
         results.append({
@@ -669,6 +709,7 @@ def _rule_regime_transition_pattern(kg: KGraph) -> list[dict]:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/elated-lamarr
 =======
@@ -679,6 +720,8 @@ def _rule_regime_transition_pattern(kg: KGraph) -> list[dict]:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
 
 
 # ---------------------------------------------------------------------------
@@ -1066,6 +1109,7 @@ def _rule_chain_microstructure_artifact(kg: KGraph) -> list[dict]:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/gracious-edison
 =======
@@ -1074,6 +1118,8 @@ def _rule_chain_microstructure_artifact(kg: KGraph) -> list[dict]:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
 
 
 # ---------------------------------------------------------------------------
@@ -1282,13 +1328,17 @@ def _rule_chain_e2_funding_pressure(kg: KGraph) -> list[dict]:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
     """E2 Chain 1: corr_break → funding_pressure_regime → fragile_premium → unwind_trigger.
 
     H1: reads activation_confidence from FundingPressureRegimeNode; soft-gated candidates
     get reduced plausibility and the "soft_gated" tag so they are traceable.
     """
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     """E2 Chain 1: corr_break → funding_pressure_regime → fragile_premium → unwind_trigger."""
@@ -1301,6 +1351,8 @@ def _rule_chain_e2_funding_pressure(kg: KGraph) -> list[dict]:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
     results: list[dict] = []
     for node in kg.nodes.values():
         if node.node_type != "CorrelationNode" or not node.attributes.get("is_break"):
@@ -1318,6 +1370,7 @@ def _rule_chain_e2_funding_pressure(kg: KGraph) -> list[dict]:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         # H1: read soft-gate attributes from funding pressure node
         act_conf = fpr.attributes.get("activation_confidence", 1.0)
         is_soft = fpr.attributes.get("is_soft_gated", False)
@@ -1332,6 +1385,11 @@ def _rule_chain_e2_funding_pressure(kg: KGraph) -> list[dict]:
         act_conf = fpr.attributes.get("activation_confidence", 1.0)
         is_soft = fpr.attributes.get("is_soft_gated", False)
 >>>>>>> claude/optimistic-swanson
+=======
+        # H1: read soft-gate attributes from funding pressure node
+        act_conf = fpr.attributes.get("activation_confidence", 1.0)
+        is_soft = fpr.attributes.get("is_soft_gated", False)
+>>>>>>> claude/sleepy-mestorf
         plaus = _score_e2_unwind(
             fpr.attributes.get("state_score", 0.5),
             fps.attributes.get("state_score", 0.5),
@@ -1343,8 +1401,11 @@ def _rule_chain_e2_funding_pressure(kg: KGraph) -> list[dict]:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
         # H1: scale plausibility for soft-gated border cases
         from ..eval.soft_gate import soft_activation_gate
         if is_soft:
@@ -1354,6 +1415,7 @@ def _rule_chain_e2_funding_pressure(kg: KGraph) -> list[dict]:
         if is_soft:
             tags.append("soft_gated")
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/gracious-edison
 =======
@@ -1362,6 +1424,8 @@ def _rule_chain_e2_funding_pressure(kg: KGraph) -> list[dict]:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
         results.append({
             "title": f"E2 positioning unwind: ({a1},{a2}) — funding pressure regime",
             "claim": (
@@ -1384,6 +1448,7 @@ def _rule_chain_e2_funding_pressure(kg: KGraph) -> list[dict]:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "activation_confidence": act_conf,
             "tags": tags,
 =======
@@ -1399,6 +1464,10 @@ def _rule_chain_e2_funding_pressure(kg: KGraph) -> list[dict]:
             "activation_confidence": act_conf,
             "tags": tags,
 >>>>>>> claude/optimistic-swanson
+=======
+            "activation_confidence": act_conf,
+            "tags": tags,
+>>>>>>> claude/sleepy-mestorf
         })
     return results
 
@@ -1408,13 +1477,17 @@ def _rule_chain_e2_oi_crowding(kg: KGraph) -> list[dict]:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
     """E2 Chain 2: corr_break → one_sided_oi_build → position_crowding → positioning_unwind.
 
     H1: reads activation_confidence from OneSidedOIBuildNode; soft-gated candidates
     get reduced plausibility and the "soft_gated" tag so they are traceable.
     """
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     """E2 Chain 2: corr_break → one_sided_oi_build → position_crowding → positioning_unwind."""
@@ -1427,6 +1500,8 @@ def _rule_chain_e2_oi_crowding(kg: KGraph) -> list[dict]:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
     results: list[dict] = []
     for node in kg.nodes.values():
         if node.node_type != "CorrelationNode" or not node.attributes.get("is_break"):
@@ -1443,12 +1518,16 @@ def _rule_chain_e2_oi_crowding(kg: KGraph) -> list[dict]:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
         # H1: read soft-gate attributes from OI node
         act_conf = oi_nd.attributes.get("activation_confidence", 1.0)
         is_soft = oi_nd.attributes.get("is_soft_gated", False)
         crowd_conf = crowd.attributes.get("activation_confidence", act_conf)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 >>>>>>> claude/gracious-edison
@@ -1458,6 +1537,8 @@ def _rule_chain_e2_oi_crowding(kg: KGraph) -> list[dict]:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
         plaus = _score_e2_unwind(
             oi_nd.attributes.get("state_score", 0.5),
             crowd.attributes.get("state_score", 0.5),
@@ -1469,8 +1550,11 @@ def _rule_chain_e2_oi_crowding(kg: KGraph) -> list[dict]:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
         # H1: scale plausibility for soft-gated border cases
         from ..eval.soft_gate import soft_activation_gate
         if is_soft:
@@ -1480,6 +1564,7 @@ def _rule_chain_e2_oi_crowding(kg: KGraph) -> list[dict]:
         if is_soft:
             tags.append("soft_gated")
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/gracious-edison
 =======
@@ -1488,6 +1573,8 @@ def _rule_chain_e2_oi_crowding(kg: KGraph) -> list[dict]:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
         results.append({
             "title": f"E2 positioning unwind: ({a1},{a2}) — one-sided OI build + crowding",
             "claim": (
@@ -1511,6 +1598,7 @@ def _rule_chain_e2_oi_crowding(kg: KGraph) -> list[dict]:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             "activation_confidence": act_conf,
             "tags": tags,
 =======
@@ -1526,6 +1614,10 @@ def _rule_chain_e2_oi_crowding(kg: KGraph) -> list[dict]:
             "activation_confidence": act_conf,
             "tags": tags,
 >>>>>>> claude/optimistic-swanson
+=======
+            "activation_confidence": act_conf,
+            "tags": tags,
+>>>>>>> claude/sleepy-mestorf
         })
     return results
 
@@ -1674,6 +1766,7 @@ def _rule_chain_null_weak_dispersion(kg: KGraph) -> list[dict]:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/thirsty-heisenberg
 =======
@@ -1686,3 +1779,5 @@ def _rule_chain_null_weak_dispersion(kg: KGraph) -> list[dict]:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf

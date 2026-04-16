@@ -66,6 +66,7 @@ def build_microstructure_kg(collection: MarketStateCollection) -> KGraph:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/elated-lamarr
 =======
@@ -76,11 +77,14 @@ def build_microstructure_kg(collection: MarketStateCollection) -> KGraph:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
                 # B1: temporal fields for look-ahead guard
                 "event_time": ag.event_time,
                 "observable_time": ag.observable_time,
                 "valid_from": ag.valid_from,
                 "valid_to": ag.valid_to,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -98,6 +102,8 @@ def build_microstructure_kg(collection: MarketStateCollection) -> KGraph:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
             },
         ))
         kg.add_edge(KGEdge(
@@ -117,6 +123,7 @@ def build_microstructure_kg(collection: MarketStateCollection) -> KGraph:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         # Fallback to absolute rate for short simulations where rolling z-score
         # has insufficient history (< 2 epochs → z_score = 0.0).
         is_extreme = abs(fn.z_score) > 2.0 or abs(fn.funding_rate) > 0.001
@@ -146,6 +153,11 @@ def build_microstructure_kg(collection: MarketStateCollection) -> KGraph:
         # has insufficient history (< 2 epochs → z_score = 0.0).
         is_extreme = abs(fn.z_score) > 2.0 or abs(fn.funding_rate) > 0.001
 >>>>>>> claude/optimistic-swanson
+=======
+        # Fallback to absolute rate for short simulations where rolling z-score
+        # has insufficient history (< 2 epochs → z_score = 0.0).
+        is_extreme = abs(fn.z_score) > 2.0 or abs(fn.funding_rate) > 0.001
+>>>>>>> claude/sleepy-mestorf
         kg.add_node(KGNode(
             node_id=nid,
             node_type="FundingNode",
@@ -161,6 +173,7 @@ def build_microstructure_kg(collection: MarketStateCollection) -> KGraph:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/elated-lamarr
 =======
@@ -171,11 +184,14 @@ def build_microstructure_kg(collection: MarketStateCollection) -> KGraph:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
                 # B1: temporal fields for look-ahead guard
                 "event_time": fn.event_time,
                 "observable_time": fn.observable_time,
                 "valid_from": fn.valid_from,
                 "valid_to": fn.valid_to,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -193,6 +209,8 @@ def build_microstructure_kg(collection: MarketStateCollection) -> KGraph:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
             },
         ))
         kg.add_edge(KGEdge(
@@ -220,6 +238,7 @@ def _add_aggression_to_funding_edges(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/elated-lamarr
 =======
@@ -230,6 +249,8 @@ def _add_aggression_to_funding_edges(
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
     """Add decomposed aggression → funding causal chain (B3).
 
     Original design had a direct aggression → funding edge, which skips the
@@ -258,6 +279,7 @@ def _add_aggression_to_funding_edges(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     """Add aggression_predicts_funding edges where temporal proximity exists.
 
@@ -277,12 +299,15 @@ def _add_aggression_to_funding_edges(
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
     """
     max_gap_ms = 8 * 3_600_000
 
     for i, ag in enumerate(collection.aggressions):
         if ag.bias not in (AggressionBias.STRONG_BUY, AggressionBias.STRONG_SELL):
             continue
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -299,6 +324,8 @@ def _add_aggression_to_funding_edges(
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
 
         for j, fn in enumerate(collection.fundings):
             gap = fn.timestamp_ms - ag.timestamp_ms
@@ -373,6 +400,7 @@ def _add_aggression_to_funding_edges(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         for j, fn in enumerate(collection.fundings):
             gap = fn.timestamp_ms - ag.timestamp_ms
@@ -395,3 +423,5 @@ def _add_aggression_to_funding_edges(
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf

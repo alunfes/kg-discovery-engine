@@ -29,16 +29,22 @@ from typing import Optional
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
 from .eval.contradiction_metrics import (
     compute_contradiction_metrics,
     compute_conflict_adjusted_ranking,
 )
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> claude/sleepy-mestorf
 from .eval.decision_tier import compute_decision_tiers
 from .eval.confusion_matrix import compute_confusion_matrix
 from .eval.generator import generate_hypotheses
@@ -47,6 +53,7 @@ from .eval.persistence_tracker import compute_persistence_snapshot
 from .eval.rerouter import compute_reroute_candidates, reroute_summary
 from .eval.scorer import score_hypothesis
 from .eval.uplift_ranker import compute_uplift_aware_ranking
+<<<<<<< HEAD
 from .eval.outcome_tracker import compute_watchlist_outcomes, compute_tier_recommendations
 from .eval.monitoring_budget import build_allocation_table_from_outcomes
 from .eval.watchlist_semantics import compute_watchlist_semantics
@@ -88,6 +95,11 @@ from .eval.uplift_ranker import compute_uplift_aware_ranking
 from .kg.chain_grammar import build_chain_grammar_kg
 from .ingestion.synthetic import SyntheticGenerator
 >>>>>>> claude/optimistic-swanson
+=======
+from .eval.watchlist_semantics import compute_watchlist_semantics
+from .kg.chain_grammar import build_chain_grammar_kg
+from .ingestion.synthetic import SyntheticGenerator
+>>>>>>> claude/sleepy-mestorf
 from .inventory.store import HypothesisInventory
 from .kg.base import KGraph
 from .kg.cross_asset import build_cross_asset_kg
@@ -95,6 +107,7 @@ from .kg.execution import build_execution_kg
 from .kg.microstructure import build_microstructure_kg
 from .kg.pair import build_pair_kg
 from .kg.regime import build_regime_kg
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -119,6 +132,9 @@ from .kg.temporal_guard import annotate_temporal_quality
 =======
 from .kg.temporal_guard import annotate_temporal_quality
 >>>>>>> claude/optimistic-swanson
+=======
+from .kg.temporal_guard import annotate_temporal_quality
+>>>>>>> claude/sleepy-mestorf
 from .operators.ops import align, compose, difference, rank, union
 from .states.extractor import extract_states
 
@@ -129,6 +145,7 @@ class PipelineConfig:
 
     Why a dataclass not a plain dict: type safety and named access
     make the config self-documenting and IDE-friendly.
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -152,6 +169,8 @@ class PipelineConfig:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
     """
 
     run_id: str
@@ -160,6 +179,7 @@ class PipelineConfig:
     assets: Optional[list[str]] = None
     top_k: int = 10
     output_dir: str = "crypto/artifacts/runs"
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -180,6 +200,8 @@ class PipelineConfig:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
 
 
 def run_pipeline(config: PipelineConfig) -> list:
@@ -193,6 +215,7 @@ def run_pipeline(config: PipelineConfig) -> list:
     """
     random.seed(config.seed)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -223,6 +246,8 @@ def run_pipeline(config: PipelineConfig) -> list:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
     # 1. Synthetic data generation
     generator = SyntheticGenerator(
         seed=config.seed,
@@ -230,6 +255,7 @@ def run_pipeline(config: PipelineConfig) -> list:
         assets=config.assets,
     )
     dataset = generator.generate()
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -246,12 +272,15 @@ def run_pipeline(config: PipelineConfig) -> list:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
 
     assets = config.assets or ["HYPE", "ETH", "BTC", "SOL"]
 
     # 2. State extraction (per asset)
     collections = {}
     for asset in assets:
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -280,11 +309,15 @@ def run_pipeline(config: PipelineConfig) -> list:
 =======
         collections[asset] = extract_states(dataset, asset, config.run_id)
 >>>>>>> claude/optimistic-swanson
+=======
+        collections[asset] = extract_states(dataset, asset, config.run_id)
+>>>>>>> claude/sleepy-mestorf
 
     # 3. KG construction (per family)
     micro_kgs = {a: build_microstructure_kg(collections[a]) for a in assets}
     execution_kgs = {a: build_execution_kg(collections[a]) for a in assets}
     regime_kgs = {a: build_regime_kg(collections[a]) for a in assets}
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -310,6 +343,9 @@ def run_pipeline(config: PipelineConfig) -> list:
 =======
     cross_kg = build_cross_asset_kg(collections, dataset=dataset)
 >>>>>>> claude/optimistic-swanson
+=======
+    cross_kg = build_cross_asset_kg(collections, dataset=dataset)
+>>>>>>> claude/sleepy-mestorf
     pair_kg = build_pair_kg(collections)
 
     # 4. Merge all per-asset micro KGs into one
@@ -339,6 +375,7 @@ def run_pipeline(config: PipelineConfig) -> list:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/gracious-edison
 =======
@@ -347,11 +384,14 @@ def run_pipeline(config: PipelineConfig) -> list:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
     # E: Build chain grammar KG (E1 beta_reversion + E2 positioning_unwind nodes).
     # Must run on the working_kg so it can see all micro/cross_asset nodes.
     grammar_kg, suppression_log = build_chain_grammar_kg(working_kg, collections)
     working_kg = union(working_kg, grammar_kg)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -372,12 +412,15 @@ def run_pipeline(config: PipelineConfig) -> list:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
     # Count corr_break pairs for branch_activation_rate metric.
     n_corr_break_pairs = sum(
         1 for n in cross_kg.nodes.values()
         if n.node_type == "CorrelationNode" and n.attributes.get("is_break")
     )
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -392,11 +435,14 @@ def run_pipeline(config: PipelineConfig) -> list:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
     # B2: Annotate all edges with temporal_valid flag (in-place).
     # Edges where source.observable_time >= target.event_time get temporal_valid=False.
     # The scorer can use this to penalise look-ahead hypotheses.
     annotate_temporal_quality(working_kg)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -414,6 +460,8 @@ def run_pipeline(config: PipelineConfig) -> list:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
     # 6. Hypothesis generation
     inventory = HypothesisInventory()
     raw_candidates = generate_hypotheses(working_kg)
@@ -437,6 +485,7 @@ def run_pipeline(config: PipelineConfig) -> list:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/gracious-edison
 =======
@@ -445,6 +494,8 @@ def run_pipeline(config: PipelineConfig) -> list:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
     # 9. Persist outputs (includes branch_metrics.json)
     branch_metrics = compute_branch_metrics(
         cards, suppression_log, n_corr_break_pairs, top_k=config.top_k
@@ -453,8 +504,11 @@ def run_pipeline(config: PipelineConfig) -> list:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
 
     # H1: Count soft-gated cards (border cases that fired due to soft activation)
     n_soft_gated = sum(1 for c in cards if "soft_gated" in c.tags)
@@ -465,10 +519,13 @@ def run_pipeline(config: PipelineConfig) -> list:
         "hard_gate_min": 0.50,
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
 
     # G1: Compute per-card contradiction metrics and conflict-adjusted ranking.
     # cross_kg is kept in scope from step 3 so we can look up corr_break_score.
@@ -489,8 +546,11 @@ def run_pipeline(config: PipelineConfig) -> list:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
     # H2: Contradiction-driven rerouting
     reroutes = compute_reroute_candidates(
         cards, contradiction_data, suppression_log, top_k=config.top_k
@@ -506,6 +566,9 @@ def run_pipeline(config: PipelineConfig) -> list:
     branch_metrics["h3_uplift_ranking"] = uplift_ranking
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> claude/sleepy-mestorf
     # I1: Decision tiering — assign tier to each hypothesis card
     i1_tiers = compute_decision_tiers(
         cards,
@@ -540,6 +603,7 @@ def run_pipeline(config: PipelineConfig) -> list:
     )
     branch_metrics["i4_watchlist"] = i4_watchlist
 
+<<<<<<< HEAD
     # I5: Outcome tracking — evaluate whether watchlist predictions materialized
     # within the synthetic outcome window (second half of simulation).
     # Uses observation midpoint = n_minutes // 2 as the card generation proxy.
@@ -592,6 +656,9 @@ def run_pipeline(config: PipelineConfig) -> list:
 =======
     _save_outputs(config, cards, inventory, branch_metrics)
 >>>>>>> claude/optimistic-swanson
+=======
+    _save_outputs(config, cards, inventory, branch_metrics)
+>>>>>>> claude/sleepy-mestorf
 
     return cards
 
@@ -602,10 +669,13 @@ def run_pipeline(config: PipelineConfig) -> list:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
 def run_oi_ablation(config: PipelineConfig) -> dict:
     """G2: Run three OI ablation variants and compare branch metrics.
 
@@ -723,6 +793,7 @@ def run_oi_ablation(config: PipelineConfig) -> dict:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/thirsty-heisenberg
 =======
@@ -735,6 +806,8 @@ def run_oi_ablation(config: PipelineConfig) -> dict:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
 def _merge_kgs(kgs: list[KGraph], family_name: str) -> KGraph:
     """Merge a list of KGs via successive union operations."""
     if not kgs:
@@ -756,6 +829,7 @@ def _save_outputs(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/gracious-edison
 =======
@@ -764,10 +838,13 @@ def _save_outputs(
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
     branch_metrics: dict,
 ) -> None:
     """Write run config, hypothesis cards, branch metrics, and review memo."""
     run_dir = os.path.join(config.output_dir, f"{config.run_id}")
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -793,6 +870,8 @@ def _save_outputs(
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
     os.makedirs(run_dir, exist_ok=True)
 
     # run_config.json
@@ -803,6 +882,7 @@ def _save_outputs(
         "assets": config.assets or ["HYPE", "ETH", "BTC", "SOL"],
         "top_k": config.top_k,
         "created_at": datetime.now(timezone.utc).isoformat(),
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -826,6 +906,9 @@ def _save_outputs(
 =======
         "sprint": "H",
 >>>>>>> claude/optimistic-swanson
+=======
+        "sprint": "I",
+>>>>>>> claude/sleepy-mestorf
     }
     with open(os.path.join(run_dir, "run_config.json"), "w") as f:
         json.dump(run_config, f, indent=2)
@@ -839,10 +922,14 @@ def _save_outputs(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     # branch_metrics.json — E3 + H1/H2/H3 + I1/I2/I3/I4
 =======
     # branch_metrics.json — E3 + H1/H2/H3
 >>>>>>> claude/optimistic-swanson
+=======
+    # branch_metrics.json — E3 + H1/H2/H3 + I1/I2/I3/I4
+>>>>>>> claude/sleepy-mestorf
     with open(os.path.join(run_dir, "branch_metrics.json"), "w") as f:
         json.dump(branch_metrics, f, indent=2)
 
@@ -855,6 +942,9 @@ def _save_outputs(
         json.dump(branch_metrics.get("h3_uplift_ranking", {}), f, indent=2)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> claude/sleepy-mestorf
     # i1_decision_tiers.json
     with open(os.path.join(run_dir, "i1_decision_tiers.json"), "w") as f:
         json.dump(branch_metrics.get("i1_decision_tiers", {}), f, indent=2)
@@ -863,6 +953,7 @@ def _save_outputs(
     with open(os.path.join(run_dir, "i4_watchlist.json"), "w") as f:
         json.dump(branch_metrics.get("i4_watchlist", {}), f, indent=2)
 
+<<<<<<< HEAD
     # i5_outcome_tracking.json + watchlist_outcomes.csv (Run 013)
     i5 = branch_metrics.get("i5_outcome_tracking", {})
     if i5:
@@ -888,10 +979,13 @@ def _save_outputs(
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
     # review_memo.md
     _write_review_memo(run_dir, config, cards, branch_metrics)
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -928,6 +1022,8 @@ def _write_outcomes_csv(i5: dict, csv_path: str) -> None:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
 def _g1_memo_lines(branch_metrics: dict) -> list[str]:
     """G1 section for review memo: conflict-adjusted ranking summary."""
     cr = branch_metrics.get("g1_conflict_adjusted_ranking", {})
@@ -976,8 +1072,11 @@ def _g3_memo_lines(branch_metrics: dict) -> list[str]:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
 
 
 def _h2_memo_lines(branch_metrics: dict) -> list[str]:
@@ -1038,6 +1137,9 @@ def _h3_memo_lines(branch_metrics: dict) -> list[str]:
     return lines
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> claude/sleepy-mestorf
 def _i1_memo_lines(branch_metrics: dict) -> list[str]:
     """I1 section for review memo: decision tier summary."""
     tiers = branch_metrics.get("i1_decision_tiers", {})
@@ -1146,6 +1248,7 @@ def _i4_memo_lines(branch_metrics: dict) -> list[str]:
         for w in high_urgency
     ]
     return lines
+<<<<<<< HEAD
 =======
     # review_memo.md
     _write_review_memo(run_dir, config, cards)
@@ -1164,6 +1267,10 @@ def _i4_memo_lines(branch_metrics: dict) -> list[str]:
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+
+
+>>>>>>> claude/sleepy-mestorf
 def _write_review_memo(
     run_dir: str,
     config: PipelineConfig,
@@ -1174,6 +1281,7 @@ def _write_review_memo(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     branch_metrics: dict,
 =======
 >>>>>>> claude/thirsty-heisenberg
@@ -1191,6 +1299,9 @@ def _write_review_memo(
 =======
     branch_metrics: dict,
 >>>>>>> claude/optimistic-swanson
+=======
+    branch_metrics: dict,
+>>>>>>> claude/sleepy-mestorf
 ) -> None:
     """Generate a human-readable review memo for the run."""
     from .schema.task_status import SecrecyLevel, ValidationStatus
@@ -1217,6 +1328,7 @@ def _write_review_memo(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/gracious-edison
 =======
@@ -1225,6 +1337,8 @@ def _write_review_memo(
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
     dist = branch_metrics.get("branch_distribution", {})
     entropy = branch_metrics.get("branch_entropy", 0.0)
     suppression = branch_metrics.get("branch_suppression_reason", {})
@@ -1234,12 +1348,15 @@ def _write_review_memo(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/sharp-kowalevski
 =======
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
     # F1 calibration
     calibration = branch_metrics.get("branch_calibration", {})
     # F2 normalization diff summary
@@ -1261,6 +1378,7 @@ def _write_review_memo(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/thirsty-heisenberg
 =======
@@ -1273,6 +1391,8 @@ def _write_review_memo(
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
     lines = [
         f"# Review Memo — {config.run_id}",
         "",
@@ -1296,6 +1416,7 @@ def _write_review_memo(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/gracious-edison
 =======
@@ -1304,6 +1425,8 @@ def _write_review_memo(
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
         "## Branch Diversity (E3)",
         "",
         f"- **branch_entropy:** {entropy:.4f} bits",
@@ -1316,12 +1439,15 @@ def _write_review_memo(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/sharp-kowalevski
 =======
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
         "## F1: Branch Calibration",
         "",
     ] + [
@@ -1363,6 +1489,7 @@ def _write_review_memo(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     ] + _g1_memo_lines(branch_metrics) + _g3_memo_lines(branch_metrics) + _h2_memo_lines(branch_metrics) + _h3_memo_lines(branch_metrics) + _i1_memo_lines(branch_metrics) + _i2_memo_lines(branch_metrics) + _i3_memo_lines(branch_metrics) + _i4_memo_lines(branch_metrics) + [
         "",
 =======
@@ -1383,6 +1510,10 @@ def _write_review_memo(
     ] + _g1_memo_lines(branch_metrics) + _g3_memo_lines(branch_metrics) + _h2_memo_lines(branch_metrics) + _h3_memo_lines(branch_metrics) + [
         "",
 >>>>>>> claude/optimistic-swanson
+=======
+    ] + _g1_memo_lines(branch_metrics) + _g3_memo_lines(branch_metrics) + _h2_memo_lines(branch_metrics) + _h3_memo_lines(branch_metrics) + _i1_memo_lines(branch_metrics) + _i2_memo_lines(branch_metrics) + _i3_memo_lines(branch_metrics) + _i4_memo_lines(branch_metrics) + [
+        "",
+>>>>>>> claude/sleepy-mestorf
         "## Top Hypotheses",
         "",
     ]

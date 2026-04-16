@@ -5,6 +5,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/thirsty-heisenberg
 =======
@@ -17,6 +18,8 @@
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
 # KG Operator Specification
 
 ## Operator Semantics
@@ -105,6 +108,7 @@ Useful for regime-change hypothesis generation.
 **Selection artifact note:** When `top_k` << len(candidates), naive ranking creates
 selection artifacts (low-variance hypotheses dominate).  The scorer MUST include a
 novelty penalty to maintain reachability.
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -220,3 +224,5 @@ biology/chemistry synonyms. For production HYPE use, extend with trading terms.
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf

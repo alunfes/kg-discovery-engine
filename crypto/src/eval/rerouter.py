@@ -28,6 +28,7 @@ _PAIR_RE = re.compile(r"\(([A-Z]+)[,/]([A-Z]+)\)")
 
 _REROUTE_RULES: list[dict] = [
 <<<<<<< HEAD
+<<<<<<< HEAD
     # J1: High-confidence reroute when BOTH funding extreme AND OI accumulation
     # suppress E1 Chain 2 (transient_aggression).  This fires only when the J1
     # discriminative gate in chain_grammar.py did not prevent the card from being
@@ -44,6 +45,8 @@ _REROUTE_RULES: list[dict] = [
     },
 =======
 >>>>>>> claude/optimistic-swanson
+=======
+>>>>>>> claude/sleepy-mestorf
     {
         "source_branch": "beta_reversion",
         "trigger_chain": "beta_reversion_no_funding_oi",
