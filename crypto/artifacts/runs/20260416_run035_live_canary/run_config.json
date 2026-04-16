@@ -1,0 +1,47 @@
+{
+  "run_id": "run_035_live_canary",
+  "timestamp": "2026-04-16T02:44:43Z",
+  "policy": "global",
+  "fallback_cadence_min": 45,
+  "seed": 42,
+  "n_days": 7,
+  "trading_minutes_per_day": 480,
+  "quiet_threshold": 0.25,
+  "day_configs": [
+    {
+      "day": 1,
+      "seed": 42,
+      "hot_prob": 0.08
+    },
+    {
+      "day": 2,
+      "seed": 43,
+      "hot_prob": 0.13
+    },
+    {
+      "day": 3,
+      "seed": 44,
+      "hot_prob": 0.42
+    },
+    {
+      "day": 4,
+      "seed": 45,
+      "hot_prob": 0.58
+    },
+    {
+      "day": 5,
+      "seed": 46,
+      "hot_prob": 0.71
+    },
+    {
+      "day": 6,
+      "seed": 47,
+      "hot_prob": 0.83
+    },
+    {
+      "day": 7,
+      "seed": 48,
+      "hot_prob": 0.92
+    }
+  ]
+}

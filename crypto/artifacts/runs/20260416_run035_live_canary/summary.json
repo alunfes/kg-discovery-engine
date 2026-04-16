@@ -1,0 +1,20 @@
+{
+  "run_id": "run_035_live_canary",
+  "policy": "global",
+  "fallback_cadence_min": 45,
+  "n_days": 7,
+  "total_reviews": 148,
+  "total_fallbacks": 32,
+  "total_missed_critical": 0,
+  "total_operator_burden": 522.0,
+  "avg_reviews_per_day": 21.14,
+  "avg_fallbacks_per_day": 4.57,
+  "quiet_days": 2,
+  "hot_transition_days": 5,
+  "quiet_avg_reviews": 11.0,
+  "quiet_avg_fallbacks": 9.0,
+  "quiet_avg_burden": 25.0,
+  "hot_trans_avg_reviews": 25.2,
+  "hot_trans_avg_fallbacks": 2.8,
+  "hot_trans_avg_burden": 94.4
+}

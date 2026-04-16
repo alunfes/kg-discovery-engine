@@ -1,0 +1,71 @@
+{
+  "run_id": "run_036_regime_aware_fallback",
+  "timestamp": "2026-04-16T02:44:50Z",
+  "policy": "regime_aware",
+  "cadence_quiet_min": 60,
+  "cadence_hot_trans_min": 45,
+  "quiet_threshold": 0.25,
+  "seed": 42,
+  "n_days": 7,
+  "trading_minutes_per_day": 480,
+  "baseline_run": "run_035_live_canary",
+  "day_configs": [
+    {
+      "day": 1,
+      "seed": 42,
+      "hot_prob": 0.08,
+      "regime": "quiet"
+    },
+    {
+      "day": 2,
+      "seed": 43,
+      "hot_prob": 0.13,
+      "regime": "quiet"
+    },
+    {
+      "day": 3,
+      "seed": 44,
+      "hot_prob": 0.42,
+      "regime": "transition"
+    },
+    {
+      "day": 4,
+      "seed": 45,
+      "hot_prob": 0.58,
+      "regime": "transition"
+    },
+    {
+      "day": 5,
+      "seed": 46,
+      "hot_prob": 0.71,
+      "regime": "transition"
+    },
+    {
+      "day": 6,
+      "seed": 47,
+      "hot_prob": 0.83,
+      "regime": "hot"
+    },
+    {
+      "day": 7,
+      "seed": 48,
+      "hot_prob": 0.92,
+      "regime": "hot"
+    }
+  ],
+  "quiet_day_summary": {
+    "quiet_days": 2,
+    "avg_fallbacks_r035": 9.0,
+    "avg_fallbacks_r036": 6.5,
+    "fallback_reduction_pct": 27.8,
+    "avg_burden_r035": 25.0,
+    "avg_burden_r036": 25.0,
+    "missed_critical_r035": 0,
+    "missed_critical_r036": 0
+  },
+  "safety_invariance": {
+    "invariant": true,
+    "violations": [],
+    "n_hot_transition_days": 5
+  }
+}
