@@ -1,0 +1,163 @@
+{
+  "run_id": "run_032_t3_audit",
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61
+  ],
+  "session_hours": 8,
+  "n_cards_per_batch": 20,
+  "scenarios": [
+    {
+      "label": "S1_baseline",
+      "batch_interval_min": 30,
+      "hot_batch_probability": 0.3,
+      "t3_lookahead_min": 5.0,
+      "t3_threshold_mode": "current"
+    },
+    {
+      "label": "S2_short_batch_15min",
+      "batch_interval_min": 15,
+      "hot_batch_probability": 0.3,
+      "t3_lookahead_min": 5.0,
+      "t3_threshold_mode": "current"
+    },
+    {
+      "label": "S3_long_batch_60min",
+      "batch_interval_min": 60,
+      "hot_batch_probability": 0.3,
+      "t3_lookahead_min": 5.0,
+      "t3_threshold_mode": "current"
+    },
+    {
+      "label": "S4_sparse_arrivals",
+      "batch_interval_min": 30,
+      "hot_batch_probability": 0.05,
+      "t3_lookahead_min": 5.0,
+      "t3_threshold_mode": "current"
+    },
+    {
+      "label": "S5_very_sparse",
+      "batch_interval_min": 30,
+      "hot_batch_probability": 0.01,
+      "t3_lookahead_min": 5.0,
+      "t3_threshold_mode": "current"
+    },
+    {
+      "label": "S6_large_lookahead_40min",
+      "batch_interval_min": 30,
+      "hot_batch_probability": 0.3,
+      "t3_lookahead_min": 40.0,
+      "t3_threshold_mode": "current"
+    },
+    {
+      "label": "S7_regime_HQH",
+      "batch_interval_min": 30,
+      "hot_batch_probability": 0.3,
+      "t3_lookahead_min": 5.0,
+      "t3_threshold_mode": "current",
+      "regime_sequence": "[17-element sequence]"
+    },
+    {
+      "label": "S8_fixed_t3_hot",
+      "batch_interval_min": 30,
+      "hot_batch_probability": 0.3,
+      "t3_lookahead_min": 5.0,
+      "t3_threshold_mode": "fixed"
+    },
+    {
+      "label": "S9_fixed_t3_sparse",
+      "batch_interval_min": 30,
+      "hot_batch_probability": 0.05,
+      "t3_lookahead_min": 5.0,
+      "t3_threshold_mode": "fixed"
+    },
+    {
+      "label": "S10_fixed_t3_quiet",
+      "batch_interval_min": 30,
+      "hot_batch_probability": 0.01,
+      "t3_lookahead_min": 5.0,
+      "t3_threshold_mode": "fixed"
+    },
+    {
+      "label": "S11_fixed_t3_lookahead15",
+      "batch_interval_min": 30,
+      "hot_batch_probability": 0.3,
+      "t3_lookahead_min": 15.0,
+      "t3_threshold_mode": "fixed"
+    },
+    {
+      "label": "S12_fixed_t3_HQH_regime",
+      "batch_interval_min": 30,
+      "hot_batch_probability": 0.3,
+      "t3_lookahead_min": 15.0,
+      "t3_threshold_mode": "fixed",
+      "regime_sequence": "[17-element sequence]"
+    }
+  ],
+  "t3_analytical_reachability": {
+    "actionable_watch": {
+      "half_life_min": 40.0,
+      "current_mode_min_lookahead": 30.0,
+      "current_mode_reachable_at_lookahead_5": false,
+      "current_mode_reachable_at_lookahead_10": false,
+      "fixed_mode_min_lookahead": 0.0,
+      "fixed_mode_t3_fire_age_min_at_lookahead_5": 65.0,
+      "fixed_mode_t3_fire_age_min_at_lookahead_10": 60.0
+    },
+    "research_priority": {
+      "half_life_min": 50.0,
+      "current_mode_min_lookahead": 37.5,
+      "current_mode_reachable_at_lookahead_5": false,
+      "current_mode_reachable_at_lookahead_10": false,
+      "fixed_mode_min_lookahead": 0.0,
+      "fixed_mode_t3_fire_age_min_at_lookahead_5": 82.5,
+      "fixed_mode_t3_fire_age_min_at_lookahead_10": 77.5
+    },
+    "monitor_borderline": {
+      "half_life_min": 60.0,
+      "current_mode_min_lookahead": 45.0,
+      "current_mode_reachable_at_lookahead_5": false,
+      "current_mode_reachable_at_lookahead_10": false,
+      "fixed_mode_min_lookahead": 0.0,
+      "fixed_mode_t3_fire_age_min_at_lookahead_5": 100.0,
+      "fixed_mode_t3_fire_age_min_at_lookahead_10": 95.0
+    },
+    "baseline_like": {
+      "half_life_min": 90.0,
+      "current_mode_min_lookahead": 67.5,
+      "current_mode_reachable_at_lookahead_5": false,
+      "current_mode_reachable_at_lookahead_10": false,
+      "fixed_mode_min_lookahead": 0.0,
+      "fixed_mode_t3_fire_age_min_at_lookahead_5": 152.5,
+      "fixed_mode_t3_fire_age_min_at_lookahead_10": 147.5
+    },
+    "reject_conflicted": {
+      "half_life_min": 20.0,
+      "current_mode_min_lookahead": 15.0,
+      "current_mode_reachable_at_lookahead_5": false,
+      "current_mode_reachable_at_lookahead_10": false,
+      "fixed_mode_min_lookahead": 0.0,
+      "fixed_mode_t3_fire_age_min_at_lookahead_5": 30.0,
+      "fixed_mode_t3_fire_age_min_at_lookahead_10": 25.0
+    }
+  },
+  "generated_at": "2026-04-16T01:31:55.201348+00:00"
+}
