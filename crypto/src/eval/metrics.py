@@ -3,6 +3,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 """Branch diversity and calibration metrics — Sprint E (E3) + Sprint F (F1–F5) + Sprint G (G3).
 =======
 """Branch diversity and calibration metrics — Sprint E (E3) + Sprint F (F1–F5).
@@ -16,6 +17,9 @@
 =======
 """Branch diversity and calibration metrics — Sprint E (E3) + Sprint F (F1–F5) + Sprint G (G3).
 >>>>>>> claude/sleepy-mestorf
+=======
+"""Branch diversity and calibration metrics — Sprint E (E3) + Sprint F (F1–F5) + Sprint G (G3).
+>>>>>>> claude/crazy-vaughan
 
 Sprint E metrics:
   branch_entropy          — Shannon entropy of the branch distribution.
@@ -37,18 +41,22 @@ Sprint F additions:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
 =======
 >>>>>>> claude/sleepy-mestorf
+=======
+>>>>>>> claude/crazy-vaughan
 
 Sprint G additions:
   G3  matched_baseline_pool — broader comparator pool (same pair OR global avg);
                               guarantees n_matched > 0 by accepting low-complexity
                               cards (evidence_nodes ≤ 2) as comparators when no
                               same-pair E4 card exists.
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -60,6 +68,8 @@ Sprint G additions:
 >>>>>>> claude/optimistic-swanson
 =======
 >>>>>>> claude/sleepy-mestorf
+=======
+>>>>>>> claude/crazy-vaughan
 """
 
 import math
@@ -71,6 +81,7 @@ from collections import Counter
 # Branch label mapping
 # ---------------------------------------------------------------------------
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -104,6 +115,8 @@ from collections import Counter
 >>>>>>> claude/optimistic-swanson
 =======
 >>>>>>> claude/sleepy-mestorf
+=======
+>>>>>>> claude/crazy-vaughan
 _BRANCH_TAGS: list[tuple[str, str]] = [
     ("E1", "beta_reversion"),
     ("beta_reversion", "beta_reversion"),
@@ -147,6 +160,7 @@ def _entropy(counts: Counter) -> float:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/sharp-kowalevski
 =======
@@ -155,12 +169,15 @@ def _entropy(counts: Counter) -> float:
 >>>>>>> claude/optimistic-swanson
 =======
 >>>>>>> claude/sleepy-mestorf
+=======
+>>>>>>> claude/crazy-vaughan
 # ---------------------------------------------------------------------------
 # Sprint E helpers (unchanged)
 # ---------------------------------------------------------------------------
 
 def _top_k_branch_share(cards: list, top_k: int) -> dict[str, float]:
     """Fraction of the top-k cards belonging to each branch."""
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -181,6 +198,8 @@ def _top_k_branch_share(cards: list, top_k: int) -> dict[str, float]:
 >>>>>>> claude/optimistic-swanson
 =======
 >>>>>>> claude/sleepy-mestorf
+=======
+>>>>>>> claude/crazy-vaughan
     top = sorted(cards, key=lambda c: c.composite_score, reverse=True)[:top_k]
     if not top:
         return {}
@@ -209,6 +228,7 @@ def _branch_activation_rate(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/sharp-kowalevski
 =======
@@ -217,10 +237,13 @@ def _branch_activation_rate(
 >>>>>>> claude/optimistic-swanson
 =======
 >>>>>>> claude/sleepy-mestorf
+=======
+>>>>>>> claude/crazy-vaughan
     """Fraction of corr-break pairs that produced ≥1 card per branch."""
     if n_pairs == 0:
         return {}
     activated = _branch_counts(cards)
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -245,6 +268,8 @@ def _branch_activation_rate(
 >>>>>>> claude/optimistic-swanson
 =======
 >>>>>>> claude/sleepy-mestorf
+=======
+>>>>>>> claude/crazy-vaughan
     suppressed_pairs: dict[str, set[str]] = {}
     for entry in suppression_log:
         chain = entry.get("chain", "")
@@ -253,6 +278,7 @@ def _branch_activation_rate(
             "positioning_unwind" if "positioning_unwind" in chain else "other"
         )
         suppressed_pairs.setdefault(branch, set()).add(pair)
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -269,6 +295,8 @@ def _branch_activation_rate(
 >>>>>>> claude/optimistic-swanson
 =======
 >>>>>>> claude/sleepy-mestorf
+=======
+>>>>>>> claude/crazy-vaughan
     all_branches = set(activated.keys()) | set(suppressed_pairs.keys())
     rates: dict[str, float] = {}
     for branch in all_branches:
@@ -288,6 +316,7 @@ def _suppression_reason_counts(suppression_log: list[dict]) -> dict[str, int]:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/sharp-kowalevski
 =======
@@ -296,6 +325,8 @@ def _suppression_reason_counts(suppression_log: list[dict]) -> dict[str, int]:
 >>>>>>> claude/optimistic-swanson
 =======
 >>>>>>> claude/sleepy-mestorf
+=======
+>>>>>>> claude/crazy-vaughan
 # ---------------------------------------------------------------------------
 # F1: branch-wise calibration helpers
 # ---------------------------------------------------------------------------
@@ -671,12 +702,15 @@ def compute_baseline_uplift(cards: list) -> dict:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/admiring-clarke
 =======
 >>>>>>> claude/optimistic-swanson
 =======
 >>>>>>> claude/sleepy-mestorf
+=======
+>>>>>>> claude/crazy-vaughan
 # G3: matched baseline pool helpers
 # ---------------------------------------------------------------------------
 
@@ -798,6 +832,7 @@ def compute_matched_baseline_pool(cards: list) -> dict:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/gracious-edison
 =======
@@ -811,12 +846,15 @@ def compute_matched_baseline_pool(cards: list) -> dict:
 >>>>>>> claude/optimistic-swanson
 =======
 >>>>>>> claude/sleepy-mestorf
+=======
+>>>>>>> claude/crazy-vaughan
 def compute_branch_metrics(
     cards: list,
     suppression_log: list[dict],
     n_corr_break_pairs: int = 0,
     top_k: int = 10,
 ) -> dict:
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -838,6 +876,9 @@ def compute_branch_metrics(
 =======
     """Compute all branch diversity and calibration metrics (E3 + F1–F5).
 >>>>>>> claude/sleepy-mestorf
+=======
+    """Compute all branch diversity and calibration metrics (E3 + F1–F5).
+>>>>>>> claude/crazy-vaughan
 
     Args:
         cards: List of HypothesisCard objects from the pipeline run.
@@ -851,6 +892,7 @@ def compute_branch_metrics(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/sharp-kowalevski
 =======
@@ -859,12 +901,15 @@ def compute_branch_metrics(
 >>>>>>> claude/optimistic-swanson
 =======
 >>>>>>> claude/sleepy-mestorf
+=======
+>>>>>>> claude/crazy-vaughan
         dict with all E3 keys plus F1 branch_calibration, F2 normalized_ranking,
         F4 regime_stratified, F5 baseline_uplift.
     """
     counts = _branch_counts(cards)
     return {
         # E3 (unchanged)
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -884,11 +929,14 @@ def compute_branch_metrics(
 >>>>>>> claude/optimistic-swanson
 =======
 >>>>>>> claude/sleepy-mestorf
+=======
+>>>>>>> claude/crazy-vaughan
         "branch_distribution": dict(counts),
         "branch_entropy": _entropy(counts),
         "top_k_branch_share": _top_k_branch_share(cards, top_k),
         "mean_score_by_branch": _mean_score_by_branch(cards),
         "survival_across_runs": "N/A (single run)",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -902,6 +950,8 @@ def compute_branch_metrics(
 >>>>>>> claude/optimistic-swanson
 =======
 >>>>>>> claude/sleepy-mestorf
+=======
+>>>>>>> claude/crazy-vaughan
         "branch_activation_rate": _branch_activation_rate(
             cards, suppression_log, n_corr_break_pairs
         ),
@@ -916,6 +966,7 @@ def compute_branch_metrics(
         "regime_stratified": compute_regime_stratified(cards, top_k),
         # F5: baseline uplift
         "baseline_uplift": compute_baseline_uplift(cards),
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -942,4 +993,8 @@ def compute_branch_metrics(
         # G3: matched baseline pool (broader comparator; avoids n_matched=0)
         "matched_baseline_pool": compute_matched_baseline_pool(cards),
 >>>>>>> claude/sleepy-mestorf
+=======
+        # G3: matched baseline pool (broader comparator; avoids n_matched=0)
+        "matched_baseline_pool": compute_matched_baseline_pool(cards),
+>>>>>>> claude/crazy-vaughan
     }

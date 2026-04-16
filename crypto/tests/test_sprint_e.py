@@ -115,6 +115,9 @@ def test_no_oi_expansion_node_created(collections_120, merged_kg_120):
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> claude/crazy-vaughan
 def test_no_persistent_aggression_node_created():
     """NoPersistentAggressionNode created only when J1 gate does NOT fire.
 
@@ -164,6 +167,7 @@ def test_no_persistent_aggression_node_created():
         "NoPersistentAggressionNode must be created when J1 gate is inactive "
         "and burst_min in [1,4]"
     )
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> claude/sharp-kowalevski
@@ -192,6 +196,8 @@ def test_no_persistent_aggression_node_created(collections_120, merged_kg_120):
 >>>>>>> claude/optimistic-swanson
 =======
 >>>>>>> claude/sleepy-mestorf
+=======
+>>>>>>> claude/crazy-vaughan
 
 
 def test_e1_reversion_chain_fires(pipeline_cards):
@@ -334,15 +340,19 @@ def test_suppression_reasons_are_valid(collections_120, merged_kg_120, pipeline_
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/optimistic-swanson
 =======
 >>>>>>> claude/sleepy-mestorf
+=======
+>>>>>>> claude/crazy-vaughan
         "missing_accumulation",
         # F3 taxonomy (replaces generic insufficient_negative_evidence)
         "contradictory_evidence", "failed_followthrough", "structural_absence",
         # H1: soft gate border cases
         "soft_gated",
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -362,6 +372,8 @@ def test_suppression_reasons_are_valid(collections_120, merged_kg_120, pipeline_
 >>>>>>> claude/optimistic-swanson
 =======
 >>>>>>> claude/sleepy-mestorf
+=======
+>>>>>>> claude/crazy-vaughan
     }
     _, suppression_log = build_chain_grammar_kg(merged_kg_120, collections_120)
     for entry in suppression_log:

@@ -6,6 +6,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/thirsty-heisenberg
 =======
@@ -20,6 +21,8 @@
 >>>>>>> claude/optimistic-swanson
 =======
 >>>>>>> claude/sleepy-mestorf
+=======
+>>>>>>> claude/crazy-vaughan
 # Pair / Relative Value KG Specification
 
 ## Motivation
@@ -87,6 +90,7 @@ All PairKG hypotheses require:
 1. Funding-adjusted spread: net_spread = gross_spread − (funding_a − funding_b) × hold_periods
 2. Impact estimate: 2 × sqrt(notional / ADV) × volatility
 3. Actionability gating: net_spread > 2 × (impact + transaction_cost)
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -242,3 +246,5 @@ Any hypothesis involving a pair where `execution_asymmetry` is detected must inc
 >>>>>>> claude/optimistic-swanson
 =======
 >>>>>>> claude/sleepy-mestorf
+=======
+>>>>>>> claude/crazy-vaughan
