@@ -11,3 +11,6 @@ build/
 .venv/
 venv/
 data/cache/
+
+# CoDD 設計書 (生成物 — 再生成可能)
+.codd/

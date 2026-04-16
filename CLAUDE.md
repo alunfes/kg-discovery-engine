@@ -35,6 +35,21 @@ docs(hypotheses): H3仮説定義を詳細化
 | C2 | multi-op pipeline（align→union→compose→difference→evaluate） |
 | C3 | direct baseline placeholder |
 
+## CoDD 設計書
+
+`.codd/extracted/` には TreeSitter 静的解析によるモジュール単位の設計書がある（`src/` + `crypto/` 両方）。
+バグ修正・機能追加の前に必ず対象モジュールの設計書を読むこと（+30.8% SWE-bench）。
+
+```bash
+# claude-forge の共通スクリプトで再生成
+~/claude-dev/claude-forge/scripts/codd-extract.sh --project-dir ~/claude-dev/kg-discovery-engine --source-dirs src,crypto
+```
+
+**タスクプロンプトのルール (CoDD 準拠):**
+- 対象モジュールの `.codd/extracted/modules/{name}.md` を先に読む指示を含める
+- 原因仮説・修正箇所の指定・AI 補強は含めない（SWE-bench 退化施策）
+- `--ai` フラグは使わない（退化施策）
+
 ## 重要ファイル
 
 - `docs/hypotheses.md` — 検証すべき仮説（H1-H4）
