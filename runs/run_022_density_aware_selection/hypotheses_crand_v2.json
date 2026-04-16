@@ -1,0 +1,1267 @@
+{
+  "run_id": "run_022_density_aware_selection (reused from run_018)",
+  "method": "C_rand_v2",
+  "count": 70,
+  "hypotheses": [
+    {
+      "id": "H5001",
+      "subject_id": "chem:mechanism:nmda_antagonism",
+      "subject_label": "NMDA Antagonism",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:process:protein_aggregation",
+      "object_label": "Protein Aggregation",
+      "description": "NMDA Antagonism randomly paired with Protein Aggregation (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:mechanism:nmda_antagonism",
+        "randomly_paired_with",
+        "bio:process:protein_aggregation"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5002",
+      "subject_id": "chem:compound:berberine",
+      "subject_label": "Berberine",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:biomarker:ldl_cholesterol",
+      "object_label": "LDL Cholesterol",
+      "description": "Berberine randomly paired with LDL Cholesterol (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:compound:berberine",
+        "randomly_paired_with",
+        "bio:biomarker:ldl_cholesterol"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5003",
+      "subject_id": "bio:process:neurodegeneration",
+      "subject_label": "Neurodegeneration",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:drug:aspirin",
+      "object_label": "Aspirin",
+      "description": "Neurodegeneration randomly paired with Aspirin (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:process:neurodegeneration",
+        "randomly_paired_with",
+        "chem:drug:aspirin"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5004",
+      "subject_id": "chem:compound:egcg",
+      "subject_label": "EGCG",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:process:tumor_angiogenesis",
+      "object_label": "Tumor Angiogenesis",
+      "description": "EGCG randomly paired with Tumor Angiogenesis (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:compound:egcg",
+        "randomly_paired_with",
+        "bio:process:tumor_angiogenesis"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5005",
+      "subject_id": "chem:mechanism:ampk_activation",
+      "subject_label": "AMPK Activation",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:disease:leukemia_cml",
+      "object_label": "CML Leukemia",
+      "description": "AMPK Activation randomly paired with CML Leukemia (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:mechanism:ampk_activation",
+        "randomly_paired_with",
+        "bio:disease:leukemia_cml"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5006",
+      "subject_id": "bio:pathway:ubiquitin_proteasome",
+      "subject_label": "Ubiquitin-Proteasome",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:mechanism:hdac_inhibition",
+      "object_label": "HDAC Inhibition",
+      "description": "Ubiquitin-Proteasome randomly paired with HDAC Inhibition (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:pathway:ubiquitin_proteasome",
+        "randomly_paired_with",
+        "chem:mechanism:hdac_inhibition"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5007",
+      "subject_id": "chem:target:cox2_enzyme",
+      "subject_label": "COX-2 Enzyme",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:disease:lung_cancer",
+      "object_label": "Lung Cancer",
+      "description": "COX-2 Enzyme randomly paired with Lung Cancer (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:target:cox2_enzyme",
+        "randomly_paired_with",
+        "bio:disease:lung_cancer"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5008",
+      "subject_id": "bio:process:insulin_resistance",
+      "subject_label": "Insulin Resistance",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:target:bcl2_protein",
+      "object_label": "BCL-2 Target",
+      "description": "Insulin Resistance randomly paired with BCL-2 Target (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:process:insulin_resistance",
+        "randomly_paired_with",
+        "chem:target:bcl2_protein"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5009",
+      "subject_id": "chem:drug:imatinib",
+      "subject_label": "Imatinib",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:biomarker:ldl_cholesterol",
+      "object_label": "LDL Cholesterol",
+      "description": "Imatinib randomly paired with LDL Cholesterol (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:drug:imatinib",
+        "randomly_paired_with",
+        "bio:biomarker:ldl_cholesterol"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5010",
+      "subject_id": "bio:disease:prostate_cancer",
+      "subject_label": "Prostate Cancer",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:mechanism:nmda_antagonism",
+      "object_label": "NMDA Antagonism",
+      "description": "Prostate Cancer randomly paired with NMDA Antagonism (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:disease:prostate_cancer",
+        "randomly_paired_with",
+        "chem:mechanism:nmda_antagonism"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5011",
+      "subject_id": "bio:protein:stat3",
+      "subject_label": "STAT3",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:drug:tamoxifen",
+      "object_label": "Tamoxifen",
+      "description": "STAT3 randomly paired with Tamoxifen (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:protein:stat3",
+        "randomly_paired_with",
+        "chem:drug:tamoxifen"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5012",
+      "subject_id": "bio:protein:nfkb",
+      "subject_label": "NF-kB",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:drug:dasatinib",
+      "object_label": "Dasatinib",
+      "description": "NF-kB randomly paired with Dasatinib (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:protein:nfkb",
+        "randomly_paired_with",
+        "chem:drug:dasatinib"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5013",
+      "subject_id": "chem:target:proteasome_complex",
+      "subject_label": "Proteasome Complex",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:protein:tnf_alpha",
+      "object_label": "TNF-alpha",
+      "description": "Proteasome Complex randomly paired with TNF-alpha (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:target:proteasome_complex",
+        "randomly_paired_with",
+        "bio:protein:tnf_alpha"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5014",
+      "subject_id": "bio:process:cell_senescence",
+      "subject_label": "Cell Senescence",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:compound:berberine",
+      "object_label": "Berberine",
+      "description": "Cell Senescence randomly paired with Berberine (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:process:cell_senescence",
+        "randomly_paired_with",
+        "chem:compound:berberine"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5015",
+      "subject_id": "bio:disease:lung_cancer",
+      "subject_label": "Lung Cancer",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:drug:metformin",
+      "object_label": "Metformin",
+      "description": "Lung Cancer randomly paired with Metformin (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:disease:lung_cancer",
+        "randomly_paired_with",
+        "chem:drug:metformin"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5016",
+      "subject_id": "bio:process:mitophagy",
+      "subject_label": "Mitophagy",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:drug:aspirin",
+      "object_label": "Aspirin",
+      "description": "Mitophagy randomly paired with Aspirin (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:process:mitophagy",
+        "randomly_paired_with",
+        "chem:drug:aspirin"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5017",
+      "subject_id": "chem:mechanism:hdac_inhibition",
+      "subject_label": "HDAC Inhibition",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:pathway:mtor_signaling",
+      "object_label": "mTOR Signaling",
+      "description": "HDAC Inhibition randomly paired with mTOR Signaling (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:mechanism:hdac_inhibition",
+        "randomly_paired_with",
+        "bio:pathway:mtor_signaling"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5018",
+      "subject_id": "bio:process:epigenetic_silencing",
+      "subject_label": "Epigenetic Silencing",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:compound:berberine",
+      "object_label": "Berberine",
+      "description": "Epigenetic Silencing randomly paired with Berberine (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:process:epigenetic_silencing",
+        "randomly_paired_with",
+        "chem:compound:berberine"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5019",
+      "subject_id": "chem:drug:dasatinib",
+      "subject_label": "Dasatinib",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:pathway:jak_stat",
+      "object_label": "JAK-STAT",
+      "description": "Dasatinib randomly paired with JAK-STAT (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:drug:dasatinib",
+        "randomly_paired_with",
+        "bio:pathway:jak_stat"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5020",
+      "subject_id": "chem:drug:valproic_acid",
+      "subject_label": "Valproic Acid",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:protein:nfkb",
+      "object_label": "NF-kB",
+      "description": "Valproic Acid randomly paired with NF-kB (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:drug:valproic_acid",
+        "randomly_paired_with",
+        "bio:protein:nfkb"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5021",
+      "subject_id": "chem:compound:kaempferol",
+      "subject_label": "Kaempferol",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:process:cholesterol_synthesis",
+      "object_label": "Cholesterol Biosynthesis",
+      "description": "Kaempferol randomly paired with Cholesterol Biosynthesis (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:compound:kaempferol",
+        "randomly_paired_with",
+        "bio:process:cholesterol_synthesis"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5022",
+      "subject_id": "bio:pathway:ampk_pathway",
+      "subject_label": "AMPK Pathway",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:drug:dasatinib",
+      "object_label": "Dasatinib",
+      "description": "AMPK Pathway randomly paired with Dasatinib (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:pathway:ampk_pathway",
+        "randomly_paired_with",
+        "chem:drug:dasatinib"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5023",
+      "subject_id": "bio:pathway:p53_pathway",
+      "subject_label": "p53 Pathway",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:drug:memantine",
+      "object_label": "Memantine",
+      "description": "p53 Pathway randomly paired with Memantine (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:pathway:p53_pathway",
+        "randomly_paired_with",
+        "chem:drug:memantine"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5024",
+      "subject_id": "chem:drug:gefitinib",
+      "subject_label": "Gefitinib",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:protein:ampk_alpha",
+      "object_label": "AMPK-alpha",
+      "description": "Gefitinib randomly paired with AMPK-alpha (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:drug:gefitinib",
+        "randomly_paired_with",
+        "bio:protein:ampk_alpha"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5025",
+      "subject_id": "chem:mechanism:cox_inhibition",
+      "subject_label": "COX Inhibition",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:protein:bcl2",
+      "object_label": "BCL-2",
+      "description": "COX Inhibition randomly paired with BCL-2 (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:mechanism:cox_inhibition",
+        "randomly_paired_with",
+        "bio:protein:bcl2"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5026",
+      "subject_id": "chem:target:vegfr_target",
+      "subject_label": "VEGFR Target",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:protein:ampk_alpha",
+      "object_label": "AMPK-alpha",
+      "description": "VEGFR Target randomly paired with AMPK-alpha (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:target:vegfr_target",
+        "randomly_paired_with",
+        "bio:protein:ampk_alpha"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5027",
+      "subject_id": "chem:compound:coenzyme_q10",
+      "subject_label": "Coenzyme Q10",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:disease:colon_cancer",
+      "object_label": "Colorectal Cancer",
+      "description": "Coenzyme Q10 randomly paired with Colorectal Cancer (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:compound:coenzyme_q10",
+        "randomly_paired_with",
+        "bio:disease:colon_cancer"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5028",
+      "subject_id": "bio:protein:cdk4",
+      "subject_label": "CDK4",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:target:mtor_kinase",
+      "object_label": "mTOR Kinase",
+      "description": "CDK4 randomly paired with mTOR Kinase (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:protein:cdk4",
+        "randomly_paired_with",
+        "chem:target:mtor_kinase"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5029",
+      "subject_id": "chem:mechanism:hdac_inhibition",
+      "subject_label": "HDAC Inhibition",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:disease:obesity",
+      "object_label": "Obesity",
+      "description": "HDAC Inhibition randomly paired with Obesity (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:mechanism:hdac_inhibition",
+        "randomly_paired_with",
+        "bio:disease:obesity"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5030",
+      "subject_id": "chem:drug:trastuzumab",
+      "subject_label": "Trastuzumab",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:pathway:neuroinflammation",
+      "object_label": "Neuroinflammation",
+      "description": "Trastuzumab randomly paired with Neuroinflammation (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:drug:trastuzumab",
+        "randomly_paired_with",
+        "bio:pathway:neuroinflammation"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5031",
+      "subject_id": "chem:target:mtor_kinase",
+      "subject_label": "mTOR Kinase",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:protein:egfr",
+      "object_label": "EGFR",
+      "description": "mTOR Kinase randomly paired with EGFR (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:target:mtor_kinase",
+        "randomly_paired_with",
+        "bio:protein:egfr"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5032",
+      "subject_id": "bio:process:beta_amyloid_aggregation",
+      "subject_label": "Beta-Amyloid Aggregation",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:mechanism:hdac_inhibition",
+      "object_label": "HDAC Inhibition",
+      "description": "Beta-Amyloid Aggregation randomly paired with HDAC Inhibition (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:process:beta_amyloid_aggregation",
+        "randomly_paired_with",
+        "chem:mechanism:hdac_inhibition"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5033",
+      "subject_id": "chem:mechanism:pde5_inhibition",
+      "subject_label": "PDE5 Inhibition",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:disease:alzheimers",
+      "object_label": "Alzheimer's Disease",
+      "description": "PDE5 Inhibition randomly paired with Alzheimer's Disease (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:mechanism:pde5_inhibition",
+        "randomly_paired_with",
+        "bio:disease:alzheimers"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5034",
+      "subject_id": "chem:target:mtor_kinase",
+      "subject_label": "mTOR Kinase",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:disease:type2_diabetes",
+      "object_label": "Type 2 Diabetes",
+      "description": "mTOR Kinase randomly paired with Type 2 Diabetes (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:target:mtor_kinase",
+        "randomly_paired_with",
+        "bio:disease:type2_diabetes"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5035",
+      "subject_id": "bio:process:insulin_resistance",
+      "subject_label": "Insulin Resistance",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:mechanism:ppar_activation",
+      "object_label": "PPAR Activation",
+      "description": "Insulin Resistance randomly paired with PPAR Activation (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:process:insulin_resistance",
+        "randomly_paired_with",
+        "chem:mechanism:ppar_activation"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5036",
+      "subject_id": "bio:biomarker:tau_protein",
+      "subject_label": "Phospho-tau",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:mechanism:proteasome_inhibition",
+      "object_label": "Proteasome Inhibition",
+      "description": "Phospho-tau randomly paired with Proteasome Inhibition (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:biomarker:tau_protein",
+        "randomly_paired_with",
+        "chem:mechanism:proteasome_inhibition"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5037",
+      "subject_id": "bio:pathway:wnt_signaling",
+      "subject_label": "Wnt Signaling",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:drug:rapamycin",
+      "object_label": "Rapamycin",
+      "description": "Wnt Signaling randomly paired with Rapamycin (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:pathway:wnt_signaling",
+        "randomly_paired_with",
+        "chem:drug:rapamycin"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5038",
+      "subject_id": "chem:drug:imatinib",
+      "subject_label": "Imatinib",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:pathway:pi3k_akt",
+      "object_label": "PI3K-AKT",
+      "description": "Imatinib randomly paired with PI3K-AKT (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:drug:imatinib",
+        "randomly_paired_with",
+        "bio:pathway:pi3k_akt"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5039",
+      "subject_id": "bio:pathway:mapk_erk",
+      "subject_label": "MAPK-ERK",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:drug:hydroxychloroquine",
+      "object_label": "Hydroxychloroquine",
+      "description": "MAPK-ERK randomly paired with Hydroxychloroquine (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:pathway:mapk_erk",
+        "randomly_paired_with",
+        "chem:drug:hydroxychloroquine"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5040",
+      "subject_id": "bio:protein:gsk3b",
+      "subject_label": "GSK3-beta",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:compound:coenzyme_q10",
+      "object_label": "Coenzyme Q10",
+      "description": "GSK3-beta randomly paired with Coenzyme Q10 (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:protein:gsk3b",
+        "randomly_paired_with",
+        "chem:compound:coenzyme_q10"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5041",
+      "subject_id": "chem:drug:gefitinib",
+      "subject_label": "Gefitinib",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:protein:sirt1",
+      "object_label": "SIRT1",
+      "description": "Gefitinib randomly paired with SIRT1 (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:drug:gefitinib",
+        "randomly_paired_with",
+        "bio:protein:sirt1"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5042",
+      "subject_id": "bio:disease:huntingtons",
+      "subject_label": "Huntington's Disease",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:drug:memantine",
+      "object_label": "Memantine",
+      "description": "Huntington's Disease randomly paired with Memantine (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:disease:huntingtons",
+        "randomly_paired_with",
+        "chem:drug:memantine"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5043",
+      "subject_id": "bio:biomarker:amyloid_beta42",
+      "subject_label": "Amyloid-beta 42",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:compound:kaempferol",
+      "object_label": "Kaempferol",
+      "description": "Amyloid-beta 42 randomly paired with Kaempferol (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:biomarker:amyloid_beta42",
+        "randomly_paired_with",
+        "chem:compound:kaempferol"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5044",
+      "subject_id": "chem:compound:nicotinamide_riboside",
+      "subject_label": "Nicotinamide Riboside",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:pathway:amyloid_cascade",
+      "object_label": "Amyloid Cascade",
+      "description": "Nicotinamide Riboside randomly paired with Amyloid Cascade (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:compound:nicotinamide_riboside",
+        "randomly_paired_with",
+        "bio:pathway:amyloid_cascade"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5045",
+      "subject_id": "chem:compound:nicotinamide_riboside",
+      "subject_label": "Nicotinamide Riboside",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:disease:huntingtons",
+      "object_label": "Huntington's Disease",
+      "description": "Nicotinamide Riboside randomly paired with Huntington's Disease (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:compound:nicotinamide_riboside",
+        "randomly_paired_with",
+        "bio:disease:huntingtons"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5046",
+      "subject_id": "bio:protein:tnf_alpha",
+      "subject_label": "TNF-alpha",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:mechanism:stat3_inhibition",
+      "object_label": "STAT3 Inhibition",
+      "description": "TNF-alpha randomly paired with STAT3 Inhibition (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:protein:tnf_alpha",
+        "randomly_paired_with",
+        "chem:mechanism:stat3_inhibition"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5047",
+      "subject_id": "bio:pathway:jak_stat",
+      "subject_label": "JAK-STAT",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:target:mtor_kinase",
+      "object_label": "mTOR Kinase",
+      "description": "JAK-STAT randomly paired with mTOR Kinase (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:pathway:jak_stat",
+        "randomly_paired_with",
+        "chem:target:mtor_kinase"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5048",
+      "subject_id": "chem:drug:erlotinib",
+      "subject_label": "Erlotinib",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:process:tumor_angiogenesis",
+      "object_label": "Tumor Angiogenesis",
+      "description": "Erlotinib randomly paired with Tumor Angiogenesis (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:drug:erlotinib",
+        "randomly_paired_with",
+        "bio:process:tumor_angiogenesis"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5049",
+      "subject_id": "chem:target:egfr_kinase",
+      "subject_label": "EGFR Kinase",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:protein:nrf2",
+      "object_label": "NRF2",
+      "description": "EGFR Kinase randomly paired with NRF2 (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:target:egfr_kinase",
+        "randomly_paired_with",
+        "bio:protein:nrf2"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5050",
+      "subject_id": "bio:process:protein_aggregation",
+      "subject_label": "Protein Aggregation",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:drug:lithium",
+      "object_label": "Lithium",
+      "description": "Protein Aggregation randomly paired with Lithium (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:process:protein_aggregation",
+        "randomly_paired_with",
+        "chem:drug:lithium"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5051",
+      "subject_id": "bio:process:cell_senescence",
+      "subject_label": "Cell Senescence",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:compound:coenzyme_q10",
+      "object_label": "Coenzyme Q10",
+      "description": "Cell Senescence randomly paired with Coenzyme Q10 (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:process:cell_senescence",
+        "randomly_paired_with",
+        "chem:compound:coenzyme_q10"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5052",
+      "subject_id": "chem:mechanism:vegfr_inhibition",
+      "subject_label": "VEGFR Inhibition",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:protein:tau",
+      "object_label": "Tau Protein",
+      "description": "VEGFR Inhibition randomly paired with Tau Protein (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:mechanism:vegfr_inhibition",
+        "randomly_paired_with",
+        "bio:protein:tau"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5053",
+      "subject_id": "bio:disease:prostate_cancer",
+      "subject_label": "Prostate Cancer",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:compound:curcumin",
+      "object_label": "Curcumin",
+      "description": "Prostate Cancer randomly paired with Curcumin (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:disease:prostate_cancer",
+        "randomly_paired_with",
+        "chem:compound:curcumin"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5054",
+      "subject_id": "chem:mechanism:stat3_inhibition",
+      "subject_label": "STAT3 Inhibition",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:disease:obesity",
+      "object_label": "Obesity",
+      "description": "STAT3 Inhibition randomly paired with Obesity (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:mechanism:stat3_inhibition",
+        "randomly_paired_with",
+        "bio:disease:obesity"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5055",
+      "subject_id": "chem:compound:curcumin",
+      "subject_label": "Curcumin",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:disease:heart_failure",
+      "object_label": "Heart Failure",
+      "description": "Curcumin randomly paired with Heart Failure (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:compound:curcumin",
+        "randomly_paired_with",
+        "bio:disease:heart_failure"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5056",
+      "subject_id": "bio:disease:obesity",
+      "subject_label": "Obesity",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:mechanism:hdac_inhibition",
+      "object_label": "HDAC Inhibition",
+      "description": "Obesity randomly paired with HDAC Inhibition (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:disease:obesity",
+        "randomly_paired_with",
+        "chem:mechanism:hdac_inhibition"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5057",
+      "subject_id": "chem:mechanism:pde5_inhibition",
+      "subject_label": "PDE5 Inhibition",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:disease:breast_cancer",
+      "object_label": "Breast Cancer",
+      "description": "PDE5 Inhibition randomly paired with Breast Cancer (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:mechanism:pde5_inhibition",
+        "randomly_paired_with",
+        "bio:disease:breast_cancer"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5058",
+      "subject_id": "bio:process:beta_amyloid_aggregation",
+      "subject_label": "Beta-Amyloid Aggregation",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:mechanism:sirt1_activation",
+      "object_label": "SIRT1 Activation",
+      "description": "Beta-Amyloid Aggregation randomly paired with SIRT1 Activation (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:process:beta_amyloid_aggregation",
+        "randomly_paired_with",
+        "chem:mechanism:sirt1_activation"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5059",
+      "subject_id": "bio:protein:tnf_alpha",
+      "subject_label": "TNF-alpha",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:mechanism:vegfr_inhibition",
+      "object_label": "VEGFR Inhibition",
+      "description": "TNF-alpha randomly paired with VEGFR Inhibition (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:protein:tnf_alpha",
+        "randomly_paired_with",
+        "chem:mechanism:vegfr_inhibition"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5060",
+      "subject_id": "bio:disease:rheumatoid_arthritis",
+      "subject_label": "Rheumatoid Arthritis",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:target:egfr_kinase",
+      "object_label": "EGFR Kinase",
+      "description": "Rheumatoid Arthritis randomly paired with EGFR Kinase (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:disease:rheumatoid_arthritis",
+        "randomly_paired_with",
+        "chem:target:egfr_kinase"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5061",
+      "subject_id": "chem:compound:nicotinamide_riboside",
+      "subject_label": "Nicotinamide Riboside",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:pathway:jak_stat",
+      "object_label": "JAK-STAT",
+      "description": "Nicotinamide Riboside randomly paired with JAK-STAT (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:compound:nicotinamide_riboside",
+        "randomly_paired_with",
+        "bio:pathway:jak_stat"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5062",
+      "subject_id": "chem:mechanism:pi3k_inhibition",
+      "subject_label": "PI3K Inhibition",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:process:insulin_resistance",
+      "object_label": "Insulin Resistance",
+      "description": "PI3K Inhibition randomly paired with Insulin Resistance (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:mechanism:pi3k_inhibition",
+        "randomly_paired_with",
+        "bio:process:insulin_resistance"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5063",
+      "subject_id": "chem:mechanism:mtor_inhibition",
+      "subject_label": "mTOR Inhibition",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:protein:vegf",
+      "object_label": "VEGF",
+      "description": "mTOR Inhibition randomly paired with VEGF (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:mechanism:mtor_inhibition",
+        "randomly_paired_with",
+        "bio:protein:vegf"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5064",
+      "subject_id": "bio:protein:alpha_syn",
+      "subject_label": "Alpha-synuclein",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:compound:coenzyme_q10",
+      "object_label": "Coenzyme Q10",
+      "description": "Alpha-synuclein randomly paired with Coenzyme Q10 (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:protein:alpha_syn",
+        "randomly_paired_with",
+        "chem:compound:coenzyme_q10"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5065",
+      "subject_id": "bio:disease:colon_cancer",
+      "subject_label": "Colorectal Cancer",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:mechanism:bcl2_inhibition",
+      "object_label": "BCL-2 Inhibition",
+      "description": "Colorectal Cancer randomly paired with BCL-2 Inhibition (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:disease:colon_cancer",
+        "randomly_paired_with",
+        "chem:mechanism:bcl2_inhibition"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5066",
+      "subject_id": "chem:mechanism:wnt_inhibition",
+      "subject_label": "Wnt Inhibition",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:pathway:wnt_signaling",
+      "object_label": "Wnt Signaling",
+      "description": "Wnt Inhibition randomly paired with Wnt Signaling (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:mechanism:wnt_inhibition",
+        "randomly_paired_with",
+        "bio:pathway:wnt_signaling"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5067",
+      "subject_id": "chem:compound:kaempferol",
+      "subject_label": "Kaempferol",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:process:protein_aggregation",
+      "object_label": "Protein Aggregation",
+      "description": "Kaempferol randomly paired with Protein Aggregation (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:compound:kaempferol",
+        "randomly_paired_with",
+        "bio:process:protein_aggregation"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5068",
+      "subject_id": "chem:compound:berberine",
+      "subject_label": "Berberine",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:protein:app",
+      "object_label": "Amyloid Precursor Protein",
+      "description": "Berberine randomly paired with Amyloid Precursor Protein (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:compound:berberine",
+        "randomly_paired_with",
+        "bio:protein:app"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5069",
+      "subject_id": "bio:protein:stat3",
+      "subject_label": "STAT3",
+      "relation": "randomly_paired_with",
+      "object_id": "chem:drug:sildenafil",
+      "object_label": "Sildenafil",
+      "description": "STAT3 randomly paired with Sildenafil (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "bio:protein:stat3",
+        "randomly_paired_with",
+        "chem:drug:sildenafil"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    },
+    {
+      "id": "H5070",
+      "subject_id": "chem:drug:sildenafil",
+      "subject_label": "Sildenafil",
+      "relation": "randomly_paired_with",
+      "object_id": "bio:process:neurodegeneration",
+      "object_label": "Neurodegeneration",
+      "description": "Sildenafil randomly paired with Neurodegeneration (no KG path — truly random cross-domain control)",
+      "provenance": [
+        "chem:drug:sildenafil",
+        "randomly_paired_with",
+        "bio:process:neurodegeneration"
+      ],
+      "operator": "random_v2",
+      "source_kg_name": "random_entity_pool",
+      "method": "C_rand_v2",
+      "chain_length": 3
+    }
+  ]
+}

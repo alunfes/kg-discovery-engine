@@ -1,0 +1,51 @@
+{
+  "n_c2da_with_density": 70,
+  "n_c1_with_density": 70,
+  "density_tertile_thresholds": {
+    "p33": 9321.0,
+    "p67": 22743.0
+  },
+  "density_threshold_from_run_021": 8105.5,
+  "unmatched": {
+    "c2da_investigability": 0.9714,
+    "c1_investigability": 0.9714,
+    "gap_c1_minus_c2da": 0.0
+  },
+  "cells_density_only": [
+    {
+      "cell": "density=den_low",
+      "n_c2da": 20,
+      "n_c1": 27,
+      "c2da_investigability": 1.0,
+      "c1_investigability": 0.963,
+      "gap_c1_minus_c2da": -0.037,
+      "sufficient_n": true
+    },
+    {
+      "cell": "density=den_mid",
+      "n_c2da": 31,
+      "n_c1": 12,
+      "c2da_investigability": 0.9355,
+      "c1_investigability": 1.0,
+      "gap_c1_minus_c2da": 0.0645,
+      "sufficient_n": true
+    },
+    {
+      "cell": "density=den_high",
+      "n_c2da": 19,
+      "n_c1": 31,
+      "c2da_investigability": 1.0,
+      "c1_investigability": 0.9677,
+      "gap_c1_minus_c2da": -0.0323,
+      "sufficient_n": true
+    }
+  ],
+  "n_reportable_cells": 3,
+  "max_reportable_gap": 0.0645,
+  "h_match_verdict": "rejected",
+  "h_match_note": "max reportable gap=0.0645 > 0.03: H_matched_parity rejected",
+  "h_match_criteria": {
+    "parity_threshold": 0.03,
+    "pass_condition": "all reportable cells gap <= 0.03"
+  }
+}

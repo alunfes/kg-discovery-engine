@@ -1,0 +1,60 @@
+{
+  "SC_ds_primary": {
+    "name": "SC_ds_primary",
+    "description": "C2_density_aware investigability parity with C1 (Fisher two-sided)",
+    "test": "Fisher exact two-sided",
+    "alpha": 0.05,
+    "primary": true,
+    "c2da_rate": 0.9714,
+    "c1_rate": 0.9714,
+    "delta": 0.0,
+    "parity_delta_threshold": 0.02,
+    "contingency": {
+      "a": 68,
+      "b": 2,
+      "c": 68,
+      "d": 2
+    },
+    "p_value": 1.0,
+    "parity_p_condition": true,
+    "parity_delta_condition": true,
+    "passed": true,
+    "note": "C2_da investigated=68/70 vs C1 investigated=68/70; p=1.0000, delta=0.0000"
+  },
+  "SC_ds_improvement": {
+    "name": "SC_ds_improvement",
+    "description": "C2_density_aware investigability > run_018 C2 baseline (0.914)",
+    "test": "Descriptive threshold check",
+    "primary": false,
+    "c2da_rate": 0.9714,
+    "baseline_rate": 0.914,
+    "baseline_run": "run_018",
+    "passed": true,
+    "note": "C2_density_aware=0.9714; baseline=0.914"
+  },
+  "SC_ds_random": {
+    "name": "SC_ds_random",
+    "description": "C2_density_aware investigability > C_rand_v2 (Fisher one-sided)",
+    "test": "Fisher exact one-sided",
+    "alpha": 0.05,
+    "primary": false,
+    "c2da_rate": 0.9714,
+    "crand_rate": 0.6,
+    "contingency": {
+      "a": 68,
+      "b": 2,
+      "c": 42,
+      "d": 28
+    },
+    "p_value": 0.0,
+    "passed": true,
+    "note": "C2_da investigated=68/70 vs C_rand investigated=42/70; p=0.0000"
+  },
+  "overall": {
+    "go_nogo": "GO",
+    "sc_ds_primary": true,
+    "sc_ds_improvement": true,
+    "sc_ds_random": true,
+    "summary": "GO | SC_ds_primary=PASS | SC_ds_improvement=PASS | SC_ds_random=PASS"
+  }
+}
