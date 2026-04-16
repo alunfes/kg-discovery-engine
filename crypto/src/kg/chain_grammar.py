@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 """Chain grammar KG builder — Sprint E (E1/E2) + Sprint F (F3) + Sprint K (R1).
 =======
 """Chain grammar KG builder — Sprint E (E1 beta_reversion + E2 positioning_unwind).
 >>>>>>> claude/gracious-edison
+=======
+"""Chain grammar KG builder — Sprint E (E1/E2) + Sprint F (F3).
+>>>>>>> claude/sharp-kowalevski
 
 E1: Negative-evidence nodes — the *absence* of flow signals is the positive
     signal for beta reversion.  Nodes encode below-threshold conditions
@@ -14,12 +18,16 @@ E2: Positive-evidence nodes — crowded positioning + trigger event produces
     UnwindTriggerNode, PositioningUnwindContextNode).
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> claude/sharp-kowalevski
 F3: Negative-evidence taxonomy — suppression reasons are now typed:
     structural_absence    — required KG node/structure does not exist.
     failed_followthrough  — signal present but below persistence/intensity threshold.
     contradictory_evidence — active positive counter-signal blocks the chain.
     (replaces the old generic "insufficient_negative_evidence" reason)
 
+<<<<<<< HEAD
 Sprint K / R1: The J1 discriminative gate is now a first-class instance of
     Meta-rule R1 (Regime Dominance Gate) defined in regime_dominance_gate.py.
     J1 logic is unchanged; the inline check is replaced by apply_r1().
@@ -36,15 +44,21 @@ from ..eval.soft_gate import (
 from ..kg.base import KGEdge, KGNode, KGraph
 from ..kg.regime_dominance_gate import R1PolicySpec, apply_r1
 =======
+=======
+>>>>>>> claude/sharp-kowalevski
 Returns (KGraph, suppression_log) so the pipeline can emit branch_metrics.json.
 """
 
 from ..kg.base import KGEdge, KGNode, KGraph
+<<<<<<< HEAD
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
 from ..schema.market_state import MarketStateCollection
 
 FAMILY = "chain_grammar"
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 # ---------------------------------------------------------------------------
 # R1 policy specs for this module
@@ -77,6 +91,8 @@ _J1_R1_SPEC = R1PolicySpec(
 
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
 
 # ---------------------------------------------------------------------------
 # Internal helpers
@@ -173,6 +189,7 @@ def _oi_coverage(collections: dict[str, MarketStateCollection], assets: list[str
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 # ---------------------------------------------------------------------------
@@ -253,6 +270,8 @@ def _apply_funding_soft_gate(
 
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
 # ---------------------------------------------------------------------------
 # E1 chain builders
 # ---------------------------------------------------------------------------
@@ -263,6 +282,9 @@ def _e1_no_funding_oi_chain(
     log: list[dict],
 ) -> None:
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> claude/sharp-kowalevski
     """E1 Chain 1: corr_break → no_funding_shift → no_oi_expansion → recoupling.
 
     F3: suppression reasons typed:
@@ -287,6 +309,7 @@ def _e1_no_funding_oi_chain(
                     "reason": "structural_absence",
                     "detail": f"OI coverage={cov:.3f} — insufficient data",
                     "neg_evidence_taxonomy": "structural_absence"})
+<<<<<<< HEAD
 =======
     """E1 Chain 1: corr_break → no_funding_shift → no_oi_expansion → recoupling."""
     pair = f"{a1}/{a2}"
@@ -294,6 +317,8 @@ def _e1_no_funding_oi_chain(
         log.append({"chain": "beta_reversion_no_funding_oi", "pair": pair,
                     "reason": "insufficient_negative_evidence"})
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
         return
     cov = _oi_coverage(collections, [a1, a2])
 
@@ -336,6 +361,7 @@ def _e1_transient_aggression_chain(
     Combined counts inflate the total when the other asset has random bursts,
     so we check each asset individually.
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     Sprint K (run_011): The J1 gate is now a first-class R1 instance (_J1_R1_SPEC).
     If funding_extreme AND OI_accumulation are both present, apply_r1 suppresses
@@ -354,6 +380,10 @@ def _e1_transient_aggression_chain(
     """
     pair = f"{a1}/{a2}"
 >>>>>>> claude/gracious-edison
+=======
+    """
+    pair = f"{a1}/{a2}"
+>>>>>>> claude/sharp-kowalevski
     burst_a1 = _count_burst_windows_kg(merged_kg, [a1])
     burst_a2 = _count_burst_windows_kg(merged_kg, [a2])
     burst_count = min(burst_a1, burst_a2)  # transient if EITHER side is low-burst
@@ -363,16 +393,22 @@ def _e1_transient_aggression_chain(
         return
     if burst_count > 4:
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> claude/sharp-kowalevski
         # F3: failed_followthrough — aggression exists but persisted beyond transient threshold
         log.append({"chain": "beta_reversion_transient_aggr", "pair": pair,
                     "reason": "failed_followthrough",
                     "detail": f"min burst count={burst_count} — both sides persistent",
                     "neg_evidence_taxonomy": "failed_followthrough"})
+<<<<<<< HEAD
 =======
         log.append({"chain": "beta_reversion_transient_aggr", "pair": pair,
                     "reason": "insufficient_negative_evidence",
                     "detail": f"min burst count={burst_count} — both sides persistent"})
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
         return
 
     npa_id = f"no_persistent_aggr:{a1}:{a2}"
@@ -405,6 +441,9 @@ def _e1_weak_premium_chain(
     pair = f"{a1}/{a2}"
     if not _has_premium_chain_kg(merged_kg, [a1, a2]):
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> claude/sharp-kowalevski
         # F3: structural_absence — premium dislocation node type absent from KG
         log.append({"chain": "beta_reversion_weak_premium", "pair": pair,
                     "reason": "structural_absence",
@@ -417,6 +456,7 @@ def _e1_weak_premium_chain(
                     "reason": "contradictory_evidence",
                     "detail": "funding extreme present — premium not weak",
                     "neg_evidence_taxonomy": "contradictory_evidence"})
+<<<<<<< HEAD
 =======
         log.append({"chain": "beta_reversion_weak_premium", "pair": pair,
                     "reason": "no_trigger", "detail": "no PremiumDislocationNode"})
@@ -426,6 +466,8 @@ def _e1_weak_premium_chain(
                     "reason": "insufficient_negative_evidence",
                     "detail": "funding extreme present — premium not weak"})
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
         return
 
     rctx_id = f"reversion_context:{a1}:{a2}"
@@ -466,6 +508,7 @@ def _e2_funding_pressure_chain(
     pair = f"{a1}/{a2}"
     n_extreme = _scan_funding_extreme_kg(merged_kg, [a1, a2])
 <<<<<<< HEAD
+<<<<<<< HEAD
     # H1: Apply soft activation gate for funding pressure
     proceed, act_conf = _apply_funding_soft_gate(
         collections, [a1, a2], pair, log, n_extreme
@@ -474,10 +517,14 @@ def _e2_funding_pressure_chain(
 =======
     if n_extreme == 0:
 >>>>>>> claude/gracious-edison
+=======
+    if n_extreme == 0:
+>>>>>>> claude/sharp-kowalevski
         log.append({"chain": "positioning_unwind_funding_pressure", "pair": pair,
                     "reason": "no_trigger", "detail": "no funding extreme"})
         return
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     is_soft_fund = act_conf < HARD_GATE_MIN
     eff_n = n_extreme if n_extreme > 0 else 1
@@ -489,13 +536,18 @@ def _e2_funding_pressure_chain(
         "duration": eff_n, "persistence": round(persistence, 3), "coverage": 1.0,
         "activation_confidence": round(act_conf, 3), "is_soft_gated": is_soft_fund,
 =======
+=======
+>>>>>>> claude/sharp-kowalevski
     persistence = min(1.0, n_extreme * 0.4)
     fpr_id = f"funding_pressure_regime:{a1}:{a2}"
     _mk_node(kg, fpr_id, "FundingPressureRegimeNode", {
         "asset_a": a1, "asset_b": a2,
         "state_score": round(min(1.0, n_extreme * 0.5), 3),
         "duration": n_extreme, "persistence": round(persistence, 3), "coverage": 1.0,
+<<<<<<< HEAD
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
     })
     _mk_edge(kg, f"funding_pressure:{a1}:{a2}", corr_nid, fpr_id, "has_funding_pressure_regime")
 
@@ -506,11 +558,15 @@ def _e2_funding_pressure_chain(
         "asset_a": a1, "asset_b": a2, "state_score": fps_score,
         "has_premium_chain": has_prem,
 <<<<<<< HEAD
+<<<<<<< HEAD
         "duration": eff_n, "persistence": round(persistence, 3), "coverage": 1.0,
         "activation_confidence": round(act_conf, 3), "is_soft_gated": is_soft_fund,
 =======
         "duration": n_extreme, "persistence": round(persistence, 3), "coverage": 1.0,
 >>>>>>> claude/gracious-edison
+=======
+        "duration": n_extreme, "persistence": round(persistence, 3), "coverage": 1.0,
+>>>>>>> claude/sharp-kowalevski
     })
     _mk_edge(kg, f"funding_to_fragile:{a1}:{a2}", fpr_id, fps_id,
              "funding_pressure_creates_fragile_premium")
@@ -521,9 +577,12 @@ def _e2_funding_pressure_chain(
         "state_score": round(fps_score * 0.9, 3), "trigger_type": "funding_extreme",
         "duration": 1, "coverage": 1.0,
 <<<<<<< HEAD
+<<<<<<< HEAD
         "activation_confidence": round(act_conf, 3), "is_soft_gated": is_soft_fund,
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
     })
     _mk_edge(kg, f"fragile_trigger:{a1}:{a2}", fps_id, utr_id, "fragile_premium_triggers_unwind")
 
@@ -536,12 +595,16 @@ def _e2_one_sided_oi_chain(
     """E2 Chain 2: corr_break → one_sided_oi_build → position_crowding → aggression_reversal."""
     pair = f"{a1}/{a2}"
 <<<<<<< HEAD
+<<<<<<< HEAD
     # H1: Apply soft activation gate for OI accumulation
     proceed, act_conf = _apply_oi_soft_gate(collections, [a1, a2], pair, log)
     if not proceed:
 =======
     if not _has_oi_accumulation(collections, [a1, a2]):
 >>>>>>> claude/gracious-edison
+=======
+    if not _has_oi_accumulation(collections, [a1, a2]):
+>>>>>>> claude/sharp-kowalevski
         log.append({"chain": "positioning_unwind_oi_crowding", "pair": pair,
                     "reason": "missing_accumulation", "detail": "no OI accumulation"})
         return
@@ -552,9 +615,12 @@ def _e2_one_sided_oi_chain(
         return
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     is_soft_oi = act_conf < HARD_GATE_MIN
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
     build_dur = _oi_build_duration(collections, [a1, a2])
     oi_score = _oi_state_score(collections, [a1, a2])
 
@@ -563,9 +629,12 @@ def _e2_one_sided_oi_chain(
         "asset_a": a1, "asset_b": a2, "state_score": round(oi_score, 3),
         "build_duration": build_dur, "persistence": min(1.0, build_dur / 10.0),
 <<<<<<< HEAD
+<<<<<<< HEAD
         "activation_confidence": round(act_conf, 3), "is_soft_gated": is_soft_oi,
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
         "coverage": 1.0,
     })
     _mk_edge(kg, f"oi_build:{a1}:{a2}", corr_nid, oi_id, "has_one_sided_oi_build")
@@ -577,9 +646,12 @@ def _e2_one_sided_oi_chain(
         "duration": build_dur, "persistence": min(1.0, build_dur / 10.0),
         "coverage": 1.0,
 <<<<<<< HEAD
+<<<<<<< HEAD
         "activation_confidence": round(act_conf, 3), "is_soft_gated": is_soft_oi,
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
     })
     _mk_edge(kg, f"oi_crowding:{a1}:{a2}", oi_id, crowd_id, "oi_build_creates_crowding")
 

@@ -111,6 +111,7 @@ def test_no_oi_expansion_node_created(collections_120, merged_kg_120):
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 def test_no_persistent_aggression_node_created():
     """NoPersistentAggressionNode created only when J1 gate does NOT fire.
 
@@ -161,13 +162,18 @@ def test_no_persistent_aggression_node_created():
         "and burst_min in [1,4]"
     )
 =======
+=======
+>>>>>>> claude/sharp-kowalevski
 def test_no_persistent_aggression_node_created(collections_120, merged_kg_120):
     """NoPersistentAggressionNode created for pairs where HYPE has 1-2 burst windows."""
     grammar_kg, _ = build_chain_grammar_kg(merged_kg_120, collections_120)
     npa_nodes = [n for n in grammar_kg.nodes.values()
                  if n.node_type == "NoPersistentAggressionNode"]
     assert len(npa_nodes) > 0, "No NoPersistentAggressionNode created"
+<<<<<<< HEAD
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
 
 
 def test_e1_reversion_chain_fires(pipeline_cards):
@@ -306,6 +312,7 @@ def test_suppression_reasons_are_valid(collections_120, merged_kg_120, pipeline_
     valid_reasons = {
         "no_trigger", "low_coverage", "failed_timeline", "below_threshold",
 <<<<<<< HEAD
+<<<<<<< HEAD
         "missing_accumulation",
         # F3 taxonomy (replaces generic insufficient_negative_evidence)
         "contradictory_evidence", "failed_followthrough", "structural_absence",
@@ -314,6 +321,11 @@ def test_suppression_reasons_are_valid(collections_120, merged_kg_120, pipeline_
 =======
         "missing_accumulation", "insufficient_negative_evidence",
 >>>>>>> claude/gracious-edison
+=======
+        "missing_accumulation",
+        # F3 taxonomy (replaces generic insufficient_negative_evidence)
+        "contradictory_evidence", "failed_followthrough", "structural_absence",
+>>>>>>> claude/sharp-kowalevski
     }
     _, suppression_log = build_chain_grammar_kg(merged_kg_120, collections_120)
     for entry in suppression_log:

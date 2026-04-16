@@ -21,8 +21,11 @@ DEFAULT_SEED = 42
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
 class OpenInterestSample:
     """Open interest snapshot at one minute."""
     asset: str
@@ -32,12 +35,15 @@ class OpenInterestSample:
 
 @dataclass
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/thirsty-heisenberg
 =======
 >>>>>>> claude/elated-lamarr
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
 class PriceTick:
     """Single mid-price observation."""
     asset: str
@@ -87,6 +93,7 @@ class SyntheticDataset:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     oi_samples: list[OpenInterestSample] = field(default_factory=list)
 =======
 >>>>>>> claude/thirsty-heisenberg
@@ -95,6 +102,9 @@ class SyntheticDataset:
 =======
     oi_samples: list[OpenInterestSample] = field(default_factory=list)
 >>>>>>> claude/gracious-edison
+=======
+    oi_samples: list[OpenInterestSample] = field(default_factory=list)
+>>>>>>> claude/sharp-kowalevski
 
 
 class SyntheticGenerator:
@@ -120,8 +130,11 @@ class SyntheticGenerator:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
     BASE_OI: dict[str, float] = {
         "HYPE": 1_000_000.0,
         "ETH":  5_000_000.0,
@@ -130,12 +143,15 @@ class SyntheticGenerator:
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/thirsty-heisenberg
 =======
 >>>>>>> claude/elated-lamarr
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
     VOLATILITY: dict[str, float] = {
         "HYPE": 0.0025,   # std per minute
         "ETH": 0.0010,
@@ -178,6 +194,7 @@ class SyntheticGenerator:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             ois = self._generate_oi(asset, t0_ms)
 =======
 >>>>>>> claude/thirsty-heisenberg
@@ -186,6 +203,9 @@ class SyntheticGenerator:
 =======
             ois = self._generate_oi(asset, t0_ms)
 >>>>>>> claude/gracious-edison
+=======
+            ois = self._generate_oi(asset, t0_ms)
+>>>>>>> claude/sharp-kowalevski
 
             dataset.price_ticks.extend(prices)
             dataset.trade_ticks.extend(trades)
@@ -194,6 +214,7 @@ class SyntheticGenerator:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             dataset.oi_samples.extend(ois)
 =======
 >>>>>>> claude/thirsty-heisenberg
@@ -202,6 +223,9 @@ class SyntheticGenerator:
 =======
             dataset.oi_samples.extend(ois)
 >>>>>>> claude/gracious-edison
+=======
+            dataset.oi_samples.extend(ois)
+>>>>>>> claude/sharp-kowalevski
 
         return dataset
 
@@ -239,12 +263,16 @@ class SyntheticGenerator:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
         # HYPE buy-aggression burst at minutes 20-30
         # SOL buy-aggression burst at minutes 65-80 (positioning_unwind scenario)
         hype_burst = (20, 30)
         sol_burst = (65, 80)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         # Inject a buy-aggression burst at minute 20-30 for HYPE
@@ -258,6 +286,8 @@ class SyntheticGenerator:
 >>>>>>> claude/elated-lamarr
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
 
         for tick in prices:
             n_trades = self._rng.randint(1, 5)
@@ -265,12 +295,16 @@ class SyntheticGenerator:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
             in_burst = (
                 (asset == "HYPE" and hype_burst[0] <= minute_idx < hype_burst[1])
                 or (asset == "SOL" and sol_burst[0] <= minute_idx < sol_burst[1])
             )
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             in_burst = (asset == "HYPE" and burst_start <= minute_idx < burst_end)
@@ -280,6 +314,8 @@ class SyntheticGenerator:
 >>>>>>> claude/elated-lamarr
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
 
             for _ in range(n_trades):
                 is_buy = (
@@ -300,10 +336,13 @@ class SyntheticGenerator:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/elated-lamarr
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
         """Generate one funding sample per 8h epoch in the window.
 
         For HYPE, an additional mid-sim epoch is injected at minute 35 so that
@@ -314,6 +353,7 @@ class SyntheticGenerator:
         """
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         """Generate one funding sample per 8h epoch in the window."""
 >>>>>>> claude/thirsty-heisenberg
@@ -321,6 +361,8 @@ class SyntheticGenerator:
 >>>>>>> claude/elated-lamarr
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
         fundings: list[FundingSample] = []
         epoch_ms = 8 * 3_600_000
         n_epochs = max(1, (self.n_minutes * 60_000) // epoch_ms + 1)
@@ -346,6 +388,7 @@ class SyntheticGenerator:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         # Post-burst funding for HYPE at minute 35 (B3 chain anchor).
 =======
@@ -359,6 +402,10 @@ class SyntheticGenerator:
 
         # Post-burst funding for HYPE at minute 35 (B3 chain anchor).
 >>>>>>> claude/gracious-edison
+=======
+
+        # Post-burst funding for HYPE at minute 35 (B3 chain anchor).
+>>>>>>> claude/sharp-kowalevski
         if asset == "HYPE" and self.n_minutes >= 35:
             fundings.append(FundingSample(
                 asset=asset,
@@ -367,8 +414,11 @@ class SyntheticGenerator:
             ))
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
 
         # Post-burst funding extreme for SOL at minute 75 (E2 positioning_unwind).
         # Injected after SOL burst window (65-80) so gap > 0.
@@ -415,6 +465,7 @@ class SyntheticGenerator:
         return samples
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         return fundings
 
@@ -427,6 +478,8 @@ class SyntheticGenerator:
 >>>>>>> claude/elated-lamarr
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
     def _generate_books(
         self, asset: str, prices: list[PriceTick]
     ) -> list[BookSnapshot]:

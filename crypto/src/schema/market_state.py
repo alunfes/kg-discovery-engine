@@ -1,10 +1,13 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/elated-lamarr
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
 """Market state types and enumerations for Hyperliquid microstructure.
 
 B1 change: Each state dataclass now carries four temporal fields:
@@ -26,6 +29,7 @@ so live-data ingestion can populate the lag correctly.
 """
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 """Market state types and enumerations for Hyperliquid microstructure."""
 >>>>>>> claude/thirsty-heisenberg
@@ -33,6 +37,8 @@ so live-data ingestion can populate the lag correctly.
 >>>>>>> claude/elated-lamarr
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
 
 from dataclasses import dataclass, field
 from enum import Enum
@@ -75,15 +81,19 @@ class SpreadState:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/elated-lamarr
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
     # B1: temporal fields
     event_time: int = 0         # same as timestamp_ms for spread (instant observable)
     observable_time: int = 0    # strategy can observe as soon as tick arrives
     valid_from: int = 0
     valid_to: int = 0           # 0 = open-ended (until next observation)
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -92,6 +102,8 @@ class SpreadState:
 >>>>>>> claude/elated-lamarr
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
 
 
 @dataclass(frozen=True)
@@ -106,15 +118,19 @@ class FundingState:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/elated-lamarr
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
     # B1: temporal fields
     event_time: int = 0         # epoch the funding rate was set
     observable_time: int = 0    # epoch boundary (funding published at epoch time)
     valid_from: int = 0
     valid_to: int = 0           # next epoch boundary (8h later)
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -123,6 +139,8 @@ class FundingState:
 >>>>>>> claude/elated-lamarr
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
 
 
 @dataclass(frozen=True)
@@ -139,10 +157,13 @@ class AggressionState:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/elated-lamarr
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
     # B1: temporal fields
     event_time: int = 0         # end of the accumulation window
     observable_time: int = 0    # same as event_time (window closes → immediately known)
@@ -152,8 +173,11 @@ class AggressionState:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
 @dataclass(frozen=True)
 class OIState:
     """Open-interest change observation over a rolling window.
@@ -176,6 +200,7 @@ class OIState:
     valid_from: int = 0
     valid_to: int = 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/thirsty-heisenberg
 
@@ -186,6 +211,10 @@ class OIState:
 
 
 >>>>>>> claude/gracious-edison
+=======
+
+
+>>>>>>> claude/sharp-kowalevski
 @dataclass
 class MarketStateCollection:
     """Container for all extracted market states for one pipeline run.
@@ -202,6 +231,7 @@ class MarketStateCollection:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     oi_states: list[OIState] = field(default_factory=list)
 =======
 >>>>>>> claude/thirsty-heisenberg
@@ -210,6 +240,9 @@ class MarketStateCollection:
 =======
     oi_states: list[OIState] = field(default_factory=list)
 >>>>>>> claude/gracious-edison
+=======
+    oi_states: list[OIState] = field(default_factory=list)
+>>>>>>> claude/sharp-kowalevski
     regime_labels: list[tuple[int, MarketRegime]] = field(default_factory=list)
     # (timestamp_ms, regime)
 

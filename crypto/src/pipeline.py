@@ -26,6 +26,7 @@ from typing import Optional
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 from .eval.contradiction_metrics import (
     compute_contradiction_metrics,
     compute_conflict_adjusted_ranking,
@@ -54,12 +55,17 @@ from .eval.scorer import score_hypothesis
 from .ingestion.synthetic import SyntheticGenerator
 >>>>>>> claude/elated-lamarr
 =======
+=======
+>>>>>>> claude/sharp-kowalevski
 from .eval.generator import generate_hypotheses
 from .eval.metrics import compute_branch_metrics
 from .eval.scorer import score_hypothesis
 from .kg.chain_grammar import build_chain_grammar_kg
 from .ingestion.synthetic import SyntheticGenerator
+<<<<<<< HEAD
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
 from .inventory.store import HypothesisInventory
 from .kg.base import KGraph
 from .kg.cross_asset import build_cross_asset_kg
@@ -67,6 +73,7 @@ from .kg.execution import build_execution_kg
 from .kg.microstructure import build_microstructure_kg
 from .kg.pair import build_pair_kg
 from .kg.regime import build_regime_kg
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -79,6 +86,9 @@ from .kg.temporal_guard import annotate_temporal_quality
 =======
 from .kg.temporal_guard import annotate_temporal_quality
 >>>>>>> claude/gracious-edison
+=======
+from .kg.temporal_guard import annotate_temporal_quality
+>>>>>>> claude/sharp-kowalevski
 from .operators.ops import align, compose, difference, rank, union
 from .states.extractor import extract_states
 
@@ -89,6 +99,7 @@ class PipelineConfig:
 
     Why a dataclass not a plain dict: type safety and named access
     make the config self-documenting and IDE-friendly.
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -103,6 +114,8 @@ class PipelineConfig:
 >>>>>>> claude/elated-lamarr
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
     """
 
     run_id: str
@@ -114,6 +127,7 @@ class PipelineConfig:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     dataset: Optional[SyntheticDataset] = None
     real_data_mode: bool = False  # Sprint R: activate real-data threshold presets
 =======
@@ -122,6 +136,8 @@ class PipelineConfig:
 >>>>>>> claude/elated-lamarr
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
 
 
 def run_pipeline(config: PipelineConfig) -> list:
@@ -135,6 +151,7 @@ def run_pipeline(config: PipelineConfig) -> list:
     """
     random.seed(config.seed)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -156,6 +173,8 @@ def run_pipeline(config: PipelineConfig) -> list:
 >>>>>>> claude/elated-lamarr
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
     # 1. Synthetic data generation
     generator = SyntheticGenerator(
         seed=config.seed,
@@ -165,17 +184,21 @@ def run_pipeline(config: PipelineConfig) -> list:
     dataset = generator.generate()
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> claude/thirsty-heisenberg
 =======
 >>>>>>> claude/elated-lamarr
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
 
     assets = config.assets or ["HYPE", "ETH", "BTC", "SOL"]
 
     # 2. State extraction (per asset)
     collections = {}
     for asset in assets:
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -192,11 +215,15 @@ def run_pipeline(config: PipelineConfig) -> list:
 =======
         collections[asset] = extract_states(dataset, asset, config.run_id)
 >>>>>>> claude/gracious-edison
+=======
+        collections[asset] = extract_states(dataset, asset, config.run_id)
+>>>>>>> claude/sharp-kowalevski
 
     # 3. KG construction (per family)
     micro_kgs = {a: build_microstructure_kg(collections[a]) for a in assets}
     execution_kgs = {a: build_execution_kg(collections[a]) for a in assets}
     regime_kgs = {a: build_regime_kg(collections[a]) for a in assets}
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -210,6 +237,9 @@ def run_pipeline(config: PipelineConfig) -> list:
 =======
     cross_kg = build_cross_asset_kg(collections, dataset=dataset)
 >>>>>>> claude/gracious-edison
+=======
+    cross_kg = build_cross_asset_kg(collections, dataset=dataset)
+>>>>>>> claude/sharp-kowalevski
     pair_kg = build_pair_kg(collections)
 
     # 4. Merge all per-asset micro KGs into one
@@ -236,13 +266,17 @@ def run_pipeline(config: PipelineConfig) -> list:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
     # E: Build chain grammar KG (E1 beta_reversion + E2 positioning_unwind nodes).
     # Must run on the working_kg so it can see all micro/cross_asset nodes.
     grammar_kg, suppression_log = build_chain_grammar_kg(working_kg, collections)
     working_kg = union(working_kg, grammar_kg)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     # Run 012: boundary-case detection (pre-adjudication warning for near-threshold
     # activations where regime signals contradict the expected outcome).
@@ -254,6 +288,8 @@ def run_pipeline(config: PipelineConfig) -> list:
 
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
     # Count corr_break pairs for branch_activation_rate metric.
     n_corr_break_pairs = sum(
         1 for n in cross_kg.nodes.values()
@@ -261,15 +297,19 @@ def run_pipeline(config: PipelineConfig) -> list:
     )
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/elated-lamarr
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
     # B2: Annotate all edges with temporal_valid flag (in-place).
     # Edges where source.observable_time >= target.event_time get temporal_valid=False.
     # The scorer can use this to penalise look-ahead hypotheses.
     annotate_temporal_quality(working_kg)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -278,6 +318,8 @@ def run_pipeline(config: PipelineConfig) -> list:
 >>>>>>> claude/elated-lamarr
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
     # 6. Hypothesis generation
     inventory = HypothesisInventory()
     raw_candidates = generate_hypotheses(working_kg)
@@ -298,12 +340,16 @@ def run_pipeline(config: PipelineConfig) -> list:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
     # 9. Persist outputs (includes branch_metrics.json)
     branch_metrics = compute_branch_metrics(
         cards, suppression_log, n_corr_break_pairs, top_k=config.top_k
     )
+<<<<<<< HEAD
 <<<<<<< HEAD
 
     # H1: Count soft-gated cards (border cases that fired due to soft activation)
@@ -423,10 +469,14 @@ def run_pipeline(config: PipelineConfig) -> list:
 =======
     _save_outputs(config, cards, inventory, branch_metrics)
 >>>>>>> claude/gracious-edison
+=======
+    _save_outputs(config, cards, inventory, branch_metrics)
+>>>>>>> claude/sharp-kowalevski
 
     return cards
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -551,6 +601,8 @@ def run_oi_ablation(config: PipelineConfig) -> dict:
 >>>>>>> claude/elated-lamarr
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
 def _merge_kgs(kgs: list[KGraph], family_name: str) -> KGraph:
     """Merge a list of KGs via successive union operations."""
     if not kgs:
@@ -569,12 +621,16 @@ def _save_outputs(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
     branch_metrics: dict,
 ) -> None:
     """Write run config, hypothesis cards, branch metrics, and review memo."""
     run_dir = os.path.join(config.output_dir, f"{config.run_id}")
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -591,6 +647,8 @@ def _save_outputs(
 >>>>>>> claude/elated-lamarr
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
     os.makedirs(run_dir, exist_ok=True)
 
     # run_config.json
@@ -604,6 +662,7 @@ def _save_outputs(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "sprint": "J",
 =======
 >>>>>>> claude/thirsty-heisenberg
@@ -612,6 +671,9 @@ def _save_outputs(
 =======
         "sprint": "E",
 >>>>>>> claude/gracious-edison
+=======
+        "sprint": "F",
+>>>>>>> claude/sharp-kowalevski
     }
     with open(os.path.join(run_dir, "run_config.json"), "w") as f:
         json.dump(run_config, f, indent=2)
@@ -619,6 +681,7 @@ def _save_outputs(
     # output_candidates.json
     inventory.save(os.path.join(run_dir, "output_candidates.json"))
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -650,15 +713,21 @@ def _save_outputs(
         _write_outcomes_csv(i5, os.path.join(run_dir, "watchlist_outcomes.csv"))
 
 =======
+=======
+>>>>>>> claude/sharp-kowalevski
     # branch_metrics.json — E3
     with open(os.path.join(run_dir, "branch_metrics.json"), "w") as f:
         json.dump(branch_metrics, f, indent=2)
 
+<<<<<<< HEAD
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
     # review_memo.md
     _write_review_memo(run_dir, config, cards, branch_metrics)
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 def _write_outcomes_csv(i5: dict, csv_path: str) -> None:
     """Write i5_outcome_tracking outcome records to a CSV file.
@@ -913,10 +982,13 @@ def _i4_memo_lines(branch_metrics: dict) -> list[str]:
 
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
 def _write_review_memo(
     run_dir: str,
     config: PipelineConfig,
     cards: list,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -928,6 +1000,9 @@ def _write_review_memo(
 =======
     branch_metrics: dict,
 >>>>>>> claude/gracious-edison
+=======
+    branch_metrics: dict,
+>>>>>>> claude/sharp-kowalevski
 ) -> None:
     """Generate a human-readable review memo for the run."""
     from .schema.task_status import SecrecyLevel, ValidationStatus
@@ -951,14 +1026,20 @@ def _write_review_memo(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
     dist = branch_metrics.get("branch_distribution", {})
     entropy = branch_metrics.get("branch_entropy", 0.0)
     suppression = branch_metrics.get("branch_suppression_reason", {})
     top_share = branch_metrics.get("top_k_branch_share", {})
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> claude/sharp-kowalevski
     # F1 calibration
     calibration = branch_metrics.get("branch_calibration", {})
     # F2 normalization diff summary
@@ -977,12 +1058,15 @@ def _write_review_memo(
     top_uplift = uplift.get("top_uplift", [])
     mean_uplift = uplift.get("mean_uplift_by_branch", {})
 
+<<<<<<< HEAD
 =======
 >>>>>>> claude/thirsty-heisenberg
 =======
 >>>>>>> claude/elated-lamarr
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
     lines = [
         f"# Review Memo — {config.run_id}",
         "",
@@ -1003,8 +1087,11 @@ def _write_review_memo(
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/gracious-edison
+=======
+>>>>>>> claude/sharp-kowalevski
         "## Branch Diversity (E3)",
         "",
         f"- **branch_entropy:** {entropy:.4f} bits",
@@ -1014,6 +1101,9 @@ def _write_review_memo(
     ] + [f"  - {r}: {c}" for r, c in suppression.items()] + [
         "",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> claude/sharp-kowalevski
         "## F1: Branch Calibration",
         "",
     ] + [
@@ -1052,6 +1142,7 @@ def _write_review_memo(
         f"  - [{d.get('branch', '?')}] {d.get('title', '')[:60]} "
         f"adj_uplift={d.get('complexity_penalty_adjusted_uplift', 0):.4f}"
         for d in top_uplift
+<<<<<<< HEAD
     ] + _g1_memo_lines(branch_metrics) + _g3_memo_lines(branch_metrics) + _h2_memo_lines(branch_metrics) + _h3_memo_lines(branch_metrics) + _i1_memo_lines(branch_metrics) + _i2_memo_lines(branch_metrics) + _i3_memo_lines(branch_metrics) + _i4_memo_lines(branch_metrics) + [
         "",
 =======
@@ -1060,6 +1151,10 @@ def _write_review_memo(
 >>>>>>> claude/elated-lamarr
 =======
 >>>>>>> claude/gracious-edison
+=======
+    ] + [
+        "",
+>>>>>>> claude/sharp-kowalevski
         "## Top Hypotheses",
         "",
     ]
