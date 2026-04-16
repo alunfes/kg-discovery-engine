@@ -1,0 +1,66 @@
+{
+  "run_id": "run_037_value_audit",
+  "timestamp": "20260416T025819",
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61
+  ],
+  "session_hours": 8,
+  "batch_interval_min": 30,
+  "shadow_windows": [
+    "W00_quiet",
+    "W01_normal",
+    "W02_elevated",
+    "W03_hot",
+    "W04_switch"
+  ],
+  "locked_policy": {
+    "t1_threshold": 0.74,
+    "fresh_count_threshold": 3,
+    "last_chance_lookahead_min": 10.0,
+    "min_push_gap_min": 15.0,
+    "fallback_quiet_min": 60,
+    "fallback_hot_min": 45,
+    "archive_ratio": 5.0,
+    "resurface_window_min": 120,
+    "archive_max_age_min": 480,
+    "collapse_min_family_size": 2
+  },
+  "total_records": 40341,
+  "value_distribution": {
+    "action_worthy": {
+      "count": 2353,
+      "fraction": 0.0583
+    },
+    "attention_worthy": {
+      "count": 414,
+      "fraction": 0.0103
+    },
+    "redundant": {
+      "count": 36608,
+      "fraction": 0.9075
+    },
+    "structurally_interesting": {
+      "count": 966,
+      "fraction": 0.0239
+    }
+  }
+}
