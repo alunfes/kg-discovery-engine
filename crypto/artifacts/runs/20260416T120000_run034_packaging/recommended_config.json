@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0",
+  "run_id": "run034_production_shadow_packaging",
+  "generated_at": "2026-04-16T12:00:00Z",
+  "validated_by": [
+    "run_022_longitudinal",
+    "run_023_recalibration",
+    "run_024_efficiency",
+    "run_025_canary",
+    "run_026_soak",
+    "run_027_delivery",
+    "run_028_push_surfacing",
+    "run_033_t3_removal"
+  ],
+  "delivery": {
+    "mode": "push",
+    "push_triggers": {
+      "T1": {
+        "enabled": true,
+        "description": "High-conviction card: new batch contains actionable_watch or research_priority card with score >= threshold",
+        "score_threshold": 0.74,
+        "priority_tiers": ["actionable_watch", "research_priority"],
+        "scope": "incoming_batch_only"
+      },
+      "T2": {
+        "enabled": true,
+        "description": "Fresh-count threshold: incoming batch has >= N high-priority cards regardless of individual score",
+        "fresh_count_threshold": 3,
+        "scope": "incoming_batch_only"
+      },
+      "T3": {
+        "enabled": false,
+        "description": "Last-chance aging trigger — REMOVED in run_033",
+        "removal_reason": "poll_45min fallback covers the last-chance use case; T3 added 0.8 reviews/day with zero reduction in missed_critical",
+        "removed_in": "run_033_t3_removal"
+      }
+    },
+    "suppression": {
+      "S1": {
+        "enabled": true,
+        "description": "No actionable signal: suppress if no fresh/active/aging cards in deck",
+        "scope": "deck_wide"
+      },
+      "S2": {
+        "enabled": true,
+        "description": "Digest-collapsed noise: suppress if all fresh cards are low-priority and already collapsed into a family digest",
+        "min_family_size_for_collapse": 2,
+        "scope": "deck_wide"
+      },
+      "S3": {
+        "enabled": true,
+        "description": "Rate-limit: minimum gap between consecutive push events",
+        "min_gap_min": 15.0,
+        "scope": "session_level"
+      }
+    },
+    "fallback_poll": {
+      "enabled": true,
+      "cadence_min": 45,
+      "description": "Force a review if no push has fired in the preceding 45 minutes",
+      "rationale": "Safety net for quiet markets and last-chance coverage; replaces T3 trigger"
+    }
+  },
+  "family_collapse": {
+    "enabled": true,
+    "min_family_size": 2,
+    "collapse_key": ["branch", "grammar_family"],
+    "show_top_card": true,
+    "show_collapsed_count": true,
+    "description": "Collapse multi-asset duplicates of the same (branch, grammar_family) into a single digest entry. Validated: 76% item reduction in run_027."
+  },
+  "archive_policy": {
+    "archive_ratio_hl": 5.0,
+    "resurface_window_min": 120,
+    "archive_max_age_min": 480,
+    "description": "Cards archived at 5x HL (200 min for HL=40). Resurface as fresh clone if same (branch, family) recurs within 120 min. Hard-delete at 8h (480 min)."
+  },
+  "half_life_defaults": {
+    "actionable_watch": 40,
+    "research_priority": 50,
+    "monitor_borderline": 60,
+    "baseline": 90,
+    "units": "minutes",
+    "note": "From run_014 calibration table. Recalibrate if stale_rate > 0.15 at poll_45min check."
+  },
+  "monitoring_guardrails": {
+    "reviews_per_day_warn": 25,
+    "reviews_per_day_alert": 35,
+    "missed_critical_alert": 1,
+    "stale_rate_warn": 0.15,
+    "stale_rate_alert": 0.30,
+    "fallback_poll_pct_warn": 30,
+    "fallback_poll_pct_alert": 60,
+    "promote_count_min_per_day": 1,
+    "s3_suppression_rate_warn": 0.40
+  },
+  "assets": ["HYPE", "BTC", "ETH", "SOL"],
+  "batch_interval_min": 30,
+  "session_hours": 8,
+  "hot_batch_probability": 0.30,
+  "notes": [
+    "This config is the canonical production-shadow default as of run034.",
+    "Do NOT change T1.score_threshold or T2.fresh_count_threshold without a comparative shadow run.",
+    "The positioning_unwind x HYPE pair may need pair-level suppression after 2+ days of real data. See known_limits.md."
+  ]
+}
