@@ -1,0 +1,35 @@
+{
+  "run_id": "run_038_20260416_surface_pruning",
+  "date": "2026-04-16",
+  "type": "surface_pruning_audit",
+  "source_run": "20260412_153356_hyperliquid_mvp",
+  "source_card_count": 409,
+  "pruning_rules": {
+    "null_baseline": {
+      "definition": "Single non-HYPE tradeable asset in entire provenance path",
+      "action": "drop",
+      "affected_streams": ["microstructure", "execution"],
+      "count": 21
+    },
+    "baseline_like": {
+      "definition": "secrecy_level == shareable_structure AND novelty_score <= 0.30 AND not null_baseline",
+      "action": "archive",
+      "affected_streams": ["execution+regime", "cross_asset"],
+      "count": 23
+    }
+  },
+  "results": {
+    "total_before": 409,
+    "total_after_active": 365,
+    "total_pruned": 44,
+    "reduction_pct": 10.8,
+    "predicted_reduction_pct": 36.0,
+    "action_worthy_before": 102,
+    "action_worthy_after": 102,
+    "attention_worthy_before": 88,
+    "attention_worthy_after": 88,
+    "value_loss_pct": 0.0
+  },
+  "implementation": "src/scientific_hypothesis/surface_policy.py",
+  "policy_version": "v2"
+}
