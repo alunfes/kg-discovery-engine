@@ -1,7 +1,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/thirsty-heisenberg
+=======
+>>>>>>> claude/elated-lamarr
 """Run one MVP experiment using the crypto KG discovery pipeline."""
 
 import sys
@@ -17,18 +20,24 @@ def main() -> None:
     """Execute the MVP pipeline run."""
     config = PipelineConfig(
 <<<<<<< HEAD
+<<<<<<< HEAD
         run_id="run_007_sprint_h",
         seed=42,
         n_minutes=120,
         assets=["HYPE", "ETH", "BTC", "SOL"],
         top_k=60,
 =======
+=======
+>>>>>>> claude/elated-lamarr
         run_id="run_001_20260415",
         seed=42,
         n_minutes=120,
         assets=["HYPE", "ETH", "BTC", "SOL"],
         top_k=10,
+<<<<<<< HEAD
 >>>>>>> claude/thirsty-heisenberg
+=======
+>>>>>>> claude/elated-lamarr
         output_dir="crypto/artifacts/runs",
     )
 
@@ -49,6 +58,7 @@ def main() -> None:
 
     print()
     print(f"Output: crypto/artifacts/runs/{config.run_id}/")
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 """HYPE KG Discovery Engine — MVP Experiment Runner.
@@ -346,6 +356,8 @@ def main() -> dict[str, PipelineResult]:
 >>>>>>> claude/gifted-cray
 =======
 >>>>>>> claude/thirsty-heisenberg
+=======
+>>>>>>> claude/elated-lamarr
 
 
 if __name__ == "__main__":

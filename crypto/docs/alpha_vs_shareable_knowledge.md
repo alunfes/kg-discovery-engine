@@ -1,7 +1,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/thirsty-heisenberg
+=======
+>>>>>>> claude/elated-lamarr
 # Alpha vs Shareable Knowledge
 
 ## The Secrecy Dimension
@@ -67,6 +70,7 @@ secrecy_score = 1.0  if secrecy_level == private_alpha
               = 0.0  if secrecy_level == discard
 ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 # Alpha vs. Shareable Knowledge — Crypto Subtree Reference
 
@@ -110,3 +114,5 @@ The committed version `output_candidates.json` has private_alpha cards redacted.
 >>>>>>> claude/gifted-cray
 =======
 >>>>>>> claude/thirsty-heisenberg
+=======
+>>>>>>> claude/elated-lamarr

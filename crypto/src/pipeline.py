@@ -24,6 +24,7 @@ from datetime import datetime, timezone
 from typing import Optional
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 from .eval.contradiction_metrics import (
     compute_contradiction_metrics,
     compute_conflict_adjusted_ranking,
@@ -46,6 +47,11 @@ from .eval.generator import generate_hypotheses
 from .eval.scorer import score_hypothesis
 from .ingestion.synthetic import SyntheticGenerator
 >>>>>>> claude/thirsty-heisenberg
+=======
+from .eval.generator import generate_hypotheses
+from .eval.scorer import score_hypothesis
+from .ingestion.synthetic import SyntheticGenerator
+>>>>>>> claude/elated-lamarr
 from .inventory.store import HypothesisInventory
 from .kg.base import KGraph
 from .kg.cross_asset import build_cross_asset_kg
@@ -54,9 +60,13 @@ from .kg.microstructure import build_microstructure_kg
 from .kg.pair import build_pair_kg
 from .kg.regime import build_regime_kg
 <<<<<<< HEAD
+<<<<<<< HEAD
 from .kg.temporal_guard import annotate_temporal_quality
 =======
 >>>>>>> claude/thirsty-heisenberg
+=======
+from .kg.temporal_guard import annotate_temporal_quality
+>>>>>>> claude/elated-lamarr
 from .operators.ops import align, compose, difference, rank, union
 from .states.extractor import extract_states
 
@@ -68,6 +78,7 @@ class PipelineConfig:
     Why a dataclass not a plain dict: type safety and named access
     make the config self-documenting and IDE-friendly.
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     dataset: Optional pre-built SyntheticDataset. When provided, the
       synthetic generator step is skipped and this dataset is used instead.
@@ -75,6 +86,8 @@ class PipelineConfig:
       None (default) → standard synthetic generation via SyntheticGenerator.
 =======
 >>>>>>> claude/thirsty-heisenberg
+=======
+>>>>>>> claude/elated-lamarr
     """
 
     run_id: str
@@ -84,10 +97,13 @@ class PipelineConfig:
     top_k: int = 10
     output_dir: str = "crypto/artifacts/runs"
 <<<<<<< HEAD
+<<<<<<< HEAD
     dataset: Optional[SyntheticDataset] = None
     real_data_mode: bool = False  # Sprint R: activate real-data threshold presets
 =======
 >>>>>>> claude/thirsty-heisenberg
+=======
+>>>>>>> claude/elated-lamarr
 
 
 def run_pipeline(config: PipelineConfig) -> list:
@@ -101,6 +117,7 @@ def run_pipeline(config: PipelineConfig) -> list:
     """
     random.seed(config.seed)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     # 1. Data source: pre-built real dataset (Run 017 shadow) or synthetic.
     # Why conditional: Run 017 injects a real SyntheticDataset built from
@@ -116,6 +133,8 @@ def run_pipeline(config: PipelineConfig) -> list:
         )
         dataset = generator.generate()
 =======
+=======
+>>>>>>> claude/elated-lamarr
     # 1. Synthetic data generation
     generator = SyntheticGenerator(
         seed=config.seed,
@@ -123,13 +142,17 @@ def run_pipeline(config: PipelineConfig) -> list:
         assets=config.assets,
     )
     dataset = generator.generate()
+<<<<<<< HEAD
 >>>>>>> claude/thirsty-heisenberg
+=======
+>>>>>>> claude/elated-lamarr
 
     assets = config.assets or ["HYPE", "ETH", "BTC", "SOL"]
 
     # 2. State extraction (per asset)
     collections = {}
     for asset in assets:
+<<<<<<< HEAD
 <<<<<<< HEAD
         collections[asset] = extract_states(
             dataset, asset, config.run_id,
@@ -138,16 +161,23 @@ def run_pipeline(config: PipelineConfig) -> list:
 =======
         collections[asset] = extract_states(dataset, asset, config.run_id)
 >>>>>>> claude/thirsty-heisenberg
+=======
+        collections[asset] = extract_states(dataset, asset, config.run_id)
+>>>>>>> claude/elated-lamarr
 
     # 3. KG construction (per family)
     micro_kgs = {a: build_microstructure_kg(collections[a]) for a in assets}
     execution_kgs = {a: build_execution_kg(collections[a]) for a in assets}
     regime_kgs = {a: build_regime_kg(collections[a]) for a in assets}
 <<<<<<< HEAD
+<<<<<<< HEAD
     cross_kg = build_cross_asset_kg(collections, dataset=dataset)
 =======
     cross_kg = build_cross_asset_kg(collections)
 >>>>>>> claude/thirsty-heisenberg
+=======
+    cross_kg = build_cross_asset_kg(collections, dataset=dataset)
+>>>>>>> claude/elated-lamarr
     pair_kg = build_pair_kg(collections)
 
     # 4. Merge all per-asset micro KGs into one
@@ -172,6 +202,7 @@ def run_pipeline(config: PipelineConfig) -> list:
     working_kg = union(full_kg, novel_kg)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     # E: Build chain grammar KG (E1 beta_reversion + E2 positioning_unwind nodes).
     # Must run on the working_kg so it can see all micro/cross_asset nodes.
     grammar_kg, suppression_log = build_chain_grammar_kg(working_kg, collections)
@@ -191,13 +222,18 @@ def run_pipeline(config: PipelineConfig) -> list:
         if n.node_type == "CorrelationNode" and n.attributes.get("is_break")
     )
 
+=======
+>>>>>>> claude/elated-lamarr
     # B2: Annotate all edges with temporal_valid flag (in-place).
     # Edges where source.observable_time >= target.event_time get temporal_valid=False.
     # The scorer can use this to penalise look-ahead hypotheses.
     annotate_temporal_quality(working_kg)
 
+<<<<<<< HEAD
 =======
 >>>>>>> claude/thirsty-heisenberg
+=======
+>>>>>>> claude/elated-lamarr
     # 6. Hypothesis generation
     inventory = HypothesisInventory()
     raw_candidates = generate_hypotheses(working_kg)
@@ -215,6 +251,7 @@ def run_pipeline(config: PipelineConfig) -> list:
         inventory.add(card)
         cards.append(card)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     # 9. Persist outputs (includes branch_metrics.json)
     branch_metrics = compute_branch_metrics(
@@ -331,10 +368,15 @@ def run_pipeline(config: PipelineConfig) -> list:
     # 9. Persist outputs
     _save_outputs(config, cards, inventory)
 >>>>>>> claude/thirsty-heisenberg
+=======
+    # 9. Persist outputs
+    _save_outputs(config, cards, inventory)
+>>>>>>> claude/elated-lamarr
 
     return cards
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 def run_oi_ablation(config: PipelineConfig) -> dict:
     """G2: Run three OI ablation variants and compare branch metrics.
@@ -453,6 +495,8 @@ def run_oi_ablation(config: PipelineConfig) -> dict:
 
 =======
 >>>>>>> claude/thirsty-heisenberg
+=======
+>>>>>>> claude/elated-lamarr
 def _merge_kgs(kgs: list[KGraph], family_name: str) -> KGraph:
     """Merge a list of KGs via successive union operations."""
     if not kgs:
@@ -469,18 +513,24 @@ def _save_outputs(
     cards: list,
     inventory: HypothesisInventory,
 <<<<<<< HEAD
+<<<<<<< HEAD
     branch_metrics: dict,
 ) -> None:
     """Write run config, hypothesis cards, branch metrics, and review memo."""
     run_dir = os.path.join(config.output_dir, f"{config.run_id}")
 =======
+=======
+>>>>>>> claude/elated-lamarr
 ) -> None:
     """Write run config, hypothesis cards, and review memo to output_dir."""
     run_dir = os.path.join(
         config.output_dir,
         f"{config.run_id}",
     )
+<<<<<<< HEAD
 >>>>>>> claude/thirsty-heisenberg
+=======
+>>>>>>> claude/elated-lamarr
     os.makedirs(run_dir, exist_ok=True)
 
     # run_config.json
@@ -492,9 +542,12 @@ def _save_outputs(
         "top_k": config.top_k,
         "created_at": datetime.now(timezone.utc).isoformat(),
 <<<<<<< HEAD
+<<<<<<< HEAD
         "sprint": "J",
 =======
 >>>>>>> claude/thirsty-heisenberg
+=======
+>>>>>>> claude/elated-lamarr
     }
     with open(os.path.join(run_dir, "run_config.json"), "w") as f:
         json.dump(run_config, f, indent=2)
@@ -502,6 +555,7 @@ def _save_outputs(
     # output_candidates.json
     inventory.save(os.path.join(run_dir, "output_candidates.json"))
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     # branch_metrics.json — E3 + H1/H2/H3 + I1/I2/I3/I4
     with open(os.path.join(run_dir, "branch_metrics.json"), "w") as f:
@@ -779,6 +833,10 @@ def _i4_memo_lines(branch_metrics: dict) -> list[str]:
     # review_memo.md
     _write_review_memo(run_dir, config, cards)
 >>>>>>> claude/thirsty-heisenberg
+=======
+    # review_memo.md
+    _write_review_memo(run_dir, config, cards)
+>>>>>>> claude/elated-lamarr
 
 
 def _write_review_memo(
@@ -786,9 +844,12 @@ def _write_review_memo(
     config: PipelineConfig,
     cards: list,
 <<<<<<< HEAD
+<<<<<<< HEAD
     branch_metrics: dict,
 =======
 >>>>>>> claude/thirsty-heisenberg
+=======
+>>>>>>> claude/elated-lamarr
 ) -> None:
     """Generate a human-readable review memo for the run."""
     from .schema.task_status import SecrecyLevel, ValidationStatus
@@ -809,6 +870,7 @@ def _write_review_memo(
     avg_score = sum(scores) / len(scores) if scores else 0.0
     max_score = max(scores) if scores else 0.0
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     dist = branch_metrics.get("branch_distribution", {})
     entropy = branch_metrics.get("branch_entropy", 0.0)
@@ -835,6 +897,8 @@ def _write_review_memo(
 
 =======
 >>>>>>> claude/thirsty-heisenberg
+=======
+>>>>>>> claude/elated-lamarr
     lines = [
         f"# Review Memo — {config.run_id}",
         "",
@@ -852,6 +916,7 @@ def _write_review_memo(
         f"- Average composite score: {avg_score:.3f}",
         f"- Best composite score: {max_score:.3f}",
         "",
+<<<<<<< HEAD
 <<<<<<< HEAD
         "## Branch Diversity (E3)",
         "",
@@ -903,6 +968,8 @@ def _write_review_memo(
         "",
 =======
 >>>>>>> claude/thirsty-heisenberg
+=======
+>>>>>>> claude/elated-lamarr
         "## Top Hypotheses",
         "",
     ]

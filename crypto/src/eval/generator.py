@@ -3,6 +3,9 @@
 Each generator function encodes one pattern-matching rule from the KG spec
 docs and emits a dict conforming to the scorer.score_hypothesis() interface.
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> claude/elated-lamarr
 
 D1: Added 4 chain-walking rules that follow multi-hop KG paths anchored to
     CorrelationNode(break) and/or AggressionNode → PremiumDislocationNode chains.
@@ -13,14 +16,20 @@ D1: Added 4 chain-walking rules that follow multi-hop KG paths anchored to
 D3: A4 branch selection now also gates on corr_break_score >= branch threshold
     (from BRANCH_THRESHOLDS in cross_asset.py).  This prevents weak breaks
     from firing the continuation_candidate branch.
+<<<<<<< HEAD
 =======
 >>>>>>> claude/thirsty-heisenberg
+=======
+>>>>>>> claude/elated-lamarr
 """
 
 from ..kg.base import KGraph
 from ..schema.task_status import SecrecyLevel
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> claude/elated-lamarr
 # D3: branch strength thresholds (mirror of BRANCH_THRESHOLDS in cross_asset.py)
 # Defined here to avoid circular imports; kept in sync by the test suite.
 _BRANCH_MIN_SCORE: dict[str, float] = {
@@ -30,8 +39,11 @@ _BRANCH_MIN_SCORE: dict[str, float] = {
     "positioning_unwind_candidate": 0.0,
 }
 
+<<<<<<< HEAD
 =======
 >>>>>>> claude/thirsty-heisenberg
+=======
+>>>>>>> claude/elated-lamarr
 
 def generate_hypotheses(kg: KGraph) -> list[dict]:
     """Walk the KG and emit raw hypothesis candidates.
@@ -47,11 +59,15 @@ def generate_hypotheses(kg: KGraph) -> list[dict]:
     candidates.extend(_rule_pair_basis_convergence(kg))
     candidates.extend(_rule_regime_transition_pattern(kg))
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> claude/elated-lamarr
     # D1: chain-walking rules (richer evidence than A4 label rules)
     candidates.extend(_rule_chain_beta_reversion(kg))
     candidates.extend(_rule_chain_positioning_unwind(kg))
     candidates.extend(_rule_chain_flow_continuation(kg))
     candidates.extend(_rule_chain_microstructure_artifact(kg))
+<<<<<<< HEAD
     # E1: beta_reversion grammar (explicit negative-evidence chains)
     candidates.extend(_rule_chain_e1_no_funding_oi(kg))
     candidates.extend(_rule_chain_e1_transient_aggr(kg))
@@ -65,6 +81,8 @@ def generate_hypotheses(kg: KGraph) -> list[dict]:
     candidates.extend(_rule_chain_null_weak_dispersion(kg))
 =======
 >>>>>>> claude/thirsty-heisenberg
+=======
+>>>>>>> claude/elated-lamarr
 
     # Dedup by (title, claim)
     seen: set[tuple[str, str]] = set()
@@ -79,12 +97,18 @@ def generate_hypotheses(kg: KGraph) -> list[dict]:
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> claude/elated-lamarr
 # ---------------------------------------------------------------------------
 # Existing rules (Sprint A4 branches — now also gate on corr_break_score D3)
 # ---------------------------------------------------------------------------
 
+<<<<<<< HEAD
 =======
 >>>>>>> claude/thirsty-heisenberg
+=======
+>>>>>>> claude/elated-lamarr
 def _rule_aggression_predicts_funding(kg: KGraph) -> list[dict]:
     """Rule: aggression_predicts_funding edge → funding direction hypothesis."""
     results: list[dict] = []
@@ -137,10 +161,14 @@ def _rule_funding_extreme_reversion(kg: KGraph) -> list[dict]:
         if not node.attributes.get("is_extreme", False):
             continue
 <<<<<<< HEAD
+<<<<<<< HEAD
         asset = node.attributes.get("asset", node.node_id.split(":")[1] if ":" in node.node_id else "UNK")
 =======
         asset = node.attributes.get("asset", node.node_id.split(":")[1])
 >>>>>>> claude/thirsty-heisenberg
+=======
+        asset = node.attributes.get("asset", node.node_id.split(":")[1] if ":" in node.node_id else "UNK")
+>>>>>>> claude/elated-lamarr
         direction = node.attributes.get("direction", "unknown")
         z = node.attributes.get("z_score", 0.0)
         opposite = "short" if direction == "long" else "long"
@@ -168,6 +196,9 @@ def _rule_funding_extreme_reversion(kg: KGraph) -> list[dict]:
 
 def _rule_correlation_break_mean_revert(kg: KGraph) -> list[dict]:
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> claude/elated-lamarr
     """Rule: correlation_break edge → one of 4 contextual branches (A4 + D3).
 
     A4 replaces the old single "mean reversion" branch with 4 branches that
@@ -359,6 +390,7 @@ def _scan_funding_extreme(kg: KGraph, assets: list[str]) -> int:
     return count
 
 
+<<<<<<< HEAD
 =======
     """Rule: correlation_break edge → pair mean reversion hypothesis (PV-1)."""
     results: list[dict] = []
@@ -397,6 +429,8 @@ def _scan_funding_extreme(kg: KGraph, assets: list[str]) -> int:
 
 
 >>>>>>> claude/thirsty-heisenberg
+=======
+>>>>>>> claude/elated-lamarr
 def _rule_pair_basis_convergence(kg: KGraph) -> list[dict]:
     """Rule: basis_extreme edge → funding convergence hypothesis (PV-2)."""
     results: list[dict] = []
@@ -441,9 +475,12 @@ def _rule_regime_transition_pattern(kg: KGraph) -> list[dict]:
         from_r = edge.attributes.get("from_regime", "")
         to_r = edge.attributes.get("to_regime", "")
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         # Only flag transitions from an extreme to resting (historically predictive)
 >>>>>>> claude/thirsty-heisenberg
+=======
+>>>>>>> claude/elated-lamarr
         if "extreme" not in from_r and "aggressive" not in from_r:
             continue
         results.append({
@@ -467,6 +504,9 @@ def _rule_regime_transition_pattern(kg: KGraph) -> list[dict]:
         })
     return results
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> claude/elated-lamarr
 
 
 # ---------------------------------------------------------------------------
@@ -849,6 +889,7 @@ def _rule_chain_microstructure_artifact(kg: KGraph) -> list[dict]:
             ],
         })
     return results
+<<<<<<< HEAD
 
 
 # ---------------------------------------------------------------------------
@@ -1317,3 +1358,5 @@ def _rule_chain_null_weak_dispersion(kg: KGraph) -> list[dict]:
     return results
 =======
 >>>>>>> claude/thirsty-heisenberg
+=======
+>>>>>>> claude/elated-lamarr

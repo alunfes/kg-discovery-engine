@@ -61,13 +61,19 @@ def build_microstructure_kg(collection: MarketStateCollection) -> KGraph:
                 "bias": ag.bias.value,
                 "is_burst": ag.bias in (AggressionBias.STRONG_BUY, AggressionBias.STRONG_SELL),
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> claude/elated-lamarr
                 # B1: temporal fields for look-ahead guard
                 "event_time": ag.event_time,
                 "observable_time": ag.observable_time,
                 "valid_from": ag.valid_from,
                 "valid_to": ag.valid_to,
+<<<<<<< HEAD
 =======
 >>>>>>> claude/thirsty-heisenberg
+=======
+>>>>>>> claude/elated-lamarr
             },
         ))
         kg.add_edge(KGEdge(
@@ -82,12 +88,16 @@ def build_microstructure_kg(collection: MarketStateCollection) -> KGraph:
     for i, fn in enumerate(collection.fundings):
         nid = f"funding:{asset}:{i}"
 <<<<<<< HEAD
+<<<<<<< HEAD
         # Fallback to absolute rate for short simulations where rolling z-score
         # has insufficient history (< 2 epochs → z_score = 0.0).
         is_extreme = abs(fn.z_score) > 2.0 or abs(fn.funding_rate) > 0.001
 =======
         is_extreme = abs(fn.z_score) > 2.0
 >>>>>>> claude/thirsty-heisenberg
+=======
+        is_extreme = abs(fn.z_score) > 2.0
+>>>>>>> claude/elated-lamarr
         kg.add_node(KGNode(
             node_id=nid,
             node_type="FundingNode",
@@ -98,13 +108,19 @@ def build_microstructure_kg(collection: MarketStateCollection) -> KGraph:
                 "is_extreme": is_extreme,
                 "direction": "long" if fn.funding_rate > 0 else "short",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> claude/elated-lamarr
                 # B1: temporal fields for look-ahead guard
                 "event_time": fn.event_time,
                 "observable_time": fn.observable_time,
                 "valid_from": fn.valid_from,
                 "valid_to": fn.valid_to,
+<<<<<<< HEAD
 =======
 >>>>>>> claude/thirsty-heisenberg
+=======
+>>>>>>> claude/elated-lamarr
             },
         ))
         kg.add_edge(KGEdge(
@@ -127,6 +143,9 @@ def _add_aggression_to_funding_edges(
     asset: str,
 ) -> None:
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> claude/elated-lamarr
     """Add decomposed aggression → funding causal chain (B3).
 
     Original design had a direct aggression → funding edge, which skips the
@@ -150,6 +169,7 @@ def _add_aggression_to_funding_edges(
       causes_premium_dislocation
       dislocation_drives_expected_funding
       expected_funding_realized_as
+<<<<<<< HEAD
 =======
     """Add aggression_predicts_funding edges where temporal proximity exists.
 
@@ -159,6 +179,8 @@ def _add_aggression_to_funding_edges(
     Why 8h: one full funding epoch; any aggression within one epoch could plausibly
     influence the following funding rate print.
 >>>>>>> claude/thirsty-heisenberg
+=======
+>>>>>>> claude/elated-lamarr
     """
     max_gap_ms = 8 * 3_600_000
 
@@ -166,6 +188,9 @@ def _add_aggression_to_funding_edges(
         if ag.bias not in (AggressionBias.STRONG_BUY, AggressionBias.STRONG_SELL):
             continue
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> claude/elated-lamarr
 
         for j, fn in enumerate(collection.fundings):
             gap = fn.timestamp_ms - ag.timestamp_ms
@@ -235,6 +260,7 @@ def _add_aggression_to_funding_edges(
                 relation="expected_funding_realized_as",
                 attributes={"gap_ms": gap // 2},
             ))
+<<<<<<< HEAD
 =======
         for j, fn in enumerate(collection.fundings):
             gap = fn.timestamp_ms - ag.timestamp_ms
@@ -247,3 +273,5 @@ def _add_aggression_to_funding_edges(
                     attributes={"gap_ms": gap},
                 ))
 >>>>>>> claude/thirsty-heisenberg
+=======
+>>>>>>> claude/elated-lamarr

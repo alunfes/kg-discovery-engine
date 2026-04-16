@@ -1,7 +1,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/thirsty-heisenberg
+=======
+>>>>>>> claude/elated-lamarr
 # Hyperliquid KG Discovery Engine — Spec
 
 ## Purpose
@@ -96,6 +99,7 @@ SyntheticGenerator
 | `reproduced` | Multiple independent runs confirm |
 | `invalidated` | Evidence refutes the claim |
 | `decayed` | Previously valid; regime has changed |
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 # Hyperliquid KG Discovery Engine — System Specification
@@ -247,3 +251,5 @@ Key fields for HYPE-domain use:
 >>>>>>> claude/gifted-cray
 =======
 >>>>>>> claude/thirsty-heisenberg
+=======
+>>>>>>> claude/elated-lamarr
