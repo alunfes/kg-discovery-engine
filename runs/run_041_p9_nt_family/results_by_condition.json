@@ -36,6 +36,7 @@
       }
     },
     "T3_outcome": "STRONG_SUCCESS",
+<<<<<<< HEAD
     "B2_investigability_rate": 0.9714,
     "nt_path_counts": {
       "dopamine": 0,
@@ -55,6 +56,9 @@
     "new_disease_endpoint_count": 0,
     "mean_endpoint_pubmed_count": 201.0,
     "coverage_normalized_yield": 0.4241
+=======
+    "B2_investigability_rate": 0.9714
+>>>>>>> claude/zealous-matsumoto
   },
   "C_P6_NONE": {
     "geometry": {
@@ -93,6 +97,7 @@
       }
     },
     "T3_outcome": "NULL",
+<<<<<<< HEAD
     "B2_investigability_rate": 0.9429,
     "nt_path_counts": {
       "dopamine": 0,
@@ -120,14 +125,32 @@
       "mean_cdr_l4p": 0.6525,
       "n_multi_cross_l3": 173,
       "n_multi_cross_l4p": 651,
+=======
+    "B2_investigability_rate": 0.9429
+  },
+  "C_NT_ONLY": {
+    "geometry": {
+      "unique_endpoint_pairs": 782,
+      "mean_cdr_l3": 0.6529,
+      "mean_cdr_l4p": 0.6681,
+      "n_multi_cross_l3": 232,
+      "n_multi_cross_l4p": 937,
+>>>>>>> claude/zealous-matsumoto
       "h_p7_1_ok": true,
       "h_p7_2_ok": true,
       "h_p7_3_ok": true
     },
+<<<<<<< HEAD
     "T3_investigability_rate": 0.8571,
     "T3_investigated_count": 60,
     "T3_novelty_retention": 1.342,
     "T3_mean_cdr": 0.671,
+=======
+    "T3_investigability_rate": 0.9571,
+    "T3_investigated_count": 67,
+    "T3_novelty_retention": 1.2196,
+    "T3_mean_cdr": 0.6098,
+>>>>>>> claude/zealous-matsumoto
     "T3_long_path_share": 0.5,
     "T3_stratum": {
       "L2": {
@@ -138,6 +161,7 @@
       },
       "L3": {
         "n": 20,
+<<<<<<< HEAD
         "investigated": 19,
         "investigability": 0.95,
         "mean_cdr": 0.9333
@@ -177,12 +201,40 @@
       "mean_cdr_l4p": 0.8577,
       "n_multi_cross_l3": 665,
       "n_multi_cross_l4p": 4877,
+=======
+        "investigated": 18,
+        "investigability": 0.9,
+        "mean_cdr": 0.7667
+      },
+      "L4+": {
+        "n": 15,
+        "investigated": 15,
+        "investigability": 1.0,
+        "mean_cdr": 0.6567
+      }
+    },
+    "T3_outcome": "STRONG_SUCCESS",
+    "B2_investigability_rate": 0.9714
+  },
+  "C_COMBINED": {
+    "geometry": {
+      "unique_endpoint_pairs": 1030,
+      "mean_cdr_l3": 0.8337,
+      "mean_cdr_l4p": 0.8626,
+      "n_multi_cross_l3": 767,
+      "n_multi_cross_l4p": 5731,
+>>>>>>> claude/zealous-matsumoto
       "h_p7_1_ok": true,
       "h_p7_2_ok": true,
       "h_p7_3_ok": true
     },
+<<<<<<< HEAD
     "T3_investigability_rate": 0.9429,
     "T3_investigated_count": 66,
+=======
+    "T3_investigability_rate": 0.9857,
+    "T3_investigated_count": 69,
+>>>>>>> claude/zealous-matsumoto
     "T3_novelty_retention": 1.3548,
     "T3_mean_cdr": 0.6774,
     "T3_long_path_share": 0.5,
@@ -195,12 +247,18 @@
       },
       "L3": {
         "n": 20,
+<<<<<<< HEAD
         "investigated": 19,
         "investigability": 0.95,
+=======
+        "investigated": 20,
+        "investigability": 1.0,
+>>>>>>> claude/zealous-matsumoto
         "mean_cdr": 0.9333
       },
       "L4+": {
         "n": 15,
+<<<<<<< HEAD
         "investigated": 13,
         "investigability": 0.8667,
         "mean_cdr": 0.75
@@ -226,5 +284,14 @@
     "new_disease_endpoint_count": 1,
     "mean_endpoint_pubmed_count": 193.2,
     "coverage_normalized_yield": 0.4085
+=======
+        "investigated": 15,
+        "investigability": 1.0,
+        "mean_cdr": 0.75
+      }
+    },
+    "T3_outcome": "STRONG_SUCCESS",
+    "B2_investigability_rate": 0.9857
+>>>>>>> claude/zealous-matsumoto
   }
 }

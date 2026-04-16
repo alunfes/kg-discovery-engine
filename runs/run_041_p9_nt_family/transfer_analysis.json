@@ -1,0 +1,21 @@
+{
+  "p9_verdict": "STRONG_TRANSFER",
+  "family_transfer_score": 0.971,
+  "c_p7_full_inv": 0.9857,
+  "c_p6_none_inv": 0.9429,
+  "c_nt_only_inv": 0.9571,
+  "c_combined_inv": 0.9857,
+  "nt_vs_p6_delta": 0.0142,
+  "coverage_normalised_yield": {
+    "C_P7_FULL": 593.81,
+    "C_P6_NONE": 157.32,
+    "C_NT_ONLY": 510.57,
+    "C_COMBINED": 858.71
+  },
+  "h_p9_1_nt_strong_success": true,
+  "h_p9_2_transfer_score_095": true,
+  "h_p9_3_combined_ge_p7": true,
+  "h_p9_4_nt_beats_p6": true,
+  "c_nt_only_outcome": "STRONG_SUCCESS",
+  "c_combined_outcome": "STRONG_SUCCESS"
+}

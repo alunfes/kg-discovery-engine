@@ -3076,6 +3076,7 @@
     "pubmed_count_2024_2025": 14,
     "investigated": 1
   },
+<<<<<<< HEAD
   "survey|||dopamine|||Parkinson's disease": 2634,
   "survey|||dopamine|||schizophrenia": 562,
   "survey|||serotonin|||major depressive disorder": 486,
@@ -3212,6 +3213,101 @@
     "investigated": 1
   },
   "chem:drug:bortezomib|||bio:disease:parkinsons": {
+=======
+  "chem:metabolite:serotonin|||bio:disease:parkinsons": {
+    "pubmed_count_2024_2025": 202,
+    "investigated": 1
+  },
+  "chem:metabolite:serotonin|||bio:disease:huntingtons": {
+    "pubmed_count_2024_2025": 18,
+    "investigated": 1
+  },
+  "chem:metabolite:acetylcholine|||bio:disease:alzheimers": {
+    "pubmed_count_2024_2025": 398,
+    "investigated": 1
+  },
+  "chem:metabolite:dopamine|||bio:disease:alzheimers": {
+    "pubmed_count_2024_2025": 297,
+    "investigated": 1
+  },
+  "chem:metabolite:serotonin|||bio:process:neurodegeneration": {
+    "pubmed_count_2024_2025": 110,
+    "investigated": 1
+  },
+  "chem:metabolite:norepinephrine|||bio:disease:alzheimers": {
+    "pubmed_count_2024_2025": 98,
+    "investigated": 1
+  },
+  "chem:metabolite:acetylcholine|||bio:disease:parkinsons": {
+    "pubmed_count_2024_2025": 127,
+    "investigated": 1
+  },
+  "chem:metabolite:dopamine|||bio:disease:parkinsons": {
+    "pubmed_count_2024_2025": 2189,
+    "investigated": 1
+  },
+  "chem:metabolite:dopamine|||bio:process:protein_aggregation": {
+    "pubmed_count_2024_2025": 35,
+    "investigated": 1
+  },
+  "chem:metabolite:acetylcholine|||bio:disease:huntingtons": {
+    "pubmed_count_2024_2025": 10,
+    "investigated": 1
+  },
+  "chem:metabolite:dopamine|||bio:disease:huntingtons": {
+    "pubmed_count_2024_2025": 53,
+    "investigated": 1
+  },
+  "chem:metabolite:norepinephrine|||bio:disease:parkinsons": {
+    "pubmed_count_2024_2025": 96,
+    "investigated": 1
+  },
+  "chem:metabolite:norepinephrine|||bio:disease:huntingtons": {
+    "pubmed_count_2024_2025": 7,
+    "investigated": 1
+  },
+  "chem:metabolite:dopamine|||bio:process:dopamine_synthesis": {
+    "pubmed_count_2024_2025": 140,
+    "investigated": 1
+  },
+  "chem:metabolite:acetylcholine|||bio:process:synaptic_plasticity": {
+    "pubmed_count_2024_2025": 75,
+    "investigated": 1
+  },
+  "chem:metabolite:serotonin|||bio:disease:alzheimers": {
+    "pubmed_count_2024_2025": 202,
+    "investigated": 1
+  },
+  "chem:mechanism:nrf2_activation|||bio:protein:bdnf": {
+    "pubmed_count_2024_2025": 7,
+    "investigated": 1
+  },
+  "chem:compound:sulforaphane|||bio:process:synaptic_plasticity": {
+    "pubmed_count_2024_2025": 3,
+    "investigated": 1
+  },
+  "chem:mechanism:nrf2_activation|||bio:receptor:dopamine_d2": {
+    "pubmed_count_2024_2025": 1,
+    "investigated": 1
+  },
+  "chem:compound:sulforaphane|||bio:protein:bdnf": {
+    "pubmed_count_2024_2025": 2,
+    "investigated": 1
+  },
+  "chem:mechanism:nrf2_activation|||bio:disease:heart_failure": {
+    "pubmed_count_2024_2025": 10,
+    "investigated": 1
+  },
+  "chem:mechanism:nrf2_activation|||bio:process:dopamine_synthesis": {
+    "pubmed_count_2024_2025": 0,
+    "investigated": 0
+  },
+  "chem:compound:sulforaphane|||bio:disease:heart_failure": {
+    "pubmed_count_2024_2025": 0,
+    "investigated": 0
+  },
+  "chem:mechanism:nrf2_activation|||bio:process:synaptic_plasticity": {
+>>>>>>> claude/zealous-matsumoto
     "pubmed_count_2024_2025": 1,
     "investigated": 1
   }

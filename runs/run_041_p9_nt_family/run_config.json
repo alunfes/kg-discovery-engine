@@ -1,6 +1,10 @@
 {
   "run_id": "run_041_p9_nt_family",
+<<<<<<< HEAD
   "timestamp": "2026-04-15T07:10:38.548482",
+=======
+  "timestamp": "2026-04-15T07:22:58.812275",
+>>>>>>> claude/zealous-matsumoto
   "phase": "P9",
   "seed": 42,
   "top_k": 70,
@@ -12,6 +16,45 @@
     "C_NT_ONLY",
     "C_COMBINED"
   ],
+<<<<<<< HEAD
+=======
+  "condition_keep": {
+    "C_P7_FULL": [
+      "chem:metabolite:nad_plus",
+      "chem:metabolite:glutathione",
+      "chem:metabolite:ceramide",
+      "chem:metabolite:prostaglandin_e2",
+      "chem:metabolite:nitric_oxide",
+      "chem:metabolite:camp",
+      "chem:metabolite:reactive_oxygen_species",
+      "chem:metabolite:beta_hydroxybutyrate",
+      "chem:metabolite:kynurenine",
+      "chem:metabolite:lactate"
+    ],
+    "C_P6_NONE": [],
+    "C_NT_ONLY": [
+      "chem:metabolite:dopamine",
+      "chem:metabolite:serotonin",
+      "chem:metabolite:norepinephrine",
+      "chem:metabolite:acetylcholine",
+      "chem:metabolite:gaba"
+    ],
+    "C_COMBINED": [
+      "chem:metabolite:reactive_oxygen_species",
+      "chem:metabolite:glutathione",
+      "chem:metabolite:superoxide_dismutase",
+      "chem:metabolite:catalase",
+      "chem:metabolite:heme_oxygenase_1",
+      "chem:metabolite:nrf2",
+      "chem:metabolite:malondialdehyde",
+      "chem:metabolite:dopamine",
+      "chem:metabolite:serotonin",
+      "chem:metabolite:norepinephrine",
+      "chem:metabolite:acetylcholine",
+      "chem:metabolite:gaba"
+    ]
+  },
+>>>>>>> claude/zealous-matsumoto
   "t3_quotas": {
     "L2": 35,
     "L3": 20,
@@ -19,6 +62,7 @@
   },
   "evidence_window": "1900/01/01 – 2023/12/31",
   "validation_window": "2024/01/01 – 2025/12/31",
+<<<<<<< HEAD
   "verdict": "GEOMETRY_ONLY",
   "family_transfer_score": 0.8695,
   "h_p9_strong_success": false,
@@ -30,5 +74,18 @@
     "C_P6_NONE": "NULL",
     "C_NT_ONLY": "GEOMETRY_CONFIRMED",
     "C_COMBINED": "WEAK_SUCCESS"
+=======
+  "p9_verdict": "STRONG_TRANSFER",
+  "family_transfer_score": 0.971,
+  "h_p9_1": true,
+  "h_p9_2": true,
+  "h_p9_3": true,
+  "h_p9_4": true,
+  "outcomes": {
+    "C_P7_FULL": "STRONG_SUCCESS",
+    "C_P6_NONE": "NULL",
+    "C_NT_ONLY": "STRONG_SUCCESS",
+    "C_COMBINED": "STRONG_SUCCESS"
+>>>>>>> claude/zealous-matsumoto
   }
 }
