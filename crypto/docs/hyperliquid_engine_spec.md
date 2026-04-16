@@ -4,6 +4,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/thirsty-heisenberg
 =======
@@ -14,6 +15,8 @@
 >>>>>>> claude/sharp-kowalevski
 =======
 >>>>>>> claude/admiring-clarke
+=======
+>>>>>>> claude/optimistic-swanson
 # Hyperliquid KG Discovery Engine — Spec
 
 ## Purpose
@@ -108,6 +111,7 @@ SyntheticGenerator
 | `reproduced` | Multiple independent runs confirm |
 | `invalidated` | Evidence refutes the claim |
 | `decayed` | Previously valid; regime has changed |
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -271,3 +275,5 @@ Key fields for HYPE-domain use:
 >>>>>>> claude/sharp-kowalevski
 =======
 >>>>>>> claude/admiring-clarke
+=======
+>>>>>>> claude/optimistic-swanson

@@ -4,6 +4,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/thirsty-heisenberg
 =======
@@ -14,6 +15,8 @@
 >>>>>>> claude/sharp-kowalevski
 =======
 >>>>>>> claude/admiring-clarke
+=======
+>>>>>>> claude/optimistic-swanson
 # Hyperliquid Use Case & Scope
 
 ## Why Hyperliquid
@@ -63,6 +66,7 @@ A hypothesis is `actionable` only if:
 - Cross-exchange arbitrage
 - On-chain MEV or liquidation hunting
 - Portfolio-level sizing or Kelly criterion
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -145,3 +149,5 @@ See `docs/alpha_vs_shareable_knowledge.md` for full decision framework.
 >>>>>>> claude/sharp-kowalevski
 =======
 >>>>>>> claude/admiring-clarke
+=======
+>>>>>>> claude/optimistic-swanson

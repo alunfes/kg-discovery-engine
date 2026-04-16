@@ -4,6 +4,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/thirsty-heisenberg
 =======
@@ -14,6 +15,8 @@
 >>>>>>> claude/sharp-kowalevski
 =======
 >>>>>>> claude/admiring-clarke
+=======
+>>>>>>> claude/optimistic-swanson
 """Run one MVP experiment using the crypto KG discovery pipeline."""
 
 import sys
@@ -33,11 +36,15 @@ def main() -> None:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> claude/optimistic-swanson
         run_id="run_007_sprint_h",
         seed=42,
         n_minutes=120,
         assets=["HYPE", "ETH", "BTC", "SOL"],
         top_k=60,
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> claude/elated-lamarr
@@ -65,6 +72,8 @@ def main() -> None:
 >>>>>>> claude/sharp-kowalevski
 =======
 >>>>>>> claude/admiring-clarke
+=======
+>>>>>>> claude/optimistic-swanson
         output_dir="crypto/artifacts/runs",
     )
 
@@ -85,6 +94,7 @@ def main() -> None:
 
     print()
     print(f"Output: crypto/artifacts/runs/{config.run_id}/")
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -394,6 +404,8 @@ def main() -> dict[str, PipelineResult]:
 >>>>>>> claude/sharp-kowalevski
 =======
 >>>>>>> claude/admiring-clarke
+=======
+>>>>>>> claude/optimistic-swanson
 
 
 if __name__ == "__main__":
