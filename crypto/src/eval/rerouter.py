@@ -27,11 +27,6 @@ import re
 _PAIR_RE = re.compile(r"\(([A-Z]+)[,/]([A-Z]+)\)")
 
 _REROUTE_RULES: list[dict] = [
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> claude/crazy-vaughan
     # J1: High-confidence reroute when BOTH funding extreme AND OI accumulation
     # suppress E1 Chain 2 (transient_aggression).  This fires only when the J1
     # discriminative gate in chain_grammar.py did not prevent the card from being
@@ -46,13 +41,6 @@ _REROUTE_RULES: list[dict] = [
         "score_scale": 1.10,
         "reason": "beta_reversion transient_aggr overridden by J1 gate (funding extreme + OI confirmed) → high-confidence unwind",
     },
-<<<<<<< HEAD
-=======
->>>>>>> claude/optimistic-swanson
-=======
->>>>>>> claude/sleepy-mestorf
-=======
->>>>>>> claude/crazy-vaughan
     {
         "source_branch": "beta_reversion",
         "trigger_chain": "beta_reversion_no_funding_oi",

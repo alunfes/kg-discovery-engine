@@ -1,27 +1,5 @@
 """Cross-Asset KG builder.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> claude/elated-lamarr
-=======
->>>>>>> claude/gracious-edison
-=======
->>>>>>> claude/sharp-kowalevski
-=======
->>>>>>> claude/admiring-clarke
-=======
->>>>>>> claude/optimistic-swanson
-=======
->>>>>>> claude/sleepy-mestorf
-=======
->>>>>>> claude/crazy-vaughan
 Builds correlation and lead-lag relationships between assets using
 log-return-based measures.
 
@@ -44,60 +22,10 @@ from typing import Optional
 
 from ..ingestion.synthetic import PriceTick, SyntheticDataset
 from ..schema.market_state import MarketRegime, MarketStateCollection
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-Builds correlation and lead-lag relationships between assets.
-"""
-
-import math
-from ..schema.market_state import MarketStateCollection
->>>>>>> claude/thirsty-heisenberg
-=======
->>>>>>> claude/elated-lamarr
-=======
->>>>>>> claude/gracious-edison
-=======
->>>>>>> claude/sharp-kowalevski
-=======
->>>>>>> claude/admiring-clarke
-=======
->>>>>>> claude/optimistic-swanson
-=======
->>>>>>> claude/sleepy-mestorf
-=======
->>>>>>> claude/crazy-vaughan
 from .base import KGEdge, KGNode, KGraph
 
 FAMILY = "cross_asset"
 CORR_BREAK_THRESHOLD = 0.3
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> claude/elated-lamarr
-=======
->>>>>>> claude/gracious-edison
-=======
->>>>>>> claude/sharp-kowalevski
-=======
->>>>>>> claude/admiring-clarke
-=======
->>>>>>> claude/optimistic-swanson
-=======
->>>>>>> claude/sleepy-mestorf
-=======
->>>>>>> claude/crazy-vaughan
 LEAD_LAG_MAX_K = 10       # lags ±10 ticks
 ROLLING_WINDOW = 30       # ticks per rolling window
 ROLLING_STEP = 10         # overlap step
@@ -234,34 +162,6 @@ def _pearson(xs: list[float], ys: list[float]) -> float:
 
     Returns 0.0 if variance of either series is negligible (< 1e-12).
     """
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-LEAD_LAG_MAX_TICKS = 5
-
-
-def _pearson(xs: list[float], ys: list[float]) -> float:
-    """Compute Pearson correlation between two equal-length lists."""
->>>>>>> claude/thirsty-heisenberg
-=======
->>>>>>> claude/elated-lamarr
-=======
->>>>>>> claude/gracious-edison
-=======
->>>>>>> claude/sharp-kowalevski
-=======
->>>>>>> claude/admiring-clarke
-=======
->>>>>>> claude/optimistic-swanson
-=======
->>>>>>> claude/sleepy-mestorf
-=======
->>>>>>> claude/crazy-vaughan
     n = len(xs)
     if n < 2:
         return 0.0
@@ -275,28 +175,6 @@ def _pearson(xs: list[float], ys: list[float]) -> float:
     return num / (dx * dy)
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> claude/elated-lamarr
-=======
->>>>>>> claude/gracious-edison
-=======
->>>>>>> claude/sharp-kowalevski
-=======
->>>>>>> claude/admiring-clarke
-=======
->>>>>>> claude/optimistic-swanson
-=======
->>>>>>> claude/sleepy-mestorf
-=======
->>>>>>> claude/crazy-vaughan
 def _spearman(xs: list[float], ys: list[float]) -> float:
     """Spearman rank correlation between two equal-length lists.
 
@@ -419,72 +297,11 @@ def build_cross_asset_kg(
         dataset: Full SyntheticDataset (used to extract mid prices for
                  log-return computation).  If None, correlation nodes are
                  still created but with null return-based scores.
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-def build_cross_asset_kg(
-    collections: dict[str, MarketStateCollection],
-) -> KGraph:
-    """Build Cross-Asset KG from per-asset MarketStateCollections.
-
-    Creates correlation edges between asset pairs, flagging breaks
-    where rolling correlation drops below CORR_BREAK_THRESHOLD.
->>>>>>> claude/thirsty-heisenberg
-=======
->>>>>>> claude/elated-lamarr
-=======
->>>>>>> claude/gracious-edison
-=======
->>>>>>> claude/sharp-kowalevski
-=======
->>>>>>> claude/admiring-clarke
-=======
->>>>>>> claude/optimistic-swanson
-=======
->>>>>>> claude/sleepy-mestorf
-=======
->>>>>>> claude/crazy-vaughan
     """
     kg = KGraph(family=FAMILY)
     assets = list(collections.keys())
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     # Build asset nodes
-=======
->>>>>>> claude/thirsty-heisenberg
-=======
-    # Build asset nodes
->>>>>>> claude/elated-lamarr
-=======
-    # Build asset nodes
->>>>>>> claude/gracious-edison
-=======
-    # Build asset nodes
->>>>>>> claude/sharp-kowalevski
-=======
-    # Build asset nodes
->>>>>>> claude/admiring-clarke
-=======
-    # Build asset nodes
->>>>>>> claude/optimistic-swanson
-=======
-    # Build asset nodes
->>>>>>> claude/sleepy-mestorf
-=======
-    # Build asset nodes
->>>>>>> claude/crazy-vaughan
     for asset in assets:
         kg.add_node(KGNode(
             node_id=f"asset:{asset}",
@@ -492,28 +309,6 @@ def build_cross_asset_kg(
             attributes={"symbol": asset},
         ))
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> claude/elated-lamarr
-=======
->>>>>>> claude/gracious-edison
-=======
->>>>>>> claude/sharp-kowalevski
-=======
->>>>>>> claude/admiring-clarke
-=======
->>>>>>> claude/optimistic-swanson
-=======
->>>>>>> claude/sleepy-mestorf
-=======
->>>>>>> claude/crazy-vaughan
     # Extract log returns per asset (from price ticks in dataset)
     log_returns: dict[str, list[float]] = {}
     price_ticks_by_asset: dict[str, list[PriceTick]] = {}
@@ -585,68 +380,12 @@ def build_cross_asset_kg(
                 coverage=meta,
             )
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    # Pairwise correlations using spread z-scores as proxy for co-movement
-    for i, a1 in enumerate(assets):
-        for a2 in assets[i + 1:]:
-            zs1 = [s.z_score for s in collections[a1].spreads]
-            zs2 = [s.z_score for s in collections[a2].spreads]
-            n = min(len(zs1), len(zs2))
-            if n < 5:
-                continue
-            rho = _pearson(zs1[:n], zs2[:n])
-            pair_id = f"corr:{a1}:{a2}"
-
->>>>>>> claude/thirsty-heisenberg
-=======
->>>>>>> claude/elated-lamarr
-=======
->>>>>>> claude/gracious-edison
-=======
->>>>>>> claude/sharp-kowalevski
-=======
->>>>>>> claude/admiring-clarke
-=======
->>>>>>> claude/optimistic-swanson
-=======
->>>>>>> claude/sleepy-mestorf
-=======
->>>>>>> claude/crazy-vaughan
             kg.add_node(KGNode(
                 node_id=pair_id,
                 node_type="CorrelationNode",
                 attributes={
                     "asset_a": a1,
                     "asset_b": a2,
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> claude/elated-lamarr
-=======
->>>>>>> claude/gracious-edison
-=======
->>>>>>> claude/sharp-kowalevski
-=======
->>>>>>> claude/admiring-clarke
-=======
->>>>>>> claude/optimistic-swanson
-=======
->>>>>>> claude/sleepy-mestorf
-=======
->>>>>>> claude/crazy-vaughan
                     # A1: return-based measures
                     "rho": round(rho_pearson, 4),
                     "rho_spearman": round(rho_spearman, 4),
@@ -697,63 +436,12 @@ def build_cross_asset_kg(
 
             # Edges
             relation = "correlation_break" if is_break else "correlated_with"
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-                    "rho": round(rho, 4),
-                    "is_break": rho < CORR_BREAK_THRESHOLD,
-                    "n_ticks": n,
-                },
-            ))
-            relation = "correlation_break" if rho < CORR_BREAK_THRESHOLD else "correlated_with"
->>>>>>> claude/thirsty-heisenberg
-=======
->>>>>>> claude/elated-lamarr
-=======
->>>>>>> claude/gracious-edison
-=======
->>>>>>> claude/sharp-kowalevski
-=======
->>>>>>> claude/admiring-clarke
-=======
->>>>>>> claude/optimistic-swanson
-=======
->>>>>>> claude/sleepy-mestorf
-=======
->>>>>>> claude/crazy-vaughan
             for asset_ref in [a1, a2]:
                 kg.add_edge(KGEdge(
                     edge_id=f"{relation}:{asset_ref}:{pair_id}",
                     source_id=f"asset:{asset_ref}",
                     target_id=pair_id,
                     relation=relation,
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> claude/elated-lamarr
-=======
->>>>>>> claude/gracious-edison
-=======
->>>>>>> claude/sharp-kowalevski
-=======
->>>>>>> claude/admiring-clarke
-=======
->>>>>>> claude/optimistic-swanson
-=======
->>>>>>> claude/sleepy-mestorf
-=======
->>>>>>> claude/crazy-vaughan
                     attributes={"rho": round(rho_pearson, 4)},
                 ))
 
@@ -770,30 +458,6 @@ def build_cross_asset_kg(
                         "lag_ticks": abs(best_k),
                         "rho": round(best_ll_rho, 4),
                     },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-                    attributes={"rho": round(rho, 4)},
->>>>>>> claude/thirsty-heisenberg
-=======
->>>>>>> claude/elated-lamarr
-=======
->>>>>>> claude/gracious-edison
-=======
->>>>>>> claude/sharp-kowalevski
-=======
->>>>>>> claude/admiring-clarke
-=======
->>>>>>> claude/optimistic-swanson
-=======
->>>>>>> claude/sleepy-mestorf
-=======
->>>>>>> claude/crazy-vaughan
                 ))
 
     return kg
