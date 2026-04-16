@@ -1,0 +1,3 @@
+variant,final_half_life,min_half_life_seen,final_score,final_tier
+before,0.1,0.1,0.1,monitor_borderline
+after,3.0,3.0,0.1,monitor_borderline

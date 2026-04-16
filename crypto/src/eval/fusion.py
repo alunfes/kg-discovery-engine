@@ -121,6 +121,40 @@ _DECAY_COEFFICIENTS: tuple[float, ...] = (1.0, 0.7, 0.5, 0.3)
 _TIME_WINDOW_MS: int = 5 * 60 * 1_000   # 5-minute dedup window (ms)
 _TIME_WINDOW_CREDIT: float = 0.3
 
+# ---------------------------------------------------------------------------
+# Safety envelope parameters (Run 021)
+# ---------------------------------------------------------------------------
+
+# Why a 15-minute demotion rate limit rather than a per-event block:
+# A single strong contradiction should still downgrade the tier.  The risk
+# is a burst of correlated events within a short window (e.g., market-wide
+# sell-off triggering 5 sell_burst events in 3 minutes) that would cascade
+# a card from actionable_watch → reject_conflicted in one pass.  The rate
+# limit allows multi-step downgrades provided they are spread over time, but
+# converts clustered additional hits to expire_faster (half-life shortening
+# only) so the tier is not destroyed in a single burst.
+_DEMOTION_RATE_LIMIT_MS: int = 15 * 60 * 1_000   # 15-minute window (ms)
+
+# Why per-tier floors rather than a single global minimum:
+# actionable_watch cards have already passed a high confidence threshold;
+# a 10-minute floor preserves operator reaction time before they expire.
+# Lower-tier cards have less confidence and may legitimately decay faster;
+# their floors are proportionally lower.
+# Why not 0 (no floor): a repeated expire_faster on a low-tier card can
+# drive half_life to 0.0 → 0.0 in subsequent halving.  A floor ≥1.0
+# prevents division-by-zero in downstream decay math.
+_HALF_LIFE_FLOOR: dict[str, float] = {
+    # TIER_ACTIONABLE_WATCH: 10 min — operator needs time to act on a watchlist hit
+    "actionable_watch":   10.0,
+    # TIER_RESEARCH_PRIORITY: 5 min — still a live research signal
+    "research_priority":   5.0,
+    # TIER_MONITOR_BORDERLINE: 3 min — borderline cards may legitimately fade fast
+    "monitor_borderline":  3.0,
+    # TIER_BASELINE_LIKE / TIER_REJECT_CONFLICTED: floor only to avoid 0
+    "baseline_like":       2.0,
+    "reject_conflicted":   1.0,
+}
+
 # Why 0.9 threshold with 0.2x uplift rather than a hard ceiling at 1.0:
 # A hard ceiling is already enforced via min(1.0, …).  The ceiling brake
 # adds a soft barrier at 0.9 so scores approaching maximum don't fully
@@ -163,6 +197,9 @@ class FusionCard:
     reinforce_counts: dict[str, int] = field(default_factory=dict)
     last_reinforce_ts: dict[str, int] = field(default_factory=dict)
     seen_event_types: set[str] = field(default_factory=set)
+    # Run 021: demotion rate-limit tracking (timestamp_ms of last tier downgrade)
+    # 0 means no prior demotion.  Compared against _DEMOTION_RATE_LIMIT_MS.
+    last_demotion_ts: int = 0
 
     def tier_index(self) -> int:
         """Numeric rank of the current tier (0 = lowest, 4 = highest)."""
@@ -358,6 +395,48 @@ def _apply_ceiling_brake(decay: float, score: float) -> float:
 
 
 # ---------------------------------------------------------------------------
+# Safety envelope helpers (Run 021)
+# ---------------------------------------------------------------------------
+
+def _is_demotion_rate_limited(card: "FusionCard", event_ts_ms: int) -> bool:
+    """Return True if this card received a tier downgrade within the rate-limit window.
+
+    Why check event_ts_ms rather than wall-clock time:
+      The fusion layer operates on event timestamps (which may come from a
+      replay at any speed).  Wall-clock comparisons would give wrong results
+      in shadow/replay mode.  event_ts_ms is the authoritative timeline.
+
+    Args:
+        card:         FusionCard with last_demotion_ts populated.
+        event_ts_ms:  Timestamp of the incoming event (milliseconds).
+
+    Returns:
+        True if the last demotion was within _DEMOTION_RATE_LIMIT_MS.
+    """
+    if card.last_demotion_ts == 0:
+        return False
+    return event_ts_ms - card.last_demotion_ts < _DEMOTION_RATE_LIMIT_MS
+
+
+def _get_half_life_floor(tier: str) -> float:
+    """Return the minimum half-life floor for the given tier.
+
+    Why use a lookup rather than a formula:
+      Floor values are calibrated per-tier based on operational requirements
+      (operator reaction time for actionable_watch, data staleness for lower
+      tiers).  A formula (e.g. proportional to _DEFAULT_HALF_LIFE) would
+      couple this constant to another, making changes harder to reason about.
+
+    Args:
+        tier: Decision tier string from TIER_ORDER.
+
+    Returns:
+        Minimum half_life_min value for this tier.
+    """
+    return _HALF_LIFE_FLOOR.get(tier, 2.0)
+
+
+# ---------------------------------------------------------------------------
 # Rule determination
 # ---------------------------------------------------------------------------
 
@@ -448,12 +527,44 @@ def _apply_reinforce(
 def _apply_contradict(
     card: FusionCard, event: StateEvent, eid: str
 ) -> "FusionTransition":
-    """Downgrade tier by one level; apply score penalty."""
+    """Downgrade tier by one level; apply score penalty.
+
+    Run 021 demotion rate limit:
+      If the card was already demoted within _DEMOTION_RATE_LIMIT_MS, the tier
+      downgrade is suppressed — only a score penalty (−0.05) and half-life
+      shortening are applied (expire_faster semantics).  The rule name is
+      recorded as "contradict_ratelimited" so audit scripts can distinguish it
+      from a full contradict.
+
+      Multi-step downgrades over time are preserved: as long as consecutive
+      contradictions are spaced ≥ _DEMOTION_RATE_LIMIT_MS apart, each one
+      triggers a tier downgrade.  The limit only blocks clustered bursts.
+    """
     tier_b, score_b, hl_b = card.tier, card.composite_score, card.half_life_min
+
+    if _is_demotion_rate_limited(card, event.timestamp_ms):
+        # Rate-limited: apply expire_faster semantics, no tier change
+        new_hl = max(round(hl_b * 0.5, 1), _get_half_life_floor(tier_b))
+        new_score = round(max(0.0, score_b - 0.05), 4)
+        card.half_life_min = new_hl
+        card.composite_score = new_score
+        return FusionTransition(
+            event_id=eid, rule="contradict_ratelimited",
+            tier_before=tier_b, tier_after=tier_b,
+            score_before=score_b, score_after=new_score,
+            half_life_before=hl_b, half_life_after=new_hl,
+            timestamp_ms=event.timestamp_ms,
+            reason=(f"{event.event_type}({event.asset}) contradicts {card.branch} "
+                    f"[rate-limited: last demotion at {card.last_demotion_ts}ms, "
+                    f"within {_DEMOTION_RATE_LIMIT_MS}ms window] "
+                    f"hl {hl_b}→{new_hl}min"),
+        )
+
     new_tier = TIER_ORDER[max(card.tier_index() - 1, 0)]
     new_score = round(max(0.0, score_b - 0.10), 4)
     card.tier = new_tier
     card.composite_score = new_score
+    card.last_demotion_ts = event.timestamp_ms
     return FusionTransition(
         event_id=eid, rule="contradict",
         tier_before=tier_b, tier_after=new_tier,
@@ -468,12 +579,21 @@ def _apply_contradict(
 def _apply_expire_faster(
     card: FusionCard, event: StateEvent, eid: str
 ) -> "FusionTransition":
-    """Halve remaining half-life; minor score penalty; tier unchanged."""
+    """Halve remaining half-life; minor score penalty; tier unchanged.
+
+    Run 021 half-life floor:
+      Halving is applied first, then the result is clamped to the tier-specific
+      floor from _HALF_LIFE_FLOOR.  This prevents repeated expire_faster events
+      from driving half_life to zero (which would make downstream decay math
+      ill-defined and remove all monitoring time from a still-valid card).
+    """
     tier_b, score_b, hl_b = card.tier, card.composite_score, card.half_life_min
-    new_hl = round(hl_b * 0.5, 1)
+    floor = _get_half_life_floor(tier_b)
+    new_hl = max(round(hl_b * 0.5, 1), floor)
     new_score = round(max(0.0, score_b - 0.05), 4)
     card.half_life_min = new_hl
     card.composite_score = new_score
+    floored = new_hl == floor and round(hl_b * 0.5, 1) < floor
     return FusionTransition(
         event_id=eid, rule="expire_faster",
         tier_before=tier_b, tier_after=tier_b,
@@ -481,7 +601,8 @@ def _apply_expire_faster(
         half_life_before=hl_b, half_life_after=new_hl,
         timestamp_ms=event.timestamp_ms,
         reason=(f"{event.event_type}({event.asset}) invalidates premise; "
-                f"hl {hl_b}→{new_hl}min"),
+                f"hl {hl_b}→{new_hl}min"
+                + (" [floor]" if floored else "")),
     )
 
 

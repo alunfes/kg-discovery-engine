@@ -1,0 +1,11 @@
+{
+  "run_id": "run_021_impact_audit",
+  "phase": 1,
+  "description": "_OPPOSES buy_burst/positioning_unwind impact audit",
+  "seed": 42,
+  "fix": "_OPPOSES['buy_burst'] extended to include 'positioning_unwind'",
+  "runs_examined": 24,
+  "bucket_a": 24,
+  "bucket_b": 0,
+  "bucket_c": 0
+}
