@@ -1,0 +1,20 @@
+metric_name,layer,defined_in,formula,denominator,numerator,notes,code_matches_doc,risk
+reviews_per_day,push,push_surfacing.py:555,n_fired * (24.0 / session_hours),session_hours (scaled to 24h),total_push_events (not suppressed),Extrapolated from single simulated session,YES,LOW
+avg_fresh_at_trigger,push,push_surfacing.py:557-559,mean(fresh_count) over fired_events,n_fired,sum(e.fresh_count for fired events),fresh_count = STATE_FRESH cards in full deck at trigger time,YES,LOW
+avg_active_at_trigger,push,push_surfacing.py:560-562,mean(active_count) over fired_events,n_fired,sum(e.active_count for fired events),active_count = STATE_ACTIVE cards in full deck at trigger time,YES,LOW
+missed_critical_count,push,push_surfacing.py:551,len(all_critical - covered_critical),n/a (set difference),high_conviction cards never in STATE_FRESH when push fired,Only STATE_FRESH at push time counts as covered; STATE_ACTIVE does not,PARTIAL,MEDIUM
+operator_burden_csv,push+poll,run_028_push_surfacing.py:360-362,reviews_per_day × avg_surfaced_after (pre-collapse for push),n/a,n/a,APPLES-TO-ORANGES: push uses pre-collapse count; poll uses post-collapse count,NO,HIGH
+operator_burden_md,push,run_028_push_surfacing.py:293-296,reviews_per_day × (avg_fresh+avg_active) × COLLAPSE_FACTOR,n/a,n/a,Correctly applies COLLAPSE_FACTOR=0.24 in markdown output only,YES,LOW
+stale_rate,delivery,delivery_state.py:585,stale_count / max(len(active_cards) 1),all non-archived cards,cards in STATE_AGING+STATE_DIGEST_ONLY+STATE_EXPIRED,STATE_AGING is BOTH surfaced (_SURFACED_STATES) AND counted as stale — inflates stale_rate,PARTIAL,MEDIUM
+precision,delivery,delivery_state.py:595-596,n_fresh_active / max(len(surface_items) 1),all surfaced items post-collapse,items in STATE_FRESH or STATE_ACTIVE,Aging cards in denominator reduce precision even though operator sees them,YES,LOW
+stale_count,delivery,delivery_state.py:583-584,count cards in stale_states from active_cards,all non-archived,STATE_AGING + STATE_DIGEST_ONLY + STATE_EXPIRED,Includes STATE_AGING which is actionable (shown to operator),PARTIAL,MEDIUM
+t1_events,push,push_surfacing.py:566-567,count of fired events with "T1" in trigger_reason,n/a,n/a,Correct,YES,LOW
+t2_events,push,push_surfacing.py:566-567,count of fired events with "T2" in trigger_reason,n/a,n/a,Correct,YES,LOW
+t3_events,push,push_surfacing.py:566-567,count of fired events with "T3" in trigger_reason,n/a,n/a,ALWAYS 0 due to T3 unreachable bug (INV-T3),NO,CRITICAL
+recall_hl_calibrator,half_life,half_life_calibrator.py:257,caught / len(records),ALL records (cards),hits caught before expiry,WRONG: denominator should be n_hits not all cards; systematically undercounts recall,NO,HIGH
+precision_hl_calibrator,half_life,half_life_calibrator.py:243-255,caught / n_ev,non-expired records,hits caught before expiry,n_ev = non-expired only; inconsistent denominator vs recall,PARTIAL,MEDIUM
+total_resurfaced,archive,delivery_state.py:1241,sum(s.resurfaced_count for snapshots),n/a,injection events per review,Counts re-surface injection events; re-surfaced cards do NOT persist to next cycle,PARTIAL,HIGH
+avg_archived,archive,delivery_state.py:1240,mean(s.archived_count for snapshots),n_snapshots,archived card count per review snapshot,Correct snapshot count; archive pool integrity maintained,YES,LOW
+info_loss_score,collapse,delivery_state.py:511-514,co_score / total_score,sum of all group scores,sum of non-lead card scores,Correct fraction of score held by collapsed co-assets,YES,LOW
+age_hl_ratio,delivery,delivery_state.py:142,age_min / half_life_min,half_life_min (protected by <= 0 guard),age_min,Correct; guarded against division by zero,YES,LOW
+burst_coverage,push,push_surfacing.py:537-548,covered_critical / all_critical (implicit),all_critical cards,critical cards in STATE_FRESH when any push fires,Does not credit coverage when critical card is STATE_ACTIVE at trigger time,PARTIAL,MEDIUM
