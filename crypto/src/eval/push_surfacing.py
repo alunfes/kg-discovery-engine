@@ -69,8 +69,10 @@ HIGH_PRIORITY_TIERS: frozenset[str] = frozenset(["actionable_watch", "research_p
 FRESH_COUNT_THRESHOLD: int = 3
 
 # T3: push if any card's remaining time before digest_only transition is
-# within this many minutes
-LAST_CHANCE_LOOKAHEAD_MIN: float = 10.0
+# within this many minutes.
+# Run 031: locked to Variant A (5 min) — validated over 5-day shadow.
+# Reduced from 10.0 to tighten last-chance window and prevent T3 dominance.
+LAST_CHANCE_LOOKAHEAD_MIN: float = 5.0
 
 # Rate-limit: minimum minutes between consecutive push events
 MIN_PUSH_GAP_MIN: float = 15.0

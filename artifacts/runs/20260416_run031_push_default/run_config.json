@@ -1,0 +1,73 @@
+{
+  "run": "031",
+  "date": "2026-04-16",
+  "objective": "Validate Variant A (T3=5min) as push-default under multi-day shadow",
+  "variant_a_config": {
+    "t3_lookahead_min": 5.0,
+    "high_conviction_threshold": 0.74,
+    "fresh_count_threshold": 3,
+    "min_push_gap_min": 15.0,
+    "family_collapse": true,
+    "hot_batch_probability": 0.3
+  },
+  "seeds": [
+    1000,
+    1001,
+    1002,
+    1003,
+    1004
+  ],
+  "session_hours": 8,
+  "batch_interval_min": 30,
+  "n_cards_per_batch": 20,
+  "variant_a_aggregate": {
+    "label": "run031_variant_a_day1",
+    "n_days": 5,
+    "reviews_per_day_mean": 21.0,
+    "reviews_per_day_max": 27.0,
+    "reviews_per_day_min": 18.0,
+    "missed_critical_total": 0,
+    "avg_fresh_per_push": 17.394,
+    "avg_cards_per_push": 24.124,
+    "stale_rate_mean": 0.295,
+    "operator_burden_mean": 510.6,
+    "T1_frac_mean": 1.0,
+    "T2_frac_mean": 0.798,
+    "T3_frac_mean": 0.0,
+    "s2_suppressions_mean": 0.0,
+    "t3_lookahead": 5.0
+  },
+  "run029b_aggregate": {
+    "label": "run029b_baseline_day1",
+    "n_days": 5,
+    "reviews_per_day_mean": 21.0,
+    "reviews_per_day_max": 27.0,
+    "reviews_per_day_min": 18.0,
+    "missed_critical_total": 0,
+    "avg_fresh_per_push": 17.394,
+    "avg_cards_per_push": 24.124,
+    "stale_rate_mean": 0.295,
+    "operator_burden_mean": 510.6,
+    "T1_frac_mean": 1.0,
+    "T2_frac_mean": 0.798,
+    "T3_frac_mean": 0.0,
+    "s2_suppressions_mean": 0.0,
+    "t3_lookahead": 10.0
+  },
+  "run030_single_day": {
+    "label": "run030_variant_a_single",
+    "seed": 999,
+    "reviews_per_day": 18.0,
+    "missed_critical": 0,
+    "avg_fresh_per_push": 18.5,
+    "avg_cards_per_push": 25.0,
+    "stale_rate": 0.136,
+    "operator_burden": 450.0,
+    "T1_frac": 1.0,
+    "T2_frac": 0.833,
+    "T3_frac": 0.0,
+    "s2_suppressions": 0,
+    "total_suppressed": 11,
+    "t3_lookahead": 5.0
+  }
+}
