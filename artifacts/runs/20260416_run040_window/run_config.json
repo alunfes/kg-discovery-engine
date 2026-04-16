@@ -1,0 +1,35 @@
+{
+  "run_id": "run_040_window_extension",
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61
+  ],
+  "windows_tested": [
+    120,
+    240
+  ],
+  "session_days": 7,
+  "cadence_min": 45,
+  "batch_interval_min": 30,
+  "n_cards_per_batch": 20,
+  "archive_max_age_min": 480,
+  "generated_at": "2026-04-16T04:27:00.612253+00:00"
+}

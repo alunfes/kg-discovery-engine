@@ -1,0 +1,3 @@
+window_min,recovery_rate,resurfaced_value_density,permanent_loss_count,avg_archive_pool_size,max_archive_pool_size,resurfaced_burden,avg_surfaced_after,avg_stale_rate,total_archived,total_resurfaced
+120,0.9275,1.1221,0.0,17.21,20.0,2.3475,5.0,0.7723,20.0,18.6
+240,0.9275,1.1221,0.0,17.21,20.0,2.3475,5.0,0.7723,20.0,18.6
