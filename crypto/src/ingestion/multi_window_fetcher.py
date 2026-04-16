@@ -26,7 +26,7 @@ from dataclasses import dataclass, field
 from typing import Optional
 
 from .hyperliquid_connector import HyperliquidConnector, AssetCtxRecord, BookRecord
-from .data_adapter import RealDataAdapter
+from .data_adapter import RealDataAdapter, fetch_oi_from_market_data
 from ..ingestion.synthetic import SyntheticDataset
 
 
@@ -113,9 +113,21 @@ class MultiWindowFetcher:
         for asset in self.assets:
             book_by_asset[asset] = self.connector.fetch_book(asset)
 
+        # Fetch real OI once using the longest window; shorter windows will
+        # be filtered by _align_oi_to_ticks using price tick timestamps.
+        max_minutes = max((s.n_minutes for s in self.windows), default=120)
+        oi_series_by_asset = {
+            asset: fetch_oi_from_market_data(asset, max_minutes)
+            for asset in self.assets
+        }
+        oi_series_by_asset = {k: v for k, v in oi_series_by_asset.items() if v}
+
         results: list[WindowResult] = []
         for spec in self.windows:
-            result = self._fetch_window(spec, ctx_map, book_by_asset)
+            result = self._fetch_window(
+                spec, ctx_map, book_by_asset,
+                oi_series_by_asset=oi_series_by_asset or None,
+            )
             results.append(result)
         return results
 
@@ -124,6 +136,7 @@ class MultiWindowFetcher:
         spec: WindowSpec,
         ctx_map: dict[str, AssetCtxRecord],
         book_by_asset: dict[str, Optional[BookRecord]],
+        oi_series_by_asset: Optional[dict] = None,
     ) -> WindowResult:
         """Fetch one window and build its SyntheticDataset.
 
@@ -164,5 +177,6 @@ class MultiWindowFetcher:
             book_by_asset=book_by_asset,
             ctx_by_asset=ctx_map,
             n_minutes=spec.n_minutes,
+            oi_series_by_asset=oi_series_by_asset,
         )
         return WindowResult(spec=spec, dataset=dataset, fetch_meta=fetch_meta)

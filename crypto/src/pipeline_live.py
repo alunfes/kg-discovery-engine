@@ -52,7 +52,7 @@ from .ingestion.hyperliquid_connector import (
     BookRecord,
     AssetCtxRecord,
 )
-from .ingestion.data_adapter import RealDataAdapter
+from .ingestion.data_adapter import RealDataAdapter, fetch_oi_from_market_data, MARKET_DATA_BASE_URL
 from .states.event_detector import EventDetectorPipeline, StateEvent
 from .pipeline import PipelineConfig, run_pipeline
 
@@ -198,6 +198,13 @@ def _build_cycle_dataset(
                 asks=wb.asks,
             )
 
+    oi_series_by_asset = {
+        asset: fetch_oi_from_market_data(asset, n_minutes)
+        for asset in assets
+    }
+    # Drop assets with no real OI data so build_dataset falls back to proxy.
+    oi_series_by_asset = {k: v for k, v in oi_series_by_asset.items() if v}
+
     adapter = RealDataAdapter(seed=seed)
     return adapter.build_dataset(
         candles_by_asset=candles_by_asset,
@@ -205,6 +212,7 @@ def _build_cycle_dataset(
         book_by_asset=book_by_asset,
         ctx_by_asset={},
         n_minutes=n_minutes,
+        oi_series_by_asset=oi_series_by_asset or None,
     )
 
 

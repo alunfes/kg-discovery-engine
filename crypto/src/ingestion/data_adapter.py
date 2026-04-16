@@ -21,12 +21,10 @@ Key design decisions:
    for historical data).
 
 3. OpenInterestSample:
-   Hyperliquid provides only a single OI snapshot per asset (metaAndAssetCtxs).
-   We generate a flat OI series of n_minutes samples based on this snapshot.
-   The OI accumulation detector will see no trend signal (build_streak = 0).
-   This is an honest representation: real OI time-series is unavailable.
-   Impact: OI-based nodes (OI_accumulation, one_sided_position) will not fire.
-   This is documented as a known gap in failure_taxonomy.md.
+   Preferred: fetch real OI time-series from hype-market-data REST API
+   (GET /open_interest/{symbol}?start=...&end=...) via fetch_oi_from_market_data().
+   Fallback: volume-proxy derived from AssetCtxRecord snapshot when hype-market-data
+   is unavailable. Enables OI_accumulation node to fire on real trending periods.
 
 4. BookSnapshot:
    We use the single live snapshot for all time steps. This means the book
@@ -35,7 +33,12 @@ Key design decisions:
 """
 from __future__ import annotations
 
+import json
 import random
+import time
+import urllib.error
+import urllib.request
+from datetime import datetime, timezone
 from typing import Optional
 
 from .synthetic import (
@@ -102,6 +105,7 @@ class RealDataAdapter:
         book_by_asset: dict[str, Optional[BookRecord]],
         ctx_by_asset: dict[str, Optional[AssetCtxRecord]],
         n_minutes: int = 120,
+        oi_series_by_asset: Optional[dict[str, list[OpenInterestSample]]] = None,
     ) -> SyntheticDataset:
         """Build a SyntheticDataset from Hyperliquid API records.
 
@@ -131,9 +135,13 @@ class RealDataAdapter:
             book_snaps = self._book_to_snapshots(
                 asset, book_by_asset.get(asset), price_ticks
             )
-            oi_samples = self._ctx_to_oi_samples(
-                asset, ctx_by_asset.get(asset), price_ticks, candles_trimmed
-            )
+            real_oi = (oi_series_by_asset or {}).get(asset)
+            if real_oi:
+                oi_samples = _align_oi_to_ticks(asset, real_oi, price_ticks)
+            else:
+                oi_samples = self._ctx_to_oi_samples(
+                    asset, ctx_by_asset.get(asset), price_ticks, candles_trimmed
+                )
             dataset.price_ticks.extend(price_ticks)
             dataset.trade_ticks.extend(trade_ticks)
             dataset.funding_samples.extend(funding_samples)
@@ -325,6 +333,98 @@ class RealDataAdapter:
 # ------------------------------------------------------------------
 # Module-level helpers
 # ------------------------------------------------------------------
+
+# Default base URL for hype-market-data REST API (overridable in tests/config).
+MARKET_DATA_BASE_URL = "http://localhost:8081"
+# HTTP timeout for OI fetch (seconds). Short to avoid blocking the shadow loop.
+_OI_FETCH_TIMEOUT_S = 5
+
+
+def fetch_oi_from_market_data(
+    asset: str,
+    n_minutes: int,
+    base_url: str = MARKET_DATA_BASE_URL,
+) -> list[OpenInterestSample]:
+    """Fetch OI time-series from hype-market-data REST API.
+
+    Calls GET {base_url}/open_interest/{asset}?start={start_ms}&end={end_ms}.
+    Returns [] on any failure (connection refused, bad JSON, missing data).
+
+    Why REST-only (not WS): hype-market-data collects OI via WS and stores it
+    in TimescaleDB. kg-discovery-engine consumes it via REST to avoid double-
+    subscribing to the same WS feed (lessons-learned: avoid dual WS ingestion).
+
+    Args:
+        asset:     Bare asset symbol, e.g. "HYPE", "BTC".
+        n_minutes: Lookback window in minutes.
+        base_url:  hype-market-data base URL (default: http://localhost:8081).
+
+    Returns:
+        List of OpenInterestSample sorted ascending by timestamp_ms.
+    """
+    end_ms = int(time.time() * 1000)
+    start_ms = end_ms - n_minutes * 60_000
+    url = f"{base_url}/open_interest/{asset}?start={start_ms}&end={end_ms}"
+    try:
+        req = urllib.request.Request(url)
+        with urllib.request.urlopen(req, timeout=_OI_FETCH_TIMEOUT_S) as resp:
+            body = resp.read()
+        payload = json.loads(body)
+        samples: list[OpenInterestSample] = []
+        for row in payload.get("data", []):
+            ts_ms = _iso_to_ms(row["time"])
+            samples.append(OpenInterestSample(
+                asset=asset,
+                timestamp_ms=ts_ms,
+                oi=float(row["open_interest"]),
+            ))
+        samples.sort(key=lambda s: s.timestamp_ms)
+        return samples
+    except (urllib.error.URLError, json.JSONDecodeError, KeyError, ValueError, OSError):
+        return []
+
+
+def _iso_to_ms(iso: str) -> int:
+    """Parse ISO-8601 timestamp string to milliseconds since epoch."""
+    dt = datetime.fromisoformat(iso)
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return int(dt.timestamp() * 1000)
+
+
+def _align_oi_to_ticks(
+    asset: str,
+    oi_series: list[OpenInterestSample],
+    price_ticks: list[PriceTick],
+) -> list[OpenInterestSample]:
+    """Align a real OI time-series to price tick timestamps.
+
+    Maps each price tick to the nearest OI sample by timestamp. Falls back
+    to the last known OI value when there is no sample within the window.
+
+    Args:
+        asset:       Asset symbol (used for output OpenInterestSample).
+        oi_series:   Real OI samples sorted ascending by timestamp_ms.
+        price_ticks: Price ticks to align to (sorted ascending).
+
+    Returns:
+        List of OpenInterestSample with one entry per price tick.
+    """
+    if not oi_series or not price_ticks:
+        return []
+    result: list[OpenInterestSample] = []
+    j = 0
+    for tick in price_ticks:
+        # Advance pointer to the closest OI sample (nearest, not strictly before).
+        while j + 1 < len(oi_series) and abs(oi_series[j + 1].timestamp_ms - tick.timestamp_ms) <= abs(oi_series[j].timestamp_ms - tick.timestamp_ms):
+            j += 1
+        result.append(OpenInterestSample(
+            asset=asset,
+            timestamp_ms=tick.timestamp_ms,
+            oi=oi_series[j].oi,
+        ))
+    return result
+
 
 def _infer_buy_ratio(open_price: float, close_price: float) -> float:
     """Infer aggregate buy pressure from candle direction and magnitude.

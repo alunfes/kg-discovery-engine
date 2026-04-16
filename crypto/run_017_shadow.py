@@ -34,7 +34,7 @@ if _REPO_ROOT not in sys.path:
     sys.path.insert(0, _REPO_ROOT)
 
 from crypto.src.ingestion.hyperliquid_connector import HyperliquidConnector
-from crypto.src.ingestion.data_adapter import RealDataAdapter
+from crypto.src.ingestion.data_adapter import RealDataAdapter, fetch_oi_from_market_data
 from crypto.src.pipeline import PipelineConfig, run_pipeline
 
 ASSETS = ["HYPE", "BTC", "ETH", "SOL"]
@@ -79,9 +79,16 @@ def fetch_real_dataset(connector: HyperliquidConnector, n_minutes: int):
             "mark_price": round(ctx.mark_price, 4) if ctx else None,
         }
 
+    oi_series_by_asset = {
+        asset: fetch_oi_from_market_data(asset, n_minutes)
+        for asset in ASSETS
+    }
+    oi_series_by_asset = {k: v for k, v in oi_series_by_asset.items() if v}
+
     dataset = adapter.build_dataset(
         candles_by_asset, fundings_by_asset,
         book_by_asset, ctx_by_asset, n_minutes=n_minutes,
+        oi_series_by_asset=oi_series_by_asset or None,
     )
     return dataset, fetch_meta
 

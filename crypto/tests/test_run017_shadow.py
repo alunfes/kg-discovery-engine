@@ -57,7 +57,12 @@ from crypto.src.ingestion.hyperliquid_connector import (
     AssetCtxRecord,
     CACHE_TTL_SECONDS,
 )
-from crypto.src.ingestion.data_adapter import RealDataAdapter, _infer_buy_ratio
+from crypto.src.ingestion.data_adapter import (
+    RealDataAdapter,
+    _infer_buy_ratio,
+    fetch_oi_from_market_data,
+)
+from crypto.src.ingestion.synthetic import OpenInterestSample
 from crypto.src.ingestion.synthetic import (
     SyntheticDataset,
     PriceTick,
@@ -398,6 +403,138 @@ class TestAdapterOiSamples:
         adapter = RealDataAdapter()
         price_ticks = [PriceTick("HYPE", 1700000000000, 20.0, 19.95, 20.05, 5.0)]
         assert adapter._ctx_to_oi_samples("HYPE", None, price_ticks) == []
+
+
+# ---------------------------------------------------------------------------
+# fetch_oi_from_market_data
+# ---------------------------------------------------------------------------
+
+class TestFetchOiFromMarketData:
+    def test_returns_samples_on_success(self, monkeypatch):
+        """fetch_oi_from_market_data parses hype-market-data JSON response."""
+        import urllib.request
+        import io
+
+        response_body = json.dumps({
+            "symbol": "HYPE",
+            "count": 2,
+            "data": [
+                {"time": "2026-04-16T00:00:00+00:00", "symbol": "HYPE",
+                 "open_interest": 1_000_000.0, "source": "ws"},
+                {"time": "2026-04-16T00:01:00+00:00", "symbol": "HYPE",
+                 "open_interest": 1_001_000.0, "source": "ws"},
+            ],
+        }).encode("utf-8")
+
+        class FakeResponse:
+            def read(self):
+                return response_body
+            def __enter__(self):
+                return self
+            def __exit__(self, *a):
+                pass
+
+        monkeypatch.setattr(urllib.request, "urlopen", lambda req, timeout: FakeResponse())
+
+        samples = fetch_oi_from_market_data("HYPE", n_minutes=2,
+                                            base_url="http://localhost:8081")
+        assert len(samples) == 2
+        assert samples[0].asset == "HYPE"
+        assert samples[0].oi == pytest.approx(1_000_000.0)
+        assert samples[1].oi == pytest.approx(1_001_000.0)
+        assert samples[0].timestamp_ms < samples[1].timestamp_ms
+
+    def test_returns_empty_on_connection_failure(self, monkeypatch):
+        """fetch_oi_from_market_data returns [] when hype-market-data is down."""
+        import urllib.request
+        import urllib.error
+
+        def raise_error(req, timeout):
+            raise urllib.error.URLError("Connection refused")
+
+        monkeypatch.setattr(urllib.request, "urlopen", raise_error)
+
+        samples = fetch_oi_from_market_data("HYPE", n_minutes=60,
+                                            base_url="http://localhost:8081")
+        assert samples == []
+
+    def test_returns_empty_on_malformed_json(self, monkeypatch):
+        """fetch_oi_from_market_data returns [] when response is not valid JSON."""
+        import urllib.request
+
+        class BadResponse:
+            def read(self):
+                return b"not json"
+            def __enter__(self):
+                return self
+            def __exit__(self, *a):
+                pass
+
+        monkeypatch.setattr(urllib.request, "urlopen", lambda req, timeout: BadResponse())
+
+        samples = fetch_oi_from_market_data("HYPE", n_minutes=60,
+                                            base_url="http://localhost:8081")
+        assert samples == []
+
+
+# ---------------------------------------------------------------------------
+# RealDataAdapter.build_dataset with real OI
+# ---------------------------------------------------------------------------
+
+class TestBuildDatasetRealOi:
+    def _make_candles(self, asset, n=5):
+        return [
+            CandleRecord(
+                asset=asset,
+                open_ms=1700000000000 + i * 60_000,
+                close_ms=1700000060000 + i * 60_000,
+                open=20.0, high=20.5, low=19.8, close=20.3,
+                volume=500.0, n_trades=5,
+            )
+            for i in range(n)
+        ]
+
+    def test_uses_real_oi_when_provided(self):
+        """build_dataset uses oi_series_by_asset instead of volume proxy."""
+        adapter = RealDataAdapter()
+        candles = self._make_candles("HYPE", n=5)
+        ctx = AssetCtxRecord(
+            asset="HYPE", timestamp_ms=1700000300000,
+            open_interest=9_999_999.0, mark_price=20.3, funding_rate=0.0003,
+        )
+        real_oi = [
+            OpenInterestSample("HYPE", 1700000000000 + i * 60_000, 2_000_000.0 + i * 100)
+            for i in range(5)
+        ]
+        dataset = adapter.build_dataset(
+            candles_by_asset={"HYPE": candles},
+            fundings_by_asset={},
+            book_by_asset={},
+            ctx_by_asset={"HYPE": ctx},
+            oi_series_by_asset={"HYPE": real_oi},
+            n_minutes=5,
+        )
+        assert len(dataset.oi_samples) == 5
+        # Real OI values used, NOT snapshot (9_999_999) or volume proxy
+        assert all(s.oi != pytest.approx(9_999_999.0) for s in dataset.oi_samples)
+        assert dataset.oi_samples[0].oi == pytest.approx(2_000_000.0)
+
+    def test_falls_back_to_proxy_when_oi_series_missing(self):
+        """build_dataset falls back to volume proxy when oi_series_by_asset is None."""
+        adapter = RealDataAdapter()
+        candles = self._make_candles("HYPE", n=5)
+        ctx = AssetCtxRecord(
+            asset="HYPE", timestamp_ms=1700000300000,
+            open_interest=5_000_000.0, mark_price=20.3, funding_rate=0.0003,
+        )
+        dataset = adapter.build_dataset(
+            candles_by_asset={"HYPE": candles},
+            fundings_by_asset={},
+            book_by_asset={},
+            ctx_by_asset={"HYPE": ctx},
+            n_minutes=5,
+        )
+        assert len(dataset.oi_samples) == 5
 
 
 # ---------------------------------------------------------------------------
