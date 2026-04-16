@@ -1206,8 +1206,14 @@ def simulate_batch_refresh_with_archive(
             if card.card_id in flag_map and flag_map[card.card_id] is not None:
                 card.archived_at_min = flag_map[card.card_id]
 
-        # Check for re-surface from newly arrived batch
+        # Check for re-surface from newly arrived batch.
+        # Re-surfaced cards must be added to all_cards (the persistent timeline)
+        # so they age correctly in subsequent cycles.  Extending only deck (the
+        # per-review snapshot) causes re-surfaced cards to vanish in the next
+        # iteration because all_cards never learned about them.
         resurfaced = archive_mgr.check_resurface(new_batch_cards, float(t))
+        for card in resurfaced:
+            all_cards.append((float(t), card))
         deck.extend(resurfaced)
 
         # update_ages=False: ages already computed as (t - creation_time) per card;

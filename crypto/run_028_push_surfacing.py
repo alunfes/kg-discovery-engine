@@ -285,15 +285,13 @@ def compute_operator_burden(
             "missed_critical": "n/a",
         })
 
-    # Push burden — apply Run 027 family-collapse factor (76% reduction)
-    # to convert pre-collapse fresh+active deck count to post-collapse items.
-    # Why collapse factor here: the push engine reports avg_fresh_at_trigger
-    # from the full deck (pre-collapse).  At review time the operator actually
-    # sees the collapsed deck (~4.8 items per 20 cards from Run 027).
-    # Collapse factor = 1 - (1 - 4.8/20) = 0.24 of pre-collapse count.
-    COLLAPSE_FACTOR = 0.24  # from Run 027: 20→4.8 items (76% reduction)
-    push_items_pre = push_result.avg_fresh_at_trigger + push_result.avg_active_at_trigger
-    push_items_collapsed = push_items_pre * COLLAPSE_FACTOR
+    # Push burden — use the actual post-collapse item count computed in
+    # simulate_push_surfacing() via DeliveryStateEngine.collapse_families().
+    # The prior static COLLAPSE_FACTOR=0.24 from Run 027 assumed 20-card batches;
+    # push triggers fire on variable deck sizes (hot vs quiet batches) so a
+    # deck-composition-agnostic factor systematically under- or over-estimates
+    # operator load.  avg_collapsed_at_trigger is the true operator-facing count.
+    push_items_collapsed = push_result.avg_collapsed_at_trigger
     push_burden = push_result.reviews_per_day * push_items_collapsed
     rows.append({
         "approach": "push_default",

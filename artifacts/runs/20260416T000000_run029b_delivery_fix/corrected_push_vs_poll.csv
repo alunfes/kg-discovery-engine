@@ -1,0 +1,11 @@
+approach,reviews_per_day,avg_stale_rate,avg_precision,avg_surfaced_after_collapse,operator_burden,missed_critical,t3_events,note
+poll_30min,48.0,0.065,1.000,4.85,232.8,n/a,n/a,first-review model (Run 027 reference)
+poll_45min,32.0,0.210,0.560,4.85,155.2,n/a,n/a,first-review model (Run 027 pragmatic)
+poll_60min,24.0,0.903,0.000,4.85,116.4,n/a,n/a,first-review model (all cards aging)
+poll_30min_archive,48.0,0.641,0.669,5.0,n/a,n/a,n/a,batch-refresh+archive (BUG-003 fixed)
+poll_45min_archive,32.0,0.648,0.614,5.0,n/a,n/a,n/a,batch-refresh+archive (BUG-003 fixed)
+poll_60min_archive,24.0,0.675,0.638,5.0,n/a,n/a,n/a,batch-refresh+archive (BUG-003 fixed)
+push_default_CORRECTED,41.1,n/a,~1.0,4.70,193.1,0,241,BUG-001+BUG-005 fixed; T3 dominant
+push_sensitive_CORRECTED,41.25,n/a,~1.0,4.70,n/a,0,241,BUG-001+BUG-005 fixed
+push_conservative_CORRECTED,40.35,n/a,~1.0,4.70,n/a,0,241,BUG-001+BUG-005 fixed
+push_default_BUGGY_estimate,~8-12,n/a,~1.0,~1.0,~10-15,0,0,T3=0 (BUG-001+BUG-005); burden underestimated by BUG-002

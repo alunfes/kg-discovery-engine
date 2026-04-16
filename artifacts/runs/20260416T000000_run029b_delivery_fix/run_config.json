@@ -1,0 +1,77 @@
+{
+  "run_id": "run_028_push_surfacing",
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61
+  ],
+  "cadences_poll": [
+    30,
+    45,
+    60
+  ],
+  "session_hours": 8,
+  "batch_interval_min": 30,
+  "n_cards": 20,
+  "hot_batch_probability": 0.3,
+  "push_threshold_configs": [
+    {
+      "high_conviction_threshold": 0.74,
+      "fresh_count_threshold": 3,
+      "min_push_gap_min": 15.0,
+      "label": "default"
+    },
+    {
+      "high_conviction_threshold": 0.7,
+      "fresh_count_threshold": 2,
+      "min_push_gap_min": 10.0,
+      "label": "sensitive"
+    },
+    {
+      "high_conviction_threshold": 0.8,
+      "fresh_count_threshold": 5,
+      "min_push_gap_min": 20.0,
+      "label": "conservative"
+    }
+  ],
+  "archive_configs": [
+    {
+      "resurface_window_min": 60,
+      "archive_max_age_min": 240,
+      "label": "tight"
+    },
+    {
+      "resurface_window_min": 120,
+      "archive_max_age_min": 480,
+      "label": "standard"
+    },
+    {
+      "resurface_window_min": 180,
+      "archive_max_age_min": 720,
+      "label": "loose"
+    }
+  ],
+  "archive_defaults": {
+    "archive_ratio": 5.0,
+    "resurface_window_min": 120,
+    "archive_max_age_min": 480
+  },
+  "generated_at": "2026-04-15T23:52:01.148527+00:00"
+}
