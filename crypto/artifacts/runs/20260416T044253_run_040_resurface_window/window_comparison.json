@@ -1,0 +1,41 @@
+{
+  "window_120": {
+    "resurface_window_min": 120,
+    "total_generated": 6740,
+    "total_archived": 20,
+    "total_resurfaced": 10,
+    "total_permanent_loss": 10,
+    "total_time_expired": 0,
+    "total_proximity_miss": 10,
+    "recovery_rate": 0.5,
+    "avg_resurfaced_score": 0.7276,
+    "avg_archived_score": 0.7018,
+    "value_density_ratio": 1.0367,
+    "noisy_resurface_count": 2,
+    "noisy_resurface_rate": 0.2
+  },
+  "window_240": {
+    "resurface_window_min": 240,
+    "total_generated": 6740,
+    "total_archived": 20,
+    "total_resurfaced": 14,
+    "total_permanent_loss": 6,
+    "total_time_expired": 0,
+    "total_proximity_miss": 6,
+    "recovery_rate": 0.7,
+    "avg_resurfaced_score": 0.7339,
+    "avg_archived_score": 0.7018,
+    "value_density_ratio": 1.0458,
+    "noisy_resurface_count": 2,
+    "noisy_resurface_rate": 0.1429
+  },
+  "delta_240_minus_120": {
+    "recovery_rate_delta": 0.2,
+    "permanent_loss_delta": -4,
+    "time_expired_delta": 0,
+    "proximity_miss_delta": -4,
+    "resurfaced_delta": 4,
+    "value_density_delta": 0.0091,
+    "noisy_rate_delta": -0.0571
+  }
+}

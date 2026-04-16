@@ -1,0 +1,15 @@
+{
+  "run_id": "run_040_resurface_window",
+  "seed": 42,
+  "session_hours": 168,
+  "batch_interval_min": 30,
+  "n_cards_per_batch": 20,
+  "cadence_min": 45,
+  "archive_max_age_min": 480,
+  "resurface_windows_tested": [
+    120,
+    240
+  ],
+  "noisy_threshold": 0.6,
+  "generated_at": "2026-04-16T04:42:53.651772+00:00"
+}
