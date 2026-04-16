@@ -241,7 +241,14 @@ class PushSurfacingEngine:
 
         A card is "last-chance" if:
           age_hl_ratio is in the aging window AND
-          time remaining until _DIGEST_MAX * HL is <= last_chance_lookahead_min.
+          time remaining until _AGING_MAX * HL (the aging→digest_only boundary)
+          is <= last_chance_lookahead_min.
+
+        Bug fixed (Run 029B): previously used _DIGEST_MAX (the digest→expired
+        boundary at 2.5×HL), making T3 geometrically impossible — no aging card
+        can have age ≥ 2.5×HL because aging ends at 1.75×HL.  Corrected to
+        _AGING_MAX (1.75×HL) so the window is the last N minutes before the card
+        crosses from aging into digest_only.
 
         Why we use absolute time remaining rather than ratio proximity:
           At HL=40 min, 10 min is 0.25 ratio units — meaningful.
@@ -256,8 +263,8 @@ class PushSurfacingEngine:
         for c in cards:
             if c.delivery_state() != STATE_AGING:
                 continue
-            # Time until card crosses into digest_only
-            digest_crossover_min = _DIGEST_MAX * c.half_life_min
+            # Time until card crosses into digest_only (aging→digest_only boundary)
+            digest_crossover_min = _AGING_MAX * c.half_life_min
             time_remaining = digest_crossover_min - c.age_min
             if 0 < time_remaining <= self.last_chance_lookahead_min:
                 last_chance.append(c)

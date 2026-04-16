@@ -1,0 +1,7 @@
+variant,avg_push_events_per_session,reviews_per_day,T1_total,T2_total,T3_total,total_triggers,T3_pct,avg_missed_critical,avg_fresh_at_trigger,avg_active_at_trigger,avg_cards_per_review,burden
+baseline,13.8,41.4,35,33,58,126,46.0,0.0,10.94,7.97,10.94,452.9
+A_lookahead5,10.0,30.0,35,33,27,95,28.4,0.0,14.57,8.26,14.57,437.0
+B_family_cooldown60,11.6,34.8,35,33,40,108,37.0,0.0,12.56,7.84,12.56,437.1
+C_suppress_t1t2_30min,13.8,41.4,35,33,43,111,38.7,0.0,10.94,7.97,10.94,452.9
+D_digest_escalation60,12.0,36.0,35,33,49,117,41.9,0.0,12.37,8.82,12.37,445.3
+poll_45min,10.0,30.0,0,0,0,0,0.0,0.0,5.0,0.0,5.0,150.0
