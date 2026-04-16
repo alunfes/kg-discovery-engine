@@ -571,5 +571,9 @@ def belief_update_placeholder(
     hypotheses: list,
     evidence_kg: KnowledgeGraph,
 ) -> list:
-    """Placeholder for belief-update operator (not implemented in v0)."""
+    """Kept for backward compatibility. Use belief_update from pipeline.belief."""
     return hypotheses
+
+
+# Re-export belief_update so callers can import from operators
+from src.pipeline.belief import belief_update as belief_update  # noqa: E402,F401
