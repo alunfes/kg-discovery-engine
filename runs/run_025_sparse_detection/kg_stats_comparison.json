@@ -1,0 +1,25 @@
+{
+  "original": {
+    "node_count": 200,
+    "edge_count": 325,
+    "avg_degree": 3.25,
+    "max_degree": 19,
+    "min_degree": 1,
+    "sparse_nodes_count": 131,
+    "sparse_ratio": 0.655
+  },
+  "augmented": {
+    "node_count": 200,
+    "edge_count": 335,
+    "avg_degree": 3.35,
+    "max_degree": 19,
+    "min_degree": 1,
+    "sparse_nodes_count": 127,
+    "sparse_ratio": 0.635
+  },
+  "delta": {
+    "edge_count": 10,
+    "avg_degree": 0.1,
+    "sparse_nodes_reduced": 4
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "run_id": "run_026_augmented_kg",
+  "date": "2026-04-14",
+  "phase": "P3-A",
+  "description": "C2_augmented hypotheses from densified KG (bio_chem_kg_augmented.json). Density-aware selection: tau_floor=3500. PubMed validation 2024-2025.",
+  "seed": 42,
+  "kg_source": "src/scientific_hypothesis/bio_chem_kg_augmented.json",
+  "baseline_kg": "src/scientific_hypothesis/bio_chem_kg_full.json",
+  "selection": {
+    "method": "C2_density_aware",
+    "tau_floor": 3500,
+    "diversity_weight": 0.5,
+    "target": 70
+  },
+  "augmentation": {
+    "edges_added": 10,
+    "new_hypotheses": 12
+  },
+  "results": {
+    "total_hypotheses": 68,
+    "investigated_count": 67,
+    "investigability": 0.9853,
+    "q1_count": 5,
+    "q1_failure_count": 0,
+    "q1_failure_rate": 0.0,
+    "q1_failure_rate_reduction": 0.3846,
+    "success_criterion_met": true,
+    "success_criterion": "Q1 failure rate ≤ 20%",
+    "reference": {
+      "c2_investigability_run021": 0.971,
+      "c2_q1_failure_rate_run024": 0.3846
+    }
+  },
+  "success_criterion": {
+    "primary": "Q1 failure rate ≤ 20% (from 38.46% in run_024 C2)",
+    "achieved": true
+  },
+  "comparison": {
+    "c2_investigability_run021": 0.971,
+    "c2_q1_failure_rate_run024": 0.3846,
+    "c2_augmented_investigability": 0.9853,
+    "c2_augmented_q1_failure_rate": 0.0
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "total_hypotheses": 68,
+  "investigated_count": 67,
+  "investigability": 0.9853,
+  "q1_count": 5,
+  "q1_failure_count": 0,
+  "q1_failure_rate": 0.0,
+  "q1_failure_rate_reduction": 0.3846,
+  "success_criterion_met": true,
+  "success_criterion": "Q1 failure rate ≤ 20%",
+  "reference": {
+    "c2_investigability_run021": 0.971,
+    "c2_q1_failure_rate_run024": 0.3846
+  }
+}

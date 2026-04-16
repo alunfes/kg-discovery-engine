@@ -1,0 +1,96 @@
+{
+  "run_id": "run_025_sparse_detection",
+  "date": "2026-04-14",
+  "original_kg": "src/scientific_hypothesis/bio_chem_kg_full.json",
+  "augmented_kg": "src/scientific_hypothesis/bio_chem_kg_augmented.json",
+  "edges_added": 10,
+  "augmentation_strategy": {
+    "ampk_pathway_enrichment": "Added 3 biology-side edges to bio:pathway:ampk_pathway (autophagy, oxidative_stress, neuroinflammation). Degree: 3 → 6.",
+    "tumor_angiogenesis_enrichment": "Added 3 edges to bio:process:tumor_angiogenesis (pi3k_akt, lung_cancer, colon_cancer). Degree: 2 → 5.",
+    "bridge_restoration": "Added bridge: valproic_acid → hdac_inhibition → epigenetic_silencing. Fixes H3032 bridge_absent failure.",
+    "pde5_ampk_link": "Added: pde5_inhibition → ampk_pathway. Enables Sildenafil→AMPK hypotheses via PDE5-cGMP-PKG mechanism.",
+    "pi3k_angiogenesis": "Added: pi3k_inhibition → tumor_angiogenesis (direct mechanism edge)."
+  },
+  "augmented_edges": [
+    {
+      "source_id": "bio:pathway:ampk_pathway",
+      "relation": "activates",
+      "target_id": "bio:pathway:autophagy",
+      "weight": 0.85,
+      "provenance": "p3_augmentation",
+      "evidence": "AMPK phosphorylates ULK1, inducing autophagy (Kim et al. 2011, Cell Metab)"
+    },
+    {
+      "source_id": "bio:pathway:ampk_pathway",
+      "relation": "suppresses",
+      "target_id": "bio:pathway:oxidative_stress",
+      "weight": 0.75,
+      "provenance": "p3_augmentation",
+      "evidence": "AMPK activates NRF2-mediated antioxidant response (Zimmermann et al. 2015)"
+    },
+    {
+      "source_id": "bio:pathway:ampk_pathway",
+      "relation": "reduces",
+      "target_id": "bio:pathway:neuroinflammation",
+      "weight": 0.7,
+      "provenance": "p3_augmentation",
+      "evidence": "AMPK suppresses NLRP3 inflammasome and NF-kB in microglia (Gomes et al. 2022)"
+    },
+    {
+      "source_id": "bio:pathway:pi3k_akt",
+      "relation": "promotes",
+      "target_id": "bio:process:tumor_angiogenesis",
+      "weight": 0.8,
+      "provenance": "p3_augmentation",
+      "evidence": "PI3K/AKT activates HIF-1α→VEGF axis driving tumor angiogenesis (Karar & Maity 2011, Front Mol Biosci)"
+    },
+    {
+      "source_id": "bio:process:tumor_angiogenesis",
+      "relation": "promotes",
+      "target_id": "bio:disease:lung_cancer",
+      "weight": 0.75,
+      "provenance": "p3_augmentation",
+      "evidence": "Tumor angiogenesis drives NSCLC progression (Ellis & Bhattacharya 2014)"
+    },
+    {
+      "source_id": "bio:process:tumor_angiogenesis",
+      "relation": "promotes",
+      "target_id": "bio:disease:colon_cancer",
+      "weight": 0.75,
+      "provenance": "p3_augmentation",
+      "evidence": "VEGF-mediated angiogenesis in colorectal cancer (Carmeliet & Jain 2011)"
+    },
+    {
+      "source_id": "chem:drug:valproic_acid",
+      "relation": "inhibits",
+      "target_id": "chem:mechanism:hdac_inhibition",
+      "weight": 0.9,
+      "provenance": "p3_augmentation",
+      "evidence": "VPA is a Class I/II HDAC inhibitor (Gottlicher et al. 2001, EMBO J)"
+    },
+    {
+      "source_id": "chem:mechanism:hdac_inhibition",
+      "relation": "reverses",
+      "target_id": "bio:process:epigenetic_silencing",
+      "weight": 0.85,
+      "provenance": "p3_augmentation",
+      "evidence": "HDAC inhibition reactivates epigenetically silenced tumor suppressors (Baylin 2005, Nature)"
+    },
+    {
+      "source_id": "chem:mechanism:pde5_inhibition",
+      "relation": "activates",
+      "target_id": "bio:pathway:ampk_pathway",
+      "weight": 0.7,
+      "provenance": "p3_augmentation",
+      "evidence": "PDE5i elevates cGMP→PKG→AMPK in cardiomyocytes and neuronal cells (Bhatt et al. 2021, Cardiovasc Res)"
+    },
+    {
+      "source_id": "chem:mechanism:pi3k_inhibition",
+      "relation": "inhibits",
+      "target_id": "bio:process:tumor_angiogenesis",
+      "weight": 0.78,
+      "provenance": "p3_augmentation",
+      "evidence": "PI3K inhibitors reduce VEGF secretion and angiogenesis (Soler et al. 2006, Cancer Res)"
+    }
+  ]
+}
