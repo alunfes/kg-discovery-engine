@@ -1,0 +1,22 @@
+{
+  "run_id": "run_037_ranker_comparison",
+  "timestamp": "2026-04-14T22:14:36.306177",
+  "phase": "P6-ranker-comparison",
+  "seed": 42,
+  "total_candidates": 715,
+  "top_k": 70,
+  "bucket_quotas_T2": {
+    "L2": 50,
+    "L3": 20,
+    "L4+": 0
+  },
+  "conditions": {
+    "B2_global": "global R3 top-70 (from run_036)",
+    "T2xR2": "2-bucket L2=50/L3=20, R2 within buckets (from run_036)",
+    "T2xR3": "2-bucket L2=50/L3=20, R3 within buckets (NEW)"
+  },
+  "evidence_window": "1900/01/01 – 2023/12/31",
+  "validation_window": "2024/01/01 – 2025/12/31",
+  "evidence_cache_source": "/Users/alun/claude-dev/kg-discovery-engine/.claude/worktrees/eager-haibt/src/scientific_hypothesis/../../runs/run_036_p6a_bucketed/evidence_cache.json",
+  "pubmed_cache_source": "/Users/alun/claude-dev/kg-discovery-engine/.claude/worktrees/eager-haibt/src/scientific_hypothesis/../../runs/run_036_p6a_bucketed/pubmed_cache.json"
+}

@@ -1,0 +1,27 @@
+{
+  "label": "T2xR3",
+  "n": 70,
+  "investigability_rate": 0.9286,
+  "failure_rate": 0.0714,
+  "investigated_count": 65,
+  "mean_cross_domain_ratio": 0.4524,
+  "novelty_retention": 0.9048,
+  "baseline_cross_domain_ratio": 0.5,
+  "long_path_share": 0.2857,
+  "by_length": {
+    "2": 50,
+    "3": 20
+  },
+  "by_stratum": {
+    "L2": {
+      "n": 50,
+      "investigated": 48,
+      "support_rate": 0.96
+    },
+    "L3": {
+      "n": 20,
+      "investigated": 17,
+      "support_rate": 0.85
+    }
+  }
+}
