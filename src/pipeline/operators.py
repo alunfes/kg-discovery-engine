@@ -7,6 +7,8 @@ from collections import deque
 from typing import Optional
 
 from src.kg.models import HypothesisCandidate, KGEdge, KGNode, KnowledgeGraph
+from src.kg.temporal import edges_temporally_consistent
+from src.kg.relation_types import path_type_check
 
 # AlignmentMap: {node_id_in_kg1: node_id_in_kg2}
 AlignmentMap = dict[str, str]
@@ -305,6 +307,60 @@ def _passes_compose_filters(
 
 
 # ---------------------------------------------------------------------------
+# Phase A: Temporal + relation-type helpers for compose
+# ---------------------------------------------------------------------------
+
+def _path_to_edges(path: list[str], kg: KnowledgeGraph) -> list[KGEdge]:
+    """Resolve a provenance path list to the corresponding KGEdge objects.
+
+    Path format: [node_id, relation, node_id, relation, ..., node_id].
+    Lookup is exact: matches (src, relation, tgt) triple via adjacency index.
+    Returns an empty list if any edge cannot be resolved.
+    """
+    edges: list[KGEdge] = []
+    for i in range(0, len(path) - 2, 2):
+        src, rel, tgt = path[i], path[i + 1], path[i + 2]
+        match = next(
+            (e for e in kg.neighbors(src)
+             if e.target_id == tgt and e.relation == rel),
+            None,
+        )
+        if match is None:
+            return []
+        edges.append(match)
+    return edges
+
+
+def _passes_phase_a_filters(
+    path: list[str],
+    kg: KnowledgeGraph,
+    check_temporal: bool,
+    allowed_types: frozenset[tuple[str, str]] | None,
+    flagged_types: frozenset[tuple[str, str]] | None,
+) -> tuple[bool, list[str]]:
+    """Return (allowed, flags) for Phase A temporal and relation-type checks.
+
+    Skips all work when no Phase A filters are active (zero overhead for
+    existing callers that do not set any of the new parameters).
+    """
+    if not check_temporal and allowed_types is None and flagged_types is None:
+        return True, []
+
+    path_edges = _path_to_edges(path, kg)
+
+    if check_temporal and not edges_temporally_consistent(path_edges):
+        return False, []
+
+    if allowed_types is not None or flagged_types is not None:
+        ok, flags = path_type_check(path_edges, allowed_types, flagged_types)
+        if not ok:
+            return False, []
+        return True, flags
+
+    return True, []
+
+
+# ---------------------------------------------------------------------------
 # compose
 # ---------------------------------------------------------------------------
 
@@ -317,6 +373,10 @@ def compose(
     guard_consecutive_repeat: bool = False,
     min_strong_ratio: float = 0.0,
     filter_generic_intermediates: bool = False,
+    # Phase A — temporal and relation-type filters
+    check_temporal_consistency: bool = False,
+    allowed_type_transitions: frozenset[tuple[str, str]] | None = None,
+    flagged_type_transitions: frozenset[tuple[str, str]] | None = None,
 ) -> list[HypothesisCandidate]:
     """Generate hypotheses by finding transitive paths in the KG.
 
@@ -341,6 +401,14 @@ def compose(
         filter_generic_intermediates: If True, reject paths whose intermediate nodes
             have generic labels (process, system, entity, substance, compound).
             Default False.
+        check_temporal_consistency: If True, reject paths where edge temporal
+            attributes are inconsistent (observed_at out of order, or non-
+            overlapping valid_from/valid_to intervals). Default False.
+        allowed_type_transitions: If set, only the listed (type_a, type_b)
+            consecutive relation-type pairs are permitted on a path.  Edges
+            without a relation_type are exempt. Default None (unrestricted).
+        flagged_type_transitions: If set, paths containing these (type_a, type_b)
+            pairs are still emitted but carry a warning flag. Default None.
     """
     if _counter is None:
         _counter = [0]
@@ -350,6 +418,11 @@ def compose(
         or guard_consecutive_repeat
         or min_strong_ratio > 0.0
         or filter_generic_intermediates
+    )
+    use_phase_a = bool(
+        check_temporal_consistency
+        or allowed_type_transitions is not None
+        or flagged_type_transitions is not None
     )
 
     candidates: list[HypothesisCandidate] = []
@@ -396,6 +469,19 @@ def compose(
             ):
                 continue
 
+            # Phase A: temporal consistency and relation-type checks
+            phase_a_ok: bool = True
+            phase_a_flags: list[str] = []
+            if use_phase_a:
+                phase_a_ok, phase_a_flags = _passes_phase_a_filters(
+                    path, kg,
+                    check_temporal=check_temporal_consistency,
+                    allowed_types=allowed_type_transitions,
+                    flagged_types=flagged_type_transitions,
+                )
+            if not phase_a_ok:
+                continue
+
             src_node = kg.get_node(source_id)
             tgt_node = kg.get_node(target_id)
             if src_node is None or tgt_node is None:
@@ -418,6 +504,7 @@ def compose(
                     provenance=list(path),
                     operator="compose",
                     source_kg_name=kg.name,
+                    flags=phase_a_flags,
                 )
             )
 
