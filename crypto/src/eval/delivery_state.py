@@ -225,21 +225,44 @@ class ArchiveManager:
          the pool (no further re-surface possible).
 
     Args:
-        resurface_window_min:  Window for same-family recurrence to trigger
-                               re-surface (default 120 min).
-        archive_max_age_min:   Hard deletion threshold for archived cards
-                               (default 480 min / 8 h = one trading session).
+        resurface_window_min:    Window for same-family recurrence to trigger
+                                 re-surface (default 120 min).
+        archive_max_age_min:     Hard deletion threshold for archived cards
+                                 (default 480 min / 8 h = one trading session).
+        family_max_age_overrides: Per-grammar-family override for archive_max_age_min.
+                                 Cards whose grammar_family appears in this dict use
+                                 the mapped value instead of archive_max_age_min.
+                                 Example: {"cross_asset": 720, "reversion": 720}
+                                 Families absent from the dict use archive_max_age_min.
     """
 
     def __init__(
         self,
         resurface_window_min: int = _DEFAULT_RESURFACE_WINDOW_MIN,
         archive_max_age_min: int = _DEFAULT_ARCHIVE_MAX_AGE_MIN,
+        family_max_age_overrides: Optional[dict[str, int]] = None,
     ) -> None:
         self.resurface_window_min = resurface_window_min
         self.archive_max_age_min = archive_max_age_min
+        self.family_max_age_overrides: dict[str, int] = family_max_age_overrides or {}
         # Archive pool: card_id → (card, archived_at_min)
         self._pool: dict[str, tuple[DeliveryCard, float]] = {}
+
+    def _effective_max_age(self, card: DeliveryCard) -> int:
+        """Return effective archive_max_age_min for a card, applying per-family overrides.
+
+        Why per-family override (not a global bump):
+          Families with longer inter-signal gaps (e.g. cross_asset, reversion) benefit
+          from a wider retention window, while high-frequency families (momentum, unwind)
+          would bloat the pool unnecessarily with stale context.
+
+        Args:
+            card: The archived DeliveryCard.
+
+        Returns:
+            Effective max-age in minutes for this card's grammar_family.
+        """
+        return self.family_max_age_overrides.get(card.grammar_family, self.archive_max_age_min)
 
     def apply_archive_transitions(
         self, cards: list[DeliveryCard], current_time_min: float
@@ -345,10 +368,10 @@ class ArchiveManager:
         return resurfaced
 
     def _prune_archive(self, current_time_min: float) -> None:
-        """Hard-delete archived cards older than archive_max_age_min."""
+        """Hard-delete archived cards older than their effective archive_max_age_min."""
         to_delete = [
-            cid for cid, (_, archived_at) in self._pool.items()
-            if (current_time_min - archived_at) > self.archive_max_age_min
+            cid for cid, (card, archived_at) in self._pool.items()
+            if (current_time_min - archived_at) > self._effective_max_age(card)
         ]
         for cid in to_delete:
             del self._pool[cid]
@@ -364,6 +387,7 @@ class ArchiveManager:
             "pool_size": self.pool_size,
             "resurface_window_min": self.resurface_window_min,
             "archive_max_age_min": self.archive_max_age_min,
+            "family_max_age_overrides": dict(self.family_max_age_overrides),
         }
 
 

@@ -1,0 +1,22 @@
+{
+  "run_id": "run_043_archive_ext",
+  "seed": 42,
+  "session_hours": 168,
+  "batch_interval_min": 30,
+  "n_cards_per_batch": 20,
+  "cadence_min": 45,
+  "archive_max_age_baseline_min": 480,
+  "archive_max_age_extended_min": 720,
+  "extended_families": [
+    "cross_asset",
+    "reversion"
+  ],
+  "extended_regimes": [
+    "active",
+    "calm"
+  ],
+  "resurface_window_min": 120,
+  "noisy_threshold": 0.6,
+  "n_known_mitigate": 15,
+  "generated_at": "2026-04-16T07:11:59.842720+00:00"
+}

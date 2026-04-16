@@ -1,0 +1,19 @@
+{
+  "run_id": "run_042_structural_loss",
+  "seed": 42,
+  "session_hours": 168,
+  "batch_interval_min": 30,
+  "n_cards_per_batch": 20,
+  "cadence_min": 45,
+  "archive_max_age_min": 480,
+  "resurface_window_min": 120,
+  "mitigate_families": [
+    "cross_asset",
+    "reversion"
+  ],
+  "mitigate_regimes": [
+    "active",
+    "calm"
+  ],
+  "generated_at": "2026-04-16T07:09:04.553519+00:00"
+}

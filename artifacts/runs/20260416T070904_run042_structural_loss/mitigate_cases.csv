@@ -1,0 +1,16 @@
+card_id,grammar_family,composite_score,tier,archived_at,regime_at_archive,fate,classification
+360_c005,reversion,0.6509,monitor_borderline,3570.0,calm,time_expired,MITIGATE
+367_c012,reversion,0.6403,monitor_borderline,3570.0,calm,time_expired,MITIGATE
+310_c000,reversion,0.4775,baseline_like,3600.0,calm,time_expired,MITIGATE
+387_c012,reversion,0.6699,monitor_borderline,3600.0,calm,time_expired,MITIGATE
+388_c013,reversion,0.6163,monitor_borderline,3600.0,calm,time_expired,MITIGATE
+710_c000,cross_asset,0.4756,baseline_like,5100.0,calm,time_expired,MITIGATE
+735_c018,cross_asset,0.764,research_priority,5130.0,calm,time_expired,MITIGATE
+797_c015,cross_asset,0.4943,reject_conflicted,5130.0,calm,time_expired,MITIGATE
+729_c012,cross_asset,0.6542,monitor_borderline,5160.0,calm,time_expired,MITIGATE
+765_c004,cross_asset,0.7969,actionable_watch,5160.0,calm,time_expired,MITIGATE
+786_c004,cross_asset,0.8911,actionable_watch,5220.0,calm,time_expired,MITIGATE
+776_c015,cross_asset,0.7206,monitor_borderline,5250.0,calm,time_expired,MITIGATE
+810_c008,cross_asset,0.9293,actionable_watch,5250.0,calm,time_expired,MITIGATE
+799_c017,cross_asset,0.6854,research_priority,5265.0,calm,time_expired,MITIGATE
+800_c018,cross_asset,0.7142,research_priority,5265.0,calm,time_expired,MITIGATE

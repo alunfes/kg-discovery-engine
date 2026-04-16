@@ -1,0 +1,11 @@
+metric,baseline,extended,delta
+total_generated,2783,2783,0
+total_archived,2675,2675,0
+total_resurfaced,275,275,0
+recovery_rate,0.1028,0.1028,0.0
+total_permanent_loss,2400,2400,0
+total_time_expired,161,146,-15
+total_proximity_miss,2239,2254,15
+avg_resurfaced_score,0.7963,0.7963,0.0
+value_density_ratio,1.1993,1.1993,0.0
+noisy_resurface_rate,0.0945,0.0945,0.0
