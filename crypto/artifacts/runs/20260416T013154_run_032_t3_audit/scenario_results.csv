@@ -1,0 +1,13 @@
+scenario,batch_interval_min,hot_batch_probability,n_cards_per_batch,t3_lookahead_min,t3_threshold_mode,total_t3_fires,t3_only_fires,t3_overlap_t1,t3_overlap_t2,t3_suppressed_rate,missed_with_t3,missed_without_t3,t3_prevented_missed,t1_events,t2_events,total_push_events,reviews_per_day
+S1_baseline,30,0.3,20,5.0,current,0,0,0,0,0,0,0,0,123,107,123,18.45
+S2_short_batch_15min,15,0.3,20,5.0,current,0,0,0,0,0,0,0,0,231,197,231,34.65
+S3_long_batch_60min,60,0.3,20,5.0,current,0,0,0,0,0,0,0,0,63,54,63,9.45
+S4_sparse_arrivals,30,0.05,20,5.0,current,0,0,0,0,0,0,0,0,44,22,44,6.6
+S5_very_sparse,30,0.01,20,5.0,current,0,0,0,0,0,0,0,0,31,4,31,4.65
+S6_large_lookahead_40min,30,0.3,20,40.0,current,168,102,66,59,0,0,0,0,123,107,225,33.75
+S7_regime_HQH,30,0.3,20,5.0,current,0,0,0,0,0,0,0,0,249,240,249,37.35
+S8_fixed_t3_hot,30,0.3,20,5.0,fixed,112,70,42,36,0,0,0,0,123,107,193,28.95
+S9_fixed_t3_sparse,30,0.05,20,5.0,fixed,79,71,8,7,0,0,0,0,44,22,115,17.25
+S10_fixed_t3_quiet,30,0.01,20,5.0,fixed,77,73,4,0,0,0,0,0,31,4,104,15.6
+S11_fixed_t3_lookahead15,30,0.3,20,15.0,fixed,258,156,102,89,0,0,0,0,123,107,279,41.85
+S12_fixed_t3_HQH_regime,30,0.3,20,15.0,fixed,284,79,205,196,0,0,0,0,249,240,328,49.2
