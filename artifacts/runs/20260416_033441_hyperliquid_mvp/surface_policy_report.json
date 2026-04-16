@@ -1,0 +1,13 @@
+{
+  "total_input": 409,
+  "total_surfaced": 365,
+  "action_worthy": 190,
+  "attention_worthy": 175,
+  "redundant": 21,
+  "archived": 23,
+  "pruning_rate": 0.1076,
+  "reviews_per_day": 2.0,
+  "operator_burden": 730.0,
+  "missed_critical": 0,
+  "resurface_potential": 23
+}

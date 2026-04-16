@@ -1,0 +1,830 @@
+[
+  {
+    "hypothesis_id": "20260416_033441_hyperliquid_mvp-C0401",
+    "created_at": "2026-04-16T03:34:41Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "execution",
+    "hypothesis_text": "When regime high vol regime occurs (invalidates), it may suppresses in regime funding long extreme via regime calm regime.",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "regime::high_vol_regime",
+      "invalidates",
+      "regime::calm_regime",
+      "suppresses_in",
+      "regime::funding_long_extreme"
+    ],
+    "source_streams": [
+      "execution+regime"
+    ],
+    "regime_condition": "high_volatility",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "6h",
+    "actionability_score": 0.6,
+    "novelty_score": 0.3,
+    "reproducibility_score": 0.85,
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "decay_risk": "high",
+    "next_recommended_test": "backtest_slippage_vs_spread_proxy"
+  },
+  {
+    "hypothesis_id": "20260416_033441_hyperliquid_mvp-C0402",
+    "created_at": "2026-04-16T03:34:41Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "execution",
+    "hypothesis_text": "When regime low vol regime occurs (transitions to), it may suppresses in regime funding long extreme via regime calm regime.",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "regime::low_vol_regime",
+      "transitions_to",
+      "regime::calm_regime",
+      "suppresses_in",
+      "regime::funding_long_extreme"
+    ],
+    "source_streams": [
+      "execution+regime"
+    ],
+    "regime_condition": "funding_extreme",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "6h",
+    "actionability_score": 0.6,
+    "novelty_score": 0.3,
+    "reproducibility_score": 0.85,
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "decay_risk": "high",
+    "next_recommended_test": "backtest_slippage_vs_spread_proxy"
+  },
+  {
+    "hypothesis_id": "20260416_033441_hyperliquid_mvp-C0403",
+    "created_at": "2026-04-16T03:34:41Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "execution",
+    "hypothesis_text": "When regime calm regime occurs (suppresses in), it may activates regime high vol regime via regime funding long extreme.",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "regime::calm_regime",
+      "suppresses_in",
+      "regime::funding_long_extreme",
+      "activates",
+      "regime::high_vol_regime"
+    ],
+    "source_streams": [
+      "execution+regime"
+    ],
+    "regime_condition": "high_volatility",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "6h",
+    "actionability_score": 0.6,
+    "novelty_score": 0.3,
+    "reproducibility_score": 0.85,
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "decay_risk": "high",
+    "next_recommended_test": "backtest_slippage_vs_spread_proxy"
+  },
+  {
+    "hypothesis_id": "20260416_033441_hyperliquid_mvp-C0404",
+    "created_at": "2026-04-16T03:34:41Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "execution",
+    "hypothesis_text": "When regime calm regime occurs (suppresses in), it may transitions to regime funding short extreme via regime funding long extreme.",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "regime::calm_regime",
+      "suppresses_in",
+      "regime::funding_long_extreme",
+      "transitions_to",
+      "regime::funding_short_extreme"
+    ],
+    "source_streams": [
+      "execution+regime"
+    ],
+    "regime_condition": "funding_extreme",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "6h",
+    "actionability_score": 0.6,
+    "novelty_score": 0.3,
+    "reproducibility_score": 0.85,
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "decay_risk": "high",
+    "next_recommended_test": "backtest_slippage_vs_spread_proxy"
+  },
+  {
+    "hypothesis_id": "20260416_033441_hyperliquid_mvp-C0405",
+    "created_at": "2026-04-16T03:34:41Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "execution",
+    "hypothesis_text": "When regime funding long extreme occurs (activates), it may invalidates regime calm regime via regime high vol regime.",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "regime::funding_long_extreme",
+      "activates",
+      "regime::high_vol_regime",
+      "invalidates",
+      "regime::calm_regime"
+    ],
+    "source_streams": [
+      "execution+regime"
+    ],
+    "regime_condition": "high_volatility",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "6h",
+    "actionability_score": 0.6,
+    "novelty_score": 0.3,
+    "reproducibility_score": 1.0,
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "decay_risk": "high",
+    "next_recommended_test": "backtest_slippage_vs_spread_proxy"
+  },
+  {
+    "hypothesis_id": "20260416_033441_hyperliquid_mvp-C0406",
+    "created_at": "2026-04-16T03:34:41Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "execution",
+    "hypothesis_text": "When regime funding long extreme occurs (activates), it may amplifies in regime volume surge regime via regime high vol regime.",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "regime::funding_long_extreme",
+      "activates",
+      "regime::high_vol_regime",
+      "amplifies_in",
+      "regime::volume_surge_regime"
+    ],
+    "source_streams": [
+      "execution+regime"
+    ],
+    "regime_condition": "high_volatility",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "6h",
+    "actionability_score": 0.6,
+    "novelty_score": 0.3,
+    "reproducibility_score": 1.0,
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "decay_risk": "high",
+    "next_recommended_test": "backtest_slippage_vs_spread_proxy"
+  },
+  {
+    "hypothesis_id": "20260416_033441_hyperliquid_mvp-C0407",
+    "created_at": "2026-04-16T03:34:41Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "execution",
+    "hypothesis_text": "When regime funding short extreme occurs (transitions to), it may activates regime high vol regime via regime funding long extreme.",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "regime::funding_short_extreme",
+      "transitions_to",
+      "regime::funding_long_extreme",
+      "activates",
+      "regime::high_vol_regime"
+    ],
+    "source_streams": [
+      "execution+regime"
+    ],
+    "regime_condition": "high_volatility",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "6h",
+    "actionability_score": 0.6,
+    "novelty_score": 0.3,
+    "reproducibility_score": 1.0,
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "decay_risk": "high",
+    "next_recommended_test": "backtest_slippage_vs_spread_proxy"
+  },
+  {
+    "hypothesis_id": "20260416_033441_hyperliquid_mvp-C0408",
+    "created_at": "2026-04-16T03:34:41Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "execution",
+    "hypothesis_text": "When regime volume surge regime occurs (amplifies in), it may invalidates regime calm regime via regime high vol regime.",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "regime::volume_surge_regime",
+      "amplifies_in",
+      "regime::high_vol_regime",
+      "invalidates",
+      "regime::calm_regime"
+    ],
+    "source_streams": [
+      "execution+regime"
+    ],
+    "regime_condition": "high_volatility",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "6h",
+    "actionability_score": 0.6,
+    "novelty_score": 0.3,
+    "reproducibility_score": 1.0,
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "decay_risk": "high",
+    "next_recommended_test": "backtest_slippage_vs_spread_proxy"
+  },
+  {
+    "hypothesis_id": "20260416_033441_hyperliquid_mvp-C0056",
+    "created_at": "2026-04-16T03:34:41Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "cross_asset",
+    "hypothesis_text": "When BTC price momentum occurs (precedes move in), it may spills over to BTC volume surge via HYPE price momentum.",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "BTC:price_momentum",
+      "precedes_move_in",
+      "HYPE:price_momentum",
+      "spills_over_to",
+      "BTC:volume_surge"
+    ],
+    "source_streams": [
+      "cross_asset"
+    ],
+    "regime_condition": "any",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "7d",
+    "actionability_score": 0.5,
+    "novelty_score": 0.3,
+    "reproducibility_score": 0.85,
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "decay_risk": "low",
+    "next_recommended_test": "cross_asset_correlation_rolling_window"
+  },
+  {
+    "hypothesis_id": "20260416_033441_hyperliquid_mvp-C0057",
+    "created_at": "2026-04-16T03:34:41Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "cross_asset",
+    "hypothesis_text": "When BTC price momentum occurs (precedes move in), it may spills over to BTC vol burst via HYPE price momentum.",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "BTC:price_momentum",
+      "precedes_move_in",
+      "HYPE:price_momentum",
+      "spills_over_to",
+      "BTC:vol_burst"
+    ],
+    "source_streams": [
+      "cross_asset"
+    ],
+    "regime_condition": "high_volatility",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "7d",
+    "actionability_score": 0.5,
+    "novelty_score": 0.3,
+    "reproducibility_score": 0.85,
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "decay_risk": "low",
+    "next_recommended_test": "cross_asset_correlation_rolling_window"
+  },
+  {
+    "hypothesis_id": "20260416_033441_hyperliquid_mvp-C0058",
+    "created_at": "2026-04-16T03:34:41Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "cross_asset",
+    "hypothesis_text": "When BTC price momentum occurs (precedes move in), it may spills over to BTC calm via HYPE price momentum.",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "BTC:price_momentum",
+      "precedes_move_in",
+      "HYPE:price_momentum",
+      "spills_over_to",
+      "BTC:calm"
+    ],
+    "source_streams": [
+      "cross_asset"
+    ],
+    "regime_condition": "calm",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "7d",
+    "actionability_score": 0.5,
+    "novelty_score": 0.3,
+    "reproducibility_score": 0.85,
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "decay_risk": "low",
+    "next_recommended_test": "cross_asset_correlation_rolling_window"
+  },
+  {
+    "hypothesis_id": "20260416_033441_hyperliquid_mvp-C0059",
+    "created_at": "2026-04-16T03:34:41Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "cross_asset",
+    "hypothesis_text": "When BTC price momentum occurs (precedes move in), it may spills over to BTC funding extreme via HYPE price momentum.",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "BTC:price_momentum",
+      "precedes_move_in",
+      "HYPE:price_momentum",
+      "spills_over_to",
+      "BTC:funding_extreme"
+    ],
+    "source_streams": [
+      "cross_asset"
+    ],
+    "regime_condition": "funding_extreme",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "7d",
+    "actionability_score": 0.5,
+    "novelty_score": 0.3,
+    "reproducibility_score": 0.85,
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "decay_risk": "low",
+    "next_recommended_test": "cross_asset_correlation_rolling_window"
+  },
+  {
+    "hypothesis_id": "20260416_033441_hyperliquid_mvp-C0060",
+    "created_at": "2026-04-16T03:34:41Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "cross_asset",
+    "hypothesis_text": "When BTC price momentum occurs (precedes move in), it may spills over to BTC spread proxy via HYPE price momentum.",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "BTC:price_momentum",
+      "precedes_move_in",
+      "HYPE:price_momentum",
+      "spills_over_to",
+      "BTC:spread_proxy"
+    ],
+    "source_streams": [
+      "cross_asset"
+    ],
+    "regime_condition": "any",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "7d",
+    "actionability_score": 0.5,
+    "novelty_score": 0.3,
+    "reproducibility_score": 0.85,
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "decay_risk": "low",
+    "next_recommended_test": "cross_asset_correlation_rolling_window"
+  },
+  {
+    "hypothesis_id": "20260416_033441_hyperliquid_mvp-C0083",
+    "created_at": "2026-04-16T03:34:41Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "cross_asset",
+    "hypothesis_text": "When ETH price momentum occurs (precedes move in), it may spills over to ETH volume surge via HYPE price momentum.",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "ETH:price_momentum",
+      "precedes_move_in",
+      "HYPE:price_momentum",
+      "spills_over_to",
+      "ETH:volume_surge"
+    ],
+    "source_streams": [
+      "cross_asset"
+    ],
+    "regime_condition": "any",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "7d",
+    "actionability_score": 0.5,
+    "novelty_score": 0.3,
+    "reproducibility_score": 0.85,
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "decay_risk": "low",
+    "next_recommended_test": "cross_asset_correlation_rolling_window"
+  },
+  {
+    "hypothesis_id": "20260416_033441_hyperliquid_mvp-C0084",
+    "created_at": "2026-04-16T03:34:41Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "cross_asset",
+    "hypothesis_text": "When ETH price momentum occurs (precedes move in), it may spills over to ETH spread proxy via HYPE price momentum.",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "ETH:price_momentum",
+      "precedes_move_in",
+      "HYPE:price_momentum",
+      "spills_over_to",
+      "ETH:spread_proxy"
+    ],
+    "source_streams": [
+      "cross_asset"
+    ],
+    "regime_condition": "any",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "7d",
+    "actionability_score": 0.5,
+    "novelty_score": 0.3,
+    "reproducibility_score": 0.85,
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "decay_risk": "low",
+    "next_recommended_test": "cross_asset_correlation_rolling_window"
+  },
+  {
+    "hypothesis_id": "20260416_033441_hyperliquid_mvp-C0085",
+    "created_at": "2026-04-16T03:34:41Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "cross_asset",
+    "hypothesis_text": "When ETH price momentum occurs (precedes move in), it may spills over to ETH funding extreme via HYPE price momentum.",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "ETH:price_momentum",
+      "precedes_move_in",
+      "HYPE:price_momentum",
+      "spills_over_to",
+      "ETH:funding_extreme"
+    ],
+    "source_streams": [
+      "cross_asset"
+    ],
+    "regime_condition": "funding_extreme",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "7d",
+    "actionability_score": 0.5,
+    "novelty_score": 0.3,
+    "reproducibility_score": 0.85,
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "decay_risk": "low",
+    "next_recommended_test": "cross_asset_correlation_rolling_window"
+  },
+  {
+    "hypothesis_id": "20260416_033441_hyperliquid_mvp-C0086",
+    "created_at": "2026-04-16T03:34:41Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "cross_asset",
+    "hypothesis_text": "When ETH price momentum occurs (precedes move in), it may spills over to ETH vol burst via HYPE price momentum.",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "ETH:price_momentum",
+      "precedes_move_in",
+      "HYPE:price_momentum",
+      "spills_over_to",
+      "ETH:vol_burst"
+    ],
+    "source_streams": [
+      "cross_asset"
+    ],
+    "regime_condition": "high_volatility",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "7d",
+    "actionability_score": 0.5,
+    "novelty_score": 0.3,
+    "reproducibility_score": 0.85,
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "decay_risk": "low",
+    "next_recommended_test": "cross_asset_correlation_rolling_window"
+  },
+  {
+    "hypothesis_id": "20260416_033441_hyperliquid_mvp-C0087",
+    "created_at": "2026-04-16T03:34:41Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "cross_asset",
+    "hypothesis_text": "When ETH price momentum occurs (precedes move in), it may spills over to ETH calm via HYPE price momentum.",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "ETH:price_momentum",
+      "precedes_move_in",
+      "HYPE:price_momentum",
+      "spills_over_to",
+      "ETH:calm"
+    ],
+    "source_streams": [
+      "cross_asset"
+    ],
+    "regime_condition": "calm",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "7d",
+    "actionability_score": 0.5,
+    "novelty_score": 0.3,
+    "reproducibility_score": 0.85,
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "decay_risk": "low",
+    "next_recommended_test": "cross_asset_correlation_rolling_window"
+  },
+  {
+    "hypothesis_id": "20260416_033441_hyperliquid_mvp-C0114",
+    "created_at": "2026-04-16T03:34:41Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "cross_asset",
+    "hypothesis_text": "When SOL price momentum occurs (precedes move in), it may spills over to SOL calm via HYPE price momentum.",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "SOL:price_momentum",
+      "precedes_move_in",
+      "HYPE:price_momentum",
+      "spills_over_to",
+      "SOL:calm"
+    ],
+    "source_streams": [
+      "cross_asset"
+    ],
+    "regime_condition": "calm",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "7d",
+    "actionability_score": 0.5,
+    "novelty_score": 0.3,
+    "reproducibility_score": 0.85,
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "decay_risk": "low",
+    "next_recommended_test": "cross_asset_correlation_rolling_window"
+  },
+  {
+    "hypothesis_id": "20260416_033441_hyperliquid_mvp-C0115",
+    "created_at": "2026-04-16T03:34:41Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "cross_asset",
+    "hypothesis_text": "When SOL price momentum occurs (precedes move in), it may spills over to SOL volume surge via HYPE price momentum.",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "SOL:price_momentum",
+      "precedes_move_in",
+      "HYPE:price_momentum",
+      "spills_over_to",
+      "SOL:volume_surge"
+    ],
+    "source_streams": [
+      "cross_asset"
+    ],
+    "regime_condition": "any",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "7d",
+    "actionability_score": 0.5,
+    "novelty_score": 0.3,
+    "reproducibility_score": 0.85,
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "decay_risk": "low",
+    "next_recommended_test": "cross_asset_correlation_rolling_window"
+  },
+  {
+    "hypothesis_id": "20260416_033441_hyperliquid_mvp-C0116",
+    "created_at": "2026-04-16T03:34:41Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "cross_asset",
+    "hypothesis_text": "When SOL price momentum occurs (precedes move in), it may spills over to SOL spread proxy via HYPE price momentum.",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "SOL:price_momentum",
+      "precedes_move_in",
+      "HYPE:price_momentum",
+      "spills_over_to",
+      "SOL:spread_proxy"
+    ],
+    "source_streams": [
+      "cross_asset"
+    ],
+    "regime_condition": "any",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "7d",
+    "actionability_score": 0.5,
+    "novelty_score": 0.3,
+    "reproducibility_score": 0.85,
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "decay_risk": "low",
+    "next_recommended_test": "cross_asset_correlation_rolling_window"
+  },
+  {
+    "hypothesis_id": "20260416_033441_hyperliquid_mvp-C0117",
+    "created_at": "2026-04-16T03:34:41Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "cross_asset",
+    "hypothesis_text": "When SOL price momentum occurs (precedes move in), it may spills over to SOL funding extreme via HYPE price momentum.",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "SOL:price_momentum",
+      "precedes_move_in",
+      "HYPE:price_momentum",
+      "spills_over_to",
+      "SOL:funding_extreme"
+    ],
+    "source_streams": [
+      "cross_asset"
+    ],
+    "regime_condition": "funding_extreme",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "7d",
+    "actionability_score": 0.5,
+    "novelty_score": 0.3,
+    "reproducibility_score": 0.85,
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "decay_risk": "low",
+    "next_recommended_test": "cross_asset_correlation_rolling_window"
+  },
+  {
+    "hypothesis_id": "20260416_033441_hyperliquid_mvp-C0118",
+    "created_at": "2026-04-16T03:34:41Z",
+    "symbols": [
+      "HYPE",
+      "BTC",
+      "ETH",
+      "SOL"
+    ],
+    "timeframe": "1h",
+    "market_scope": "cross_asset",
+    "hypothesis_text": "When SOL price momentum occurs (precedes move in), it may spills over to SOL vol burst via HYPE price momentum.",
+    "operator_chain": [
+      "compose"
+    ],
+    "provenance_path": [
+      "SOL:price_momentum",
+      "precedes_move_in",
+      "HYPE:price_momentum",
+      "spills_over_to",
+      "SOL:vol_burst"
+    ],
+    "source_streams": [
+      "cross_asset"
+    ],
+    "regime_condition": "high_volatility",
+    "expected_edge_type": "precedes_move_in",
+    "estimated_half_life": "7d",
+    "actionability_score": 0.5,
+    "novelty_score": 0.3,
+    "reproducibility_score": 0.85,
+    "secrecy_level": "shareable_structure",
+    "validation_status": "untested",
+    "decay_risk": "low",
+    "next_recommended_test": "cross_asset_correlation_rolling_window"
+  }
+]
