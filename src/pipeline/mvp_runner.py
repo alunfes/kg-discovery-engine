@@ -22,6 +22,13 @@ from src.states.state_extractor import build_market_snapshot
 from src.operators.registry import run_full_pipeline
 from src.eval.trading_scorer import score_and_convert_all
 from src.inventory.hypothesis_store import HypothesisStore
+from src.scientific_hypothesis.surface_policy import (
+    apply_surface_policy,
+    compute_surface_metrics,
+    SURFACE_ACTIVE,
+    SURFACE_ARCHIVE,
+    SURFACE_DROP,
+)
 
 _SEED = 42
 _DEFAULT_SYMBOLS = ["HYPE", "BTC", "ETH", "SOL"]
@@ -70,12 +77,26 @@ def write_input_summary(snapshot: MarketSnapshot, output_dir: str) -> None:
         f.write("\n".join(lines) + "\n")
 
 
+def _policy_note_lines(surface_metrics: dict) -> list[str]:
+    """Build surface policy section lines for run_notes.md."""
+    m = surface_metrics
+    return [
+        "", "## Surface Policy (production-shadow)", "",
+        f"- Input: {m['total_input']} → Surfaced: {m['total_surfaced']} ({m['pruning_rate']*100:.1f}% pruned)",
+        f"- action_worthy: {m['action_worthy']}  attention_worthy: {m['attention_worthy']}",
+        f"- dropped(null_baseline): {m['redundant']}  archived(baseline_like): {m['archived']}",
+        f"- missed_critical: {m['missed_critical']}  operator_burden: {m['operator_burden']} items/day",
+        f"- reviews/day: {m['reviews_per_day']}  resurface_potential: {m['resurface_potential']}",
+    ]
+
+
 def write_run_notes(
     kgs: dict[str, KnowledgeGraph],
     candidates: list[HypothesisCandidate],
     cards: list[HypothesisCard],
     run_status: RunStatus,
     output_dir: str,
+    surface_metrics: dict | None = None,
 ) -> None:
     """Write markdown notes about KG sizes, operator chains, and results."""
     secrecy_counts: dict[str, int] = {}
@@ -101,6 +122,8 @@ def write_run_notes(
     ]
     for level, count in sorted(secrecy_counts.items()):
         lines.append(f"- {level}: {count}")
+    if surface_metrics is not None:
+        lines += _policy_note_lines(surface_metrics)
     if run_status.error:
         lines += ["", "## Error", "", run_status.error]
     path = os.path.join(output_dir, "run_notes.md")
@@ -148,29 +171,39 @@ def _write_cards_json(cards: list[HypothesisCard], path: str) -> None:
 
 def _write_artifacts(
     cards: list[HypothesisCard],
+    surface_tiers: dict[str, list[HypothesisCard]],
+    surface_metrics: dict,
     output_dir: str,
 ) -> None:
-    """Write all hypothesis card artifact files to output_dir."""
-    all_path = os.path.join(output_dir, "generated_hypotheses.json")
-    _write_cards_json(cards, all_path)
+    """Write hypothesis card artifacts, including surface policy output."""
+    # Pre-policy audit trail (all cards, for reproducibility)
+    _write_cards_json(cards, os.path.join(output_dir, "generated_hypotheses.json"))
 
+    # Post-policy: surfaced cards only (what operator sees)
+    active = surface_tiers[SURFACE_ACTIVE]
+    _write_cards_json(active, os.path.join(output_dir, "surfaced_hypotheses.json"))
+
+    # Per-secrecy breakdowns within active cards
     by_secrecy: dict[str, list[HypothesisCard]] = {}
-    for card in cards:
+    for card in active:
         by_secrecy.setdefault(card.secrecy_level, []).append(card)
-
     private = by_secrecy.get("private_alpha", [])
     if private:
         _write_cards_json(private, os.path.join(output_dir, "private_alpha_candidates.json"))
-
     shareable = by_secrecy.get("shareable_structure", [])
     if shareable:
         _write_cards_json(
             shareable, os.path.join(output_dir, "shareable_structure_candidates.json")
         )
 
-    discarded = by_secrecy.get("discard", [])
-    if discarded:
-        _write_cards_json(discarded, os.path.join(output_dir, "discarded_candidates.json"))
+    # Archived cards (not surfaced by default; accessible for promotion)
+    archived = surface_tiers[SURFACE_ARCHIVE]
+    if archived:
+        _write_cards_json(archived, os.path.join(output_dir, "archived_hypotheses.json"))
+
+    # Surface policy metrics report
+    with open(os.path.join(output_dir, "surface_policy_report.json"), "w", encoding="utf-8") as f:
+        json.dump(surface_metrics, f, indent=2, ensure_ascii=False)
 
 
 def _resolve_real_range(base_url: str, timeout_s: int = 30) -> tuple[int, int]:
@@ -278,20 +311,24 @@ def run_mvp(
         candidates = run_full_pipeline(kgs, max_depth=3)
         status.n_candidates = len(candidates)
 
-        # Step 6: score and convert
+        # Step 6: score and convert (value labeling)
         status.phase = "evaluation"
         cards = score_and_convert_all(candidates, symbols, timeframe, run_id)
 
-        # Step 7: store in inventory
+        # Step 6.5: surface policy (production-shadow)
+        surface_tiers = apply_surface_policy(cards)
+        surface_metrics = compute_surface_metrics(cards, surface_tiers)
+
+        # Step 7: store active (surfaced) cards in inventory (delivery)
         store_dir = os.path.join(output_dir, "inventory")
         store = HypothesisStore(store_dir)
-        store.save_batch(cards)
-        status.n_hypotheses_stored = len(cards)
+        store.save_batch(surface_tiers[SURFACE_ACTIVE])
+        status.n_hypotheses_stored = len(surface_tiers[SURFACE_ACTIVE])
 
-        # Step 8: write artifacts
+        # Step 8: write artifacts (pruning後の最終状態を反映)
         write_input_summary(snapshot, output_dir)
-        _write_artifacts(cards, output_dir)
-        write_run_notes(kgs, candidates, cards, status, output_dir)
+        _write_artifacts(cards, surface_tiers, surface_metrics, output_dir)
+        write_run_notes(kgs, candidates, cards, status, output_dir, surface_metrics)
 
         status.phase = "complete"
         status.completed_at = datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
