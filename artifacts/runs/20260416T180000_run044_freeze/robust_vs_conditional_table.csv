@@ -1,0 +1,30 @@
+id,conclusion,class,first_run,confirmed_runs,metric,caveat
+R-01,Push achieves -34% reviews/day vs poll_45min,Robust,031,"031,035,036","21.0 reviews/day vs 32.0 (poll_45min)",hot_prob=0.30 synthetic
+R-02,missed_critical=0 under push delivery,Robust,031,"031,035,036",0 missed across all simulation runs,Synthetic tier distribution
+R-03,Family collapse reduces burden without value loss,Robust,027,"027,028,031,034,035","info_loss_score < 0.25; -10-15% items",None
+R-04,T3 structurally dormant at 5-min lookahead,Robust,033,"031,033",T3 fraction=0.0% in 5-day shadow,Synthetic batch timing
+R-05,null_baseline DROP has 0 value loss,Robust,038,"038,038b",21 dropped; 0 action_worthy affected,4-asset tradeable set
+R-06,baseline_like ARCHIVE has 0 action_worthy loss,Robust,038,"038,039","0 counterfactually action_worthy; cap=0.62 < 0.74",Score calibration stable
+R-07,Archive recovery >= 79% in active/calm regimes,Robust,039,039,"357/450=79.3%; active 87-89%",Drops to 35-65% in sparse
+R-08,Window=240 gives same recovery as 120 (LCM bottleneck),Robust,040,040,"recovery 8.2% -> 8.2% (+0.0pp)",Fixed at batch=30 cadence=45
+R-09,Regime-aware fallback saves -27.8% quiet-day burden,Robust,036,036,"9.0 -> 6.5 fallbacks/day; missed_critical=0",Synthetic regime labels
+R-10,T1+T2 cover all events; T3 redundant in normal op,Robust,033,"033,031",Before/after T3 removal: identical across 20 seeds,Normal hot_prob conditions
+R-11,Surface Policy v2 -10.8% burden inline (mvp_runner),Robust,038b,038b,818 -> 730 items/day; 0 missed_critical,Mock pipeline data
+R-12,Multi-domain-crossing design is domain-agnostic,Robust,041,"041,043",transfer_score=0.971; NT matches oxidative stress geometry,Synthetic KG
+R-13,T3+pf pre-filter achieves inv=1.000 with long-path diversity,Robust,043,043,"inv=1.000 vs B2=0.9714; long_share=50%",Requires populated validation cache
+R-14,Resurfaced baseline_like cards = 90.5% net value,Robust,039,039,323/357 resurfaced = action+attention worthy,Relational value (confirmation context)
+C-01,Push <=21 reviews/day at hot_batch_probability=0.30,Conditional,031,031,21.0/day at hot_prob=0.30,"hot_prob unknown on live data; burden rises with hot_prob"
+C-02,missed_critical=0 under synthetic tier distribution,Conditional,031,"031,035","0 missed; structural via T1 on all incoming HC cards","Real data may have more HC cards/batch; S3 rate-limit could delay"
+C-03,Quiet-day -27.8% burden reduction under synthetic regimes,Conditional,036,036,-27.8% quiet-day fallbacks,Synthetic hot_prob distribution; real data may differ
+C-04,Sparse archive recovery 35-65% acceptable (noise suppression),Conditional,039,039,"35-65% recovery; baseline_like sparse signal = low-value","Real sparse markets may contain action_worthy; monitor"
+C-05,T2=3 threshold correctly separates hot/quiet batches,Conditional,031,"029b,031",T2 fires appropriately in hot batches,Forced 4-asset family in synthetic hot batches; real data may differ
+C-06,LCM=90 min is fixed at batch=30 cadence=45,Conditional,040,040,LCM(30,45)=90 min confirmed,Changes if cadence or batch_interval changes
+C-07,Pre-filter inv=1.000 requires populated validation cache,Conditional,043,043,inv=1.000 with 2024-2025 PubMed cache,P11-A (cold-start) not yet tested
+C-08,null_baseline HYPE exclusion correct for 4-asset tradeable set,Conditional,038,"038,038b","21 null_baseline dropped; HYPE paths preserved","New tradeable assets would require _TRADEABLE_ASSETS update"
+S-01,Original Run 028 push < poll_45min reviews/day claim,Superseded,028,029b,Corrected: BUG-001+BUG-002 invalidated Run 028 metrics,Replaced by Run 031 finding (R-01)
+S-02,Run 028 T3 fires rarely,Superseded,028,029b,Corrected: BUG-001 made T3 unreachable; post-fix T3=51% of triggers,Replaced by Run 033 finding (R-04)
+S-03,Run 028 operator burden push 21% lower than poll,Superseded,028,029b,Corrected: BUG-002 inverted push/poll columns in burden CSV,Corrected value from Run 031 (R-01)
+S-04,Run 028 resurface persistence claim,Superseded,028,029b,Corrected: BUG-003 resurface cards were ephemeral (1 cycle only),Fixed in Run 029B; resurface persistence now validated
+S-05,Pre-Run-029A recall calibration in half-life calibrator,Superseded,pre-029,029b,Corrected: BUG-004 recall denominator wrong (understated by expiry rate),Post-029B recall figures are correct
+S-06,Run 039 recommendation to widen resurface_window to 240 min,Superseded,039,040,Corrected: Run 040 shows 240 min provides +0.0pp recovery (LCM bottleneck),window=120 is the locked value
+S-07,Run 041 C_NT_ONLY verdict as GEOMETRY_ONLY,Superseded,041,043,Corrected: Run 043 shows inv=1.000 via pre-filter; gap was selection artifact not domain limit,C_NT_ONLY verdict updated to DOMAIN_AGNOSTIC

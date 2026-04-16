@@ -1,0 +1,60 @@
+{
+  "run_id": "run044",
+  "run_date": "2026-04-16",
+  "run_type": "final_policy_freeze",
+  "description": "Final policy freeze and conclusion stability pass for Epic Allen series (Runs 028-043)",
+  "inputs": {
+    "runs_reviewed": ["028", "029a", "029b", "030", "031", "033", "034", "035", "036", "037", "038", "038b", "039", "040", "041", "042", "043"],
+    "config_files_checked": [
+      "crypto/recommended_config.json",
+      "crypto/src/eval/push_surfacing.py",
+      "crypto/src/eval/delivery_state.py",
+      "crypto/src/eval/surface_policy.py",
+      "src/scientific_hypothesis/surface_policy.py"
+    ]
+  },
+  "outputs": {
+    "docs": [
+      "docs/run044_final_policy_freeze.md",
+      "docs/final_conclusion_stability_map.md",
+      "docs/final_policy_stack.md"
+    ],
+    "artifacts": [
+      "artifacts/runs/20260416T180000_run044_freeze/config_consistency_check.md",
+      "artifacts/runs/20260416T180000_run044_freeze/robust_vs_conditional_table.csv",
+      "artifacts/runs/20260416T180000_run044_freeze/superseded_claims.md"
+    ],
+    "config_updates": [
+      "crypto/recommended_config.json (v1.x -> v2.0)"
+    ]
+  },
+  "findings": {
+    "config_discrepancies_found": 2,
+    "config_discrepancies_fixed": 2,
+    "robust_conclusions": 14,
+    "conditional_conclusions": 8,
+    "superseded_claims": 7,
+    "code_bugs_open": 0,
+    "policy_layers_frozen": ["delivery", "surface", "archive", "kg_science"]
+  },
+  "policy_stack_version": "v2.0",
+  "frozen_policies": {
+    "T1_threshold": 0.74,
+    "T2_threshold": 3,
+    "T3_lookahead_min": 5.0,
+    "S3_rate_limit_min": 15.0,
+    "fallback_quiet_min": 60,
+    "fallback_hot_min": 45,
+    "family_collapse_min": 2,
+    "null_baseline": "DROP",
+    "baseline_like": "ARCHIVE",
+    "archive_ratio_hl": 5.0,
+    "resurface_window_min": 120,
+    "archive_max_age_min": 480
+  },
+  "accepted_ceilings": {
+    "archive_permanent_loss_pct": "14.5-20.7 (LCM bottleneck, structural)",
+    "sparse_regime_recovery_pct": "35-65 (noise suppression working)",
+    "t3_dormancy_pct": "~100 (5-min window; safety net only)"
+  }
+}

@@ -4,27 +4,52 @@
     "T1_high_conviction_threshold": 0.74,
     "T1_high_priority_tiers": ["actionable_watch", "research_priority"],
     "T2_fresh_count_threshold": 3,
-    "T3_last_chance_lookahead_min": 10.0,
+    "T3_last_chance_lookahead_min": 5.0,
     "rate_limit_gap_min": 15.0
   },
-  "baseline_fallback_cadence_min": 45,
+  "fallback_cadence": {
+    "policy": "regime_aware",
+    "fallback_cadence_quiet_min": 60,
+    "fallback_cadence_hot_min": 45,
+    "fallback_quiet_threshold_hot_prob": 0.25,
+    "_note": "quiet = hot_prob <= 0.25; hot/transition = hot_prob > 0.25 (Run 036)"
+  },
   "batch_interval_min": 30,
   "n_cards_per_batch": 20,
   "archive_policy": {
     "archive_ratio_hl": 5.0,
     "resurface_window_min": 120,
-    "archive_max_age_min": 480
+    "archive_max_age_min": 480,
+    "_note": "window=240 provides identical recovery due to LCM bottleneck (Run 040)"
   },
   "family_collapse": {
     "enabled": true,
     "min_family_size": 2
   },
-  "_provenance": "Run 028 final delivery recommendation (2026-04-15)",
-  "_frozen_for": "Run 035 live canary",
-  "_run028_baselines": {
-    "reviews_per_day": 18.45,
+  "surface_policy": {
+    "null_baseline": "DROP",
+    "baseline_like": "ARCHIVE",
+    "null_baseline_condition": "single non-HYPE tradeable asset in provenance path",
+    "baseline_like_condition": "secrecy_level == shareable_structure AND novelty_score <= 0.30"
+  },
+  "_provenance": "Run 044 final policy freeze (2026-04-16)",
+  "_frozen_for": "Run 044 — production shadow final",
+  "_policy_stack_version": "v2.0",
+  "_changelog": {
+    "v1.0": "Run 028 initial delivery recommendation",
+    "v1.1": "Run 029B bug fixes (T3 threshold, burden, resurface persistence, recall)",
+    "v1.2": "Run 031 T3 lookahead locked to 5.0 min (Variant A)",
+    "v1.3": "Run 036 regime-aware fallback cadence (quiet=60, hot=45)",
+    "v2.0": "Run 044 final freeze: T3 config corrected (10->5), regime-aware fallback added, surface policy documented"
+  },
+  "_validated_metrics": {
+    "reviews_per_day": 21.0,
     "missed_critical": 0,
-    "avg_items_per_review": 23.9,
-    "hot_batch_probability_calibration": 0.30
+    "burden_vs_poll_45min": "-21%",
+    "surface_reduction": "10.8%",
+    "action_worthy_preserved": "100%",
+    "archive_recovery_rate": "79.3%",
+    "quiet_day_fallback_reduction": "-27.8%",
+    "source_runs": "028-043 (Epic Allen series)"
   }
 }
