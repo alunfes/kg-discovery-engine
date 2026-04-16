@@ -1,0 +1,227 @@
+[
+  {
+    "scenario": "A_flow_continuation_vs_sell",
+    "rule_counts": {
+      "contradict": 3,
+      "expire_faster": 6
+    },
+    "n_contradictions": 3,
+    "n_reinforcements": 0,
+    "n_promotions": 0,
+    "card_summaries": [
+      {
+        "card_id": "fc_actionable",
+        "branch": "flow_continuation",
+        "asset": "HYPE",
+        "tier_before": "actionable_watch",
+        "tier_after": "monitor_borderline",
+        "tier_changed": true,
+        "score_before": 0.85,
+        "score_after": 0.6,
+        "half_life_before": 40.0,
+        "half_life_after": 20.0,
+        "rules_fired": [
+          "contradict",
+          "contradict",
+          "expire_faster"
+        ],
+        "n_contradict": 2,
+        "n_expire_faster": 1
+      },
+      {
+        "card_id": "fc_monitor",
+        "branch": "flow_continuation",
+        "asset": "HYPE",
+        "tier_before": "monitor_borderline",
+        "tier_after": "monitor_borderline",
+        "tier_changed": false,
+        "score_before": 0.58,
+        "score_after": 0.43,
+        "half_life_before": 60.0,
+        "half_life_after": 7.5,
+        "rules_fired": [
+          "expire_faster",
+          "expire_faster",
+          "expire_faster"
+        ],
+        "n_contradict": 0,
+        "n_expire_faster": 3
+      },
+      {
+        "card_id": "fc_research",
+        "branch": "flow_continuation",
+        "asset": "HYPE",
+        "tier_before": "research_priority",
+        "tier_after": "monitor_borderline",
+        "tier_changed": true,
+        "score_before": 0.72,
+        "score_after": 0.52,
+        "half_life_before": 50.0,
+        "half_life_after": 12.5,
+        "rules_fired": [
+          "contradict",
+          "expire_faster",
+          "expire_faster"
+        ],
+        "n_contradict": 1,
+        "n_expire_faster": 2
+      }
+    ],
+    "description": "flow_continuation cards (3 tiers) receive sell_burst + spread_widening + book_thinning.  Expect: actionable_watch \u2192 contradict, research_priority \u2192 contradict, monitor_borderline \u2192 expire_faster."
+  },
+  {
+    "scenario": "B_positioning_unwind_vs_recovery",
+    "rule_counts": {
+      "contradict": 3,
+      "expire_faster": 1
+    },
+    "n_contradictions": 3,
+    "n_reinforcements": 0,
+    "n_promotions": 0,
+    "card_summaries": [
+      {
+        "card_id": "pu_actionable",
+        "branch": "positioning_unwind",
+        "asset": "HYPE",
+        "tier_before": "actionable_watch",
+        "tier_after": "monitor_borderline",
+        "tier_changed": true,
+        "score_before": 0.82,
+        "score_after": 0.62,
+        "half_life_before": 40.0,
+        "half_life_after": 40.0,
+        "rules_fired": [
+          "contradict",
+          "contradict"
+        ],
+        "n_contradict": 2,
+        "n_expire_faster": 0
+      },
+      {
+        "card_id": "pu_research",
+        "branch": "positioning_unwind",
+        "asset": "HYPE",
+        "tier_before": "research_priority",
+        "tier_after": "monitor_borderline",
+        "tier_changed": true,
+        "score_before": 0.7,
+        "score_after": 0.55,
+        "half_life_before": 50.0,
+        "half_life_after": 25.0,
+        "rules_fired": [
+          "contradict",
+          "expire_faster"
+        ],
+        "n_contradict": 1,
+        "n_expire_faster": 1
+      }
+    ],
+    "description": "positioning_unwind cards receive buy_burst + oi_change(accumulation). buy_burst opposition is new in Run 020 (_OPPOSES fix).  Expect: actionable_watch \u2192 contradict \u00d7 2, research_priority \u2192 contradict \u00d7 2."
+  },
+  {
+    "scenario": "C_beta_reversion_vs_buy_pressure",
+    "rule_counts": {
+      "contradict": 2,
+      "expire_faster": 2
+    },
+    "n_contradictions": 2,
+    "n_reinforcements": 0,
+    "n_promotions": 0,
+    "card_summaries": [
+      {
+        "card_id": "br_actionable",
+        "branch": "beta_reversion",
+        "asset": "HYPE",
+        "tier_before": "actionable_watch",
+        "tier_after": "monitor_borderline",
+        "tier_changed": true,
+        "score_before": 0.8,
+        "score_after": 0.6,
+        "half_life_before": 40.0,
+        "half_life_after": 40.0,
+        "rules_fired": [
+          "contradict",
+          "contradict"
+        ],
+        "n_contradict": 2,
+        "n_expire_faster": 0
+      },
+      {
+        "card_id": "br_monitor",
+        "branch": "beta_reversion",
+        "asset": "HYPE",
+        "tier_before": "monitor_borderline",
+        "tier_after": "monitor_borderline",
+        "tier_changed": false,
+        "score_before": 0.55,
+        "score_after": 0.45,
+        "half_life_before": 60.0,
+        "half_life_after": 15.0,
+        "rules_fired": [
+          "expire_faster",
+          "expire_faster"
+        ],
+        "n_contradict": 0,
+        "n_expire_faster": 2
+      }
+    ],
+    "description": "beta_reversion cards receive two buy_burst events.  Expect: actionable_watch \u2192 contradict, contradict; monitor_borderline \u2192 expire_faster, expire_faster."
+  },
+  {
+    "scenario": "D_control_unrelated",
+    "rule_counts": {
+      "no_effect": 2
+    },
+    "n_contradictions": 0,
+    "n_reinforcements": 0,
+    "n_promotions": 0,
+    "card_summaries": [
+      {
+        "card_id": "ctrl_btc_fc",
+        "branch": "flow_continuation",
+        "asset": "BTC",
+        "tier_before": "research_priority",
+        "tier_after": "research_priority",
+        "tier_changed": false,
+        "score_before": 0.68,
+        "score_after": 0.68,
+        "half_life_before": 50.0,
+        "half_life_after": 50.0,
+        "rules_fired": [],
+        "n_contradict": 0,
+        "n_expire_faster": 0
+      },
+      {
+        "card_id": "ctrl_eth_cross",
+        "branch": "cross_asset",
+        "asset": "ETH",
+        "tier_before": "research_priority",
+        "tier_after": "research_priority",
+        "tier_changed": false,
+        "score_before": 0.7,
+        "score_after": 0.7,
+        "half_life_before": 50.0,
+        "half_life_after": 50.0,
+        "rules_fired": [],
+        "n_contradict": 0,
+        "n_expire_faster": 0
+      },
+      {
+        "card_id": "ctrl_hype_unrelated",
+        "branch": "cross_asset",
+        "asset": "HYPE",
+        "tier_before": "baseline_like",
+        "tier_after": "baseline_like",
+        "tier_changed": false,
+        "score_before": 0.45,
+        "score_after": 0.45,
+        "half_life_before": 90.0,
+        "half_life_after": 90.0,
+        "rules_fired": [],
+        "n_contradict": 0,
+        "n_expire_faster": 0
+      }
+    ],
+    "description": "Control: sell_burst + spread_widening (HYPE) against ETH cross_asset, BTC flow_continuation (asset mismatch), and HYPE cross_asset.  ETH/BTC cards expect no_effect (asset mismatch). HYPE cross_asset expects no_effect (branch not in _OPPOSES for sell_burst)."
+  }
+]
