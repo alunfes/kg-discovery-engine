@@ -20,6 +20,31 @@ RELATION_TYPES: frozenset[str] = frozenset({
     "ontological",  # X is-a / subclass-of / equivalent-to Y
 })
 
+# ---------------------------------------------------------------------------
+# Specific negative / weakening relation labels
+# ---------------------------------------------------------------------------
+
+CONTRADICTS: str = "contradicts"
+TEMPORALLY_INCONSISTENT: str = "temporally_inconsistent"
+CONFOUNDED_BY: str = "confounded_by"
+HUB_ARTIFACT: str = "hub_artifact"
+GENERIC_BRIDGE: str = "generic_bridge"
+
+# Relations that cast doubt on or negate a hypothesis path
+NEGATIVE_RELATIONS: frozenset[str] = frozenset({
+    CONTRADICTS,
+    TEMPORALLY_INCONSISTENT,
+    CONFOUNDED_BY,
+    HUB_ARTIFACT,
+    GENERIC_BRIDGE,
+})
+
+# Subset used to classify "weakening" evidence (unreliable bridge signals)
+WEAKENING_RELATIONS: frozenset[str] = frozenset({
+    HUB_ARTIFACT,
+    GENERIC_BRIDGE,
+})
+
 
 # ---------------------------------------------------------------------------
 # Path type validation

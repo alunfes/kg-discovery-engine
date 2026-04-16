@@ -1,11 +1,77 @@
-"""Temporal consistency helpers for KG edges (Phase A)."""
+"""Temporal attributes and consistency helpers for KG nodes/edges."""
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
-    from src.kg.models import KGEdge
+    from src.kg.models import KGEdge, KGNode
+
+# ---------------------------------------------------------------------------
+# Attribute key constants
+# ---------------------------------------------------------------------------
+
+ATTR_VALID_FROM: str = "valid_from"
+ATTR_VALID_TO: str = "valid_to"
+ATTR_OBSERVED_AT: str = "observed_at"
+ATTR_CONFIDENCE: str = "confidence"
+
+
+# ---------------------------------------------------------------------------
+# Temporal attribute helpers
+# ---------------------------------------------------------------------------
+
+def set_temporal(
+    item: "Union[KGNode, KGEdge]",
+    *,
+    valid_from: int | None = None,
+    valid_to: int | None = None,
+    observed_at: int | None = None,
+    confidence: float = 1.0,
+) -> None:
+    """Write temporal attributes onto a KGNode or KGEdge.
+
+    None values for valid_from, valid_to, observed_at are skipped (not written).
+    confidence always defaults to 1.0 and is always written.
+    """
+    if valid_from is not None:
+        item.attributes[ATTR_VALID_FROM] = valid_from
+    if valid_to is not None:
+        item.attributes[ATTR_VALID_TO] = valid_to
+    if observed_at is not None:
+        item.attributes[ATTR_OBSERVED_AT] = observed_at
+    item.attributes[ATTR_CONFIDENCE] = confidence
+
+
+def get_temporal(item: "Union[KGNode, KGEdge]") -> dict:
+    """Return a dict with all four temporal keys for the given node or edge.
+
+    Missing values are returned as None; confidence defaults to 1.0.
+    """
+    attrs = item.attributes
+    return {
+        ATTR_VALID_FROM: attrs.get(ATTR_VALID_FROM),
+        ATTR_VALID_TO: attrs.get(ATTR_VALID_TO),
+        ATTR_OBSERVED_AT: attrs.get(ATTR_OBSERVED_AT),
+        ATTR_CONFIDENCE: attrs.get(ATTR_CONFIDENCE, 1.0),
+    }
+
+
+def is_valid_at(item: "Union[KGNode, KGEdge]", timestamp: int) -> bool:
+    """Return True if the item is valid at the given timestamp (closed interval)."""
+    attrs = item.attributes
+    vf = attrs.get(ATTR_VALID_FROM)
+    vt = attrs.get(ATTR_VALID_TO)
+    if vf is not None and timestamp < vf:
+        return False
+    if vt is not None and timestamp > vt:
+        return False
+    return True
+
+
+def filter_valid_at(items: list, timestamp: int) -> list:
+    """Return only those items that are valid at the given timestamp."""
+    return [it for it in items if is_valid_at(it, timestamp)]
 
 
 def _intervals_overlap(from1: str, to1: str, from2: str, to2: str) -> bool:
