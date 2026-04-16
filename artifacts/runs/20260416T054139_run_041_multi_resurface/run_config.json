@@ -1,0 +1,37 @@
+{
+  "run_id": "run_041_multi_resurface",
+  "base_seed": 41,
+  "n_days": 7,
+  "batch_interval_min": 30,
+  "n_cards_per_batch": 20,
+  "resurface_window_min": 120,
+  "archive_max_age_min": 480,
+  "regime_by_day": {
+    "1": "sparse",
+    "2": "sparse",
+    "3": "calm",
+    "4": "calm",
+    "5": "active",
+    "6": "active",
+    "7": "mixed"
+  },
+  "variants": [
+    {
+      "label": "baseline",
+      "max_resurfaces": 1
+    },
+    {
+      "label": "variant_a",
+      "max_resurfaces": 2
+    },
+    {
+      "label": "variant_b",
+      "max_resurfaces": 3
+    },
+    {
+      "label": "variant_c",
+      "max_resurfaces": null
+    }
+  ],
+  "generated_at": "2026-04-16T05:41:39.174765+00:00"
+}

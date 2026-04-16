@@ -1,0 +1,5 @@
+variant,max_resurfaces,total_archived,total_resurfaced,recovery_rate_pct,permanent_loss_count,total_resurface_events,operator_burden_delta,action_worthy_count,attention_worthy_count,noisy_resurface_rate,avg_resurfaces_per_resurfaced_card
+baseline,1,386,301,77.98,85,301,0,90,185,0.0864,1.0
+variant_a,2,386,266,68.91,120,427,126,79,163,0.0984,1.605
+variant_b,3,386,250,64.77,136,466,165,79,150,0.1009,1.864
+variant_c,unlimited,386,236,61.14,150,474,173,72,146,0.1013,2.008
