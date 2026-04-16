@@ -150,6 +150,7 @@ class PushSurfacingResult:
     avg_active_at_trigger: float
     missed_critical_count: int
     trigger_breakdown: dict[str, int]
+    avg_collapsed_at_trigger: float = 0.0
     events: list[PushEvent] = field(default_factory=list)
 
     def to_dict(self) -> dict:
@@ -161,6 +162,7 @@ class PushSurfacingResult:
             "reviews_per_day": round(self.reviews_per_day, 2),
             "avg_fresh_at_trigger": round(self.avg_fresh_at_trigger, 2),
             "avg_active_at_trigger": round(self.avg_active_at_trigger, 2),
+            "avg_collapsed_at_trigger": round(self.avg_collapsed_at_trigger, 2),
             "missed_critical_count": self.missed_critical_count,
             "trigger_breakdown": self.trigger_breakdown,
         }
@@ -241,7 +243,15 @@ class PushSurfacingEngine:
 
         A card is "last-chance" if:
           age_hl_ratio is in the aging window AND
-          time remaining until _DIGEST_MAX * HL is <= last_chance_lookahead_min.
+          time remaining until _AGING_MAX * HL is <= last_chance_lookahead_min.
+
+        Why _AGING_MAX (not _DIGEST_MAX):
+          The aging→digest_only transition fires at ratio=_AGING_MAX (1.75),
+          i.e. age_min == _AGING_MAX * half_life_min.  Using _DIGEST_MAX (2.5)
+          instead points to the expired boundary — a card in the aging window
+          is always at least (2.5-1.75)*HL minutes away from that boundary,
+          making the lookahead window unreachable for typical HL values and
+          last_chance_lookahead_min=10.  The correct crossover is _AGING_MAX.
 
         Why we use absolute time remaining rather than ratio proximity:
           At HL=40 min, 10 min is 0.25 ratio units — meaningful.
@@ -256,8 +266,9 @@ class PushSurfacingEngine:
         for c in cards:
             if c.delivery_state() != STATE_AGING:
                 continue
-            # Time until card crosses into digest_only
-            digest_crossover_min = _DIGEST_MAX * c.half_life_min
+            # Time until card crosses from aging into digest_only
+            # Crossover at _AGING_MAX * HL (not _DIGEST_MAX which is the expiry threshold)
+            digest_crossover_min = _AGING_MAX * c.half_life_min
             time_remaining = digest_crossover_min - c.age_min
             if 0 < time_remaining <= self.last_chance_lookahead_min:
                 last_chance.append(c)
@@ -395,7 +406,12 @@ class PushSurfacingEngine:
             event.suppress_reason = "S1: no actionable (fresh/active/aging) cards in deck"
             return event
 
-        if self._check_suppress_s2(cards, fresh_active):
+        # S2 is about fresh/active card quality — it must not suppress a T3
+        # (aging last-chance) trigger.  T3 fires because an aging card is about
+        # to expire regardless of what fresh cards look like.  Blocking T3 via
+        # S2 would cause the operator to miss the last-chance notification even
+        # when the fresh batch is quiet.
+        if "T3" not in triggers and self._check_suppress_s2(cards, fresh_active):
             event.suppressed = True
             event.suppress_reason = (
                 "S2: all fresh cards are low-priority or digest-collapsed duplicates"
@@ -495,6 +511,8 @@ def simulate_push_surfacing(
 
     events: list[PushEvent] = []
     fired_events: list[PushEvent] = []
+    # Post-collapse item counts at each trigger time (for accurate burden calc)
+    collapsed_counts_at_trigger: list[int] = []
 
     for t in batch_times:
         # Determine batch quality: hot (active regime) or quiet (baseline).
@@ -547,6 +565,19 @@ def simulate_push_surfacing(
             for c in deck:
                 if c.card_id in all_critical and c.delivery_state() == STATE_FRESH:
                     covered_critical.add(c.card_id)
+            # Compute post-collapse item count (the true operator-facing load).
+            # avg_fresh + avg_active is the pre-collapse deck size; applying a
+            # static factor from Run 027 is inaccurate because deck composition
+            # varies by trigger type.  DeliveryStateEngine.collapse_families()
+            # gives the exact post-collapse count at this moment.
+            from crypto.src.eval.delivery_state import DeliveryStateEngine as _DSE
+            _dse = _DSE(collapse_min_family_size=collapse_min_family_size)
+            surfaced = [
+                c for c in deck
+                if c.delivery_state() in (STATE_FRESH, STATE_ACTIVE, STATE_AGING)
+            ]
+            surface_items, _ = _dse.collapse_families(surfaced)
+            collapsed_counts_at_trigger.append(len(surface_items))
 
     missed_critical = all_critical - covered_critical
 
@@ -559,6 +590,10 @@ def simulate_push_surfacing(
     )
     avg_active = (
         sum(e.active_count for e in fired_events) / n_fired if n_fired else 0.0
+    )
+    avg_collapsed = (
+        sum(collapsed_counts_at_trigger) / len(collapsed_counts_at_trigger)
+        if collapsed_counts_at_trigger else 0.0
     )
 
     trigger_breakdown: dict[str, int] = {"T1": 0, "T2": 0, "T3": 0}
@@ -573,6 +608,7 @@ def simulate_push_surfacing(
         reviews_per_day=reviews_per_day,
         avg_fresh_at_trigger=avg_fresh,
         avg_active_at_trigger=avg_active,
+        avg_collapsed_at_trigger=avg_collapsed,
         missed_critical_count=len(missed_critical),
         trigger_breakdown=trigger_breakdown,
         events=events,
@@ -622,6 +658,7 @@ def run_push_multi_seed(
     avg_reviews_day = sum(r.reviews_per_day for r in results) / n
     avg_fresh = sum(r.avg_fresh_at_trigger for r in results) / n
     avg_active = sum(r.avg_active_at_trigger for r in results) / n
+    avg_collapsed = sum(r.avg_collapsed_at_trigger for r in results) / n
     avg_missed = sum(r.missed_critical_count for r in results) / n
     breakdown: dict[str, int] = {}
     for r in results:
@@ -636,6 +673,7 @@ def run_push_multi_seed(
         reviews_per_day=avg_reviews_day,
         avg_fresh_at_trigger=avg_fresh,
         avg_active_at_trigger=avg_active,
+        avg_collapsed_at_trigger=avg_collapsed,
         missed_critical_count=round(avg_missed),
         trigger_breakdown=breakdown,
         events=[],

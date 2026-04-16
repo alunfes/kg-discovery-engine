@@ -1,0 +1,4 @@
+cadence_min,n_reviews,avg_stale_rate,avg_surfaced_before,avg_surfaced_after,avg_reduction,avg_precision,avg_info_loss,avg_archived,total_resurfaced
+30,1,0.065,20.0,4.85,15.15,1.0,0.6848,0.0,0
+45,1,0.21,18.7,4.85,13.85,0.56,0.6838,0.0,0
+60,1,0.9025,18.7,4.85,13.85,0.0,0.6838,0.0,0
