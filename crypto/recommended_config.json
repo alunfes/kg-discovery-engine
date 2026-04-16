@@ -1,0 +1,30 @@
+{
+  "delivery_mode": "push",
+  "push_triggers": {
+    "T1_high_conviction_threshold": 0.74,
+    "T1_high_priority_tiers": ["actionable_watch", "research_priority"],
+    "T2_fresh_count_threshold": 3,
+    "T3_last_chance_lookahead_min": 10.0,
+    "rate_limit_gap_min": 15.0
+  },
+  "baseline_fallback_cadence_min": 45,
+  "batch_interval_min": 30,
+  "n_cards_per_batch": 20,
+  "archive_policy": {
+    "archive_ratio_hl": 5.0,
+    "resurface_window_min": 120,
+    "archive_max_age_min": 480
+  },
+  "family_collapse": {
+    "enabled": true,
+    "min_family_size": 2
+  },
+  "_provenance": "Run 028 final delivery recommendation (2026-04-15)",
+  "_frozen_for": "Run 035 live canary",
+  "_run028_baselines": {
+    "reviews_per_day": 18.45,
+    "missed_critical": 0,
+    "avg_items_per_review": 23.9,
+    "hot_batch_probability_calibration": 0.30
+  }
+}

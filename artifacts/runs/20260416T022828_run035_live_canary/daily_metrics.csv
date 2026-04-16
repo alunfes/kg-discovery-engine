@@ -1,0 +1,8 @@
+day,seed,regime_label,hot_batch_probability,push_count,reviews_per_day,fallback_activations,possible_fallbacks,fallback_rate,n_surfaced_families,surfaced_families,operator_burden,stale_rate_avg,total_archived,total_resurfaced,missed_critical,T1,T2,T3
+1,200,quiet,0.15,6,18.0,4,10,0.4,5,cross_asset|momentum|null|reversion|unwind,143.4,0.5674,20,15,0,6,3,0
+2,201,quiet,0.2,5,15.0,5,10,0.5,5,cross_asset|momentum|null|reversion|unwind,119.5,0.5887,20,9,0,5,3,0
+3,202,transition→hot,0.35,11,33.0,1,10,0.1,5,cross_asset|momentum|null|reversion|unwind,262.9,0.5024,22,15,0,11,7,0
+4,203,hot,0.5,8,24.0,3,10,0.3,5,cross_asset|momentum|null|reversion|unwind,191.2,0.4364,21,17,0,8,7,0
+5,204,hot→cooling,0.4,8,24.0,3,10,0.3,5,cross_asset|momentum|null|reversion|unwind,191.2,0.557,22,11,0,8,7,0
+6,205,transition→quiet,0.25,6,18.0,5,10,0.5,5,cross_asset|momentum|null|reversion|unwind,143.4,0.5638,13,10,0,6,2,0
+7,206,quiet,0.15,6,18.0,5,10,0.5,5,cross_asset|momentum|null|reversion|unwind,143.4,0.5724,20,14,0,6,4,0
