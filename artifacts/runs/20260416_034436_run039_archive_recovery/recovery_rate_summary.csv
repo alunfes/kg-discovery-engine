@@ -1,0 +1,9 @@
+day,regime,total_cards,baseline_like_archived,resurfaced,recovery_rate_pct,action_worthy,attention_worthy,redundant,permanent_loss,not_resurfaced
+1,sparse,220,43,28,65.12,10,15,3,15,15
+2,sparse,143,39,14,35.9,5,6,3,25,25
+3,calm,365,66,52,78.79,23,23,6,14,14
+4,calm,300,55,45,81.82,18,23,4,10,10
+5,active,730,83,74,89.16,33,38,3,9,9
+6,active,723,108,94,87.04,41,43,10,14,14
+7,mixed,457,56,50,89.29,10,35,5,6,6
+TOTAL,all,2938,450,357,79.33,140,183,34,93,93
