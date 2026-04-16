@@ -71,7 +71,6 @@ from crypto.src.eval.push_surfacing import (
     PushSurfacingResult,
     HIGH_CONVICTION_THRESHOLD,
     FRESH_COUNT_THRESHOLD,
-    LAST_CHANCE_LOOKAHEAD_MIN,
     MIN_PUSH_GAP_MIN,
 )
 
@@ -106,6 +105,8 @@ THRESHOLD_SWEEP = [
     {"high_conviction_threshold": 0.80, "fresh_count_threshold": 5, "min_push_gap_min": 20.0,
      "label": "conservative"},
 ]
+# Run 033: T3 removed — LAST_CHANCE_LOOKAHEAD_MIN no longer exists.
+# The threshold sweep no longer includes a T3 lookahead parameter.
 
 # Archive policy configs to compare
 ARCHIVE_CONFIGS = [
@@ -240,7 +241,6 @@ def run_push_threshold_sweep(seeds: list[int]) -> list[dict]:
             "missed_critical_count": result.missed_critical_count,
             "t1_events": result.trigger_breakdown.get("T1", 0),
             "t2_events": result.trigger_breakdown.get("T2", 0),
-            "t3_events": result.trigger_breakdown.get("T3", 0),
         })
     return rows
 
@@ -433,10 +433,14 @@ Archiving removes expired cards from the operator view.  Information loss is bou
 
 ## Integration with Push Surfacing
 
-T3 trigger (aging last-chance) fires before a card crosses into digest_only,
-giving the operator one final notification.  This means no actionable card
-should ever reach the archive without the operator having had at least one
-push notification during its active lifecycle.
+Push events (T1/T2) fire during a card's fresh or active window, ensuring the
+operator sees actionable cards before they age.  The suppression rules (S1/S2/S3)
+prevent spurious notifications on quiet batches.  No actionable card should reach
+the archive without the operator having had at least one push notification during
+its active lifecycle.
+
+Note: T3 (aging last-chance) was removed in Run 033 — it was dead code that
+never fired in any simulation.  See docs/run033_t3_removal.md.
 """
     path = os.path.join(out_dir, "archive_policy_spec.md")
     with open(path, "w") as f:
@@ -447,19 +451,19 @@ push notification during its active lifecycle.
 def write_trigger_threshold_analysis(threshold_rows: list[dict], out_dir: str) -> None:
     """Write trigger_threshold_analysis.md."""
     lines = [
-        "# Trigger Threshold Analysis — Run 028\n",
+        "# Trigger Threshold Analysis — Run 028 / Run 033\n",
         "## Push Trigger Configurations Tested\n",
         "| Config | T1 score≥ | T2 count≥ | Gap min | Reviews/day |"
-        " Missed critical | T1 events | T2 events | T3 events |",
+        " Missed critical | T1 events | T2 events |",
         "|--------|-----------|-----------|---------|-------------|"
-        "----------------|-----------|-----------|-----------|",
+        "----------------|-----------|-----------|",
     ]
     for r in threshold_rows:
         lines.append(
             f"| {r['config_label']} | {r['high_conviction_threshold']} | "
             f"{r['fresh_count_threshold']} | {r['min_push_gap_min']} | "
             f"{r['reviews_per_day']} | {r['missed_critical_count']} | "
-            f"{r['t1_events']} | {r['t2_events']} | {r['t3_events']} |"
+            f"{r['t1_events']} | {r['t2_events']} |"
         )
 
     lines += [
@@ -473,12 +477,17 @@ def write_trigger_threshold_analysis(threshold_rows: list[dict], out_dir: str) -
         "## Recommended thresholds",
         "",
         f"- T1 score threshold: `{HIGH_CONVICTION_THRESHOLD}` (actionable_watch / research_priority, score≥0.74)",
-        f"- T2 count threshold: `{FRESH_COUNT_THRESHOLD}` fresh+active cards",
-        f"- T3 lookahead: `{LAST_CHANCE_LOOKAHEAD_MIN}` min before aging→digest_only transition",
+        f"- T2 count threshold: `{FRESH_COUNT_THRESHOLD}` fresh+active high-priority incoming cards",
         f"- Rate limit gap: `{MIN_PUSH_GAP_MIN}` min between consecutive pushes",
         "",
         "**Zero missed critical** is the hard constraint.  If the default config"
         " misses any critical cards, switch to sensitive.",
+        "",
+        "## Note on T3 (Run 033)",
+        "",
+        "T3 (aging last-chance trigger) was present in Run 028 but produced"
+        " T3 events = 0 across all configs and seeds.  It has been removed"
+        " as dead code.  See docs/run033_t3_removal.md for the full audit.",
     ]
 
     path = os.path.join(out_dir, "trigger_threshold_analysis.md")
@@ -547,7 +556,6 @@ def write_final_recommendation(
                 "T1_high_conviction_threshold": HIGH_CONVICTION_THRESHOLD,
                 "T1_high_priority_tiers": ["actionable_watch", "research_priority"],
                 "T2_fresh_count_threshold": FRESH_COUNT_THRESHOLD,
-                "T3_last_chance_lookahead_min": LAST_CHANCE_LOOKAHEAD_MIN,
                 "rate_limit_gap_min": MIN_PUSH_GAP_MIN,
             },
             "archive_policy": {
@@ -640,7 +648,7 @@ def main() -> None:
     for row in threshold_rows:
         print(f"     push_{row['config_label']}: reviews/day={row['reviews_per_day']}, "
               f"missed={row['missed_critical_count']}, "
-              f"T1={row['t1_events']} T2={row['t2_events']} T3={row['t3_events']}")
+              f"T1={row['t1_events']} T2={row['t2_events']}")
 
     # Default push result for downstream use
     default_push_result = run_push_multi_seed(

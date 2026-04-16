@@ -1,0 +1,7 @@
+phase,config,reviews_per_day,missed_critical,T1_events,T2_events,T3_events,notes
+before,default,18.45,0,123,107,0,Run 028 (20260415T144118) — T3 present but silent
+before,sensitive,19.05,0,127,109,0,Run 028 (20260415T144118) — T3 present but silent
+before,conservative,16.95,0,107,106,0,Run 028 (20260415T144118) — T3 present but silent
+after,default,18.45,0,123,107,n/a,Run 033 — T3 removed
+after,sensitive,19.05,0,127,109,n/a,Run 033 — T3 removed
+after,conservative,16.95,0,107,106,n/a,Run 033 — T3 removed
