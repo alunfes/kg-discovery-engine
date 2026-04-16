@@ -1,0 +1,8 @@
+day,hot_prob,regime,r035_cadence_min,r036_cadence_min,r035_reviews,r036_reviews,r035_fallbacks,r036_fallbacks,fallback_delta,r035_missed,r036_missed,r035_burden,r036_burden,burden_delta,r035_families,r036_families
+1,0.08,quiet,45,60,11,8,10,7,3,0,0,23.0,23.0,0.0,4,4
+2,0.13,quiet,45,60,11,9,8,6,2,0,0,27.0,27.0,0.0,4,4
+3,0.42,transition,45,45,24,24,2,2,0,0,0,75.0,75.0,0.0,4,4
+4,0.58,transition,45,45,16,16,5,5,0,0,0,66.0,66.0,0.0,4,4
+5,0.71,transition,45,45,18,18,5,5,0,0,0,75.0,75.0,0.0,4,4
+6,0.83,hot,45,45,33,33,1,1,0,0,0,125.0,125.0,0.0,4,4
+7,0.92,hot,45,45,35,35,1,1,0,0,0,131.0,131.0,0.0,4,4
