@@ -1,0 +1,7 @@
+regime_transition,count,pct_of_losses,time_expired,proximity_miss,companion_preceded,no_companion_window,ACCEPT,MITIGATE,INVESTIGATE,mean_gap_min,p50_gap_min,p75_gap_min
+sparse→sparse,20,32.8,3,14,0,3,11,9,0,298.5,255.0,300.0
+calm→calm,19,31.1,0,9,0,10,12,7,0,186.3,120.0,270.0
+active→active,13,21.3,0,0,0,13,13,0,0,69.2,60.0,120.0
+mixed→mixed,5,8.2,0,3,0,2,3,1,1,192.0,210.0,240.0
+sparse→calm,2,3.3,0,2,0,0,0,2,0,210.0,210.0,240.0
+mixed→preceded,2,3.3,0,0,2,0,2,0,0,,,

@@ -1,0 +1,25 @@
+{
+  "run_id": "run_042_structural_loss",
+  "base_seed": 42,
+  "n_days": 7,
+  "batch_interval_min": 30,
+  "n_cards_per_batch": 20,
+  "resurface_window_min": 120,
+  "archive_max_age_min": 480,
+  "proximity_max_gap_for_mitigate_min": 300,
+  "high_value_score_threshold": 0.55,
+  "high_value_families": [
+    "cross_asset",
+    "reversion"
+  ],
+  "regime_by_day": {
+    "1": "sparse",
+    "2": "sparse",
+    "3": "calm",
+    "4": "calm",
+    "5": "active",
+    "6": "active",
+    "7": "mixed"
+  },
+  "generated_at": "2026-04-16T06:05:12.880369+00:00"
+}
