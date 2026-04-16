@@ -1,9 +1,13 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 """Branch diversity and calibration metrics — Sprint E (E3) + Sprint F (F1–F5) + Sprint G (G3).
 =======
 """Branch diversity and calibration metrics — Sprint E (E3) + Sprint F (F1–F5).
 >>>>>>> claude/sharp-kowalevski
+=======
+"""Branch diversity and calibration metrics — Sprint E (E3) + Sprint F (F1–F5) + Sprint G (G3).
+>>>>>>> claude/admiring-clarke
 
 Sprint E metrics:
   branch_entropy          — Shannon entropy of the branch distribution.
@@ -22,14 +26,20 @@ Sprint F additions:
                             regime bucket (vol, oi_growth, funding, lead, coverage).
   F5  baseline_uplift     — per-hypothesis uplift over matched E4 null baseline.
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> claude/admiring-clarke
 
 Sprint G additions:
   G3  matched_baseline_pool — broader comparator pool (same pair OR global avg);
                               guarantees n_matched > 0 by accepting low-complexity
                               cards (evidence_nodes ≤ 2) as comparators when no
                               same-pair E4 card exists.
+<<<<<<< HEAD
 =======
 >>>>>>> claude/sharp-kowalevski
+=======
+>>>>>>> claude/admiring-clarke
 """
 
 import math
@@ -41,6 +51,7 @@ from collections import Counter
 # Branch label mapping
 # ---------------------------------------------------------------------------
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 """Branch diversity metrics — Sprint E (E3).
@@ -65,6 +76,8 @@ from collections import Counter
 >>>>>>> claude/gracious-edison
 =======
 >>>>>>> claude/sharp-kowalevski
+=======
+>>>>>>> claude/admiring-clarke
 _BRANCH_TAGS: list[tuple[str, str]] = [
     ("E1", "beta_reversion"),
     ("beta_reversion", "beta_reversion"),
@@ -105,14 +118,18 @@ def _entropy(counts: Counter) -> float:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/sharp-kowalevski
+=======
+>>>>>>> claude/admiring-clarke
 # ---------------------------------------------------------------------------
 # Sprint E helpers (unchanged)
 # ---------------------------------------------------------------------------
 
 def _top_k_branch_share(cards: list, top_k: int) -> dict[str, float]:
     """Fraction of the top-k cards belonging to each branch."""
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 def _top_k_branch_share(cards: list, top_k: int) -> dict[str, float]:
@@ -124,6 +141,8 @@ def _top_k_branch_share(cards: list, top_k: int) -> dict[str, float]:
 >>>>>>> claude/gracious-edison
 =======
 >>>>>>> claude/sharp-kowalevski
+=======
+>>>>>>> claude/admiring-clarke
     top = sorted(cards, key=lambda c: c.composite_score, reverse=True)[:top_k]
     if not top:
         return {}
@@ -149,12 +168,16 @@ def _branch_activation_rate(
 ) -> dict[str, float]:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/sharp-kowalevski
+=======
+>>>>>>> claude/admiring-clarke
     """Fraction of corr-break pairs that produced ≥1 card per branch."""
     if n_pairs == 0:
         return {}
     activated = _branch_counts(cards)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     """Fraction of corr-break pairs that produced ≥1 card per branch.
@@ -170,6 +193,8 @@ def _branch_activation_rate(
 >>>>>>> claude/gracious-edison
 =======
 >>>>>>> claude/sharp-kowalevski
+=======
+>>>>>>> claude/admiring-clarke
     suppressed_pairs: dict[str, set[str]] = {}
     for entry in suppression_log:
         chain = entry.get("chain", "")
@@ -180,11 +205,14 @@ def _branch_activation_rate(
         suppressed_pairs.setdefault(branch, set()).add(pair)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> claude/gracious-edison
 =======
 >>>>>>> claude/sharp-kowalevski
+=======
+>>>>>>> claude/admiring-clarke
     all_branches = set(activated.keys()) | set(suppressed_pairs.keys())
     rates: dict[str, float] = {}
     for branch in all_branches:
@@ -201,8 +229,11 @@ def _suppression_reason_counts(suppression_log: list[dict]) -> dict[str, int]:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/sharp-kowalevski
+=======
+>>>>>>> claude/admiring-clarke
 # ---------------------------------------------------------------------------
 # F1: branch-wise calibration helpers
 # ---------------------------------------------------------------------------
@@ -575,6 +606,9 @@ def compute_baseline_uplift(cards: list) -> dict:
 
 # ---------------------------------------------------------------------------
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> claude/admiring-clarke
 # G3: matched baseline pool helpers
 # ---------------------------------------------------------------------------
 
@@ -693,6 +727,7 @@ def compute_matched_baseline_pool(cards: list) -> dict:
 # Public entry point (F1–F5 + G3 extended)
 # ---------------------------------------------------------------------------
 
+<<<<<<< HEAD
 =======
 >>>>>>> claude/gracious-edison
 =======
@@ -700,12 +735,15 @@ def compute_matched_baseline_pool(cards: list) -> dict:
 # ---------------------------------------------------------------------------
 
 >>>>>>> claude/sharp-kowalevski
+=======
+>>>>>>> claude/admiring-clarke
 def compute_branch_metrics(
     cards: list,
     suppression_log: list[dict],
     n_corr_break_pairs: int = 0,
     top_k: int = 10,
 ) -> dict:
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     """Compute all branch diversity and calibration metrics (E3 + F1–F5).
@@ -715,6 +753,9 @@ def compute_branch_metrics(
 =======
     """Compute all branch diversity and calibration metrics (E3 + F1–F5).
 >>>>>>> claude/sharp-kowalevski
+=======
+    """Compute all branch diversity and calibration metrics (E3 + F1–F5).
+>>>>>>> claude/admiring-clarke
 
     Args:
         cards: List of HypothesisCard objects from the pipeline run.
@@ -725,14 +766,18 @@ def compute_branch_metrics(
     Returns:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/sharp-kowalevski
+=======
+>>>>>>> claude/admiring-clarke
         dict with all E3 keys plus F1 branch_calibration, F2 normalized_ranking,
         F4 regime_stratified, F5 baseline_uplift.
     """
     counts = _branch_counts(cards)
     return {
         # E3 (unchanged)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         dict with keys: branch_entropy, top_k_branch_share, mean_score_by_branch,
@@ -743,6 +788,8 @@ def compute_branch_metrics(
 >>>>>>> claude/gracious-edison
 =======
 >>>>>>> claude/sharp-kowalevski
+=======
+>>>>>>> claude/admiring-clarke
         "branch_distribution": dict(counts),
         "branch_entropy": _entropy(counts),
         "top_k_branch_share": _top_k_branch_share(cards, top_k),
@@ -750,8 +797,11 @@ def compute_branch_metrics(
         "survival_across_runs": "N/A (single run)",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/sharp-kowalevski
+=======
+>>>>>>> claude/admiring-clarke
         "branch_activation_rate": _branch_activation_rate(
             cards, suppression_log, n_corr_break_pairs
         ),
@@ -767,6 +817,7 @@ def compute_branch_metrics(
         # F5: baseline uplift
         "baseline_uplift": compute_baseline_uplift(cards),
 <<<<<<< HEAD
+<<<<<<< HEAD
         # G3: matched baseline pool (broader comparator; avoids n_matched=0)
         "matched_baseline_pool": compute_matched_baseline_pool(cards),
 =======
@@ -777,4 +828,8 @@ def compute_branch_metrics(
 >>>>>>> claude/gracious-edison
 =======
 >>>>>>> claude/sharp-kowalevski
+=======
+        # G3: matched baseline pool (broader comparator; avoids n_matched=0)
+        "matched_baseline_pool": compute_matched_baseline_pool(cards),
+>>>>>>> claude/admiring-clarke
     }
