@@ -2,6 +2,7 @@
 
 Each generator function encodes one pattern-matching rule from the KG spec
 docs and emits a dict conforming to the scorer.score_hypothesis() interface.
+<<<<<<< HEAD
 
 D1: Added 4 chain-walking rules that follow multi-hop KG paths anchored to
     CorrelationNode(break) and/or AggressionNode → PremiumDislocationNode chains.
@@ -12,11 +13,14 @@ D1: Added 4 chain-walking rules that follow multi-hop KG paths anchored to
 D3: A4 branch selection now also gates on corr_break_score >= branch threshold
     (from BRANCH_THRESHOLDS in cross_asset.py).  This prevents weak breaks
     from firing the continuation_candidate branch.
+=======
+>>>>>>> claude/thirsty-heisenberg
 """
 
 from ..kg.base import KGraph
 from ..schema.task_status import SecrecyLevel
 
+<<<<<<< HEAD
 # D3: branch strength thresholds (mirror of BRANCH_THRESHOLDS in cross_asset.py)
 # Defined here to avoid circular imports; kept in sync by the test suite.
 _BRANCH_MIN_SCORE: dict[str, float] = {
@@ -26,6 +30,8 @@ _BRANCH_MIN_SCORE: dict[str, float] = {
     "positioning_unwind_candidate": 0.0,
 }
 
+=======
+>>>>>>> claude/thirsty-heisenberg
 
 def generate_hypotheses(kg: KGraph) -> list[dict]:
     """Walk the KG and emit raw hypothesis candidates.
@@ -40,6 +46,7 @@ def generate_hypotheses(kg: KGraph) -> list[dict]:
     candidates.extend(_rule_correlation_break_mean_revert(kg))
     candidates.extend(_rule_pair_basis_convergence(kg))
     candidates.extend(_rule_regime_transition_pattern(kg))
+<<<<<<< HEAD
     # D1: chain-walking rules (richer evidence than A4 label rules)
     candidates.extend(_rule_chain_beta_reversion(kg))
     candidates.extend(_rule_chain_positioning_unwind(kg))
@@ -56,6 +63,8 @@ def generate_hypotheses(kg: KGraph) -> list[dict]:
     # E4: null / baseline chains
     candidates.extend(_rule_chain_null_low_followthrough(kg))
     candidates.extend(_rule_chain_null_weak_dispersion(kg))
+=======
+>>>>>>> claude/thirsty-heisenberg
 
     # Dedup by (title, claim)
     seen: set[tuple[str, str]] = set()
@@ -69,10 +78,13 @@ def generate_hypotheses(kg: KGraph) -> list[dict]:
     return unique
 
 
+<<<<<<< HEAD
 # ---------------------------------------------------------------------------
 # Existing rules (Sprint A4 branches — now also gate on corr_break_score D3)
 # ---------------------------------------------------------------------------
 
+=======
+>>>>>>> claude/thirsty-heisenberg
 def _rule_aggression_predicts_funding(kg: KGraph) -> list[dict]:
     """Rule: aggression_predicts_funding edge → funding direction hypothesis."""
     results: list[dict] = []
@@ -124,7 +136,11 @@ def _rule_funding_extreme_reversion(kg: KGraph) -> list[dict]:
             continue
         if not node.attributes.get("is_extreme", False):
             continue
+<<<<<<< HEAD
         asset = node.attributes.get("asset", node.node_id.split(":")[1] if ":" in node.node_id else "UNK")
+=======
+        asset = node.attributes.get("asset", node.node_id.split(":")[1])
+>>>>>>> claude/thirsty-heisenberg
         direction = node.attributes.get("direction", "unknown")
         z = node.attributes.get("z_score", 0.0)
         opposite = "short" if direction == "long" else "long"
@@ -151,6 +167,7 @@ def _rule_funding_extreme_reversion(kg: KGraph) -> list[dict]:
 
 
 def _rule_correlation_break_mean_revert(kg: KGraph) -> list[dict]:
+<<<<<<< HEAD
     """Rule: correlation_break edge → one of 4 contextual branches (A4 + D3).
 
     A4 replaces the old single "mean reversion" branch with 4 branches that
@@ -342,6 +359,44 @@ def _scan_funding_extreme(kg: KGraph, assets: list[str]) -> int:
     return count
 
 
+=======
+    """Rule: correlation_break edge → pair mean reversion hypothesis (PV-1)."""
+    results: list[dict] = []
+    for edge in kg.edges.values():
+        if edge.relation not in ("correlation_break",):
+            continue
+        src = kg.nodes.get(edge.source_id)
+        tgt = kg.nodes.get(edge.target_id)
+        if not src or not tgt:
+            continue
+        pair_id = tgt.attributes.get("pair_id") or tgt.node_id
+        a1 = tgt.attributes.get("asset_a", "A")
+        a2 = tgt.attributes.get("asset_b", "B")
+        rho = tgt.attributes.get("rho", 0.0)
+
+        results.append({
+            "title": f"Correlation break on ({a1},{a2}) predicts spread mean reversion",
+            "claim": (
+                f"When rolling correlation between {a1} and {a2} drops below 0.3 "
+                f"(observed rho={rho:.3f}), the relative spread is likely to "
+                "mean-revert within 2 correlation windows."
+            ),
+            "mechanism": (
+                "Temporary correlation breaks are typically regime-driven rather "
+                "than structural; the spread reverts as the common factor reasserts."
+            ),
+            "evidence_nodes": [src.node_id, tgt.node_id],
+            "evidence_edges": [edge.edge_id],
+            "operator_trace": ["align", "difference", "compose"],
+            "secrecy_level": SecrecyLevel.INTERNAL_WATCHLIST.value,
+            "kg_families": ["cross_asset", "pair"],
+            "plausibility_prior": 0.60,
+            "tags": ["pair", "mean_reversion", "correlation"],
+        })
+    return results
+
+
+>>>>>>> claude/thirsty-heisenberg
 def _rule_pair_basis_convergence(kg: KGraph) -> list[dict]:
     """Rule: basis_extreme edge → funding convergence hypothesis (PV-2)."""
     results: list[dict] = []
@@ -385,6 +440,10 @@ def _rule_regime_transition_pattern(kg: KGraph) -> list[dict]:
             continue
         from_r = edge.attributes.get("from_regime", "")
         to_r = edge.attributes.get("to_regime", "")
+<<<<<<< HEAD
+=======
+        # Only flag transitions from an extreme to resting (historically predictive)
+>>>>>>> claude/thirsty-heisenberg
         if "extreme" not in from_r and "aggressive" not in from_r:
             continue
         results.append({
@@ -407,6 +466,7 @@ def _rule_regime_transition_pattern(kg: KGraph) -> list[dict]:
             "tags": ["regime", "transition"],
         })
     return results
+<<<<<<< HEAD
 
 
 # ---------------------------------------------------------------------------
@@ -1255,3 +1315,5 @@ def _rule_chain_null_weak_dispersion(kg: KGraph) -> list[dict]:
             "tags": ["null_baseline", "weak_dispersion", "E4"],
         })
     return results
+=======
+>>>>>>> claude/thirsty-heisenberg

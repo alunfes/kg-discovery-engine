@@ -23,6 +23,7 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from typing import Optional
 
+<<<<<<< HEAD
 from .eval.contradiction_metrics import (
     compute_contradiction_metrics,
     compute_conflict_adjusted_ranking,
@@ -40,6 +41,11 @@ from .eval.monitoring_budget import build_allocation_table_from_outcomes
 from .eval.watchlist_semantics import compute_watchlist_semantics
 from .kg.chain_grammar import build_chain_grammar_kg
 from .ingestion.synthetic import SyntheticDataset, SyntheticGenerator
+=======
+from .eval.generator import generate_hypotheses
+from .eval.scorer import score_hypothesis
+from .ingestion.synthetic import SyntheticGenerator
+>>>>>>> claude/thirsty-heisenberg
 from .inventory.store import HypothesisInventory
 from .kg.base import KGraph
 from .kg.cross_asset import build_cross_asset_kg
@@ -47,7 +53,10 @@ from .kg.execution import build_execution_kg
 from .kg.microstructure import build_microstructure_kg
 from .kg.pair import build_pair_kg
 from .kg.regime import build_regime_kg
+<<<<<<< HEAD
 from .kg.temporal_guard import annotate_temporal_quality
+=======
+>>>>>>> claude/thirsty-heisenberg
 from .operators.ops import align, compose, difference, rank, union
 from .states.extractor import extract_states
 
@@ -58,11 +67,14 @@ class PipelineConfig:
 
     Why a dataclass not a plain dict: type safety and named access
     make the config self-documenting and IDE-friendly.
+<<<<<<< HEAD
 
     dataset: Optional pre-built SyntheticDataset. When provided, the
       synthetic generator step is skipped and this dataset is used instead.
       Used by Run 017 shadow deployment to inject real Hyperliquid data.
       None (default) → standard synthetic generation via SyntheticGenerator.
+=======
+>>>>>>> claude/thirsty-heisenberg
     """
 
     run_id: str
@@ -71,8 +83,11 @@ class PipelineConfig:
     assets: Optional[list[str]] = None
     top_k: int = 10
     output_dir: str = "crypto/artifacts/runs"
+<<<<<<< HEAD
     dataset: Optional[SyntheticDataset] = None
     real_data_mode: bool = False  # Sprint R: activate real-data threshold presets
+=======
+>>>>>>> claude/thirsty-heisenberg
 
 
 def run_pipeline(config: PipelineConfig) -> list:
@@ -86,6 +101,7 @@ def run_pipeline(config: PipelineConfig) -> list:
     """
     random.seed(config.seed)
 
+<<<<<<< HEAD
     # 1. Data source: pre-built real dataset (Run 017 shadow) or synthetic.
     # Why conditional: Run 017 injects a real SyntheticDataset built from
     # Hyperliquid API data. All downstream code is unchanged — the same
@@ -99,22 +115,39 @@ def run_pipeline(config: PipelineConfig) -> list:
             assets=config.assets,
         )
         dataset = generator.generate()
+=======
+    # 1. Synthetic data generation
+    generator = SyntheticGenerator(
+        seed=config.seed,
+        n_minutes=config.n_minutes,
+        assets=config.assets,
+    )
+    dataset = generator.generate()
+>>>>>>> claude/thirsty-heisenberg
 
     assets = config.assets or ["HYPE", "ETH", "BTC", "SOL"]
 
     # 2. State extraction (per asset)
     collections = {}
     for asset in assets:
+<<<<<<< HEAD
         collections[asset] = extract_states(
             dataset, asset, config.run_id,
             real_data_mode=config.real_data_mode,
         )
+=======
+        collections[asset] = extract_states(dataset, asset, config.run_id)
+>>>>>>> claude/thirsty-heisenberg
 
     # 3. KG construction (per family)
     micro_kgs = {a: build_microstructure_kg(collections[a]) for a in assets}
     execution_kgs = {a: build_execution_kg(collections[a]) for a in assets}
     regime_kgs = {a: build_regime_kg(collections[a]) for a in assets}
+<<<<<<< HEAD
     cross_kg = build_cross_asset_kg(collections, dataset=dataset)
+=======
+    cross_kg = build_cross_asset_kg(collections)
+>>>>>>> claude/thirsty-heisenberg
     pair_kg = build_pair_kg(collections)
 
     # 4. Merge all per-asset micro KGs into one
@@ -138,6 +171,7 @@ def run_pipeline(config: PipelineConfig) -> list:
     #    Final working KG for hypothesis generation: full + novel
     working_kg = union(full_kg, novel_kg)
 
+<<<<<<< HEAD
     # E: Build chain grammar KG (E1 beta_reversion + E2 positioning_unwind nodes).
     # Must run on the working_kg so it can see all micro/cross_asset nodes.
     grammar_kg, suppression_log = build_chain_grammar_kg(working_kg, collections)
@@ -162,6 +196,8 @@ def run_pipeline(config: PipelineConfig) -> list:
     # The scorer can use this to penalise look-ahead hypotheses.
     annotate_temporal_quality(working_kg)
 
+=======
+>>>>>>> claude/thirsty-heisenberg
     # 6. Hypothesis generation
     inventory = HypothesisInventory()
     raw_candidates = generate_hypotheses(working_kg)
@@ -179,6 +215,7 @@ def run_pipeline(config: PipelineConfig) -> list:
         inventory.add(card)
         cards.append(card)
 
+<<<<<<< HEAD
     # 9. Persist outputs (includes branch_metrics.json)
     branch_metrics = compute_branch_metrics(
         cards, suppression_log, n_corr_break_pairs, top_k=config.top_k
@@ -290,10 +327,15 @@ def run_pipeline(config: PipelineConfig) -> list:
     }
 
     _save_outputs(config, cards, inventory, branch_metrics)
+=======
+    # 9. Persist outputs
+    _save_outputs(config, cards, inventory)
+>>>>>>> claude/thirsty-heisenberg
 
     return cards
 
 
+<<<<<<< HEAD
 def run_oi_ablation(config: PipelineConfig) -> dict:
     """G2: Run three OI ablation variants and compare branch metrics.
 
@@ -409,6 +451,8 @@ def run_oi_ablation(config: PipelineConfig) -> dict:
     }
 
 
+=======
+>>>>>>> claude/thirsty-heisenberg
 def _merge_kgs(kgs: list[KGraph], family_name: str) -> KGraph:
     """Merge a list of KGs via successive union operations."""
     if not kgs:
@@ -424,10 +468,19 @@ def _save_outputs(
     config: PipelineConfig,
     cards: list,
     inventory: HypothesisInventory,
+<<<<<<< HEAD
     branch_metrics: dict,
 ) -> None:
     """Write run config, hypothesis cards, branch metrics, and review memo."""
     run_dir = os.path.join(config.output_dir, f"{config.run_id}")
+=======
+) -> None:
+    """Write run config, hypothesis cards, and review memo to output_dir."""
+    run_dir = os.path.join(
+        config.output_dir,
+        f"{config.run_id}",
+    )
+>>>>>>> claude/thirsty-heisenberg
     os.makedirs(run_dir, exist_ok=True)
 
     # run_config.json
@@ -438,7 +491,10 @@ def _save_outputs(
         "assets": config.assets or ["HYPE", "ETH", "BTC", "SOL"],
         "top_k": config.top_k,
         "created_at": datetime.now(timezone.utc).isoformat(),
+<<<<<<< HEAD
         "sprint": "J",
+=======
+>>>>>>> claude/thirsty-heisenberg
     }
     with open(os.path.join(run_dir, "run_config.json"), "w") as f:
         json.dump(run_config, f, indent=2)
@@ -446,6 +502,7 @@ def _save_outputs(
     # output_candidates.json
     inventory.save(os.path.join(run_dir, "output_candidates.json"))
 
+<<<<<<< HEAD
     # branch_metrics.json — E3 + H1/H2/H3 + I1/I2/I3/I4
     with open(os.path.join(run_dir, "branch_metrics.json"), "w") as f:
         json.dump(branch_metrics, f, indent=2)
@@ -718,13 +775,20 @@ def _i4_memo_lines(branch_metrics: dict) -> list[str]:
         for w in high_urgency
     ]
     return lines
+=======
+    # review_memo.md
+    _write_review_memo(run_dir, config, cards)
+>>>>>>> claude/thirsty-heisenberg
 
 
 def _write_review_memo(
     run_dir: str,
     config: PipelineConfig,
     cards: list,
+<<<<<<< HEAD
     branch_metrics: dict,
+=======
+>>>>>>> claude/thirsty-heisenberg
 ) -> None:
     """Generate a human-readable review memo for the run."""
     from .schema.task_status import SecrecyLevel, ValidationStatus
@@ -745,6 +809,7 @@ def _write_review_memo(
     avg_score = sum(scores) / len(scores) if scores else 0.0
     max_score = max(scores) if scores else 0.0
 
+<<<<<<< HEAD
     dist = branch_metrics.get("branch_distribution", {})
     entropy = branch_metrics.get("branch_entropy", 0.0)
     suppression = branch_metrics.get("branch_suppression_reason", {})
@@ -768,6 +833,8 @@ def _write_review_memo(
     top_uplift = uplift.get("top_uplift", [])
     mean_uplift = uplift.get("mean_uplift_by_branch", {})
 
+=======
+>>>>>>> claude/thirsty-heisenberg
     lines = [
         f"# Review Memo — {config.run_id}",
         "",
@@ -785,6 +852,7 @@ def _write_review_memo(
         f"- Average composite score: {avg_score:.3f}",
         f"- Best composite score: {max_score:.3f}",
         "",
+<<<<<<< HEAD
         "## Branch Diversity (E3)",
         "",
         f"- **branch_entropy:** {entropy:.4f} bits",
@@ -833,6 +901,8 @@ def _write_review_memo(
         for d in top_uplift
     ] + _g1_memo_lines(branch_metrics) + _g3_memo_lines(branch_metrics) + _h2_memo_lines(branch_metrics) + _h3_memo_lines(branch_metrics) + _i1_memo_lines(branch_metrics) + _i2_memo_lines(branch_metrics) + _i3_memo_lines(branch_metrics) + _i4_memo_lines(branch_metrics) + [
         "",
+=======
+>>>>>>> claude/thirsty-heisenberg
         "## Top Hypotheses",
         "",
     ]

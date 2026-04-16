@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> claude/thirsty-heisenberg
 # Hypothesis Card Schema
 
 ## Overview
@@ -55,6 +58,7 @@ Cards with composite ≥ 0.75 across 3+ independent runs are promoted to `reprod
 
 Cards are never mutated.  A correction produces a new card with the same `card_id` but
 incremented `version`, and the old card is archived (not deleted).
+<<<<<<< HEAD
 =======
 # Hypothesis Card Schema — Crypto Subtree Reference
 
@@ -128,3 +132,5 @@ Once assigned a `hypothesis_id`, card fields are immutable except:
 - `decay_risk` (updated as new evidence arrives)
 - `next_recommended_test` (updated after each validation attempt)
 >>>>>>> claude/gifted-cray
+=======
+>>>>>>> claude/thirsty-heisenberg

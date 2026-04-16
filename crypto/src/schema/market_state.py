@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 """Market state types and enumerations for Hyperliquid microstructure.
 
 B1 change: Each state dataclass now carries four temporal fields:
@@ -17,6 +18,9 @@ Why separate event_time from observable_time:
 For synthetic data all lags are 0, but the schema enforces the discipline
 so live-data ingestion can populate the lag correctly.
 """
+=======
+"""Market state types and enumerations for Hyperliquid microstructure."""
+>>>>>>> claude/thirsty-heisenberg
 
 from dataclasses import dataclass, field
 from enum import Enum
@@ -56,11 +60,14 @@ class SpreadState:
     ask: float
     spread_bps: float
     z_score: float  # normalised to rolling 1h window
+<<<<<<< HEAD
     # B1: temporal fields
     event_time: int = 0         # same as timestamp_ms for spread (instant observable)
     observable_time: int = 0    # strategy can observe as soon as tick arrives
     valid_from: int = 0
     valid_to: int = 0           # 0 = open-ended (until next observation)
+=======
+>>>>>>> claude/thirsty-heisenberg
 
 
 @dataclass(frozen=True)
@@ -72,11 +79,14 @@ class FundingState:
     funding_rate: float   # raw 8h rate
     annualised: float     # rate * 3 * 365
     z_score: float        # vs rolling 30-epoch window
+<<<<<<< HEAD
     # B1: temporal fields
     event_time: int = 0         # epoch the funding rate was set
     observable_time: int = 0    # epoch boundary (funding published at epoch time)
     valid_from: int = 0
     valid_to: int = 0           # next epoch boundary (8h later)
+=======
+>>>>>>> claude/thirsty-heisenberg
 
 
 @dataclass(frozen=True)
@@ -90,6 +100,7 @@ class AggressionState:
     sell_volume: float
     buy_ratio: float
     bias: AggressionBias
+<<<<<<< HEAD
     # B1: temporal fields
     event_time: int = 0         # end of the accumulation window
     observable_time: int = 0    # same as event_time (window closes → immediately known)
@@ -118,6 +129,8 @@ class OIState:
     observable_time: int = 0
     valid_from: int = 0
     valid_to: int = 0
+=======
+>>>>>>> claude/thirsty-heisenberg
 
 
 @dataclass
@@ -133,7 +146,10 @@ class MarketStateCollection:
     spreads: list[SpreadState] = field(default_factory=list)
     fundings: list[FundingState] = field(default_factory=list)
     aggressions: list[AggressionState] = field(default_factory=list)
+<<<<<<< HEAD
     oi_states: list[OIState] = field(default_factory=list)
+=======
+>>>>>>> claude/thirsty-heisenberg
     regime_labels: list[tuple[int, MarketRegime]] = field(default_factory=list)
     # (timestamp_ms, regime)
 

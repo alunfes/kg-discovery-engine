@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> claude/thirsty-heisenberg
 # KG Operator Specification
 
 ## Operator Semantics
@@ -87,6 +90,7 @@ Useful for regime-change hypothesis generation.
 **Selection artifact note:** When `top_k` << len(candidates), naive ranking creates
 selection artifacts (low-variance hypotheses dominate).  The scorer MUST include a
 novelty penalty to maintain reachability.
+<<<<<<< HEAD
 =======
 # KG Operator Specification — Crypto Subtree Reference
 
@@ -184,3 +188,5 @@ TRADING_SYNONYMS = {
 Note: The existing `_SYNONYM_DICT` in `src/pipeline/operators.py` uses
 biology/chemistry synonyms. For production HYPE use, extend with trading terms.
 >>>>>>> claude/gifted-cray
+=======
+>>>>>>> claude/thirsty-heisenberg

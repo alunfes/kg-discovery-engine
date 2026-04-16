@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> claude/thirsty-heisenberg
 # Alpha vs Shareable Knowledge
 
 ## The Secrecy Dimension
@@ -63,6 +66,7 @@ secrecy_score = 1.0  if secrecy_level == private_alpha
               = 0.25 if secrecy_level == shareable_structure
               = 0.0  if secrecy_level == discard
 ```
+<<<<<<< HEAD
 =======
 # Alpha vs. Shareable Knowledge — Crypto Subtree Reference
 
@@ -104,3 +108,5 @@ Files containing private_alpha card content are excluded from git commits:
 
 The committed version `output_candidates.json` has private_alpha cards redacted.
 >>>>>>> claude/gifted-cray
+=======
+>>>>>>> claude/thirsty-heisenberg

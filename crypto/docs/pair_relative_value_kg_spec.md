@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> claude/thirsty-heisenberg
 # Pair / Relative Value KG Specification
 
 ## Motivation
@@ -66,6 +69,7 @@ All PairKG hypotheses require:
 1. Funding-adjusted spread: net_spread = gross_spread − (funding_a − funding_b) × hold_periods
 2. Impact estimate: 2 × sqrt(notional / ADV) × volatility
 3. Actionability gating: net_spread > 2 × (impact + transaction_cost)
+<<<<<<< HEAD
 =======
 # Pair / Relative-Value KG Specification
 
@@ -200,3 +204,5 @@ feasibility before classification above `internal_watchlist`. Key questions:
 Any hypothesis involving a pair where `execution_asymmetry` is detected must include
 `decay_risk = "high"` unless order book data confirms feasibility.
 >>>>>>> claude/gifted-cray
+=======
+>>>>>>> claude/thirsty-heisenberg

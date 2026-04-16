@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> claude/thirsty-heisenberg
 """Run one MVP experiment using the crypto KG discovery pipeline."""
 
 import sys
@@ -13,11 +16,19 @@ from crypto.src.pipeline import PipelineConfig, run_pipeline
 def main() -> None:
     """Execute the MVP pipeline run."""
     config = PipelineConfig(
+<<<<<<< HEAD
         run_id="run_007_sprint_h",
         seed=42,
         n_minutes=120,
         assets=["HYPE", "ETH", "BTC", "SOL"],
         top_k=60,
+=======
+        run_id="run_001_20260415",
+        seed=42,
+        n_minutes=120,
+        assets=["HYPE", "ETH", "BTC", "SOL"],
+        top_k=10,
+>>>>>>> claude/thirsty-heisenberg
         output_dir="crypto/artifacts/runs",
     )
 
@@ -38,6 +49,7 @@ def main() -> None:
 
     print()
     print(f"Output: crypto/artifacts/runs/{config.run_id}/")
+<<<<<<< HEAD
 =======
 """HYPE KG Discovery Engine — MVP Experiment Runner.
 
@@ -332,6 +344,8 @@ def main() -> dict[str, PipelineResult]:
     print(f"Artifacts: {_ARTIFACTS_DIR}")
     return results
 >>>>>>> claude/gifted-cray
+=======
+>>>>>>> claude/thirsty-heisenberg
 
 
 if __name__ == "__main__":

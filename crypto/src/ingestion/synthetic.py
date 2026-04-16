@@ -18,6 +18,7 @@ DEFAULT_SEED = 42
 
 
 @dataclass
+<<<<<<< HEAD
 class OpenInterestSample:
     """Open interest snapshot at one minute."""
     asset: str
@@ -26,6 +27,8 @@ class OpenInterestSample:
 
 
 @dataclass
+=======
+>>>>>>> claude/thirsty-heisenberg
 class PriceTick:
     """Single mid-price observation."""
     asset: str
@@ -72,7 +75,10 @@ class SyntheticDataset:
     trade_ticks: list[TradeTick] = field(default_factory=list)
     funding_samples: list[FundingSample] = field(default_factory=list)
     book_snapshots: list[BookSnapshot] = field(default_factory=list)
+<<<<<<< HEAD
     oi_samples: list[OpenInterestSample] = field(default_factory=list)
+=======
+>>>>>>> claude/thirsty-heisenberg
 
 
 class SyntheticGenerator:
@@ -95,6 +101,7 @@ class SyntheticGenerator:
         "SOL": 150.0,
     }
 
+<<<<<<< HEAD
     BASE_OI: dict[str, float] = {
         "HYPE": 1_000_000.0,
         "ETH":  5_000_000.0,
@@ -102,6 +109,8 @@ class SyntheticGenerator:
         "SOL":    500_000.0,
     }
 
+=======
+>>>>>>> claude/thirsty-heisenberg
     VOLATILITY: dict[str, float] = {
         "HYPE": 0.0025,   # std per minute
         "ETH": 0.0010,
@@ -141,13 +150,19 @@ class SyntheticGenerator:
             trades = self._generate_trades(asset, prices)
             fundings = self._generate_fundings(asset, t0_ms)
             books = self._generate_books(asset, prices)
+<<<<<<< HEAD
             ois = self._generate_oi(asset, t0_ms)
+=======
+>>>>>>> claude/thirsty-heisenberg
 
             dataset.price_ticks.extend(prices)
             dataset.trade_ticks.extend(trades)
             dataset.funding_samples.extend(fundings)
             dataset.book_snapshots.extend(books)
+<<<<<<< HEAD
             dataset.oi_samples.extend(ois)
+=======
+>>>>>>> claude/thirsty-heisenberg
 
         return dataset
 
@@ -182,18 +197,28 @@ class SyntheticGenerator:
     ) -> list[TradeTick]:
         """Generate ~3 trades per price tick with random aggressor side."""
         trades: list[TradeTick] = []
+<<<<<<< HEAD
         # HYPE buy-aggression burst at minutes 20-30
         # SOL buy-aggression burst at minutes 65-80 (positioning_unwind scenario)
         hype_burst = (20, 30)
         sol_burst = (65, 80)
+=======
+        # Inject a buy-aggression burst at minute 20-30 for HYPE
+        burst_start = 20
+        burst_end = 30
+>>>>>>> claude/thirsty-heisenberg
 
         for tick in prices:
             n_trades = self._rng.randint(1, 5)
             minute_idx = (tick.timestamp_ms - prices[0].timestamp_ms) // 60_000
+<<<<<<< HEAD
             in_burst = (
                 (asset == "HYPE" and hype_burst[0] <= minute_idx < hype_burst[1])
                 or (asset == "SOL" and sol_burst[0] <= minute_idx < sol_burst[1])
             )
+=======
+            in_burst = (asset == "HYPE" and burst_start <= minute_idx < burst_end)
+>>>>>>> claude/thirsty-heisenberg
 
             for _ in range(n_trades):
                 is_buy = (
@@ -211,6 +236,7 @@ class SyntheticGenerator:
         return trades
 
     def _generate_fundings(self, asset: str, t0_ms: int) -> list[FundingSample]:
+<<<<<<< HEAD
         """Generate one funding sample per 8h epoch in the window.
 
         For HYPE, an additional mid-sim epoch is injected at minute 35 so that
@@ -219,6 +245,9 @@ class SyntheticGenerator:
         The burst occurs at minutes 20-30; the injected epoch at min 35 produces
         a positive gap that satisfies the 0 < gap <= 8h condition.
         """
+=======
+        """Generate one funding sample per 8h epoch in the window."""
+>>>>>>> claude/thirsty-heisenberg
         fundings: list[FundingSample] = []
         epoch_ms = 8 * 3_600_000
         n_epochs = max(1, (self.n_minutes * 60_000) // epoch_ms + 1)
@@ -241,6 +270,7 @@ class SyntheticGenerator:
                 timestamp_ms=t0_ms + i * epoch_ms,
                 rate=round(rate + noise, 6),
             ))
+<<<<<<< HEAD
 
         # Post-burst funding for HYPE at minute 35 (B3 chain anchor).
         if asset == "HYPE" and self.n_minutes >= 35:
@@ -294,6 +324,10 @@ class SyntheticGenerator:
             ))
         return samples
 
+=======
+        return fundings
+
+>>>>>>> claude/thirsty-heisenberg
     def _generate_books(
         self, asset: str, prices: list[PriceTick]
     ) -> list[BookSnapshot]:

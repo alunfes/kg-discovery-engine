@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> claude/thirsty-heisenberg
 # Hyperliquid KG Discovery Engine — Spec
 
 ## Purpose
@@ -93,6 +96,7 @@ SyntheticGenerator
 | `reproduced` | Multiple independent runs confirm |
 | `invalidated` | Evidence refutes the claim |
 | `decayed` | Previously valid; regime has changed |
+<<<<<<< HEAD
 =======
 # Hyperliquid KG Discovery Engine — System Specification
 
@@ -241,3 +245,5 @@ Key fields for HYPE-domain use:
 4. **No regime classifier**: Regime KG is built from event counts, not from a trained classifier.
 5. **Hypothesis text is template-generated**: Narrative quality requires researcher review.
 >>>>>>> claude/gifted-cray
+=======
+>>>>>>> claude/thirsty-heisenberg
