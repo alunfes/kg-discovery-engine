@@ -1,0 +1,74 @@
+{
+  "run_id": "HYP-20260415-001",
+  "run_name": "run_001_20260415_mvp",
+  "created_at": "2026-04-15T01:21:23Z",
+  "symbols": [
+    "HYPE",
+    "BTC",
+    "ETH",
+    "SOL"
+  ],
+  "pairs": [
+    [
+      "HYPE",
+      "BTC"
+    ],
+    [
+      "HYPE",
+      "ETH"
+    ],
+    [
+      "HYPE",
+      "SOL"
+    ],
+    [
+      "BTC",
+      "ETH"
+    ]
+  ],
+  "timeframe": "1h",
+  "n_bars": 200,
+  "seed": 42,
+  "data_source": "MockHyperliquidConnector (synthetic, seed=42)",
+  "prior_research_claims": [
+    "Long-path discovery viable when bridge geometry is semantically enriched",
+    "KG operator value = reachability gain over baseline",
+    "Deep discovery needs strong filtering/selection",
+    "Selection artifact: endpoint-level validation signal matters",
+    "Relation semantic insufficiency: structural correctness != economic meaning"
+  ],
+  "conditions": {
+    "C1": {
+      "name": "C1_MICRO_ONLY",
+      "kgs_used": [
+        "microstructure"
+      ],
+      "n_nodes": 28,
+      "n_edges": 179,
+      "n_candidates": 16,
+      "n_cards": 16,
+      "secrecy_dist": {
+        "internal_watchlist": 1,
+        "shareable_structure": 15
+      }
+    },
+    "C2": {
+      "name": "C2_FULL",
+      "kgs_used": [
+        "microstructure",
+        "cross_asset",
+        "execution",
+        "regime",
+        "pair_rv"
+      ],
+      "n_nodes": 75,
+      "n_edges": 980,
+      "n_candidates": 268,
+      "n_cards": 268,
+      "secrecy_dist": {
+        "internal_watchlist": 142,
+        "shareable_structure": 126
+      }
+    }
+  }
+}
