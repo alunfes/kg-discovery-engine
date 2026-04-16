@@ -1,0 +1,130 @@
+[
+  {
+    "chain_id": "b80eb74757fc",
+    "source_ts": 1594800000,
+    "source_symbol": "ETH",
+    "source_state_type": "vol_burst",
+    "target_ts": 1641600000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "ETH:vol_burst\u2192BTC:vol_burst\u2192HYPE:price_momentum",
+    "total_lag_bars": 13,
+    "provenance": {
+      "hypothesis_id": "C2",
+      "source_ts": 1594800000,
+      "target_ts": 1641600000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "ccf4d839a159",
+    "source_ts": 1670400000,
+    "source_symbol": "ETH",
+    "source_state_type": "vol_burst",
+    "target_ts": 1681200000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "ETH:vol_burst\u2192BTC:vol_burst\u2192HYPE:price_momentum",
+    "total_lag_bars": 3,
+    "provenance": {
+      "hypothesis_id": "C2",
+      "source_ts": 1670400000,
+      "target_ts": 1681200000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "fc504d86f89b",
+    "source_ts": 1767600000,
+    "source_symbol": "ETH",
+    "source_state_type": "vol_burst",
+    "target_ts": 1785600000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "ETH:vol_burst\u2192BTC:vol_burst\u2192HYPE:price_momentum",
+    "total_lag_bars": 5,
+    "provenance": {
+      "hypothesis_id": "C2",
+      "source_ts": 1767600000,
+      "target_ts": 1785600000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "7b38438dffd2",
+    "source_ts": 2448000000,
+    "source_symbol": "ETH",
+    "source_state_type": "vol_burst",
+    "target_ts": 2502000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "ETH:vol_burst\u2192BTC:vol_burst\u2192HYPE:price_momentum",
+    "total_lag_bars": 15,
+    "provenance": {
+      "hypothesis_id": "C2",
+      "source_ts": 2448000000,
+      "target_ts": 2502000000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "b44c85a061f8",
+    "source_ts": 2448000000,
+    "source_symbol": "ETH",
+    "source_state_type": "vol_burst",
+    "target_ts": 2520000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "ETH:vol_burst\u2192BTC:vol_burst\u2192HYPE:price_momentum",
+    "total_lag_bars": 20,
+    "provenance": {
+      "hypothesis_id": "C2",
+      "source_ts": 2448000000,
+      "target_ts": 2520000000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "1c5df5188328",
+    "source_ts": 2462400000,
+    "source_symbol": "ETH",
+    "source_state_type": "vol_burst",
+    "target_ts": 2502000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "ETH:vol_burst\u2192BTC:vol_burst\u2192HYPE:price_momentum",
+    "total_lag_bars": 11,
+    "provenance": {
+      "hypothesis_id": "C2",
+      "source_ts": 2462400000,
+      "target_ts": 2502000000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "99e4c903a092",
+    "source_ts": 2462400000,
+    "source_symbol": "ETH",
+    "source_state_type": "vol_burst",
+    "target_ts": 2520000000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "ETH:vol_burst\u2192BTC:vol_burst\u2192HYPE:price_momentum",
+    "total_lag_bars": 16,
+    "provenance": {
+      "hypothesis_id": "C2",
+      "source_ts": 2462400000,
+      "target_ts": 2520000000,
+      "n_intermediates": 1
+    }
+  },
+  {
+    "chain_id": "77dfba76fb3e",
+    "source_ts": 2581200000,
+    "source_symbol": "ETH",
+    "source_state_type": "vol_burst",
+    "target_ts": 2617200000,
+    "target_symbol": "HYPE",
+    "bridge_pattern": "ETH:vol_burst\u2192BTC:vol_burst\u2192HYPE:price_momentum",
+    "total_lag_bars": 10,
+    "provenance": {
+      "hypothesis_id": "C2",
+      "source_ts": 2581200000,
+      "target_ts": 2617200000,
+      "n_intermediates": 1
+    }
+  }
+]

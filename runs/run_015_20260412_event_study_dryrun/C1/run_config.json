@@ -1,0 +1,17 @@
+{
+  "hypothesis_id": "C1",
+  "description": "SOL funding_extreme precedes HYPE vol_burst within 24 hours",
+  "event_type": "single",
+  "bar_duration_ms": 3600000,
+  "estimation_window_bars": 168,
+  "event_window_bars": 24,
+  "target_return_symbol": "HYPE",
+  "null_baselines": [
+    "random_timestamp",
+    "shuffled_events",
+    "matched_volatility",
+    "matched_symbol"
+  ],
+  "dedup_window_bars": 4,
+  "regime_slices": []
+}
