@@ -8,8 +8,11 @@ z-scores computed against a rolling window are more robust to regime shifts
 than z-scores against a global mean.
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/elated-lamarr
+=======
+>>>>>>> claude/gracious-edison
 
 B1 note: All temporal fields (event_time, observable_time, valid_from, valid_to)
 are populated here.  For synthetic data, processing lag = 0 (instant
@@ -19,10 +22,13 @@ argument per data type.
 A3 note: Coverage metadata is computed at the collection level and attached
 to MarketStateCollection for downstream KG builders to propagate to nodes.
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/thirsty-heisenberg
 =======
 >>>>>>> claude/elated-lamarr
+=======
+>>>>>>> claude/gracious-edison
 """
 
 import math
@@ -35,11 +41,15 @@ from ..ingestion.synthetic import (
     BookSnapshot,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     OpenInterestSample,
 =======
 >>>>>>> claude/thirsty-heisenberg
 =======
 >>>>>>> claude/elated-lamarr
+=======
+    OpenInterestSample,
+>>>>>>> claude/gracious-edison
     SyntheticDataset,
 )
 from ..schema.market_state import (
@@ -50,11 +60,15 @@ from ..schema.market_state import (
     MarketStateCollection,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     OIState,
 =======
 >>>>>>> claude/thirsty-heisenberg
 =======
 >>>>>>> claude/elated-lamarr
+=======
+    OIState,
+>>>>>>> claude/gracious-edison
     SpreadState,
 )
 
@@ -63,18 +77,23 @@ FUNDING_Z_WINDOW = 10         # epochs for rolling funding z-score
 SPREAD_ROLLING_WINDOW = 20    # ticks for rolling spread z-score
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 EPOCH_MS = 8 * 3_600_000      # 8-hour funding epoch in ms
 =======
 >>>>>>> claude/thirsty-heisenberg
 =======
 EPOCH_MS = 8 * 3_600_000      # 8-hour funding epoch in ms
 >>>>>>> claude/elated-lamarr
+=======
+EPOCH_MS = 8 * 3_600_000      # 8-hour funding epoch in ms
+>>>>>>> claude/gracious-edison
 
 BUY_STRONG = 0.70
 BUY_MODERATE = 0.55
 SELL_MODERATE = 0.45
 SELL_STRONG = 0.30
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 # ---------------------------------------------------------------------------
@@ -111,6 +130,8 @@ OI_BUILD_RATE_REAL = 0.005
 >>>>>>> claude/thirsty-heisenberg
 =======
 >>>>>>> claude/elated-lamarr
+=======
+>>>>>>> claude/gracious-edison
 
 def _rolling_zscore(value: float, history: list[float]) -> float:
     """Compute z-score of value against a history window.
@@ -143,8 +164,11 @@ def extract_spread_states(
     window: int = SPREAD_ROLLING_WINDOW,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/elated-lamarr
+=======
+>>>>>>> claude/gracious-edison
     processing_lag_ms: int = 0,
 ) -> list[SpreadState]:
     """Compute spread z-scores over a rolling window of ticks.
@@ -159,6 +183,7 @@ def extract_spread_states(
         z = _rolling_zscore(tick.spread_bps, history)
         next_ts = ticks[idx + 1].timestamp_ms if idx + 1 < len(ticks) else 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 ) -> list[SpreadState]:
     """Compute spread z-scores over a rolling window of ticks."""
@@ -169,6 +194,8 @@ def extract_spread_states(
 >>>>>>> claude/thirsty-heisenberg
 =======
 >>>>>>> claude/elated-lamarr
+=======
+>>>>>>> claude/gracious-edison
         states.append(SpreadState(
             asset=tick.asset,
             timestamp_ms=tick.timestamp_ms,
@@ -178,17 +205,23 @@ def extract_spread_states(
             z_score=round(z, 4),
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/elated-lamarr
+=======
+>>>>>>> claude/gracious-edison
             event_time=tick.timestamp_ms,
             observable_time=tick.timestamp_ms + processing_lag_ms,
             valid_from=tick.timestamp_ms,
             valid_to=next_ts,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/thirsty-heisenberg
 =======
 >>>>>>> claude/elated-lamarr
+=======
+>>>>>>> claude/gracious-edison
         ))
         history.append(tick.spread_bps)
         if len(history) > window:
@@ -199,6 +232,7 @@ def extract_spread_states(
 def extract_funding_states(
     samples: list[FundingSample],
     window: int = FUNDING_Z_WINDOW,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     processing_lag_ms: int = 0,
@@ -219,6 +253,8 @@ def extract_funding_states(
     """
     eff_window = FUNDING_Z_WINDOW_REAL if real_data_mode else window
 =======
+=======
+>>>>>>> claude/gracious-edison
     processing_lag_ms: int = 0,
 ) -> list[FundingState]:
     """Compute funding rate z-scores over a rolling epoch window.
@@ -226,11 +262,15 @@ def extract_funding_states(
     B1: event_time = epoch timestamp, observable_time = epoch timestamp
     (funding is published at epoch boundary), valid_to = next epoch.
     """
+<<<<<<< HEAD
 >>>>>>> claude/elated-lamarr
+=======
+>>>>>>> claude/gracious-edison
     states: list[FundingState] = []
     history: list[float] = []
     for idx, s in enumerate(samples):
         z = _rolling_zscore(s.rate, history)
+<<<<<<< HEAD
 <<<<<<< HEAD
         # Absolute-rate fallback for short histories in real data mode.
         if real_data_mode and len(history) < 5 and z == 0.0:
@@ -253,6 +293,10 @@ def extract_funding_states(
         annualised = s.rate * 3 * 365  # 8h → annual
         next_ts = samples[idx + 1].timestamp_ms if idx + 1 < len(samples) else 0
 >>>>>>> claude/elated-lamarr
+=======
+        annualised = s.rate * 3 * 365  # 8h → annual
+        next_ts = samples[idx + 1].timestamp_ms if idx + 1 < len(samples) else 0
+>>>>>>> claude/gracious-edison
         states.append(FundingState(
             asset=s.asset,
             timestamp_ms=s.timestamp_ms,
@@ -261,14 +305,18 @@ def extract_funding_states(
             z_score=round(z, 4),
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/elated-lamarr
+=======
+>>>>>>> claude/gracious-edison
             event_time=s.timestamp_ms,
             observable_time=s.timestamp_ms + processing_lag_ms,
             valid_from=s.timestamp_ms,
             valid_to=next_ts if next_ts > 0 else s.timestamp_ms + EPOCH_MS,
         ))
         history.append(s.rate)
+<<<<<<< HEAD
 <<<<<<< HEAD
         if len(history) > eff_window:
 =======
@@ -279,6 +327,9 @@ def extract_funding_states(
 =======
         if len(history) > window:
 >>>>>>> claude/elated-lamarr
+=======
+        if len(history) > window:
+>>>>>>> claude/gracious-edison
             history.pop(0)
     return states
 
@@ -290,12 +341,16 @@ def extract_aggression_states(
     t1_ms: Optional[int] = None,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     processing_lag_ms: int = 0,
 =======
 >>>>>>> claude/thirsty-heisenberg
 =======
     processing_lag_ms: int = 0,
 >>>>>>> claude/elated-lamarr
+=======
+    processing_lag_ms: int = 0,
+>>>>>>> claude/gracious-edison
 ) -> list[AggressionState]:
     """Aggregate trade flow over rolling windows.
 
@@ -303,17 +358,23 @@ def extract_aggression_states(
     the buy_ratio of all trades within (boundary - window_s*1000, boundary].
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/elated-lamarr
+=======
+>>>>>>> claude/gracious-edison
 
     B1: event_time = end of window (when the last trade in the window occurs),
     observable_time = event_time + processing_lag_ms,
     valid_from = window start, valid_to = window end.
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/thirsty-heisenberg
 =======
 >>>>>>> claude/elated-lamarr
+=======
+>>>>>>> claude/gracious-edison
     """
     if not trades:
         return []
@@ -330,12 +391,16 @@ def extract_aggression_states(
     while t <= t1_ms + step_ms:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/elated-lamarr
+=======
+>>>>>>> claude/gracious-edison
         win_start = t - step_ms
         window_trades = [
             tr for tr in trades
             if win_start < tr.timestamp_ms <= t
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         window_trades = [
@@ -344,6 +409,8 @@ def extract_aggression_states(
 >>>>>>> claude/thirsty-heisenberg
 =======
 >>>>>>> claude/elated-lamarr
+=======
+>>>>>>> claude/gracious-edison
         ]
         if window_trades:
             buy_vol = sum(tr.size for tr in window_trades if tr.is_buy)
@@ -360,17 +427,23 @@ def extract_aggression_states(
                 bias=_classify_aggression(buy_ratio),
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/elated-lamarr
+=======
+>>>>>>> claude/gracious-edison
                 event_time=t,
                 observable_time=t + processing_lag_ms,
                 valid_from=win_start,
                 valid_to=t,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/thirsty-heisenberg
 =======
 >>>>>>> claude/elated-lamarr
+=======
+>>>>>>> claude/gracious-edison
             ))
         t += step_ms
     return states
@@ -406,6 +479,9 @@ def _label_regime(
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> claude/gracious-edison
 OI_WINDOW_MINS = 20           # rolling window for OI change detection
 OI_ACCUM_THRESHOLD = 3        # consecutive growth windows for is_accumulation
 OI_BUILD_RATE = 0.05          # min cumulative growth % for accumulation signal
@@ -416,6 +492,7 @@ def extract_oi_states(
     price_ticks: list[PriceTick],
     window: int = OI_WINDOW_MINS,
     processing_lag_ms: int = 0,
+<<<<<<< HEAD
     real_data_mode: bool = False,
 ) -> list[OIState]:
     """Detect OI accumulation patterns from per-minute OI samples.
@@ -425,13 +502,21 @@ def extract_oi_states(
     is_accumulation=True. The synthetic default of 0.05 requires 5% per window,
     which never occurs in real data.
 
+=======
+) -> list[OIState]:
+    """Detect OI accumulation patterns from per-minute OI samples.
+
+>>>>>>> claude/gracious-edison
     Uses a rolling window to compute OI change %; counts consecutive windows
     of positive growth for build_duration.  is_one_sided=True when accumulation
     coincides with a directional price trend (price up + OI up = long crowding).
     """
     if len(samples) < window + 1:
         return []
+<<<<<<< HEAD
     build_rate = OI_BUILD_RATE_REAL if real_data_mode else OI_BUILD_RATE
+=======
+>>>>>>> claude/gracious-edison
     states: list[OIState] = []
     build_streak = 0
     for idx in range(window, len(samples)):
@@ -442,7 +527,11 @@ def extract_oi_states(
             build_streak += 1
         else:
             build_streak = 0
+<<<<<<< HEAD
         is_accum = build_streak >= OI_ACCUM_THRESHOLD and change_pct >= build_rate
+=======
+        is_accum = build_streak >= OI_ACCUM_THRESHOLD and change_pct >= OI_BUILD_RATE
+>>>>>>> claude/gracious-edison
         price_up = False
         if price_ticks and idx < len(price_ticks) and idx >= window:
             price_up = price_ticks[idx].mid > price_ticks[idx - window].mid
@@ -466,14 +555,18 @@ def extract_oi_states(
     return states
 
 
+<<<<<<< HEAD
 =======
 >>>>>>> claude/thirsty-heisenberg
 =======
 >>>>>>> claude/elated-lamarr
+=======
+>>>>>>> claude/gracious-edison
 def extract_states(
     dataset: SyntheticDataset,
     asset: str,
     run_id: str,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     processing_lag_ms: int = 0,
@@ -483,6 +576,9 @@ def extract_states(
 =======
     processing_lag_ms: int = 0,
 >>>>>>> claude/elated-lamarr
+=======
+    processing_lag_ms: int = 0,
+>>>>>>> claude/gracious-edison
 ) -> MarketStateCollection:
     """Full state extraction for one asset from a SyntheticDataset.
 
@@ -490,12 +586,16 @@ def extract_states(
     into a single MarketStateCollection for downstream KG construction.
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/elated-lamarr
+=======
+>>>>>>> claude/gracious-edison
 
     Args:
         processing_lag_ms: Simulated observation lag.  0 for synthetic data;
             set to a positive value to model live data feed latency.
+<<<<<<< HEAD
 <<<<<<< HEAD
         real_data_mode:    True activates Sprint R real-data threshold presets:
             - Funding z-score window shortened (FUNDING_Z_WINDOW_REAL).
@@ -505,10 +605,13 @@ def extract_states(
 >>>>>>> claude/thirsty-heisenberg
 =======
 >>>>>>> claude/elated-lamarr
+=======
+>>>>>>> claude/gracious-edison
     """
     price_ticks = [t for t in dataset.price_ticks if t.asset == asset]
     trade_ticks = [t for t in dataset.trade_ticks if t.asset == asset]
     funding_samples = [f for f in dataset.funding_samples if f.asset == asset]
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     oi_samples = [s for s in dataset.oi_samples if s.asset == asset]
@@ -536,11 +639,22 @@ def extract_states(
 =======
 
     spreads = extract_spread_states(price_ticks, processing_lag_ms=processing_lag_ms)
+=======
+    oi_samples = [s for s in dataset.oi_samples if s.asset == asset]
+
+    spreads = extract_spread_states(price_ticks, processing_lag_ms=processing_lag_ms)
+>>>>>>> claude/gracious-edison
     fundings = extract_funding_states(funding_samples, processing_lag_ms=processing_lag_ms)
     aggressions = extract_aggression_states(
         trade_ticks, processing_lag_ms=processing_lag_ms
     )
+<<<<<<< HEAD
 >>>>>>> claude/elated-lamarr
+=======
+    oi_states = extract_oi_states(
+        oi_samples, price_ticks, processing_lag_ms=processing_lag_ms
+    )
+>>>>>>> claude/gracious-edison
 
     # Assign regime labels — align by closest timestamp
     regime_labels: list[tuple[int, MarketRegime]] = []
@@ -562,11 +676,15 @@ def extract_states(
         aggressions=aggressions,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         oi_states=oi_states,
 =======
 >>>>>>> claude/thirsty-heisenberg
 =======
 >>>>>>> claude/elated-lamarr
+=======
+        oi_states=oi_states,
+>>>>>>> claude/gracious-edison
         regime_labels=regime_labels,
     )
     return collection

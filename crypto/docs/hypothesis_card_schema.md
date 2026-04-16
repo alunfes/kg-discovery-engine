@@ -1,10 +1,13 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> claude/thirsty-heisenberg
 =======
 >>>>>>> claude/elated-lamarr
+=======
+>>>>>>> claude/gracious-edison
 # Hypothesis Card Schema
 
 ## Overview
@@ -61,6 +64,7 @@ Cards with composite ≥ 0.75 across 3+ independent runs are promoted to `reprod
 
 Cards are never mutated.  A correction produces a new card with the same `card_id` but
 incremented `version`, and the old card is archived (not deleted).
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -140,3 +144,5 @@ Once assigned a `hypothesis_id`, card fields are immutable except:
 >>>>>>> claude/thirsty-heisenberg
 =======
 >>>>>>> claude/elated-lamarr
+=======
+>>>>>>> claude/gracious-edison

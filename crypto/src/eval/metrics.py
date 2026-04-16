@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 """Branch diversity and calibration metrics — Sprint E (E3) + Sprint F (F1–F5) + Sprint G (G3).
 
 Sprint E metrics:
@@ -33,6 +34,27 @@ from collections import Counter
 # Branch label mapping
 # ---------------------------------------------------------------------------
 
+=======
+"""Branch diversity metrics — Sprint E (E3).
+
+Metrics:
+  branch_entropy          — Shannon entropy of the branch distribution.
+  top_k_branch_share      — fraction of top-k belonging to the dominant branch.
+  mean_score_by_branch    — dict: branch → mean composite score.
+  survival_across_runs    — placeholder (single run: N/A).
+  branch_activation_rate  — fraction of corr-break pairs that produced ≥1 card
+                            per branch (requires n_corr_break_pairs).
+  branch_suppression_reason — dict: suppression reason → count from suppression_log.
+
+Branch labels are derived from HypothesisCard.tags.
+"""
+
+import math
+from collections import Counter
+
+
+# Tag-to-branch mapping (priority order: first match wins)
+>>>>>>> claude/gracious-edison
 _BRANCH_TAGS: list[tuple[str, str]] = [
     ("E1", "beta_reversion"),
     ("beta_reversion", "beta_reversion"),
@@ -71,12 +93,21 @@ def _entropy(counts: Counter) -> float:
     )
 
 
+<<<<<<< HEAD
 # ---------------------------------------------------------------------------
 # Sprint E helpers (unchanged)
 # ---------------------------------------------------------------------------
 
 def _top_k_branch_share(cards: list, top_k: int) -> dict[str, float]:
     """Fraction of the top-k cards belonging to each branch."""
+=======
+def _top_k_branch_share(cards: list, top_k: int) -> dict[str, float]:
+    """Fraction of the top-k cards belonging to each branch.
+
+    top-k is defined by descending composite_score order.
+    Returns dict: branch → share in [0, 1].
+    """
+>>>>>>> claude/gracious-edison
     top = sorted(cards, key=lambda c: c.composite_score, reverse=True)[:top_k]
     if not top:
         return {}
@@ -100,10 +131,23 @@ def _mean_score_by_branch(cards: list) -> dict[str, float]:
 def _branch_activation_rate(
     cards: list, suppression_log: list[dict], n_pairs: int
 ) -> dict[str, float]:
+<<<<<<< HEAD
     """Fraction of corr-break pairs that produced ≥1 card per branch."""
     if n_pairs == 0:
         return {}
     activated = _branch_counts(cards)
+=======
+    """Fraction of corr-break pairs that produced ≥1 card per branch.
+
+    Activated pairs are inferred from existing cards (activated) + suppression
+    log (attempted but suppressed).  n_pairs is the total number of corr-break
+    pairs detected in the cross-asset KG.
+    """
+    if n_pairs == 0:
+        return {}
+    activated = _branch_counts(cards)
+    # Count unique pairs per branch that attempted but were suppressed
+>>>>>>> claude/gracious-edison
     suppressed_pairs: dict[str, set[str]] = {}
     for entry in suppression_log:
         chain = entry.get("chain", "")
@@ -112,6 +156,10 @@ def _branch_activation_rate(
             "positioning_unwind" if "positioning_unwind" in chain else "other"
         )
         suppressed_pairs.setdefault(branch, set()).add(pair)
+<<<<<<< HEAD
+=======
+
+>>>>>>> claude/gracious-edison
     all_branches = set(activated.keys()) | set(suppressed_pairs.keys())
     rates: dict[str, float] = {}
     for branch in all_branches:
@@ -126,6 +174,7 @@ def _suppression_reason_counts(suppression_log: list[dict]) -> dict[str, int]:
     return dict(counts)
 
 
+<<<<<<< HEAD
 # ---------------------------------------------------------------------------
 # F1: branch-wise calibration helpers
 # ---------------------------------------------------------------------------
@@ -615,13 +664,19 @@ def compute_matched_baseline_pool(cards: list) -> dict:
 # Public entry point (F1–F5 + G3 extended)
 # ---------------------------------------------------------------------------
 
+=======
+>>>>>>> claude/gracious-edison
 def compute_branch_metrics(
     cards: list,
     suppression_log: list[dict],
     n_corr_break_pairs: int = 0,
     top_k: int = 10,
 ) -> dict:
+<<<<<<< HEAD
     """Compute all branch diversity and calibration metrics (E3 + F1–F5).
+=======
+    """Compute all E3 branch diversity metrics.
+>>>>>>> claude/gracious-edison
 
     Args:
         cards: List of HypothesisCard objects from the pipeline run.
@@ -630,17 +685,26 @@ def compute_branch_metrics(
         top_k: K for top_k_branch_share calculation.
 
     Returns:
+<<<<<<< HEAD
         dict with all E3 keys plus F1 branch_calibration, F2 normalized_ranking,
         F4 regime_stratified, F5 baseline_uplift.
     """
     counts = _branch_counts(cards)
     return {
         # E3 (unchanged)
+=======
+        dict with keys: branch_entropy, top_k_branch_share, mean_score_by_branch,
+        survival_across_runs, branch_activation_rate, branch_suppression_reason.
+    """
+    counts = _branch_counts(cards)
+    return {
+>>>>>>> claude/gracious-edison
         "branch_distribution": dict(counts),
         "branch_entropy": _entropy(counts),
         "top_k_branch_share": _top_k_branch_share(cards, top_k),
         "mean_score_by_branch": _mean_score_by_branch(cards),
         "survival_across_runs": "N/A (single run)",
+<<<<<<< HEAD
         "branch_activation_rate": _branch_activation_rate(
             cards, suppression_log, n_corr_break_pairs
         ),
@@ -657,4 +721,10 @@ def compute_branch_metrics(
         "baseline_uplift": compute_baseline_uplift(cards),
         # G3: matched baseline pool (broader comparator; avoids n_matched=0)
         "matched_baseline_pool": compute_matched_baseline_pool(cards),
+=======
+        "branch_activation_rate": _branch_activation_rate(cards, suppression_log, n_corr_break_pairs),
+        "branch_suppression_reason": _suppression_reason_counts(suppression_log),
+        "total_cards": len(cards),
+        "n_corr_break_pairs": n_corr_break_pairs,
+>>>>>>> claude/gracious-edison
     }
