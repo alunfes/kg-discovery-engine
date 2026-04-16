@@ -11,14 +11,12 @@ build/
 .venv/
 venv/
 data/cache/
-<<<<<<< HEAD
 
 # CoDD 設計書 (生成物 — 再生成可能)
 .codd/
 
 # Claude Code ワークツリー（自動生成 — 追跡しない）
 .claude/worktrees/
-=======
+
 crypto/artifacts/runs/*/output_candidates_full.json
 crypto/artifacts/runs/*/hypothesis_store/private_alpha/
->>>>>>> claude/gifted-cray

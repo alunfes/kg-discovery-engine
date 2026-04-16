@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KG Discovery Engine</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    :root {
+      --bg: #0d1117; --bg2: #161b22; --bg3: #21262d;
+      --border: #30363d; --text: #e6edf3; --text2: #8b949e;
+      --accent: #58a6ff; --green: #3fb950; --yellow: #d29922;
+      --red: #f85149; --purple: #bc8cff; --orange: #ffa657; --cyan: #39d353;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; }
+    header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 1.5rem 2rem; display: flex; align-items: center; gap: 1rem; }
+    .logo { width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent), var(--purple)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: bold; color: #fff; }
+    header h1 { font-size: 1.25rem; font-weight: 600; }
+    header p { color: var(--text2); font-size: 0.875rem; margin-top: 0.1rem; }
+    .badge { margin-left: auto; background: var(--bg3); border: 1px solid var(--border); border-radius: 20px; padding: 0.25rem 0.75rem; font-size: 0.75rem; color: var(--green); }
+    nav { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; }
+    nav button { background: none; border: none; border-bottom: 2px solid transparent; color: var(--text2); cursor: pointer; font-size: 0.9rem; padding: 0.875rem 1.25rem; transition: color 0.2s, border-color 0.2s; }
+    nav button:hover { color: var(--text); }
+    nav button.active { color: var(--accent); border-bottom-color: var(--accent); }
+    main { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .hero { background: linear-gradient(135deg, rgba(88,166,255,0.1), rgba(188,140,255,0.1)); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; }
+    .hero h2 { font-size: 1.75rem; margin-bottom: 0.75rem; }
+    .hero p { color: var(--text2); max-width: 700px; line-height: 1.8; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 2rem; }
+    .card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; }
+    .card h3 { font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text2); margin-bottom: 0.5rem; }
+    .stat { font-size: 2rem; font-weight: 700; }
+    .stat.blue { color: var(--accent); }
+    .stat.green { color: var(--green); }
+    .stat.purple { color: var(--purple); }
+    .card p { color: var(--text2); font-size: 0.875rem; margin-top: 0.25rem; }
+    .section-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+    .tech-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.75rem; margin-bottom: 2rem; }
+    .tech-item { background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem 1rem; font-size: 0.85rem; }
+    .tech-item .tech-label { color: var(--text2); font-size: 0.75rem; margin-bottom: 0.25rem; }
+    .phase-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; margin-bottom: 2rem; }
+    .phase-table th { background: var(--bg3); color: var(--text2); font-weight: 600; text-align: left; padding: 0.625rem 1rem; border-bottom: 1px solid var(--border); }
+    .phase-table td { padding: 0.625rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .phase-table tr:hover td { background: var(--bg3); }
+    .tag { display: inline-block; border-radius: 4px; padding: 0.15rem 0.5rem; font-size: 0.75rem; font-weight: 600; }
+    .tag.success { background: rgba(63,185,80,0.15); color: var(--green); }
+    .tag.warn { background: rgba(210,153,34,0.15); color: var(--yellow); }
+    .tag.fail { background: rgba(248,81,73,0.15); color: var(--red); }
+    .tag.info { background: rgba(88,166,255,0.15); color: var(--accent); }
+    #kg-canvas { width: 100%; height: 600px; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+    #kg-canvas svg { width: 100%; height: 100%; }
+    .kg-legend { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+    .legend-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; color: var(--text2); }
+    .legend-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+    .kg-controls { display: flex; gap: 0.5rem; margin-top: 0.75rem; flex-wrap: wrap; }
+    .btn { background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; color: var(--text); cursor: pointer; font-size: 0.8rem; padding: 0.375rem 0.875rem; transition: background 0.2s; }
+    .btn:hover { background: var(--border); }
+    .btn.active { background: rgba(88,166,255,0.2); border-color: var(--accent); color: var(--accent); }
+    #tooltip { position: fixed; background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; padding: 0.5rem 0.75rem; font-size: 0.8rem; pointer-events: none; opacity: 0; transition: opacity 0.15s; z-index: 100; max-width: 260px; line-height: 1.5; }
+    #tooltip.visible { opacity: 1; }
+    #tooltip .tt-title { color: var(--accent); display: block; margin-bottom: 0.25rem; font-weight: 600; }
+    #tooltip .tt-body { color: var(--text2); }
+    .runs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+    .run-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; transition: border-color 0.2s; }
+    .run-card:hover { border-color: var(--accent); }
+    .run-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem; }
+    .run-id { font-size: 0.8rem; color: var(--text2); font-family: monospace; }
+    .run-title { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem; }
+    .run-desc { font-size: 0.8rem; color: var(--text2); line-height: 1.5; }
+    .metric-row { display: flex; gap: 0.75rem; margin-top: 0.75rem; flex-wrap: wrap; }
+    .metric { background: var(--bg3); border-radius: 4px; padding: 0.2rem 0.5rem; font-size: 0.75rem; }
+    .metric .mk { color: var(--text2); }
+    .metric .mv { color: var(--text); font-weight: 600; }
+    footer { border-top: 1px solid var(--border); text-align: center; padding: 1.5rem; color: var(--text2); font-size: 0.8rem; margin-top: 3rem; }
+    footer a { color: var(--accent); }
+    .mono { font-family: monospace; font-size: 0.9rem; line-height: 2.2; color: var(--text2); }
+    .mono .kw { color: var(--accent); }
+    @media (max-width: 700px) { .grid-3 { grid-template-columns: 1fr; } .grid-2 { grid-template-columns: 1fr; } main { padding: 1rem; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">KG</div>
+  <div>
+    <h1>KG Discovery Engine</h1>
+    <p>知識グラフによる科学的仮説の自動生成・評価・進化システム</p>
+  </div>
+  <div class="badge">✓ P10-A 完了</div>
+</header>
+
+<nav>
+  <button class="active" onclick="switchTab('overview',this)">概要</button>
+  <button onclick="switchTab('runs',this)">Run 履歴</button>
+  <button onclick="switchTab('kg',this)">KG 可視化</button>
+  <button onclick="switchTab('tech',this)">技術スタック</button>
+</nav>
+
+<main>
+
+<!-- OVERVIEW -->
+<div id="tab-overview" class="tab-panel active">
+  <div class="hero">
+    <h2>仮説駆動型 Knowledge Graph Discovery</h2>
+    <p>KG Discovery Engine は、生命科学ドメインの知識グラフ（KG）から
+    オペレータパイプライン（align → union → compose → difference → evaluate）を用いて
+    科学的仮説を自動生成し、文献エビデンスにより評価・ランキングするシステムです。<br><br>
+    Run 014 から Run 043 までの実験を通じ、多ドメイン交差パス設計原理を発見・検証。
+    最終フェーズ P10-A では investigability 1.000（完全調査可能性）を達成しました。</p>
+  </div>
+
+  <div class="grid-3">
+    <div class="card"><h3>実験Run数</h3><div class="stat blue">43</div><p>Run 014 〜 043（P1〜P10）</p></div>
+    <div class="card"><h3>最終 Investigability</h3><div class="stat green">1.000</div><p>T3+pf（P10-A 達成）</p></div>
+    <div class="card"><h3>Novelty Retention</h3><div class="stat purple">1.238</div><p>T3+pf vs B2 baseline</p></div>
+  </div>
+
+  <p class="section-title">フェーズ別進捗</p>
+  <table class="phase-table">
+    <thead><tr><th>フェーズ</th><th>Runs</th><th>テーマ</th><th>主要発見</th><th>結果</th></tr></thead>
+    <tbody>
+      <tr><td>P1</td><td>022–023</td><td>Density-aware selection</td><td>density filter (Q2閾値) で C2 investigability 0.971 達成、C1 parity 確認</td><td><span class="tag success">GO</span></td></tr>
+      <tr><td>P2</td><td>024–026</td><td>Structure-aware framework</td><td>構造スコアと density 相関を確認。P2B フレームワーク確立</td><td><span class="tag success">PASS</span></td></tr>
+      <tr><td>P3-A</td><td>031</td><td>KG augmentation（最短パス）</td><td>最短パス制約下では augmentation null。構造的排除がボトルネック</td><td><span class="tag warn">NULL</span></td></tr>
+      <tr><td>P3-B</td><td>032</td><td>Selection redesign</td><td>Augmentation 到達可能でも無効。選択機構の根本設計問題を発見</td><td><span class="tag fail">FAIL</span></td></tr>
+      <tr><td>P4</td><td>033</td><td>Evidence-aware ranking (R3)</td><td>R3 ランカーで +5.7pp 改善。Evidence 統合の有効性を実証</td><td><span class="tag info">WEAK</span></td></tr>
+      <tr><td>P5</td><td>034</td><td>Evidence-gated augmentation</td><td>Evidence ゲートでも構造排除が支配的。問題は path length distribution</td><td><span class="tag fail">FAIL</span></td></tr>
+      <tr><td>P6-A</td><td>036</td><td>Bucketed selection (T3)</td><td>L2/L3/L4+ バケット層別化で geometry ceiling 突破への方向性確立</td><td><span class="tag info">WEAK</span></td></tr>
+      <tr><td>P7</td><td>038</td><td>Multi-domain KG expansion</td><td>酸化ストレス中間体追加で bio→chem→bio 多ドメイン交差 STRONG_SUCCESS (inv=0.9857)</td><td><span class="tag success">STRONG</span></td></tr>
+      <tr><td>P8</td><td>040</td><td>ROS family expansion</td><td>ROS ファミリー全組み合わせで STRONG_SUCCESS → 設計原理の普遍性確認</td><td><span class="tag success">STRONG</span></td></tr>
+      <tr><td>P9</td><td>041</td><td>NT family transfer test</td><td>幾何学は転移、investigability は転移しない。Serotonin 系が T3 から完全排除される問題発見</td><td><span class="tag warn">PARTIAL</span></td></tr>
+      <tr><td>P10-A</td><td>043</td><td>Investigability pre-filter</td><td>T3+pf で investigability 1.000。B2 gap を +0.029 に逆転。Serotonin 系を完全救済</td><td><span class="tag success">PERFECT</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3>核心的設計原理（P7〜P10 確立）</h3>
+      <p style="margin-top:0.5rem; line-height:2; font-size:0.9rem;">
+        ① 多ドメイン交差（bio→chem→bio）パスが長距離仮説の源泉<br>
+        ② バケット層別化（L2/L3/L4+）で geometry ceiling を突破<br>
+        ③ 2024-2025 PubMed エビデンスが investigability の決定因子<br>
+        ④ Pre-filter（endpoint pair cache）が選択の盲点を解消
+      </p>
+    </div>
+    <div class="card">
+      <h3>P10-A の主要数値</h3>
+      <table style="width:100%; font-size:0.85rem; margin-top:0.5rem; border-collapse:collapse;">
+        <tr><td style="padding:0.3rem 0; color:var(--text2)">B2 investigability</td><td style="padding:0.3rem 0; text-align:right">0.9714</td></tr>
+        <tr><td style="padding:0.3rem 0; color:var(--text2)">T3 investigability</td><td style="padding:0.3rem 0; text-align:right; color:var(--yellow)">0.8571</td></tr>
+        <tr><td style="padding:0.3rem 0; color:var(--text2)">T3+pf investigability</td><td style="padding:0.3rem 0; text-align:right; color:var(--green)">1.000 ✓</td></tr>
+        <tr><td style="padding:0.3rem 0; color:var(--text2)">T3+pf novelty retention</td><td style="padding:0.3rem 0; text-align:right; color:var(--green)">1.238</td></tr>
+        <tr><td style="padding:0.3rem 0; color:var(--text2)">Long-path share (L3/L4+)</td><td style="padding:0.3rem 0; text-align:right">50%</td></tr>
+        <tr><td style="padding:0.3rem 0; color:var(--text2)">L3 bucket survival rate</td><td style="padding:0.3rem 0; text-align:right; color:var(--accent)">5.0%（完全再構成）</td></tr>
+      </table>
+    </div>
+  </div>
+</div><!-- /overview -->
+
+<!-- RUNS -->
+<div id="tab-runs" class="tab-panel">
+  <p class="section-title">Run 履歴サマリー（Run 022 〜 043）</p>
+  <div class="runs-grid" id="runs-container"></div>
+</div>
+
+<!-- KG VIZ -->
+<div id="tab-kg" class="tab-panel">
+  <p class="section-title">知識グラフ可視化</p>
+  <div class="kg-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#58a6ff"></div> 戦略・手法</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#3fb950"></div> 仮説</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#bc8cff"></div> フェーズ</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#ffa657"></div> ドメイン</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#39d353"></div> 発見</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#f85149"></div> 問題</div>
+  </div>
+  <div id="kg-canvas"></div>
+  <div class="kg-controls">
+    <button class="btn active" id="btn-all" onclick="filterKG('all',this)">全て</button>
+    <button class="btn" onclick="filterKG('strategy',this)">戦略・手法</button>
+    <button class="btn" onclick="filterKG('hypothesis',this)">仮説</button>
+    <button class="btn" onclick="filterKG('phase',this)">フェーズ</button>
+    <button class="btn" onclick="filterKG('domain',this)">ドメイン</button>
+    <button class="btn" onclick="resetKG()">リセット</button>
+  </div>
+</div>
+
+<!-- TECH -->
+<div id="tab-tech" class="tab-panel">
+  <p class="section-title">技術スタック</p>
+  <div class="tech-grid">
+    <div class="tech-item"><div class="tech-label">言語</div><strong>Python 3.11+</strong></div>
+    <div class="tech-item"><div class="tech-label">グラフDB</div><strong>NetworkX / FalkorDB</strong></div>
+    <div class="tech-item"><div class="tech-label">時系列DB</div><strong>TimescaleDB</strong></div>
+    <div class="tech-item"><div class="tech-label">市場データ</div><strong>Hyperliquid API</strong></div>
+    <div class="tech-item"><div class="tech-label">文献検索</div><strong>PubMed / Entrez</strong></div>
+    <div class="tech-item"><div class="tech-label">統計検定</div><strong>Fisher's Exact Test</strong></div>
+    <div class="tech-item"><div class="tech-label">可視化</div><strong>D3.js v7</strong></div>
+    <div class="tech-item"><div class="tech-label">型チェック</div><strong>mypy / pyright</strong></div>
+    <div class="tech-item"><div class="tech-label">テスト</div><strong>pytest</strong></div>
+    <div class="tech-item"><div class="tech-label">CI / CD</div><strong>GitHub Actions</strong></div>
+  </div>
+
+  <p class="section-title">KG オペレータパイプライン</p>
+  <div class="card" style="margin-bottom:1.5rem;">
+    <p class="mono">
+      <span class="kw">align</span>（ノード照合）
+      → <span class="kw">union</span>（グラフ結合）
+      → <span class="kw">compose</span>（パス合成）
+      → <span class="kw">difference</span>（新規性フィルタ）
+      → <span class="kw">evaluate</span>（スコアリング）
+    </p>
+    <p style="color:var(--text2); font-size:0.8rem; margin-top:0.75rem;">
+      各オペレータは40行以下の純粋関数。決定論的動作（random.seed固定）。外部API呼び出し禁止。
+    </p>
+  </div>
+
+  <p class="section-title">選択戦略の比較</p>
+  <table class="phase-table">
+    <thead><tr><th>戦略</th><th>説明</th><th>Investigability</th><th>Novelty Ret</th><th>Long-path</th></tr></thead>
+    <tbody>
+      <tr><td>B2</td><td>グローバル R3 スコアでトップ70選択</td><td>0.9714</td><td>1.000（基準）</td><td>0%（全て L2）</td></tr>
+      <tr><td>T3</td><td>L2/L3/L4+ バケット層別化（35/20/15）</td><td style="color:var(--yellow)">0.8571</td><td>1.342</td><td>50%</td></tr>
+      <tr><td>T3+pf</td><td>T3 + 2024-2025 PubMed pre-filter（最終提案）</td><td style="color:var(--green)">1.000</td><td style="color:var(--green)">1.238</td><td style="color:var(--green)">50%</td></tr>
+    </tbody>
+  </table>
+
+  <p class="section-title">Pre-filter スコア計算式</p>
+  <div class="card">
+    <p class="mono">
+      prefilter_score =<br>
+      &nbsp;&nbsp;<span class="kw">0.50</span> × recent_validation_density &nbsp;← 2024-2025 PubMed キャッシュ（主信号）<br>
+      &nbsp;+ <span class="kw">0.20</span> × bridge_family_support<br>
+      &nbsp;+ <span class="kw">0.20</span> × endpoint_support<br>
+      &nbsp;+ <span class="kw">0.10</span> × path_coherence
+    </p>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  KG Discovery Engine — alunfes &nbsp;|&nbsp; P10-A 完了 (2026-04-15) &nbsp;|&nbsp;
+  <a href="https://github.com/alunfes/kg-discovery-engine">GitHub</a>
+</footer>
+
+<div id="tooltip"><span class="tt-title" id="tt-title"></span><span class="tt-body" id="tt-body"></span></div>
+
+<script>
+'use strict';
+
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  btn.classList.add('active');
+  if (name === 'kg') initKG();
+}
+
+// Run data
+const runs = [
+  { id: '022', phase: 'P1', name: 'Density-aware selection', result: 'GO',
+    desc: 'density filter (Q2閾値=8105.5) で C2 investigability 0.971 達成。C1 parity を確認（Fisher p=1.000）。',
+    metrics: [['inv','0.971'],['parity','✓']] },
+  { id: '023', phase: 'P1', name: 'Density causal verification', result: 'PASS',
+    desc: 'Density ceiling の因果検証。低密度群のみ C1-C2 ギャップが集中することを確認。',
+    metrics: [] },
+  { id: '024', phase: 'P2', name: 'P2B framework', result: 'PASS',
+    desc: 'Structure-aware discovery framework 確立。構造スコアと density の相関を定量化。',
+    metrics: [] },
+  { id: '025', phase: 'P2', name: 'Sparse detection', result: 'PASS',
+    desc: 'スパース領域の検出手法を開発。境界ケースの自動識別。',
+    metrics: [] },
+  { id: '026', phase: 'P2', name: 'Augmented KG baseline', result: 'INFO',
+    desc: 'KG augmentation の baseline 実験。構造拡張の基礎データを収集。',
+    metrics: [] },
+  { id: '031', phase: 'P3-A', name: 'Causal validation (shortest-path)', result: 'NULL',
+    desc: '最短パス制約下では KG augmentation が null。構造的排除がボトルネックと特定。',
+    metrics: [['augment','null']] },
+  { id: '032', phase: 'P3-B', name: 'Selection redesign', result: 'FAIL',
+    desc: 'Augmentation 到達可能でも investigability 改善なし。根本的再設計が必要と判断。',
+    metrics: [] },
+  { id: '033', phase: 'P4', name: 'Evidence-aware ranking (R3)', result: 'WEAK',
+    desc: 'R3 ランカー（0.4×構造 + 0.6×エビデンス）で +5.7pp 改善。Evidence 統合の有効性を実証。',
+    metrics: [['delta','+5.7pp']] },
+  { id: '034', phase: 'P5', name: 'Evidence-gated augmentation', result: 'FAIL',
+    desc: 'Evidence ゲートを追加しても構造排除が支配的。根本問題は path length distribution。',
+    metrics: [] },
+  { id: '036', phase: 'P6-A', name: 'Bucketed selection T3', result: 'WEAK',
+    desc: 'L2/L3/L4+ バケット層別化（T3）を導入。inv=0.9429 で geometry ceiling 突破の方向性を確立。',
+    metrics: [['inv','0.9429'],['novelty','1.342']] },
+  { id: '037', phase: 'P6', name: 'Ranker comparison', result: 'INFO',
+    desc: 'B2 vs T2 vs T3 の網羅的比較。T3 が novelty retention で優位だが investigability で B2 に劣ることを確認。',
+    metrics: [] },
+  { id: '038', phase: 'P7', name: 'Multi-domain KG expansion', result: 'STRONG',
+    desc: '【ブレークスルー】酸化ストレス中間体（glutathione, ROS等）を追加。bio→chem→bio 多ドメイン交差パスで STRONG_SUCCESS 達成。',
+    metrics: [['inv','0.9857'],['cdr_L3','0.619'],['mc_L3','190']] },
+  { id: '039', phase: 'P7', name: 'Ablation study', result: 'PASS',
+    desc: 'P7 ブレークスルーのアブレーション。各コンポーネントの寄与を定量化。',
+    metrics: [] },
+  { id: '040', phase: 'P8', name: 'ROS family expansion', result: 'STRONG',
+    desc: 'ROS ファミリー全5組み合わせで STRONG_SUCCESS 再現。設計原理の ROS 内普遍性を確認。',
+    metrics: [['inv','0.9857'],['cdr_L3','0.740']] },
+  { id: '041', phase: 'P9', name: 'NT family transfer test', result: 'PARTIAL',
+    desc: '神経伝達物質（NT）ファミリーへの転移テスト。幾何学は転移するが investigability は未転移。Serotonin 系が T3 から完全排除される問題を発見。',
+    metrics: [['T3 inv','0.8571'],['B2 inv','0.9714'],['gap','−0.114']] },
+  { id: '042', phase: 'P9', name: 'P9v2 NT metabolite', result: 'PASS',
+    desc: 'NT エンドポイントペアの 2024-2025 PubMed 検証データを収集。pre-filter の基礎キャッシュを構築。',
+    metrics: [['cached','20 pairs']] },
+  { id: '043', phase: 'P10-A', name: 'Investigability pre-filter', result: 'PERFECT',
+    desc: '【完全達成】T3+pf で investigability 1.000。B2 gap を +0.029 に逆転。Serotonin 系 15 パスを完全救済。全 H_P10A 仮説確認。',
+    metrics: [['inv','1.000'],['novelty','1.238'],['long_path','50%']] },
+];
+
+const resultCls = { GO:'success', PASS:'success', STRONG:'success', PERFECT:'success', WEAK:'info', INFO:'info', PARTIAL:'warn', NULL:'warn', FAIL:'fail' };
+
+function renderRuns() {
+  const container = document.getElementById('runs-container');
+  runs.forEach(r => {
+    const card = document.createElement('div');
+    card.className = 'run-card';
+
+    const header = document.createElement('div');
+    header.className = 'run-header';
+
+    const idEl = document.createElement('span');
+    idEl.className = 'run-id';
+    idEl.textContent = 'run_' + r.id;
+
+    const tag = document.createElement('span');
+    tag.className = 'tag ' + (resultCls[r.result] || 'info');
+    tag.textContent = r.result;
+
+    header.appendChild(idEl);
+    header.appendChild(tag);
+
+    const title = document.createElement('div');
+    title.className = 'run-title';
+    title.textContent = r.phase + ' — ' + r.name;
+
+    const desc = document.createElement('div');
+    desc.className = 'run-desc';
+    desc.textContent = r.desc;
+
+    card.appendChild(header);
+    card.appendChild(title);
+    card.appendChild(desc);
+
+    if (r.metrics.length > 0) {
+      const row = document.createElement('div');
+      row.className = 'metric-row';
+      r.metrics.forEach(([k, v]) => {
+        const m = document.createElement('div');
+        m.className = 'metric';
+        const mk = document.createElement('span');
+        mk.className = 'mk';
+        mk.textContent = k + ': ';
+        const mv = document.createElement('span');
+        mv.className = 'mv';
+        mv.textContent = v;
+        m.appendChild(mk);
+        m.appendChild(mv);
+        row.appendChild(m);
+      });
+      card.appendChild(row);
+    }
+
+    container.appendChild(card);
+  });
+}
+renderRuns();
+
+// KG data
+const kgNodes = [
+  { id: 'T3', label: 'T3選択', type: 'strategy', desc: 'L2/L3/L4+ バケット層別化（35/20/15）' },
+  { id: 'T3pf', label: 'T3+pf', type: 'strategy', desc: 'T3 + 2024-2025 PubMed pre-filter' },
+  { id: 'B2', label: 'B2 Baseline', type: 'strategy', desc: 'グローバル R3 スコアでトップ70選択' },
+  { id: 'R3', label: 'R3 Ranker', type: 'strategy', desc: '0.4×構造 + 0.6×エビデンスのランカー' },
+  { id: 'prefilter', label: 'Pre-filter', type: 'strategy', desc: 'recent_validation_density を主信号とする4成分スコア' },
+  { id: 'H_density', label: 'H: Density', type: 'hypothesis', desc: 'density filter で C2 investigability が C1 と parity' },
+  { id: 'H_multidom', label: 'H: 多ドメイン', type: 'hypothesis', desc: 'bio→chem→bio パスが investigability を向上させる' },
+  { id: 'H_transfer', label: 'H: NT 転移', type: 'hypothesis', desc: 'ROS の設計原理が NT ファミリーにも転移する' },
+  { id: 'H_prefilter', label: 'H: Pre-filter', type: 'hypothesis', desc: 'pre-filter が B2-T3 investigability gap を閉じる' },
+  { id: 'P1', label: 'P1: Density', type: 'phase', desc: 'Run 022-023 — density-aware selection' },
+  { id: 'P7', label: 'P7: Multi-domain', type: 'phase', desc: 'Run 038 — KG expansion ブレークスルー' },
+  { id: 'P8', label: 'P8: ROS', type: 'phase', desc: 'Run 040 — ROS family expansion' },
+  { id: 'P9', label: 'P9: NT Transfer', type: 'phase', desc: 'Run 041 — GEOMETRY_ONLY 発見' },
+  { id: 'P10', label: 'P10-A: Pre-filter', type: 'phase', desc: 'Run 043 — investigability 1.000 達成' },
+  { id: 'ROS', label: 'ROS ファミリー', type: 'domain', desc: 'glutathione, superoxide 等の酸化ストレス中間体' },
+  { id: 'NT', label: 'NT ファミリー', type: 'domain', desc: 'dopamine, serotonin, gaba, glutamate, acetylcholine' },
+  { id: 'PubMed', label: 'PubMed 2024-25', type: 'domain', desc: '2024-2025 年の最新文献エビデンス' },
+  { id: 'KG', label: 'Knowledge Graph', type: 'domain', desc: '生命科学ドメインの知識グラフ' },
+  { id: 'F_ceiling', label: '発見: Density Ceiling', type: 'finding', desc: 'log_min_density が investigability を制限するメカニズム' },
+  { id: 'F_geo', label: '発見: Geometry転移', type: 'finding', desc: '幾何学（cdr_L3）は転移、investigability は転移しない' },
+  { id: 'F_sero', label: '発見: Serotonin排除', type: 'finding', desc: 'T3 が serotonin 系パスを完全排除する問題' },
+  { id: 'Pr_short', label: '問題: 最短パス偏向', type: 'problem', desc: 'R3 ランカーが B2 で全パスを L2 に偏向させる' },
+  { id: 'Pr_escore', label: '問題: e_score_min', type: 'problem', desc: 'pre-2024 edge co-occurrence は investigability の弱いプロキシ' },
+];
+
+const kgLinks = [
+  { source: 'P1', target: 'H_density', label: 'tests' },
+  { source: 'P1', target: 'F_ceiling', label: 'discovers' },
+  { source: 'P7', target: 'H_multidom', label: 'confirms' },
+  { source: 'P7', target: 'ROS', label: 'uses' },
+  { source: 'P7', target: 'KG', label: 'expands' },
+  { source: 'P8', target: 'ROS', label: 'validates' },
+  { source: 'P9', target: 'NT', label: 'tests' },
+  { source: 'P9', target: 'H_transfer', label: 'refutes' },
+  { source: 'P9', target: 'F_geo', label: 'discovers' },
+  { source: 'P9', target: 'F_sero', label: 'discovers' },
+  { source: 'P10', target: 'H_prefilter', label: 'confirms' },
+  { source: 'P10', target: 'prefilter', label: 'implements' },
+  { source: 'T3pf', target: 'T3', label: 'improves' },
+  { source: 'T3pf', target: 'prefilter', label: 'uses' },
+  { source: 'prefilter', target: 'PubMed', label: 'uses' },
+  { source: 'prefilter', target: 'F_sero', label: 'fixes' },
+  { source: 'R3', target: 'B2', label: 'powers' },
+  { source: 'B2', target: 'Pr_short', label: 'causes' },
+  { source: 'T3', target: 'Pr_escore', label: 'exposes' },
+  { source: 'KG', target: 'ROS', label: 'contains' },
+  { source: 'KG', target: 'NT', label: 'contains' },
+];
+
+const typeColors = {
+  strategy: '#58a6ff', hypothesis: '#3fb950', phase: '#bc8cff',
+  domain: '#ffa657', finding: '#39d353', problem: '#f85149',
+};
+
+let simulation, kgLink, kgNode, kgLinkLabel, kgInited = false;
+
+function initKG() {
+  if (kgInited) return;
+  kgInited = true;
+
+  const container = document.getElementById('kg-canvas');
+  const w = container.clientWidth || 900;
+  const h = container.clientHeight || 600;
+
+  const nodesCopy = kgNodes.map(n => Object.assign({}, n));
+  const linksCopy = kgLinks.map(l => Object.assign({}, l));
+
+  const svg = d3.select('#kg-canvas').append('svg').attr('viewBox', '0 0 ' + w + ' ' + h);
+
+  svg.append('defs').append('marker')
+    .attr('id', 'arrow').attr('viewBox', '0 -5 10 10')
+    .attr('refX', 24).attr('refY', 0)
+    .attr('markerWidth', 6).attr('markerHeight', 6).attr('orient', 'auto')
+    .append('path').attr('d', 'M0,-5L10,0L0,5').attr('fill', '#30363d');
+
+  simulation = d3.forceSimulation(nodesCopy)
+    .force('link', d3.forceLink(linksCopy).id(d => d.id).distance(130))
+    .force('charge', d3.forceManyBody().strength(-350))
+    .force('center', d3.forceCenter(w / 2, h / 2))
+    .force('collision', d3.forceCollide(45));
+
+  kgLink = svg.append('g').selectAll('line').data(linksCopy).join('line')
+    .attr('stroke', '#30363d').attr('stroke-width', 1.5).attr('marker-end', 'url(#arrow)');
+
+  kgLinkLabel = svg.append('g').selectAll('text').data(linksCopy).join('text')
+    .attr('font-size', 9).attr('fill', '#8b949e').attr('text-anchor', 'middle')
+    .text(d => d.label);
+
+  kgNode = svg.append('g').selectAll('g').data(nodesCopy).join('g')
+    .call(d3.drag()
+      .on('start', (ev, d) => { if (!ev.active) simulation.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; })
+      .on('drag', (ev, d) => { d.fx = ev.x; d.fy = ev.y; })
+      .on('end', (ev, d) => { if (!ev.active) simulation.alphaTarget(0); d.fx = null; d.fy = null; }));
+
+  kgNode.append('circle').attr('r', 20)
+    .attr('fill', d => typeColors[d.type] + '22')
+    .attr('stroke', d => typeColors[d.type]).attr('stroke-width', 2);
+
+  kgNode.append('text').attr('text-anchor', 'middle').attr('dy', 35)
+    .attr('font-size', 10).attr('fill', '#e6edf3').text(d => d.label);
+
+  const ttTitle = document.getElementById('tt-title');
+  const ttBody = document.getElementById('tt-body');
+  const tooltip = document.getElementById('tooltip');
+
+  kgNode.on('mousemove', (ev, d) => {
+    ttTitle.textContent = d.label;
+    ttBody.textContent = d.desc;
+    tooltip.classList.add('visible');
+    tooltip.style.left = (ev.clientX + 12) + 'px';
+    tooltip.style.top = (ev.clientY - 10) + 'px';
+  }).on('mouseleave', () => tooltip.classList.remove('visible'));
+
+  simulation.on('tick', () => {
+    kgLink
+      .attr('x1', d => d.source.x).attr('y1', d => d.source.y)
+      .attr('x2', d => d.target.x).attr('y2', d => d.target.y);
+    kgLinkLabel
+      .attr('x', d => (d.source.x + d.target.x) / 2)
+      .attr('y', d => (d.source.y + d.target.y) / 2);
+    kgNode.attr('transform', d => 'translate(' + d.x + ',' + d.y + ')');
+  });
+}
+
+function filterKG(type, btn) {
+  document.querySelectorAll('.kg-controls .btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  if (!kgNode) return;
+  kgNode.style('opacity', d => type === 'all' || d.type === type ? 1 : 0.12);
+  kgLink.style('opacity', d => type === 'all' || d.source.type === type || d.target.type === type ? 1 : 0.05);
+  kgLinkLabel.style('opacity', d => type === 'all' || d.source.type === type || d.target.type === type ? 1 : 0);
+}
+
+function resetKG() {
+  if (kgNode) {
+    kgNode.style('opacity', 1);
+    kgLink.style('opacity', 1);
+    kgLinkLabel.style('opacity', 1);
+  }
+  document.querySelectorAll('.kg-controls .btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('btn-all').classList.add('active');
+  if (simulation) simulation.alpha(0.5).restart();
+}
+</script>
+</body>
+</html>
