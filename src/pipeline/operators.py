@@ -555,6 +555,13 @@ def _is_cross_domain_candidate(
 
 
 # ---------------------------------------------------------------------------
+# analogy_transfer — delegates to src.pipeline.analogy_transfer
+# ---------------------------------------------------------------------------
+
+from src.pipeline.analogy_transfer import analogy_transfer  # noqa: E402
+
+
+# ---------------------------------------------------------------------------
 # Placeholder operators
 # ---------------------------------------------------------------------------
 
@@ -563,8 +570,8 @@ def analogy_transfer_placeholder(
     target_kg: KnowledgeGraph,
     alignment: AlignmentMap,
 ) -> list[HypothesisCandidate]:
-    """Placeholder for analogy-transfer operator (not implemented in v0)."""
-    return []
+    """Deprecated placeholder — use analogy_transfer() instead."""
+    return analogy_transfer(source_kg, target_kg, alignment)
 
 
 def belief_update_placeholder(
