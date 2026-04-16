@@ -1,0 +1,8 @@
+metric,before,after,delta,delta_pct
+total_surfaced,409,365,-44,-10.8
+action_worthy_private_alpha,102,102,0,0.0
+attention_worthy_internal_watchlist,88,88,0,0.0
+redundant_shareable_structure,219,175,-44,-20.1
+null_baseline_dropped,0,0,-21,n/a
+baseline_like_archived,0,0,-23,n/a
+families_unique,25,18,-7,-28.0
