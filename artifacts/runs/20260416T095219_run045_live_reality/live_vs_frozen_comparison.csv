@@ -1,0 +1,12 @@
+archive_loss_pct,archive_recovery_rate,avg_burden_per_day,avg_fallbacks_per_day,avg_push_reviews_per_day,avg_reviews_per_day,families_covered_pct,frozen_missed_critical,frozen_quiet_fallback_save_pct,frozen_reviews_per_day,lcm_min,policy,profile,quiet_days,quiet_fallback_reduction_pct,reviews_vs_frozen,total_missed_critical,vs_frozen_recovery
+-,-,74.57,3.86,16.57,20.43,100.0,0,27.8,21.0,-,regime_aware,synthetic_r036_baseline,2,27.8,-0.57,0,-
+-,-,116.86,2.71,31.29,34.0,100.0,0,27.8,21.0,-,regime_aware,bull_market,0,0.0,13.0,0,-
+-,-,23.86,6.43,2.0,8.43,100.0,0,27.8,21.0,-,regime_aware,bear_market,7,28.6,-12.57,0,-
+-,-,71.0,4.14,20.29,24.43,96.4,0,27.8,21.0,-,regime_aware,choppy_volatile,4,24.3,3.43,0,-
+-,-,42.14,6.29,6.43,12.71,96.4,0,27.8,21.0,-,regime_aware,realistic_hl,3,28.6,-8.29,0,-
+-,-,143.71,1.43,39.86,41.29,100.0,0,27.8,21.0,-,regime_aware,extreme_hot,0,0.0,20.29,0,-
+-,-,22.86,6.43,2.14,8.57,100.0,0,27.8,21.0,-,regime_aware,extreme_quiet,7,28.6,-12.43,0,-
+0.9174,0.0826,-,-,-,-,-,-,-,-,45,archive_lifecycle,archive_batch_15min,-,-,-,-,0.0
+0.9174,0.0826,-,-,-,-,-,-,-,-,90,archive_lifecycle,archive_batch_30min,-,-,-,-,0.0
+0.7525,0.2475,-,-,-,-,-,-,-,-,45,archive_lifecycle,archive_batch_45min,-,-,-,-,0.1649
+0.9174,0.0826,-,-,-,-,-,-,-,-,180,archive_lifecycle,archive_batch_60min,-,-,-,-,0.0

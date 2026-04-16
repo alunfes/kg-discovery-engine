@@ -1,0 +1,33 @@
+{
+  "run_id": "run_045_live_data_reality",
+  "seed": 45,
+  "session_hours_short": 168,
+  "session_hours_long": 336,
+  "resurface_window_min": 120,
+  "archive_max_age_min": 480,
+  "batch_intervals_tested": [
+    15,
+    30,
+    45,
+    60
+  ],
+  "power_law_alphas_tested": [
+    0.0,
+    0.5,
+    1.0,
+    2.0
+  ],
+  "live_profiles": [
+    "synthetic_r036_baseline",
+    "bull_market",
+    "bear_market",
+    "choppy_volatile",
+    "realistic_hl",
+    "extreme_hot",
+    "extreme_quiet"
+  ],
+  "n_profiles": 7,
+  "frozen_policy_version": "v2.0",
+  "frozen_run": "Run 044",
+  "generated_at": "2026-04-16T09:52:26.685469+00:00"
+}
