@@ -1,0 +1,21 @@
+services:
+  shadow:
+    build:
+      context: .
+      dockerfile: crypto/Dockerfile.shadow
+    image: ghcr.io/alunfes/kg-shadow:latest
+    container_name: kg-shadow
+    restart: unless-stopped
+    environment:
+      - SHADOW_DATA_DIR=/data
+      - SHADOW_ASSETS=BTC,ETH
+      - MARKET_DATA_BASE_URL=http://hype-market-data:8081
+    volumes:
+      - shadow-data:/data
+    extra_hosts:
+      - "hype-market-data:host-gateway"
+    command: ["--artifact-dir", "/data", "--assets", "BTC", "ETH"]
+
+volumes:
+  shadow-data:
+    driver: local

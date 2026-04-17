@@ -34,6 +34,7 @@ Key design decisions:
 from __future__ import annotations
 
 import json
+import os
 import random
 import time
 import urllib.error
@@ -334,8 +335,8 @@ class RealDataAdapter:
 # Module-level helpers
 # ------------------------------------------------------------------
 
-# Default base URL for hype-market-data REST API (overridable in tests/config).
-MARKET_DATA_BASE_URL = "http://localhost:8081"
+# Default base URL for hype-market-data REST API (overridable via env var or tests/config).
+MARKET_DATA_BASE_URL = os.environ.get("MARKET_DATA_BASE_URL", "http://localhost:8081")
 # HTTP timeout for OI fetch (seconds). Short to avoid blocking the shadow loop.
 _OI_FETCH_TIMEOUT_S = 5
 

@@ -1,0 +1,17 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# crypto パッケージ全体をコピー（stdlib のみ・外部依存なし）
+COPY crypto/ ./crypto/
+
+# データ永続化ディレクトリ
+RUN mkdir -p /data
+
+ENV SHADOW_DATA_DIR=/data
+ENV SHADOW_ASSETS="BTC,ETH"
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
+
+ENTRYPOINT ["python", "crypto/run_shadow.py"]
+CMD ["--artifact-dir", "/data"]
