@@ -12,10 +12,17 @@ services:
       - MARKET_DATA_BASE_URL=http://hype-market-data:8081
     volumes:
       - shadow-data:/data
-    extra_hosts:
-      - "hype-market-data:host-gateway"
+    networks:
+      - default
+      - hype-deploy_default
     command: ["--artifact-dir", "/data", "--assets", "BTC", "ETH"]
 
 volumes:
   shadow-data:
     driver: local
+
+networks:
+  default:
+    driver: bridge
+  hype-deploy_default:
+    external: true
