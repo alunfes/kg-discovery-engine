@@ -20,6 +20,8 @@ from .price_fetcher import PriceFetcher
 from .signal_logger import SignalLogger, make_signal_id
 from .types import ShadowSignal
 
+_NON_TRADABLE_ASSETS = frozenset({"multi"})
+
 logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
@@ -160,6 +162,17 @@ class ShadowTrader:
         self._canary = CanaryMonitor()
         self._pending: list[_PendingSignal] = []
         self._last_resolve_check = time.time()
+        self._settled_ids: set[str] = set()
+        self._halted = False
+        self._load_settled_from_ledger()
+
+    def _load_settled_from_ledger(self) -> None:
+        """起動時に既存 pnl ファイルから settled signal_id を読み込む（replay 安全性）。"""
+        for date in self._logger.available_dates():
+            for trade in self._logger.iter_trades(date):
+                self._settled_ids.add(trade.signal_id)
+        if self._settled_ids:
+            logger.info("Ledger から %d 件の settled signal_id を復元", len(self._settled_ids))
 
     def process_event(
         self,
@@ -169,23 +182,43 @@ class ShadowTrader:
     ) -> Optional[ShadowSignal]:
         """1 件の StateEvent をシグナルとして記録する。
 
+        non-tradable イベント (asset="multi" 等) は regime ログに退避し、
+        P&L 評価対象からは除外する。重複シグナルは idempotency ガードで排除。
+        HALT 中は regime logging と監視のみ継続し、新規シグナル確定は停止する。
+
         Args:
             event:      処理する StateEvent。
             surfaced:   True = operator に配信された。
             source_run: パイプライン run_id（任意）。
 
         Returns:
-            生成した ShadowSignal。価格取得失敗時は None。
+            生成した ShadowSignal。スキップ時は None。
         """
+        if event.asset in _NON_TRADABLE_ASSETS:
+            self._logger.log_regime_event(event)
+            return None
+
+        if self._halted:
+            self._logger.log_regime_event(event)
+            return None
+
         timestamp_iso = time.strftime(
             "%Y-%m-%dT%H:%M:%SZ", time.gmtime(event.timestamp_ms / 1000)
         )
+
+        signal_id = make_signal_id(event.asset, timestamp_iso, event.event_type)
+        if signal_id in self._settled_ids:
+            self._canary.record_duplicate()
+            return None
+
         entry_price = self._fetcher.fetch(event.asset, timestamp_iso)
         if entry_price is None:
             logger.warning("価格取得失敗: asset=%s ts=%s", event.asset, timestamp_iso)
+            self._canary.record_fetch_miss()
             return None
 
         signal = event_to_signal(event, entry_price, surfaced, source_run)
+        self._settled_ids.add(signal.signal_id)
         self._logger.log_signal(signal)
 
         if surfaced:
@@ -195,6 +228,12 @@ class ShadowTrader:
         self._pending.append(_PendingSignal(signal=signal, resolve_at=resolve_at))
         logger.debug("シグナル記録: %s %s %s", signal.asset, signal.direction, signal.signal_id)
         return signal
+
+    def enter_halt(self, reasons: list[str]) -> None:
+        """HALT 状態に移行する。新規シグナル確定を停止し、監視のみ継続する。"""
+        if not self._halted:
+            self._halted = True
+            logger.warning("HALT 移行: %s — 新規シグナル確定を停止、監視継続", reasons)
 
     def record_review(self, *, is_fallback: bool, is_hot: bool) -> None:
         """レビュー 1 件を canary モニターに記録する。
@@ -283,7 +322,7 @@ class ShadowTrader:
             return
         result = aggregate_pnl(trades, today_iso)
         self._canary.update_pnl_rates(
-            false_positive_rate=result.false_positive_rate,
+            sign_error_rate=result.sign_error_rate,
             missed_critical_rate=result.missed_critical_rate,
         )
 

@@ -75,8 +75,8 @@ def _run_shadow(args: argparse.Namespace) -> None:
         results = []
 
     # 全 StateEvent を ShadowTrader に通知（replay / live 共通）
+    # idempotency ガードにより重複は自動排除される
     for event in getattr(runner, "_all_events", []):
-        # surfacing 判定: severity >= 0.6 を "surfaced" とみなす（簡易ルール）
         surfaced = event.severity >= 0.6
         trader.process_event(event, surfaced=surfaced, source_run="run_shadow")
 
@@ -88,19 +88,26 @@ def _run_shadow(args: argparse.Namespace) -> None:
     snap = trader.canary_snapshot()
 
     logger.info("Canary スナップショット保存: %s", snap_path)
-    logger.info("reviews/day=%.1f halt=%s warns=%s",
-                snap.reviews_per_day, snap.halt_triggered, snap.warn_flags)
+    logger.info(
+        "sign_error=%.3f missed_critical=%.3f fetch_miss=%d dup=%d halt=%s warns=%s",
+        snap.sign_error_rate or 0.0,
+        snap.missed_critical_rate,
+        snap.fetch_miss_count,
+        snap.duplicate_count,
+        snap.halt_triggered,
+        snap.warn_flags,
+    )
 
-    if snap.halt_triggered:
-        logger.error("HALT 条件に抵触: %s", snap.halt_reasons)
-        sys.exit(1)
-
-    # サマリーを stdout に出力
+    # サマリーを stdout に出力（HALT でも exit(1) しない — 配管 HALT で無限再起動ループを防ぐ）
     summary = {
         "n_results": len(results),
         "canary": snap.to_dict(),
     }
     print(json.dumps(summary, ensure_ascii=False, indent=2))
+
+    if snap.halt_triggered:
+        logger.warning("HALT 条件に抵触: %s", snap.halt_reasons)
+        trader.enter_halt(snap.halt_reasons)
 
 
 def main() -> None:

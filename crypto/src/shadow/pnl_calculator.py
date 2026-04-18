@@ -107,7 +107,7 @@ def _safe_std(values: list[float]) -> float:
 def aggregate_pnl(trades: list[VirtualTrade], date_iso: str) -> PnLResult:
     """VirtualTrade リストから日次 PnLResult を集計する。
 
-    canary-criteria.md の false_positive_rate (±3% 未達) と
+    sign_error_rate (方向ミス率 = 1 - win_rate) と
     missed_critical_rate (±5% 超えドロップ) を計算する。
 
     Args:
@@ -129,11 +129,10 @@ def aggregate_pnl(trades: list[VirtualTrade], date_iso: str) -> PnLResult:
     std = _safe_std(pnl_pcts)
     sharpe = (avg_pnl_pct / std) if std > 0 else 0.0
 
-    # false_positive_rate: surfaced で |pnl_pct| < 0.03 の比率
-    false_positive_rate: Optional[float] = None
+    # sign_error_rate: 方向を外した surfaced カード比率 (= 1 - win_rate)
+    sign_error_rate: Optional[float] = None
     if surfaced:
-        fp_count = sum(1 for t in surfaced if abs(t.pnl_pct) < 0.03)
-        false_positive_rate = fp_count / len(surfaced)
+        sign_error_rate = 1.0 - win_rate
 
     # missed_critical_rate: dropped で |pnl_pct| >= 0.05 の比率
     missed_critical_rate = 0.0
@@ -150,6 +149,6 @@ def aggregate_pnl(trades: list[VirtualTrade], date_iso: str) -> PnLResult:
         win_rate=win_rate,
         avg_pnl_pct=avg_pnl_pct,
         sharpe_approx=sharpe,
-        false_positive_rate=false_positive_rate,
+        sign_error_rate=sign_error_rate,
         missed_critical_rate=missed_critical_rate,
     )

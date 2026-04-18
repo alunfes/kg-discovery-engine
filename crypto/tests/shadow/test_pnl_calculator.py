@@ -144,15 +144,15 @@ class TestAggregatePnl:
         result = aggregate_pnl(trades, "2026-04-17")
         assert result.win_rate == pytest.approx(2 / 3)
 
-    def test_false_positive_rate(self):
-        """±3% 未達の surfaced カード比率が正しい。"""
+    def test_sign_error_rate(self):
+        """方向ミス率 (= 1 - win_rate) が正しい。"""
         trades = [
-            self._make_trade(0.05, True),   # 5% → not FP
-            self._make_trade(0.01, True),   # 1% → FP
-            self._make_trade(-0.01, True),  # -1% → FP (|pnl|<0.03)
+            self._make_trade(0.05, True),   # hit
+            self._make_trade(0.01, True),   # hit
+            self._make_trade(-0.01, True),  # miss (pnl < 0)
         ]
         result = aggregate_pnl(trades, "2026-04-17")
-        assert result.false_positive_rate == pytest.approx(2 / 3)
+        assert result.sign_error_rate == pytest.approx(1 / 3)
 
     def test_missed_critical_rate(self):
         """±5% 超えのドロップカード比率が正しい。"""
@@ -180,5 +180,5 @@ class TestAggregatePnl:
         result = aggregate_pnl([], "2026-04-17")
         assert result.n_resolved == 0
         assert result.win_rate == pytest.approx(0.0)
-        assert result.false_positive_rate is None
+        assert result.sign_error_rate is None
         assert result.missed_critical_rate == pytest.approx(0.0)

@@ -140,7 +140,7 @@ class PnLResult:
         win_rate:          勝率（0.0〜1.0）。
         avg_pnl_pct:       平均損益率。
         sharpe_approx:     簡易シャープレシオ（標準偏差ベース）。
-        false_positive_rate: ±3% 未達の配信カード比率（Shadow-3 以降）。
+        sign_error_rate: 方向を外した surfaced カード比率 (= 1 - win_rate)。
         missed_critical_rate: ±5% 超えのドロップカード比率。
     """
 
@@ -152,7 +152,7 @@ class PnLResult:
     win_rate: float
     avg_pnl_pct: float
     sharpe_approx: float
-    false_positive_rate: Optional[float]
+    sign_error_rate: Optional[float]
     missed_critical_rate: float
 
     def to_dict(self) -> dict:
@@ -166,7 +166,7 @@ class PnLResult:
             "win_rate": round(self.win_rate, 4),
             "avg_pnl_pct": round(self.avg_pnl_pct, 6),
             "sharpe_approx": round(self.sharpe_approx, 4),
-            "false_positive_rate": self.false_positive_rate,
+            "sign_error_rate": self.sign_error_rate,
             "missed_critical_rate": round(self.missed_critical_rate, 4),
         }
 
@@ -175,27 +175,19 @@ class PnLResult:
 class CanarySnapshot:
     """1 日分の canary 指標スナップショット。
 
-    canary-criteria.md で定義された 7 指標の実測値と判定結果。
+    3系統に分離された品質指標:
+      - 方向性品質: sign_error_rate, missed_critical_rate
+      - 運用品質: fetch_miss_count, duplicate_count, latency
+      - 配信品質: reviews_per_day, fallback_rate, family_coverage
 
-    Attributes:
-        date_iso:             集計日。
-        reviews_per_day:      配信数/日。
-        false_positive_rate:  誤検知率（Shadow-3 以降で有効）。
-        missed_critical_rate: 重要見逃し率。
-        latency_p50_ms:       処理遅延中央値（ms）。
-        latency_p95_ms:       処理遅延 p95（ms）。
-        fallback_rate_overall: 全体の fallback 発火率。
-        fallback_rate_hot:    hot regime の fallback 発火率。
-        family_coverage:      配信ファミリー種類数（/日）。
-        operator_burden:      計画外手動介入数（/日）。
-        halt_triggered:       いずれかの即時停止条件に抵触した場合 True。
-        halt_reasons:         抵触した停止条件 ID のリスト。
-        warn_flags:           warn 閾値に達した指標名のリスト。
+    HALT は 2 種に分離:
+      - plumbing_halt: 配管異常（fetch miss / duplicate / latency）
+      - strategy_halt: 戦略品質（sign error / missed critical）
     """
 
     date_iso: str
     reviews_per_day: float
-    false_positive_rate: Optional[float]
+    sign_error_rate: Optional[float]
     missed_critical_rate: float
     latency_p50_ms: Optional[float]
     latency_p95_ms: Optional[float]
@@ -203,7 +195,9 @@ class CanarySnapshot:
     fallback_rate_hot: float
     family_coverage: int
     operator_burden: int
-    halt_triggered: bool
+    fetch_miss_count: int = 0
+    duplicate_count: int = 0
+    halt_triggered: bool = False
     halt_reasons: list[str] = field(default_factory=list)
     warn_flags: list[str] = field(default_factory=list)
 
@@ -212,7 +206,7 @@ class CanarySnapshot:
         return {
             "date_iso": self.date_iso,
             "reviews_per_day": round(self.reviews_per_day, 2),
-            "false_positive_rate": self.false_positive_rate,
+            "sign_error_rate": self.sign_error_rate,
             "missed_critical_rate": round(self.missed_critical_rate, 4),
             "latency_p50_ms": self.latency_p50_ms,
             "latency_p95_ms": self.latency_p95_ms,
@@ -220,6 +214,8 @@ class CanarySnapshot:
             "fallback_rate_hot": round(self.fallback_rate_hot, 4),
             "family_coverage": self.family_coverage,
             "operator_burden": self.operator_burden,
+            "fetch_miss_count": self.fetch_miss_count,
+            "duplicate_count": self.duplicate_count,
             "halt_triggered": self.halt_triggered,
             "halt_reasons": self.halt_reasons,
             "warn_flags": self.warn_flags,

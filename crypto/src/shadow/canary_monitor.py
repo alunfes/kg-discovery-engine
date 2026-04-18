@@ -21,9 +21,9 @@ _REVIEWS_WARN = 35.0
 _REVIEWS_ALERT = 50.0
 _REVIEWS_HALT_DAYS = 3          # ALERT が N 日連続で AUTO-1 停止
 
-# 1-B false_positive_rate
-_FP_WARN = 0.20
-_FP_HALT = 0.30
+# 1-B sign_error_rate (方向ミス率 = 1 - win_rate)
+_SIGN_ERROR_WARN = 0.50
+_SIGN_ERROR_HALT = 0.65
 
 # 1-C missed_critical_rate
 _MISSED_HALT = 0.05             # HALT-1: 1 日でも超えたら即停止
@@ -67,8 +67,12 @@ class CanaryMonitor:
         self._n_fallback: int = 0
 
         # 1-B / 1-C — trades リストは pnl_calculator 側が計算するので受け取るだけ
-        self._false_positive_rate: Optional[float] = None
+        self._sign_error_rate: Optional[float] = None
         self._missed_critical_rate: float = 0.0
+
+        # 配管品質（plumbing）
+        self._fetch_miss_count: int = 0
+        self._duplicate_count: int = 0
 
         # 1-D
         self._latency_ms_log: list[float] = []
@@ -130,18 +134,26 @@ class CanaryMonitor:
         """計画外のオペレーター手動介入 1 件を記録する。"""
         self._operator_burden += 1
 
+    def record_fetch_miss(self) -> None:
+        """価格取得失敗 1 件を記録する。"""
+        self._fetch_miss_count += 1
+
+    def record_duplicate(self) -> None:
+        """重複シグナル検出 1 件を記録する。"""
+        self._duplicate_count += 1
+
     def update_pnl_rates(
         self,
-        false_positive_rate: Optional[float],
+        sign_error_rate: Optional[float],
         missed_critical_rate: float,
     ) -> None:
-        """P&L 計算後の誤検知率・見逃し率を更新する。
+        """P&L 計算後の方向ミス率・見逃し率を更新する。
 
         Args:
-            false_positive_rate:  ±3% 未達の surfaced カード比率（None = 未計測）。
+            sign_error_rate:     方向ミス率 (= 1 - win_rate, None = 未計測)。
             missed_critical_rate: ±5% 超えのドロップカード比率。
         """
-        self._false_positive_rate = false_positive_rate
+        self._sign_error_rate = sign_error_rate
         self._missed_critical_rate = missed_critical_rate
 
     # ------------------------------------------------------------------
@@ -219,30 +231,30 @@ class CanaryMonitor:
         halt_reasons: list[str] = []
         warn_flags: list[str] = []
 
-        # HALT-1: missed_critical_rate > 5%
-        if self._missed_critical_rate > _MISSED_HALT:
-            halt_reasons.append("HALT-1:missed_critical")
-
-        # HALT-2: latency > 15s が 1h 内に 10 回以上
+        # --- 配管異常 HALT (plumbing) ---
         halt_lat_count = self._halt_latency_count_in_window()
         if halt_lat_count >= _LATENCY_HALT_COUNT:
-            halt_reasons.append("HALT-2:latency")
+            halt_reasons.append("plumbing:latency")
+        if self._duplicate_count > 0:
+            warn_flags.append("plumbing:duplicates_detected")
 
-        # HALT-3: hot fallback > 50%
+        # --- 戦略品質 HALT (strategy) ---
+        if self._missed_critical_rate > _MISSED_HALT:
+            halt_reasons.append("strategy:missed_critical")
         if fb_hot > _FALLBACK_HOT_HALT and self._n_hot_reviews > 0:
-            halt_reasons.append("HALT-3:hot_fallback")
+            halt_reasons.append("strategy:hot_fallback")
 
-        # Warn flags（自動停止でなく注意）
+        ser = self._sign_error_rate
+        if ser is not None and ser > _SIGN_ERROR_HALT:
+            halt_reasons.append("strategy:sign_error")
+        elif ser is not None and ser > _SIGN_ERROR_WARN:
+            warn_flags.append("strategy:sign_error_warn")
+
+        # --- Warn flags ---
         if rpd > _REVIEWS_ALERT:
             warn_flags.append("reviews_alert")
         elif rpd > _REVIEWS_WARN:
             warn_flags.append("reviews_warn")
-
-        fp = self._false_positive_rate
-        if fp is not None and fp > _FP_HALT:
-            halt_reasons.append("fp_halt")
-        elif fp is not None and fp > _FP_WARN:
-            warn_flags.append("fp_warn")
 
         if lat_p50 is not None and lat_p50 > _LATENCY_WARN_MS:
             warn_flags.append("latency_warn")
@@ -262,10 +274,13 @@ class CanaryMonitor:
         elif self._operator_burden > _BURDEN_WARN:
             warn_flags.append("burden_warn")
 
+        if self._fetch_miss_count > 0:
+            warn_flags.append(f"plumbing:fetch_miss={self._fetch_miss_count}")
+
         return CanarySnapshot(
             date_iso=date,
             reviews_per_day=rpd,
-            false_positive_rate=self._false_positive_rate,
+            sign_error_rate=self._sign_error_rate,
             missed_critical_rate=self._missed_critical_rate,
             latency_p50_ms=lat_p50,
             latency_p95_ms=lat_p95,
@@ -273,6 +288,8 @@ class CanaryMonitor:
             fallback_rate_hot=fb_hot,
             family_coverage=len(self._surfaced_families),
             operator_burden=self._operator_burden,
+            fetch_miss_count=self._fetch_miss_count,
+            duplicate_count=self._duplicate_count,
             halt_triggered=bool(halt_reasons),
             halt_reasons=halt_reasons,
             warn_flags=warn_flags,

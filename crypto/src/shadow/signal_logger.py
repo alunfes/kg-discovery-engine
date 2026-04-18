@@ -78,6 +78,26 @@ class SignalLogger:
         with open(path, "a", encoding="utf-8") as f:
             f.write(json.dumps(trade.to_dict(), ensure_ascii=False) + "\n")
 
+    def log_regime_event(self, event: object) -> None:
+        """non-tradable イベント（asset="multi" 等）を regime ログに退避する。
+
+        P&L 評価対象外だが、regime shift 分析のために保存する。
+
+        Args:
+            event: StateEvent（型ヒントは循環 import 回避のため object）。
+        """
+        path = os.path.join(self._dir, f"regime_events_{_today_iso()}.jsonl")
+        record = {
+            "timestamp_ms": getattr(event, "timestamp_ms", 0),
+            "asset": getattr(event, "asset", "unknown"),
+            "event_type": getattr(event, "event_type", "unknown"),
+            "severity": getattr(event, "severity", 0.0),
+            "grammar_family": getattr(event, "grammar_family", "unknown"),
+            "metadata": dict(getattr(event, "metadata", {})),
+        }
+        with open(path, "a", encoding="utf-8") as f:
+            f.write(json.dumps(record, ensure_ascii=False) + "\n")
+
     # ------------------------------------------------------------------
     # 読み込み
     # ------------------------------------------------------------------

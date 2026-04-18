@@ -36,17 +36,17 @@ class TestCanaryMonitor:
     def test_missed_critical_halt(self):
         """missed_critical_rate > 5% で HALT-1 が発動する。"""
         monitor = CanaryMonitor()
-        monitor.update_pnl_rates(false_positive_rate=None, missed_critical_rate=0.06)
+        monitor.update_pnl_rates(sign_error_rate=None, missed_critical_rate=0.06)
         snap = monitor.snapshot("2026-04-17")
         assert snap.halt_triggered is True
-        assert "HALT-1:missed_critical" in snap.halt_reasons
+        assert "strategy:missed_critical" in snap.halt_reasons
 
     def test_missed_critical_no_halt_below_threshold(self):
         """missed_critical_rate <= 5% では HALT-1 が発動しない。"""
         monitor = CanaryMonitor()
-        monitor.update_pnl_rates(false_positive_rate=None, missed_critical_rate=0.04)
+        monitor.update_pnl_rates(sign_error_rate=None, missed_critical_rate=0.04)
         snap = monitor.snapshot("2026-04-17")
-        assert "HALT-1:missed_critical" not in snap.halt_reasons
+        assert "strategy:missed_critical" not in snap.halt_reasons
 
     def test_hot_fallback_halt(self):
         """hot regime の fallback > 50% で HALT-3 が発動する。"""
@@ -59,7 +59,7 @@ class TestCanaryMonitor:
 
         snap = monitor.snapshot("2026-04-17")
         assert snap.fallback_rate_hot == pytest.approx(0.6)
-        assert "HALT-3:hot_fallback" in snap.halt_reasons
+        assert "strategy:hot_fallback" in snap.halt_reasons
 
     def test_hot_fallback_no_halt_below_threshold(self):
         """hot fallback = 40% では HALT-3 が発動しない。"""
@@ -70,7 +70,7 @@ class TestCanaryMonitor:
             monitor.record_review(is_fallback=False, is_hot=True)
 
         snap = monitor.snapshot("2026-04-17")
-        assert "HALT-3:hot_fallback" not in snap.halt_reasons
+        assert "strategy:hot_fallback" not in snap.halt_reasons
 
     def test_latency_recorded_and_aggregated(self):
         """record_latency した値が p50/p95 に反映される。"""
@@ -112,20 +112,20 @@ class TestCanaryMonitor:
         assert "burden_warn" in snap.warn_flags
         assert snap.operator_burden == 2
 
-    def test_false_positive_warn(self):
-        """FP rate > 20% で fp_warn フラグが立つ。"""
+    def test_sign_error_warn(self):
+        """sign_error_rate > 50% で warn フラグが立つ。"""
         monitor = CanaryMonitor()
-        monitor.update_pnl_rates(false_positive_rate=0.25, missed_critical_rate=0.0)
+        monitor.update_pnl_rates(sign_error_rate=0.55, missed_critical_rate=0.0)
         snap = monitor.snapshot("2026-04-17")
-        assert "fp_warn" in snap.warn_flags
+        assert "strategy:sign_error_warn" in snap.warn_flags
 
-    def test_false_positive_halt(self):
-        """FP rate > 30% で fp_halt が halt_reasons に含まれる。"""
+    def test_sign_error_halt(self):
+        """sign_error_rate > 65% で strategy:sign_error が halt_reasons に含まれる。"""
         monitor = CanaryMonitor()
-        monitor.update_pnl_rates(false_positive_rate=0.35, missed_critical_rate=0.0)
+        monitor.update_pnl_rates(sign_error_rate=0.70, missed_critical_rate=0.0)
         snap = monitor.snapshot("2026-04-17")
         assert snap.halt_triggered is True
-        assert "fp_halt" in snap.halt_reasons
+        assert "strategy:sign_error" in snap.halt_reasons
 
     def test_snapshot_to_dict_keys(self):
         """CanarySnapshot.to_dict() が必須フィールドを含む。"""
@@ -143,11 +143,11 @@ class TestCanaryMonitor:
     def test_multiple_halts_accumulate(self):
         """複数の HALT 条件が同時に発動した場合、全て halt_reasons に含まれる。"""
         monitor = CanaryMonitor()
-        monitor.update_pnl_rates(false_positive_rate=None, missed_critical_rate=0.10)
+        monitor.update_pnl_rates(sign_error_rate=None, missed_critical_rate=0.10)
         for _ in range(10):
             monitor.record_review(is_fallback=True, is_hot=True)
 
         snap = monitor.snapshot("2026-04-17")
         assert snap.halt_triggered is True
-        assert "HALT-1:missed_critical" in snap.halt_reasons
-        assert "HALT-3:hot_fallback" in snap.halt_reasons
+        assert "strategy:missed_critical" in snap.halt_reasons
+        assert "strategy:hot_fallback" in snap.halt_reasons
