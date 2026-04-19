@@ -4,9 +4,10 @@ Implements the 6-dimension scoring rubric from docs/hypothesis_card_schema.md.
 All scoring is deterministic given the same raw hypothesis and inventory state.
 """
 
+import re
 import uuid
 from datetime import datetime, timezone
-from typing import Any
+from typing import Any, Optional
 
 from ..inventory.store import HypothesisInventory
 from ..kg.base import KGraph
@@ -83,7 +84,35 @@ def score_hypothesis(
         tags=raw.get("tags", []),
         actionability_note=raw.get("actionability_note"),
         plausibility_prior=float(raw.get("plausibility_prior", 0.5)),
+        signal_rho=_extract_float(raw.get("claim", ""), r"rho=(-?[0-9]+\.[0-9]+)"),
+        signal_break_score=_extract_float(raw.get("claim", ""), r"break_score=([0-9]+\.[0-9]+)"),
+        signal_subtype=_classify_signal_subtype(raw),
     )
+
+
+def _extract_float(text: str, pattern: str) -> Optional[float]:
+    """Extract a float from text using a regex pattern. Returns None if not found."""
+    m = re.search(pattern, text)
+    if m:
+        try:
+            return float(m.group(1))
+        except ValueError:
+            return None
+    return None
+
+
+def _classify_signal_subtype(raw: dict[str, Any]) -> Optional[str]:
+    """Classify cross_asset card into subtype from claim text."""
+    claim = raw.get("claim", "").lower()
+    if "crowding" in claim or ("oi" in claim and "crowd" in claim):
+        return "crowding_unwind"
+    if "fragile" in claim or "dislocation" in claim:
+        return "transient_dislocation"
+    if "break" in claim and len(raw.get("evidence_nodes", [])) >= 2:
+        return "true_break"
+    if "break" in claim:
+        return "transient_dislocation"
+    return None
 
 
 def _score_plausibility(raw: dict[str, Any]) -> float:

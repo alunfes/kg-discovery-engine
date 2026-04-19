@@ -84,6 +84,9 @@ class HypothesisCard:
     tags: list[str] = field(default_factory=list)
     actionability_note: Optional[str] = None
     plausibility_prior: float = 0.5
+    signal_rho: Optional[float] = None
+    signal_break_score: Optional[float] = None
+    signal_subtype: Optional[str] = None
 
     def to_dict(self) -> dict:
         """Serialise to JSON-compatible dict."""
@@ -106,4 +109,7 @@ class HypothesisCard:
             "tags": self.tags,
             "actionability_note": self.actionability_note,
             "plausibility_prior": self.plausibility_prior,
+            "signal_rho": self.signal_rho,
+            "signal_break_score": self.signal_break_score,
+            "signal_subtype": self.signal_subtype,
         }

@@ -91,26 +91,36 @@ def _load_cards_from_pipeline_out(pipeline_out_dir: str) -> list[dict]:
     return cards
 
 
-def _extract_signal_strength(claim: str) -> float:
-    """Extract rho and break_score from claim text to create per-card differentiation.
+def _signal_strength_bonus(card_dict: dict) -> float:
+    """Compute per-card signal strength bonus from structured fields.
 
-    Generator priors cluster at 3 values (0.60/0.63/0.67). This function adds
-    per-card bonus from the actual signal metrics embedded in the claim.
+    Uses signal_rho and signal_break_score fields if available (preferred),
+    falls back to claim text extraction for backward compatibility.
     """
-    import re
+    rho = card_dict.get("signal_rho")
+    bs = card_dict.get("signal_break_score")
+
+    if rho is None and bs is None:
+        import re
+        claim = card_dict.get("claim", "")
+        rho_m = re.search(r"rho=(-?[0-9]+\.[0-9]+)", claim)
+        if rho_m:
+            try:
+                rho = float(rho_m.group(1))
+            except ValueError:
+                pass
+        bs_m = re.search(r"break_score=([0-9]+\.[0-9]+)", claim)
+        if bs_m:
+            try:
+                bs = float(bs_m.group(1))
+            except ValueError:
+                pass
+
     bonus = 0.0
-    rho_m = re.search(r"rho=(-?[0-9]+\.[0-9]+)", claim)
-    if rho_m:
-        try:
-            bonus += min(0.15, abs(float(rho_m.group(1))) * 0.5)
-        except ValueError:
-            pass
-    bs_m = re.search(r"break_score=([0-9]+\.[0-9]+)", claim)
-    if bs_m:
-        try:
-            bonus += min(0.15, float(bs_m.group(1)) * 0.15)
-        except ValueError:
-            pass
+    if rho is not None:
+        bonus += min(0.15, abs(rho) * 0.5)
+    if bs is not None:
+        bonus += min(0.15, bs * 0.15)
     return bonus
 
 
@@ -144,8 +154,8 @@ def _raw_to_hypothesis(raw: dict, idx: int) -> Optional[HypothesisNode]:
 
     h.metadata["_cycle"] = raw.get("_cycle", 0)
 
-    # Apply signal-specific bonus to evidence_strength for per-card differentiation
-    signal_bonus = _extract_signal_strength(raw.get("claim", ""))
+    # Apply signal-specific bonus from structured fields (or fallback to text parsing)
+    signal_bonus = _signal_strength_bonus(raw)
     h.evidence_strength = min(1.0, h.evidence_strength + signal_bonus)
     return h
 
