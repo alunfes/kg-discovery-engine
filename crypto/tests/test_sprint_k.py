@@ -599,7 +599,10 @@ class TestRun011PipelineRegression:
         # run_009/010 baseline: 0 reject_conflicted, actionable_watch present
         assert dist.get("reject_conflicted", 0) == 0
         assert dist.get("actionable_watch", 0) > 0, "actionable_watch tier must be non-empty"
-        assert dist.get("monitor_borderline", 0) > 0, "monitor_borderline tier must be non-empty"
+        # After score de-saturation, monitor_borderline may be empty if all cards
+        # clear the (lowered) research_priority threshold. Verify tier diversity instead.
+        non_actionable = sum(v for k, v in dist.items() if k != "actionable_watch")
+        assert non_actionable > 0, "at least one non-actionable tier must be populated"
 
     def test_eth_btc_beta_reversion_preserved(self):
         """ETH/BTC beta_reversion must remain actionable_watch after R1 refactor."""

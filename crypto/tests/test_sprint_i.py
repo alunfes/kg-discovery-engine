@@ -153,14 +153,14 @@ class TestDecisionTierAssignment:
     def test_soft_gated_without_uplift_not_rescued(self):
         """Soft-gated card with tiny uplift falls through to baseline_like."""
         tier = assign_decision_tier(
-            composite_score=0.55,
-            normalized_meta_score=0.50,
-            conflict_adjusted_score=0.55,
+            composite_score=0.38,
+            normalized_meta_score=0.35,
+            conflict_adjusted_score=0.38,
             uplift_over_matched_baseline=0.02,  # below 0.05 rescue
             contradiction_severity=0.0,
             is_soft_gated=True,
         )
-        # 0.55 < monitor min (0.60) → baseline_like
+        # 0.38 < monitor min (0.42) → baseline_like
         assert tier == TIER_BASELINE_LIKE
 
     def test_actionable_watch_requires_high_score_and_uplift(self):

@@ -54,14 +54,17 @@ _MEDIUM_SEVERITY_THRESHOLD: float = 2.5
 _BORDERLINE_UPLIFT_RESCUE: float = 0.05
 
 # Top-tier thresholds
-_ACTIONABLE_SCORE_MIN: float = 0.74
+# Why these values: scorer output range was re-calibrated (plausibility de-saturation,
+# actionability continuous scoring). Old range clustered at 0.70-0.86, new range
+# spreads across 0.45-0.65. Thresholds scaled proportionally to preserve tier semantics.
+_ACTIONABLE_SCORE_MIN: float = 0.52
 _ACTIONABLE_UPLIFT_MIN: float = 0.04
 
 # Research-priority thresholds
-_RESEARCH_SCORE_MIN: float = 0.65
+_RESEARCH_SCORE_MIN: float = 0.46
 
 # Minimum score to qualify for monitor_borderline without uplift rescue
-_MONITOR_SCORE_MIN: float = 0.60
+_MONITOR_SCORE_MIN: float = 0.42
 
 
 def assign_decision_tier(
