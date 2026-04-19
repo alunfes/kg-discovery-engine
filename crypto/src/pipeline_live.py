@@ -173,6 +173,10 @@ def _build_cycle_dataset(
 ):
     """Convert buffered WS events into a SyntheticDataset for the pipeline.
 
+    Trades are used both as candles (for state extraction) and directly as
+    price_ticks (for cross-asset correlation). The tick-level approach ensures
+    enough data points for Pearson correlation even in short cycle windows.
+
     Args:
         trade_buf:  All WSTradeEvent collected in this cycle window.
         book_buf:   Most recent WSBookEvent per asset.
@@ -205,11 +209,10 @@ def _build_cycle_dataset(
         asset: fetch_oi_from_market_data(asset, n_minutes)
         for asset in assets
     }
-    # Drop assets with no real OI data so build_dataset falls back to proxy.
     oi_series_by_asset = {k: v for k, v in oi_series_by_asset.items() if v}
 
     adapter = RealDataAdapter(seed=seed)
-    return adapter.build_dataset(
+    dataset = adapter.build_dataset(
         candles_by_asset=candles_by_asset,
         fundings_by_asset={a: [] for a in assets},
         book_by_asset=book_by_asset,
@@ -217,6 +220,32 @@ def _build_cycle_dataset(
         n_minutes=n_minutes,
         oi_series_by_asset=oi_series_by_asset or None,
     )
+
+    # Supplement price_ticks from raw trades for cross-asset correlation.
+    # Candle-based ticks are too sparse (1-2 per asset per cycle) for
+    # Pearson correlation which needs n >= 5.
+    from .ingestion.synthetic import PriceTick
+    tick_price_ticks = _trades_to_price_ticks(trade_buf)
+    if len(tick_price_ticks) > len(dataset.price_ticks):
+        dataset.price_ticks = tick_price_ticks
+
+    return dataset
+
+
+def _trades_to_price_ticks(trades: list[WSTradeEvent]) -> list["PriceTick"]:
+    """Convert raw WS trades directly to PriceTick list for correlation."""
+    from .ingestion.synthetic import PriceTick
+    ticks = []
+    for t in sorted(trades, key=lambda x: (x.asset, x.timestamp_ms)):
+        ticks.append(PriceTick(
+            asset=t.asset,
+            timestamp_ms=t.timestamp_ms,
+            mid=t.price,
+            bid=t.price,
+            ask=t.price,
+            spread_bps=0.0,
+        ))
+    return ticks
 
 
 # ---------------------------------------------------------------------------
