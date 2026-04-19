@@ -91,8 +91,31 @@ def _load_cards_from_pipeline_out(pipeline_out_dir: str) -> list[dict]:
     return cards
 
 
+def _extract_signal_strength(claim: str) -> float:
+    """Extract rho and break_score from claim text to create per-card differentiation.
+
+    Generator priors cluster at 3 values (0.60/0.63/0.67). This function adds
+    per-card bonus from the actual signal metrics embedded in the claim.
+    """
+    import re
+    bonus = 0.0
+    rho_m = re.search(r"rho=(-?[0-9]+\.[0-9]+)", claim)
+    if rho_m:
+        try:
+            bonus += min(0.15, abs(float(rho_m.group(1))) * 0.5)
+        except ValueError:
+            pass
+    bs_m = re.search(r"break_score=([0-9]+\.[0-9]+)", claim)
+    if bs_m:
+        try:
+            bonus += min(0.15, float(bs_m.group(1)) * 0.15)
+        except ValueError:
+            pass
+    return bonus
+
+
 def _raw_to_hypothesis(raw: dict, idx: int) -> Optional[HypothesisNode]:
-    """Convert raw card dict to HypothesisNode with de-saturated scores."""
+    """Convert raw card dict to HypothesisNode with de-saturated scores + signal bonus."""
     mock_kg = KGraph(family="mock")
     mock_kg.add_node(KGNode("feas", "FeasibilityNode", {"feasible": True, "frac_expensive": 0.15}))
 
@@ -120,6 +143,10 @@ def _raw_to_hypothesis(raw: dict, idx: int) -> Optional[HypothesisNode]:
             break
 
     h.metadata["_cycle"] = raw.get("_cycle", 0)
+
+    # Apply signal-specific bonus to evidence_strength for per-card differentiation
+    signal_bonus = _extract_signal_strength(raw.get("claim", ""))
+    h.evidence_strength = min(1.0, h.evidence_strength + signal_bonus)
     return h
 
 
