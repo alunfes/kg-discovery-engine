@@ -28,6 +28,31 @@ logging.basicConfig(
 logger = logging.getLogger("run_shadow")
 
 _DEFAULT_ASSETS = ["HYPE", "BTC", "ETH", "SOL"]
+
+_EVENT_TO_REGIME: dict[str, str] = {
+    "buy_burst": "aggressive_buying",
+    "sell_burst": "aggressive_selling",
+    "spread_widening": "spread_widening",
+    "cross_asset_stress": "correlation_break",
+    "book_thinning": "spread_widening",
+    "oi_change": "correlation_break",
+}
+
+
+def _detect_dominant_regime(events: list) -> str:
+    """Infer the dominant market regime from event type distribution."""
+    if not events:
+        return "resting_liquidity"
+    from collections import Counter
+    regime_votes: Counter = Counter()
+    for e in events:
+        regime = _EVENT_TO_REGIME.get(getattr(e, "event_type", ""), "resting_liquidity")
+        regime_votes[regime] += 1
+    dominant, count = regime_votes.most_common(1)[0]
+    total = sum(regime_votes.values())
+    if count / total < 0.3:
+        return "resting_liquidity"
+    return dominant
 _DEFAULT_ARTIFACT_DIR = os.path.join(
     os.path.dirname(__file__), "artifacts", "shadow"
 )
@@ -157,21 +182,27 @@ def _run_shadow(args: argparse.Namespace) -> None:
         logger.warning("HALT 条件に抵触: %s", snap.halt_reasons)
         trader.enter_halt(snap.halt_reasons)
 
-    # Post-processing: competition analysis (offline, does not affect shadow trading)
+    # Regime detection from accumulated events
+    detected_regime = _detect_dominant_regime(getattr(runner, "_all_events", []))
+    logger.info("detected regime: %s", detected_regime)
+
+    # Post-processing: competition analysis per regime
     try:
         from crypto.src.kg.competition_runner import run_competition_analysis
-        comp_out = os.path.join(args.artifact_dir, "competition")
         pipeline_out = os.path.join(args.artifact_dir, "pipeline_out")
-        comp = run_competition_analysis(
-            pipeline_out, regime="correlation_break",
-            group_fn="cycle_asset", output_dir=comp_out,
-        )
-        cs = comp.summary_table()
-        logger.info(
-            "competition: groups=%d null_win=%.1f%% conf=%.3f fam/grp=%.1f",
-            cs.get("n_groups", 0), cs.get("null_win_pct", 0),
-            cs.get("confidence_median", 0), cs.get("families_per_group_mean", 0),
-        )
+
+        for regime in [detected_regime, "resting_liquidity"]:
+            comp_out = os.path.join(args.artifact_dir, "competition", regime)
+            comp = run_competition_analysis(
+                pipeline_out, regime=regime,
+                group_fn="cycle_asset", output_dir=comp_out,
+            )
+            cs = comp.summary_table()
+            logger.info(
+                "competition[%s]: groups=%d null_win=%.1f%% conf=%.3f fam/grp=%.1f",
+                regime, cs.get("n_groups", 0), cs.get("null_win_pct", 0),
+                cs.get("confidence_median", 0), cs.get("families_per_group_mean", 0),
+            )
     except Exception as e:
         logger.warning("competition analysis failed: %s", e)
 
