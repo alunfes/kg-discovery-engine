@@ -355,11 +355,14 @@ class LivePipelineRunner:
     # Public entry point
     # ------------------------------------------------------------------
 
-    def run(self) -> list[dict]:
+    def run(self, on_cycle_complete=None) -> list[dict]:
         """Execute the live pipeline in shadow mode.
 
         Starts the async thread, then runs cycles until max_cycles is reached
         (or indefinitely if max_cycles == 0).
+
+        Args:
+            on_cycle_complete: callback(result_dict, new_events) called after each cycle.
 
         Returns:
             List of per-cycle summary dicts.
@@ -371,6 +374,7 @@ class LivePipelineRunner:
         warmup = min(self.config.cycle_interval_s // 2, 5)
         time.sleep(max(0.2, warmup))
 
+        last_event_idx = 0
         while True:
             result = self._run_one_cycle()
             self._results.append(result)
@@ -380,6 +384,10 @@ class LivePipelineRunner:
                 self._event_queue.qsize(), len(self._trade_buf),
                 len(self._book_buf), thread.is_alive(),
             )
+            if on_cycle_complete:
+                new_events = self._all_events[last_event_idx:]
+                on_cycle_complete(result, new_events)
+                last_event_idx = len(self._all_events)
             if self.config.max_cycles > 0 and self._cycle_count >= self.config.max_cycles:
                 break
             if not thread.is_alive():
