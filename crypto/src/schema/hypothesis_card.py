@@ -83,6 +83,7 @@ class HypothesisCard:
     kg_families: list[str]
     tags: list[str] = field(default_factory=list)
     actionability_note: Optional[str] = None
+    plausibility_prior: float = 0.5
 
     def to_dict(self) -> dict:
         """Serialise to JSON-compatible dict."""
@@ -104,4 +105,5 @@ class HypothesisCard:
             "kg_families": self.kg_families,
             "tags": self.tags,
             "actionability_note": self.actionability_note,
+            "plausibility_prior": self.plausibility_prior,
         }

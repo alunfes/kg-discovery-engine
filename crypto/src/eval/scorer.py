@@ -82,6 +82,7 @@ def score_hypothesis(
         kg_families=raw.get("kg_families", []),
         tags=raw.get("tags", []),
         actionability_note=raw.get("actionability_note"),
+        plausibility_prior=float(raw.get("plausibility_prior", 0.5)),
     )
 
 
