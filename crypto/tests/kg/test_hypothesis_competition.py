@@ -60,21 +60,21 @@ class TestArbitrate:
         hs = [_h("h1", "momentum", 0.3),
               _h("h2", "reversion", 0.8),
               _h("h3", "momentum", 0.6)]
-        result = arbitrate(hs)
+        result = arbitrate(hs, inject_null=False)
         assert result.alternatives[0].hypothesis_id == "h3"
         assert result.alternatives[1].hypothesis_id == "h1"
 
     def test_contradiction_edges_for_opposing_families(self):
         hs = [_h("h1", "momentum", 0.8),
               _h("h2", "reversion", 0.5)]
-        result = arbitrate(hs)
+        result = arbitrate(hs, inject_null=False)
         assert len(result.contradiction_edges) == 1
         assert result.contradiction_edges[0].relation == "contradicts"
 
     def test_no_contradiction_for_same_family(self):
         hs = [_h("h1", "momentum", 0.8),
               _h("h2", "momentum", 0.5)]
-        result = arbitrate(hs)
+        result = arbitrate(hs, inject_null=False)
         assert len(result.contradiction_edges) == 0
 
     def test_alternative_ids_linked_bidirectionally(self):
@@ -97,7 +97,7 @@ class TestArbitrate:
         assert result.confidence < 0.1
 
     def test_single_hypothesis_confidence_is_one(self):
-        result = arbitrate([_h("h1", "momentum", 0.5)])
+        result = arbitrate([_h("h1", "momentum", 0.5)], inject_null=False)
         assert result.confidence == 1.0
 
     def test_empty_returns_none(self):
@@ -122,7 +122,7 @@ class TestArbitrate:
     def test_to_dict_serializable(self):
         hs = [_h("h1", "momentum", 0.8),
               _h("h2", "reversion", 0.5)]
-        result = arbitrate(hs)
+        result = arbitrate(hs, inject_null=False)
         d = result.to_dict()
         assert d["primary_id"] == "h1"
         assert d["n_alternatives"] == 1
