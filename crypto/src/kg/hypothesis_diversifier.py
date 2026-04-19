@@ -102,28 +102,35 @@ def generate_counter_hypotheses(
 def diversify(
     hypotheses: list[HypothesisNode],
     min_families: int = 3,
+    group_key: str = "cycle_asset",
 ) -> list[HypothesisNode]:
     """Ensure hypothesis diversity by generating counter-hypotheses where needed.
 
-    For each asset group, if fewer than min_families families are represented,
-    generate counter-hypotheses from missing families.
+    Groups hypotheses by (asset, cycle) and ensures each group has at least
+    min_families distinct families. This aligns with cycle_asset competition grouping.
 
     Args:
         hypotheses: input candidates (may be family-homogeneous)
-        min_families: minimum family count per asset (default 3)
+        min_families: minimum family count per group (default 3)
+        group_key: "cycle_asset" (recommended) or "asset"
 
     Returns:
         original hypotheses + generated counter-hypotheses
     """
     from collections import defaultdict
 
-    by_asset: dict[str, list[HypothesisNode]] = defaultdict(list)
+    groups: dict[str, list[HypothesisNode]] = defaultdict(list)
     for h in hypotheses:
         asset = h.metadata.get("asset", "unknown")
-        by_asset[asset].append(h)
+        if group_key == "cycle_asset":
+            cycle = h.metadata.get("_cycle", 0)
+            key = f"{asset}:c{cycle:03d}"
+        else:
+            key = asset
+        groups[key].append(h)
 
     result = list(hypotheses)
-    for asset, group in by_asset.items():
+    for key, group in groups.items():
         existing_families = {h.family for h in group}
         if len(existing_families) >= min_families:
             continue
@@ -132,6 +139,8 @@ def diversify(
         best = max(group, key=lambda h: h.evidence_strength)
         for fam in missing:
             counters = generate_counter_hypotheses(best, families=[fam])
+            for c in counters:
+                c.metadata["_cycle"] = best.metadata.get("_cycle", 0)
             result.extend(counters)
 
     return result
