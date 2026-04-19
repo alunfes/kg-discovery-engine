@@ -19,18 +19,21 @@ _DEFAULT_ARTIFACT_DIR = os.path.join(
 )
 
 
-def _make_signal_id(asset: str, timestamp_iso: str, event_type: str) -> str:
-    """シグナル ID を決定論的に生成する（衝突回避のため内容ハッシュ使用）。
+def _make_signal_id(asset: str, timestamp_ms: int, event_type: str, metadata: dict | None = None) -> str:
+    """シグナル ID を決定論的に生成する（ms精度 + metadata hash で衝突回避）。
 
     Args:
-        asset:         アセット名。
-        timestamp_iso: ISO-8601 タイムスタンプ文字列。
-        event_type:    StateEvent.event_type。
+        asset:        アセット名。
+        timestamp_ms: ミリ秒精度の Unix タイムスタンプ。
+        event_type:   StateEvent.event_type。
+        metadata:     イベントの追加コンテキスト（z-score 等）。
 
     Returns:
         16 文字の hex 文字列。
     """
-    raw = f"{asset}|{timestamp_iso}|{event_type}"
+    raw = f"{asset}|{timestamp_ms}|{event_type}"
+    if metadata:
+        raw += f"|{json.dumps(metadata, sort_keys=True)}"
     return hashlib.sha256(raw.encode()).hexdigest()[:16]
 
 
@@ -154,15 +157,16 @@ class SignalLogger:
         return sorted(dates)
 
 
-def make_signal_id(asset: str, timestamp_iso: str, event_type: str) -> str:
+def make_signal_id(asset: str, timestamp_ms: int, event_type: str, metadata: dict | None = None) -> str:
     """モジュールレベルの signal_id 生成関数（テスト用に公開）。
 
     Args:
-        asset:         アセット名。
-        timestamp_iso: ISO-8601 タイムスタンプ文字列。
-        event_type:    StateEvent.event_type。
+        asset:        アセット名。
+        timestamp_ms: ミリ秒精度の Unix タイムスタンプ。
+        event_type:   StateEvent.event_type。
+        metadata:     イベントの追加コンテキスト。
 
     Returns:
         16 文字の hex 文字列。
     """
-    return _make_signal_id(asset, timestamp_iso, event_type)
+    return _make_signal_id(asset, timestamp_ms, event_type, metadata)

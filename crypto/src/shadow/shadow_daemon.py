@@ -89,7 +89,7 @@ def event_to_signal(
         ShadowSignal レコード。
     """
     timestamp_iso = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(event.timestamp_ms / 1000))
-    signal_id = make_signal_id(event.asset, timestamp_iso, event.event_type)
+    signal_id = make_signal_id(event.asset, event.timestamp_ms, event.event_type, event.metadata)
     direction = infer_direction(event)
     half_life = _HL_BY_TIER.get("actionable_watch", _DEFAULT_HALF_LIFE_MIN)
 
@@ -206,7 +206,7 @@ class ShadowTrader:
             "%Y-%m-%dT%H:%M:%SZ", time.gmtime(event.timestamp_ms / 1000)
         )
 
-        signal_id = make_signal_id(event.asset, timestamp_iso, event.event_type)
+        signal_id = make_signal_id(event.asset, event.timestamp_ms, event.event_type, dict(event.metadata))
         if signal_id in self._settled_ids:
             self._canary.record_duplicate()
             return None

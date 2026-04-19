@@ -124,18 +124,30 @@ class TestSignalLogger:
 class TestMakeSignalId:
     def test_deterministic(self):
         """同じ入力なら同じ ID が返る。"""
-        id1 = make_signal_id("BTC", "2026-04-17T10:00:00Z", "buy_burst")
-        id2 = make_signal_id("BTC", "2026-04-17T10:00:00Z", "buy_burst")
+        id1 = make_signal_id("BTC", 1713348000000, "buy_burst")
+        id2 = make_signal_id("BTC", 1713348000000, "buy_burst")
         assert id1 == id2
 
     def test_different_inputs_give_different_ids(self):
         """異なる入力は異なる ID になる。"""
-        id1 = make_signal_id("BTC", "2026-04-17T10:00:00Z", "buy_burst")
-        id2 = make_signal_id("ETH", "2026-04-17T10:00:00Z", "buy_burst")
+        id1 = make_signal_id("BTC", 1713348000000, "buy_burst")
+        id2 = make_signal_id("ETH", 1713348000000, "buy_burst")
+        assert id1 != id2
+
+    def test_ms_precision_distinguishes_events(self):
+        """同一秒でも ms が異なれば別 ID になる。"""
+        id1 = make_signal_id("BTC", 1713348000000, "buy_burst")
+        id2 = make_signal_id("BTC", 1713348000001, "buy_burst")
+        assert id1 != id2
+
+    def test_metadata_distinguishes_events(self):
+        """同一 (asset, ts, type) でも metadata が異なれば別 ID になる。"""
+        id1 = make_signal_id("BTC", 1713348000000, "buy_burst", {"z_score": 2.1})
+        id2 = make_signal_id("BTC", 1713348000000, "buy_burst", {"z_score": 3.5})
         assert id1 != id2
 
     def test_length_is_16(self):
         """生成される ID は 16 文字の hex 文字列。"""
-        sid = make_signal_id("HYPE", "2026-04-17T10:00:00Z", "sell_burst")
+        sid = make_signal_id("HYPE", 1713348000000, "sell_burst")
         assert len(sid) == 16
         assert all(c in "0123456789abcdef" for c in sid)

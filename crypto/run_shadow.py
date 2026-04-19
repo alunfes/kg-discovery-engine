@@ -66,6 +66,7 @@ def _run_shadow(args: argparse.Namespace) -> None:
     )
 
     logger.info("Shadow Trading 開始: replay=%s assets=%s", args.replay, args.assets)
+    t_start = time.time()
     runner = LivePipelineRunner(pipe_cfg)
 
     try:
@@ -73,6 +74,12 @@ def _run_shadow(args: argparse.Namespace) -> None:
     except KeyboardInterrupt:
         logger.info("KeyboardInterrupt — 終了処理中...")
         results = []
+
+    elapsed_min = (time.time() - t_start) / 60.0
+    n_events = len(getattr(runner, "_all_events", []))
+    logger.info("パイプライン完了: %.1f分, %d cycles, %d events", elapsed_min, len(results), n_events)
+    if n_events == 0:
+        logger.warning("plumbing:no_events — パイプライン完了したがイベント 0 件")
 
     # 全 StateEvent を ShadowTrader に通知（replay / live 共通）
     # idempotency ガードにより重複は自動排除される

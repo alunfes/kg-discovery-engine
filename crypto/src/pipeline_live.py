@@ -31,6 +31,7 @@ from __future__ import annotations
 
 import asyncio
 import json
+import logging
 import os
 import queue
 import random
@@ -55,6 +56,8 @@ from .ingestion.hyperliquid_connector import (
 from .ingestion.data_adapter import RealDataAdapter, fetch_oi_from_market_data, MARKET_DATA_BASE_URL
 from .states.event_detector import EventDetectorPipeline, StateEvent
 from .pipeline import PipelineConfig, run_pipeline
+
+logger = logging.getLogger(__name__)
 
 
 # ---------------------------------------------------------------------------
@@ -371,6 +374,12 @@ class LivePipelineRunner:
         while True:
             result = self._run_one_cycle()
             self._results.append(result)
+            logger.info(
+                "heartbeat cycle=%d events=%d cards=%d queue=%d trades=%d books=%d ws=%s",
+                result["cycle"], result["n_events"], result["n_cards"],
+                self._event_queue.qsize(), len(self._trade_buf),
+                len(self._book_buf), thread.is_alive(),
+            )
             if self.config.max_cycles > 0 and self._cycle_count >= self.config.max_cycles:
                 break
             if not thread.is_alive():
