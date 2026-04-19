@@ -157,6 +157,24 @@ def _run_shadow(args: argparse.Namespace) -> None:
         logger.warning("HALT 条件に抵触: %s", snap.halt_reasons)
         trader.enter_halt(snap.halt_reasons)
 
+    # Post-processing: competition analysis (offline, does not affect shadow trading)
+    try:
+        from crypto.src.kg.competition_runner import run_competition_analysis
+        comp_out = os.path.join(args.artifact_dir, "competition")
+        pipeline_out = os.path.join(args.artifact_dir, "pipeline_out")
+        comp = run_competition_analysis(
+            pipeline_out, regime="correlation_break",
+            group_fn="cycle_asset", output_dir=comp_out,
+        )
+        cs = comp.summary_table()
+        logger.info(
+            "competition: groups=%d null_win=%.1f%% conf=%.3f fam/grp=%.1f",
+            cs.get("n_groups", 0), cs.get("null_win_pct", 0),
+            cs.get("confidence_median", 0), cs.get("families_per_group_mean", 0),
+        )
+    except Exception as e:
+        logger.warning("competition analysis failed: %s", e)
+
 
 def main() -> None:
     """エントリポイント。"""
