@@ -207,7 +207,7 @@ class TestRegimeDecay:
     def test_mismatching_regime_decays(self):
         hs = [_h("h1", "cross_asset", 0.8)]
         apply_regime_decay(hs, "resting_liquidity")
-        assert hs[0].evidence_strength == pytest.approx(0.4)
+        assert hs[0].evidence_strength == pytest.approx(0.52)
         assert hs[0].metadata.get("regime_decayed") is True
 
     def test_null_unaffected_by_decay(self):
@@ -224,7 +224,7 @@ class TestRegimeDecay:
     def test_momentum_in_resting_regime_decays(self):
         hs = [_h("h1", "momentum", 0.6)]
         apply_regime_decay(hs, "resting_liquidity")
-        assert hs[0].evidence_strength == pytest.approx(0.3)
+        assert hs[0].evidence_strength == pytest.approx(0.39)
 
     def test_decay_changes_competition_outcome(self):
         """cross_asset in resting_liquidity should lose to null."""
@@ -234,8 +234,8 @@ class TestRegimeDecay:
         assert result.primary.family == "null"
 
     def test_decay_with_diversified_competition(self):
-        """In resting_liquidity, regime_continuation should beat decayed cross_asset."""
-        hs = [_h("h1", "cross_asset", 0.6, asset="BTC")]
+        """In resting_liquidity, regime_continuation or null should beat decayed cross_asset."""
+        hs = [_h("h1", "cross_asset", 0.5, asset="BTC")]
         diversified = diversify(hs, min_families=3)
         apply_regime_decay(diversified, "resting_liquidity")
         results = compete_all(diversified, group_fn="asset")

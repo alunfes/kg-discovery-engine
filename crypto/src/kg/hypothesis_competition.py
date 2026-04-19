@@ -43,7 +43,7 @@ _FAMILY_PREFERRED_REGIMES: dict[str, set[str]] = {
     "null": set(),  # null is regime-agnostic
 }
 
-_REGIME_DECAY_FACTOR = 0.5
+_REGIME_DECAY_FACTOR = 0.65
 
 
 def apply_regime_decay(
