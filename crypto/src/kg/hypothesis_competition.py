@@ -26,7 +26,12 @@ from .hypothesis import (
 # Null Hypothesis — baseline that every group must beat
 # ---------------------------------------------------------------------------
 
-_NULL_EVIDENCE = 0.35  # null must be beaten by this margin to justify a trade
+_NULL_EVIDENCE = 0.35
+
+_NULL_EVIDENCE_BY_REGIME: dict[str, float] = {
+    "resting_liquidity": 0.43,
+    "undefined": 0.40,
+}
 
 # ---------------------------------------------------------------------------
 # Regime-conditioned Evidence Decay
@@ -67,23 +72,25 @@ def apply_regime_decay(
             h.metadata["regime_mismatch"] = current_regime
 
 
-def make_null_hypothesis(group_key: str, timestamp_ms: int = 0) -> HypothesisNode:
+def make_null_hypothesis(group_key: str, timestamp_ms: int = 0, regime: str = "") -> HypothesisNode:
     """Create a "no edge / do nothing" baseline hypothesis.
 
-    Any real hypothesis that can't beat the null should not produce a signal.
+    Evidence is regime-conditioned: higher in resting (harder to beat) because
+    no-trade is the natural default in quiet markets.
     """
+    evidence = _NULL_EVIDENCE_BY_REGIME.get(regime, _NULL_EVIDENCE)
     return HypothesisNode(
         hypothesis_id=make_hypothesis_id(f"null:{group_key}", "null", timestamp_ms),
         claim=f"No actionable edge exists for {group_key}",
         family="null",
         status=HypothesisStatus.ACTIVE,
-        evidence_strength=_NULL_EVIDENCE,
+        evidence_strength=evidence,
         contradiction_pressure=0.0,
         execution_feasibility=1.0,
         invalidation_conditions=[
             InvalidationCondition(description="any hypothesis beats null with margin > 0.1"),
         ],
-        metadata={"is_null": True},
+        metadata={"is_null": True, "regime_null_evidence": evidence},
     )
 
 
@@ -225,10 +232,12 @@ def arbitrate(
     hypotheses: list[HypothesisNode],
     group_key: str = "default",
     inject_null: bool = True,
+    regime: str = "",
 ) -> Optional[CompetitionResult]:
     """Rank competing hypotheses and select primary.
 
     A null hypothesis is automatically injected unless disabled.
+    Null evidence is regime-conditioned (higher in resting markets).
     Hypotheses are ranked by net_evidence(). Opposing families generate
     contradiction edges. Observations are suggested to resolve ambiguity.
 
@@ -236,6 +245,7 @@ def arbitrate(
         hypotheses: candidates competing for the same market explanation
         group_key:  label for this competition group
         inject_null: auto-inject a null baseline (default True)
+        regime: current market regime (affects null evidence strength)
 
     Returns:
         CompetitionResult or None if no candidates
@@ -245,7 +255,7 @@ def arbitrate(
 
     if inject_null and not any(h.metadata.get("is_null") for h in hypotheses):
         ts = hypotheses[0].created_at_ms if hypotheses else 0
-        hypotheses = list(hypotheses) + [make_null_hypothesis(group_key, ts)]
+        hypotheses = list(hypotheses) + [make_null_hypothesis(group_key, ts, regime=regime)]
 
     ranked = sorted(hypotheses, key=lambda h: h.net_evidence(), reverse=True)
     primary = ranked[0]
@@ -281,6 +291,7 @@ def compete_all(
     hypotheses: list[HypothesisNode],
     group_fn: str = "asset",
     inject_null: bool = True,
+    regime: str = "",
 ) -> list[CompetitionResult]:
     """Run arbitration across all groups.
 
@@ -288,6 +299,7 @@ def compete_all(
         hypotheses: all hypothesis candidates from a pipeline run
         group_fn:   "asset", "family", or "scope" (asset×regime) grouping
         inject_null: auto-inject null baseline per group (default True)
+        regime: current market regime (affects null evidence)
 
     Returns:
         list of CompetitionResult, one per group
@@ -301,7 +313,7 @@ def compete_all(
 
     results: list[CompetitionResult] = []
     for key, group in sorted(groups.items()):
-        result = arbitrate(group, group_key=key, inject_null=inject_null)
+        result = arbitrate(group, group_key=key, inject_null=inject_null, regime=regime)
         if result is not None:
             results.append(result)
     return results

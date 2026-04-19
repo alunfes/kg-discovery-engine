@@ -214,11 +214,11 @@ def run_competition_analysis(
         groups = group_by_cycle_asset(diversified)
         results: list[CompetitionResult] = []
         for key, group in sorted(groups.items()):
-            r = arbitrate(group, group_key=key)
+            r = arbitrate(group, group_key=key, regime=regime)
             if r:
                 results.append(r)
     else:
-        results = compete_all(diversified, group_fn=group_fn)
+        results = compete_all(diversified, group_fn=group_fn, regime=regime)
 
     analysis.results = results
     analysis.n_groups = len(results)
