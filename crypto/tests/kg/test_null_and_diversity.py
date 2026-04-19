@@ -5,6 +5,7 @@ import pytest
 
 from crypto.src.kg.hypothesis import HypothesisNode, HypothesisStatus
 from crypto.src.kg.hypothesis_competition import (
+    apply_regime_decay,
     arbitrate,
     compete_all,
     group_by_scope,
@@ -195,3 +196,48 @@ class TestEndToEndWithNullAndDiversity:
         results = compete_all(diversified, group_fn="asset")
         r = results[0]
         assert r.primary.family in ("null", "regime_continuation")
+
+
+class TestRegimeDecay:
+    def test_matching_regime_no_decay(self):
+        hs = [_h("h1", "cross_asset", 0.8)]
+        apply_regime_decay(hs, "correlation_break")
+        assert hs[0].evidence_strength == 0.8
+
+    def test_mismatching_regime_decays(self):
+        hs = [_h("h1", "cross_asset", 0.8)]
+        apply_regime_decay(hs, "resting_liquidity")
+        assert hs[0].evidence_strength == pytest.approx(0.4)
+        assert hs[0].metadata.get("regime_decayed") is True
+
+    def test_null_unaffected_by_decay(self):
+        null = make_null_hypothesis("BTC")
+        original = null.evidence_strength
+        apply_regime_decay([null], "resting_liquidity")
+        assert null.evidence_strength == original
+
+    def test_momentum_in_aggressive_regime_no_decay(self):
+        hs = [_h("h1", "momentum", 0.6)]
+        apply_regime_decay(hs, "aggressive_buying")
+        assert hs[0].evidence_strength == 0.6
+
+    def test_momentum_in_resting_regime_decays(self):
+        hs = [_h("h1", "momentum", 0.6)]
+        apply_regime_decay(hs, "resting_liquidity")
+        assert hs[0].evidence_strength == pytest.approx(0.3)
+
+    def test_decay_changes_competition_outcome(self):
+        """cross_asset in resting_liquidity should lose to null."""
+        hs = [_h("h1", "cross_asset", 0.5)]
+        apply_regime_decay(hs, "resting_liquidity")
+        result = arbitrate(hs, group_key="BTC")
+        assert result.primary.family == "null"
+
+    def test_decay_with_diversified_competition(self):
+        """In resting_liquidity, regime_continuation should beat decayed cross_asset."""
+        hs = [_h("h1", "cross_asset", 0.6, asset="BTC")]
+        diversified = diversify(hs, min_families=3)
+        apply_regime_decay(diversified, "resting_liquidity")
+        results = compete_all(diversified, group_fn="asset")
+        r = results[0]
+        assert r.primary.family in ("regime_continuation", "null")

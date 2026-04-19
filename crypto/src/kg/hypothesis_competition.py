@@ -28,6 +28,44 @@ from .hypothesis import (
 
 _NULL_EVIDENCE = 0.35  # null must be beaten by this margin to justify a trade
 
+# ---------------------------------------------------------------------------
+# Regime-conditioned Evidence Decay
+# ---------------------------------------------------------------------------
+
+_FAMILY_PREFERRED_REGIMES: dict[str, set[str]] = {
+    "momentum": {"aggressive_buying", "aggressive_selling"},
+    "flow_continuation": {"aggressive_buying", "aggressive_selling"},
+    "reversion": {"spread_widening", "funding_extreme_long", "funding_extreme_short"},
+    "beta_reversion": {"correlation_break", "spread_widening"},
+    "cross_asset": {"correlation_break"},
+    "positioning_unwind": {"funding_extreme_long", "funding_extreme_short"},
+    "regime_continuation": {"resting_liquidity"},
+    "null": set(),  # null is regime-agnostic
+}
+
+_REGIME_DECAY_FACTOR = 0.5
+
+
+def apply_regime_decay(
+    hypotheses: list["HypothesisNode"],
+    current_regime: str,
+) -> None:
+    """Decay evidence_strength for hypotheses whose preferred regime doesn't match.
+
+    Mutates hypotheses in place. Null hypotheses are unaffected.
+    A momentum hypothesis in a resting_liquidity regime gets its evidence halved.
+    """
+    for h in hypotheses:
+        if h.metadata.get("is_null"):
+            continue
+        preferred = _FAMILY_PREFERRED_REGIMES.get(h.family, set())
+        if not preferred:
+            continue
+        if current_regime not in preferred:
+            h.evidence_strength *= _REGIME_DECAY_FACTOR
+            h.metadata["regime_decayed"] = True
+            h.metadata["regime_mismatch"] = current_regime
+
 
 def make_null_hypothesis(group_key: str, timestamp_ms: int = 0) -> HypothesisNode:
     """Create a "no edge / do nothing" baseline hypothesis.
