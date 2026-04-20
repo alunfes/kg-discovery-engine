@@ -25,50 +25,66 @@ _NON_TRADABLE_ASSETS = frozenset({"multi"})
 logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
-# Direction 推定テーブル
+# Direction 推定テーブル — family × event_type で方向を決定
 # ---------------------------------------------------------------------------
+# なぜ event_type 単独ではなく family × event_type か:
+# family は KG が選んだ「解釈」(reversion=逆張り, continuation=順張り) を持つ。
+# event_type だけで方向を決めると、sell_burst が常に short になり
+# beta_reversion の逆張り意味が失われる（sign_error 0.54 の主原因）。
 
-_FAMILY_DIRECTION: dict[str, str] = {
-    "flow_continuation": "long",
-    "momentum":          "long",
-    "positioning_unwind": "short",
-    "unwind":            "short",
-    "beta_reversion":    "short",
-    "reversion":         "short",
-    "cross_asset":       "neutral",
-    "null_baseline":     "neutral",
-    "null":              "neutral",
-}
-
-_EVENT_DIRECTION: dict[str, str] = {
-    "buy_burst":          "long",
-    "sell_burst":         "short",
-    "book_thinning":      "short",
-    "cross_asset_stress": "short",
-    "spread_widening":    "neutral",
+_FAMILY_EVENT_DIRECTION: dict[tuple[str, str], str | None] = {
+    # flow_continuation: 順張り — イベント方向に追随
+    ("flow_continuation", "buy_burst"):         "long",
+    ("flow_continuation", "sell_burst"):        "short",
+    ("flow_continuation", "book_thinning"):     "short",
+    # momentum: 順張り
+    ("momentum",          "buy_burst"):         "long",
+    ("momentum",          "sell_burst"):        "short",
+    # beta_reversion: 逆張り — イベント方向と反対にベット
+    ("beta_reversion",    "sell_burst"):        "long",
+    ("beta_reversion",    "buy_burst"):         "short",
+    ("beta_reversion",    "book_thinning"):     "long",
+    ("reversion",         "sell_burst"):        "long",
+    ("reversion",         "buy_burst"):         "short",
+    # positioning_unwind: 清算圧力方向
+    ("positioning_unwind","book_thinning"):     "short",
+    ("positioning_unwind","sell_burst"):        "short",
+    ("positioning_unwind","buy_burst"):         "long",
+    ("unwind",            "book_thinning"):     "short",
+    # non-tradable: 方向を持たないイベントは shadow から除外
+    ("positioning_unwind","spread_widening"):   None,
+    ("cross_asset",       "cross_asset_stress"):None,
+    ("null_baseline",     "spread_widening"):   None,
+    ("null",              "spread_widening"):   None,
 }
 
 _DEFAULT_HALF_LIFE_MIN = 40.0  # actionable_watch tier のデフォルト
 
 
-def infer_direction(event: StateEvent) -> str:
+def infer_direction(event: StateEvent) -> str | None:
     """StateEvent から取引方向を推定する。
 
-    event_type を優先し、次に grammar_family にフォールバックする。
-    OI change は metadata["direction"] を参照する。
+    family × event_type の組み合わせで方向を決定する。
+    None を返す場合はトレード不能（shadow trading から除外すべき）。
 
     Args:
         event: 解析対象の StateEvent。
 
     Returns:
-        "long" / "short" / "neutral"。
+        "long" / "short" / None（non-tradable）。
     """
     if event.event_type == "oi_change":
         meta_dir = event.metadata.get("direction", "")
         return "long" if meta_dir == "accumulation" else "short"
-    if event.event_type in _EVENT_DIRECTION:
-        return _EVENT_DIRECTION[event.event_type]
-    return _FAMILY_DIRECTION.get(event.grammar_family, "neutral")
+    key = (event.grammar_family, event.event_type)
+    if key in _FAMILY_EVENT_DIRECTION:
+        return _FAMILY_EVENT_DIRECTION[key]
+    # 未知の組み合わせ: event_type の方向性があればそれを使う
+    fallback = {
+        "buy_burst": "long", "sell_burst": "short",
+        "book_thinning": "short",
+    }
+    return fallback.get(event.event_type)
 
 
 def event_to_signal(
@@ -76,8 +92,10 @@ def event_to_signal(
     entry_price: float,
     surfaced: bool,
     source_run: str = "",
-) -> ShadowSignal:
+) -> ShadowSignal | None:
     """StateEvent を ShadowSignal に変換する。
+
+    non-tradable イベント（direction=None）の場合は None を返す。
 
     Args:
         event:       元の StateEvent。
@@ -86,11 +104,14 @@ def event_to_signal(
         source_run:  パイプライン run_id（任意）。
 
     Returns:
-        ShadowSignal レコード。
+        ShadowSignal レコード。non-tradable なら None。
     """
+    direction = infer_direction(event)
+    if direction is None:
+        return None
+
     timestamp_iso = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(event.timestamp_ms / 1000))
     signal_id = make_signal_id(event.asset, event.timestamp_ms, event.event_type, event.metadata)
-    direction = infer_direction(event)
     half_life = _HL_BY_TIER.get("actionable_watch", _DEFAULT_HALF_LIFE_MIN)
 
     return ShadowSignal(
@@ -218,6 +239,8 @@ class ShadowTrader:
             return None
 
         signal = event_to_signal(event, entry_price, surfaced, source_run)
+        if signal is None:
+            return None
         self._settled_ids.add(signal.signal_id)
         self._logger.log_signal(signal)
 

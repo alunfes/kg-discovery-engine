@@ -34,20 +34,29 @@ def _make_event(
 
 
 class TestInferDirection:
-    def test_buy_burst_is_long(self):
-        assert infer_direction(_make_event("buy_burst")) == "long"
+    def test_flow_continuation_buy_burst_is_long(self):
+        assert infer_direction(_make_event("buy_burst", "flow_continuation")) == "long"
 
-    def test_sell_burst_is_short(self):
-        assert infer_direction(_make_event("sell_burst")) == "short"
+    def test_flow_continuation_sell_burst_is_short(self):
+        assert infer_direction(_make_event("sell_burst", "flow_continuation")) == "short"
 
-    def test_book_thinning_is_short(self):
-        assert infer_direction(_make_event("book_thinning")) == "short"
+    def test_beta_reversion_sell_burst_is_long(self):
+        """逆張り: sell_burst に対して long をベットする。"""
+        assert infer_direction(_make_event("sell_burst", "beta_reversion")) == "long"
 
-    def test_cross_asset_stress_is_short(self):
-        assert infer_direction(_make_event("cross_asset_stress")) == "short"
+    def test_beta_reversion_buy_burst_is_short(self):
+        """逆張り: buy_burst に対して short をベットする。"""
+        assert infer_direction(_make_event("buy_burst", "beta_reversion")) == "short"
 
-    def test_spread_widening_is_neutral(self):
-        assert infer_direction(_make_event("spread_widening")) == "neutral"
+    def test_positioning_unwind_book_thinning_is_short(self):
+        assert infer_direction(_make_event("book_thinning", "positioning_unwind")) == "short"
+
+    def test_spread_widening_is_non_tradable(self):
+        """spread_widening は non-tradable → None を返す。"""
+        assert infer_direction(_make_event("spread_widening", "positioning_unwind")) is None
+
+    def test_cross_asset_stress_is_non_tradable(self):
+        assert infer_direction(_make_event("cross_asset_stress", "cross_asset")) is None
 
     def test_oi_accumulation_is_long(self):
         event = _make_event("oi_change", metadata={"direction": "accumulation"})
@@ -57,18 +66,20 @@ class TestInferDirection:
         event = _make_event("oi_change", metadata={"direction": "unwind"})
         assert infer_direction(event) == "short"
 
-    def test_family_fallback_momentum_is_long(self):
-        """event_type が不明なら grammar_family にフォールバックする。"""
-        event = _make_event("unknown_type", grammar_family="momentum")
+    def test_momentum_buy_burst_is_long(self):
+        assert infer_direction(_make_event("buy_burst", "momentum")) == "long"
+
+    def test_momentum_sell_burst_is_short(self):
+        assert infer_direction(_make_event("sell_burst", "momentum")) == "short"
+
+    def test_unknown_combination_uses_event_fallback(self):
+        """未知の family × event_type は event_type の自然方向にフォールバック。"""
+        event = _make_event("buy_burst", grammar_family="unknown_family")
         assert infer_direction(event) == "long"
 
-    def test_family_fallback_reversion_is_short(self):
-        event = _make_event("unknown_type", grammar_family="beta_reversion")
-        assert infer_direction(event) == "short"
-
-    def test_unknown_family_is_neutral(self):
+    def test_fully_unknown_returns_none(self):
         event = _make_event("unknown_type", grammar_family="unknown_family")
-        assert infer_direction(event) == "neutral"
+        assert infer_direction(event) is None
 
 
 class TestEventToSignal:
@@ -76,6 +87,7 @@ class TestEventToSignal:
         """event_to_signal が必須フィールドを正しく埋める。"""
         event = _make_event("buy_burst", "flow_continuation", severity=0.75, asset="BTC")
         sig = event_to_signal(event, entry_price=50000.0, surfaced=True)
+        assert sig is not None
         assert sig.asset == "BTC"
         assert sig.direction == "long"
         assert sig.conviction == pytest.approx(0.75)
@@ -84,6 +96,12 @@ class TestEventToSignal:
         assert sig.grammar_family == "flow_continuation"
         assert sig.event_type == "buy_burst"
         assert len(sig.signal_id) == 16
+
+    def test_non_tradable_returns_none(self):
+        """spread_widening は non-tradable なので None を返す。"""
+        event = _make_event("spread_widening", "positioning_unwind")
+        sig = event_to_signal(event, entry_price=100.0, surfaced=True)
+        assert sig is None
 
     def test_signal_id_deterministic(self):
         """同じ event/asset/timestamp なら同じ signal_id が生成される。"""
@@ -98,6 +116,7 @@ class TestEventToSignal:
         """source_run が ShadowSignal に引き継がれる。"""
         event = _make_event()
         sig = event_to_signal(event, 25.0, True, source_run="run_042")
+        assert sig is not None
         assert sig.source_run == "run_042"
 
 
