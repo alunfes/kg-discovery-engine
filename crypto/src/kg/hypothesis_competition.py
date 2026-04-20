@@ -197,10 +197,18 @@ def _family_contradicts(fam_a: str, fam_b: str) -> bool:
 
 
 def _compute_confidence(primary: HypothesisNode, alternatives: list[HypothesisNode]) -> float:
-    """How clearly the primary separates from the best alternative."""
+    """How clearly the primary separates from the best cross-family alternative.
+
+    Uses the strongest alternative from a DIFFERENT family, not same-family
+    near-duplicates that compress confidence artificially.
+    """
     if not alternatives:
         return 1.0
-    gap = primary.net_evidence() - alternatives[0].net_evidence()
+    cross_family = [a for a in alternatives if a.family != primary.family]
+    if not cross_family:
+        return max(0.0, min(1.0, (primary.net_evidence() - alternatives[0].net_evidence()) * 2.0))
+    best_cross = cross_family[0]
+    gap = primary.net_evidence() - best_cross.net_evidence()
     return max(0.0, min(1.0, gap * 2.0))
 
 

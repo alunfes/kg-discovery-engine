@@ -85,7 +85,13 @@ def card_to_hypothesis(
         created_at_ms=ts,
         source_card_id=card.card_id,
         source_event_types=card.tags,
-        metadata={"composite_score": card.composite_score, "mechanism": card.mechanism},
+        metadata={
+            "composite_score": card.composite_score,
+            "mechanism": card.mechanism,
+            "signal_rho": getattr(card, "signal_rho", None),
+            "signal_break_score": getattr(card, "signal_break_score", None),
+            "signal_subtype": getattr(card, "signal_subtype", None),
+        },
     )
 
 

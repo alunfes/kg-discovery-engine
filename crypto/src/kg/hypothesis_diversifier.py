@@ -37,13 +37,36 @@ _COUNTER_FAMILIES: dict[str, list[dict]] = {
 }
 
 
-def _calibrate_evidence(base: float, source_evidence: float) -> float:
-    """Scale counter-hypothesis evidence relative to source strength.
+def _calibrate_evidence(
+    base: float,
+    source_evidence: float,
+    counter_family: str = "",
+    signal_rho: float | None = None,
+    signal_break_score: float | None = None,
+) -> float:
+    """Scale counter-hypothesis evidence relative to source strength and signal metrics.
 
-    Stronger source evidence slightly boosts counter-evidence to maintain tension.
-    Weaker source evidence reduces counter-evidence proportionally.
+    Dynamic calibration: the "most plausible counter" gets boosted based on signal.
+    - high |rho| → reversion counter is stronger (trend exhaustion likely)
+    - low |rho| → momentum counter is stronger (trend may persist)
+    - high break_score → regime_continuation gets a slight boost
     """
-    return min(0.9, base * (0.5 + 0.5 * source_evidence))
+    rho_abs = min(abs(signal_rho), 1.0) if signal_rho is not None else 0.0
+    bs_norm = min((signal_break_score or 0.0) / 2.0, 1.0)
+
+    if counter_family == "reversion":
+        ratio = 0.50 + 0.20 * rho_abs + 0.08 * bs_norm
+    elif counter_family == "momentum":
+        ratio = 0.50 + 0.20 * (1.0 - rho_abs) + 0.06 * bs_norm
+    elif counter_family == "regime_continuation":
+        ratio = 0.45 + 0.15 * bs_norm
+    else:
+        ratio = 0.50
+
+    ratio = max(0.40, min(0.78, ratio))
+    calibrated = source_evidence * ratio
+    floor = max(0.10, 0.30 * source_evidence)
+    return max(floor, min(calibrated, source_evidence - 0.01))
 
 
 def generate_counter_hypotheses(
@@ -73,7 +96,13 @@ def generate_counter_hypotheses(
             continue
 
         claim = template["claim_template"].format(asset=asset)
-        evidence = _calibrate_evidence(template["base_evidence"], source.evidence_strength)
+        evidence = _calibrate_evidence(
+            template["base_evidence"],
+            source.evidence_strength,
+            counter_family=fam,
+            signal_rho=source.metadata.get("signal_rho"),
+            signal_break_score=source.metadata.get("signal_break_score"),
+        )
 
         counter = HypothesisNode(
             hypothesis_id=make_hypothesis_id(
